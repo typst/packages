@@ -72,7 +72,7 @@
   font: none,
   fontsize: 12.5pt,
   sectionnumbering: none,
-  responsible_default: [Susanne Sorglos],
+  responsible_default: none,
   project_partner_logo_path: none, // New parameter for project partner logo
   school_logo_path: none, // New parameter for school logo
   doc,
@@ -118,6 +118,8 @@
   show heading.where(level: 2): set block(above: 1.25em, below: 0.65em)
   show heading.where(level: 3): set block(above: 0.95em, below: 0.5em)
   show figure.where(kind: "listing"): set block(breakable: true)
+  show figure.where(kind: image): set figure(placement: auto)
+  show figure.where(kind: table): set figure(placement: auto)
 
   // ── Titelseite ──────────────────────────────────────────────────────────────
   if title != none {
@@ -288,7 +290,7 @@
   font: none,
   fontsize: 12.5pt,
   sectionnumbering: none,
-  responsible_default: [Susanne Sorglos],
+  responsible_default: none,
   project_partner_logo_path: none, // New parameter for project partner logo
   school_logo_path: none, // New parameter for school logo
   doc,
@@ -332,6 +334,8 @@
   show heading.where(level: 2): set block(above: 1.25em, below: 0.65em)
   show heading.where(level: 3): set block(above: 0.95em, below: 0.5em)
   show figure.where(kind: "listing"): set block(breakable: true)
+  show figure.where(kind: image): set figure(placement: auto)
+  show figure.where(kind: table): set figure(placement: auto)
 
   let header_fallback = if title == none { [Projektarbeit] } else { title }
 

@@ -12,6 +12,7 @@
     (name: [Susanne Sorglos], responsibility: [Verantwortlich fur IT: HTML, CSS, BWL: Kaufvertrag]),
     (name: [Otto Normalverbraucher], responsibility: [Verantwortlich fur IT: HTML, CSS, BWL: Kaufvertrag]),
   ),
+  responsible_default: "Susanne Sorglos",
   supervisors: (
     [Claudio Landerer],
     [Stefan Stolz],

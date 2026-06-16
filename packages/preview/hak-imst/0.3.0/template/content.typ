@@ -518,6 +518,7 @@ Tabelle mit einer Abbildung und Überschrift.
 <tbl:shiftReg>
 #figure(
   kind: table,
+  placement: auto,
   caption: [Aufwändige Tabelle mit Abbildung und Caption],
   align(center)[#stack(
     spacing: 8pt,
@@ -625,11 +626,9 @@ Programmiersprache JAVA. Das Listings-Paket übernimmt die Formatierung
 von Codebausteinen und kann in der Präambel nach Belieben auf eine
 andere Sprache konfiguriert werden.
 
-=== Quicksort in JAVA
 <quicksort-in-java>
 #figure(
   kind: "listing",
-  placement: none,
   supplement: [Quelltext],
   caption: [Quicksort in JAVA],
 ```java
@@ -709,7 +708,10 @@ public class QuickSort {
 
 == mermaid Diagramme
 
+@figure:mermaid zeigt eine Abbildung die durch mermaid Code erstellt wurde.
+
 #figure(
+  placement: auto,
   mermaid(
     "graph TD; A-->B;",
     base-theme: "default",
@@ -722,10 +724,8 @@ public class QuickSort {
     ),
   ),
   caption: [Ein Mermaid Diagramm]
-)
+)<figure:mermaid>
 
-== Beispieltext
-<beispieltext>
 = Anhang-Kapitel
 <anhang-kapitel>
 == Anhang-Section
