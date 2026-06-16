@@ -1,10 +1,8 @@
 # Molfig
 
-Molfig renders molecular structure files in Typst. 
+**Molfig** is a Typst package for rendering molecular structure files in static documents.
 
-Molfig accepts PDB, mmCIF, and BinaryCIF bytes, converts them through a CPU-side [Mol*](https://molstar.org/)-style Model/Structure/Unit layer, exports static OBJ/STL/PLY mesh bytes, and delegates final document rendering to [`maquette`](https://typst.app/universe/package/maquette).
-
-The package is designed for Typst's sandbox. On Typst 0.15.0 or later, callers can create a project-side `path("entry.pdb")` and pass it to Molfig; the package will read it with `encoding: none`. For Typst 0.14-compatible documents, callers can still read structure files themselves with `read(..., encoding: none)` and pass the resulting bytes. Plain strings remain inline molecular text, not file paths.
+It accepts PDB, mmCIF, and BinaryCIF input, converts structures through a CPU-side [Mol*](https://molstar.org/)-style Model/Structure/Unit layer, exports static OBJ/STL/PLY mesh bytes, and delegates final document rendering to [`maquette`](https://typst.app/universe/package/maquette).
 
 ## Quickstart
 
