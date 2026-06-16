@@ -15,7 +15,7 @@ It accepts PDB, mmCIF, and BinaryCIF input, converts structures through a CPU-si
 // PDB DOI: https://doi.org/10.2210/pdb9R1O/pdb
 // Deposition authors: Petrenas, R.; Ozga, K.; Chubb, J.J.; Woolfson, D.N.
 // PDB archive data files are available under CC0 1.0.
-#let pdb = read("data/9R1O.pdb", encoding: none)
+#let pdb = read("9R1O.pdb", encoding: none)
 
 #molfig.render(
   pdb,
