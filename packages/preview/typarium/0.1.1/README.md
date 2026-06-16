@@ -75,7 +75,7 @@ To inspect parsed glyph metrics, codepoint samples, and table diagnostics with t
 
 ![Inspector renderer](images/sample07.png)
 
-See also [variation-request.typ](examples/variation-request.typ) for a standalone custom renderer that reads `variation-request` and `variation-support` directly.
+See also [variation-request.typ](https://github.com/rice8y/typarium/blob/0.1.1/package/examples/variation-request.typ) for a standalone custom renderer that reads `variation-request` and `variation-support` directly.
 
 ### Custom Theme and Renderer
 
