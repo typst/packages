@@ -20,7 +20,7 @@ Or check out the [Discord server](https://discord.gg/HKdyUuvmcb).
 These instructions will get you a copy of the project up and running on the typst web app. 
 
 ```typ
-#import "@preview/flyingcircus:4.0.0": *
+#import "@preview/flyingcircus:4.0.1": *
 
 #show: FlyingCircus.with(
   Title: title,
@@ -44,7 +44,7 @@ The body-only option skips all the front matter and just applies the formatting.
 body is the variable the captures the rest of the document when you use the template with the show rule, as below.
 
 ```typ
-#import "@preview/flyingcircus:4.0.0": *
+#import "@preview/flyingcircus:4.0.1": *
 
 /// Defines the FlyingCircus template
 ///
@@ -66,7 +66,7 @@ body is the variable the captures the rest of the document when you use the temp
 )
 ```
 
-New in 4.0.0: The FCParseLink function. It uses the webassembly plugin that implements the plane builder to parse out the data, construct all the stats of the airplane, and output the value into the required json structure.  You can edit that in typst, as shown below, to customize what is actually displayed.
+New in 4.0.1: The FCParseLink function. It uses the webassembly plugin that implements the plane builder to parse out the data, construct all the stats of the airplane, and output the value into the required json structure.  You can edit that in typst, as shown below, to customize what is actually displayed.
 ```typ
 /// Defines the parsing of Plane Builder links into json files using the webassembly implementation of the builder.
 /// link (str): The link to be parsed.  Should be of the form "https://tetragramm.github.io/.*/?json=.*"
