@@ -47,7 +47,7 @@ To use this package, import the `roster-cjk` function:
 )
 
 #set text(lang: "ja")
-#roster-cjk(ja-names, cols: 3, min-gap: 2em, inner-gap: 1em)
+#roster-cjk(ja-names, cols: 3, min-gap: 2em, ja-inner-gap: 1em)
 ```
 
 ### Japanese Name Features (日文姓名特性)
