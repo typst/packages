@@ -7,8 +7,8 @@
   })
 }
 
-#let mzcborjson-get-spectrum-ms-level(one_spectrum) = {
-  let ms-level-param = find-cv-param(one_spectrum.cvParam, "MS:1000511")
+#let mzcborjson-get-spectrum-ms-level(one-spectrum) = {
+  let ms-level-param = find-cv-param(one-spectrum.cvParam, "MS:1000511")
   if (ms-level-param != none) {
     ms-level-param.value
   } else {
@@ -17,8 +17,8 @@
 }
 
 
-#let mzcborjson-get-spectrum-title(one_spectrum) = {
-  let ms-level-param = find-cv-param(one_spectrum.cvParam, "MS:1000796")
+#let mzcborjson-get-spectrum-title(one-spectrum) = {
+  let ms-level-param = find-cv-param(one-spectrum.cvParam, "MS:1000796")
   if (ms-level-param != none) {
     ms-level-param.value
   } else {
@@ -26,8 +26,8 @@
   }
 }
 
-#let mzcborjson-get-spectrum-scan-start-time-in-seconds(one_spectrum) = {
-  let scan-list = one_spectrum.at("scanList", default: none)
+#let mzcborjson-get-spectrum-scan-start-time-in-seconds(one-spectrum) = {
+  let scan-list = one-spectrum.at("scanList", default: none)
   let rt = 0
   if (scan-list != none) {
     let cv-rt = find-cv-param(scan-list.scan.first().cvParam, "MS:1000016")
