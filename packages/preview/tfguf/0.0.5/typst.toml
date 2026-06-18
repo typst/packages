@@ -4,7 +4,7 @@ version = "0.0.5"
 entrypoint = "unirfisica.typ"
 authors = ["Alberto Corbi (UNIR)"]
 license = "MIT"
-description = "Plantilla para hacer TFGs en el Grado en Física de UNIR"
+description = "This Typst template is intended for writing Bachelor’s Degree Final Projects for the Physics Degree at UNIR University."
 repository = "https://github.com/pammacdotnet/TFGUF"
 categories = ["thesis"]
 
