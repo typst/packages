@@ -139,11 +139,11 @@ A complete deck for each supported workflow lives under `examples/`. Each
 folder is self-contained (its own `demo.gif`) and is compiled to PDF
 alongside the source.
 
-| Framework   | Source                                                         | Compiled PDF                                  |
-| ----------- | -------------------------------------------------------------- | --------------------------------------------- |
-| Plain Typst | [`examples/plain/example.typ`](https://github.com/benedict-armstrong/presio-typst-package/blob/main/examples/plain/example.typ)     | [`example.pdf`](https://github.com/benedict-armstrong/presio-typst-package/blob/main/examples/plain/example.pdf)   |
-| polylux     | [`examples/polylux/example.typ`](https://github.com/benedict-armstrong/presio-typst-package/blob/main/examples/polylux/example.typ) | [`example.pdf`](https://github.com/benedict-armstrong/presio-typst-package/blob/main/examples/polylux/example.pdf) |
-| touying     | [`examples/touying/example.typ`](https://github.com/benedict-armstrong/presio-typst-package/blob/main/examples/touying/example.typ) | [`example.pdf`](https://github.com/benedict-armstrong/presio-typst-package/blob/main/examples/touying/example.pdf) |
+| Framework   | Source                                                                                                                                | Compiled PDF                                                                                                         |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Plain Typst | [`examples/plain/example.typ`](https://github.com/benedict-armstrong/presio-typst-package/blob/v0.2.0/examples/plain/example.typ)     | [`example.pdf`](https://github.com/benedict-armstrong/presio-typst-package/blob/v0.2.0/examples/plain/example.pdf)   |
+| polylux     | [`examples/polylux/example.typ`](https://github.com/benedict-armstrong/presio-typst-package/blob/v0.2.0/examples/polylux/example.typ) | [`example.pdf`](https://github.com/benedict-armstrong/presio-typst-package/blob/v0.2.0/examples/polylux/example.pdf) |
+| touying     | [`examples/touying/example.typ`](https://github.com/benedict-armstrong/presio-typst-package/blob/v0.2.0/examples/touying/example.typ) | [`example.pdf`](https://github.com/benedict-armstrong/presio-typst-package/blob/v0.2.0/examples/touying/example.pdf) |
 
 Rebuild with `typst compile --root . examples/<framework>/example.typ examples/<framework>/example.pdf` from the repo root. The `--root .` flag is required so the file-`path` sandbox can resolve `demo.gif`.
 
