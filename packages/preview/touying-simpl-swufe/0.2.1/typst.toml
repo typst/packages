@@ -8,7 +8,7 @@ license = "MIT"
 keywords = ["touying", "slide", "presentation", "theme", "swufe"]
 repository = "https://github.com/leichaol/touying-simpl-swufe"
 categories = ["presentation"]
-exclude = ["examples/"]
+exclude = ["examples/", "imgs/"]
 
 
 [template]

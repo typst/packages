@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/touying-simpl-swufe:0.2.1": *
 
 
 #show: swufe-theme.with(

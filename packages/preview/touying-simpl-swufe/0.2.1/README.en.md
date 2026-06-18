@@ -1,5 +1,5 @@
 [![Typst Package](https://img.shields.io/badge/Typst-Package-239dad?logo=typst)](https://typst.app/universe/package/touying-simpl-swufe)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/leichaoL/touying-simpl-swufe/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 # [English](README.en.md) | [中文说明](README.md)
 
@@ -17,8 +17,8 @@ Typst provides an official Web App that supports online editing like Overleaf. H
 
 In [Typst Web App](https://typst.app), select `Start from template` to create a new project, search for `touying-simpl-swufe` to use.
 
-![Choose template in Web App](imgs/choose%20template.webp)
-![Online editing](imgs/webapp%20edit.webp)
+![Choose template in Web App](imgs/choose_template.webp)
+![Online editing](imgs/webapp_edit.webp)
 
 The Web App does not have the fonts installed on local Windows or macOS systems, so there may be differences in fonts. For details, see [Font Guidance](#font-guidance).
 
@@ -33,7 +33,7 @@ The Web App does not have the fonts installed on local Windows or macOS systems,
 
 ![Tinymist Typst template gallery](imgs/gallery.webp)
 
-![VSCode editing](imgs/vscode%20edit.webp)
+![VSCode editing](imgs/vscode_edit.webp)
 
 #### Terminal
 
@@ -69,7 +69,7 @@ Copy [`lib.typ`](lib.typ) to your project root directory, then import it at the 
 
 ### Method 2: Local Package Installation
 
-Clone from GitHub and install as a local package for reuse in multiple projects (refer to [Typst documentation](https://github.com/typst/packages/blob/main/README.md)):
+Clone from GitHub and install as a local package for reuse in multiple projects (refer to [Typst documentation](https://github.com/typst/packages)):
 
 ```bash
 git clone https://github.com/leichaol/touying-simpl-swufe.git {data-dir}/typst/packages/local/touying-simpl-swufe/0.2.1
