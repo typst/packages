@@ -8,5 +8,5 @@ description = "Fit text to fixed frames by adjusting its size."
 repository = "https://github.com/Hyperrick/typst-framefit"
 keywords = ["framefit", "text-fit", "frame", "layout"]
 categories = ["layout", "text", "utility"]
-compiler = "0.14.2"
+compiler = "0.14.0"
 exclude = ["tests/**", "assets/*.webp", "examples/*.pdf", "examples/*.png", "examples/*.svg"]
