@@ -2,8 +2,8 @@
 // typst version for swufe-beamer-theme: https://www.overleaf.com/latex/templates/swufe-beamer-theme/hysqbvdbpnsm
 // Author: Lei Chao <le.haibo@qq.com>
 // Inspired by Touying's stargazer theme and https://github.com/Coekjan/touying-buaa
-#import "@preview/touying:0.6.1": *
-#import "@preview/shadowed:0.2.0": shadowed
+#import "@preview/touying:0.7.4": *
+#import "@preview/shadowed:0.3.0": shadow
 
 
 // Internal implementation for tblock() - handles the actual layout and styling with shadow effects
@@ -33,15 +33,16 @@
       it,
     ),
   )
-  shadowed(
-    fill: none,
-    radius: 6pt,
-    inset: 0pt,
-    shadow: 6pt,
-    dx: 1pt,
-    dy: 1pt,
-    clip: false,
-  )[#content]
+  let shadow-blur = 6pt
+  pad(shadow-blur)[
+    #shadow(
+      blur: shadow-blur,
+      fill: rgb(89, 85, 101, 30%),
+      radius: 6pt,
+      dx: 1pt,
+      dy: 1pt,
+    )[#content]
+  ]
 }
 
 
@@ -59,7 +60,16 @@
 /// - args (arguments): Additional arguments passed to `figure`.
 #let shadow-figure(fig, ..args) = figure(
   align(center)[
-    #shadowed(fill: none, radius: 0pt, shadow: 6pt, dx: 0pt, dy: 0pt)[#fig]
+    #let shadow-blur = 6pt
+    #pad(shadow-blur)[
+      #shadow(
+        blur: shadow-blur,
+        fill: rgb(89, 85, 101, 30%),
+        radius: 0pt,
+        dx: 0pt,
+        dy: 0pt,
+      )[#fig]
+    ]
   ],
   ..args,
 )
