@@ -1,5 +1,7 @@
 
 # TFG UNIR Física
+This template is used to prepare Bachelor’s Degree Final Projects for the [Degree in Physics](https://bit.ly/unirfisica) at the International University of La Rioja ([UNIR](https://unir.net)).
+
 Esta plantilla sirve para preparar trabajos de fin de grado del [grado en Física](https://bit.ly/unirfisica) de la Universidad Internacional de La Rioja ([UNIR](https://unir.net)).
 
 ![Lema del grado en Física de UNIR](https://p.ipic.vip/vbt7pt.jpg)
