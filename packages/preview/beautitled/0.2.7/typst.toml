@@ -9,5 +9,5 @@ repository = "https://github.com/nathan-ed/typst-package-beautitled"
 keywords = ["headings", "titles", "chapters", "sections", "styling", "themes", "toc", "outline", "education", "textbook"]
 categories = ["components", "layout"]
 disciplines = ["mathematics", "education"]
-compiler = "0.14.2"
+compiler = "0.14.0"
 exclude = ["docs/*", "gallery", "*.pdf"]
