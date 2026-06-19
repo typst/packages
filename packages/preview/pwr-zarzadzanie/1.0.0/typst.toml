@@ -1,0 +1,17 @@
+[package]
+name = "pwr-zarzadzanie"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Junsevith <@junsevith>"]
+license = "MIT"
+description = "Master's thesis for management faculty of Wrocław University of Science and Technology based on official faculty guidelines"
+categories = ["paper", "thesis"]
+keywords = ["praca dyplomowa", "PWR", "Politechnika Wrocławska", "Zarzadzanie", "Wydział zarządzania", "thesis", "WUST", "Wrocław University of Science and Technology", "Management", "Faculty of management"]
+exclude = []
+compiler = "0.15.0"
+
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
