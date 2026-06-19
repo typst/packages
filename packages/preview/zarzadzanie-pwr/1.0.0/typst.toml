@@ -1,5 +1,5 @@
 [package]
-name = "pwr-zarzadzanie"
+name = "zarzadzanie-pwr"
 version = "1.0.0"
 entrypoint = "lib.typ"
 authors = ["Junsevith <@junsevith>"]

@@ -1,4 +1,4 @@
-#import "@preview/pwr-zarzadzanie:1.0.0": praca-dyplomowa, zalacznik, zrodlo
+#import "@preview/zarzadzanie-pwr:1.0.0": praca-dyplomowa, zalacznik, zrodlo
 
 #show: praca-dyplomowa.with(
   tytul: [
