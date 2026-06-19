@@ -8,7 +8,6 @@ description = "Master's thesis for management faculty of Wrocław University of 
 categories = ["paper", "thesis"]
 keywords = ["praca dyplomowa", "PWR", "Politechnika Wrocławska", "Zarzadzanie", "Wydział zarządzania", "thesis", "WUST", "Wrocław University of Science and Technology", "Management", "Faculty of management"]
 exclude = []
-compiler = "0.15.0"
 
 
 [template]
