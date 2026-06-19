@@ -8,5 +8,5 @@ description = "Multi-line bi-colored GitLab-style scoped labels (pills)."
 repository = "https://github.com/adrfantini/typst-scoped-pills"
 keywords = ["label", "badge", "pill", "gitlab", "scoped-label"]
 categories = ["components"]
-compiler = "0.14.2"
+compiler = "0.14.0"
 exclude = ["manual.typ", "manual.pdf"]
