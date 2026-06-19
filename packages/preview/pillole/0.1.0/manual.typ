@@ -85,11 +85,7 @@ Also works with mixed scripts and scales correctly with text size: \
   As far as I know, using `place` would work but would break the pill's natural flow and ability to break across lines for the right side.
   The effect is more noticeable at larger radii.
   Contributions for a simple fix are very welcome!
-3. #pill(sym.arrow.l + "not vertically centered", "more space below " + sym.arrow.b)\ 
-  In lists, the pill's height can cause extra spacing between text rows
-  (as you can see in this numbered list), and the pill itself is not centered
-  vertically in the line.
-4. #pill("mixing", [plain text and #raw("raw") leaves gaps]) \
+3. #pill("mixing", [plain text and #raw("raw") leaves gaps]) \
   Mixing different inline element types (regular text, `raw`, `math`, etc.)
   inside a pill's value can leave visible gaps in the fill.
   This is because the pill body uses Typst's `highlight()`,
