@@ -53,7 +53,7 @@ For reproducible documents, prefer explicit `format`, `representation`, `assembl
 
 ## Examples
 
-The [`examples`](examples) directory contains complete example sources, rendered PDFs, and their accompanying structural data files. The example data files are kept under [`examples/data`](examples/data), together with attribution metadata.
+The [`examples`](examples) directory contains complete example sources, PNG images generated from the rendered PDFs, and their accompanying structural data files. The example data files are kept under [`examples/data`](examples/data), together with attribution metadata.
 
 ## Features
 

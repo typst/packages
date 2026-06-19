@@ -70,7 +70,7 @@ Scope in this package:
 - `examples/data/9R1O.pdb`
 - `examples/data/9Z4O.pdb`
 - `examples/*.typ` files that load these data files
-- `examples/*.pdf` files generated from these data files
+- `examples/*.png` files generated from these data files
 - Documentation examples that display or cite these data files
 
 RCSB PDB states that data files in the PDB archive are available under CC0 1.0.
