@@ -1,0 +1,12 @@
+[package]
+name = "shuxuejuan"
+version = "0.2.0"
+compiler = "0.14.2"
+entrypoint = "/src/lib.typ"
+repository = "https://github.com/VWWVVW/shuxuejuan"
+authors = ["VWWVVW <https://github.com/VWWVVW>"]
+license = "MIT"
+description = "Quiz, test, exam - focus on Chinese contexts."
+keywords = ["math", "exam", "Chinese"]
+categories = ["utility"]
+exclude = ["/docs"]
