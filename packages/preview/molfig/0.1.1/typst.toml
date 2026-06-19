@@ -9,4 +9,4 @@ repository = "https://github.com/rice8y/molfig"
 keywords = ["molecule", "pdb", "cif", "mmcif", "3d", "maquette"]
 categories = ["visualization"]
 compiler = "0.14.0"
-exclude = ["/docs", "/examples"]
+exclude = ["/examples"]
