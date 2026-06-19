@@ -46,6 +46,10 @@ Structural data source: RCSB PDB / wwPDB, PDB ID `9R1O`, DOI [`10.2210/pdb9R1O/p
 Use `format: "mmcif"` or `format: "bcif"` for text mmCIF and BinaryCIF inputs.
 For reproducible documents, prefer explicit `format`, `representation`, `assembly`, `alt-loc`, `mesh-format`, and geometry quality options instead of relying on auto-detection.
 
+## Examples
+
+The [`examples`](examples) directory contains complete example sources, rendered PDFs, and their accompanying structural data files. The example data files are kept under [`examples/data`](examples/data), together with attribution metadata.
+
 ## Features
 
 - Inputs: PDB, text CIF/mmCIF, and BinaryCIF.
@@ -79,7 +83,7 @@ OBJ output can be paired with `to-mtl`. OBJ and PLY preserve Molfig group or ope
 
 ## Documentation
 
-The full Mantys manual is available at [`documentation.pdf`](https://github.com/rice8y/molfig/blob/v0.1.0/package/docs/documentation.pdf). It documents:
+The full Molfig manual is available at [`documentation.pdf`](https://github.com/rice8y/molfig/blob/v0.1.0/package/docs/documentation.pdf). It documents:
 
 - installation and import conventions;
 - input format handling and BinaryCIF block selection;
