@@ -1,0 +1,23 @@
+[package]
+name = "gwanak-snu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.15.0"
+authors = ["Jaeyeong Yang"]
+license = "MIT AND MIT-0"
+description = "Unofficial SNU thesis for bachelor's, master's, and Ph.D. degrees."
+repository = "https://github.com/JaeyeongYang/gwanak-snu-thesis"
+keywords = ["snu", "thesis", "seoul-national-university", "korean"]
+categories = ["thesis"]
+disciplines = []
+exclude = [
+  "README.ko.md",
+  "SPECS.md",
+  "examples/**",
+  "*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
