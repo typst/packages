@@ -14,6 +14,10 @@ A clean, modular CV template for Typst with FontAwesome icons, customizable acce
 - Automatic page numbering
 - Modular structure — separate template and content files
 
+## Example
+
+See [cv.pdf](example/cv.pdf).
+
 ## Requirements
 
 This template requires the FontAwesome desktop fonts to render icons correctly. Please refer to the [`fontawesome` package documentation](https://typst.app/universe/package/fontawesome) for installation instructions.
