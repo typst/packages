@@ -317,11 +317,25 @@
 ]
 
 == （在一个地方？）多次使用`env-upd`会导致`convergence issue`。#ts[
-  一般不会触发，除非`env`中的默认值几乎都不合你需求。
-]
+  那就不要这么用`env-upd`，如：使用
 
-== `env-upd`无法确保同时更新多个`env`字段。#ts[
-  但是可以一个一个更。
+  ```typ
+  #context env-upd(
+    font-size: env-get("font-size") + (medium: 11pt),
+    fn-number: sxj-counter-with-acc-to-nums-normal,
+    ans-shown: false,
+  )
+  ```
+
+  代替
+
+  ```typ
+  #context env-upd(font-size: env-get("font-size") + (medium: 11pt))
+  #context env-upd(fn-number: sxj-counter-with-acc-to-nums-normal)
+  #context env-upd(ans-shown: false)
+  ```
+
+  可大幅减少此问题发生概率。
 ]
 
 == 绑定内置函数与不绑定（使用/不使用`show: shuxuejuan`）时问题行间距可能不一致。#ts[

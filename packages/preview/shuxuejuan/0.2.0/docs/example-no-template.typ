@@ -16,14 +16,15 @@
 #set par(justify: true)
 
 // Note: 以下内容可选择性开启或设置，去掉注释看看有何变化？
-// DNF: 此处多次调用`env-upd`会引发`convergence`问题与bug，故单次请勿取消过多行注释。
-// #context env-upd(font-size: env-get("font-size") + (medium: 11pt))
-// #context env-upd(qst-style: COMPOSER.GRID)
-// #context env-upd(fn-number: sxj-counter-with-acc-to-nums-normal)  // Note: 常用
-// #context env-upd(qst-tag-w: (auto, 1em, 1em))
-// #context env-upd(ans-shown: false)  // Note: 常用
-// #context env-upd(ans-color: color.rgb(238, 0, 0))
-// #context env-upd(ref-style: 1)
+#context env-upd(
+  // font-size: env-get("font-size") + (medium: 11pt),
+  // qst-style: COMPOSER.GRID,
+  // fn-number: sxj-counter-with-acc-to-nums-normal,  // Note: 常用。
+  // qst-tag-w: (auto, 1em, 1em),
+  // ans-shown: false,                                // Note: 常用。
+  // ans-color: color.rgb(238, 0, 0),
+  // ref-style: 1,
+)
 
 // Note: 为了字体，页面更好看的设置。
 #set page(margin: (top: 19pt))

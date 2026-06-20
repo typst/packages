@@ -83,33 +83,23 @@
   key in env.get(),
   message: "No \"" + key + "\" in env.",
 )
-#let env-get(key, default: auto) = {
+#let env-get(key) = {
   env-check(key)
-  return env.get().at(key, default: default)
+  env.get().at(key)
 }
-#let env-copy(keys) = {
-  return keys.map(k => (k, env-get(k))).to-dict()
-}
-#let _env-upd(key, val) = {
-  env-check(key)
-  let env-new = env.get()
-  env-new.at(key) = val
-  env.update(env-new)
-}
-// DNF: Updating `env`s in one `env-upd` is buggy, e.g. one
-//   of `env-upd(font-size: font-size, ans-shown: ans-shown)`
-//   and `env-upd(ans-shown: ans-shown, font-size: font-size)`
-//   would not update `ans-shown`.
 // DNF: Using this func for too many times (at once?) might
 //   cause layout convergence warnings.
 #let env-upd(..dict) = {
+  let updated = env.get()
   for (key, val) in dict.named() {
-    _env-upd(key, val)
+    env-check(key)
+    updated.insert(key, val)
   }
+  env.update(updated)
 }
-#let with-env(..dict, body) = context {
-  let env-old = env-copy(dict.named().keys())
-  env-upd(..dict)
+#let with-env(..env-tmp, body) = context {
+  let env-old = env-tmp.named().keys().map(k => (k, env-get(k))).to-dict()
+  env-upd(..env-tmp)
   body
   env-upd(..env-old)
 }

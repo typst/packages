@@ -13,7 +13,11 @@
 ```typ
 #import "@preview/shuxuejuan:0.2.0": *
 #show: shuxuejuan
+```
 
+Then use it like:
+
+```typ
 = 选择题
 
 == 下列各说法中正确的是#br[BCD]。#op(
@@ -28,7 +32,11 @@
 
 ```typ
 #import "@preview/shuxuejuan:0.2.0": *
+```
 
+Then use it like:
+
+```typ
 #qst(level: 1)[选择题]
 
 #qst[
@@ -44,30 +52,32 @@
 ### Settings
 
 ```typ
-#context env-upd(font-size: env-get("font-size") + (medium: 11pt))
-#context env-upd(qst-style: COMPOSER.GRID)
-#context env-upd(fn-number: sxj-counter-with-acc-to-nums-normal)  // Note: 常用
-#context env-upd(qst-tag-w: (auto, 1em, 1em))
-#context env-upd(ans-shown: false)  // Note: 常用
-#context env-upd(ans-color: color.rgb(238, 0, 0))
-#context env-upd(ref-style: 1)
+#context env-upd(
+  font-size: env-get("font-size") + (medium: 11pt),
+  qst-style: COMPOSER.GRID,
+  fn-number: sxj-counter-with-acc-to-nums-normal,  // Note: 常用。
+  qst-tag-w: (auto, 1em, 1em),
+  ans-shown: false,                                // Note: 常用。
+  ans-color: color.rgb(238, 0, 0),
+  ref-style: 1,
+)
 ```
 
 ## Example
 
-![example](./docs/outputs/example.png)
+![Compiled `example.typ`.](./docs/outputs/example.png)
 
 [Source code to this example](./docs/example.typ).
 
 ## Manual (First Page)
 
-![manual](./docs/outputs/manual-p1.png)
+![Compiled `manual.typ` (first page only).](./docs/outputs/manual-p1.png)
 
 Complete [source code to this manual](./docs/manual.typ), [pre-compiled pdf](./docs/outputs/manual.pdf?raw=true).
 
 ## Update Strategy
 
-To avoid unnecessary version bumps[^1], all updates are promptly pushed to the [origin repository](https://github.com/VWWVVW/shuxuejuan), and synced to [typst/packages](https://github.com/typst/packages/tree/main/packages/preview/shuxuejuan) after they're tested. Small updates, including documentation fixes and code changes that don't affect output, are typically synced with a weeks-long delay.
+To avoid unnecessary version bumps[^1], all updates are promptly pushed to the [origin repository](https://github.com/VWWVVW/shuxuejuan), and synced to [typst/packages](https://github.com/typst/packages/blob/main/packages/preview/shuxuejuan) after they're tested. Small updates, including documentation fixes and code changes that don't affect the output, are typically synced with a multi-week delay.
 
 Therefore, if you want to read the manual, view the examples, or submit a PR... please download the latest code from the origin repository:
 
