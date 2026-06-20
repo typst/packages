@@ -8,7 +8,7 @@ drawers.
 ## Usage
 
 ````typ
-#import "@preview/tidymind:0.1.0": mindmap, node
+#import "@preview/tidymind:0.1.1": mindmap, node
 
 #mindmap(node([Root],
   node([Branch A], node([A1]), node([A2])),
