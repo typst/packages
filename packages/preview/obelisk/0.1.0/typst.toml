@@ -5,6 +5,7 @@ entrypoint = "lib.typ"
 authors = ["atzlt"]
 license = "MIT"
 description = "A high-precision, print-ready, Bauhaus-inspired note-taking template."
+categories = ["book", "layout"]
 
 [template]
 path = "templates"
