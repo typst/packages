@@ -2,7 +2,7 @@
 
 A clean, modular CV template for Typst with FontAwesome icons, customizable accent colors, and support for academic publications.
 
-![Thumbnail](thumbnail.png)
+![Thumbnail: Shows image of an example Document created using this template](thumbnail.png)
 
 ## Features
 
@@ -159,7 +159,7 @@ All fields except `title` are optional.
 Renders a hyperlink with an external link icon and the configured `link-color`. Use this for links inside entry bodies.
 
 ```typst
-#body_link("https://github.com/you/project", "github.com/you/project")
+#body_link("https://github.com/you/project")[github.com/you/project]
 ```
 
 ---

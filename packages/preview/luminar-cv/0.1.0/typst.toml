@@ -2,12 +2,12 @@
 name = "luminar-cv"
 version = "0.1.0"
 entrypoint = "template.typ"
-authors = ["Florian Vogt <vogtfl@student.ethz.ch"]
+authors = ["Florian Vogt <vogtfl@student.ethz.ch>"]
 license = "MIT"
 description = "A clean, modular CV template with FontAwesome icons, customizable colors, and support for academic publications."
 categories = ["cv"]
 keywords = ["cv", "resume", "academic", "fontawesome"]
-exclude = ["thumbnail.png", "example/"]
+exclude = ["example/"]
 
 [template]
 path = "template/"
