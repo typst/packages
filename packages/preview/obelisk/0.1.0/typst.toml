@@ -1,0 +1,12 @@
+[package]
+name = "obelisk"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["atzlt"]
+license = "MIT"
+description = "A high-precision, print-ready, Bauhaus-inspired note-taking template."
+
+[template]
+path = "templates"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
