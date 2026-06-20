@@ -9,7 +9,7 @@ keywords = ["thesis", "academic", "report", "university", "ost"]
 categories = ["paper"]
 disciplines = ["computer-science", "engineering"]
 repository = "https://github.com/ost-fh/ost-thesis-typst"
-exclude = ["thumbnail.png", ".github"]
+exclude = [".github"]
 
 [template]
 path = "template"
