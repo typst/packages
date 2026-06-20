@@ -76,7 +76,7 @@
     subtitle: [Student project — Python, ROS2, Fusion 360],
     date: [2023],
   )[
-    Designed and built a fixed-wing UAV capable of autonomous waypoint navigation. Implemented a custom flight controller in Python using sensor fusion and PID control. Achieved 45-minute endurance in field tests. #body_link("https://github.com/johndoe/sar-uav")[github.com/johndoe/sar-uav]
+    Designed and built a fixed-wing UAV capable of autonomous waypoint navigation. Implemented a custom flight controller in Python using sensor fusion and PID control. Achieved 45-minute endurance in field tests. #body-link("https://github.com/johndoe/sar-uav")[github.com/johndoe/sar-uav]
   ]
 
   #entry(

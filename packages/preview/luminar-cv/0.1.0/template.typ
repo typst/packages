@@ -21,7 +21,7 @@
   }
 }
 
-#let contact_header(
+#let contact-header(
   phone: none,
   email: none,
   website: none,
@@ -105,7 +105,7 @@
   set par(justify: false)
 
   header(name: name, positions: positions)
-  contact_header(..contact)
+  contact-header(..contact)
 
   if bio != none {
     v(1pt)
@@ -122,7 +122,7 @@
   doc
 }
 
-#let body_link(url, label) = context {
+#let body-link(url, label) = context {
   // Body links are styled with a small external link icon and a custom color. The link is displayed in the same font size as the surrounding text to create a seamless integration with the body content.
   let link-color = LINK-COLOR.get()
   show link: it => box(text(fill: link-color)[#fa-external-link-alt(solid: true) #h(2pt) #it])
@@ -221,7 +221,7 @@
         text(size: 9pt, fill: luma(100))[ \- #note]
       }
       if doi != none {
-        text(size: 9pt)[ \- #body_link("https://doi.org/" + doi)[doi: #doi]]
+        text(size: 9pt)[ \- #body-link("https://doi.org/" + doi)[doi: #doi]]
       }
     },
     align(right)[
