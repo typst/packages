@@ -25,7 +25,6 @@ content in `chapters/`.
 | `chapters/`   | One file per chapter and appendix               |
 | `refs.yaml`   | Bibliography in Hayagriva format                |
 | `figures/`    | Your own images and figures                     |
-| `.fonts/`     | Download target for Roboto — not bundled        |
 
 ## Languages
 
