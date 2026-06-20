@@ -154,12 +154,12 @@ All fields except `title` are optional.
 
 ---
 
-#### `body_link`
+#### `body-link`
 
 Renders a hyperlink with an external link icon and the configured `link-color`. Use this for links inside entry bodies.
 
 ```typst
-#body_link("https://github.com/you/project")[github.com/you/project]
+#body-link("https://github.com/you/project")[github.com/you/project]
 ```
 
 ---
