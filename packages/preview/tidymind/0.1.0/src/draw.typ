@@ -26,8 +26,11 @@
   let fill = if is-root { col } else { white }
   let txt = if is-root { white } else { rgb("#1e293b") }
   let stroke = if is-root { none } else { 0.8pt + col }
-  // âncora à esquerda do nó (x é a borda esquerda); centro vertical em -y
+  // âncora à esquerda do nó (x é a borda esquerda); centro vertical em -y.
+  // `width: n.w` casa o desenho com a medição (layout.typ): rótulos longos
+  // quebram em node-max-width em vez de vazar em linha única para fora da página.
   content((n.x, -n.y), anchor: "west", box(
+    width: n.w * 1pt,
     fill: fill, inset: (x: 8pt, y: 4pt), radius: 4pt, stroke: stroke,
     text(font: font, size: text-size, fill: txt, weight: if is-root { "bold" } else { "regular" })[#n.content],
   ))

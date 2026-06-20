@@ -9,3 +9,6 @@ repository = "https://github.com/pierryangelo/tidymind"
 keywords = ["mindmap", "mind-map", "diagram", "tree", "cetz"]
 categories = ["visualization"]
 compiler = "0.14.0"
+# Documentation files: kept in the repo and linked from the README, but excluded
+# from the published archive (see docs/tips.md "What to commit? What to exclude?").
+exclude = ["examples"]

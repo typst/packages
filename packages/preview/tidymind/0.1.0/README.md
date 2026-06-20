@@ -24,13 +24,20 @@ raw content). A raw dictionary `(content: .., children: (..))` is also accepted.
 
 | Option | Default | Meaning |
 |--------|---------|---------|
-| `palette` | 6 colors | cor por ramo de 1º nível |
-| `font` | `"Inter"` | fonte dos rótulos |
-| `text-size` | `9pt` | tamanho do texto |
-| `node-max-width` | `6cm` | largura máx antes de quebrar linha |
-| `max-depth` | `6` | poda além desta profundidade |
-| `h-gap` | `40pt` | espaço horizontal entre níveis |
-| `v-gap` | `10pt` | espaço vertical mínimo entre irmãos |
+| `palette` | 6 colors | color per first-level branch |
+| `font` | `"Inter"` | label font |
+| `text-size` | `9pt` | label text size |
+| `node-max-width` | `6cm` | max width before a label wraps |
+| `max-depth` | `6` | prune nodes deeper than this |
+| `h-gap` | `40pt` | horizontal gap between levels |
+| `v-gap` | `10pt` | minimum vertical gap between siblings |
+
+## Examples
+
+- [Shallow tree](examples/visual_shallow.typ) — a root with three leaves.
+- [Deep tree](examples/visual_deep.typ) — multiple levels of nesting.
+- [Many siblings](examples/visual_many_siblings.typ) — a root with eight children.
+- [Long labels](examples/visual_long_labels.typ) — labels wrap at `node-max-width`.
 
 ## How it works
 

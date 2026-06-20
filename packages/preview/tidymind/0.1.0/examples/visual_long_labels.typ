@@ -1,6 +1,6 @@
 #import "@preview/tidymind:0.1.0": mindmap, node
 #set page(width: auto, height: auto, margin: 10pt)
-#mindmap(node([Princípios de arquitetura de software distribuído],
-  node([Consistência eventual e o teorema CAP aplicado a sistemas reais]),
-  node([Tolerância a partições de rede em clusters geograficamente distribuídos]),
+#mindmap(node([Principles of distributed software architecture],
+  node([Eventual consistency and the CAP theorem applied to real systems]),
+  node([Network partition tolerance in geographically distributed clusters]),
 ))
