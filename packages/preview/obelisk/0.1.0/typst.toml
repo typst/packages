@@ -10,4 +10,4 @@ categories = ["book", "layout"]
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "template/thumbnail.png"
+thumbnail = "thumbnail.png"
