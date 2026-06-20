@@ -6,7 +6,7 @@ A simple referenceable list library for Typst. If you ever wanted to reference e
 
 ```typst
 
-#import "@preview/efilrst:0.3.2" as efilrst
+#import "@preview/efilrst:0.3.3" as efilrst
 #show ref: efilrst.show-rule
 
 #let constraint = efilrst.reflist.with(
@@ -78,7 +78,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 0.3.3
 
-- Do not add an space when no name is given.
+- Do not add a space when no name is given.
 - Fix resuming the counter not working properly when the previous list has a sublist.
 
 ### 0.3.2

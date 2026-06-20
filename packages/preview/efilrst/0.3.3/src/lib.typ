@@ -1,9 +1,9 @@
 #let s = counter("_efilrst-counter")
 #let counter-prefix = "_efilrst-"
 
-#let warn(body) = {
-  let my-message = [#(label(repr(body)))]
-}
+// #let warn(body) = {
+//   let my-message = [#(label(repr(body)))]
+// }
 
 
 #let _make-pairs(children) = {
@@ -71,7 +71,7 @@
       }
       n += 1
     } else if type(body) == array {
-      if n > 0 {
+      if children.len() > 0 {
         children.last() += _make-children(
           body,
           1,

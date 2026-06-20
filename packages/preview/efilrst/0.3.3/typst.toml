@@ -1,6 +1,6 @@
 [package]
 name = "efilrst"
-version = "0.3.2"
+version = "0.3.3"
 entrypoint = "src/lib.typ"
 authors = ["Joan Marcè i Igual <@jmigual>"]
 license = "MIT"
