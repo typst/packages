@@ -45,7 +45,7 @@
       let dx = if calc.even(page-num) {
         margin.e - side.half-gutter
       } else {
-        width - margin.e + side.half-gutter
+        paper.width - margin.e + side.half-gutter
       }
       place(
         top + left,
@@ -178,7 +178,7 @@
       breakable: false,
     )
     set par(leading: step * 2, justify: false)
-    set text(font: sans-font)
+    set text(font: fonts.sans)
     block(it)
   }
 
@@ -211,7 +211,7 @@
     )
     v(step * 12)
     text(
-      size: 40pt,
+      size: texts.size * 3.5,
       font: fonts.sans,
       align(right)[
         #text(weight: "light")[Section #h1]\ #text(
@@ -225,7 +225,7 @@
 
   show heading.where(level: 2): it => {
     let step = texts.step
-    set text(size: 24pt)
+    set text(size: texts.size * 2)
     set block(
       above: step * 3,
       below: step * 2,
@@ -239,7 +239,7 @@
 
   show heading.where(level: 3): it => {
     let step = texts.step
-    set text(size: 16pt)
+    set text(texts.size * 1.5)
     set block(
       above: step * 3,
       below: step * 2,
