@@ -2,7 +2,10 @@
 
 #let init-theorem(it) = {
   // 1. Suppress default figure layout for theorems so we only see your custom styling
-  show figure.where(kind: "theorem"): it => align(left, it.body)
+  show figure.where(kind: "theorem"): it => align(
+    left,
+    it.body,
+  )
 
   // 2. Reset the shared theorem counter every time a top-level section (Heading 1) begins
   show heading.where(level: 1): it => {
@@ -49,7 +52,11 @@
 }
 
 // Make a theorem environment.
-#let make-environment(full-name, short-name, accent-color) = {
+#let make-environment(
+  full-name,
+  short-name,
+  accent-color,
+) = {
   return (..args) => {
     let pos = args.pos()
     let title = none
@@ -128,8 +135,25 @@
   rgb("#854d0e"),
 )
 
-#let proof(body) = block(
-  width: 100%,
-)[
-  _Proof._ #body #h(1fr) #sym.square
-]
+#let proof(..args) = {
+  let pos = args.pos()
+  let title = none
+  let body = none
+
+  if pos.len() == 1 {
+    body = pos.at(0)
+  } else if pos.len() == 2 {
+    title = pos.at(0)
+    body = pos.at(1)
+  } else {
+    panic(
+      "Proof environment expect exactly 1 or 2 positional arguments.",
+    )
+  }
+  block(
+    width: 100%,
+    breakable: true,
+  )[
+    _Proof#if title != none { [ #title] }._ #body #h(1fr) #sym.square
+  ]
+}

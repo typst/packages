@@ -159,7 +159,7 @@
       it
     }).height
     let g = (
-      (calc.ceil((h - texts.step * 1.2) / texts.step))
+      (calc.ceil((h - texts.step * 2 + texts.ascender) / texts.step))
         * texts.step
     )
     box(
