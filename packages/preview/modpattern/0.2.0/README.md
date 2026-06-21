@@ -2,7 +2,8 @@
 
 This package provides exactly one function: `modpattern`
 
-It's primary goal is to create make this:
+It is defined similarly to the official tiling function, but it fixes some caveats, as can be seen here:
+
 ![comparison table](examples/comparison.png)
 
 ## modpattern function
