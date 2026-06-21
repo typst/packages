@@ -1,8 +1,7 @@
-/// currently the only function which creates the corresponding pattern
-/// - size is the as size for patterns
-/// - body is the inside/body/content of the pattern
-/// - dx, dy allow for translations
+/// the main function that creates the tiling
+/// - named size parameter must be provided
 /// - background allows any type allowed in the box fill argument. It gets applied first
+/// - other tiling args are also supported
 #let modpattern(..args, background: none) = tiling(
   ..args.named(),
   {
