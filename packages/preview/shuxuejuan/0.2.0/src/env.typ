@@ -89,13 +89,10 @@
 }
 // DNF: Using this func for too many times (at once?) might
 //   cause layout convergence warnings.
-#let env-upd(..dict) = {
-  let updated = env.get()
-  for (key, val) in dict.named() {
-    env-check(key)
-    updated.insert(key, val)
-  }
-  env.update(updated)
+#let env-upd(..to-upd) = {
+  let to-upd = to-upd.named()
+  for (key, _) in to-upd { env-check(key) }
+  env.update(old => old + to-upd)
 }
 #let with-env(..env-tmp, body) = context {
   let env-old = env-tmp.named().keys().map(k => (k, env-get(k))).to-dict()
