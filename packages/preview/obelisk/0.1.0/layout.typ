@@ -32,7 +32,7 @@
   let e-margin = def.margin.e;
   let text-height = def.texts.ascender;
 
-  let page-num = counter(page).get().first()
+  let page-num = here().page()
   let move = if calc.even(page-num) {
     -e-margin + dx
   } else {
@@ -63,7 +63,7 @@
 #let place-node(sym, dy: 0pt) = context {
   let def = default-settings.get()
   let half-gutter = def.side.half-gutter
-  let page-num = counter(page).get().first()
+  let page-num = here().page()
   let width = measure(sym).width
   let dx = if calc.even(page-num) {
     half-gutter + width / 2
@@ -95,7 +95,7 @@
   let t-width = def.body.width
   let half-gutter = def.side.half-gutter
 
-  let page-num = counter(page).get().first()
+  let page-num = here().page()
   let side = block(width: margin-w, text(
     fill: color,
     font: sans-font,
@@ -133,7 +133,7 @@
 
 #let sidenote(it, dy: 0pt) = context {
   let def = default-settings.get()
-  let page-num = counter(page).get().first()
+  let page-num = here().page()
   let posx = here().position().x
   sym.wj
   let dx = if calc.even(page-num) {
