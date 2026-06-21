@@ -1,7 +1,7 @@
 [package]
 authors = ["Ludwig Austermann"]
 compiler = "0.15.0"
-description = "Easily create patterns in typst."
+description = "Fixing tilings/patterns on its edges."
 entrypoint = "main.typ"
 exclude = ["examples"]
 keywords = ["pattern", "styling", "tiling"]
