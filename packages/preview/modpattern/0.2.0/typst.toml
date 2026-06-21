@@ -1,0 +1,14 @@
+[package]
+authors = ["Ludwig Austermann"]
+compiler = "0.15.0"
+description = "Easily create patterns in typst."
+entrypoint = "main.typ"
+exclude = ["examples"]
+keywords = ["pattern", "styling", "tiling"]
+license = "MIT"
+name = "modpattern"
+repository = "https://github.com/ludwig-austermann/modpattern"
+version = "0.2.0"
+
+[tool.utpm]
+exclude = ["examples/", "CHANGELOG.md", "!examples/*.typ", "!examples/comparison.png"]
