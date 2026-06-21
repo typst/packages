@@ -298,6 +298,7 @@ For example, to always use elbow-shaped leader lines for annotations:
 ## Changelog
 * v0.4.0:
   - Added `markuw` and `markub` functions.
+  - Allowed passing `color` and `tag` as positional arguments in marking functions without explicit parameter names (e.g., `mark(x, red, <tag>)`).
   - Added `anchor-inset` parameter to `annot` to adjust the spacing between the marked content and the leader line (Issue #11).
   - Fixed an issue where the align-point (`&`) did not work inside the `mark` function (Issue #9).
   - Fixed a layout calculation bug in `core-mark` where nested marks inside fractions caused shifted bounding boxes (Issue #10).
