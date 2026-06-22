@@ -8,7 +8,7 @@ license = "MIT"
 description = "Slice a spritesheet into its individual sprites."
 repository = "https://github.com/TimeTravelPenguin/spryst"
 keywords = ["spritesheet", "sprite", "slicing", "image processing"]
-categories = ["integration", "components", "visualization", "utility"]
+categories = ["integration", "visualization", "utility"]
 exclude = ["/assets/"]
 
 # Tytanic test runner. `ppi` must match `PPI` in `tests/lib.typ` so that 32px
