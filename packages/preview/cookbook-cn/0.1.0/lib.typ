@@ -44,9 +44,9 @@
   cover-line-2: none,
   back-notice: none,
   version: "年月日",
-  menu_header: none,
-  chapter_header: none,
-  TOCType: "simple",
+  menu-header: none,
+  chapter-header: none,
+  toc-type: "simple",
   // TOCSkipPage: 4,
   body
 ) = {
@@ -118,7 +118,7 @@
     set align(center + horizon)
     block(width: 100%)[
         // #text(font: fonts.header, weight: "bold", size: 0.9em, tracking: 2pt, fill: colors.accent, upper("Chapter"))
-        #text(font: fonts.header, weight: "bold", size: 0.9em, tracking: 2pt, fill: colors.accent, upper(chapter_header))
+        #text(font: fonts.header, weight: "bold", size: 0.9em, tracking: 2pt, fill: colors.accent, upper(chapter-header))
         #v(0.5em)
         #text(font: fonts.header, weight: "black", size: 3.5em, fill: colors.text, it.body)
     ]
@@ -183,7 +183,7 @@
   }
 
   // TOC
-  if TOCType == "numbly" {
+  if toc-type == "numbly" {
     state("in-toc").update(true)
     counter(page).update(1)
     page(
@@ -197,7 +197,7 @@
     #align(center)[
        // #text(font: fonts.header, weight: "bold", size: 1.2em, tracking: 2pt, fill: colors.accent, upper("Contents"))
 
-       #text(font: fonts.header, weight: "bold", size: 1.2em, tracking: 2pt, fill: colors.accent, upper(menu_header))
+       #text(font: fonts.header, weight: "bold", size: 1.2em, tracking: 2pt, fill: colors.accent, upper(menu-header))
        #v(1em)
        #line(length: 3cm, stroke: 0.5pt + colors.muted)
     ]
@@ -247,7 +247,7 @@
 
       #outline(title: none, indent: 0pt, depth: 2)
     ]
-    } else if TOCType == "simple" {
+    } else if toc-type == "simple" {
     state("in-toc").update(true)
     counter(page).update(1)
   page(
@@ -260,7 +260,7 @@
     #align(center)[
        // #text(font: fonts.header, weight: "bold", size: 1.2em, tracking: 2pt, fill: colors.accent, upper("Contents"))
 
-       #text(font: fonts.header, weight: "bold", size: 1.2em, tracking: 2pt, fill: colors.accent, upper(menu_header))
+       #text(font: fonts.header, weight: "bold", size: 1.2em, tracking: 2pt, fill: colors.accent, upper(menu-header))
        #v(1em)
        #line(length: 3cm, stroke: 0.5pt + colors.muted)
     ]
@@ -316,9 +316,9 @@ align(center+bottom)[
   name,
   ingredients: (),
   instructions: [],
-  ingredients_header: none,
-  instructions_header: none,
-  worknote_header: none,
+  ingredients-header: none,
+  instructions-header: none,
+  worknote-header: none,
   description: none,
   image: none,
   servings: none,
@@ -373,7 +373,7 @@ align(center+bottom)[
         width: 100%,
         stroke: 0.5pt + colors.line.darken(5%),
       )[
-        #text(font: fonts.header, weight: "bold", size: 1.1em, fill: colors.text, ingredients_header)
+        #text(font: fonts.header, weight: "bold", size: 1.1em, fill: colors.text, ingredients-header)
         #v(0.8em)
         #set text(size: 0.95em)
         
@@ -396,7 +396,7 @@ align(center+bottom)[
 
       if notes != none {
         v(1.5em)
-        text(font: fonts.header, size: 0.9em, weight: "bold", fill: colors.accent, worknote_header)
+        text(font: fonts.header, size: 0.9em, weight: "bold", fill: colors.accent, worknote-header)
         v(0.3em)
         text(style: "italic", size: 0.9em, fill: colors.muted, notes)
       }
@@ -404,7 +404,7 @@ align(center+bottom)[
 
     // -- Right Column: Instructions --
     {
-      text(font: fonts.header, weight: "bold", size: 1.1em, fill: colors.text, instructions_header)
+      text(font: fonts.header, weight: "bold", size: 1.1em, fill: colors.text, instructions-header)
       v(1em)
       
       set enum(

@@ -1,5 +1,5 @@
 // bamboo.typ
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.7.4": *
 
 #let slide(title: auto, ..args) = touying-slide-wrapper(self => {
   if title != auto {

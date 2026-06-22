@@ -62,7 +62,7 @@ Import directly in your Typst file:
 
 ## Dependencies
 
-- `@preview/touying:0.6.1`
+- `@preview/touying:0.7.4`
 
 ## License
 

@@ -6,7 +6,7 @@ Key enhancements over the original:
 - **CJK font stack**: Zhuque Fangsong, LXGW WenKai, Sarasa Mono SC — optimized for Chinese documents
 - **Custom cover page**: `cover-line-1`, `cover-line-2` for subtitle lines, `back-notice` for confidentiality notices
 - **Flexible TOC**: `numbly` (numbered with Chinese numerals) and `simple` (clean dot-leader) styles
-- **Customizable headings**: `chapter_header`, `menu_header`, `ingredients_header`, `instructions_header`, `worknote_header`
+- **Customizable headings**: `chapter-header`, `menu-header`, `ingredients-header`, `instructions-header`, `worknote-header`
 - **Version stamp**: `version` parameter for back-page date display
 - **`lang: "cn"`** for proper Chinese punctuation and line breaking
 
@@ -35,12 +35,12 @@ typst init @preview/cookbook-cn
   cover-line-2: none,        // Cover subtitle line 2
   back-notice: none,         // Confidentiality notice text at back of document
   version: "年月日",       // Back-page version date
-  menu_header: "目录",
-  chapter_header: "章节",
-  TOCType: "simple",      // "simple" or "numbly" (numbered)
-  ingredients_header: "材料",
-  instructions_header: "步骤",
-  worknote_header: "备注",
+  menu-header: "目录",
+  chapter-header: "章节",
+  toc-type: "simple",      // "simple" or "numbly" (numbered)
+  ingredients-header: "材料",
+  instructions-header: "步骤",
+  worknote-header: "备注",
 )
 ```
 
@@ -65,9 +65,9 @@ typst init @preview/cookbook-cn
   ],
   notes: "Optional chef's notes.",
   image: image("path/to/dish.jpg"),
-  ingredients_header: "材料",
-  instructions_header: "步骤",
-  worknote_header: "备注",
+  ingredients-header: "材料",
+  instructions-header: "步骤",
+  worknote-header: "备注",
 )
 ```
 
