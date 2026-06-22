@@ -34,8 +34,14 @@ Example:
 	font: "New Computer Modern",
 	fontsize: 12.5pt,
 	sectionnumbering: "1.1.1",
-	project_partner_logo_path: "typst_media/logos/Logo_Projektpartner.png",
-	school_logo_path: "typst_media/logos/Logo_HAK_Imst.png",
+	responsible_default: [Gabi Sorglos],
+	eidesstattliche_erklaerung_text: [Ich erklare an Eides statt, dass ich die vorliegende Diplomarbeit selbst verfasst und keine anderen als die angefuhrten Behelfe verwendet habe. Alle Stellen, die wortlich oder inhaltlich den angegebenen Quellen entnommen wurden, sind als solche kenntlich gemacht. Diese Versicherung umfasst auch verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Etwaig verwendete Behelfe generativer KI-Tools wurden vollstandig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen. Ich bin damit einverstanden, dass meine Arbeit offentlich zuganglich gemacht wird.],
+	abnahmeerklaerung_text: [Hiermit bestatigt der Auftraggeber, dass das ubergebene Produkt dieser Diplomarbeit den dokumentierten Vorgaben entspricht. Des Weiteren verzichtet der Auftraggeber auf unentgeltliche Wartung und Weiterentwicklung des Produktes durch die Projektmitglieder bzw. die Schule.],
+	vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
+	kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
+	abstract_text: [Englische Version der Kurzfassung.],
+	// project_partner_logo_path: "typst_media/logos/Logo_Projektpartner.png",
+	// school_logo_path: "typst_media/logos/Logo_HAK_Imst.png",
 )
 
 #include "content.typ"
@@ -63,6 +69,11 @@ Both use the same named parameters and are configured through `#show: ...with(..
 - `sectionnumbering` (string or `none`): Heading numbering format
 - `paper` (string): Paper format (e.g. `a4`)
 - `margin` (dictionary): Page margins
+- `responsible_default` (content): Default responsible person for the footer if not set per chapter in content.typ
+- `eidesstattliche_erklaerung_text` (content): Declaration of Authorship
+- `abnahmeerklaerung_text` (content): Acceptance Certificate
+- `vorwort_text` (content): German abstract
+- `abstract_text`: English abstract
 - `project_partner_logo_path` (string or `none`): Path for the left cover-page logo
 - `school_logo_path` (string or `none`): Path for the right cover-page school logo
 

@@ -22,6 +22,11 @@
   sectionnumbering: "1.1.1",
   // project_partner_logo_path: image("template/typst_media/logos/Logo_Projektpartner.png"),
   // school_logo_path: image("template/typst_media/logos/Logo_Schule.png"),
+  eidesstattliche_erklaerung_text: [eidesstattliche_erklaerung_text],
+  abnahmeerklaerung_text: [abnahmeerklaerung_text],
+  vorwort_text: [vorwort_text],
+  kurzfassung_text: [kurzfassung_text],
+  abstract_text: [abstract_text],
 )
 
 Hier startet das Dokument

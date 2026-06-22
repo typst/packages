@@ -70,6 +70,11 @@
   fontsize: 12.5pt,
   sectionnumbering: none,
   responsible_default: [Gabi Sorglos],
+  eidesstattliche_erklaerung_text: [Ich erklare an Eides statt, dass ich die vorliegende Diplomarbeit selbst verfasst und keine anderen als die angefuhrten Behelfe verwendet habe. Alle Stellen, die wortlich oder inhaltlich den angegebenen Quellen entnommen wurden, sind als solche kenntlich gemacht. Diese Versicherung umfasst auch verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Etwaig verwendete Behelfe generativer KI-Tools wurden vollstandig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen. Ich bin damit einverstanden, dass meine Arbeit offentlich zuganglich gemacht wird.],
+  abnahmeerklaerung_text: [Hiermit bestatigt der Auftraggeber, dass das ubergebene Produkt dieser Diplomarbeit den dokumentierten Vorgaben entspricht. Des Weiteren verzichtet der Auftraggeber auf unentgeltliche Wartung und Weiterentwicklung des Produktes durch die Projektmitglieder bzw. die Schule.],
+  vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
+  kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
+  abstract_text: [Englische Version der Kurzfassung.],
   project_partner_logo_path: none, // New parameter for project partner logo
   school_logo_path: none, // New parameter for school logo
   doc,
@@ -186,7 +191,7 @@
 
     // ── Eidesstattliche Erklärung ─────────────────────────────────────────────
     heading(level: 1, numbering: none, outlined: false)[Eidesstattliche Erklarung]
-    [Ich erklare an Eides statt, dass ich die vorliegende Diplomarbeit selbst verfasst und keine anderen als die angefuhrten Behelfe verwendet habe. Alle Stellen, die wortlich oder inhaltlich den angegebenen Quellen entnommen wurden, sind als solche kenntlich gemacht. Diese Versicherung umfasst auch verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Etwaig verwendete Behelfe generativer KI-Tools wurden vollstandig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen. Ich bin damit einverstanden, dass meine Arbeit offentlich zuganglich gemacht wird.]
+    eidesstattliche_erklaerung_text
     v(1.2cm)
     grid(
       columns: (1fr, 1fr),
@@ -200,7 +205,7 @@
 
     // ── Abnahmeerklärung ──────────────────────────────────────────────────────
     heading(level: 1, numbering: none, outlined: false)[Abnahmeerklarung]
-    [Hiermit bestatigt der Auftraggeber, dass das ubergebene Produkt dieser Diplomarbeit den dokumentierten Vorgaben entspricht. Des Weiteren verzichtet der Auftraggeber auf unentgeltliche Wartung und Weiterentwicklung des Produktes durch die Projektmitglieder bzw. die Schule.]
+    abnahmeerklaerung_text
     v(1.2cm)
     [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])]
     v(1.8cm)
@@ -209,15 +214,15 @@
 
     // ── Vorwort / Kurzfassung / Abstract ─────────────────────────────────────
     heading(level: 1, numbering: none, outlined: false)[Vorwort]
-    [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.]
+    vorwort_text
     pagebreak()
 
     heading(level: 1, numbering: none, outlined: false)[Kurzfassung]
-    [Kurzbeschreibung von Aufgabenstellung und Problemlosung.]
+    kurzfassung_text
     pagebreak()
 
     heading(level: 1, numbering: none, outlined: false)[Abstract]
-    [Englische Version der Kurzfassung.]
+    abstract_text
     pagebreak()
 
     // ── Verzeichnisse ─────────────────────────────────────────────────────────
