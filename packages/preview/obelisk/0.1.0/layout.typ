@@ -73,7 +73,7 @@
   place-side(sym, dx: dx, dy: dy)
 }
 
-#let small(it, scale: 2 / 3, size: 0.75em) = {
+#let small(it, scale: 2 / 3, size: 0.75em) = context {
   let def = default-settings.get()
   let step = def.texts.step * scale
   set par(leading: step)
@@ -145,7 +145,7 @@
   h(0pt, weak: true)
 }
 
-#let blank-page(..args) = {
+#let blank-page(..args) = context {
   let mono-font = default-settings.get().fonts.mono
   set page(
     background: {
