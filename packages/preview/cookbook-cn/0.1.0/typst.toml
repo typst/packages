@@ -1,0 +1,17 @@
+[package]
+name = "cookbook-cn"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["songwupei"]
+license = "MIT"
+description = "A Typst cookbook template with full Chinese typography support, custom cover pages, and flexible TOC styles."
+repository = "https://codeberg.org/songwupei/cookbook-cn"
+keywords = ["cookbook", "recipe", "chinese", "cjk", "cooking", "book"]
+categories = ["layout"]
+compiler = "0.13.1"
+exclude = ["example.pdf", ".gitignore", "thumbnail.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

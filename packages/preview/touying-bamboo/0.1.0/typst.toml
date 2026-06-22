@@ -1,0 +1,12 @@
+[package]
+name = "touying-bamboo"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["songwupei"]
+license = "MIT"
+description = "A fresh bamboo-green theme for the Touying presentation framework, featuring clean headers, slide counters, and focus slides."
+repository = "https://codeberg.org/songwupei/touying-bamboo"
+keywords = ["touying", "bamboo", "presentation", "theme", "green", "slide"]
+categories = ["presentation"]
+compiler = "0.13.1"
+exclude = ["example.pdf", ".gitignore"]
