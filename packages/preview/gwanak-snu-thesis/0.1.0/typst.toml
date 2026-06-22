@@ -2,7 +2,7 @@
 name = "gwanak-snu-thesis"
 version = "0.1.0"
 entrypoint = "lib.typ"
-compiler = "0.15.0"
+compiler = "0.14.0"
 authors = ["Jaeyeong Yang"]
 license = "MIT AND MIT-0"
 description = "Unofficial SNU thesis for bachelor's, master's, and Ph.D. degrees."

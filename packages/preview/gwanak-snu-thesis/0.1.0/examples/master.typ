@@ -50,7 +50,7 @@
   acknowledgement: [
     연구 방향을 세심하게 지도해 주신 이관악 교수님께 감사드립니다. 실험 문서 작성과 사용자 평가에 참여해 준 연구실 동료들에게도 깊이 감사드립니다.
   ],
-  bibliography: bibliography(path("references.bib"), style: "apa", title: none),
+  bibliography: bibliography("references.bib", style: "apa", title: none),
   appendices: (
     (
       title: [사용자 평가 설문 문항],

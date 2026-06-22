@@ -40,7 +40,7 @@
   keywords-ko: ("연속 학습", "도시 이동성", "시계열 예측", "데이터 중심 인공지능"),
   keywords-en: ("continual learning", "urban mobility", "time-series forecasting", "data-centric AI"),
   acknowledgement: include "sections/acknowledgement.typ",
-  bibliography: bibliography(path("bibliography/references.bib"), style: "apa", title: none),
+  bibliography: bibliography("bibliography/references.bib", style: "apa", title: none),
   appendices: (
     (
       title: [Additional drift detection checks],

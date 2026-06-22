@@ -37,7 +37,7 @@
   ],
   keywords-ko: ("캠퍼스 이동", "혼잡도 예측", "모바일 센서", "시계열 분석"),
   keywords-en: ("campus mobility", "crowding forecast", "mobile sensing", "time-series analysis"),
-  bibliography: bibliography(path("references.bib"), style: "apa", title: none),
+  bibliography: bibliography("references.bib", style: "apa", title: none),
 )
 
 = 서론

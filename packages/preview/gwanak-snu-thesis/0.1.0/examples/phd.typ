@@ -50,7 +50,7 @@
   acknowledgement: [
     I thank my advisor, committee members, lab colleagues, and the public data teams whose careful data maintenance made this research possible.
   ],
-  bibliography: bibliography(path("references.bib"), style: "apa", title: none),
+  bibliography: bibliography("references.bib", style: "apa", title: none),
   appendices: (
     (
       title: [Additional drift detection checks],
