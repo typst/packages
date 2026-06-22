@@ -19,11 +19,11 @@ PRs and suggestions are welcome.
 ## Sample Output
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/matchy233/typst-chi-cv-template/main/assets/images/resume-0.png" width="45%" alt="Page 1 of Chi's CV">
-  <img src="https://raw.githubusercontent.com/matchy233/typst-chi-cv-template/main/assets/images/resume-1.png" width="45%" alt="Page 2 of Chi's CV">
+  <img src="https://raw.githubusercontent.com/matchy233/typst-chi-cv-template/v1.1.4/assets/images/resume-0.png" width="45%" alt="Page 1 of Chi's CV">
+  <img src="https://raw.githubusercontent.com/matchy233/typst-chi-cv-template/v1.1.4/assets/images/resume-1.png" width="45%" alt="Page 2 of Chi's CV">
 </p>
 
-[PDF file](https://raw.githubusercontent.com/matchy233/typst-chi-cv-template/main/assets/images/resume.pdf)
+[PDF file](https://raw.githubusercontent.com/matchy233/typst-chi-cv-template/v1.1.4/assets/images/resume.pdf)
 
 ## Getting Started
 
