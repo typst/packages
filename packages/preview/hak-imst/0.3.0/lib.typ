@@ -340,7 +340,7 @@
   let header_fallback = if title == none { [Projektarbeit] } else { title }
 
   set page(
-    header: [#running-header(fallback: header_fallback)],
+    // header: [#running-header(fallback: header_fallback)],
     footer: context [
       #set text(size: 9pt)
       #grid(
