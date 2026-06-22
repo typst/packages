@@ -1321,15 +1321,15 @@ Default: `auto`
 
 ### 1.1.0 - 2026-06-21
 
-#### Added
-
-- New `skip-strings` argument allows more selective general conversions.
-- New `skip-dictionaries` argument allows more selective general conversions.
-
 #### Changed
 
 - Deprecate converting RGB/A hex codes to color without initial hash character.
 - Allow `none-from` to take a single string argument, as well as an array.
+
+#### Added
+
+- New `skip-strings` argument allows more selective general conversions.
+- New `skip-dictionaries` argument allows more selective general conversions.
 
 ### 1.0.0 - 2026-06-08
 
