@@ -70,8 +70,23 @@
 ///   `tile-width`, `tile-height`, `margin`, `spacing`)
 ///
 /// -> dictionary
-#let sheet-info(data, ..args) = {
-  cbor(_plugin.info(data, _spec(..args.named())))
+#let sheet-info(
+  data,
+  rows: none,
+  cols: none,
+  tile-width: none,
+  tile-height: none,
+  margin: 0,
+  spacing: 0,
+) = {
+  cbor(_plugin.info(data, _spec(
+    cols: cols,
+    rows: rows,
+    tile-width: tile-width,
+    tile-height: tile-height,
+    margin: margin,
+    spacing: spacing,
+  )))
 }
 
 /// Slices `data` into every sprite. The returned dictionary has `rows`, `cols`,
@@ -88,12 +103,31 @@
 /// ```
 ///
 /// - data (bytes): the raw spritesheet image (PNG, JPEG, GIF, or WebP)
-/// - args (arguments): slice arguments forwarded to `_spec` (`rows`, `cols`,
-///   `tile-width`, `tile-height`, `margin`, `spacing`)
+/// - rows (none, int): number of sprite rows (grid mode)
+/// - cols (none, int): number of sprite columns (grid mode)
+/// - tile-width (none, int): width of a single sprite in pixels (size mode)
+/// - tile-height (none, int): height of a single sprite in pixels (size mode)
+/// - margin (int, array): border between the sheet edges and the outermost tiles
+/// - spacing (int, array): gap between adjacent tiles
 ///
 /// -> dictionary
-#let spritesheet(data, ..args) = {
-  cbor(_plugin.split(data, _spec(..args.named())))
+#let spritesheet(
+  data,
+  rows: none,
+  cols: none,
+  tile-width: none,
+  tile-height: none,
+  margin: 0,
+  spacing: 0,
+) = {
+  cbor(_plugin.split(data, _spec(
+    rows: rows,
+    cols: cols,
+    tile-width: tile-width,
+    tile-height: tile-height,
+    margin: margin,
+    spacing: spacing,
+  )))
 }
 
 /// Extracts a single sprite, addressed by `index` (row-major, zero-based) or by
@@ -109,17 +143,43 @@
 /// - index (none, int): row-major, zero-based sprite index
 /// - row (none, int): zero-based row (use together with `col`)
 /// - col (none, int): zero-based column (use together with `row`)
-/// - args (arguments): slice arguments forwarded to `_spec` (`rows`, `cols`,
-///   `tile-width`, `tile-height`, `margin`, `spacing`)
+/// - rows (none, int): number of sprite rows (grid mode)
+/// - cols (none, int): number of sprite columns (grid mode)
+/// - tile-width (none, int): width of a single sprite in pixels (size mode)
+/// - tile-height (none, int): height of a single sprite in pixels (size mode)
+/// - margin (int, array): border between the sheet edges and the outermost tiles
+/// - spacing (int, array): gap between adjacent tiles
 ///
 /// -> dictionary
-#let sprite(data, index: none, row: none, col: none, ..args) = {
+#let sprite(
+  data,
+  index: none,
+  row: none,
+  col: none,
+  rows: none,
+  cols: none,
+  tile-width: none,
+  tile-height: none,
+  margin: 0,
+  spacing: 0,
+) = {
   let selector = (:)
   if index != none { selector.index = index }
   if row != none { selector.row = row }
   if col != none { selector.col = col }
 
-  cbor(_plugin.sprite(data, _spec(..args.named()), cbor.encode(selector)))
+  cbor(_plugin.sprite(
+    data,
+    _spec(
+      rows: rows,
+      cols: cols,
+      tile-width: tile-width,
+      tile-height: tile-height,
+      margin: margin,
+      spacing: spacing,
+    ),
+    cbor.encode(selector),
+  ))
 }
 
 /// Turns a sprite dictionary (from `spritesheet` or `sprite`) into an `image`.
