@@ -1,5 +1,5 @@
 [package]
-name = "hak-imst"
+name = "bhs-school-bundle"
 version = "0.2.0"
 entrypoint = "lib.typ"
 description = "Professional thesis template for HAK/HAS and Kolleg Imst (Austria) following formal requirements, easily customizable for other schools."
