@@ -2,6 +2,10 @@
 #import "default.typ": *
 #import "theorem.typ": *
 
+#import "@preview/hydra:0.6.2": anchor, hydra
+
+#let hydra = hydra.with(use-last: true)
+
 #let init(
   it,
   paper: (width: width, height: height),
@@ -41,7 +45,7 @@
       bottom: margin.f,
     ),
     background: context {
-      let page-num = counter(page).get().first()
+      let page-num = here().page()
       let dx = if calc.even(page-num) {
         margin.e - side.half-gutter
       } else {
@@ -96,30 +100,60 @@
       }
     },
     footer: context {
-      let page-num = counter(page).get().first()
-      let t = text(
+      let page-num = here().page()
+      let pnum-text = text(
         font: fonts.mono,
         fill: luma(180),
       )[[ #text(fill: luma(60))[#page-num] ]]
+      let pnum-width = measure(pnum-text).width
+
+      let header-text = text(
+        font: fonts.mono,
+        fill: luma(210),
+        if calc.odd(page-num) {
+          context hydra(2) + " "
+        } else {
+          "" + context hydra(1)
+        },
+      )
+
       let dx = -body.width / 2 - side.half-gutter
       place(
-        bottom + center,
+        top + center,
         dx: if calc.even(page-num) {
           dx
         } else {
           -dx
         },
-        dy: -side.half-gutter - texts.step,
+        dy: side.half-gutter,
         box(
           fill: white,
           outset: (
             top: side.half-gutter + texts.ascender,
             bottom: side.half-gutter,
           ),
-          t,
+          pnum-text,
         ),
       )
+
+      let dx = -side.half-gutter + pnum-width / 2
+      let flush = if calc.odd(page-num) {
+        right
+      } else {
+        left
+      }
+      place(
+        top + flush,
+        dx: if calc.even(page-num) {
+          dx
+        } else {
+          -dx
+        },
+        dy: side.half-gutter,
+        header-text,
+      )
     },
+    header: anchor(),
   )
 
   set text(
@@ -159,7 +193,12 @@
       it
     }).height
     let g = (
-      (calc.ceil((h - texts.step * 2 + texts.ascender) / texts.step))
+      (
+        calc.ceil(
+          (h - texts.step * 2 + texts.ascender)
+            / texts.step,
+        )
+      )
         * texts.step
     )
     box(
