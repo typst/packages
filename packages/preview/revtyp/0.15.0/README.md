@@ -89,7 +89,7 @@ Use "widetext" to switch from two column mode to
 This paragraph is back in two column layout...
 ```
 Currently, widetext environments are limited to appear at the top (`widetext-top`) or bottom of a page (`widetext-bottom`) or fill a full page (`widetext-page`), i.e. you cannot switch to widetext and back to two column mode within a single page. Also, you have to manually adjust the begin/end of the environments in the source text to match with the layout.
-Set `continue-paragraph-begin` to `true` if the text at the beginning of the widetext environment belongs to the same paragraph as the text before it, or to `false` otherwise. Set `continue-paragraph-end` accordingly for the text at the end / after the widetext environment. In any case, avoid empty lines before/after the widetext environments as well as at the begining/end of their contents to ensure paragraph-continuation works as expected. See [widetext/test.typ](tests/widetext/test.typ) for a comprehensive example.
+Set `continue-paragraph-begin` to `true` if the text at the beginning of the widetext environment belongs to the same paragraph as the text before it, or to `false` otherwise. Set `continue-paragraph-end` accordingly for the text at the end / after the widetext environment. In any case, avoid empty lines before/after the widetext environments as well as at the begining/end of their contents to ensure paragraph-continuation works as expected. See [widetext/test.typ](https://github.com/eltos/revtyp/blob/ece16ff2ba38ae7e308672fb49b6e66675e7bedc/tests/widetext/test.typ) for a comprehensive example.
 
 
 
