@@ -24,40 +24,7 @@ If you don't yet have the *TeX Gyre Termes* font family, you can install it with
 
 ![Thumbnail](thumbnail.webp)
 
-
-<table>
-    <tr><td>PRA</td><td>PRAB</td><td>PRApplied</td></tr>
-    <tr>
-        <td><img src="tests/journal-pra/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prab/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prapplied/ref/1.png" width="250px"></td>
-    </tr>
-    <tr><td>PRB</td><td>PRC</td><td>PRD</td></tr>
-    <tr>
-        <td><img src="tests/journal-prb/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prc/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prd/ref/1.png" width="250px"></td>
-    </tr>
-    <tr><td>PRE</td><td>PRFluids</td><td>PRL</td></tr>
-    <tr>
-        <td><img src="tests/journal-pre/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prfluids/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prl/ref/1.png" width="250px"></td>
-    </tr>
-    <tr><td>PRMaterials</td><td>PRPER</td><td>PRX</td></tr>
-    <tr>
-        <td><img src="tests/journal-prmaterials/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prper/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prx/ref/1.png" width="250px"></td>
-    </tr>
-    <tr><td>PRXEnergy</td><td>PRXLife</td><td>PRXQuantum</td></tr>
-    <tr>
-        <td><img src="tests/journal-prxenergy/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prxlife/ref/1.png" width="250px"></td>
-        <td><img src="tests/journal-prxquantum/ref/1.png" width="250px"></td>
-    </tr>
-</table>
-
+See https://github.com/eltos/revtyp for more screenshots.
 
 ### API documentation
 
