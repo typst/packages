@@ -75,10 +75,10 @@
   doc,
 ) = {
   // "hak" im Fließtext → Logo + vollständiger Name
-  show "hak": _ => box[
-    #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))
-    Handelsakademie und Handelsschule Imst
-  ]
+  // show "hak": _ => box[
+  //   #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))
+  //   Handelsakademie und Handelsschule Imst
+  // ]
 
   show terms: it => {
     it.children
@@ -110,11 +110,8 @@
   if title != none {
     let school_logo_final = if school_logo_path != none {
         school_logo_path
-    } else if titlepage_variant == "kolleg" {
-        // Lädt das Bild direkt aus dem Paket-Verzeichnis
-        image("template/typst_media/logos/Logo_Kolleg_Imst.png")
     } else {
-        image("template/typst_media/logos/Logo_HAK_Imst.png")
+        image("template/typst_media/logos/Logo_Schule.png")
     }
 
     let project_partner_logo_final = if project_partner_logo_path != none {

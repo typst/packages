@@ -21,7 +21,7 @@
   fontsize: 12.5pt,
   sectionnumbering: "1.1.1",
   // project_partner_logo_path: image("template/typst_media/logos/Logo_Projektpartner.png"),
-  // school_logo_path: image("template/typst_media/logos/Logo_HAK_Imst.png"),
+  // school_logo_path: image("template/typst_media/logos/Logo_Schule.png"),
 )
 
 Hier startet das Dokument
