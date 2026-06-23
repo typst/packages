@@ -16,7 +16,7 @@ Example:
 
 ```typst
 // For Kolleg variant: replace "hak" with "kolleg"
-#import "@preview/hak-imst:0.2.0": *
+#import "@preview/bhs-school-bundle:0.2.0": *
 
 #show: hak.with(
 	title: [Thesis Title],
