@@ -38,8 +38,8 @@ Example:
 	vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
 	kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
 	abstract_text: [Englische Version der Kurzfassung.],
-	// project_partner_logo_path: "typst_media/logos/Logo_Projektpartner.png",
-	// school_logo_path: "typst_media/logos/Logo_HAK_Imst.png",
+	// project_partner_logo: image("typst_media/logos/Logo_Projektpartner.png"),
+	// school_logo: image("typst_media/logos/Logo_Schule.png"),
 )
 
 #include "content.typ"
@@ -72,10 +72,10 @@ Both use the same named parameters and are configured through `#show: ...with(..
 - `abnahmeerklaerung_text` (content or `none`): Acceptance Certificate
 - `vorwort_text` (content or `none`): German abstract
 - `abstract_text` (content or `none`): English abstract
-- `project_partner_logo_path` (string or `none`): Path for the left cover-page logo
-- `school_logo_path` (string or `none`): Path for the right cover-page school logo
+- `project_partner_logo` (content or `none`): Content for the left cover-page logo (specify an image with e.g. `image("path/to/logo.png")`)
+- `school_logo` (content or `none`): Content for the right cover-page school logo (specify an image with e.g. `image("path/to/logo.png")`)
 
-If `project_partner_logo_path` or `school_logo_path` are not set, the template uses default logos from `typst_media/logos/`.
+If `project_partner_logo` or `school_logo` are not set, the template uses template logos from `typst_media/logos/`.
 
 ## Chapter Responsibility
 

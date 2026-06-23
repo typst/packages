@@ -24,8 +24,8 @@
   vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
   kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
   abstract_text: [Englische Version der Kurzfassung.],
-  project_partner_logo_path: image("typst_media/logos/Logo_Projektpartner.png"),
-  school_logo_path: image("typst_media/logos/Logo_Schule.png"),
+  project_partner_logo: image("typst_media/logos/Logo_Projektpartner.png"),
+  school_logo: image("typst_media/logos/Logo_Schule.png"),
 )
 
 #include "content.typ"

@@ -75,8 +75,8 @@
   vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
   kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
   abstract_text: [Englische Version der Kurzfassung.],
-  project_partner_logo_path: none, // New parameter for project partner logo
-  school_logo_path: none, // New parameter for school logo
+  project_partner_logo: none, // New parameter for project partner logo
+  school_logo: none, // New parameter for school logo
   doc,
 ) = {
   // "hak" im Fließtext → Logo + vollständiger Name
@@ -113,14 +113,14 @@
 
   // ── Titelseite ──────────────────────────────────────────────────────────────
   if title != none {
-    let school_logo_final = if school_logo_path != none {
-        school_logo_path
+    let school_logo_final = if school_logo != none {
+        school_logo
     } else {
         image("template/typst_media/logos/Logo_Schule.png")
     }
 
-    let project_partner_logo_final = if project_partner_logo_path != none {
-        project_partner_logo_path
+    let project_partner_logo_final = if project_partner_logo != none {
+        project_partner_logo
     } else {
         image("template/typst_media/logos/Logo_Projektpartner.png")
     }    
