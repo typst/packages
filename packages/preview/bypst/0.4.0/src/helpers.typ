@@ -4,7 +4,7 @@
 // title area with shrink-to-fit, background, alignment, slide overrides).
 // ===================================================================
 
-#import "@preview/touying:0.7.3": utils
+#import "@preview/touying:0.7.4": utils
 #import "config.typ": *
 
 /// Choose first non-none value from list of options
