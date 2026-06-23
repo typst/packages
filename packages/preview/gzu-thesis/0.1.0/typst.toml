@@ -1,0 +1,20 @@
+[package]
+name = "gzu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["chengwu <@chengwu26>"]
+license = "MIT"
+description = "贵州大学本科生毕业论文（设计）模板"
+repository = "https://github.com/chengwu26/gzu-thesis.git"
+keywords = ["贵州大学", "毕业论文", "GZU", "Guizhou University", "thesis"]
+categories = ["thesis"]
+compiler = "0.14.0"
+exclude = [
+  "manual.*",
+  "assets/贵州大学毕业论文（设计）管理办法（试行）.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"
