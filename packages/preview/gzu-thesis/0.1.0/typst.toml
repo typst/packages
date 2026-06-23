@@ -11,7 +11,7 @@ categories = ["thesis"]
 compiler = "0.14.0"
 exclude = [
   "manual.*",
-  "assets/page1.png",
+  "assets/thumbnail.png",
   "assets/贵州大学毕业论文（设计）管理办法（试行）.pdf",
 ]
 
