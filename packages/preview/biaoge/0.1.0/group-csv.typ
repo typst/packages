@@ -1,4 +1,4 @@
-#import "table-style.typ": stroke_light, inner_frame
+#import "table-style.typ": stroke-light, inner-frame
 #import "group-csv-tools.typ": split-column-in-rows, merge-selected-columns
 #import "merge-cells.typ": merge-table-data, merge-table-data-value-col, merge-table, merge-table-value-col
 
@@ -44,12 +44,12 @@
   align(center)[#title]
   table(
     columns: (4fr,) + (1fr,) * (header.len()-1),
-    stroke: inner_frame(stroke_light),
+    stroke: inner-frame(stroke-light),
     inset: 10pt,
     align: (center,) + (right,)*(header.len()-1),
     table.header(..header),
     ..rows.flatten(),
-    table.hline(stroke: stroke_light),
+    table.hline(stroke: stroke-light),
     ..total-row,
   )
   }
@@ -63,12 +63,12 @@
   table(
     columns: (1fr,)*2 + (0.5fr,) * (header.len()-2),
 
-    stroke: inner_frame(stroke_light),
+    stroke: inner-frame(stroke-light),
     inset: 10pt,
     align: (center,)*2 + (right,)*(header.len()-2),
     table.header(..header),
     ..rows.flatten(),
-    table.hline(stroke: stroke_light),
+    table.hline(stroke: stroke-light),
     ..total-row,
   )
   }
@@ -77,12 +77,12 @@
   table(
     columns: (1fr,)*2 + (0.5fr,) * (header.len()-2),
 
-    stroke: inner_frame(stroke_light),
+    stroke: inner-frame(stroke-light),
     inset: 10pt,
     align: (center,)*2 + (right,)*(header.len()-2),
     table.header(..header),
     ..rows.flatten(),
-    table.hline(stroke: stroke_light),
+    table.hline(stroke: stroke-light),
   )
   }
 // 按照 group-index-1 + group-index-2 对 value-index 分类汇总排序
