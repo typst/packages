@@ -9,8 +9,9 @@ repository = "https://codeberg.org/songwupei/touying-matcha"
 keywords = ["touying", "matcha", "presentation", "theme", "green", "slide"]
 categories = ["presentation"]
 compiler = "0.13.1"
-exclude = ["example.pdf", ".gitignore", "thumbnail.png"]
+exclude = ["example.pdf", ".gitignore"]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
