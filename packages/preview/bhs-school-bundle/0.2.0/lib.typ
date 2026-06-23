@@ -190,40 +190,50 @@
     pagebreak()
 
     // ── Eidesstattliche Erklärung ─────────────────────────────────────────────
-    heading(level: 1, numbering: none, outlined: false)[Eidesstattliche Erklarung]
-    eidesstattliche_erklaerung_text
-    v(1.2cm)
-    grid(
-      columns: (1fr, 1fr),
-      row-gutter: 1.1cm,
-      [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])],
-      [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
-      [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
-      [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
-    )
-    pagebreak()
+    if eidesstattliche_erklaerung_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Eidesstattliche Erklarung]
+      eidesstattliche_erklaerung_text
+      v(1.2cm)
+      grid(
+        columns: (1fr, 1fr),
+        row-gutter: 1.1cm,
+        [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])],
+        [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
+        [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
+        [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
+      )
+      pagebreak()
+    }
 
     // ── Abnahmeerklärung ──────────────────────────────────────────────────────
-    heading(level: 1, numbering: none, outlined: false)[Abnahmeerklarung]
-    abnahmeerklaerung_text
-    v(1.2cm)
-    [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])]
-    v(1.8cm)
-    [#stack(spacing: 2mm, line(length: 5cm), [Auftraggeber])]
-    pagebreak()
+    if abnahmeerklaerung_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Abnahmeerklarung]
+      abnahmeerklaerung_text
+      v(1.2cm)
+      [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])]
+      v(1.8cm)
+      [#stack(spacing: 2mm, line(length: 5cm), [Auftraggeber])]
+      pagebreak()
+    }
 
     // ── Vorwort / Kurzfassung / Abstract ─────────────────────────────────────
-    heading(level: 1, numbering: none, outlined: false)[Vorwort]
-    vorwort_text
-    pagebreak()
+    if vorwort_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Vorwort]
+      vorwort_text
+      pagebreak()
+    }
 
-    heading(level: 1, numbering: none, outlined: false)[Kurzfassung]
-    kurzfassung_text
-    pagebreak()
+    if kurzfassung_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Kurzfassung]
+      kurzfassung_text
+      pagebreak()
+    }
 
-    heading(level: 1, numbering: none, outlined: false)[Abstract]
-    abstract_text
-    pagebreak()
+    if abstract_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Abstract]
+      abstract_text
+      pagebreak()
+    }
 
     // ── Verzeichnisse ─────────────────────────────────────────────────────────
     outline(title: [Inhaltsverzeichnis])
