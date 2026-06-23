@@ -1,0 +1,12 @@
+[package]
+name = "biaoge"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["songwupei"]
+license = "MIT"
+description = "表哥 — Typst table toolkit for CSV grouping, cell merging, column splitting, and summary tables."
+repository = "https://codeberg.org/songwupei/typst-biaoge"
+keywords = ["table", "csv", "merge", "summary", "group", "split"]
+categories = ["components"]
+compiler = "0.13.1"
+exclude = [".gitignore"]
