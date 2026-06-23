@@ -1,5 +1,5 @@
-#let mergeSelectedColumns(data, indices, transform: (values) => values.join(" - ")) = {
-  // 这个版本保持原始列的顺序，只是将指定列替换为合并值
+#let merge-selected-columns(data, indices, transform: (values) => values.join(" - ")) = {
+  // 保持原始列的顺序，只是将指定列替换为合并值
 
   if data.len() > 0 and type(data.first()) == array {
     // 处理二维数组
@@ -13,19 +13,15 @@
 
       for i in range(0, row.len()) {
         if indices.contains(i) {
-          // 如果是第一个指定列，添加合并值
           if not mergedAdded {
             newRow = newRow + (mergedValue,)
             mergedAdded = true
           }
-          // 跳过其他指定列
         } else {
-          // 非指定列，直接添加
           newRow = newRow + (row.at(i),)
         }
       }
 
-      // 如果没有指定列（indices为空），在末尾添加合并值
       if not mergedAdded and indices.len() > 0 {
         newRow = newRow + (mergedValue,)
       }
@@ -57,7 +53,7 @@
   }
 }
 
-#let trimString(str) = {
+#let trim-string(str) = {
   let start = 0
   let end = str.len()
 
@@ -74,9 +70,9 @@
   str.slice(start, end)
 }
 
-#let splitColumnInRows(data, splitColumnIndex, separator: " - ") = {
+#let split-column-in-rows(data, split-column-index, separator: " - ") = {
   data.map(row => {
-    let colValue = row.at(splitColumnIndex)
+    let colValue = row.at(split-column-index)
 
     let splitParts = if type(colValue) == str {
       colValue.split(separator)
@@ -87,8 +83,8 @@
     }
 
     // 重新构建行
-    let before = row.slice(0, splitColumnIndex)
-    let after = row.slice(splitColumnIndex + 1)
+    let before = row.slice(0, split-column-index)
+    let after = row.slice(split-column-index + 1)
 
     before + splitParts + after
   })

@@ -1,6 +1,6 @@
 // 分离表头和数据行
 #let merge-col(data, merge-col-index) = data.map(r => r.at(merge-col-index))
-#let mk-spancell(k,v) = {
+#let mk-span-cell(k,v) = {
   if k == 0 {
     "mergedCell"
   } else {
@@ -11,7 +11,7 @@
   }
   }
 }
-#let mk-spancell-valueCol(k,v) = {
+#let mk-span-cell-value-col(k,v) = {
   if k == 0 {
     "mergedCell"
   } else {
@@ -23,7 +23,7 @@
   }
 }
 
-#let merge-table-data(header,rows, merge-col-index, table-col-count) = {
+#let merge-table-data(header, rows, merge-col-index, table-col-count) = {
   let data-header = header
   let data-rows = rows
   let merge-col = rows.map(r => r.at(merge-col-index))
@@ -36,7 +36,6 @@
   let i = 1
   while i < arr.len() {
     let current-value = arr.at(i)
-    // let i = j
     let span = 1
     while i+span  < arr.len() {
       if arr.at(i+span) == current-value {
@@ -46,14 +45,12 @@
       arr-span += (0,) * (int(span)-1)
         break
         }
-        // i +=span
       }
     i += span
 }
 
 let arr-span-data = arr-span.zip(merge-col)
-    // arr-span-dict
-    let arr-span-data = arr-span-data.map(((k,v)) => (mk-spancell(k,v),)*table-col-count)
+    let arr-span-data = arr-span-data.map(((k,v)) => (mk-span-cell(k,v),)*table-col-count)
     let merged = {
     for (row1, row2) in arr-span-data.zip(data-rows) {
       if merge-col-index > 0{
@@ -62,10 +59,10 @@ let arr-span-data = arr-span.zip(merge-col)
       (row1.at(merge-col-index),..row2.slice(merge-col-index+1))
       }
     }
-} 
+}
 (header: data-header, rows: merged.filter(r => {r != "mergedCell"}))
 }
-#let merge-table-data-valueCol(header,rows, merge-col-index, table-col-count, value-col-index) = {
+#let merge-table-data-value-col(header, rows, merge-col-index, table-col-count, value-col-index) = {
   let data-header = header
   let data-rows = rows
   let merge-col = rows.map(r => r.at(merge-col-index))
@@ -82,7 +79,6 @@ let arr-span-data = arr-span.zip(merge-col)
   let i = 1
   while i < arr.len() {
     let current-value = arr.at(i)
-    // let i = j
     let span = 1
     let vol-sum = decimal(str(brr.at(i)).split(regex("[%]")).at(0))
     while i+span  < arr.len() {
@@ -102,9 +98,8 @@ let arr-span-data = arr-span.zip(merge-col)
 
 let arr-span-data = arr-span.zip(merge-col)
 let brr-span-data = brr-span.zip(value-col)
-    // arr-span-dict
-    let arr-span-data = arr-span-data.map(((k,v)) => (mk-spancell(k,v),)*table-col-count)
-    let brr-span-data = brr-span-data.map(((k,v)) => (mk-spancell-valueCol(k,v),)*table-col-count)
+    let arr-span-data = arr-span-data.map(((k,v)) => (mk-span-cell(k,v),)*table-col-count)
+    let brr-span-data = brr-span-data.map(((k,v)) => (mk-span-cell-value-col(k,v),)*table-col-count)
     let merged = {
     for (row1, row2, row3) in arr-span-data.zip( data-rows, brr-span-data ) {
       if merge-col-index > 0{
@@ -113,7 +108,7 @@ let brr-span-data = brr-span.zip(value-col)
       (row1.at(merge-col-index),..row2.slice(merge-col-index+1),row3.at(merge-col-index),)
       }
     }
-} 
+}
 (header: data-header, rows: merged.filter(r => {r != "mergedCell"}))
 }
 
@@ -124,15 +119,15 @@ let brr-span-data = brr-span.zip(value-col)
       ..merge-table-dict.at("header"),
     ),
   ..merge-table-dict.at("rows").map(r=>  [#r] ))
-  
+
 }
 
-#let merge-table-valueCol(header, rows, merge-col-index, table-col-count, value-col-index) = {
-  let merge-table-dict = merge-table-data-valueCol(header, rows, merge-col-index, table-col-count, value-col-index)
+#let merge-table-value-col(header, rows, merge-col-index, table-col-count, value-col-index) = {
+  let merge-table-dict = merge-table-data-value-col(header, rows, merge-col-index, table-col-count, value-col-index)
   table(columns:header.len(),
   table.header(
       ..merge-table-dict.at("header"),
     ),
   ..merge-table-dict.at("rows").map(r=>  [#r] ))
-  
+
 }
