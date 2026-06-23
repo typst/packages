@@ -1,7 +1,0 @@
-{
-  "tool_name": "Read",
-  "tool_input_preview": "{\"file_path\":\"/home/song/NutstoreFiles/scripts/skills/typst-plugin\"}",
-  "error": "EISDIR: illegal operation on a directory, read '/home/song/NutstoreFiles/scripts/skills/typst-plugin'",
-  "timestamp": "2026-06-23T01:46:55.797Z",
-  "retry_count": 1
-}

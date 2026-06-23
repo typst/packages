@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"echo \\\"=== touying-matcha #5147 ===\\\" && gh pr checks 5147 --repo typst/packages 2>&1 && echo \\\"\\\" && echo \\\"=== biaoge #5148 ===\\\" && gh pr checks 5148 --repo typst/packages 2>&1\",\"descri...",
-  "error": "Exit code 1\n=== touying-matcha #5147 ===\n@preview/touying-matcha:0.1.0\tfail\t1s\thttps://typst.app\t\nLint\tpass\t1m34s\thttps://github.com/typst/packages/actions/runs/28017710231/job/82926069090\t\nTest\tpass\t1m4s\thttps://github.com/typst/packages/actions/runs/28017712030/job/82926075007",
-  "timestamp": "2026-06-23T09:54:21.524Z",
-  "retry_count": 3
-}
