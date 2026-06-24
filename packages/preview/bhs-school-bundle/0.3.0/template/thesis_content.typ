@@ -495,51 +495,43 @@ mit Zeilenumbruch, #link(<tbl:shiftReg>)[13.2] für eine aufwändigere
 Tabelle mit einer Abbildung und Überschrift.
 
 <tbl:lineBreak>
-#figure(
-  kind: table,
-  caption: [Einfache Tabelle mit Zeilenumbruch],
-  align(center)[#table(
+#figure( 
+  table(
     columns: 2,
-    align: (col, row) => (left,left,).at(col),
-    inset: 6pt,
-    [Use Case],
-    [Opret Server],
-    [Scenarie],
-    [At oprette en server med bestemte regler som tillader folk at spille
-    zusammen. More Text more text More Text],
-  )],
+    align: left,
+    [Use Case], [Opret Server],
+    [Scenarie], [At oprette en server med bestemte regler som tillader folk at spille zusammen. More Text more text More Text],
+  ),
+  caption: [Einfache Tabelle mit Zeilenumbruch],
 )
 
 <tbl:shiftReg>
 #figure(
-  kind: table,
-  placement: auto,
-  caption: [Aufwändige Tabelle mit Abbildung und Caption],
-  align(center)[#stack(
-    spacing: 8pt,
-    image("./typst_media/figures/shift_reg.png", width: 28%),
-    table(
-      columns: 2,
-      align: (col, row) => (left,left,).at(col),
-      inset: 6pt,
-      [$V_(c c)$],
-      [Positive supply voltage],
-      [GND],
-      [Ground],
-      [SER IN],
-      [Daten Pin],
-      [SRCK],
-      [Clock Pin],
-      [RCK],
-      [Latch Pin],
-      [$overline(S R C L R)$],
-      [Wenn #strong[shift-register clear] LOW ist, werden die input Register
-      gelöscht],
-      [$overline(G)$],
-      [Wenn #strong[output enable] HIGH ist, werden die Daten im Output
-      Buffer LOW gehalten],
+    stack(
+      image("./typst_media/figures/shift_reg.png", width: 28%),
+      table(
+        columns: 2,
+        align: left,
+        inset: 6pt,
+        [$V_(c c)$],
+        [Positive supply voltage],
+        [GND],
+        [Ground],
+        [SER IN],
+        [Daten Pin],
+        [SRCK],
+        [Clock Pin],
+        [RCK],
+        [Latch Pin],
+        [$overline(S R C L R)$],
+        [Wenn #strong[shift-register clear] LOW ist, werden die input Register
+        gelöscht],
+        [$overline(G)$],
+        [Wenn #strong[output enable] HIGH ist, werden die Daten im Output
+        Buffer LOW gehalten],
+      ),
     ),
-  )],
+    caption: [Aufwändige Tabelle mit Abbildung und Caption],
 )
 
 Tabellen sind in typst sehr kompliziert zu erzeugen. Alternativ kann man
