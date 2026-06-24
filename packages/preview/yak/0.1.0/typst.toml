@@ -1,5 +1,5 @@
 [package]
-name = "jq"
+name = "yak"
 version = "0.1.0"
 compiler = "0.13.0"
 entrypoint = "lib.typ"
@@ -7,7 +7,7 @@ authors = ["lublak"]
 license = "MIT"
 description = "Run jq filter agains data."
 
-repository = "https://github.com/lublak/typst-jq-package"
+repository = "https://github.com/lublak/typst-yak-package"
 
 keywords = [
     "jq",
