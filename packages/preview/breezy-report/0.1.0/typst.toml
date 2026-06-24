@@ -9,8 +9,8 @@ repository = "https://github.com/brebarra/breezy-report"
 keywords = ["report","assignment","university"]
 categories = ["report"]
 exclude = [
-    "/imgs/2.png",
-    "/imgs/3.png"
+    "imgs/2.png",
+    "imgs/3.png"
 ]
 
 

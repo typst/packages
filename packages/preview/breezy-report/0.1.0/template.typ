@@ -6,28 +6,28 @@
 
 #let breezy(
   semester: "Semester 1, 20##", 
-  courseCode: "ENGE500",
-  courseName: "Course Name",
+  course-code: "ENGE500",
+  course-name: "Course Name",
   title:"Report Title: The purpose of the report",
-  studentID:"########",
+  student-ID:"########",
   author:"Author Name",
-  bibFile:none,
-  accentColour:rgb("#300649"),
-  tableHeaderTextColour:white,
+  bib-file:none,
+  accent-colour:rgb("#300649"),
+  table-header-text-colour:white,
   report
 ) = [
   #let in-body = state("in-body", false)
 
   #let headingFont = ("Montserrat","DejaVu Sans")
 
-  #let secondaryColour = accentColour.lighten(20%)
+  #let secondaryColour = accent-colour.lighten(20%)
 
   #set par(leading: 0.75em, spacing: 1.2em)
 
   #show heading: it => block(
     above:1.5em,
     below:1em,
-    text(font: headingFont,fill:accentColour,it) 
+    text(font: headingFont,fill:accent-colour,it) 
   )
 
   #set heading(
@@ -35,7 +35,7 @@
   )
 
   #show raw.where(block:true): it => block(
-    fill: accentColour.lighten(90%),
+    fill: accent-colour.lighten(90%),
     inset:12pt,
     radius:3pt,
     width:100%,
@@ -47,22 +47,22 @@
 
   #set list(
     marker: (
-      [#text(fill: accentColour)[•]], 
-      [#text(fill: accentColour)[‣]], 
-      [#text(fill: accentColour)[–]]
+      [#text(fill: accent-colour)[•]], 
+      [#text(fill: accent-colour)[‣]], 
+      [#text(fill: accent-colour)[–]]
     )
   )
 
 
   //Colours all supplements to the accent colour
   #show figure.caption: it => [
-    #text(fill: accentColour)[#it.supplement #it.counter.display(it.numbering)]#it.separator#it.body
+    #text(fill: accent-colour)[#it.supplement #it.counter.display(it.numbering)]#it.separator#it.body
   ]
 
-  #show ref: it => text(fill: accentColour, it)
-  #show cite: it => text(fill: accentColour, it)
+  #show ref: it => text(fill: accent-colour, it)
+  #show cite: it => text(fill: accent-colour, it)
 
-  #show link: it => text(fill:accentColour,it)
+  #show link: it => text(fill:accent-colour,it)
 
   // Provide custom supplements for each figure type
   #show figure.where(kind: image): set figure(supplement: [Fig.])
@@ -74,12 +74,12 @@
   #show table.cell.where(y: 0): set text(
     weight: "bold",
     font:headingFont,
-    fill: tableHeaderTextColour
+    fill: table-header-text-colour
   )
   #set table(
-    stroke:0.5pt + accentColour.lighten(50%),
+    stroke:0.5pt + accent-colour.lighten(50%),
     fill: (x,y) => {
-      if y == 0 {accentColour}
+      if y == 0 {accent-colour}
     },
     inset:5pt,
     align:left
@@ -102,21 +102,21 @@
             block(
               width: 100% + 4.1cm,
               height: 1.75cm,
-              fill: accentColour
+              fill: accent-colour
             )
           )
-          #set text(fill: accentColour.lighten(90%))
+          #set text(fill: accent-colour.lighten(90%))
           #align(horizon)[
             #grid(
               columns: (1fr, auto),
               [
-                #courseCode 
+                #course-code 
                 #{ let parts = title.split(":")
                   parts.at(0)
                 }
               ],
               [
-                ID: #studentID
+                ID: #student-ID
               ]
             )
           ]
@@ -134,22 +134,22 @@
     block(
       width:100% + 4.1cm,
       height:6cm,
-      fill:accentColour,
+      fill:accent-colour,
       inset:(x:2.5cm,y:1.5cm),
       align(bottom)[
-        #text(size:20pt,weight:"bold",font:headingFont,fill:white)[#courseName]
+        #text(size:20pt,weight:"bold",font:headingFont,fill:white)[#course-name]
         #v(-0.5em)
-        #text(size:14pt,weight:"bold",font:headingFont,fill:accentColour.lighten(70%))[#courseCode]
+        #text(size:14pt,weight:"bold",font:headingFont,fill:accent-colour.lighten(70%))[#course-code]
       ]
     )
   )
 
   #align(center + horizon)[
-    #text(size:12pt,font:headingFont,fill:accentColour.lighten(25%))[#semester]
+    #text(size:12pt,font:headingFont,fill:accent-colour.lighten(25%))[#semester]
     #v(1em)
-    #text(size:28pt,font:headingFont,fill:accentColour,weight:"bold")[#title]
+    #text(size:28pt,font:headingFont,fill:accent-colour,weight:"bold")[#title]
     #v(0.5em)
-    #line(length:40%,stroke:accentColour.lighten(60%))
+    #line(length:40%,stroke:accent-colour.lighten(60%))
   ]
 
   #place(
@@ -159,7 +159,7 @@
     block(
       width:100% + 4.1cm,
       height:3.5cm,
-      fill:accentColour,
+      fill:accent-colour,
       inset:(x:2.5cm,y:1cm),
       align(horizon)[
         #grid(
@@ -168,10 +168,10 @@
           [
             #text(size:14pt,font:headingFont,fill:white,weight:"bold")[#author]
             #v(-0.5em)
-            #text(size:11pt,font:headingFont,fill:accentColour.lighten(70%))[Student ID: #studentID]
+            #text(size:11pt,font:headingFont,fill:accent-colour.lighten(70%))[Student ID: #student-ID]
           ],
           [
-          #text(size:11pt,font:headingFont,fill:accentColour.lighten(94%))[ *Submission date:* \
+          #text(size:11pt,font:headingFont,fill:accent-colour.lighten(94%))[ *Submission date:* \
             #date.display("[day]/[month]/[year]")]
           ]
         )
@@ -188,7 +188,7 @@
   #set page(
     footer: context{
       align(center,
-        text(fill:accentColour)[-- #counter(page).get().first() --]
+        text(fill:accent-colour)[-- #counter(page).get().first() --]
       )
     },
   )
@@ -220,8 +220,8 @@
   #report
   #in-body.update(false)
 
-  #if bibFile != none [
+  #if bib-file != none [
     #pagebreak()
-    #bibliography(bibFile, style: "ieee", title: "References")
+    #bibliography(bib-file, style: "ieee", title: "References")
   ]
 ]

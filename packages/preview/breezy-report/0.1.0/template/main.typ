@@ -2,12 +2,11 @@
 
 #show: breezy.with(
   semester:"Semester 1 2026",
-  courseCode: "ENGE500",
-  courseName: "Course Name",
+  course-code: "ENGE500",
+  course-name: "Course Name",
   title: "Report Title: The purpose of the report",
-  studentID: "12345678",
+  student-ID: "12345678",
   author: "Student Name",
-  bibFile: "ref.bib"
 )
 
 = Section
