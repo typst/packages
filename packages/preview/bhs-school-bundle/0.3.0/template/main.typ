@@ -1,5 +1,5 @@
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
-#import "@local/hak-imst:0.3.0": *
+#import "@preview/bhs-school-bundle:0.3.0": *
 
 
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
@@ -12,7 +12,6 @@
     (name: [Susanne Sorglos], responsibility: [Verantwortlich fur IT: HTML, CSS, BWL: Kaufvertrag]),
     (name: [Otto Normalverbraucher], responsibility: [Verantwortlich fur IT: HTML, CSS, BWL: Kaufvertrag]),
   ),
-  responsible_default: "Susanne Sorglos",
   supervisors: (
     [Claudio Landerer],
     [Stefan Stolz],
@@ -21,8 +20,12 @@
   font: "New Computer Modern",
   fontsize: 12.5pt,
   sectionnumbering: "1.1.1",
-  project_partner_logo_path: image("typst_media/logos/Logo_Projektpartner.png"),
-  // school_logo_path: image("typst_media/logos/Logo_HAK_Imst.png"),
+  responsible_default: [Gabi Sorglos],  
+  vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
+  kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
+  abstract_text: [Englische Version der Kurzfassung.],
+  project_partner_logo: image("typst_media/logos/Logo_Projektpartner.png"),
+  school_logo: image("typst_media/logos/Logo_Schule.png"),
 )
 
 #include "content.typ"

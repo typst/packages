@@ -58,7 +58,7 @@
 #let _diplomarbeit(
   title: none,
   subtitle: none,
-  projecttype: "Diplomarbeit",
+  projecttype: none,
   titlepage_variant: "hak",
   team: none,
   supervisors: none,
@@ -72,25 +72,21 @@
   font: none,
   fontsize: 12.5pt,
   sectionnumbering: none,
-  responsible_default: none,
-  project_partner_logo_path: none, // New parameter for project partner logo
-  school_logo_path: none, // New parameter for school logo
+  responsible_default: [Gabi Sorglos],
+  eidesstattliche_erklaerung_text: [Ich erklare an Eides statt, dass ich die vorliegende Diplomarbeit selbst verfasst und keine anderen als die angefuhrten Behelfe verwendet habe. Alle Stellen, die wortlich oder inhaltlich den angegebenen Quellen entnommen wurden, sind als solche kenntlich gemacht. Diese Versicherung umfasst auch verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Etwaig verwendete Behelfe generativer KI-Tools wurden vollstandig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen. Ich bin damit einverstanden, dass meine Arbeit offentlich zuganglich gemacht wird.],
+  abnahmeerklaerung_text: [Hiermit bestatigt der Auftraggeber, dass das ubergebene Produkt dieser Diplomarbeit den dokumentierten Vorgaben entspricht. Des Weiteren verzichtet der Auftraggeber auf unentgeltliche Wartung und Weiterentwicklung des Produktes durch die Projektmitglieder bzw. die Schule.],
+  vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
+  kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
+  abstract_text: [Englische Version der Kurzfassung.],
+  project_partner_logo: none,
+  school_logo: none,
   doc,
 ) = {
-
-  
-
-  // = Shortcuts
   // "hak" im Fließtext → Logo + vollständiger Name
-  show regex("(?i)\\bhak\\b"): _ => box[
-    #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))
-    Handelsakademie und Handelsschule Imst
-  ]
-
-  show regex("(?i)\\bkol\\b"): _ => box[
-    #box(image("template/typst_media/logos/Logo_Kolleg_Imst.png", height: 0.7em))
-    IT-KOLLEG IMST
-  ]
+  // show "hak": _ => box[
+  //   #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))
+  //   Handelsakademie und Handelsschule Imst
+  // ]
 
   show terms: it => {
     it.children
@@ -123,17 +119,14 @@
 
   // ── Titelseite ──────────────────────────────────────────────────────────────
   if title != none {
-    let school_logo_final = if school_logo_path != none {
-        school_logo_path
-    } else if titlepage_variant == "kolleg" {
-        // Lädt das Bild direkt aus dem Paket-Verzeichnis
-        image("template/typst_media/logos/Logo_Kolleg_Imst.png")
+    let school_logo_final = if school_logo != none {
+        school_logo
     } else {
-        image("template/typst_media/logos/Logo_HAK_Imst.png")
+        image("template/typst_media/logos/Logo_Schule.png")
     }
 
-    let project_partner_logo_final = if project_partner_logo_path != none {
-        project_partner_logo_path
+    let project_partner_logo_final = if project_partner_logo != none {
+        project_partner_logo
     } else {
         image("template/typst_media/logos/Logo_Projektpartner.png")
     }    
@@ -203,40 +196,50 @@
     pagebreak()
 
     // ── Eidesstattliche Erklärung ─────────────────────────────────────────────
-    heading(level: 1, numbering: none, outlined: false)[Eidesstattliche Erklarung]
-    [Ich erklare an Eides statt, dass ich die vorliegende Diplomarbeit selbst verfasst und keine anderen als die angefuhrten Behelfe verwendet habe. Alle Stellen, die wortlich oder inhaltlich den angegebenen Quellen entnommen wurden, sind als solche kenntlich gemacht. Diese Versicherung umfasst auch verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Etwaig verwendete Behelfe generativer KI-Tools wurden vollstandig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen. Ich bin damit einverstanden, dass meine Arbeit offentlich zuganglich gemacht wird.]
-    v(1.2cm)
-    grid(
-      columns: (1fr, 1fr),
-      row-gutter: 1.1cm,
-      [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])],
-      [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
-      [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
-      [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
-    )
-    pagebreak()
+    if eidesstattliche_erklaerung_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Eidesstattliche Erklarung]
+      eidesstattliche_erklaerung_text
+      v(1.2cm)
+      grid(
+        columns: (1fr, 1fr),
+        row-gutter: 1.1cm,
+        [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])],
+        [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
+        [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
+        [#stack(spacing: 2mm, line(length: 5cm), [Unterschrift])],
+      )
+      pagebreak()
+    }
 
     // ── Abnahmeerklärung ──────────────────────────────────────────────────────
-    heading(level: 1, numbering: none, outlined: false)[Abnahmeerklarung]
-    [Hiermit bestatigt der Auftraggeber, dass das ubergebene Produkt dieser Diplomarbeit den dokumentierten Vorgaben entspricht. Des Weiteren verzichtet der Auftraggeber auf unentgeltliche Wartung und Weiterentwicklung des Produktes durch die Projektmitglieder bzw. die Schule.]
-    v(1.2cm)
-    [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])]
-    v(1.8cm)
-    [#stack(spacing: 2mm, line(length: 5cm), [Auftraggeber])]
-    pagebreak()
+    if abnahmeerklaerung_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Abnahmeerklarung]
+      abnahmeerklaerung_text
+      v(1.2cm)
+      [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])]
+      v(1.8cm)
+      [#stack(spacing: 2mm, line(length: 5cm), [Auftraggeber])]
+      pagebreak()
+    }
 
     // ── Vorwort / Kurzfassung / Abstract ─────────────────────────────────────
-    heading(level: 1, numbering: none, outlined: false)[Vorwort]
-    [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.]
-    pagebreak()
+    if vorwort_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Vorwort]
+      vorwort_text
+      pagebreak()
+    }
 
-    heading(level: 1, numbering: none, outlined: false)[Kurzfassung]
-    [Kurzbeschreibung von Aufgabenstellung und Problemlosung.]
-    pagebreak()
+    if kurzfassung_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Kurzfassung]
+      kurzfassung_text
+      pagebreak()
+    }
 
-    heading(level: 1, numbering: none, outlined: false)[Abstract]
-    [Englische Version der Kurzfassung.]
-    pagebreak()
+    if abstract_text != none {
+      heading(level: 1, numbering: none, outlined: false)[Abstract]
+      abstract_text
+      pagebreak()
+    }
 
     // ── Verzeichnisse ─────────────────────────────────────────────────────────
     outline(title: [Inhaltsverzeichnis])
@@ -298,15 +301,15 @@
 
   // = Shortcuts
   // "hak" im Fließtext → Logo + vollständiger Name
-  show regex("(?i)\\bhak\\b"): _ => box[
-    #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))
-    Handelsakademie und Handelsschule Imst
-  ]
+  // show regex("(?i)\\bhak\\b"): _ => box[
+  //   #box(image("template/typst_media/logos/Logo_HAK_Imst.png", height: 0.7em))
+  //   Handelsakademie und Handelsschule Imst
+  // ]
 
-  show regex("(?i)\\bkol\\b"): _ => box[
-    #box(image("template/typst_media/logos/Logo_Kolleg_Imst.png", height: 0.7em))
-    IT-KOLLEG IMST
-  ]
+  // show regex("(?i)\\bkol\\b"): _ => box[
+  //   #box(image("template/typst_media/logos/Logo_Kolleg_Imst.png", height: 0.7em))
+  //   IT-KOLLEG IMST
+  // ]
 
   show terms: it => {
     it.children
@@ -356,11 +359,8 @@
   if title != none {
     let school_logo_final = if school_logo_path != none {
         school_logo_path
-    } else if titlepage_variant == "kolleg" {
-        // Lädt das Bild direkt aus dem Paket-Verzeichnis
-        image("template/typst_media/logos/Logo_Kolleg_Imst.png")
     } else {
-        image("template/typst_media/logos/Logo_HAK_Imst.png")
+        image("template/typst_media/logos/Logo_Schule.png")
     }
 
     let project_partner_logo_final = if project_partner_logo_path != none {

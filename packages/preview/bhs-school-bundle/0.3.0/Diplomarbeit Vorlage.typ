@@ -1,6 +1,4 @@
-// Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
-#import "lib.typ": *
-
+#import "@preview/bhs-school-bundle:0.3.0": *
 
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
 #show: hak.with(
@@ -21,8 +19,13 @@
   font: "New Computer Modern",
   fontsize: 12.5pt,
   sectionnumbering: "1.1.1",
-  project_partner_logo_path: image("template/typst_media/logos/Logo_Projektpartner.png"),
-  // school_logo_path: image("typst_media/logos/Logo_HAK_Imst.png"),
+  // project_partner_logo: image("template/typst_media/logos/Logo_Projektpartner.png"),
+  // school_logo: image("template/typst_media/logos/Logo_Schule.png"),
+  // eidesstattliche_erklaerung_text: none,
+  // abnahmeerklaerung_text: none,
+  vorwort_text: [vorwort_text],
+  kurzfassung_text: [kurzfassung_text],
+  abstract_text: [abstract_text],
 )
 
-#include "template/content.typ"
+Hier startet das Dokument

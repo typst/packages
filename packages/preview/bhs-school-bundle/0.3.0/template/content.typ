@@ -1,5 +1,5 @@
 // dieser Import ist nur für set-responsible notwendig und kann auch ganz am Ende hinzugefügt werden
-#import "@local/hak-imst:0.3.0": *
+#import "@preview/bhs-school-bundle:0.3.0": *
 
 #set-responsible([Claudio Landerer])
 
@@ -407,6 +407,7 @@ BW-Teil
 <zusammenfassung>
 
 - Etwas längere Form des Abstracts
+
 - Detaillierte Beschreibung des Outputs der Arbeit
 
 = Beispielkapitel
@@ -416,12 +417,6 @@ BW-Teil
 
 == Sonderfunktionen
 <sonderfunktionen>
-
-=== Kürzel
-<kuerzel>
-
-- h#box()ak wird zu hak
-- k#box()ol wird zu kol
 
 == Beispiele zitieren
 <beispiele-zitieren>
@@ -621,11 +616,12 @@ C T T C A A T A C T A C A C T T G C A G G A T C C $
 
 == Beispiel Codesequenz
 <beispiel-codesequenz>
-In @code:qj sieht man ein Quick-Sort-Listing in der
+In #link(<code:qj>)[\[code:qj\]] sieht man ein Quick-Sort-Listing in der
 Programmiersprache JAVA. Das Listings-Paket übernimmt die Formatierung
 von Codebausteinen und kann in der Präambel nach Belieben auf eine
 andere Sprache konfiguriert werden.
 
+=== Quicksort in JAVA
 <quicksort-in-java>
 #figure(
   kind: "listing",
@@ -643,21 +639,21 @@ public class QuickSort {
     quickSort(x, low, high);
     System.out.println(Arrays.toString(x));
 
-    public static void quickSort(int[] arr, int low, int high) {
-      if (arr == null || arr.length == 0)
-      return;
+  public static void quickSort(int[] arr, int low, int high) {
+    if (arr == null || arr.length == 0)
+    return;
 
-      if (low >= high)
-      return;
+    if (low >= high)
+    return;
 
-      // pick the pivot
-      int middle = low + (high - low) / 2;
-      int pivot = arr[middle];
+    // pick the pivot
+    int middle = low + (high - low) / 2;
+    int pivot = arr[middle];
 
-      // make left < pivot and right > pivot
-      int i = low, j = high;
-      while (i <= j) {
-      while (arr[i] < pivot) {
+    // make left < pivot and right > pivot
+    int i = low, j = high;
+    while (i <= j) {
+    while (arr[i] < pivot) {
       i++;
     }
 
@@ -679,27 +675,7 @@ public class QuickSort {
       quickSort(arr, low, j);
 
     if (high > i)
-      quickSort(arr, i, high);
-
-      while (arr[j] > pivot) {
-      j--;
-    }
-
-    if (i <= j) {
-      int temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
-      i++;
-      j--;
-      }
-    }
-
-    // recursively sort two sub parts
-    if (low < j)
-      quickSort(arr, low, j);
-
-    if (high > i)
-      quickSort(arr, i, high);
+      quickSort(arr, i, high); 
   }
 }
 ```

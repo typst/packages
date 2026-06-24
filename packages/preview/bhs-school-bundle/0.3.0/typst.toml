@@ -1,15 +1,15 @@
 [package]
-name = "hak-imst"
+name = "bhs-school-bundle"
 version = "0.3.0"
 entrypoint = "lib.typ"
-description = "Diplomarbeiten an der HAK/HAS und dem Kolleg Imst normgerecht verfassen."
+description = "Professional thesis template for vocational high schools in Austria following formal requirements of HAK/HAS and Kolleg Imst (Austria), easily customizable for other schools. The Template contains necassary headlines and examples for images, tables, citations, etc."
 authors = ["Stefan Stolz", "Claudio Landerer"]
 license = "MIT"
 
 # Zuordnung für das Typst Universe
 categories = ["report", "thesis"]
 disciplines = ["education"]
-keywords = ["Diplomarbeit", "HAK", "Kolleg", "Österreich", "Vorlage"]
+keywords = ["school","thesis","Diplomarbeit", "HAK", "Kolleg", "Österreich", "Vorlage"]
 
 [template]
 path = "template"

@@ -1,8 +1,6 @@
-// Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
-#import "lib.typ": *
+#import "@preview/bhs-school-bundle:0.3.0": *
 
 
-// Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
 #show: report.with(
   title: [Der Titel der Arbeit],
   subtitle: [Untertitel der Arbeit],
@@ -18,4 +16,4 @@
   school_logo_path: image("template/typst_media/logos/Logo_HAK_Imst.png"),
 )
 
-test
+Hier beginnt das Dokument
