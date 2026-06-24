@@ -15,5 +15,6 @@ exclude = [
 
 
 [template]
-path = "main.typ"
+path = "template"
+entrypoint = "main.typ"
 thumbnail = "imgs/1.png"
