@@ -1,10 +1,9 @@
 #import "@preview/bhs-school-bundle:0.3.0": *
 
-
 #show: report.with(
   title: [Der Titel der Arbeit],
   subtitle: [Untertitel der Arbeit],
-  // projecttype: [Diplomarbeit],
+  //projecttype: [Bericht],
   author: "Max Mustermann, Susanne Sorglos",
   responsible_default: "Susanne Sorglos",
   location: "Imst",
@@ -12,8 +11,7 @@
   font: "New Computer Modern",
   fontsize: 12.5pt,
   sectionnumbering: "1.1.1",
-  project_partner_logo_path: image("template/typst_media/logos/Logo_Projektpartner.png"),
-  school_logo_path: image("template/typst_media/logos/Logo_HAK_Imst.png"),
+  school_logo_path: image("template/typst_media/logos/Logo_Schule.png"),
 )
 
-Hier beginnt das Dokument
+Hier beginnt das Dokument ...

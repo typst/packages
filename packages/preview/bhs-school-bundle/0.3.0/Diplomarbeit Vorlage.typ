@@ -1,6 +1,7 @@
 #import "@preview/bhs-school-bundle:0.3.0": *
 
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
+// Für Bericht siehe README Beispiel
 #show: hak.with(
   title: [Der Titel der Arbeit],
   subtitle: [Untertitel der Arbeit],

@@ -28,4 +28,4 @@
   school_logo: image("typst_media/logos/Logo_Schule.png"),
 )
 
-#include "content.typ"
+#include "thesis_content.typ"

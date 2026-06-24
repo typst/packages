@@ -1,44 +1,72 @@
-# hak-imst
+# bhs-school-bundle
 
-Typst template for diploma theses at Handelsakademie und Handelsschule Imst and IT-KOLLEG IMST.
+Professional thesis template for vocational high schools in Austria following formal requirements of HAK/HAS and Kolleg Imst (Austria), easily customizable for other schools. 
 
-The template provides a structured cover page (HAK and Kolleg variants), required front matter pages, indexes, and running header/footer components for school thesis workflows.
+The template provides a structured cover page (HAK and Kolleg variants), required front matter pages, indexes, and running header/footer components for school thesis workflows. Necessary headlines and examples for images, tables, citations, etc. are included in the `content.typ` file.
+
+In this version it supports the thesis template and a basic report template. DIN letter will follow in a future version.
 
 ## Usage
 
-You can use this template directly in this repository.
+With an existing typst installation, you use the CLI command `typst init @preview/bhs-school-bundle` in a new folder to initialize a new project with the basic configuration for a diploma thesis. With vscode and installed extension "myriad-dreamin.tinymist", you can use "View" > "Command Palette" > "Typst: Initialize a new typst project based on a template" and fill in the template name `@preview/bhs-school-bundle` to do the same.
 
-1. Open `Diplomarbeit Vorlage.typ`.
-2. Adjust metadata in the show rule (title, team, supervisors, date, etc.).
-3. Write your document content in `content.typ`.
+You can also decide to start a new *.typ file on your own and add the necessary imports and configurations as soon as you need to use the template. To do so, you need to include the template import and initialize needed variables at the beginning of your *.typ file.
 
-Example:
+Example for thesis:
 
 ```typst
 // For Kolleg variant: replace "hak" with "kolleg"
-#import "@preview/hak-imst:0.2.0": *
+#import "@preview/bhs-school-bundle:0.3.0": *
 
 #show: hak.with(
-	title: [Thesis Title],
-	subtitle: [Thesis Subtitle],
-	projecttype: [Diploma Thesis],
-	team: (
-		(name: [Max Mustermann], responsibility: [Responsible for IT: HTML, CSS, Business: Sales Contract]),
-		(name: [Susanne Sorglos], responsibility: [Responsible for IT: HTML, CSS, Business: Sales Contract]),
-	),
-	supervisors: (
-		[Claudio Landerer],
-		[Stefan Stolz],
-	),
-	date: [Imst, 2026-06-08],
-	font: "New Computer Modern",
-	fontsize: 12.5pt,
-	sectionnumbering: "1.1.1",
-	project_partner_logo_path: "typst_media/logos/Logo_Projektpartner.png",
-	school_logo_path: "typst_media/logos/Logo_HAK_Imst.png",
+    title: [Thesis Title],
+    subtitle: [Thesis Subtitle],
+    projecttype: [Diploma Thesis],
+    team: (
+        (name: [Max Mustermann], responsibility: [Responsible for IT: HTML, CSS, Business: Sales Contract]),
+        (name: [Susanne Sorglos], responsibility: [Responsible for IT: HTML, CSS, Business: Sales Contract]),
+    ),
+    supervisors: (
+        [Claudio Landerer],
+        [Stefan Stolz],
+    ),
+    date: [Imst, 2026-06-08],
+    font: "New Computer Modern",
+    fontsize: 12.5pt,
+    sectionnumbering: "1.1.1",
+    responsible_default: [Gabi Sorglos],  
+    vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
+    kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
+    abstract_text: [Englische Version der Kurzfassung.],
+    // project_partner_logo: image("typst_media/logos/Logo_Projektpartner.png"),
+    // school_logo: image("typst_media/logos/Logo_Schule.png"),
 )
 
-#include "content.typ"
+#include "thesis_content.typ"
+```
+
+Example for report:
+
+```typst
+#import "@preview/bhs-school-bundle:0.3.0": *
+
+#show: report.with(
+  title: [Der Titel der Arbeit],
+  subtitle: [Untertitel der Arbeit],
+  //projecttype: [Bericht],
+  author: "Max Mustermann, Susanne Sorglos",
+  responsible_default: "Susanne Sorglos",
+  location: "Imst",
+  date: [2026-06-08],
+  font: "New Computer Modern",
+  fontsize: 12.5pt,
+  sectionnumbering: "1.1.1",
+  school_logo_path: image("template/typst_media/logos/Logo_Schule.png"),
+)
+
+= First Headline of the report
+
+#lorem(200)
 ```
 
 ## Configuration
@@ -63,10 +91,15 @@ Both use the same named parameters and are configured through `#show: ...with(..
 - `sectionnumbering` (string or `none`): Heading numbering format
 - `paper` (string): Paper format (e.g. `a4`)
 - `margin` (dictionary): Page margins
-- `project_partner_logo_path` (string or `none`): Path for the left cover-page logo
-- `school_logo_path` (string or `none`): Path for the right cover-page school logo
+- `responsible_default` (content): Default responsible person for the footer if not set per chapter in content.typ
+- `eidesstattliche_erklaerung_text` (content or `none`): Declaration of Authorship
+- `abnahmeerklaerung_text` (content or `none`): Acceptance Certificate
+- `vorwort_text` (content or `none`): German abstract
+- `abstract_text` (content or `none`): English abstract
+- `project_partner_logo` (content or `none`): Content for the left cover-page logo (specify an image with e.g. `image("path/to/logo.png")`)
+- `school_logo` (content or `none`): Content for the right cover-page school logo (specify an image with e.g. `image("path/to/logo.png")`)
 
-If `project_partner_logo_path` or `school_logo_path` are not set, the template uses default logos from `typst_media/logos/`.
+If `project_partner_logo` or `school_logo` are not set, the template uses template logos from `typst_media/logos/`.
 
 ## Chapter Responsibility
 
@@ -80,4 +113,4 @@ For the footer, you can set the responsible person per chapter:
 
 - Target audience: Diploma thesis teams at HAK/HAS Imst and IT-KOLLEG IMST
 - Technology: Typst
-- Repository structure: Template logic in `lib.typ`, entry file `Diplomarbeit Vorlage.typ`, document body in `content.typ`
+- Repository structure: Template logic in `lib.typ`, entry file `main.typ`, document body in `thesis_content.typ`
