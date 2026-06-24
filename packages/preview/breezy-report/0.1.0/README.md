@@ -32,12 +32,11 @@ A clean, colour-customisable engineering report template for Typst. Designed for
 |---|---|---|
 | `accentColour` | `rgb("#300649")` | Primary accent colour |
 | `tableHeaderTextColour` | `white` | Table header text colour |
-| `bibFile` | `none` | Path to `.bib` file (if applicable) |
 
 ## Default fonts
  - **Georgia**: Body text.
  - **Montserrat**: Headings and title page. Must be installed locally - download from [Google Fonts](https://fonts.google.com/specimen/Montserrat).
- - **DejaVu Sans**. Fallback font for headings & title page is Montserrat is not installed.
+ - **Arial**. Fallback font for headings & title page is Montserrat is not installed.
 
 ## Example pages
 ![An example title page from the breezy-report template with dark purple bars across the top and bottom of the page, with the student name, ID, course name and course ID overlayed. The title is in the centre of the page.](imgs/1.png)
