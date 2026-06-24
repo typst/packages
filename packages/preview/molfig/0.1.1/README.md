@@ -4,7 +4,7 @@
 
 It accepts PDB, mmCIF, and BinaryCIF input, converts structures through a CPU-side [Mol*](https://molstar.org/)-style Model/Structure/Unit layer, exports static OBJ/STL/PLY mesh bytes, and delegates final document rendering to [`maquette`](https://typst.app/universe/package/maquette).
 
-![Gallery of molecular structures rendered with Molfig](examples/gallary.png)
+![Gallery of molecular structures rendered with Molfig](examples/gallery.png)
 
 ## Quickstart
 
@@ -22,7 +22,7 @@ It accepts PDB, mmCIF, and BinaryCIF input, converts structures through a CPU-si
 #molfig.render(
   pdb,
   format: "pdb",
-  representation: "molstar",
+  representation: "cartoon",
   assembly: "1",
   mesh-format: "obj",
   quality: "high",
@@ -59,10 +59,10 @@ The [`examples`](examples) directory contains complete example sources, PNG imag
 
 - Inputs: PDB, text CIF/mmCIF, and BinaryCIF.
 - Structure layer: Mol*-style Model/Structure/Unit concepts, assembly operators, altLoc handling, bond metadata, lookup3d/boundary summaries, secondary structure, coarse IHM spheres/gaussians, and semantic render-object metadata.
-- Representations: Mol* default, spacefill, ball-and-stick, cartoon, ribbon, and backbone.
+- Representations: `default` follows the Mol* Viewer preset, including pLDDT, QMEAN, and SB-NCBR partial-charge annotation themes before automatic size routing; `cartoon` is the Viewer Quick Styles Cartoon preset; `spacefill` is the Viewer illustrative Spacefill preset; and `polymer-cartoon` exposes the standalone Mol* Cartoon provider defaults. Ball-and-stick, ribbon, and backbone are also available.
 - Assembly support: biological assemblies are represented as source model plus unit operators before static mesh export.
 - Alternate locations: select a concrete altLoc, all altLocs, or the highest-occupancy conformer.
-- Color themes: `color-theme: "chain-id"` assigns Mol* Chain ID colors and forwards OBJ materials to maquette.
+- Color themes: `color-theme` supports `chain-id`, `element-symbol`, `entity-id`, `operator-name`, `plddt-confidence`, `qmean-score`, and `sb-ncbr-partial-charges`. The optional `theme` dictionary mirrors Mol* Viewer overrides such as `globalName`, `carbonColor`, and `symmetryColor`; OBJ materials are forwarded to maquette.
 - Outputs: OBJ, companion MTL, binary STL, and ASCII PLY.
 - Rendering: `render` passes generated mesh bytes to maquette; `render-object` exposes the mesh, rendered content, and normalized metadata for advanced documents.
 
@@ -73,9 +73,8 @@ The [`examples`](examples) directory contains complete example sources, PNG imag
 - `to-obj(data, ...)`, `to-mtl(data, ...)`, `to-stl(data, ...)`, and `to-ply(data, ...)` return export bytes.
 - `info(data, ...)` returns molecular and mesh-planning metadata without rendering.
 - `mesh-info(data, mesh-format: "obj", config: (:), ...)` delegates to maquette's mesh metadata helpers for the generated mesh.
-- `v15-or-later()` returns whether the active Typst compiler supports project-side `path(...)` values.
 
-Common options include `format`, `representation`, `color-theme`, `assembly`, `alt-loc`, `block-index`, `block-header`, `quality`, `sphere-detail`, `linear-segments`, `radial-segments`, `radius-scale`, `atom-radius`, `bond-radius`, `ribbon-radius`, `ribbon-width`, `helix-profile`, `round-cap`, `sheet-arrow-factor`, `tubular-helices`, `infer-bonds`, and `center`.
+Common options include `format`, `representation`, `color-theme`, `theme`, `assembly`, `alt-loc`, `block-index`, `block-header`, `quality`, `sphere-detail`, `linear-segments`, `radial-segments`, `radius-scale`, `atom-radius`, `bond-radius`, `ribbon-radius`, `ribbon-width`, `helix-profile`, `round-cap`, `sheet-arrow-factor`, `tubular-helices`, `infer-bonds`, and `center`.
 
 The `data` argument accepts bytes from `read(..., encoding: none)`, inline string data for small examples, and Typst 0.15+ path values created with `path("...")`.
 
@@ -86,6 +85,12 @@ The `data` argument accepts bytes from `read(..., encoding: none)`, inline strin
 - Use PLY when package-owned face group metadata is useful in a compact text mesh.
 
 OBJ output can be paired with `to-mtl`. During `render`, OBJ material colors are automatically converted to maquette's `materials` map; entries supplied through `config.materials` override generated colors. OBJ and PLY preserve Molfig group or operator metadata where the format can represent it. Binary STL follows Mol* static exporter behavior and keeps the two-byte facet attribute field at zero.
+
+## Choosing A Render Format
+
+`output-format: "png"` is the default and is recommended for high-poly meshes, large assemblies, and spacefill representations. Maquette rasterizes PNG output with a Z-buffer, avoiding the document-node cost of representing every visible mesh face as SVG content.
+
+Use `output-format: "svg"` when vector output is important and the mesh is small or moderately sized. A large SVG render can exceed Typst's SVG node limit and fail with `failed to parse SVG (nodes limit reached)`. If that happens, switch to PNG or reduce the mesh complexity with `quality: "auto"`, a lower quality preset, or smaller `sphere-detail`, `linear-segments`, and `radial-segments` values.
 
 ## Documentation
 
@@ -103,9 +108,9 @@ The full Molfig manual is available at [`documentation.pdf`](https://github.com/
 
 ## Notes And Limits
 
-Molfig emits static presentation meshes. It does not implement Mol*'s interactive WebGL surface or volume rendering pipeline. Molecular surface, gaussian surface, gaussian volume, and density/volume visuals are outside the current static export contract.
+Molfig emits static presentation meshes. `representation: "surface"` implements the Mol* Viewer Quick Styles Molecular Surface preset on the CPU and exports the result as OBJ/STL/PLY. Gaussian volume and density/volume visuals remain outside the static export contract; the size-dependent ViewerAuto path uses a CPU Gaussian surface for Huge and Gigantic structures.
 
-IHM coarse gaussian rows remain available as coarse model units, but they are not converted into gaussian surface or volume visuals.
+IHM coarse sphere and gaussian rows remain available as coarse model units and participate in the size-dependent ViewerAuto Gaussian-surface path.
 
 ## License And Notices
 
