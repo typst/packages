@@ -1,14 +1,14 @@
 # bhs-school-bundle
 
-Professional thesis template for vocational high schools in Austria following formal requirements of HAK/HAS and Kolleg Imst (Austria), easily customizable for other schools. 
+Professional thesis template for vocational high schools in Austria, following formal requirements of HAK/HAS and Kolleg Imst (Austria), and easily customizable for other schools.
 
-The template provides a structured cover page (HAK and Kolleg variants), required front matter pages, indexes, and running header/footer components for school thesis workflows. Necessary headlines and examples for images, tables, citations, etc. are included in the `content.typ` file.
+The template provides a structured cover page (HAK and Kolleg variants), required front matter pages, indexes, and running header/footer components for school thesis workflows. Necessary headings and examples for images, tables, citations, etc. are included in the `content.typ` file.
 
-In this version it supports the thesis template and a basic report template. DIN letter will follow in a future version.
+This version supports the thesis template and a basic report template. DIN letter will follow in a future version.
 
 ## Usage
 
-With an existing typst installation, you use the CLI command `typst init @preview/bhs-school-bundle` in a new folder to initialize a new project with the basic configuration for a diploma thesis. With vscode and installed extension "myriad-dreamin.tinymist", you can use "View" > "Command Palette" > "Typst: Initialize a new typst project based on a template" and fill in the template name `@preview/bhs-school-bundle` to do the same.
+With an existing Typst installation, use the CLI command `typst init @preview/bhs-school-bundle` in a new folder to initialize a new project with the basic configuration for a diploma thesis. With VS Code and the installed extension "myriad-dreamin.tinymist", you can use "View" > "Command Palette" > "Typst: Initialize a new Typst project based on a template" and fill in the template name `@preview/bhs-school-bundle` to do the same.
 
 You can also decide to start a new *.typ file on your own and add the necessary imports and configurations as soon as you need to use the template. To do so, you need to include the template import and initialize needed variables at the beginning of your *.typ file.
 
@@ -108,9 +108,3 @@ For the footer, you can set the responsible person per chapter:
 ```typst
 #set-responsible([Max Mustermann])
 ```
-
-## About
-
-- Target audience: Diploma thesis teams at HAK/HAS Imst and IT-KOLLEG IMST
-- Technology: Typst
-- Repository structure: Template logic in `lib.typ`, entry file `main.typ`, document body in `thesis_content.typ`
