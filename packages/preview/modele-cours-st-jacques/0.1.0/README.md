@@ -10,7 +10,7 @@ Fournit :
   et ligne de métadonnées,
 - une **page de sommaire** stylée,
 - des **encarts colorés** prêts à l'emploi (`#def`, `#key`, `#warn`, `#ex`,
-  `#analogy`, `#keyhint`, `#atelier`),
+  `#analogy`, `#keyhint`, `#atelier`, `#theorem`),
 - un **bloc de question** pour auto-test (`#qcm-q`) avec case à cocher
   dessinée (pas de glyphe Unicode → zéro avertissement de substitution
   de police sur [typst.app](https://typst.app)),
@@ -88,6 +88,7 @@ Paramètres :
 - `#analogy[…]` — Analogie (rose, italique)
 - `#keyhint[…]` — Clé de compréhension (violet)
 - `#atelier[…]` — À construire en atelier (turquoise)
+- `#theorem[…]` — Théorème (slate / ardoise — pour les maths)
 
 ### Auto-test
 
@@ -119,6 +120,26 @@ Paramètres :
 L'argument est un **contenu image** (résultat de `#image(...)`), pas un
 chemin, pour la même raison que `cover-background`.
 
+<<<<<<< HEAD
+=======
+### Figure inline légendée
+
+Variante compacte de `schema` pour les figures vectorielles ou les
+petits schémas qui restent **dans le flot** du texte (pas de saut de
+page, et la figure est insécable) :
+
+```typ
+#fig(
+  cetz.canvas({ /* … */ }),
+  [Légende de la figure],
+)
+```
+
+Le premier argument est n'importe quel contenu (figure CETZ, image,
+bloc personnalisé). Idéal pour les illustrations qui accompagnent un
+calcul ou une démonstration.
+
+>>>>>>> a080d56f (modele-cours-st-jacques:0.1.0)
 ### Couverture / sommaire séparés
 
 `#cover-page(…)` et `#toc-page(…)` sont également exposés si vous

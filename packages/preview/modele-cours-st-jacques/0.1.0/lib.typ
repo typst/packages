@@ -34,6 +34,8 @@
 #let c-gray-light   = rgb("#cbd5e1")
 #let c-teal         = rgb("#0f766e")  // NOUVEAU — pour l'encart atelier
 #let c-teal-bg      = rgb("#ccfbf1")  // NOUVEAU
+#let c-slate        = rgb("#334155")  // NOUVEAU — pour l'encart théorème (math)
+#let c-slate-bg     = rgb("#f1f5f9")  // NOUVEAU
 
 // ─── ENCARTS COLORÉS ────────────────────────────────────────
 #let callout(color, bg, label, body) = block(
@@ -59,6 +61,8 @@
 #let keyhint(body) = callout(c-purple,       c-purple-bg,  "Clé de compréhension", body)
 // NOUVEAU — balise les parties à compléter avec l'IA pendant l'atelier
 #let atelier(body) = callout(c-teal,         c-teal-bg,    "À construire en atelier", body)
+// NOUVEAU — théorème mathématique (slate / ardoise)
+#let theorem(body) = callout(c-slate,        c-slate-bg,   "Théorème", body)
 
 // ─── SCHÉMA AVEC LÉGENDE ────────────────────────────────────
 // `img` est un contenu image déjà construit (#image(...)).
@@ -74,6 +78,20 @@
     ]
   ]
 }
+
+// ─── FIGURE INLINE AVEC LÉGENDE ─────────────────────────────
+// Variante compacte de `schema` : reste dans le flot du texte
+// (pas de saut de page), insécable (ne se coupe pas entre deux
+// pages). Pour les figures vectorielles (CETZ), petits schémas
+// géométriques, illustrations math qui accompagnent un calcul.
+// `body` est n'importe quel contenu centrable.
+#let fig(body, caption) = block(width: 100%, breakable: false)[
+  #v(4pt)
+  #align(center)[#body]
+  #v(6pt)
+  #align(center)[#text(size: 9pt, fill: c-gray, style: "italic")[#caption]]
+  #v(6pt)
+]
 
 
 // ─── En-tête de tableau coloré ──────────────────────────────
