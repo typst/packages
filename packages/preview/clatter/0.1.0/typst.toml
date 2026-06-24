@@ -1,8 +1,0 @@
-[package]
-name = "clatter"
-version = "0.1.0"
-entrypoint = "clatter.typ"
-authors = ["Hung-I Wang <whygowe@gmail.com>"]
-license = "MIT"
-description = "Just the PDF417 generator from rxing."
-repository = "https://github.com/Gowee/typst-clatter"

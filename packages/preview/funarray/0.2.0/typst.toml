@@ -1,8 +1,0 @@
-[package]
-name = "funarray"
-version = "0.2.0"
-entrypoint = "funarray.typ"
-authors = ["Ludwig Austermann"]
-license = "MIT"
-description = "Package providing convenient functional functions to use on arrays."
-repository = "https://github.com/ludwig-austermann/typst-funarray"

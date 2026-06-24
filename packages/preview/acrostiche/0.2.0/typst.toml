@@ -1,7 +1,0 @@
-[package]
-name = "acrostiche"
-version = "0.2.0"
-entrypoint = "acrostiche.typ"
-authors = ["Grizzly"]
-license = "MIT"
-description = "Manage acronyms and their definitions in Typst."

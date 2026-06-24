@@ -1,8 +1,0 @@
-[package]
-name = "boxproof"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["xiaoshihou514", "Other open-source contributors"]
-license = "MIT"
-description = "Create boxed proofs for natural deduction"
-repository = "https://github.com/xiaoshihou514/boxproof-typst"
