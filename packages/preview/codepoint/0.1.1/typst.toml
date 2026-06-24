@@ -9,7 +9,6 @@ authors = [
 license = "MIT"
 description = "Utilities for creating programming labs and exams"
 repository = "https://github.com/oseda-dev/codepoint"
-homepage = "https://github.com/oseda-dev/codepoint"
 categories = ["text", "components", "layout"]
 keywords = [
   "exam",
@@ -27,5 +26,5 @@ exclude = [
   ".gitignore",
   "BreakingChanges.md",
   "manual",
-  "img",
+  "img"
 ]
