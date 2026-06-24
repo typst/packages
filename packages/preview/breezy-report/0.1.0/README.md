@@ -5,7 +5,7 @@ A clean, colour-customisable engineering report template for Typst. Designed for
 ## Usage
 
 ```typst
-#import "@preview/breezy-report:0.1.0": *
+#import "@preview/breezy-report:0.1.0": breezy, end-breezy
 
 #show: breezy.with (
   semester: "Semester 1 2026",
@@ -18,6 +18,12 @@ A clean, colour-customisable engineering report template for Typst. Designed for
 )
 
 //Your content goes here
+
+//If you need to include references, add the following after the rest of your body. The end-breezy function removes the top bar from appearing on the reference pages.
+
+#end-breezy()
+#pagebreak()
+#bibliography("ref.bib", style: "ieee", title: "References")
 ```
 
 ## Parameters
