@@ -13,7 +13,7 @@
 #molfig.render(
   pdb,
   format: "pdb",
-  representation: "molstar",
+  representation: "cartoon",
   assembly: "1",
   mesh-format: "obj",
   quality: "high",

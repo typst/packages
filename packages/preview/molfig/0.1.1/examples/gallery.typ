@@ -25,7 +25,7 @@
       molfig.render(
         data,
         format: format,
-        representation: "molstar",
+        representation: "cartoon",
         mesh-format: "obj",
         quality: "high",
         center: true,
