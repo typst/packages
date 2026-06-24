@@ -74,10 +74,11 @@
   }
 }
 
-#let _mesh-options(format, representation, color-theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality) = json.encode((
+#let _mesh-options(format, representation, color-theme, theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality) = json.encode((
   format: format,
   representation: representation,
   color-theme: color-theme,
+  theme: theme,
   sphere-detail: sphere-detail,
   radius-scale: radius-scale,
   atom-radius: atom-radius,
@@ -102,8 +103,9 @@
 #let to-obj(
   data,
   format: "auto",
-  representation: "molstar",
+  representation: "default",
   color-theme: "chain-id",
+  theme: (:),
   sphere-detail: 2,
   radius-scale: 1.0,
   atom-radius: 0.28,
@@ -123,13 +125,14 @@
   linear-segments: 8,
   radial-segments: 16,
   quality: "custom",
-) = _plugin.to_obj(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)))
+) = _plugin.to_obj(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)))
 
 #let to-mtl(
   data,
   format: "auto",
-  representation: "molstar",
+  representation: "default",
   color-theme: "chain-id",
+  theme: (:),
   sphere-detail: 2,
   radius-scale: 1.0,
   atom-radius: 0.28,
@@ -149,13 +152,14 @@
   linear-segments: 8,
   radial-segments: 16,
   quality: "custom",
-) = _plugin.to_mtl(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)))
+) = _plugin.to_mtl(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)))
 
 #let to-stl(
   data,
   format: "auto",
-  representation: "molstar",
+  representation: "default",
   color-theme: "chain-id",
+  theme: (:),
   sphere-detail: 2,
   radius-scale: 1.0,
   atom-radius: 0.28,
@@ -175,13 +179,14 @@
   linear-segments: 8,
   radial-segments: 16,
   quality: "custom",
-) = _plugin.to_stl(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)))
+) = _plugin.to_stl(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)))
 
 #let to-ply(
   data,
   format: "auto",
-  representation: "molstar",
+  representation: "default",
   color-theme: "chain-id",
+  theme: (:),
   sphere-detail: 2,
   radius-scale: 1.0,
   atom-radius: 0.28,
@@ -201,13 +206,14 @@
   linear-segments: 8,
   radial-segments: 16,
   quality: "custom",
-) = _plugin.to_ply(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)))
+) = _plugin.to_ply(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)))
 
 #let info(
   data,
   format: "auto",
-  representation: "molstar",
+  representation: "default",
   color-theme: "chain-id",
+  theme: (:),
   sphere-detail: 2,
   radius-scale: 1.0,
   atom-radius: 0.28,
@@ -227,14 +233,15 @@
   linear-segments: 8,
   radial-segments: 16,
   quality: "custom",
-) = json(_plugin.info(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality))))
+) = json(_plugin.info(_normalize-data(data), bytes(_mesh-options(format, representation, color-theme, theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality))))
 
 #let render(
   data,
   format: "auto",
   mesh-format: "obj",
-  representation: "molstar",
+  representation: "default",
   color-theme: "chain-id",
+  theme: (:),
   sphere-detail: 2,
   radius-scale: 1.0,
   atom-radius: 0.28,
@@ -259,7 +266,7 @@
   height: auto,
   output-format: "png",
 ) = {
-  let mesh-config = _mesh-options(format, representation, color-theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)
+  let mesh-config = _mesh-options(format, representation, color-theme, theme, sphere-detail, radius-scale, atom-radius, bond-radius, infer-bonds, center, assembly, alt-loc, block-index, block-header, ribbon-radius, ribbon-width, helix-profile, round-cap, sheet-arrow-factor, tubular-helices, linear-segments, radial-segments, quality)
   let source = _normalize-data(data)
   let object = if mesh-format == "obj" {
     _obj-bundle(_plugin.to_obj_bundle(source, bytes(mesh-config)))
@@ -277,8 +284,9 @@
   data,
   format: "auto",
   mesh-format: "obj",
-  representation: "molstar",
+  representation: "default",
   color-theme: "chain-id",
+  theme: (:),
   sphere-detail: 2,
   radius-scale: 1.0,
   atom-radius: 0.28,
@@ -307,6 +315,7 @@
     format: format,
     representation: representation,
     color-theme: color-theme,
+    theme: theme,
     sphere-detail: sphere-detail,
     radius-scale: radius-scale,
     atom-radius: atom-radius,
