@@ -5,9 +5,9 @@
 #show math.equation: it => sxj-equ(spacing: .2em, it)
 #show "。": "．"
 #set page(
-  width: 19.5cm,
-  height: 27cm,
-  margin: 37pt,
+  width: 18.4cm,
+  height: 26cm,
+  margin: 19pt,
   footer: context sxj-footer(
     counter(page).get().first(),
     counter(page).final().first(),
@@ -99,7 +99,7 @@
     #qst(level: 3)[
       对满足$abs(p_1q_2-p_2q_1)=1$的既约分数$p_1/q_1$与$p_2/q_2$，有$F(p_1/q_1)$与$F(p_2/q_2)$相外切。
     ]<qst-ford-2-circle>
-    // #context v(-par.leading)
+    #context v(-par.leading)
     #qst(level: 3)[
       对任意既约分数$a,b,c(a!=b,c=a fsum b)$，若$F(a)$与$F(b)$相切，则$F(c)$与$F(a),F(b)$均相切。
     ]

@@ -39,9 +39,9 @@
   show "。": "．"
 
   set page(
-    width: 19.5cm,
-    height: 27cm,
-    margin: 37pt,
+    width: 18.4cm,
+    height: 26cm,
+    margin: 19pt,
     footer: context sxj-footer(
       counter(page).get().first(),
       counter(page).final().first(),

@@ -11,6 +11,7 @@
   bottom-edge: -2pt,
   it,
 )
+#show link: it => underline(it)
 #set raw(lang: "typc")
 #show raw: set text(font: "Maple Mono NF")
 #show raw.where(block: false): it => box(
@@ -55,9 +56,9 @@
 
 = 例子（仅供参考，见 @issue.example-dnf 与 @issue.using-shuxuejuan-or-not ）<example>
 
-== 作为模板使用（使用```typ #show: shuxuejuan```）示例：#link("example.typ")；
+== 作为模板使用（使用```typ #show: shuxuejuan```）：#link("../example.typ")；
 
-== 作为普通包使用（不使用```typ #show: shuxuejuan```）：#link("example-no-template.typ")。
+== 作为普通包使用（不使用```typ #show: shuxuejuan```）：#link("../example-no-template.typ")。
 
 #pagebreak()
 
@@ -215,7 +216,7 @@
     ]
     ==== 进行默认设置：#[
       - 句号显示为句点；
-      - 页面设置为16开#footnote[此处指$19.5 #un[cm] times 27 #un[cm]$，根据本人经验，各处的16开大小不一，你可能需要根据实际情况调整。]，缩小页边距，设置页码页脚。
+      - 页面设置为16开#footnote[此处指$18.4 #un[cm] times 26 #un[cm]$，根据本人经验，各处的16开大小不一，你可能需要根据实际情况调整。]，缩小页边距，设置页码页脚。
     ]
   ]
 ]
