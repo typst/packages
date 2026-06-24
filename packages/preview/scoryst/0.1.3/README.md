@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bernsteining/scoryst/refs/tags/v0.1.3/test/logo.svg">
-  <img alt="logo" src="https://raw.githubusercontent.com/bernsteining/scoryst/refs/tags/v0.1.1/test/logo.svg">
+  <img alt="a treble clef and two notes as a logo" src="https://raw.githubusercontent.com/bernsteining/scoryst/refs/tags/v0.1.1/test/logo.svg">
 </picture>
 
 # Scoryst - Music Engraving Plugin for Typst
