@@ -1,7 +1,7 @@
 [package]
 name = "grayness"
 version = "0.7.0"
-compiler = "0.15.0"
+compiler = "0.14.0"
 repository = "https://github.com/nineff/grayness"
 entrypoint = "lib.typ"
 authors = ["Nikolai Neff-Sarnow"]
