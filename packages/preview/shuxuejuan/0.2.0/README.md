@@ -77,7 +77,7 @@ Complete [source code to this manual](./docs/manual.typ), [pre-compiled pdf](./d
 
 ## Update Strategy
 
-To avoid unnecessary version bumps[^1], all updates are promptly pushed to the [origin repository](https://github.com/VWWVVW/shuxuejuan), and synced to [typst/packages](https://github.com/typst/packages/blob/main/packages/preview/shuxuejuan) after they're tested. Small updates, including documentation fixes and code changes that don't affect the output, are typically synced with a multi-week delay.
+To avoid unnecessary version bumps, all updates are promptly pushed to the [origin repository](https://github.com/VWWVVW/shuxuejuan), and synced to [Typst Universe](https://typst.app/universe/package/shuxuejuan) after they're tested. Small updates, including documentation fixes and code changes that don't affect the output, are typically synced with a multi-week delay.
 
 Therefore, if you want to read the manual, view the examples, or submit a PR... please download the latest code from the origin repository:
 
@@ -88,5 +88,3 @@ git clone https://github.com/VWWVVW/shuxuejuan.git
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
-[^1]: See [policy regarding package edits](https://github.com/typst/packages/issues/2671) in typst/packages.
