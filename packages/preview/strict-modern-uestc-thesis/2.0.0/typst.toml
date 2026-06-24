@@ -1,0 +1,16 @@
+[package]
+name = "strict-modern-uestc-thesis"
+version = "2.0.0"
+entrypoint = "example/uestc-thesis-template/lib.typ"
+authors = ["UESTC Typst Community"]
+license = "Apache-2.0"
+description = "电子科技大学本科/硕士/博士学位论文模板，博士模板已经过学校验证，支持常用的表格，图像修订模式等。"
+repository = "https://github.com/uestc-typst/thesis-template"
+keywords = ["UESTC", "thesis", "degree", "template", "Typst", "电子科技大学"]
+categories = ["thesis"]
+compiler = "0.13.0"
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
