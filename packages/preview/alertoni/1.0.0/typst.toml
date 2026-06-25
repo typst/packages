@@ -1,0 +1,11 @@
+[package]
+name = "alertoni"
+version = "1.0.0"
+entrypoint = "exports.typ"
+authors = [ "Joel von Rotz <https://joelvonrotz.ch/>"]
+license = "EUPL-1.2"
+description = "A package for callouts with support for custom styles & types."
+keywords = ["Compact", "Callouts", "Custom Callouts"]
+categories = ["report"]
+exclude = [ "docs", ".gitignore",]
+repository = "https://codeberg.org/joelvonrotz/typst-alertoni"
