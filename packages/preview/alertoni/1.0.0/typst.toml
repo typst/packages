@@ -6,6 +6,6 @@ authors = [ "Joel von Rotz <https://joelvonrotz.ch/>"]
 license = "EUPL-1.2"
 description = "A package for callouts with support for custom styles & types."
 keywords = ["Compact", "Callouts", "Custom Callouts"]
-categories = ["report"]
+categories = ["Components", "Layout", "Utility"]
 exclude = [ "docs", ".gitignore",]
 repository = "https://codeberg.org/joelvonrotz/typst-alertoni"
