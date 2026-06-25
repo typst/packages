@@ -1,10 +1,13 @@
-# Modèle de cours pour Saint Jacques
+# coquille-st-jacques
 
-Typst template for illustrated lesson / revision handouts: cover page, styled table of contents, ready-to-use colored callout boxes (definition, key point, warning, example, analogy…), self-test questions with drawn checkboxes, colored-header tables, and captioned diagrams.
+Illustrated course handout template for French school teachers — cover
+page, styled table of contents, ready-to-use colored callout boxes
+(definition, key point, warning, example, analogy, theorem…),
+auto-test questions with drawn checkboxes, colored-header tables, and
+captioned diagrams.
 
-Modèle Typst pour produire un **support de cours / séquence de révision
-illustré** — utilisé dans l'atelier *« Un cours avec l'IA »* à
-Saint-Jacques.
+Conçu et utilisé dans l'atelier *« Un cours avec l'IA »* à l'école
+Saint-Jacques d'Hazebrouck.
 
 Fournit :
 
@@ -18,19 +21,31 @@ Fournit :
   de police sur [typst.app](https://typst.app)),
 - des **tableaux** avec en-tête coloré (`#head`) et cellules de catégorie
   (`#cat-cell`),
-- un helper de **schéma légendé** (`#schema`),
+- un helper de **schéma légendé** (`#schema`) et une **figure inline** (`#fig`),
 - une **palette de couleurs** réutilisable.
 
-## Installation
+## Démarrer un nouveau projet
+
+Sur [typst.app](https://typst.app), bouton **« Start from template »**,
+choisissez *coquille-st-jacques* — vous obtenez un projet pré-rempli
+prêt à éditer.
+
+Ou en ligne de commande :
+
+```bash
+typst init @preview/coquille-st-jacques
+```
+
+## Utiliser le modèle dans un projet existant
 
 ```typ
-#import "@preview/modele-cours-st-jacques:0.1.0": *
+#import "@preview/coquille-st-jacques:0.1.0": *
 ```
 
 ## Exemple minimal
 
 ```typ
-#import "@preview/modele-cours-st-jacques:0.1.0": *
+#import "@preview/coquille-st-jacques:0.1.0": *
 
 #show: course-template.with(
   title: "Mon cours",
@@ -51,9 +66,8 @@ Voici une #def[définition].
 
 #warn[Attention à ne pas confondre…]
 
-#qcm-q(1)[Quelle est la capitale de la France ?](
-  options: ("Paris", "Lyon", "Marseille"),
-)
+#qcm-q(1, [Quelle est la capitale de la France ?],
+  options: ("Paris", "Lyon", "Marseille"))
 ```
 
 ## API
