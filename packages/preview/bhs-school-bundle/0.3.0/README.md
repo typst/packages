@@ -4,7 +4,7 @@ Professional thesis template for vocational high schools in Austria, following f
 
 The template provides a structured cover page (HAK and Kolleg variants), required front matter pages, indexes, and running header/footer components for school thesis workflows. Necessary headings and examples for images, tables, citations, etc. are included in the `content.typ` file.
 
-This version supports the thesis template and a basic report template. DIN letter will follow in a future version.
+This version supports the thesis template and a basic report template. DIN 5008 letter will follow in a future version.
 
 ## Usage
 
