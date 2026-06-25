@@ -5,7 +5,7 @@ This is a template for a basic report. Styled according to the Télécom Paris
 school's graphic chart, this template aims to provide a quick and easy method
 for anyone willing to write a report on anything regarding the school. As a
 student, I made this template evolve over time, and wanted to publish it for
-otheres to use.
+others to use.
 
 *Disclaimer*: While this template features the official logotypes of *Télécom
 Paris* and *IP Paris*, it is completely **UNOFFICIAL**, and **not endorsed,

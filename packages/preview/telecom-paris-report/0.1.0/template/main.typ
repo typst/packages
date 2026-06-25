@@ -2,7 +2,7 @@
 
 #let abstract = [
   This is a test of the Télécom Paris report template. It features some simple
-  options and basic page layout. It currenly support `lang` "fr" and "en" for
+  options and basic page layout. It currently support `lang` "fr" and "en" for
   text attributes translations (like `abstract` or `keywords`). See
   documentation to know about all the available options.
 ]
