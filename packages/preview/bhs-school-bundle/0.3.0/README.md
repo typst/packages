@@ -42,7 +42,11 @@ Example for thesis:
     // school_logo: image("typst_media/logos/Logo_Schule.png"),
 )
 
-#include "thesis_content.typ"
+= First Headline of the thesis
+
+Using `typst init @preview/bhs-school-bundle` to initialize this project,you will get a prefilled `thesis_content.typ` file with examples for headings, images, tables, citations, etc. You can use this file as a starting point for your thesis and replace the content with your own.
+
+#lorem(200)
 ```
 
 Example for report:
