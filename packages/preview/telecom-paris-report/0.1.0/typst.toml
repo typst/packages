@@ -5,7 +5,7 @@ entrypoint = "src/lib.typ"
 authors = ["Arsene MALLET <@arsnm>"]
 license = "Unlicense"
 description = "Unofficial Télécom Paris report template."
-exclude = ["tests/", "thumbnail.png"]
+exclude = ["tests/"]
 repository = "https://github.com/arsnm/typstelecom-paris-report"
 keywords = [
     "telecom-paris", "report", "télécom", "academic", "university", "ip-paris"
