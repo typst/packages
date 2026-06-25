@@ -1,4 +1,4 @@
-#import "../src/vis.typ": *
+#import "@preview/slr8:0.0.1": *
 
 // Use "\\epsilon" for empty productions
 // The first production's LHS is treated as the start symbol
