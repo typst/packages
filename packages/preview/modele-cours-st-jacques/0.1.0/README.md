@@ -1,4 +1,6 @@
-# modele-cours-st-jacques
+# Modèle de cours pour Saint Jacques
+
+Typst template for illustrated lesson / revision handouts: cover page, styled table of contents, ready-to-use colored callout boxes (definition, key point, warning, example, analogy…), self-test questions with drawn checkboxes, colored-header tables, and captioned diagrams.
 
 Modèle Typst pour produire un **support de cours / séquence de révision
 illustré** — utilisé dans l'atelier *« Un cours avec l'IA »* à
@@ -120,8 +122,6 @@ Paramètres :
 L'argument est un **contenu image** (résultat de `#image(...)`), pas un
 chemin, pour la même raison que `cover-background`.
 
-<<<<<<< HEAD
-=======
 ### Figure inline légendée
 
 Variante compacte de `schema` pour les figures vectorielles ou les
@@ -139,7 +139,6 @@ Le premier argument est n'importe quel contenu (figure CETZ, image,
 bloc personnalisé). Idéal pour les illustrations qui accompagnent un
 calcul ou une démonstration.
 
->>>>>>> a080d56f (modele-cours-st-jacques:0.1.0)
 ### Couverture / sommaire séparés
 
 `#cover-page(…)` et `#toc-page(…)` sont également exposés si vous
