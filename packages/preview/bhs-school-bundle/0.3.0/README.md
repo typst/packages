@@ -84,26 +84,29 @@ Both use the same named parameters and are configured through `#show: ...with(..
 
 ### Options
 
-- `title` (content): Main title
-- `subtitle` (content or `none`): Subtitle
-- `projecttype` (content): E.g. diploma thesis
+- `title` (content): Main title on the cover page
+- `subtitle` (content or `none`): Subtitle on the cover page
 - `team` (array or `none`): Team members with name and responsibility
 - `supervisors` (array or `none`): Supervising teachers
-- `date` (content or `none`): Date line on the cover page
-- `font` (string or `none`): Document font family
-- `fontsize` (length): Base font size
-- `sectionnumbering` (string or `none`): Heading numbering format
-- `paper` (string): Paper format (e.g. `a4`)
-- `margin` (dictionary): Page margins
-- `responsible_default` (content): Default responsible person for the footer if not set per chapter in content.typ
-- `eidesstattliche_erklaerung_text` (content or `none`): Declaration of Authorship
-- `abnahmeerklaerung_text` (content or `none`): Acceptance Certificate
-- `vorwort_text` (content or `none`): German abstract
-- `abstract_text` (content or `none`): English abstract
+- `responsible_default` (content): Default responsible person for the footer if not set per chapter in content.typ (only for thesis template)
+- `kurzfassung_text` (content or `none`): German abstract
+- `abstract_text` (content or `none`): English abstract (only for thesis template)
 - `project_partner_logo` (content or `none`): Content for the left cover-page logo (specify an image with e.g. `image("path/to/logo.png")`)
 - `school_logo` (content or `none`): Content for the right cover-page school logo (specify an image with e.g. `image("path/to/logo.png")`)
 
-If `project_partner_logo` or `school_logo` are not set, the template uses template logos from `typst_media/logos/`.
+### Options with default values
+
+This options are set by default in the template and can be overridden if needed:
+
+- `date` (content or `none`): Date line on the cover page (default: current date yyyy-mm-dd)
+- `eidesstattliche_erklaerung_text` (content or `none`): Declaration of Authorship (default: formal requirements of HAK/HAS and Kolleg Imst (Austria))
+- `abnahmeerklaerung_text` (content or `none`): Acceptance Certificate (default: formal requirements of HAK/HAS and Kolleg Imst (Austria))
+- `projecttype` (content): E.g. diploma thesis (default: german project type e.g. "Diplomarbeit")
+- `font` (string or `none`): Document font family (default: typst built-in font)
+- `fontsize` (length): Base font size (default: 12.5pt)
+- `sectionnumbering` (string or `none`): Heading numbering format (default: `1.1.1`)
+- `paper` (string): Paper format (e.g. `a4`) (default: `a4`)
+- `margin` (dictionary): Page margins (default: `(x: 1.25in, y: 1.25in)`)
 
 ## Chapter Responsibility
 
