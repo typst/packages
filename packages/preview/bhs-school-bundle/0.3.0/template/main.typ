@@ -20,12 +20,12 @@
   font: "New Computer Modern",
   fontsize: 12.5pt,
   sectionnumbering: "1.1.1",
-  responsible_default: [Gabi Sorglos],  
-  vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
-  kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
-  abstract_text: [Englische Version der Kurzfassung.],
-  project_partner_logo: image("typst_media/logos/Logo_Projektpartner.png"),
-  school_logo: image("typst_media/logos/Logo_Schule.png"),
+  responsible-default: [Gabi Sorglos],  
+  vorwort-text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
+  kurzfassung-text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
+  abstract-text: [Englische Version der Kurzfassung.],
+  project-partner-logo: image("typst_media/logos/Logo_Projektpartner.png"),
+  school-logo: image("typst_media/logos/Logo_Schule.png"),
 )
 
 #include "thesis_content.typ"

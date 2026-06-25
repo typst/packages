@@ -30,12 +30,12 @@ Minimalistic example for thesis (see "Configuration" section for all available o
         [Claudio Landerer],
         [Stefan Stolz],
     ),
-    responsible_default: [Gabi Sorglos],  
-    vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
-    kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
-    abstract_text: [Englische Version der Kurzfassung.],
-    // project_partner_logo: image("typst_media/logos/Logo_Projektpartner.png"),
-    // school_logo: image("typst_media/logos/Logo_Schule.png"),
+    responsible-default: [Gabi Sorglos],  
+    vorwort-text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
+    kurzfassung-text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
+    abstract-text: [Englische Version der Kurzfassung.],
+    // project-partner-logo: image("typst_media/logos/Logo_Projektpartner.png"),
+    // school-logo: image("typst_media/logos/Logo_Schule.png"),
 )
 
 = First Headline of the thesis
@@ -54,9 +54,9 @@ Minimalistic example for report (see "Configuration" section for all available o
   title: [Der Titel der Arbeit],
   subtitle: [Untertitel der Arbeit],
   author: "Max Mustermann, Susanne Sorglos",
-  responsible_default: "Susanne Sorglos",
-  kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlösung.],  
-  // school_logo_path: image("path/to/logo.png"),
+  responsible-default: "Susanne Sorglos",
+  kurzfassung-text: [Kurzbeschreibung von Aufgabenstellung und Problemlösung.],  
+  // school-logo: image("path/to/logo.png"),
 )
 
 = First Headline of the report
@@ -79,20 +79,20 @@ Both use the same named parameters and are configured through `#show: ...with(..
 - `subtitle` (content or `none`): Subtitle on the cover page
 - `team` (array or `none`): Team members with name and responsibility
 - `supervisors` (array or `none`): Supervising teachers
-- `responsible_default` (content): Default responsible person for the footer if not set per chapter in content.typ (only for thesis template)
-- `vorwort_text` (content or `none`): German abstract (only thesis template)
-- `kurzfassung_text` (content or `none`): German abstract
-- `abstract_text` (content or `none`): English abstract (only thesis template)
-- `project_partner_logo` (content or `none`): Content for the left cover-page logo (specify an image with e.g. `image("path/to/logo.png")`)
-- `school_logo` (content or `none`): Content for the right cover-page school logo (specify an image with e.g. `image("path/to/logo.png")`)
+- `responsible-default` (content): Default responsible person for the footer if not set per chapter in content.typ (only for thesis template)
+- `vorwort-text` (content or `none`): German abstract (only thesis template)
+- `kurzfassung-text` (content or `none`): German abstract
+- `abstract-text` (content or `none`): English abstract (only thesis template)
+- `project-partner-logo` (content or `none`): Content for the left cover-page logo (specify an image with e.g. `image("path/to/logo.png")`)
+- `school-logo` (content or `none`): Content for the right cover-page school logo (specify an image with e.g. `image("path/to/logo.png")`)
 
 ### Options with default values
 
 This options are set by default in the template and can be overridden if needed:
 
 - `date` (content or `none`): Date line on the cover page (default: current date yyyy-mm-dd)
-- `eidesstattliche_erklaerung_text` (content or `none`): Declaration of Authorship (default: formal requirements of HAK/HAS and Kolleg Imst (Austria))
-- `abnahmeerklaerung_text` (content or `none`): Acceptance Certificate (default: formal requirements of HAK/HAS and Kolleg Imst (Austria))
+- `eidesstattliche-erklaerung-text` (content or `none`): Declaration of Authorship (default: formal requirements of HAK/HAS and Kolleg Imst (Austria))
+- `abnahmeerklaerung-text` (content or `none`): Acceptance Certificate (default: formal requirements of HAK/HAS and Kolleg Imst (Austria))
 - `projecttype` (content): E.g. diploma thesis (default: german project type e.g. "Diplomarbeit")
 - `font` (string or `none`): Document font family (default: typst built-in font)
 - `fontsize` (length): Base font size (default: 12.5pt)

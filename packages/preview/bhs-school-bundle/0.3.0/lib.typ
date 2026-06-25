@@ -59,7 +59,7 @@
   title: none,
   subtitle: none,
   projecttype: "Diplomarbeit",
-  titlepage_variant: "hak",
+  titlepage-variant: "hak",
   team: none,
   supervisors: none,
   location: none,
@@ -73,14 +73,14 @@
   font: none,
   fontsize: 12.5pt,
   sectionnumbering: none,
-  responsible_default: [Gabi Sorglos],
-  eidesstattliche_erklaerung_text: [Ich erklare an Eides statt, dass ich die vorliegende Diplomarbeit selbst verfasst und keine anderen als die angefuhrten Behelfe verwendet habe. Alle Stellen, die wortlich oder inhaltlich den angegebenen Quellen entnommen wurden, sind als solche kenntlich gemacht. Diese Versicherung umfasst auch verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Etwaig verwendete Behelfe generativer KI-Tools wurden vollstandig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen. Ich bin damit einverstanden, dass meine Arbeit offentlich zuganglich gemacht wird.],
-  abnahmeerklaerung_text: [Hiermit bestatigt der Auftraggeber, dass das ubergebene Produkt dieser Diplomarbeit den dokumentierten Vorgaben entspricht. Des Weiteren verzichtet der Auftraggeber auf unentgeltliche Wartung und Weiterentwicklung des Produktes durch die Projektmitglieder bzw. die Schule.],
-  vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
-  kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
-  abstract_text: [Englische Version der Kurzfassung.],
-  project_partner_logo: none,
-  school_logo: none,
+  responsible-default: [Gabi Sorglos],
+  eidesstattliche-erklaerung-text: [Ich erklare an Eides statt, dass ich die vorliegende Diplomarbeit selbst verfasst und keine anderen als die angefuhrten Behelfe verwendet habe. Alle Stellen, die wortlich oder inhaltlich den angegebenen Quellen entnommen wurden, sind als solche kenntlich gemacht. Diese Versicherung umfasst auch verwendete bildliche Darstellungen, Tabellen, Skizzen und Zeichnungen. Etwaig verwendete Behelfe generativer KI-Tools wurden vollstandig und wahrheitsgetreu inkl. Produktversion und Prompt ausgewiesen. Ich bin damit einverstanden, dass meine Arbeit offentlich zuganglich gemacht wird.],
+  abnahmeerklaerung-text: [Hiermit bestatigt der Auftraggeber, dass das ubergebene Produkt dieser Diplomarbeit den dokumentierten Vorgaben entspricht. Des Weiteren verzichtet der Auftraggeber auf unentgeltliche Wartung und Weiterentwicklung des Produktes durch die Projektmitglieder bzw. die Schule.],
+  vorwort-text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
+  kurzfassung-text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
+  abstract-text: [Englische Version der Kurzfassung.],
+  project-partner-logo: none,
+  school-logo: none,
   doc,
 ) = {
   // "hak" im Fließtext → Logo + vollständiger Name
@@ -120,14 +120,14 @@
 
   // ── Titelseite ──────────────────────────────────────────────────────────────
   if title != none {
-    let school_logo_final = if school_logo != none {
-        school_logo
+    let school_logo_final = if school-logo != none {
+        school-logo
     } else {
         image("template/typst_media/logos/Logo_Schule.png")
     }
 
-    let project_partner_logo_final = if project_partner_logo != none {
-        project_partner_logo
+    let project_partner_logo_final = if project-partner-logo != none {
+        project-partner-logo
     } else {
         image("template/typst_media/logos/Logo_Projektpartner.png")
     }    
@@ -155,7 +155,7 @@
         #text(size: 1.15em)[#subtitle]
       ]
 
-      #if titlepage_variant == "kolleg" [
+      #if titlepage-variant == "kolleg" [
         #if team != none [
           #v(1.2cm)
           #text(weight: "semibold")[Ausgearbeitet von]
@@ -201,9 +201,9 @@
     pagebreak()
 
     // ── Eidesstattliche Erklärung ─────────────────────────────────────────────
-    if eidesstattliche_erklaerung_text != none {
+    if eidesstattliche-erklaerung-text != none {
       heading(level: 1, numbering: none, outlined: false)[Eidesstattliche Erklarung]
-      eidesstattliche_erklaerung_text
+      eidesstattliche-erklaerung-text
       v(1.2cm)
       grid(
         columns: (1fr, 1fr),
@@ -217,9 +217,9 @@
     }
 
     // ── Abnahmeerklärung ──────────────────────────────────────────────────────
-    if abnahmeerklaerung_text != none {
+    if abnahmeerklaerung-text != none {
       heading(level: 1, numbering: none, outlined: false)[Abnahmeerklarung]
-      abnahmeerklaerung_text
+      abnahmeerklaerung-text
       v(1.2cm)
       [#stack(spacing: 2mm, line(length: 5cm), [Ort, Datum])]
       v(1.8cm)
@@ -228,21 +228,21 @@
     }
 
     // ── Vorwort / Kurzfassung / Abstract ─────────────────────────────────────
-    if vorwort_text != none {
+    if vorwort-text != none {
       heading(level: 1, numbering: none, outlined: false)[Vorwort]
-      vorwort_text
+      vorwort-text
       pagebreak()
     }
 
-    if kurzfassung_text != none {
+    if kurzfassung-text != none {
       heading(level: 1, numbering: none, outlined: false)[Kurzfassung]
-      kurzfassung_text
+      kurzfassung-text
       pagebreak()
     }
 
-    if abstract_text != none {
+    if abstract-text != none {
       heading(level: 1, numbering: none, outlined: false)[Abstract]
-      abstract_text
+      abstract-text
       pagebreak()
     }
 
@@ -272,7 +272,7 @@
       #grid(
         columns: (1fr, auto),
         column-gutter: 1em,
-        [Verantwortlich fur den Inhalt: #_current_responsible(responsible_default)],
+        [Verantwortlich fur den Inhalt: #_current_responsible(responsible-default)],
         [Seite #counter(page).display("1 / 1")],
       )
     ],
@@ -285,11 +285,11 @@
   title: none,
   subtitle: none,
   projecttype: "Bericht",
-  titlepage_variant: "hak",
+  titlepage-variant: "hak",
   author: none,
   location: none,
   date: datetime.today().display("[year]-[month]-[day]"),
-  kurzfassung_text: none,
+  kurzfassung-text: none,
   cols: 1,
   margin: (x: 1.25in, y: 1.25in),
   paper: "a4",
@@ -298,9 +298,9 @@
   font: none,
   fontsize: 12.5pt,
   sectionnumbering: none,
-  responsible_default: none,
-  project_partner_logo_path: none, // New parameter for project partner logo
-  school_logo_path: none, // New parameter for school logo
+  responsible-default: none,
+  project-partner-logo: none,
+  school-logo: none, 
   doc,
 ) = {  
 
@@ -353,7 +353,7 @@
       #grid(
         columns: (1fr, auto),
         column-gutter: 1em,
-        [Verantwortlich fur den Inhalt: #_current_responsible(responsible_default)],
+        [Verantwortlich fur den Inhalt: #_current_responsible(responsible-default)],
         [Seite #counter(page).display("1 / 1")],
       )
     ],
@@ -361,14 +361,14 @@
 
   // ── Titelseite ──────────────────────────────────────────────────────────────
   if title != none {
-    let school_logo_final = if school_logo_path != none {
-        school_logo_path
+    let school_logo_final = if school-logo != none {
+        school-logo
     } else {
         image("template/typst_media/logos/Logo_Schule.png")
     }
 
-    let project_partner_logo_final = if project_partner_logo_path != none {
-        project_partner_logo_path
+    let project_partner_logo_final = if project-partner-logo != none {
+        project-partner-logo
     } else {
         image("template/typst_media/logos/Logo_Projektpartner.png")
     }    
@@ -410,11 +410,11 @@
     
   }
 
-  if kurzfassung_text != none {
+  if kurzfassung-text != none {
     v(2em) 
     pad(
       x: 1.5cm, 
-      [ #kurzfassung_text ]
+      [ #kurzfassung-text ]
     )
     v(2em) 
   }
@@ -426,8 +426,8 @@
 
 /// HAK-Variante der Diplomarbeits-Vorlage.
 /// Verwendung:  #show: hak.with(title: [...], ...)
-#let hak = _diplomarbeit.with(titlepage_variant: "hak")
+#let hak = _diplomarbeit.with(titlepage-variant: "hak")
 
 /// Kolleg-Variante der Diplomarbeits-Vorlage.
 /// Verwendung:  #show: kolleg.with(title: [...], ...)
-#let kolleg = _diplomarbeit.with(titlepage_variant: "kolleg")
+#let kolleg = _diplomarbeit.with(titlepage-variant: "kolleg")

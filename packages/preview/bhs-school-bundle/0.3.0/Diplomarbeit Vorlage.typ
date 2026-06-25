@@ -11,7 +11,7 @@
     (name: [Susanne Sorglos], responsibility: [Verantwortlich fur IT: HTML, CSS, BWL: Kaufvertrag]),
     (name: [Otto Normalverbraucher], responsibility: [Verantwortlich fur IT: HTML, CSS, BWL: Kaufvertrag]),
   ),
-  responsible_default: "Susanne Sorglos",
+  responsible-default: "Susanne Sorglos",
   supervisors: (
     [Claudio Landerer],
     [Stefan Stolz],
@@ -20,13 +20,13 @@
   font: "New Computer Modern",
   fontsize: 12.5pt,
   sectionnumbering: "1.1.1",
-  // project_partner_logo: image("template/typst_media/logos/Logo_Projektpartner.png"),
-  // school_logo: image("template/typst_media/logos/Logo_Schule.png"),
-  // eidesstattliche_erklaerung_text: none,
-  // abnahmeerklaerung_text: none,
-  vorwort_text: [vorwort_text],
-  kurzfassung_text: [kurzfassung_text],
-  abstract_text: [abstract_text],
+  // project-partner-logo: image("template/typst_media/logos/Logo_Projektpartner.png"),
+  // school-logo: image("template/typst_media/logos/Logo_Schule.png"),
+  // eidesstattliche-erklaerung-text: none,
+  // abnahmeerklaerung-text: none,
+  vorwort-text: [vorwort_text],
+  kurzfassung-text: [kurzfassung_text],
+  abstract-text: [abstract_text],
 )
 
 Hier startet das Dokument
