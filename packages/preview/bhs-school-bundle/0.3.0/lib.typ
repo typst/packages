@@ -58,10 +58,11 @@
 #let _diplomarbeit(
   title: none,
   subtitle: none,
-  projecttype: none,
+  projecttype: "Diplomarbeit",
   titlepage_variant: "hak",
   team: none,
   supervisors: none,
+  location: none,
   date: datetime.today().display("[year]-[month]-[day]"),
   abstract: none,
   cols: 1,
@@ -190,8 +191,12 @@
 
       #if date != none [
         #v(0.9cm)
-        #date
+
+        #if location != none [
+          #location,
+        ] #date
       ]
+
     ]
     pagebreak()
 
@@ -284,7 +289,7 @@
   author: none,
   location: none,
   date: datetime.today().display("[year]-[month]-[day]"),
-  abstract: none,
+  kurzfassung_text: none,
   cols: 1,
   margin: (x: 1.25in, y: 1.25in),
   paper: "a4",
@@ -331,7 +336,6 @@
 
   set heading(numbering: sectionnumbering)
   show heading.where(level: 1): it => [
-    #pagebreak(weak: true)
     #block(above: 1.8em, below: 1.0em)[#it]
   ]
   show heading.where(level: 2): set block(above: 1.25em, below: 0.65em)
@@ -393,23 +397,27 @@
       #if author != none [
           #v(0.5cm)
           #author
-      ]      
+      ]
 
       #if date != none [
         #v(0.0cm)
-        #location, #date
+
+        #if location != none [
+          #location,
+        ] #date
       ]
     ]
     
   }
 
-  if abstract != none {
-    block(inset: 2em)[
-      #text(weight: "semibold")[Abstract] #h(1em) #abstract
-    ]
+  if kurzfassung_text != none {
+    v(2em) 
+    pad(
+      x: 1.5cm, 
+      [ #kurzfassung_text ]
+    )
+    v(2em) 
   }
-
-  
 
   if cols == 1 { doc } else { columns(cols, doc) }
 }

@@ -12,7 +12,7 @@ With an existing Typst installation, use the CLI command `typst init @preview/bh
 
 You can also decide to start a new *.typ file on your own and add the necessary imports and configurations as soon as you need to use the template. To do so, you need to include the template import and initialize needed variables at the beginning of your *.typ file.
 
-Example for thesis:
+Minimalistic example for thesis (see "Configuration" section for all available options):
 
 ```typst
 // For Kolleg variant: replace "hak" with "kolleg"
@@ -30,10 +30,6 @@ Example for thesis:
         [Claudio Landerer],
         [Stefan Stolz],
     ),
-    date: [Imst, 2026-06-08],
-    font: "New Computer Modern",
-    fontsize: 12.5pt,
-    sectionnumbering: "1.1.1",
     responsible_default: [Gabi Sorglos],  
     vorwort_text: [Hinweise, wie das bearbeitete Thema gefunden wurde, sowie Danksagungen fur Betreuung und Unterstutzung.],
     kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlosung.],
@@ -49,7 +45,7 @@ Using `typst init @preview/bhs-school-bundle` to initialize this project,you wil
 #lorem(200)
 ```
 
-Example for report:
+Minimalistic example for report (see "Configuration" section for all available options):
 
 ```typst
 #import "@preview/bhs-school-bundle:0.3.0": *
@@ -57,15 +53,10 @@ Example for report:
 #show: report.with(
   title: [Der Titel der Arbeit],
   subtitle: [Untertitel der Arbeit],
-  //projecttype: [Bericht],
   author: "Max Mustermann, Susanne Sorglos",
   responsible_default: "Susanne Sorglos",
-  location: "Imst",
-  date: [2026-06-08],
-  font: "New Computer Modern",
-  fontsize: 12.5pt,
-  sectionnumbering: "1.1.1",
-  school_logo_path: image("template/typst_media/logos/Logo_Schule.png"),
+  kurzfassung_text: [Kurzbeschreibung von Aufgabenstellung und Problemlösung.],  
+  // school_logo_path: image("path/to/logo.png"),
 )
 
 = First Headline of the report
@@ -89,8 +80,9 @@ Both use the same named parameters and are configured through `#show: ...with(..
 - `team` (array or `none`): Team members with name and responsibility
 - `supervisors` (array or `none`): Supervising teachers
 - `responsible_default` (content): Default responsible person for the footer if not set per chapter in content.typ (only for thesis template)
+- `vorwort_text` (content or `none`): German abstract (only thesis template)
 - `kurzfassung_text` (content or `none`): German abstract
-- `abstract_text` (content or `none`): English abstract (only for thesis template)
+- `abstract_text` (content or `none`): English abstract (only thesis template)
 - `project_partner_logo` (content or `none`): Content for the left cover-page logo (specify an image with e.g. `image("path/to/logo.png")`)
 - `school_logo` (content or `none`): Content for the right cover-page school logo (specify an image with e.g. `image("path/to/logo.png")`)
 
