@@ -1,4 +1,4 @@
-#import "../src/lib.typ": telecom-paris-report
+#import "@preview/telecom-paris-report:0.1.0": telecom-paris-report
 
 #show: telecom-paris-report.with(
   title: "Télécom Paris Report Template",
