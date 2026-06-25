@@ -14,8 +14,7 @@ exclude = [
   "**/*.pdf",
   ".gitignore",
   ".DS_Store",
-  "assets/iplesp-docs",
-  "assets/sorbonne-docs"
+  "docs"
 ]
 
 [template]

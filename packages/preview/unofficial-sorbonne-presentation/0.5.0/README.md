@@ -22,8 +22,8 @@ Switch between Sorbonne University faculties using the `faculty` and `dark-mode`
 
 | Mode | Univ | Sante | Sciences | Lettres |
 |:---:|:---:|:---:|:---:|:---:|
-| **Light** | <img src="assets/sorbonne-docs/faculty-univ.png" width="200" alt="Sorbonne Univ light theme"> | <img src="assets/sorbonne-docs/faculty-sante.png" width="200" alt="Sorbonne Santé light theme"> | <img src="assets/sorbonne-docs/faculty-sciences.png" width="200" alt="Sorbonne Sciences light theme"> | <img src="assets/sorbonne-docs/faculty-lettres.png" width="200" alt="Sorbonne Lettres light theme"> |
-| **Dark** | <img src="assets/sorbonne-docs/faculty-univ-dark.png" width="200" alt="Sorbonne Univ dark theme"> | <img src="assets/sorbonne-docs/faculty-sante-dark.png" width="200" alt="Sorbonne Santé dark theme"> | <img src="assets/sorbonne-docs/faculty-sciences-dark.png" width="200" alt="Sorbonne Sciences dark theme"> | <img src="assets/sorbonne-docs/faculty-lettres-dark.png" width="200" alt="Sorbonne Lettres dark theme"> |
+| **Light** | <img src="docs/sorbonne/faculty-univ.png" width="200" alt="Sorbonne Univ light theme"> | <img src="docs/sorbonne/faculty-sante.png" width="200" alt="Sorbonne Santé light theme"> | <img src="docs/sorbonne/faculty-sciences.png" width="200" alt="Sorbonne Sciences light theme"> | <img src="docs/sorbonne/faculty-lettres.png" width="200" alt="Sorbonne Lettres light theme"> |
+| **Dark** | <img src="docs/sorbonne/faculty-univ-dark.png" width="200" alt="Sorbonne Univ dark theme"> | <img src="docs/sorbonne/faculty-sante-dark.png" width="200" alt="Sorbonne Santé dark theme"> | <img src="docs/sorbonne/faculty-sciences-dark.png" width="200" alt="Sorbonne Sciences dark theme"> | <img src="docs/sorbonne/faculty-lettres-dark.png" width="200" alt="Sorbonne Lettres dark theme"> |
 
 - `univ`: Sorbonne Blue (University-wide)
 - `sante`: Sorbonne Red (Faculty of Health)
@@ -38,8 +38,8 @@ The IPLESP theme provides multiple color variants via the `theme` parameter. It 
 
 | Mode | Blue | Red | Green | Purple |
 |:---:|:---:|:---:|:---:|:---:|
-| **Light** | <img src="assets/iplesp-docs/theme-blue.png" width="200" alt="IPLESP blue light theme"> | <img src="assets/iplesp-docs/theme-red.png" width="200" alt="IPLESP red light theme"> | <img src="assets/iplesp-docs/theme-green.png" width="200" alt="IPLESP green light theme"> | <img src="assets/iplesp-docs/theme-purple.png" width="200" alt="IPLESP purple light theme"> |
-| **Dark** | <img src="assets/iplesp-docs/theme-blue-dark.png" width="200" alt="IPLESP blue dark theme"> | <img src="assets/iplesp-docs/theme-red-dark.png" width="200" alt="IPLESP red dark theme"> | <img src="assets/iplesp-docs/theme-green-dark.png" width="200" alt="IPLESP green dark theme"> | <img src="assets/iplesp-docs/theme-purple-dark.png" width="200" alt="IPLESP purple dark theme"> |
+| **Light** | <img src="docs/iplesp/theme-blue.png" width="200" alt="IPLESP blue light theme"> | <img src="docs/iplesp/theme-red.png" width="200" alt="IPLESP red light theme"> | <img src="docs/iplesp/theme-green.png" width="200" alt="IPLESP green light theme"> | <img src="docs/iplesp/theme-purple.png" width="200" alt="IPLESP purple light theme"> |
+| **Dark** | <img src="docs/iplesp/theme-blue-dark.png" width="200" alt="IPLESP blue dark theme"> | <img src="docs/iplesp/theme-red-dark.png" width="200" alt="IPLESP red dark theme"> | <img src="docs/iplesp/theme-green-dark.png" width="200" alt="IPLESP green dark theme"> | <img src="docs/iplesp/theme-purple-dark.png" width="200" alt="IPLESP purple dark theme"> |
 
 *Other available colors: `yellow`, `teal`, `orange`, `slate`.*
 
@@ -53,7 +53,7 @@ Two cover styles are available via the `cover-style` parameter:
 
 | Full (default) | Light |
 |:---:|:---:|
-| <img src="assets/aphp-docs/cover-style-full.png" width="200" alt="AP-HP full cover style"> | <img src="assets/aphp-docs/cover-style-light.png" width="200" alt="AP-HP light cover style"> |
+| <img src="docs/aphp/cover-style-full.png" width="200" alt="AP-HP full cover style"> | <img src="docs/aphp/cover-style-light.png" width="200" alt="AP-HP light cover style"> |
 
 - **`"full"`** (default): Large navy panel on the right half of the title slide. The title appears as one or two blue blocks on the white left area.
 - **`"light"`**: White background throughout. An optional classification banner (e.g. `"Internal"`) appears at the very top.
@@ -245,38 +245,38 @@ Used on **standard slides** (white background).
 
 ### Slide Types
 - `#slide(title: none, subtitle: none, allow-slide-breaks: false, background: none, body)`: Standard content slide.
-  ![Standard content slide example](assets/sorbonne-docs/component-slide.png)
+  ![Standard content slide example](docs/sorbonne/component-slide.png)
 - `#focus-slide(body, subtitle: none)`: Highlight slide on solid theme background.
-  ![Focus Slide](assets/sorbonne-docs/component-focus-slide.png)
+  ![Focus Slide](docs/sorbonne/component-focus-slide.png)
 - `#figure-slide(fig, title: none, caption: none, ..)`: Centered figure slide.
-  ![Figure Slide](assets/sorbonne-docs/component-figure-slide.png)
+  ![Figure Slide](docs/sorbonne/component-figure-slide.png)
 - `#equation-slide(equation, title: none, definitions: none, citation: none, ..)`: Large equation with "signature".
-  ![Equation Slide](assets/sorbonne-docs/component-equation-slide.png)
+  ![Equation Slide](docs/sorbonne/component-equation-slide.png)
 - `#acknowledgement-slide(people: (), institutions: (), ..)`: Thank-you slide.
-  ![Acknowledgement Slide](assets/sorbonne-docs/component-acknowledgement-slide.png)
+  ![Acknowledgement Slide](docs/sorbonne/component-acknowledgement-slide.png)
 - `#ending-slide(title: none, subtitle: none, contact: ())`: Closing slide.
-  ![Ending Slide](assets/sorbonne-docs/component-ending-slide.png)
+  ![Ending Slide](docs/sorbonne/component-ending-slide.png)
 
 ### Text Helpers
 - `#alert[text]`: Highlighted bold text in primary color.
 - `#muted[text]`: Gray secondary text.
 - `#subtle[text]`: Light gray tertiary text.
-![Text Helpers](assets/sorbonne-docs/helper-text.png)
+![Text Helpers](docs/sorbonne/helper-text.png)
 
 ### Citations
 - Inline and corner citations.
   `#cite-box("smith2023", position: "bottom-right")`
-  ![Inline and corner citation examples](assets/sorbonne-docs/component-citations.png)
+  ![Inline and corner citation examples](docs/sorbonne/component-citations.png)
 
 ### Layout & Boxes
 - `#two-col(left, right, columns: (1fr, 1fr))`: Balanced columns.
-  ![Layout 2-col](assets/sorbonne-docs/layout-2col.png)
+  ![Layout 2-col](docs/sorbonne/layout-2col.png)
 - `#three-col(left, center, right)`: Three column layout.
-  ![Layout 3-col](assets/sorbonne-docs/layout-3col.png)
+  ![Layout 3-col](docs/sorbonne/layout-3col.png)
 - `#grid-2x2(tl, tr, bl, br)`: Four-quadrant grid layout.
-  ![Layout Grid-2x2](assets/sorbonne-docs/layout-grid2x2.png)
+  ![Layout Grid-2x2](docs/sorbonne/layout-grid2x2.png)
 - **Boxes**: All boxes support the `fill-mode` parameter (`"outline"`, `"fill"`, `"full"`).
-  ![Highlight, alert, example, algorithm and themed box examples](assets/sorbonne-docs/component-boxes.png)
+  ![Highlight, alert, example, algorithm and themed box examples](docs/sorbonne/component-boxes.png)
   - `#highlight-box(title, body)`: Blue university-styled box for key points.
   - `#alert-box(title, body)`: Red cautionary box for warnings.
   - `#example-box(title, body)`: Green academic box for examples.
