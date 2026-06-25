@@ -1,0 +1,11 @@
+[package]
+name = "mpparse"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["SAD Standard"]
+license = "LGPL-2.1-only"
+description = "Read Microsoft Project .mpp task data in Typst."
+repository = "https://github.com/sad-standard/mpparse"
+keywords = ["mpp", "microsoft-project", "project", "schedule", "gantt"]
+categories = ["integration"]
+compiler = "0.14.0"
