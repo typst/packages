@@ -1,6 +1,6 @@
-#import "@preview/telecom-paris-report:0.1.0": telecom-paris-report
+#import "@preview/telereport:0.1.0": telereport
 
-#show: telecom-paris-report.with(
+#show: telereport.with(
   title: "Télécom Paris Report Template",
   subtitle: "Official Package Documentation",
   short-title: "Template Manual",
@@ -20,7 +20,7 @@
 )
 
 = Introduction
-The `telecom-paris-report` template is fairly customizable. Its purpose is to
+The `telereport` template is fairly customizable. Its purpose is to
 provide a boilerplate layout following the school's style guidelines. You
 configure the document by passing a dictionary of arguments to the main template
 function via the `#show` rule.

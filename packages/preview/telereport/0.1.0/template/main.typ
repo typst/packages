@@ -1,4 +1,4 @@
-#import "@preview/telecom-paris-report:0.1.0": *
+#import "@preview/telereport:0.1.0": telereport
 
 #let abstract = [
   This is a test of the Télécom Paris report template. It features some simple
@@ -7,7 +7,7 @@
   documentation to know about all the available options.
 ]
 
-#show: telecom-paris-report.with(
+#show: telereport.with(
   title: "Unofficial Télécom Paris Report Template",
   subtitle: "Styled according to Télécom Paris' graphic chart",
   short-title: "Report Template",

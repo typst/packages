@@ -1,1 +1,1 @@
-#import "core.typ": telecom-paris-report
+#import "core.typ": telereport

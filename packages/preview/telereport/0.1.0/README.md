@@ -1,4 +1,4 @@
-# Télécom Paris Report Template
+# TéléReport (Télécom Paris Report) Template
 > version 0.1.0
 
 This is a template for a basic report. Styled according to the Télécom Paris
@@ -31,9 +31,9 @@ Below is an example of how one can import and use this template in their
 project:
 
 ```typst
-#import "@preview/telecom-paris-report:0.1.0": *
+#import "@preview/telereport:0.1.0": *
 
-#show: telecom-paris-report.with(
+#show: telereport.with(
   title: "Your Project Title",
   subtitle: "Optional Subtitle",
   authors: (

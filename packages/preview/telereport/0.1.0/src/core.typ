@@ -7,7 +7,7 @@
 #let tp-grey = luma(30%)
 #let tp-black = luma(0) // == black, but anyway
 
-#let telecom-paris-report(
+#let telereport(
   title: none, // main title of the document
   short-title: none, // (optional) shorter title used in the header
   subtitle: none, // subtitle of the document, present in the cover only
