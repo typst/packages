@@ -10,4 +10,4 @@ compiler = "0.15.0"
 categories = ["components", "visualization"]
 disciplines = ["computer-science", "mathematics", "education", "linguistics"]
 keywords = ["parser", "slr", "grammar", "compiler", "AST"]
-exclude = ["README.md", "docs", "example.typ", "example.pdf"]
+exclude = ["docs", "example.typ", "example.pdf"]

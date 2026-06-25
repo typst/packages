@@ -1,5 +1,5 @@
 #import "lib.typ": *
-#import "@preview/diagraph:0.3.6": raw-render
+#import "@preview/diagraph:0.3.7": raw-render
 
 
 
