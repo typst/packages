@@ -298,15 +298,25 @@
 
 // Back — confidentiality notice
 if back-notice != none {
-pagebreak()
-align(bottom+left)[
-  #h(2em)#text(weight: "bold", size: 14pt)[#back-notice]
-]
+  pagebreak()
+  align(bottom + left)[
+    #h(2em)
+    #text(weight: "bold", size: 14pt)[#back-notice]
+  ]
 }
-if version == "年月日" {
-align(center+bottom)[
-#text(weight: "bold", size: 14pt)[版本日期:] #text(weight:"bold", size: 14pt, upper(date.display("[year]年[month]月[day]日")))
-]
+if version != none {
+  align(center + bottom)[
+    #text(weight: "bold", size: 14pt)[版本日期:]
+    #text(
+      weight: "bold",
+      size: 14pt,
+      if version == "年月日" {
+        upper(date.display("[year]年[month]月[day]日"))
+      } else {
+        version
+      }
+    )
+  ]
 }
 }
 
