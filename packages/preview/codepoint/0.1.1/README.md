@@ -115,4 +115,4 @@ The labs module configures layout, custom raw-code themes, and uniform section l
 ![Lab Example](./img/lab.png)
 
 
-For exact function details and guidelines, check out [the manual](https://github.com/oseda-dev/codepoint/blob/main/manual/manual.pdf)
+For exact function details and guidelines, check out [the manual](https://github.com/oseda-dev/codepoint/blob/d5228a2d6425b2828916f3beaf20bff4b8f471c0/manual/manual.pdf)
