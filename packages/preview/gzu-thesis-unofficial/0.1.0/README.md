@@ -1,4 +1,5 @@
 # 贵州大学本科生毕业论文（设计）模板
+This is a Typst template for undergraduate thesis (design) at Guizhou University.
 
 ## 模板介绍
 此模板参考
@@ -7,11 +8,11 @@
 
 ## 使用方法
 可在官方网页端在线使用，只需在仪表板上点击 “Start from template”，
-然后搜索 gzu-thesis。
+然后搜索 gzu-thesis-unofficial。
 
 另外，你也可以在本地使用下面的命令来启动这个项目。
 ```bash
-typst init @preview/gzu-thesis
+typst init @preview/gzu-thesis-unofficial
 ```
 Typst 将会创建一个新的目录，其中包含此模板的一套示例，可阅读代码了解使用方法，
 关于此模板的更多内容可查看 [模板手册](manual.pdf)
