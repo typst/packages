@@ -1,5 +1,5 @@
 #import "@preview/elegant-polimi-thesis:0.2.1": *
-#import "@preview/touying:0.7.3": *
+#import "@preview/touying:0.7.4": *
 
 #show: polimi-digital-presentation.with(
   divider-style: "dark", // try "light"

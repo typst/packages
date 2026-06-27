@@ -1,6 +1,8 @@
 #import "@preview/elegant-polimi-thesis:0.2.1": (
   acknowledgements, appendix, polimi-executive-summary, proof, proposition, subfigure, theorem, theorems-init,
 )
+#import "@preview/algo:0.3.6": *
+#import "@preview/lovelace:0.3.1": *
 
 #let data = yaml("../shared_data.yaml")
 
@@ -157,7 +159,6 @@ As you can see, it could be useful to implement a default style for every table 
 For algorithms, there are a lot of packages on Typst universe @typst-universe. The following are my recommendations.
 
 - `lovelace` @typst-lovelace
-#import "@preview/lovelace:0.3.0": *
 
 #figure(
   kind: "algorithm",
@@ -183,7 +184,6 @@ See @first-algorithm.
 // #pagebreak()
 
 - `algo` @typst-algo
-#import "@preview/algo:0.3.6": *
 
 #algo(header: [Name of Algorithm])[
   Initial instructions \

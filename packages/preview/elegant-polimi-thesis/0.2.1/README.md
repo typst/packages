@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/badge/package-v0.2.1-239dad?logo=typst)
 [![Github Repo](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/VictuarVi/PoliMi-PhD-Thesis)
 ![License](https://img.shields.io/badge/license-GPLv3-green)
-[![Manual](https://img.shields.io/badge/docs-docs.pdf-red?logo=readthedocs)](docs/docs.pdf?raw=true)
+[![Documentation](https://img.shields.io/badge/docs-docs.pdf-red?logo=readthedocs)](docs/docs.pdf?raw=true)
 
 [Typst](https://typst.app/) theses and summaries templates for the [Polytechnic University of Milan](https://www.polimi.it/). The package supports all the templates that can be found on [this page](https://www.overleaf.com/latex/templates/tagged/polimi).
 
