@@ -39,10 +39,10 @@
 
 ```bash
 # 在项目根目录编译示例（注意 --root 指向项目根，否则 ../lib.typ 会被判越界）
-typst compile --root . example/开题答辩-示例.typ out.pdf
+typst compile --root . example/example.typ out.pdf
 
 # 实时预览
-typst watch --root . example/开题答辩-示例.typ out.pdf
+typst watch --root . example/example.typ out.pdf
 ```
 
 ## 目录结构
@@ -60,8 +60,8 @@ modern-zuel-beamer/
 │   ├── block.typ        # 莫兰迪语义色块
 │   └── component.typ    # 多栏 / 题注 / 金句 / 编号定理
 └── example/
-    ├── 开题答辩-示例.typ  # 完整可填充示例
-    └── 组件速查.typ       # 各组件用法参考
+    ├── example.typ  # 完整可填充示例
+    └── quick_check.typ       # 各组件用法参考
 ```
 
 ## API 速查
@@ -105,7 +105,7 @@ modern-zuel-beamer/
 
 **语义色块**：`note-block` / `definition-block` / `alert-block` / `example-block` / `theorem-block` / `highlight-block`，均支持 `title:` 参数。
 
-**更多组件**（见 [`example/组件速查.typ`](example/组件速查.typ)）：
+**更多组件**（见 [`example/quick_check.typ`](example/quick_check.typ)）：
 
 | 组件 | 用法 | 说明 |
 | --- | --- | --- |
