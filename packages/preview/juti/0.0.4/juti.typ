@@ -299,6 +299,18 @@
   show figure.where(kind: table): set block(breakable: true)
   show figure.where(kind: table): set figure(placement: top, supplement: [Table])
   set table(align: left)
+
+  //? Algorithm
+  show figure.where(kind: "algorithm"): set figure(placement: top, supplement: [Algorithm])
+
+  //? Caption
+  set figure.caption(separator: [. ])
+  show figure.caption: set align(left)
+  show figure.caption: set par(first-line-indent: 0pt)
+  show figure.caption: it => context [
+    *#it.supplement #it.counter.get().at(0)#it.separator* #it.body
+  ]
+
   // TODO: Still not fixed
   // show enum.item: it => {
   //   enumlist-level.update(l => l + 1)
