@@ -16,8 +16,8 @@
 - Added DEIB logo
 - Removed localization (now only ENG)
 - Removed `phdcycle`
-- Fixed figure numbering
 - Reorganized docs
+- Fixed figure numbering
 
 # 0.1.1 - 2025-09-12
 

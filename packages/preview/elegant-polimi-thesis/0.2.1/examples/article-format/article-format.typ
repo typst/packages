@@ -2,10 +2,11 @@
   acknowledgements, appendix, banner, polimi-article-format-thesis, proof, proposition, subfigure, theorem,
   theorems-init,
 )
-#import "@preview/algo:0.3.6": *
-#import "@preview/lovelace:0.3.1": *
+#import "../shared-imports.typ": *
+#show "LaTeX": LaTeX
+#show "Typst": Typst
 
-#let data = yaml("../shared_data.yaml")
+#let data = yaml("../shared-data.yaml")
 
 #show: polimi-article-format-thesis.with(
   title: [`article-format` manual],
@@ -35,19 +36,6 @@
 )
 
 #show: theorems-init
-
-#import "@preview/metalogo:1.2.0": LaTeX, TeX
-#show "LaTeX": LaTeX
-
-#let Typst = {
-  text(
-    fill: eastern,
-    font: "Libertinus Serif",
-    weight: "semibold",
-    "Typst",
-  )
-}
-#show "Typst": Typst
 
 = Introduction
 
@@ -148,33 +136,6 @@ However, since Typst does not _natively_ support subfigures (see #link("https://
 You can reference either the main @full; or a single subfigure: @a, or @b.
 
 == Tables
-
-#let frame(color) = (
-  (x, y) => (
-    left: if x > 0 {
-      0pt
-    } else {
-      color
-    },
-    right: color,
-    top: if y < 2 {
-      color
-    } else {
-      0pt
-    },
-    bottom: color,
-  )
-)
-
-#let shading(color) = (
-  (x, y) => {
-    if y == 0 {
-      color
-    } else {
-      none
-    }
-  }
-)
 
 #show table.cell: it => {
   if (it.x == 0 or it.y == 0) {

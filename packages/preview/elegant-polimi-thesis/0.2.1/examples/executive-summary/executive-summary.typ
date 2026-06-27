@@ -1,10 +1,11 @@
 #import "@preview/elegant-polimi-thesis:0.2.1": (
   acknowledgements, appendix, polimi-executive-summary, proof, proposition, subfigure, theorem, theorems-init,
 )
-#import "@preview/algo:0.3.6": *
-#import "@preview/lovelace:0.3.1": *
+#import "../shared-imports.typ": *
+#show "LaTeX": LaTeX
+#show "Typst": Typst
 
-#let data = yaml("../shared_data.yaml")
+#let data = yaml("../shared-data.yaml")
 
 #show: polimi-executive-summary.with(
   title: [`executive-summary` manual],
@@ -101,33 +102,6 @@ Via the ```Typst figure``` environment @typst-figure, as you would do in LaTeX:
 )
 
 == Tables
-
-#let frame(color) = (
-  (x, y) => (
-    left: if x > 0 {
-      0pt
-    } else {
-      color
-    },
-    right: color,
-    top: if y < 2 {
-      color
-    } else {
-      0pt
-    },
-    bottom: color,
-  )
-)
-
-#let shading(color) = (
-  (x, y) => {
-    if y == 0 {
-      color
-    } else {
-      none
-    }
-  }
-)
 
 #show table.cell: it => {
   if (it.x == 0 or it.y == 0) {

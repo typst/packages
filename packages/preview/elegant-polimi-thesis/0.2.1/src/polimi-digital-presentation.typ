@@ -295,6 +295,10 @@
   touying-slide(self: self, config: config, body)
 })
 
+/// Generate the outline based on headings.
+/// -> content
+#let outline-slide(..args) = make-outline(..args)
+
 // SPLIT SLIDES
 
 /// Slide exactly split in 2 or 4. Requires content for each split.
@@ -320,8 +324,8 @@
     config-page(
       header: _poli-header(self),
       background: {
-        set line(length: 100%, angle: 90deg, stroke: self.colors.cerchi-stroke)
-        set circle(stroke: self.colors.cerchi-stroke)
+        set line(length: 100%, angle: 90deg, stroke: self.colors.neutral-light)
+        set circle(stroke: self.colors.neutral-light)
         set stack(dir: ltr)
         if splits-num == 2 {
           stack(
@@ -510,7 +514,7 @@
     config-page(
       // OPINIONATED CHOICE: it doesn't make sense to have an header in this slide
       // header: _poli-header(self, text-args: (size: 15pt, weight: "regular", fill: white)),
-      .._divider-bg-args(self.colors.primary, self.colors.divider.dark),
+      .._divider-bg-args(self.colors.primary, self.colors.secondary-dark),
     ),
     config-common(
       freeze-slide-counter: true,
@@ -526,7 +530,7 @@
 /// -> content
 #let _new-section-slide(config: (:), ..args) = touying-slide-wrapper(self => {
   let config-divisorio = if self.store.divider-style == "dark" {
-    (self.colors.primary, self.colors.divider.dark)
+    (self.colors.primary, self.colors.secondary-dark)
   } else {
     (rgb("#e2e6eb"), rgb("#7a8aa0"))
   }
@@ -610,7 +614,7 @@
     if it.y == 0 {
       text(fill: white, it)
     } else if it.x == 0 {
-      text(fill: _poli-palette.main, it)
+      text(fill: _poli-palette.primary, it)
     } else {
       it
     }
@@ -627,7 +631,7 @@
       if y > 0 and x == 0 {
         rgb("#c0cbd5")
       } else if x > 0 and y == 0 {
-        _poli-palette.main
+        _poli-palette.primary
       }
     },
   )
@@ -649,12 +653,7 @@
       datetime-format: "[day]. [month]. [year]",
     ),
     config-colors(
-      primary: _poli-palette.main,
-      cerchi-stroke: rgb("#c0cbd5"),
-      divider: (
-        dark: rgb("#7F94A9"),
-        light: rgb("#E1E6EB"),
-      ),
+      .._poli-palette,
     ),
     config-store(
       divider-style: divider-style,
