@@ -15,7 +15,7 @@ keywords = [
 categories = ["thesis", "paper"]
 disciplines = ["engineering", "mathematics", "physics"]
 compiler = "0.13.0"
-exclude = ["*.sh", "*.pdf", "/examples/*", "/thumbnails/*", "/docs/*"]
+exclude = ["*.sh", "*.pdf", "/examples/*", "thumbnails/*.typ", "/docs/*"]
 
 [template]
 path = "template"
