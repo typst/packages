@@ -1,0 +1,12 @@
+[package]
+name = "sheetwise"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Patrick Fürderer-Tosolini <@Hyperrick>"]
+license = "MIT"
+description = "Arrange print items on press sheets."
+repository = "https://github.com/Hyperrick/typst-sheetwise"
+keywords = ["imposition", "print", "gang-up", "booklet", "prepress"]
+categories = ["layout", "utility"]
+compiler = "0.14.0"
+exclude = ["tests/**", "examples/**", "assets/**"]
