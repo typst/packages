@@ -1,0 +1,15 @@
+[package]
+name = "rcv-ballot-templates"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["reesericci"]
+license = "GPL-3.0-or-later"
+description = "Simple RCV ballots"
+repository = "https://codeberg.org/reesericci/typst-rcv"
+categories = ["office", "fun"]
+exclude = ["media/example.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "media/thumbnail.png"
