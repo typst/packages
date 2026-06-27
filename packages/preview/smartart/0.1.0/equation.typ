@@ -1,7 +1,7 @@
 // Equation: A + B = C (last item is result).  Import with:  #import "equation.typ": equation
 //
 //   #equation(([Input 1], [Input 2], [Output]))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let equation(

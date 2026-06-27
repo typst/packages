@@ -1,7 +1,7 @@
 // Timeline: milestones along a horizontal line.  Import with:  #import "timeline.typ": timeline
 //
 //   #timeline((("2024", [Start]), ("2025", [Pilot]), ("2026", [Launch])))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let timeline(

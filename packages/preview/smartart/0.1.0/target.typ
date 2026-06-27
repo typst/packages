@@ -1,7 +1,7 @@
 // Target: concentric rings, outermost first.  Import with:  #import "target.typ": target
 //
 //   #target(([Vision], [Mission], ([Goal], rgb("#e64553"))))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let target(

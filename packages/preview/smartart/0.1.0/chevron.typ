@@ -1,7 +1,7 @@
 // Chevron: sequential right-pointing arrows.  Import with:  #import "chevron.typ": chevron
 //
 //   #chevron(([Phase 1], [Phase 2], ([Phase 3], rgb("#e64553"))))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let chevron(

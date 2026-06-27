@@ -1,7 +1,7 @@
 // Stairs: ascending step-up process.  Import with:  #import "stairs.typ": stairs
 //
 //   #stairs(([Plan], [Develop], ([Launch], rgb("#e64553"))))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let stairs(

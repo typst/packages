@@ -1,7 +1,7 @@
 // Cycle: nodes on a ring joined by curved arrows.  Import with:  #import "cycle.typ": cycle
 //
 //   #cycle(([Plan], [Do], [Check], ([Act], rgb("#e64553"))))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let cycle(

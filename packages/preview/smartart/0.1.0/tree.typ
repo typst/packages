@@ -2,7 +2,7 @@
 //
 //   #tree(([CEO], (([Eng], ([Web], [Mobile])), [Sales])))
 //   #tree((([CEO], blue), ((([Eng], green), (([Web], orange), ([Mobile], red))), [Sales])))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 
 #let _tlab(nd) = {
   if type(nd) != array { return nd }

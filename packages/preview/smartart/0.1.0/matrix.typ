@@ -1,7 +1,7 @@
 // 2×2 matrix with optional axis labels.  Import with:  #import "matrix.typ": matrix
 //
 //   #matrix(((TL), (TR), (BL), (BR)), x-axis: ("Low", "High"), y-axis: ("High", "Low"))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let matrix(

@@ -17,7 +17,7 @@
 //
 // Items: 6 tuples (icon-glyph, label). First three render on the left, last
 // three on the right (mirrored). Any Font Awesome codepoint works as the glyph.
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 
 #let fa = "Font Awesome 7 Free"
 

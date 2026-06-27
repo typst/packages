@@ -2,7 +2,7 @@
 //
 //   #pyramid((([Vision],), [Strategy], ([Tactics], rgb("#e64553"))))
 //   #pyramid(([Top], [Middle], [Bottom]), flip: true)   // funnel
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let pyramid(

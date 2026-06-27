@@ -1,7 +1,7 @@
 // Snake: bending process that wraps into rows.  Import with:  #import "snake.typ": snake
 //
 //   #snake(([Step 1], [Step 2], [Step 3], [Step 4], [Step 5], [Step 6]))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let snake(

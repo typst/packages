@@ -2,7 +2,7 @@
 //
 //   #arrows(([Idea 1], [Idea 2], [Idea 3]), core: [Core])
 //   #arrows(([Branch 1], [Branch 2]), diverge: true)
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let arrows(

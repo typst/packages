@@ -1,7 +1,7 @@
 // Venn diagram (2 or 3 overlapping circles).  Import with:  #import "venn.typ": venn
 //
 //   #venn((([Behavior], rgb("#aab4f7")), [Signal], [Security]))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let venn(

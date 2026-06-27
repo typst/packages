@@ -2,7 +2,7 @@
 // Import with:  #import "hierarchy.typ": hierarchy
 //
 //   #hierarchy([CEO], (([Eng], rgb("#a7dd9b")), [Sales], [HR]))
-#import "@preview/cetz:0.3.4": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 #import "common.typ": palette, _lab, _col
 
 #let hierarchy(
