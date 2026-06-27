@@ -1,0 +1,18 @@
+[package]
+name = "classic-ppgsi"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Gabriel Francisco dos Santos Silva <gabfssilva@gmail.com>"]
+license = "MIT"
+description = "Dissertação/tese ABNT do PPgSI-EACH-USP (abntex2ppgsi)."
+repository = "https://github.com/ppgsi-lab/classic-ppgsi"
+keywords = ["thesis", "dissertation", "abnt", "ppgsi", "usp", "portuguese"]
+categories = ["thesis"]
+disciplines = ["computer-science"]
+compiler = "0.13.0"
+exclude = ["build.sh", "**/*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
