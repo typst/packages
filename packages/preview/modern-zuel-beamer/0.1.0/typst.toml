@@ -1,0 +1,18 @@
+[package]
+name = "modern-zuel-beamer"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["hxy23"]
+license = "MIT"
+description = "中南财经政法大学风格的 Typst 演示文稿模板，面向论文答辩。"
+keywords = ["presentation", "beamer", "slides", "zuel", "thesis"]
+categories = ["presentation"]
+repository = "https://github.com/hxy2321548628/modern-zuel-beamer"
+compiler = "0.15.0"
+# 不把编译产物 PDF 与开发用文件打进包
+exclude = ["*.pdf", "example/*.pdf", "CLAUDE.md", ".gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
