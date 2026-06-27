@@ -24,7 +24,7 @@ A card-style table with rounded cells, coloured header, and alternating row fill
 )
 ```
 
-![card-table](images/card-table.png)
+![Screenshot of the card-table widget showing a styled data table with headers and rows](images/card-table.png)
 
 ### gantt
 A Gantt chart with task bars, progress indicator, grid lines, and a "today" marker.
@@ -43,7 +43,7 @@ A Gantt chart with task bars, progress indicator, grid lines, and a "today" mark
 )
 ```
 
-![gantt](images/gantt.png)
+![Screenshot of the gantt chart widget with task bars, progress indicators, and a today marker](images/gantt.png)
 
 ### process
 A heartbeat-ring process diagram with icon badges and connector arms. Requires [Font Awesome 7 Free](https://fontawesome.com).
@@ -58,7 +58,7 @@ A heartbeat-ring process diagram with icon badges and connector arms. Requires [
 )
 ```
 
-![process](images/process.png)
+![Screenshot of the process diagram widget showing a heartbeat ring with connected icon badges](images/process.png)
 
 ### pyramid
 A pyramid or funnel diagram (use `flip: true` for a funnel).
@@ -67,7 +67,7 @@ A pyramid or funnel diagram (use `flip: true` for a funnel).
 #pyramid(([Vision], [Strategy], [Tactics]))
 ```
 
-![pyramid](images/pyramid.png)
+![Screenshot of the pyramid widget showing stacked triangular levels](images/pyramid.png)
 
 ### hierarchy
 A root node with a row of children beneath it.
@@ -76,7 +76,7 @@ A root node with a row of children beneath it.
 #hierarchy([CEO], (([Eng], rgb("#a7dd9b")), [Sales], [HR]))
 ```
 
-![hierarchy](images/hierarchy.png)
+![Screenshot of the hierarchy widget showing a root node with child nodes beneath](images/hierarchy.png)
 
 ### steps
 A vertical numbered list of steps.
@@ -85,7 +85,7 @@ A vertical numbered list of steps.
 #steps(([Plan], [Execute], [Review], ([Deploy], rgb("#e64553"))))
 ```
 
-![steps](images/steps.png)
+![Screenshot of the steps widget showing vertical numbered step blocks](images/steps.png)
 
 ### venn
 A 2- or 3-circle Venn diagram.
@@ -94,7 +94,7 @@ A 2- or 3-circle Venn diagram.
 #venn((([Behavior], rgb("#aab4f7")), [Signal], [Security]))
 ```
 
-![venn](images/venn.png)
+![Screenshot of the venn diagram widget showing three overlapping circles](images/venn.png)
 
 ### hlist
 A horizontal row of equally sized coloured blocks.
@@ -103,7 +103,7 @@ A horizontal row of equally sized coloured blocks.
 #hlist(([Plan], [Execute], ([Review], rgb("#e64553"))))
 ```
 
-![hlist](images/hlist.png)
+![Screenshot of the hlist widget showing equally sized coloured blocks in a row](images/hlist.png)
 
 ### chevron
 A sequence of right-pointing chevron arrows.
@@ -112,7 +112,7 @@ A sequence of right-pointing chevron arrows.
 #chevron(([Phase 1], [Phase 2], [Phase 3], [Phase 4]))
 ```
 
-![chevron](images/chevron.png)
+![Screenshot of the chevron widget showing sequential right-pointing arrow blocks](images/chevron.png)
 
 ### cycle
 Nodes arranged on a ring connected by curved arrows.
@@ -121,7 +121,7 @@ Nodes arranged on a ring connected by curved arrows.
 #cycle(([Plan], [Do], [Check], ([Act], rgb("#e64553"))))
 ```
 
-![cycle](images/cycle.png)
+![Screenshot of the cycle widget showing nodes arranged on a ring with curved arrows](images/cycle.png)
 
 ### target
 Concentric rings (bullseye).
@@ -130,7 +130,7 @@ Concentric rings (bullseye).
 #target(([Vision], [Mission], [Goal]))
 ```
 
-![target](images/target.png)
+![Screenshot of the target widget showing concentric rings in a bullseye pattern](images/target.png)
 
 ### matrix
 A 2x2 matrix with optional axis labels.
@@ -141,7 +141,7 @@ A 2x2 matrix with optional axis labels.
   y-axis: ("High", "Low"))
 ```
 
-![matrix](images/matrix.png)
+![Screenshot of the matrix widget showing a 2x2 grid with axis labels](images/matrix.png)
 
 ### snake
 A bending process that wraps into multiple rows.
@@ -150,7 +150,7 @@ A bending process that wraps into multiple rows.
 #snake(([Step 1], [Step 2], [Step 3], [Step 4], [Step 5], [Step 6]))
 ```
 
-![snake](images/snake.png)
+![Screenshot of the snake widget showing a bending process that wraps into rows](images/snake.png)
 
 ### stairs
 An ascending stair-step process.
@@ -159,7 +159,7 @@ An ascending stair-step process.
 #stairs(([Plan], [Develop], ([Launch], rgb("#e64553"))))
 ```
 
-![stairs](images/stairs.png)
+![Screenshot of the stairs widget showing an ascending stair-step process](images/stairs.png)
 
 ### gears
 Up to 3 interlocking cogwheels.
@@ -168,7 +168,7 @@ Up to 3 interlocking cogwheels.
 #gears(([Research], [Development], [Production]))
 ```
 
-![gears](images/gears.png)
+![Screenshot of the gears widget showing interlocking cogwheels](images/gears.png)
 
 ### timeline
 A horizontal timeline with alternating labels.
@@ -177,7 +177,7 @@ A horizontal timeline with alternating labels.
 #timeline((("2024", [Start]), ("2025", [Pilot]), ("2026", [Launch])))
 ```
 
-![timeline](images/timeline.png)
+![Screenshot of the timeline widget showing milestones along a horizontal line](images/timeline.png)
 
 ### tree
 A multi-level tree hierarchy.
@@ -186,7 +186,7 @@ A multi-level tree hierarchy.
 #tree(([CEO], (([Eng], ([Web], [Mobile])), [Sales])))
 ```
 
-![tree](images/tree.png)
+![Screenshot of the tree widget showing a multi-level hierarchy chart](images/tree.png)
 
 ### arrows
 Converging or diverging arrows around a central core.
@@ -199,8 +199,8 @@ Converging or diverging arrows around a central core.
 #arrows(([Branch 1], [Branch 2]), diverge: true)
 ```
 
-![arrows converging](images/arrows-converging.png)
-![arrows diverging](images/arrows-diverging.png)
+![Screenshot of converging arrows widget showing arrows pointing inward to a central core](images/arrows-converging.png)
+![Screenshot of diverging arrows widget showing arrows pointing outward from a central core](images/arrows-diverging.png)
 
 ### opposing
 Two block arrows facing each other.
@@ -209,7 +209,7 @@ Two block arrows facing each other.
 #opposing(([Pros], [Cons]))
 ```
 
-![opposing](images/opposing.png)
+![Screenshot of the opposing widget showing two block arrows facing each other](images/opposing.png)
 
 ### equation
 An A + B = C equation-style diagram.
@@ -218,7 +218,7 @@ An A + B = C equation-style diagram.
 #equation(([Input 1], [Input 2], [Output]))
 ```
 
-![equation](images/equation.png)
+![Screenshot of the equation widget showing an A plus B equals C diagram](images/equation.png)
 
 ### kpi
 Stat cards displaying a large value and a caption.
@@ -229,7 +229,7 @@ Stat cards displaying a large value and a caption.
       ("500+", [Users])))
 ```
 
-![kpi](images/kpi.png)
+![Screenshot of the kpi widget showing stat cards with big values and captions](images/kpi.png)
 
 ### pill-steps
 A central hub with connected pill-shaped step rows. Requires [Font Awesome 7 Free](https://fontawesome.com) for icons.
@@ -246,4 +246,4 @@ A central hub with connected pill-shaped step rows. Requires [Font Awesome 7 Fre
 )
 ```
 
-![pill-steps](images/pill-steps.png)
+![Screenshot of the pill-steps widget showing a central hub with connected pill-shaped step rows](images/pill-steps.png)
