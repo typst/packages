@@ -11,7 +11,7 @@
 )
 
 // a small inline label / badge — bold sans in the theme's tag colour. The default
-// style for theorem tags (source, claim-ID), and usable anywhere: #label-it[GSM 211].
+// style for theorem tags (source, claim-ID), and usable anywhere: `label-it[GSM 211]`.
 #let label-it(t) = context text(
   font: default-fonts.sans, size: 8pt, weight: "bold", fill: active.get().tag,
 )[#t]
