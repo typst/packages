@@ -6,6 +6,7 @@ license = "MIT"
 entrypoint = "lib/lib.typ"
 description = "An unofficial template for community scenarios for the TTRPG 'KULT: divinity lost'"
 categories = ["book"]
+exclude = [".justfile", ".git/", ".envrc", "*.pdf"]
 
 [template]
 path = "template/main"
