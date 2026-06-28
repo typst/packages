@@ -10,21 +10,37 @@
 // All knots share one kind ("frame") → one counter (amsthm `[theorem]` style).
 // The supplement string is how the style tells them apart; the colours passed
 // here are placeholders (our style ignores them and reads the active palette).
-#let (theorem, lemma, proposition, corollary, definition, example, remark) = frame-it.frames(
+#let (
+  theorem, lemma, proposition, corollary,
+  definition, axiom, assumption, notation,
+  example, remark,
+  conjecture, claim,
+) = frame-it.frames(
   base-color: palettes.light.thm,
-  theorem: ("Theorem", palettes.light.thm),
-  lemma: ("Lemma", palettes.light.thm),
+  theorem:     ("Theorem",     palettes.light.thm),
+  lemma:       ("Lemma",       palettes.light.thm),
   proposition: ("Proposition", palettes.light.thm),
-  corollary: ("Corollary", palettes.light.thm),
-  definition: ("Definition", palettes.light.def),
-  example: ("Example", palettes.light.eg),
-  remark: ("Remark", palettes.light.def),
+  corollary:   ("Corollary",   palettes.light.thm),
+  conjecture:  ("Conjecture",  palettes.light.thm),
+  claim:       ("Claim",       palettes.light.thm),
+  definition:  ("Definition",  palettes.light.def),
+  axiom:       ("Axiom",       palettes.light.def),
+  assumption:  ("Assumption",  palettes.light.def),
+  notation:    ("Notation",    palettes.light.def),
+  example:     ("Example",     palettes.light.eg),
+  remark:      ("Remark",      palettes.light.def),
 )
+
+// Colour dispatch: def-family = teal, eg-family = amber, everything else = blue.
+#let _def-family = ("Definition", "Axiom", "Assumption", "Notation")
+#let _eg-family  = ("Example",)
 
 // the frame-it style factory: (title, tags, body, supplement, number, accent)
 #let knot-style(title, tags, body, supplement, number, _accent) = context {
   let p = active.get()
-  let a = if supplement == "Definition" { p.def } else if supplement == "Example" { p.eg } else { p.thm }
+  let a = if supplement in _def-family { p.def }
+          else if supplement in _eg-family  { p.eg  }
+          else { p.thm }
   set align(left) // frame-it frames live in a figure caption, which centres by default
 
   if supplement == "Remark" {
