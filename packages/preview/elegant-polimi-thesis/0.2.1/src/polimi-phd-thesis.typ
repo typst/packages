@@ -262,12 +262,23 @@
   // chapter are bold and don't have "..."
   show outline.entry.where(level: 1): it => context {
     v(19pt, weak: true)
-    link(it.element.location(), strong(it.indented(it.prefix(), it.element.body + h(1fr) + it.page())))
+    link(
+      it.element.location(),
+      strong(it.indented(it.prefix(), it.element.body + h(1fr) + it.page())),
+    )
   }
 
   show outline.entry: it => context {
     v(1em)
-    if it.level > 1 {
+    if (
+      it.element.func() == figure and it.element.at("kind") == "_blank-toc"
+    ) {
+      v(it.element.at("gap")) // \addtocontents{toc}{\vspace{1em}}
+      return
+      // } else if it.element.func() == figure and it.element.at("kind") == "__lists" {
+      //   it
+      //   return
+    } else if it.level > 1 {
       v(1em, weak: true)
       let spacing = it.level - 1
       h(2em) * spacing
@@ -276,23 +287,18 @@
         it.prefix(),
         it.element.body + box(width: 1fr, repeat([\u{0009} . \u{0009} \u{0009}])) + it.page(),
       ))
-    } else if (
-      it.element.func() == figure and it.element.at("kind") == "_blank-toc"
-    ) {
-      // v(1em) //
-      v(it.element.at("gap")) // \addtocontents{toc}{\vspace{1em}}
-      return
     } else {
       it
     }
   }
 
-  // custom figure alignment
-  show figure.where(kind: "__lists").or(figure.where(kind: "theorem")).or(figure.where(kind: "proposition")): it => {
+  // custom figures alignment
+
+  show figure.where(kind: "theorem").or(figure.where(kind: "proposition")): it => {
     align(start, it)
   }
 
-  show outline: set heading(bookmarked: true)
+  show outline: set heading(bookmarked: true, outlined: true)
 
   // show ref: it => text(
   //   fill: if (colored-headings) { bluepoli } else { black },
@@ -303,6 +309,7 @@
 
   set enum(indent: 1.2em)
 
+  // empty page after the frontispiece
   _empty-page()
 
   body
@@ -715,19 +722,8 @@
 
 // Outlines
 
-#let _lists = figure.with(
-  kind: "__lists",
-  numbering: none,
-  supplement: none,
-  outlined: true,
-  caption: [],
-)
-
 #let target = (
-  figure
-    .where(kind: "__lists", outlined: true)
-    .or(figure.where(kind: "_blank-toc", outlined: true))
-    .or(heading.where(outlined: true))
+  figure.where(kind: "_blank-toc", outlined: true).or(heading.where(outlined: true))
 )
 
 /// Custom-built ```typc outline()```.
@@ -735,7 +731,7 @@
 #let toc = {
   [#metadata(none) <__toc-start>]
   outline(
-    title: context _lists(_localization.at(text.lang).toc),
+    title: context _localization.at(text.lang).toc,
     indent: 1.2em,
     target: target,
   )
@@ -777,7 +773,7 @@
   }
   [#metadata(none) <__toc-start>]
   outline(
-    title: context _lists(_localization.at(text.lang).list-of-figures),
+    title: context _localization.at(text.lang).list-of-figures,
     indent: 1.2em,
     target: figure.where(kind: image),
   )
@@ -792,7 +788,7 @@
   }
   [#metadata(none) <__toc-start>]
   outline(
-    title: context _lists(_localization.at(text.lang).list-of-tables),
+    title: context _localization.at(text.lang).list-of-tables,
     indent: 1.2em,
     target: figure.where(kind: table),
   )
