@@ -1,4 +1,4 @@
-#import "@preview/juti:0.0.4"
+#import "@preview/juti:0.1.0"
 #import "setup.typ": *
 
 /**
