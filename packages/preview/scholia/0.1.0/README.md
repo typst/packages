@@ -40,10 +40,9 @@ last: `#theorem[title][body]` (omit the title with `#theorem[body]`). An optiona
 middle slot is a small **tag** — a source or claim-ID, styled by `label-it`:
 `#theorem[title][GSM 211, Thm 2.16][body]`.
 
-Compile [`examples/content.typ`](examples/content.typ) to see every device (light
-theme). [`dark`](examples/dark.typ) (`theme`) and [`book`](examples/book.typ)
-(`prose`) wrap the same shared body ([`body.typ`](examples/body.typ)) with different
-options, doubling as visual tests.
+Compile [`examples/example.typ`](examples/example.typ) to see every device in one
+mini-chapter. It defaults to the light `notes` theme; uncomment the `theme: "dark"`
+or `prose: "book"` line at the top to see the other modes.
 
 ## The toolkit
 

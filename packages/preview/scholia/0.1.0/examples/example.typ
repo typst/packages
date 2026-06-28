@@ -1,9 +1,11 @@
-// Shared showcase body — a mini-chapter on convex optimisation that exercises
-// every Scholia device. Include-only: it has NO `#show: scholia`, so don't
-// compile it directly (theorems need the wrapper to be skinned). The entry
-// files content.typ / dark.typ / book.typ apply the wrapper with different
-// options and `#include` this body.
+// example.typ — the Scholia showcase. Compile THIS file to see every device.
+// For dark or book mode, uncomment an option below (mirrors template/main.typ).
 #import "@preview/scholia:0.1.0": *
+
+#show: scholia.with(
+  // theme: "dark",   // light (default) | dark (slate)
+  // prose: "book",   // notes (default) | book (first-line indent, tight)
+)
 
 #cover(
   "Descent",
