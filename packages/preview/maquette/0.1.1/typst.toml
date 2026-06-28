@@ -5,7 +5,7 @@ entrypoint = "maquette.typ"
 authors = ["https://github.com/bernsteining"]
 repository = "https://github.com/bernsteining/maquette"
 license = "MIT"
-description = "🫖 Render 3D models (PLY, STL, OBJ) as SVG or PNG images in Typst."
+description = "🫖 Render 3D models (PLY, STL, OBJ) as SVG or PNG images."
 keywords = [
   "3D",
   "STL",
