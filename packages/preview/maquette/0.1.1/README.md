@@ -71,15 +71,6 @@ A back-lit Stanford bunny: a red point light placed *inside* the model glows thr
 
 Once again, the [documentation](https://github.com/bernsteining/maquette/blob/v0.1.1/examples/documentation.pdf) has many examples covering all the features offered by `maquette`.
 
-
-# Usage
-
-```typst
-#import "@preview/maquette:0.1.1": render-obj
-#let cube = read("examples/data/cube.obj")
-#render-obj(cube)
-```
-
 ## Rendering Techniques
 
 | Category | Technique | Description |
