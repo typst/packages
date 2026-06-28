@@ -49,7 +49,9 @@ or `prose: "book"` line at the top to see the other modes.
 | you want… | you write… |
 |---|---|
 | the cover | `cover(title, subtitle: …, author: …, date: …, kicker: …)` |
-| a result / definition / example | `theorem[t][b]` · `definition[t][b]` · `example[t][b]` · `lemma` · `proposition` · `corollary` · `remark[b]` |
+| a result (blue) | `theorem[t][b]` · `lemma` · `proposition` · `corollary` · `conjecture` · `claim` |
+| a definition (teal) | `definition[t][b]` · `axiom` · `assumption` · `notation` |
+| an example / remark (amber / plain) | `example[t][b]` · `remark[b]` |
 | cross-reference a knot | label with `<thm:x>`, refer with `@thm:x` (native) |
 | a source / claim-ID tag | a middle slot `theorem[t][tag][b]`, or `label-it[…]` inline |
 | the intuition voice | `note[…]` · `whisper[…]` · `keyword[…]` |
