@@ -1,0 +1,5 @@
+# PDF files
+*.pdf
+
+# Typst artifacts
+*.typ.aux

@@ -1,0 +1,30 @@
+---
+procedures:
+  type: report
+  title: 研究生开题报告流程
+  language: zh-Hans
+  author: 中国科学技术大学研究生院培养办公室
+  url: http://staff.ustc.edu.cn/~qunwang/regulation/open-thesis-defense.pdf
+
+docx:
+  type: Web
+  title: 研究生学位论文开题报告相关材料
+  language: zh-Hans
+  author: 中国科学技术大学研究生院培养办公室
+  date: 2017-08-29
+  url: https://cicpi.ustc.edu.cn/indico/conferenceDisplay.py?confId=971
+
+latex:
+  type: repository
+  title: 中国科学技术大学开题报告 latex 模板
+  language: zh-Hans
+  author: cgdsss
+  url: https://github.com/cgdsss/thesis_proposal_ustc
+
+exit:
+  type: report
+  title: 中国科学技术大学博士研究生培养分流退出机制实施办法
+  language: zh-Hans
+  author: 中国科学技术大学党政办公室
+  date: 2023-05-28
+  url: https://sist.ustc.edu.cn/2023/0901/c5107a610847/page.htm

@@ -1,0 +1,11 @@
+[package]
+name = "nine-patch"
+version = "0.1.0"
+entrypoint = "main.typ"
+authors = ["Dominik Mückstein"]
+license = "MIT"
+description = "Resizable Bitmap Plugin using the Android 9-patch technique."
+repository = "https://github.com/PentaPhi/nine-patch"
+keywords = ["9-patch", "9"]
+categories = ["utility", "visualization", "components"]
+exclude = ["/docs/"]

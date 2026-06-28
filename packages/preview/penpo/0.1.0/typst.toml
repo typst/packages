@@ -1,0 +1,14 @@
+[package]
+name = "penpo"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+
+authors = ["jan Newen <jan-Newen@crans.org>"]
+description = "ni li ken alasa e pakala lili, li ken sitelen e lipu sina | toki pona spellchecker and typesetter"
+license = "MIT"
+
+repository = "https://github.com/Vanille-N/penpo.typ"
+keywords = ["toki", "pona", "sitelen", "lipu", "ilo", "conlang"]
+categories = ["text", "languages"]
+exclude = ["*.svg"]
+
