@@ -17,6 +17,11 @@
 
 #let cm-dash = "\u{2002}\u{2013}\u{2002}" // " – " (espaco-en + travessao + espaco-en)
 
+// Modo da pos-textual: none | "appendix" | "annex". Os marcadores #appendix /
+// #anexo trocam o modo e zeram o contador de headings; os show-rules a seguir
+// renderizam os headings nativos (=, ==, ===) como "Apendice A – ...", "1", "1.1".
+#let _backmatter = state("ppgsi-backmatter", none)
+#let _back-rotulo = modo => if modo == "appendix" { "Apêndice" } else { "Anexo" }
 
 #let _heading-numbering = (..nums) => {
   let n = nums.pos()
@@ -31,7 +36,11 @@
   ))
   if chaps.len() == 0 { return none }
   let h = chaps.last()
-  if h.numbering != none {
+  let modo = _backmatter.at(h.location())
+  if modo != none {
+    let letra = numbering("A", counter(heading).at(h.location()).first())
+    [#_back-rotulo(modo) #letra#cm-dash#h.body]
+  } else if h.numbering != none {
     let num = numbering("1", ..counter(heading).at(h.location()))
     [Capítulo #num. #h.body]
   } else {
@@ -205,43 +214,22 @@
 )
 
 // ---------------------------------------------------------------------------
-// APENDICES E ANEXOS (letras A, B, C independentes; capitulo centralizado)
+// APENDICES E ANEXOS (marcadores; usam os headings nativos do Typst)
 // ---------------------------------------------------------------------------
 
-#let _apx = counter("ppgsi-apendice")
-#let _anx = counter("ppgsi-anexo")
-#let _apx-sec = counter("ppgsi-apx-section")
-#let _apx-subsec = counter("ppgsi-apx-subsection")
-
-// Congela a letra no local do heading (evita vazar valor final no sumario);
-// zera a numeração interna de seções a cada novo apêndice/anexo.
-#let _back-chapter(contador, rotulo, titulo) = {
-  contador.step()
-  _apx-sec.update(0)
-  _apx-subsec.update(0)
-  context {
-    let letra = numbering("A", ..contador.get())
-    heading(level: 1, numbering: none, [#rotulo #letra#cm-dash#titulo])
-  }
+// Marcadores: trocam o modo da pos-textual e reiniciam o contador de headings
+// (letra A,B,C por novo capitulo; "1"/"1.1" por seção interna). Apos o marcador,
+// escreve-se = / == / === normalmente; os show-rules cuidam da formatação ABNT.
+#let appendix = {
+  _backmatter.update("appendix")
+  counter(heading).update((0,))
 }
-
-#let appendix(title) = _back-chapter(_apx, [Apêndice], title)
-#let annex(title) = _back-chapter(_anx, [Anexo], title)
+#let annex = {
+  _backmatter.update("annex")
+  counter(heading).update((0,))
+}
 
 // cite / prose / references: ver biblio.typ (motor próprio ABNT).
-
-// Seções internas de apêndice/anexo: numeradas automaticamente (1, 1.1), fora do sumário.
-#let section(body) = {
-  _apx-sec.step()
-  _apx-subsec.update(0)
-  context heading(level: 2, numbering: none, outlined: false,
-    [#numbering("1", _apx-sec.get().first()) #body])
-}
-#let subsection(body) = {
-  _apx-subsec.step()
-  context heading(level: 3, numbering: none, outlined: false,
-    [#numbering("1.1", _apx-sec.get().first(), _apx-subsec.get().first()) #body])
-}
 
 // ---------------------------------------------------------------------------
 // PRE-TEXTUAIS
@@ -467,23 +455,42 @@
     })
   }
 
-  show heading.where(level: 1): it => {
+  show heading.where(level: 1): it => context {
     pagebreak(weak: true)
     set text(size: 12pt, weight: "bold")
     set par(first-line-indent: 0pt, justify: false, leading: 0.93em)
+    let modo = _backmatter.at(it.location())
     block(above: 0pt, below: 22pt, width: 100%, {
-      if it.numbering == none { align(center, it.body) } else { it }
+      if modo != none {
+        let letra = numbering("A", counter(heading).at(it.location()).first())
+        align(center, [#_back-rotulo(modo) #letra#cm-dash#it.body])
+      } else if it.numbering == none {
+        align(center, it.body)
+      } else { it }
     })
   }
-  show heading.where(level: 2): it => {
+  show heading.where(level: 2): it => context {
     set text(size: 12pt, weight: "regular", style: "italic")
     set par(first-line-indent: 0pt, justify: false, leading: 0.93em)
-    block(above: 32pt, below: 22pt, it)
+    let modo = _backmatter.at(it.location())
+    if modo != none {
+      let n = numbering("1", counter(heading).at(it.location()).at(1))
+      block(above: 32pt, below: 22pt, [#n #it.body])
+    } else {
+      block(above: 32pt, below: 22pt, it)
+    }
   }
-  show heading.where(level: 3): it => {
+  show heading.where(level: 3): it => context {
     set text(size: 12pt, weight: "regular", style: "normal")
     set par(first-line-indent: 0pt, justify: false, leading: 0.93em)
-    block(above: 32pt, below: 22pt, it)
+    let modo = _backmatter.at(it.location())
+    if modo != none {
+      let nums = counter(heading).at(it.location())
+      let n = numbering("1.1", nums.at(1), nums.at(2))
+      block(above: 32pt, below: 22pt, [#n #it.body])
+    } else {
+      block(above: 32pt, below: 22pt, it)
+    }
   }
 
   // ---- Pacotes integrados (show-rules de documento) -----------------------
@@ -637,13 +644,25 @@
   pre-titulo[Sumário]
   {
     // sumário: linha inteira em azul (prefixo + título + pontilhado + página)
-    show outline.entry.where(level: 1): it => block(above: 1em, below: 0pt, text(fill: _blue, weight: "bold", {
-      let e = it.indented(it.prefix(), it.inner())
-      // "REFERÊNCIAS" em maiusculas no sumario (quirk do abntex bibsection)
-      if it.element.body == [Referências] { upper(e) } else { e }
+    show outline.entry.where(level: 1): it => context block(above: 1em, below: 0pt, text(fill: _blue, weight: "bold", {
+      let modo = _backmatter.at(it.element.location())
+      if modo != none {
+        // apêndice/anexo: prefixo "Apêndice A – " no lugar do número
+        let letra = numbering("A", counter(heading).at(it.element.location()).first())
+        it.indented([#_back-rotulo(modo) #letra#cm-dash], it.inner())
+      } else {
+        let e = it.indented(it.prefix(), it.inner())
+        // "REFERÊNCIAS" em maiusculas no sumario (quirk do abntex bibsection)
+        if it.element.body == [Referências] { upper(e) } else { e }
+      }
     }))
-    show outline.entry.where(level: 2): it => text(fill: _blue, style: "italic", it.indented(it.prefix(), it.inner()))
-    show outline.entry.where(level: 3): it => text(fill: _blue, it.indented(it.prefix(), it.inner()))
+    // seções internas de apêndice/anexo não entram no sumário
+    show outline.entry.where(level: 2): it => context if _backmatter.at(it.element.location()) != none { none } else {
+      text(fill: _blue, style: "italic", it.indented(it.prefix(), it.inner()))
+    }
+    show outline.entry.where(level: 3): it => context if _backmatter.at(it.element.location()) != none { none } else {
+      text(fill: _blue, it.indented(it.prefix(), it.inner()))
+    }
     outline(title: none, depth: 3, indent: 1.2em)
   }
 

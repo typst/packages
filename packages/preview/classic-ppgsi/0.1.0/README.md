@@ -56,8 +56,10 @@ The entrypoint imports the package and configures the whole document via `thesis
 - Long direct quotations (`quote`) with the 4 cm ABNT indent.
 - Author–date citations and references via a built-in engine (`cite`, `prose`,
   `references`) — see `biblio.typ`.
-- Appendices and annexes with independent letters (`appendix`, `annex`); their
-  internal sections (`section`, `subsection`) are numbered automatically.
+- Appendices and annexes with independent letters: drop the `appendix` / `annex`
+  marker, then write the chapter and its sections with native Typst headings
+  (`=`/`==`/`===`); inner sections are numbered automatically and kept out of the
+  table of contents.
 - Bilingual abstract as a single object (`abstract: (pt-br: ..., en-us: ...)`),
   reused (with `title`/`author`/`keywords`) in the PDF metadata.
 - The work's own ABNT reference at the top of each abstract is generated
