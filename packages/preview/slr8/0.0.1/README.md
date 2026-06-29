@@ -8,7 +8,7 @@ external script generating a table beforehand.
 It's SLR(1) — LR(0) item sets, but reduce actions only go in when the
 symbol's in FOLLOW(LHS). That's the whole difference from plain LR(0).
 
-See `example.pdf` for what it looks like end to end on:
+See [`example.pdf`](docs/example.pdf) for what it looks like end to end on:
 
 ```
 C → id ( A )
