@@ -140,8 +140,8 @@
   let inner-trim      = 0.07
   let multiple-bond-trim = 0.10
   let stroke-w        = actual-bond-stroke
-  let subscript-size  = actual-font-size * 0.62
-  let superscript-size = actual-font-size * 0.62
+  let subscript-size  = actual-font-size * 1.00
+  let superscript-size = actual-font-size * 1.00
   let lone-pair-offset = calc.max(0.1, actual-font-size / canvas-scale * 0.6)
   let lone-pair-terminal-offset = calc.max(0.1, actual-font-size / canvas-scale * 0.5)
   let lone-pair-dot-r = calc.max(0.018, stroke-units * 0.75)
@@ -969,8 +969,8 @@
   let font = sp.at("font", default: "New Computer Modern")
   let show-all-h = sp.at("show-all-h", default: false)
   let label-margin = calc.max(0.27, fs / cs * 0.70)
-  let subscript-size = fs * 0.62
-  let superscript-size = fs * 0.62
+  let subscript-size = fs * 1.00
+  let superscript-size = fs * 1.00
   let atom-label(body, size: fs) = text(
     size: size,
     font: font,
