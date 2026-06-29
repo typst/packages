@@ -374,7 +374,10 @@
     set text(size: 12pt, weight: "bold")
     let names = authors
       .enumerate()
-      .map(((i, v)) => box[#empty-warn(v.name) #super[#{ v.institution-ref + 1 }#if corresponding-ref == i [,\*]]])
+      .map(((i, v)) => box[
+        #empty-warn(v.name)
+        #set text(weight: "regular")
+        #super[#{ v.institution-ref + 1 }#if corresponding-ref == i [,\*]]])
 
     inline-enum(prefix-fn: none, ..names)
   }
@@ -507,9 +510,10 @@
       numbering("1.1.", num1, ..nums)
       // h(7pt)
     } else if l == 2 {
-      numbering("1.1.1.", num1, ..nums)
-    } else if l == 3 {
-      numbering("A.", ..nums.pos().slice(2), ..nums.named())
+      numbering("A.", ..nums.pos().slice(1), ..nums.named())
+      //   numbering("1.1.1.", num1, ..nums)
+      // } else if l == 3 {
+      //   numbering("A.", ..nums.pos().slice(2), ..nums.named())
     } else {
       panic("Unhandled heading 5 or more.")
     }
