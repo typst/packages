@@ -5,7 +5,7 @@
 #import "@preview/kouhu:0.2.0": kouhu
 
 // 导入模板
-#import "@preview/gzu-thesis:0.1.0": *
+#import "@preview/gzu-thesis-unofficial:0.1.0": *
 
 #show: remove-cjk-break-space
 
