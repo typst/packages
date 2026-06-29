@@ -1,3 +1,5 @@
+#import "@preview/numbly:0.1.0": numbly
+
 #let warn(body) = {
   show: highlight.with(fill: red.lighten(75%))
   body
@@ -500,24 +502,13 @@
   v(.5em)
 
   //? Numberings
-  set heading(numbering: (num1, ..nums) => {
-    let l = nums.pos().len()
-    // numbering("1.1.1.", num1, ..nums)
-    if l == 0 {
-      numbering("1.", num1)
-      // h(10pt)
-    } else if l == 1 {
-      numbering("1.1.", num1, ..nums)
-      // h(7pt)
-    } else if l == 2 {
-      numbering("A.", ..nums.pos().slice(1), ..nums.named())
-      //   numbering("1.1.1.", num1, ..nums)
-      // } else if l == 3 {
-      //   numbering("A.", ..nums.pos().slice(2), ..nums.named())
-    } else {
-      panic("Unhandled heading 5 or more.")
-    }
-  })
+  set heading(
+    numbering: numbly(
+      "{1}.",
+      "{1}.{2}.",
+      "{3:A}.",
+    ),
+  )
   // set enum(numbering: "1)")
   //? Heading 1
   show heading.where(level: 1): it => {
