@@ -9,7 +9,6 @@ description = "Slice a spritesheet into its individual sprites."
 repository = "https://github.com/TimeTravelPenguin/spryst"
 keywords = ["spritesheet", "sprite", "slicing", "image processing"]
 categories = ["integration", "visualization", "utility"]
-exclude = ["/assets/"]
 
 # Tytanic test runner. `ppi` must match `PPI` in `tests/lib.typ` so that 32px
 # sprite cells land on whole pixels. Comparison is exact (no per-pixel slack).
