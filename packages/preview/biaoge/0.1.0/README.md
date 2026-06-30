@@ -1,6 +1,6 @@
 # 表哥 (biaoge)
 
-Typst 表格工具集——CSV 分组汇总、单元格合并、列拆分，专为中文数据报表场景设计。
+A Typst table toolkit for CSV grouping & summarization, cell merging, and column splitting, designed for Chinese-language data reporting workflows. Typst 表格工具集——CSV 分组汇总、单元格合并、列拆分，专为中文数据报表场景设计。
 
 ## 功能
 
