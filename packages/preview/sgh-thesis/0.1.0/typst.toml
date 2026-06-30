@@ -1,0 +1,14 @@
+[package]
+name = "sgh-thesis"
+version = "0.1.0"
+entrypoint = "sgh-thesis.typ"
+authors = ["Piotr Kuszewski <pkusze@sgh.waw.pl>"]
+license = "MIT"
+description = "A bilingual (Polish and English) diploma thesis template (bachelor's and master's) compliant with the editorial requirements of the SGH Warsaw School of Economics."
+repository = "https://github.com/piotr-m-kuszewski/Szablony_Typst_SGH"
+homepage = "https://github.com/piotr-m-kuszewski/Szablony_Typst_SGH"
+keywords = ["thesis", "SGH", "Warsaw School of Economics", "dyplom", "praca dyplomowa"]
+categories = ["thesis"]
+disciplines = ["economics"]
+compiler = "0.12.0"
+exclude = ["README.md", "thumbnail.png"]
