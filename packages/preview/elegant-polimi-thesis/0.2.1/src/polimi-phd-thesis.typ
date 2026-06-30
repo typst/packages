@@ -21,9 +21,15 @@
   /// Cosupervisor(s) of the thesis.
   /// -> str | array
   cosupervisor: none,
-  /// Academic year of the thesis. If empty, defaults to "#{str(std.datetime.today().year() - 1) + "-" + str(std.datetime.today().year())}".
-  /// -> str
-  academic-year: "",
+  /// Deprecated: use `supervisor`.
+  /// -> str | array
+  advisor: none,
+  /// Deprecated use `cosupervisor`.
+  /// -> str | array
+  coadvisor: none,
+  /// Academic year of the thesis.
+  /// -> auto | str
+  academic-year: auto,
   /// Tutor of the thesis.
   /// -> str
   tutor: none,
@@ -50,6 +56,13 @@
   let colored-headings = false
   if frontispiece in ("deib-phd", "classical-master", "cs-eng-master") {
     colored-headings = true
+  }
+  // retrocompatibility
+  if (supervisor == none and advisor != none) {
+    supervisor = advisor
+  }
+  if (cosupervisor == none and coadvisor != none) {
+    cosupervisor = coadvisor
   }
   _document-type.update(frontispiece)
 
@@ -150,7 +163,7 @@
 
   import "frontispiece.typ": *
 
-  if academic-year == "" {
+  if academic-year == auto {
     academic-year = _show-academic-year(
       year: str(std.datetime.today().year() - 1) + "-" + str(std.datetime.today().year()).slice(2),
     ) // 20XX-XX)
@@ -324,15 +337,21 @@
   /// Author of the thesis.
   /// -> str
   author: none,
-  /// supervisor of the thesis.
+  /// Supervisor of the thesis.
   /// -> str
   supervisor: none,
-  /// cosupervisor(s) of the thesis.
+  /// Cosupervisor(s) of the thesis.
   /// -> str | array
   cosupervisor: none,
-  /// Academic year of the thesis. If empty, defaults to "#{str(std.datetime.today().year() - 1) + "-" + str(std.datetime.today().year())}".
-  /// -> str
-  academic-year: "",
+  /// Deprecated: use `supervisor`.
+  /// -> str | array
+  advisor: none,
+  /// Deprecated: use `cosupervisor`.
+  /// -> str | array
+  coadvisor: none,
+  /// Academic year of the thesis.
+  /// -> auto | str
+  academic-year: auto,
   /// Student ID.
   /// -> str
   student-id: none,
@@ -358,6 +377,13 @@
     set document(
       keywords: keywords,
     )
+  }
+  // retrocompatibility
+  if (supervisor == none and advisor != none) {
+    supervisor = advisor
+  }
+  if (cosupervisor == none and coadvisor != none) {
+    cosupervisor = coadvisor
   }
   _document-type.update("article-format")
 
@@ -446,7 +472,7 @@
 
     v(0.25cm)
 
-    if academic-year == "" {
+    if academic-year == auto {
       academic-year = str(std.datetime.today().year() - 1) + "-" + str(std.datetime.today().year())
     }
 
@@ -499,15 +525,21 @@
   /// Author of the thesis.
   /// -> str
   author: none,
-  /// supervisor of the thesis.
+  /// Supervisor of the thesis.
   /// -> str
   supervisor: none,
-  /// cosupervisor(s) of the thesis.
+  /// Cosupervisor(s) of the thesis.
   /// -> str | array
   cosupervisor: none,
-  /// Academic year of the thesis. If empty, defaults to "#{str(std.datetime.today().year() - 1) + "-" + str(std.datetime.today().year())}".
-  /// -> str
-  academic-year: "",
+  /// Deprecated: use `supervisor`.
+  /// -> str | array
+  advisor: none,
+  /// Deprecated: use `cosupervisor`.
+  /// -> str | array
+  coadvisor: none,
+  /// Academic year of the thesis.
+  /// -> auto | str
+  academic-year: auto,
   /// Student course.
   /// -> str
   course: none,
@@ -520,6 +552,13 @@
     title: title,
     author: author,
   )
+  // retrocompatibility
+  if (supervisor == none and advisor != none) {
+    supervisor = advisor
+  }
+  if (cosupervisor == none and coadvisor != none) {
+    cosupervisor = coadvisor
+  }
   _document-type.update("executive-summary")
 
   set text(
@@ -562,7 +601,7 @@
 
   // Title
   {
-    if academic-year == "" {
+    if academic-year == auto {
       academic-year = str(std.datetime.today().year() - 1) + "-" + str(std.datetime.today().year())
     }
 
