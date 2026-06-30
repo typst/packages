@@ -239,7 +239,7 @@
             #cur-chapter.get()
           ]
         } else {
-          align(right)[#cur-chapter.get()]
+          align(left)[#titulo]
         }
         v(-1em)
         line(length: 100%, stroke: 0.6pt)
