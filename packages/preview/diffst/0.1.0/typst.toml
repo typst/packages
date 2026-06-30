@@ -16,6 +16,7 @@ exclude = [
   "/examples",
   "/Cargo.toml",
   "/Cargo.lock",
+  "/CONTRIBUTING.md",
   "/impl.md",
   "/audit.md",
   "/previous-audit-fix.md",

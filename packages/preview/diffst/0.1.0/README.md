@@ -329,7 +329,7 @@ typst compile --root . examples/diffs/git-b8ccbd3-cece06a.typ examples/diffs/git
 ## Build
 
 Contributor setup, release checks, and Typst Universe PR packaging are
-documented in [CONTRIBUTING.md](CONTRIBUTING.md).
+documented in the source repository.
 
 ```sh
 rustup target add wasm32-unknown-unknown
