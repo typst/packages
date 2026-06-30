@@ -1,0 +1,14 @@
+[package]
+name = "sgh-presentation"
+version = "0.1.0"
+entrypoint = "sgh-presentation.typ"
+authors = ["Piotr Kuszewski <pkusze@sgh.waw.pl>"]
+license = "MIT"
+description = "A bilingual (Polish and English) Touying presentation theme following the visual identity of the SGH Warsaw School of Economics."
+repository = "https://github.com/piotr-m-kuszewski/Szablony_Typst_SGH"
+homepage = "https://github.com/piotr-m-kuszewski/Szablony_Typst_SGH"
+keywords = ["presentation", "slides", "touying", "SGH", "Warsaw School of Economics"]
+categories = ["presentation"]
+disciplines = ["economics"]
+compiler = "0.13.0"
+exclude = ["README.md", "thumbnail.png"]
