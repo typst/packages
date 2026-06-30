@@ -50,12 +50,13 @@
 #let _has-label(atom, show-all-h: false) = {
   let has-abbrev = atom.at("abbrev", default: "") != ""
   let has-hetero = (not _is-carbon(atom) and atom.symbol != "*") or (atom.charge != 0)
+  let has-isotope = atom.at("isotope", default: 0) > 0
   let has-explicit-h = atom.hcount > 0 and (show-all-h or not _is-carbon(atom))
   let has-implicit-h = _visible-implicit-h(
     atom,
     show-all-h: show-all-h,
   ) > 0
-  has-abbrev or has-hetero or has-explicit-h or has-implicit-h
+  has-abbrev or has-hetero or has-isotope or has-explicit-h or has-implicit-h
 }
 
 #let _atom-color(sym) = {
@@ -685,7 +686,13 @@
           h(0.12em) + super(atom-label(charge-str, fill: fill, size: superscript-size))
         }
 
-        let sym-text = atom-label(atom.symbol, fill: fill)
+        let isotope = atom.at("isotope", default: 0)
+        let isotope-content = if isotope > 0 {
+          super(atom-label(str(isotope), fill: fill, size: superscript-size))
+        } else {
+          []
+        }
+        let sym-text = isotope-content + atom-label(atom.symbol, fill: fill)
         let h-text = if abbrev != "" or h-count == 0 or (_is-carbon(atom) and not show-all-h) {
           []
         } else if h-count == 1 {
