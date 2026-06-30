@@ -15,6 +15,13 @@ The package reads two text files, sends their contents to a Rust WebAssembly
 plugin powered by the Rust `similar` crate, and renders the structured diff as
 Typst content. If you already have strings, use `diffst-content`.
 
+## License
+
+`diffst`'s Typst wrapper code and package-specific Rust code are licensed under
+the MIT License; see `LICENSE-MIT`. The underlying Rust `similar` crate used by
+the WebAssembly plugin is licensed under the Apache License 2.0; see
+`LICENSE-APACHE`.
+
 Want a report for everything changed between two commits? Use the
 [`uv` runnable git-diff helper](#git-commit-diffs) from the
 [`clvnkhr/diffst`](https://github.com/clvnkhr/diffst) source repository to
