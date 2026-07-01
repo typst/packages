@@ -12,12 +12,12 @@ With an existing Typst installation, use the CLI command `typst init @preview/bh
 
 You can also decide to start a new *.typ file on your own and add the necessary imports and configurations as soon as you need to use the template. To do so, you need to include the template import and initialize needed variables at the beginning of your *.typ file.
 
-Minimalistic example for thesis (see "Configuration" section for all available options):
+Minimalistic example for **diploma thesis** (see "Configuration" section for all available options):
 
 ```typst
-// For Kolleg variant: replace "hak" with "kolleg"
 #import "@preview/bhs-school-bundle:0.3.0": *
 
+// For Kolleg variant: replace "hak" with "kolleg"
 #show: hak.with(
     title: [Thesis Title],
     subtitle: [Thesis Subtitle],
@@ -45,7 +45,7 @@ Using `typst init @preview/bhs-school-bundle` to initialize this project,you wil
 #lorem(200)
 ```
 
-Minimalistic example for report (see "Configuration" section for all available options):
+Minimalistic example for **report** (see "Configuration" section for all available options):
 
 ```typst
 #import "@preview/bhs-school-bundle:0.3.0": *
@@ -83,6 +83,7 @@ Both use the same named parameters and are configured through `#show: ...with(..
 - `vorwort-text` (content or `none`): German abstract (only thesis template)
 - `kurzfassung-text` (content or `none`): German abstract
 - `abstract-text` (content or `none`): English abstract (only thesis template)
+- `location` (content or `none`): Location of the project
 - `project-partner-logo` (content or `none`): Content for the left cover-page logo (specify an image with e.g. `image("path/to/logo.png")`)
 - `school-logo` (content or `none`): Content for the right cover-page school logo (specify an image with e.g. `image("path/to/logo.png")`)
 
