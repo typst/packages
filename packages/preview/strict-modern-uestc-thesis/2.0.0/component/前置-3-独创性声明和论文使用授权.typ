@@ -6,17 +6,16 @@
   #if info.at(info-keys.论文模式) == 论文模式.电子档定稿模式 {
     [
       #let scan-path = info.at(info-keys.独创性声明扫描页, default: none)
-      #if scan-path == none or scan-path == "" {
+      #if scan-path == none {
         panic("电子档定稿模式下必须设置 info-keys.独创性声明扫描页 为扫描件路径")
       }
       // 用户提供的路径相对于项目根目录（main.typ 所在位置）
       // 而本文件位于 template/component/ 下，需要回溯到项目根目录
-      #let resolved-path = "../../../" + scan-path
       // 检查文件是否存在
-      #let _ = read(resolved-path, encoding: none)
+      #let _ = read(scan-path, encoding: none)
       // 检查扫描页是否为 A4 大小（宽高比 210:297）
       #context {
-        let img = image(resolved-path)
+        let img = image(scan-path)
         let s = measure(img)
         let ratio = s.width / s.height
         let a4-ratio = 210mm / 297mm
@@ -25,7 +24,7 @@
         }
       }
       #page(paper: "a4", margin: 0pt, header: none, footer: none)[
-        #image(resolved-path, width: 100%, height: 100%)
+        #image(scan-path, width: 100%, height: 100%)
       ]
     ]
   } else {

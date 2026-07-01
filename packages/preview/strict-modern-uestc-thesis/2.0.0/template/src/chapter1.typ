@@ -29,7 +29,7 @@
     */
     info-keys.论文模式: 论文模式.打印模式,
     // 电子档定稿模式下需要设置独创性声明扫描页路径（A4 大小的 PDF/PNG 扫描件）
-    info-keys.独创性声明扫描页: "src/独创性声明.pdf",
+    info-keys.独创性声明扫描页: path("src/独创性声明.pdf"),
     ```
   ]
 ]
@@ -145,7 +145,7 @@
     info-keys.附录: (include "src/附录-1.typ", include "src/附录-2.typ"),
 
     // 使用字符串路径的参数
-    info-keys.参考文献: "src/bib/参考文献.bib",
+    info-keys.参考文献: path("src/bib/参考文献.bib"),
 
     // 关键字为元组
     info-keys.中文摘要关键字: ("关键字1", "关键字2"),
@@ -175,7 +175,7 @@
     ```typ
     #picture-figure(
       "这是一个测试图片的标题",
-      image("/uestc-thesis-template/pics/logo.svg"),
+      image("pics/logo.svg"),
     ) <my-label>
     ```
   ]
@@ -185,7 +185,7 @@
 
 #picture-figure(
   "这是一个测试图片的标题",
-  image("/uestc-thesis-template/pics/logo.svg"),
+  image("pics/logo.svg"),
 ) <my-label>
 
 *参数说明：*
@@ -210,19 +210,19 @@
         row-gutter: 0.5em,
         picture-figure(
           [子图(a)的标题],
-          image("/uestc-thesis-template/pics/logo.svg", width: 90%),
+          image("pics/logo.svg", width: 90%),
         ),
         [#picture-figure(
           [子图(b)的标题],
-          image("/uestc-thesis-template/pics/logo.svg", width: 90%),
+          image("pics/logo.svg", width: 90%),
         ) <subfig-b>],
         picture-figure(
           [子图(c)的标题],
-          image("/uestc-thesis-template/pics/logo.svg", width: 90%),
+          image("pics/logo.svg", width: 90%),
         ),
         picture-figure(
           [子图(d)的标题],
-          image("/uestc-thesis-template/pics/logo.svg", width: 90%),
+          image("pics/logo.svg", width: 90%),
         ),
       ),
       placement: top,
@@ -242,20 +242,20 @@
     row-gutter: 0.5em,
     picture-figure(
       [子图(a)的标题],
-      image("/uestc-thesis-template/pics/logo.svg", width: 90%),
+      image("pics/logo.svg", width: 90%),
     ),
     [#picture-figure(
       [子图(b)的标题],
-      image("/uestc-thesis-template/pics/logo.svg", width: 90%),
+      image("pics/logo.svg", width: 90%),
     ) <subfig-b>],
 
     picture-figure(
       [子图(c)的标题],
-      image("/uestc-thesis-template/pics/logo.svg", width: 90%),
+      image("pics/logo.svg", width: 90%),
     ),
     picture-figure(
       [子图(d)的标题],
-      image("/uestc-thesis-template/pics/logo.svg", width: 90%),
+      image("pics/logo.svg", width: 90%),
     ),
   ),
   placement: top,
@@ -1128,7 +1128,7 @@ $ cal(L) = sum_(i=1)^n (y_i - f(x_i))^2 $ <loss-function>
     ```typ
     // 在 main.typ 中配置成果列表
     info-keys.成果列表: (
-      成果列表-keys.成果文件: "src/bib/参考文献1.bib",  // bib 文件路径
+      成果列表-keys.成果文件: path("src/bib/参考文献1.bib"),  // bib 文件路径
       成果列表-keys.作者姓名: "Kopka H",  // 填写你的名字，模板会自动在成果列表中加粗
       成果列表-keys.条目: (
         // 每个元素为 (<bib引用key>, "作者排序", "分类说明")
@@ -1175,6 +1175,72 @@ $ cal(L) = sum_(i=1)^n (y_i - f(x_i))^2 $ <loss-function>
 ]
 
 == 其他用法
+
+=== path <usage-path>
+
+Typst 中表示文件路径有两种方式：*字符串路径*和 `path()` 函数返回的 `path` 类型。它们的区别在于*相对路径的解析基准不同*，这在向模板（包）内部传递路径时尤为关键。
+
+#noindent *字符串路径*
+
+直接用字符串表示路径，是最常见的写法：
+
+#block(width: 100%)[
+  #set align(center)
+  #block(breakable: false)[
+    #set align(left)
+    ```typ
+    image("pics/logo.svg")        // 相对路径
+    image("/src/pic/图片.png")    // 绝对路径（以 / 开头）
+    include "src/摘要-中文.typ"
+    ```
+  ]
+]
+
+*关键点：* 字符串路径在*实际调用该字符串的位置*被解析。当字符串路径被传入模板/包内部、由包内的函数（如 `image()`、`read()`）使用时，相对路径会以*包内部文件所在目录*为基准解析，而不是你的 `main.typ` 所在目录。这通常会导致 `file not found` 错误。
+
+#noindent *`path()` 函数*
+
+`path()` 函数将字符串在*当前文件*中提前解析并锁定为 `path` 类型对象。此后该对象无论被传递到哪里（包括包内部），始终指向*调用 `path()` 的那个文件*所解析出的路径。
+
+#block(width: 100%)[
+  #set align(center)
+  #block(breakable: false)[
+    #set align(left)
+    ```typ
+    // 相对路径：相对于当前文件所在目录解析
+    info-keys.参考文献: path("src/bib/参考文献.bib")
+
+    // 绝对路径：以 / 开头，相对于项目根目录解析
+    info-keys.参考文献: path("/src/bib/参考文献.bib")
+    ```
+  ]
+]
+
+#noindent *为什么 `参考文献` 和 `独创性声明扫描页` 必须用 `path()`？*
+
+这两个字段的文件都由模板*包内部*的函数读取：
+
+#block(width: 100%)[
+  #set align(center)
+  #block(breakable: false)[
+    #set align(left)
+    ```typ
+    // ❌ 错误：直接传字符串，路径会在包内部解析，导致找不到文件
+    info-keys.参考文献: "src/bib/参考文献.bib",
+    info-keys.独创性声明扫描页: "src/独创性声明.pdf",
+
+    // ✅ 正确：用 path() 包裹，路径在 main.typ 中提前锁定
+    info-keys.参考文献: path("src/bib/参考文献.bib"),
+    info-keys.独创性声明扫描页: path("src/独创性声明.pdf"),
+    ```
+  ]
+]
+
+*说明：*
+- 字符串路径：相对于*内部函数调用时所在的文件*解析（包内部目录）
+- `path()`：相对于*调用 `path()` 的文件*解析（你的 `main.typ`）
+- 因此，凡是会被包内部读取的路径参数，都必须用 `path()` 包裹
+- 绝对路径（以 `/` 开头）两者等价，均相对于项目根目录解析
 
 === 脚注
 
@@ -1308,7 +1374,7 @@ $ cal(L) = sum_(i=1)^n (y_i - f(x_i))^2 $ <loss-function>
     #set align(left)
     ```typ
     // 直接传字符串（适用于路径、简短文本等）
-    info-keys.参考文献: "src/bib/参考文献1.bib",  // bib 文件路径
+    info-keys.参考文献: path("src/bib/参考文献1.bib"),  // bib 文件路径
     info-keys.论文中文标题: "论文标题",  // 字符串
 
     // 使用 include（适用于较长内容、需要排版的文本）
@@ -1320,7 +1386,7 @@ $ cal(L) = sum_(i=1)^n (y_i - f(x_i))^2 $ <loss-function>
 
     // 成果列表是字典
     info-keys.成果列表: (
-      成果列表-keys.成果文件: "src/bib/参考文献1.bib",
+      成果列表-keys.成果文件: path("src/bib/参考文献1.bib"),
       成果列表-keys.作者姓名: "Kopka H",  // 填写你的名字，模板会自动在成果列表中加粗
       成果列表-keys.条目: ((<key>, "排序", "分类"),),
       成果列表-keys.其他成果: include "src/攻读学位期间取得成果.typ",

@@ -93,7 +93,7 @@
   #block(height: 10pt)[#sym.space]
 
   #block(height: 160pt, inset: 0pt)[
-    #image("../../pics/logo.svg", width: auto)
+    #image("../pics/logo.svg", width: auto)
   ]
 
   #v(1.5cm)

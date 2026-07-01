@@ -8,14 +8,13 @@
 
   #set pagebreak(weak: true)
 
-  #let prefix-path = "../../../"
   #let bibs = info.at(info-keys.参考文献)
-  #let path = if type(bibs) == str {
-    prefix-path + bibs
-  } else if type(bibs) == array {
-    bibs = bibs.map(item => { prefix-path + item })
-  }
+
+  #assert(
+    type(bibs) == path or (type(bibs) == array and bibs.all(b => type(b) == path)),
+    message: "参考文献必须为 path 类型或 array(path) 类型，当前类型为 ",
+  )
 
   #set text(size: font-size.五号)
-  #bilingual-bibliography(body: path, full: false)
+  #bilingual-bibliography(body: bibs, full: false)
 ]

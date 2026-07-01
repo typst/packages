@@ -1,4 +1,4 @@
-#import "../uestc-thesis-template/template/thesis.typ":*
+#import "lib.typ": *
 
 = 电子科技大学参考网站
 #block(width: 100%)[

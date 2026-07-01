@@ -12,10 +12,10 @@ file_name := "学位论文写作指南及例子.pdf"
 all: build
 
 build:
-	${typst} c main.typ ${file_name} --font-path ./uestc-thesis-template/fonts --root .
+	${typst} c main.typ ${file_name} --font-path ./fonts --root ../
 
 watch:
-	${typst} w main.typ ${file_name} --font-path ./uestc-thesis-template/fonts --root .
+	${typst} w main.typ ${file_name} --font-path ./fonts --root ../
 
 clean:
 	git clean -df -X

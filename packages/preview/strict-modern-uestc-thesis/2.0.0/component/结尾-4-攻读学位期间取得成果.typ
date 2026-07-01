@@ -22,13 +22,18 @@
   #set par(first-line-indent: 0em)
   #set enum(numbering: "[1]")
 
-  #let prefix-path = "../../../"
+  #let prefix-path = "../../"
   #let bibs = info.at(info-keys.成果列表).at(成果列表-keys.成果文件)
-  #let path = if type(bibs) == str {
-    prefix-path + bibs
-  } else if type(bibs) == array {
-    bibs = bibs.map(item => { prefix-path + item })
+
+  #assert(
+    type(bibs) == path or (type(bibs) == array and bibs.all(b => type(b) == path)),
+    message: "参考文献必须为 path 类型或 array(path) 类型，当前类型为 ",
+  )
+  #if type(bibs) == path {
+    bibs = (bibs,)
   }
+  #let bibs = bibs.map(path => read(path, encoding: none))
+
   #show heading.where(level: 2): set heading(outlined: false)
   #show heading.where(level: 3): set heading(outlined: false)
   #show heading.where(level: 4): set heading(outlined: false)
@@ -44,7 +49,7 @@
   ) {
     heading(level: 2, "发表论文")
     achievement-list(
-      path,
+      bibs,
       title: title,
       highlight-names: info.at(info-keys.成果列表).at(成果列表-keys.作者姓名),
       // 2. 核心数据列表：(BibKey, 作者顺序, 注释)

@@ -3,7 +3,7 @@
 // 详细使用说明请参考第一章（src/chapter1.typ）
 
 // 导入模板库
-#import "uestc-thesis-template/lib.typ": *
+#import "src/lib.typ": *
 
 // 使用 thesis 函数作为 show rule 来配置论文
 // 所有参数通过 info 字典传递
@@ -29,7 +29,7 @@
     */
     info-keys.论文模式: 论文模式.修订模式,
     // 电子档定稿模式下需要设置独创性声明扫描页路径（A4 大小的 PDF/PNG 扫描件）
-    info-keys.独创性声明扫描页: "src/独创性声明.pdf",
+    info-keys.独创性声明扫描页: path("src/独创性声明.pdf"),
     // 字体设置
     // Windows 默认使用 SimHei（黑体）和 SimSun（宋体）
     // macOS/Linux 建议使用思源字体：
@@ -105,7 +105,7 @@
     info-keys.英文摘要关键字: ("UESTC", "Typst", "Thesis", "Future"),
     info-keys.附录: (include "src/附录-1.typ", include "src/附录-2.typ"),
     info-keys.致谢: include "src/致谢.typ",
-    info-keys.参考文献: "src/bib/参考文献.bib",
+    info-keys.参考文献: path("src/bib/参考文献.bib"),
     // ============================================
     // 成果列表
     // 使用成果列表功能需要配置以下参数：
@@ -118,7 +118,7 @@
     //   info-keys.攻读学位期间取得成果: include "src/攻读学位期间取得成果.typ"
     // ============================================
     info-keys.成果列表: (
-      成果列表-keys.成果文件: "src/bib/参考文献.bib",
+      成果列表-keys.成果文件: path("src/bib/参考文献.bib"),
       成果列表-keys.作者姓名: "Kopka H", // 填写你的名字，模板会自动在成果列表中加粗
       成果列表-keys.条目: (
         (<kopka2004guide>, "第一作者", "示例分类"),
