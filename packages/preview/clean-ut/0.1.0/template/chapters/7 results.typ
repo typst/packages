@@ -1,4 +1,4 @@
-#import "../lib.typ":*
+#import "@preview/clean-ut:0.1.0": *
 
 #let results() = [
 

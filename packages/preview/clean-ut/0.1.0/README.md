@@ -27,7 +27,7 @@ The template includes a local copy of `lib.typ` (where all customizations live) 
 The caption-function is a slight modification of the original caption of figures:
 
 ```typ
-#figure(.., caption: caption[short description][more details])
+#figure(.., caption: [#caption[short description][more details]])
 ```
 This will display the short description in the outline of figures and will show the original figure caption as: 
 
@@ -46,7 +46,7 @@ Finally, the custom subfigure-function automatically numbers the subfigures with
 figure(.., caption: []),
 figure(.., caption: []),
 ..,
-caption: [caption describing the whole figure, including subfigures]
+caption: [caption describing the whole figure, including subfigures])
 ```
 
 Note that this does **not** allow for captioning of the subfigures directly (this will look bad), but instead requires a description  of subfigures in the total figure caption

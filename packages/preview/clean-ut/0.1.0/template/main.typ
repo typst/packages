@@ -5,7 +5,7 @@
 // pandoc online for single files
 //==========================imports======================
 
-#import "lib.typ": *
+#import "@preview/clean-ut:0.1.0": *
 
 #import "chapters/1 official title n declar.typ": titlepage, declaration
 #import "chapters/2 abstract.typ": abstract
