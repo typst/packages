@@ -5,8 +5,8 @@
 ```typst
 #import "@preview/diffst:0.1.0": diffst
 
-#let old-file = "old.typ"
-#let new-file = "new.typ"
+#let old-file = path("old.typ")
+#let new-file = path("new.typ")
 
 #diffst(old-file, new-file)
 ```
@@ -34,8 +34,8 @@ generate a Typst document from a pair of Git revisions.
 
 #set page(height: auto)
 
-#let old-file = "draft-old.typ"
-#let new-file = "draft-new.typ"
+#let old-file = path("draft-old.typ")
+#let new-file = path("draft-new.typ")
 
 #diffst(
   old-file,
@@ -58,8 +58,11 @@ show every line.
 )
 ```
 
-`diffst(old-path, new-path, ..)` is the file convenience layer. For text you
-already have in Typst, call `diffst-content(old-text, new-text, old-label: ...,
+`diffst(old-path, new-path, ..)` is the file convenience layer. Like Typst's
+path-taking built-ins, it accepts paths or strings. When using `diffst` as a
+package, pass Typst `path` values, such as `path("draft-old.typ")`, so files
+resolve in your project rather than inside the package. For text you already
+have in Typst, call `diffst-content(old-text, new-text, old-label: ...,
 new-label: ..., ..)`.
 
 ## Main Options
@@ -187,8 +190,8 @@ For custom reports, build from data upward:
 )
 
 #let report = diffst-report(
-  read("paper-old.typ"),
-  read("paper-new.typ"),
+  read(path("paper-old.typ")),
+  read(path("paper-new.typ")),
   old-label: "paper-old.typ",
   new-label: "paper-new.typ",
   inline: "words",
