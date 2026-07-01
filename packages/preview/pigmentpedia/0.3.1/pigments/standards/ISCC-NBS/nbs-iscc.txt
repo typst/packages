@@ -1,0 +1,298 @@
+                http://tx4.us/nbs-iscc.htm
+                  NBS/ISCC Color System
+
+Copyright 2003 Voluntocracy.  Permission is granted to
+copy and distribute modified or unmodified versions of
+this color dictionary provided the copyright notice and
+this permission notice are preserved on all copies and
+the entire such work is distributed under the terms of a
+permission notice identical to this one.
+
+"Pink" and "brown" are used instead of the more logical
+"pale red" and "dark orange".
+
+http://www.anthus.com/Colors/Cent.html by David A.
+Mundie, converted the NBS Centroid colors from Munsell to
+CIE XYZ, then converted to Mac QuickDraw RGB.  The colors
+were visibly biased towards pink and had duplications.
+
+John Foster reconverted supplied Munsell values via
+Munsell software downloaded from www.gretagmacbeth.com
+<http://www.gretagmacbeth.com> directly to RGB, and tried
+to resolve some duplicates.  Some of these don't even
+look right, because some of the bright colors are on the
+dark fringes with less chroma and are not centered and
+high up on the hue curves.  Many of the original Munsell
+values (noted) are outside the RGB gamut, and have been
+adjusted to the closest brightest RGB value by changing
+chroma until 0 or 255 is reached in one out of bounds RGB
+component.  Guesses were made in a few cases (noted)
+where the color was still illogical compared to the name.
+
+Vivid_Pink                                      #FFB5BA
+Strong_Pink                                     #EA9399
+Deep_Pink                                       #E4717A
+Light_Pink                                      #F9CCCA
+Moderate_Pink                                   #DEA5A4
+Dark_Pink                                       #C08081
+Pale_Pink                                       #EAD8D7
+Grayish_Pink                                    #C4AEAD
+Pinkish_White                                   #EAE3E1
+Pinkish_Gray                                    #C1B6B3
+Vivid_Red                                       #BE0032
+Strong_Red                                      #BC3F4A
+Deep_Red                                        #841B2D
+Very_Deep_Red                                   #5C0923
+Moderate_Red                                    #AB4E52
+Dark_Red                                        #722F37
+Very_Dark_Red                                   #3F1728
+Light_Grayish_Red                               #AD8884
+Grayish_Red                                     #905D5D
+Dark_Grayish_Red                                #543D3F
+Blackish_Red                                    #2E1D21
+Reddish_Gray                                    #8F817F
+Dark_Reddish_Gray                               #5C504F
+Reddish_Black                                   #282022
+Vivid_Yellowish_Pink                            #FFB7A5
+Strong_Yellowish_Pink                           #F99379
+Deep_Yellowish_Pink                             #E66721
+Light_Yellowish_Pink                            #F4C2C2
+Moderate_Yellowish_Pink                         #D9A6A9
+Dark_Yellowish_Pink                             #C48379
+Pale_Yellowish_Pink                             #ECD5C5
+Grayish_Yellowish_Pink                          #C7ADA3
+Brownish_Pink                                   #C2AC99
+Vivid_Reddish_Orange                            #E25822
+Strong_Reddish_Orange                           #D9603B
+Deep_Reddish_Orange                             #AA381E
+Moderate_Reddish_Orange                         #CB6D51
+Dark_Reddish_Orange                             #9E4732
+Grayish_Reddish_Orange                          #B4745E
+Strong_Reddish_Brown                            #882D17
+Deep_Reddish_Brown                              #56070C
+Light_Reddish_Brown                             #A87C6D
+Moderate_Reddish_Brown                          #79443B
+Dark_Reddish_Brown                              #3E1D1E
+Light_Grayish_Reddish_Brown                     #977F73
+Grayish_Reddish_Brown                           #674C47
+Dark_Grayish_Reddish_Brown                      #43302E
+Vivid_Orange                                    #F38400
+Brilliant_Orange                                #FD943F
+Strong_Orange                                   #ED872D
+Deep_Orange                                     #BE6516
+Light_Orange                                    #FAB57F
+Moderate_Orange                                 #D99058
+Brownish_Orange                                 #AE6938
+Strong_Brown                                    #80461B
+Deep_Brown                                      #593319
+Light_Brown                                     #A67B5B
+Moderate_Brown                                  #6F4E37
+Dark_Brown                                      #422518
+Light_Grayish_Brown                             #958070
+Grayish_Brown                                   #635147
+Dark_Grayish_Brown                              #3E322C
+Light_Brownish_Gray                             #8E8279
+Brownish_Gray                                   #5B504F
+Brownish_Black                                  #28201C
+Vivid_Orange_Yellow                             #F6A600
+Brilliant_Orange_Yellow                         #FFC14F
+Strong_Orange_Yellow                            #EAA221
+Deep_Orange_Yellow                              #C98500
+Light_Orange_Yellow                             #FBC97F
+Moderate_Orange_Yellow                          #E3A857
+Dark_Orange_Yellow                              #BE8A3D
+Pale_Orange_Yellow                              #FAD6A5
+Strong_Yellowish_Brown                          #996515
+Deep_Yellowish_Brown                            #654522
+Light_Yellowish_Brown                           #C19A6B
+Moderate_Yellowish_Brown                        #826644
+Dark_Yellowish_Brown                            #4B3621
+Light_Grayish_Yellowish_Brown                   #AE9B82
+Grayish_Yellowish_Brown                         #7E6D5A
+Dark_Grayish_Yellowish_Brown                    #483C32
+Vivid_Yellow                                    #F3C300
+Brilliant_Yellow                                #FADA5E
+Strong_Yellow                                   #D4AF37
+Deep_Yellow                                     #AF8D13
+Light_Yellow                                    #F8DE7E
+Moderate_Yellow                                 #C9AE5D
+Dark_Yellow                                     #AB9144
+Pale_Yellow                                     #F3E5AB
+Grayish_Yellow                                  #C2B280
+Dark_Grayish_Yellow                             #A18F60
+Yellowish_White                                 #F0EAD6
+Yellowish_Gray                                  #BFB8A5
+Light_Olive_Brown                               #967117
+Moderate_Olive_Brown                            #6C541E
+Dark_Olive_Brown                                #3B3121
+Vivid_Greenish_Yellow                           #DCD300
+Brilliant_Greenish_Yellow                       #E9E450
+Strong_Greenish_Yellow                          #BEB72E
+Deep_Greenish_Yellow                            #9B9400
+Light_Greenish_Yellow                           #EAE679
+Moderate_Greenish_Yellow                        #B9B459
+Dark_Greenish_Yellow                            #98943E
+Pale_Greenish_Yellow                            #EBE8A4
+Grayish_Greenish_Yellow                         #B9B57D
+Light_Olive                                     #867E36
+Moderate_Olive                                  #665D1E
+Dark_Olive                                      #403D21
+Light_Grayish_Olive                             #8C8767
+Grayish_Olive                                   #5B5842
+Dark_Grayish_Olive                              #363527
+Light_Olive_Gray                                #8A8776
+Olive_Gray                                      #57554C
+Olive_Black                                     #25241D
+Vivid_Yellow_Green                              #8DB600
+Brilliant_Yellow_Green                          #BDDA57
+Strong_Yellow_Green                             #7E9F2E
+Deep_Yellow_Green                               #467129
+Light_Yellow_Green                              #C9DC89
+Moderate_Yellow_Green                           #8A9A5B
+Pale_Yellow_Green                               #DADFB7
+Grayish_Yellow_Green                            #8F9779
+Strong_Olive_Green                              #404F00
+Deep_Olive_Green                                #232F00
+Moderate_Olive_Green                            #4A5D23
+Dark_Olive_Green                                #2B3D26
+Grayish_Olive_Green                             #515744
+Dark_Grayish_Olive_Green                        #31362B
+Vivid_Yellowish_Green                           #27A64C
+Brilliant_Yellowish_Green                       #83D37D
+Strong_Yellowish_Green                          #44944A
+Deep_Yellowish_Green                            #00622D
+Very_Deep_Yellowish_Green                       #003118
+Very_Light_Yellowish_Green                      #B6E5AF
+Light_Yellowish_Green                           #93C592
+Moderate_Yellowish_Green                        #679267
+Dark_Yellowish_Green                            #355E3B
+Very_Dark_Yellowish_Green                       #173620
+Vivid_Green                                     #008856
+Brilliant_Green                                 #3EB489
+Strong_Green                                    #007959
+Deep_Green                                      #00543D
+Very_Light_Green                                #8ED1B2
+Light_Green                                     #6AAB8E
+Moderate_Green                                  #3B7861
+Dark_Green                                      #1B4D3E
+Very_Dark_Green                                 #1C352D
+Very_Pale_Green                                 #C7E6D7
+Pale_Green                                      #8DA399
+Grayish_Green                                   #5E716A
+Dark_Grayish_Green                              #3A4B47
+Blackish_Green                                  #1A2421
+Greenish_White                                  #DFEDE8
+Light_Greenish_Gray                             #B2BEB5
+Greenish_Gray                                   #7D8984
+Dark_Greenish_Gray                              #4E5755
+Greenish_Black                                  #1E2321
+Vivid_Bluish_Green                              #008882
+Brilliant_Bluish_Green                          #00A693
+Strong_Bluish_Green                             #007A74
+Deep_Bluish_Green                               #00443F
+Very_Light_Bluish_Green                         #96DED1
+Light_Bluish_Green                              #66ADA4
+Moderate_Bluish_Green                           #317873
+Dark_Bluish_Green                               #004B49
+Very_Dark_Bluish_Green                          #002A29
+Vivid_Greenish_Blue                             #0085A1
+Brilliant_Greenish_Blue                         #239EBA
+Strong_Greenish_Blue                            #007791
+Deep_Greenish_Blue                              #2E8495
+Very_Light_Greenish_Blue                        #9CD1DC
+Light_Greenish_Blue                             #66AABC
+Moderate_Greenish_Blue                          #367588
+Dark_Greenish_Blue                              #004958
+Very_Dark_Greenish_Blue                         #002E3B
+Vivid_Blue                                      #00A1C2
+Brilliant_Blue                                  #4997D0
+Strong_Blue                                     #0067A5
+Deep_Blue                                       #00416A
+Very_Light_Blue                                 #A1CAF1
+Light_Blue                                      #70A3CC
+Moderate_Blue                                   #436B95
+Dark_Blue                                       #00304E
+Very_Pale_Blue                                  #BCD4E6
+Pale_Blue                                       #91A3B0
+Grayish_Blue                                    #536878
+Dark_Grayish_Blue                               #36454F
+Blackish_Blue                                   #202830
+Bluish_White                                    #E9E9ED
+Light_Bluish_Gray                               #B4BCC0
+Bluish_Gray                                     #81878B
+Dark_Bluish_Gray                                #51585E
+Bluish_Black                                    #202428
+Vivid_Purplish_Blue                             #30267A
+Brilliant_Purplish_Blue                         #6C79B8
+Strong_Purplish_Blue                            #545AA7
+Deep_Purplish_Blue                              #272458
+Very_Light_Purplish_Blue                        #B3BCE2
+Light_Purplish_Blue                             #8791BF
+Moderate_Purplish_Blue                          #4E5180
+Dark_Purplish_Blue                              #252440
+Very_Pale_Purplish_Blue                         #C0C8E1
+Pale_Purplish_Blue                              #8C92AC
+Grayish_Purplish_Blue                           #4C516D
+Vivid_Violet                                    #9065CA
+Brilliant_Violet                                #7E73B8
+Strong_Violet                                   #604E97
+Deep_Violet                                     #32174D
+Very_Light_Violet                               #DCD0FF
+Light_Violet                                    #8C82B6
+Moderate_Violet                                 #604E81
+Dark_Violet                                     #2F2140
+Very_Pale_Violet                                #C4C3DD
+Pale_Violet                                     #9690AB
+Grayish_Violet                                  #554C69
+Vivid_Purple                                    #9A4EAE
+Brilliant_Purple                                #D399E6
+Strong_Purple                                   #875692
+Deep_Purple                                     #602F6B
+Very_Deep_Purple                                #401A4C
+Very_Light_Purple                               #D5BADB
+Light_Purple                                    #B695C0
+Moderate_Purple                                 #86608E
+Dark_Purple                                     #563C5C
+Very_Dark_Purple                                #301934
+Very_Pale_Purple                                #D6CADD
+Pale_Purple                                     #AA98A9
+Grayish_Purple                                  #796878
+Dark_Grayish_Purple                             #50404D
+Blackish_Purple                                 #291E29
+Purplish_White                                  #E8E3E5
+Light_Purplish_Gray                             #BFB9BD
+Purplish_Gray                                   #8B8589
+Dark_Purplish_Gray                              #5D555B
+Purplish_Black                                  #242124
+Vivid_Reddish_Purple                            #870074
+Strong_Reddish_Purple                           #9E4F88
+Deep_Reddish_Purple                             #702963
+Very_Deep_Reddish_Purple                        #54194E
+Light_Reddish_Purple                            #B784A7
+Moderate_Reddish_Purple                         #915C83
+Dark_Reddish_Purple                             #5D3954
+Very_Dark_Reddish_Purple                        #341731
+Pale_Reddish_Purple                             #AA8A9E
+Grayish_Reddish_Purple                          #836479
+Brilliant_Purplish_Pink                         #FFC8D6
+Strong_Purplish_Pink                            #E68FAC
+Deep_Purplish_Pink                              #DE6FA1
+Light_Purplish_Pink                             #EFBBCC
+Moderate_Purplish_Pink                          #D597AE
+Dark_Purplish_Pink                              #C17E91
+Pale_Purplish_Pink                              #E8CCD7
+Grayish_Purplish_Pink                           #C3A6B1
+Vivid_Purplish_Red                              #CE4676
+Strong_Purplish_Red                             #B3446C
+Deep_Purplish_Red                               #78184A
+Very_Deep_Purplish_Red                          #54133B
+Moderate_Purplish_Red                           #A8516E
+Dark_Purplish_Red                               #673147
+Very_Dark_Purplish_Red                          #38152C
+Light_Grayish_Purplish_Red                      #AF868E
+Grayish_Purplish_Red                            #915F6D
+White                                           #F2F3F4
+Light_Gray                                      #B9B8B5
+Medium_Gray                                     #848482
+Dark_Gray                                       #555555
+Black                                           #222222

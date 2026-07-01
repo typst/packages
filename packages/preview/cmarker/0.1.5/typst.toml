@@ -1,0 +1,11 @@
+[package]
+name = "cmarker"
+version = "0.1.5"
+entrypoint = "lib.typ"
+authors = ["Sabrina Jewson"]
+license = "MIT"
+description = "Transpile CommonMark Markdown to Typst, from within Typst!"
+repository = "https://github.com/SabrinaJewson/cmarker.typ"
+keywords = ["Markdown", "CommonMark"]
+compiler = "0.13.1"
+exclude = ["examples", "README.pdf"]

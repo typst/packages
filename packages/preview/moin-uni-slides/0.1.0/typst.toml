@@ -1,0 +1,15 @@
+[package]
+name = "moin-uni-slides"
+version = "0.1.0"
+entrypoint = "theme.typ"
+authors = ["SimonIT <@SimonIT>"]
+license = "MIT"
+description = "Slides in the style of the University of Bremen for polylux."
+repository = "https://github.com/Universitaet-Bremen/typst-template-slides"
+keywords = ["polylux", "theme", "ub", "slides", "presentation", "Bremen", "HB", "Universität", "Uni"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

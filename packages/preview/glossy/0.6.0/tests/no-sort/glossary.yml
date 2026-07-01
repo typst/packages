@@ -1,0 +1,23 @@
+first:
+  short: "DAL"
+  long: "first"
+
+second:
+  short: "cab"
+  long: "second"
+
+third:
+  short: "delta"
+  long: "third"
+
+fourth:
+  short: "COO"
+  long: "fourth"
+
+fifth:
+  short: "cuckoo"
+  long: "fifth"
+
+sixth:
+  short: "ČR"
+  long: "sixth"

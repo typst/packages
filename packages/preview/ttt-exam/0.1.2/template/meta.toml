@@ -1,0 +1,16 @@
+[info]
+class = "unknown"
+subject = "unknown"
+title = "1. Exam"
+subtitle = ""
+date = "unknown"
+authors = "unknown"
+
+[points]
+total = 100
+
+# List of students with name = points
+[students]
+name_1 = 100
+"name 2" = 100
+# ...

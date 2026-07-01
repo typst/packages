@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="400" height="400"
+     viewBox="0 0 400 400"
+     role="img" aria-labelledby="title desc">
+  <title id="title">My Logo — geometric mark with text</title>
+  <desc id="desc">Three overlapping geometric shapes forming an abstract mark with the words "my logo" centered below. Transparent background.</desc>
+
+  <!-- No background rectangle: background is transparent -->
+
+  <!-- Definitions -->
+  <defs>
+    <!-- soft drop shadow -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+      <feOffset in="blur" dx="0" dy="6" result="off"/>
+      <feColorMatrix in="off" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.25" result="shadow"/>
+      <feBlend in="SourceGraphic" in2="shadow" mode="normal"/>
+    </filter>
+
+    <!-- simple linear gradient -->
+    <linearGradient id="gradA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <linearGradient id="gradB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f97316"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Geometric mark -->
+  <g transform="translate(220,140)" filter="url(#shadow)">
+    <!-- left rounded square -->
+    <rect x="-200" y="-80" width="160" height="160" rx="24" ry="24"
+          fill="url(#gradA)" opacity="0.95" transform="rotate(-18) translate(20,-8)"/>
+
+    <!-- right triangle -->
+    <path d="M160,-80 L40,120 L280,120 Z"
+          fill="url(#gradB)" opacity="0.92" transform="translate(-120,0) rotate(8)"/>
+
+    <!-- centered circle (top layer) -->
+    <circle cx="40" cy="20" r="70" fill="#10b981" opacity="0.92" />
+
+    <!-- subtle white intersection highlight -->
+    <path d="M-30,10 q80,-120 160,0" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="40" stroke-linecap="round" />
+  </g>
+
+  <!-- Text: "my logo" -->
+  <text x="200" y="350" text-anchor="middle"
+        font-family="Montserrat, Arial, Helvetica, sans-serif"
+        font-weight="600" font-size="48" letter-spacing="1.4"
+        fill="#000000">
+    My Logo
+  </text>
+</svg>

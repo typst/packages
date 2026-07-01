@@ -1,0 +1,22 @@
+[package]
+name = "divine-words"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["tedius"]
+license = "MIT"
+description = "Just a template for a lab report"
+repository = "https://github.com/tedius-git/divine-words"
+keywords = [
+    "template",
+    "lab report",
+    "uni",
+]
+categories = ["report"]
+
+[tool.utpm]
+namespace = "local"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

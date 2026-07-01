@@ -1,0 +1,13 @@
+[package]
+name = "oicana"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Oicana <hello@oicana.com>"]
+license = "MIT"
+description = "PDF templating across multiple platforms"
+homepage = "https://oicana.com"
+repository = "https://github.com/oicana/oicana"
+keywords = ["oicana", "templating", "tool"]
+categories = ["scripting", "utility", "integration"]
+compiler = "0.13.0"
+exclude = ["*/tests/**"]

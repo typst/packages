@@ -1,0 +1,1 @@
+#import "tud-slides/template.typ": *

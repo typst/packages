@@ -1,0 +1,15 @@
+[package]
+name = "bookletic"
+version = "0.3.0"
+compiler = "0.11.0"
+repository = "https://github.com/harrellbm/Bookletic.git"
+entrypoint = "src/lib.typ"
+authors = [
+  "Brenden Harrell <https://github.com/harrellbm>",
+  "Paul DE TEMMERMAN <https://github.com/paul2t>",
+]
+license = "Apache-2.0"
+description = "Create beautiful booklets with ease."
+categories = [ "book", "layout", "flyer" ]
+keywords = [ "book", "booklet", "pamphlet", "bulletin" ]
+exclude = [ "./example/*" ]

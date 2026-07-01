@@ -1,0 +1,10 @@
+[package]
+name = "autofletcher"
+version = "0.1.0"
+entrypoint = "autofletcher.typ"
+authors = ["3akev <@3akev>"]
+license = "MIT"
+description = "Easier diagrams with fletcher"
+repository = "https://github.com/3akev/autofletcher"
+exclude = ["manual.*"]
+categories = ["visualization"]

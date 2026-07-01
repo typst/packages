@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Custom Preview</string>
+  <key>settings</key>
+  <array>
+
+    <!-- 全局设置 -->
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key>
+        <string>#f8f8f0</string>
+        <key>foreground</key>
+        <string>#1a1a1a</string>
+        <key>caret</key>
+        <string>#000000</string>
+        <key>selection</key>
+        <string>#c9d0d9</string>
+      </dict>
+    </dict>
+
+    <!-- 单行注释 (#...) → 红色斜体 -->
+    <dict>
+      <key>name</key>
+      <string>Comment Single</string>
+      <key>scope</key>
+      <string>comment.line</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#377E22</string>
+        <key>fontStyle</key>
+        <string>italic</string>
+      </dict>
+    </dict>
+
+    <!-- 多行注释 / docstring ("""...""") → 红色斜体 -->
+    <dict>
+      <key>name</key>
+      <string>Comment Block / Docstring</string>
+      <key>scope</key>
+      <string>comment.block, string.doc, comment.block.documentation, string.quoted.double.block, string.quoted.single.block</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#9E3832</string>
+        
+      </dict>
+    </dict>
+
+    <!-- 关键字 (def, for, in, return, if, while...) → 深蓝色粗体 -->
+    <dict>
+      <key>name</key>
+      <string>Keyword</string>
+      <key>scope</key>
+      <string>keyword, keyword.control, keyword.other, storage, storage.type, storage.modifier</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#00008b</string>
+        <key>fontStyle</key>
+        <string>bold</string>
+      </dict>
+    </dict>
+
+    <!-- 内置函数 (len, open, range, float, print...) → 青绿色 -->
+    <dict>
+      <key>name</key>
+      <string>Built-in Functions</string>
+      <key>scope</key>
+      <string>support.function.builtin, support.function, entity.name.function.magic, support.type.python</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#3478C6</string>
+      </dict>
+    </dict>
+
+    <!-- 普通函数调用 → 青绿色 -->
+    <dict>
+      <key>name</key>
+      <string>Function Call</string>
+      <key>scope</key>
+      <string>meta.function-call.generic, variable.function</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#4A5567</string>
+        <key>fontStyle</key>
+        <string>underline</string>
+      </dict>
+    </dict>
+
+    <!-- 字符串 ('\t', "...") → 蓝色 -->
+    <dict>
+      <key>name</key>
+      <string>String</string>
+      <key>scope</key>
+      <string>string, string.quoted.single, string.quoted.double</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#2980b9</string>
+      </dict>
+    </dict>
+
+    <!-- 转义字符 (\t, \n...) → 蓝色稍深 -->
+    <dict>
+      <key>name</key>
+      <string>String Escape</string>
+      <key>scope</key>
+      <string>constant.character.escape</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#1a6fa3</string>
+      </dict>
+    </dict>
+
+    <!-- 数字 → 深绿色 -->
+    <dict>
+      <key>name</key>
+      <string>Number</string>
+      <key>scope</key>
+      <string>constant.numeric</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#377E22</string>
+      </dict>
+    </dict>
+
+    <!-- 运算符 (=, -, +, ...) → 黑色 -->
+    <dict>
+      <key>name</key>
+      <string>Operator</string>
+      <key>scope</key>
+      <string>keyword.operator</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#1a1a1a</string>
+      </dict>
+    </dict>
+
+    <!-- 函数定义名 (loadDataSet) → 黑色 -->
+    <dict>
+      <key>name</key>
+      <string>Function Definition Name</string>
+      <key>scope</key>
+      <string>entity.name.function</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#1a1a1a</string>
+      </dict>
+    </dict>
+
+    <!-- 参数变量 → 黑色 -->
+    <dict>
+      <key>name</key>
+      <string>Variable Parameter</string>
+      <key>scope</key>
+      <string>variable.parameter</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#1a1a1a</string>
+      </dict>
+    </dict>
+
+  </array>
+  <key>uuid</key>
+  <string>a1b2c3d4-e5f6-7890-abcd-ef1234567890</string>
+</dict>
+</plist>

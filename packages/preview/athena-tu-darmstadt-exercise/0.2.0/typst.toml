@@ -1,0 +1,16 @@
+[package]
+name = "athena-tu-darmstadt-exercise"
+version = "0.2.0"
+entrypoint = "template/lib.typ"
+authors = ["JeyRunner <https://github.com/JeyRunner>", "FussballAndy <https://github.com/FussballAndy>"]
+license = "MIT"
+description = "Exercise template for TU Darmstadt (Technische Universität Darmstadt)."
+repository = "https://github.com/JeyRunner/tuda-typst-templates"
+keywords = ["TU Darmstadt", "Technische Universität Darmstadt", "Exercise"]
+categories = ["layout"]
+compiler = "0.12.0"
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "preview/tudaexercise_prev-1.png"
