@@ -1,0 +1,40 @@
+# Acrónimos e Siglas
+# Formato: cada entrada tem 'term' (o acrónimo) e 'definition' (a definição completa)
+# Mantém a ordem alfabética para facilitar a consulta
+
+- term: API
+  definition: Application Programming Interface
+
+- term: CPU
+  definition: Central Processing Unit
+
+- term: GPU
+  definition: Graphics Processing Unit
+
+- term: HTML
+  definition: HyperText Markup Language
+
+- term: HTTP
+  definition: HyperText Transfer Protocol
+
+- term: JSON
+  definition: JavaScript Object Notation
+
+- term: RAM
+  definition: Random Access Memory
+
+- term: REST
+  definition: Representational State Transfer
+
+- term: SQL
+  definition: Structured Query Language
+
+- term: URL
+  definition: Uniform Resource Locator
+
+- term: XML
+  definition: Extensible Markup Language
+
+# Adiciona aqui os teus acrónimos seguindo o mesmo formato
+# - term: SIGLA
+#   definition: Definição completa da sigla

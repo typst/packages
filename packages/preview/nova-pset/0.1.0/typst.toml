@@ -1,0 +1,30 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "nova-pset"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Samyak Jain <samyakj5@illinois.edu>"]
+license = "Unlicense"
+description = "A modular problem set template for STEM coursework."
+repository = "https://github.com/samyakj5/nova-pset"
+keywords = ["pset", "homework", "stem"]
+categories = ["report"]
+# compiler = ""
+exclude = [
+  "docs",
+  "scripts",
+  ".typstignore",
+  "Justfile",
+  "example.pdf",
+  "example.png",
+  "circle_example.png",
+  "square_example.png",
+  "triangle_example.png",
+  "CHANGELOG.md",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
