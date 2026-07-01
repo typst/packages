@@ -9,19 +9,6 @@ The first two pages are generated for the University Tübingen, feel free to cha
 - This is a template and does not have to meet the exact requirements of your university. Check what your thesis should look like!
 - The thesis is currently only supported in English
 
-## Getting started
-
-### Start from Template
-
-This template works best with the "Start from template" option in the Typst web app:
-
-1. Go to https://typst.app
-2. Click "Start from template"
-3. Search for "ut-thesis-clean"
-4. All template files will be automatically copied to your project
-
-The template includes a local copy of `lib.typ` (where all customizations live) so it works immediately without any additional setup. Simply edit `main.typ` and the chapter files to write your thesis.
-
 ## Custom functions
 
 The caption-function is a slight modification of the original caption of figures:
