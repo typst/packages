@@ -35,7 +35,7 @@ I have read and followed the submission guidelines and, in particular, I
 - [ ] added a [`README.md`](https://github.com/typst/packages/blob/main/docs/documentation.md) with documentation for my package
 - [ ] have chosen [a license](https://github.com/typst/packages/blob/main/docs/licensing.md) and added a `LICENSE` file or linked one in my `README.md`
 - [ ] tested my package locally on my system and it worked
-- [ ] [`exclude`d](https://github.com/typst/packages/blob/main/docs/tips.md#what-to-commit-what-to-exclude) PDFs or README images, if any, but not the LICENSE
+- [ ] [`excluded`](https://github.com/typst/packages/blob/main/docs/tips.md#what-to-commit-what-to-exclude) PDFs or README images, if any, but not the LICENSE
 
 <!--
 The following box only needs to be checked for **template** submissions. If you're submitting a package that isn't a template, you can delete the following section. See the guidelines section about licenses in the README for more details.
