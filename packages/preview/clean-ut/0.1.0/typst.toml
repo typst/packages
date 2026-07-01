@@ -1,5 +1,5 @@
 [package]
-name = "thesis-clean-ut"
+name = "clean-ut"
 version = "0.1.0"
 entrypoint = "template/lib.typ"
 authors = [
