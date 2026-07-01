@@ -1,5 +1,5 @@
 #import "tudaexercise.typ": (
-  difficulty-format, point-format, subtask, task, task-points-header, tuda-gray-info, tudaexercise,
+  difficulty-format, point-format, subtask, task, task-points-header, tuda-gray-info, tuda-box, tudaexercise,
 )
 #import "info-layout.typ" as info-layout
 #import "common/headings.typ": tuda-section, tuda-subsection

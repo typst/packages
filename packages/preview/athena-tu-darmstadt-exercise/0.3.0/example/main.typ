@@ -45,7 +45,7 @@ The easiest way is by using `typst init` like on this templates universe page. B
 The template requires the following fonts: Roboto and XCharter. Typst right now does not allow fonts to be installed as packages. So you will either need to install them locally or configure Typst and co. to use the fonts.
 
 #tuda-gray-info(title: "For more info:")[
-  https://github.com/JeyRunner/tuda-typst-templates?tab=readme-ov-file#logo-and-font-setup
+  https://github.com/tuda-typst/tuda-typst-templates?tab=readme-ov-file#logo-and-font-setup
 ]
 
 == Logo
