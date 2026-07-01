@@ -1,0 +1,11 @@
+#let summary() = [
+
+  == Summary
+
+  
+  
+  == Outlook
+  
+  
+  
+]

@@ -1,0 +1,18 @@
+[package]
+name = "thesis-clean-ut"
+version = "0.1.0"
+entrypoint = "template/lib.typ"
+authors = [
+	"Elias Riedling <https://github.com/Lai-es/>"
+]
+license = "MIT"
+description = "Thesis with two-column bibliography, subfigures, and custom captions"
+repository = "https://github.com/Lai-es/typst-thesis-template"
+keywords = ["Bachelorarbeit", "Masterarbeit", "aio", "thesis"]
+categories = ["thesis"]
+compiler = "0.14.2"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
