@@ -4,7 +4,7 @@
 
 /// Draws a flat representation of the cube.
 /// -> content
-#let draw_flat(
+#let draw-flat(
   /// The cube to draw.
   /// -> cube
   cube,
@@ -105,7 +105,7 @@
 /// For more details, see the CeTZ #link("https://cetz-package.github.io/docs/api/draw-functions/projections/ortho")[documentation].
 ///
 /// -> content
-#let draw_cube(
+#let draw-cube(
   /// The cube to draw.
   /// -> cube
   cube,
@@ -168,7 +168,7 @@
 
 /// Draws a single face of the cube, and optionally the first row of the adjacent faces.
 ///-> content
-#let draw_face(
+#let draw-face(
   /// The cube to draw.
   /// -> cube
   cube,
@@ -300,7 +300,7 @@
 
 /// Draws a cube after applying the algorithm alongside the algorithm.
 /// The default cube is #var[f2l-cube].
-#let draw_f2l(
+#let draw-f2l(
   /// The algorithm to apply.
   /// -> str
   alg,
@@ -310,7 +310,7 @@
   cube: f2l-cube,
 
   /// The length of the side of the cube.
-  /// See @cmd:draw_cube.
+  /// See @cmd:draw-cube.
   /// -> length
   length: 60pt,
 ) = {
@@ -320,7 +320,7 @@
       align: center,
       row-gutter: 2em,
       columns: 2 * length,
-      draw_cube(
+      draw-cube(
         apply(
           cube,
           alg,
@@ -335,7 +335,7 @@
 
 /// Draws a face after applying the algorithm alongside the algorithm.
 /// The default cube is #var[oll-cube].
-#let draw_oll(
+#let draw-oll(
   /// The algorithm to apply.
   /// -> str
   alg,
@@ -345,7 +345,7 @@
   cube: oll-cube,
 
   /// The length of the side of the cube.
-  /// See @cmd:draw_cube.
+  /// See @cmd:draw-cube.
   /// -> length
   length: 60pt,
 ) = {
@@ -355,7 +355,7 @@
       align: center,
       row-gutter: 2em,
       columns: 2 * length,
-      draw_face(
+      draw-face(
         apply(
           cube,
           alg,
@@ -372,7 +372,7 @@
 /// Draws a face after applying the algorithm alongside the algorithm.
 /// It may also show arrows with the movement of the pieces on the upper face.
 /// The default cube is #var[oll-cube].
-#let draw_pll(
+#let draw-pll(
   /// The algorithm to apply.
   /// -> str
   alg,
@@ -382,7 +382,7 @@
   cube: solved-cube,
 
   /// Whether to show or not the adjacent faces.
-  /// See @cmd:draw_face
+  /// See @cmd:draw-face
   /// -> bool
   adjacent-faces: false,
 
@@ -391,7 +391,7 @@
   arrows: true,
 
   /// The length of the side of the cube.
-  /// See @cmd:draw_cube.
+  /// See @cmd:draw-cube.
   /// -> length
   length: 60pt,
 ) = {
@@ -426,7 +426,7 @@
       align: center,
       row-gutter: 2em,
       columns: 2 * length,
-      draw_face(
+      draw-face(
         apply(
           cube,
           alg,

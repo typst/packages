@@ -1,6 +1,6 @@
 /// Returns for a given index the destination after a move.
 /// -> int
-#let _rotate_piece(
+#let _rotate-piece(
   /// the index of the piece to move. -> int
   i,
 
@@ -23,7 +23,7 @@
 }
 
 /// rotates a given face. -> cube
-#let _rotate_face(
+#let _rotate-face(
   /// the cube. -> cube
   cube,
 
@@ -35,7 +35,7 @@
   cube.at(face) = cube
     .at(face)
     .enumerate()
-    .map(i => cube.at(face).at(_rotate_piece(i.at(0), cube.size, n: n)))
+    .map(i => cube.at(face).at(_rotate-piece(i.at(0), cube.size, n: n)))
 
   return cube
 }
@@ -45,7 +45,7 @@
 /// It returns the cube after applying the rotation.
 /// It is used for applying the 1-layer rotations explained in @sec:1-layer.
 /// -> cube
-#let rotate_layer(
+#let rotate-layer(
   /// The cube to apply the rotation.
   /// -> cube
   cube,
@@ -95,7 +95,7 @@
   )
 
   for i in prepare.at(face).pairs() {
-    cube = _rotate_face(cube, i.first(), n: i.last())
+    cube = _rotate-face(cube, i.first(), n: i.last())
   }
 
   let copy = cube
@@ -109,11 +109,11 @@
 
   cube = copy
   for i in prepare.at(face).pairs() {
-    cube = _rotate_face(cube, i.first(), n: -i.last())
+    cube = _rotate-face(cube, i.first(), n: -i.last())
   }
 
   if depth == 0 {
-    return _rotate_face(cube, face, n: turns)
+    return _rotate-face(cube, face, n: turns)
   } else {
     return cube
   }
@@ -124,7 +124,7 @@
 /// It returns the cube after applying the rotation.
 /// It is used for applying the rotations explained in @sec:cube-rotations.
 /// -> cube
-#let rotate_cube(
+#let rotate-cube(
   /// The cube to apply the rotation.
   /// -> cube
   cube,
@@ -137,25 +137,25 @@
   let copy = cube
   if axis == "x" {
     copy.f = cube.d
-    copy.r = _rotate_face(cube, "r", n: 1).r
+    copy.r = _rotate-face(cube, "r", n: 1).r
     copy.u = cube.f
-    copy.b = _rotate_face(cube, "u", n: 2).u
-    copy.l = _rotate_face(cube, "l", n: 3).l
-    copy.d = _rotate_face(cube, "b", n: 2).b
+    copy.b = _rotate-face(cube, "u", n: 2).u
+    copy.l = _rotate-face(cube, "l", n: 3).l
+    copy.d = _rotate-face(cube, "b", n: 2).b
   } else if axis == "y" {
     copy.f = cube.r
     copy.r = cube.b
-    copy.u = _rotate_face(cube, "u", n: 1).u
+    copy.u = _rotate-face(cube, "u", n: 1).u
     copy.b = cube.l
     copy.l = cube.f
-    copy.d = _rotate_face(cube, "d", n: 3).d
+    copy.d = _rotate-face(cube, "d", n: 3).d
   } else if axis == "z" {
-    copy.f = _rotate_face(cube, "f", n: 1).f
-    copy.r = _rotate_face(cube, "u", n: 1).u
-    copy.u = _rotate_face(cube, "l", n: 1).l
-    copy.b = _rotate_face(cube, "b", n: 3).b
-    copy.l = _rotate_face(cube, "d", n: 1).d
-    copy.d = _rotate_face(cube, "r", n: 1).r
+    copy.f = _rotate-face(cube, "f", n: 1).f
+    copy.r = _rotate-face(cube, "u", n: 1).u
+    copy.u = _rotate-face(cube, "l", n: 1).l
+    copy.b = _rotate-face(cube, "b", n: 3).b
+    copy.l = _rotate-face(cube, "d", n: 1).d
+    copy.d = _rotate-face(cube, "r", n: 1).r
   } else {
     assert(false, "Argument error: Axis must be one of (\"x\", \"y\", \"z\")")
   }

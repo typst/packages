@@ -1,4 +1,4 @@
-#import "moves.typ": rotate_cube, rotate_layer
+#import "moves.typ": rotate-cube, rotate-layer
 
 /// Parses an algorithm and translates it to an alg-t dictionary. -> alg-t
 #let _parse(
@@ -140,7 +140,7 @@
 
   for move in list_alg {
     if move.at(0) in ("f", "r", "u", "b", "l", "d") {
-      cube = rotate_layer(
+      cube = rotate-layer(
         cube,
         move.at(0),
         depth: move.at(1),
@@ -148,7 +148,7 @@
       )
     } else if move.at(0) in ("x", "y", "z") {
       for i in range(move.at(2)) {
-        cube = rotate_cube(cube, move.at(0))
+        cube = rotate-cube(cube, move.at(0))
       }
     } else {
       assert(false, message: "Invalid move: " + move)

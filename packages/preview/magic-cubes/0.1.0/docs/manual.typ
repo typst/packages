@@ -19,7 +19,7 @@
         row-gutter: 0.5cm,
         align: center + horizon,
         figure(
-          draw_cube(
+          draw-cube(
             apply(
               cube(),
               "U' L' U' F' R2 B' R F U B2 U B' L U' F U R F'",
@@ -29,7 +29,7 @@
           ),
         ),
         figure(
-          draw_cube(
+          draw-cube(
             apply(
               cube(size: 4),
               "F U2 L F L' B L U B' R' L' U R' D' F' B R2",
@@ -89,13 +89,13 @@ To start using magic-cubes, add the following import at the top of your `.typ` f
 Creating and rendering a solved cube only requires two functions:
 
 ```side-by-side
-#draw_cube(cube())
+#draw-cube(cube())
 ```
 
 You can apply an algorithm before rendering the cube:
 
 ```side-by-side
-#draw_cube(
+#draw-cube(
   apply(
     cube(),
     "R U R' U'"
@@ -106,7 +106,7 @@ You can apply an algorithm before rendering the cube:
 The package supports cubes of arbitrary size:
 
 ```side-by-side
-#draw_cube(
+#draw-cube(
   cube(size: 5)
 )
 ```
@@ -119,7 +119,7 @@ The package supports cubes of arbitrary size:
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "M2 E2 S2"
@@ -129,7 +129,7 @@ The package supports cubes of arbitrary size:
   ],
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       cube(size: 2)
     )
     ```
@@ -137,7 +137,7 @@ The package supports cubes of arbitrary size:
 
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       apply(
         f2l-cube,
         "R2 U R2 U R2 U2 R2",
@@ -148,7 +148,7 @@ The package supports cubes of arbitrary size:
   ],
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "R2 3R2 F2 3F2 R2 3R2"
@@ -159,7 +159,7 @@ The package supports cubes of arbitrary size:
 
   [
     ```side-by-side
-    #draw_face(
+    #draw-face(
       cube(),
       "f"
     )
@@ -167,7 +167,7 @@ The package supports cubes of arbitrary size:
   ],
   [
     ```side-by-side
-    #draw_face(
+    #draw-face(
       cube(),
       "f",
       top-face: "r"
@@ -177,7 +177,7 @@ The package supports cubes of arbitrary size:
 
   [
     ```side-by-side
-    #draw_face(
+    #draw-face(
       cube(),
       "f",
       length: 84pt,
@@ -187,7 +187,7 @@ The package supports cubes of arbitrary size:
   ],
   [
     ```side-by-side
-    #draw_face(
+    #draw-face(
       apply(
         cube(),
         "M2 E2 S2"
@@ -199,7 +199,7 @@ The package supports cubes of arbitrary size:
 )
 
 ```side-by-side
-#draw_cube(
+#draw-cube(
   apply(
     cube(
       colors: (
@@ -216,8 +216,8 @@ The package supports cubes of arbitrary size:
 )
 ```
 ```example
-#draw_flat(
-  rotate_cube(
+#draw-flat(
+  rotate-cube(
     apply(
       cube(),
       "f r b u r f r u d b l f r l u r l u f "
@@ -227,7 +227,7 @@ The package supports cubes of arbitrary size:
 ),
 ```
 ```example
-#draw_flat(
+#draw-flat(
   apply(
     cube(
       size: 6
@@ -243,14 +243,14 @@ The package supports cubes of arbitrary size:
   row-gutter: 2mm,
   [
     ```example
-    #draw_f2l(
+    #draw-f2l(
       "(R U2 R' U) (R U2 R' U) y' (R' U' R) y"
     )
     ```
   ],
   [
     ```example
-    #draw_f2l(
+    #draw-f2l(
       "(R U' R' U) d (R' U' R U') (R' U R)"
     )
     ```
@@ -258,14 +258,14 @@ The package supports cubes of arbitrary size:
 
   [
     ```example
-    #draw_oll(
+    #draw-oll(
       "(R U2 R' U') (R U R' U') (R U' R')"
     )
     ```
   ],
   [
     ```example
-    #draw_oll(
+    #draw-oll(
       "(r U R' U') (r' F R F')"
     )
     ```
@@ -273,14 +273,14 @@ The package supports cubes of arbitrary size:
 
   [
     ```example
-    #draw_pll(
+    #draw-pll(
       "(M2 U M2 U) (M' U2) (M2 U2) (M' U2)"
     )
     ```
   ],
   [
     ```example
-    #draw_pll(
+    #draw-pll(
       "R U' R U R U R U' R' U' R2",
       adjacent-faces: true,
       arrows: false
@@ -426,7 +426,7 @@ The order of the stickers in a face is the following:
 
 A similar order is used in larger or smaller cubes, for example, if we want to create a 2x2x2 cube with a custom color on the front face and custom upper and right faces we can do:
 ```example
-#draw_flat(
+#draw-flat(
   cube(
     size: 2,
     colors: (f: maroon),
@@ -456,16 +456,16 @@ There are also some useful predefined cubes: #var[f2l-cube] and #var[oll-cube].
   row-gutter: 2mm,
   [
     ```example
-    #draw_cube(f2l-cube)
+    #draw-cube(f2l-cube)
     ```
   ],
   [
     ```example
-    #draw_cube(oll-cube)
+    #draw-cube(oll-cube)
     ```
   ],
 )
-// TODO: change second example to draw_oll
+// TODO: change second example to draw-oll
 // }}}
 
 #pagebreak()
@@ -484,7 +484,7 @@ This results in a cube that returns to the original state after applying the spe
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "F"
@@ -494,7 +494,7 @@ This results in a cube that returns to the original state after applying the spe
   ],
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "M2 E2 S2"
@@ -505,7 +505,7 @@ This results in a cube that returns to the original state after applying the spe
 
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "2R L' 2-3u'"
@@ -515,7 +515,7 @@ This results in a cube that returns to the original state after applying the spe
   ],
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       apply(
         f2l-cube,
         inverse: true,
@@ -527,7 +527,7 @@ This results in a cube that returns to the original state after applying the spe
 )
 
 #alert("info")[
-  There are also two alternative functions that let you modify the cube: @cmd:rotate_layer and @cmd:rotate_cube.
+  There are also two alternative functions that let you modify the cube: @cmd:rotate-layer and @cmd:rotate-cube.
 ]
 
 #grid(
@@ -536,8 +536,8 @@ This results in a cube that returns to the original state after applying the spe
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_cube(
-      rotate_layer(
+    #draw-cube(
+      rotate-layer(
         cube(size: 4),
         "r",
         depth: 2,
@@ -548,8 +548,8 @@ This results in a cube that returns to the original state after applying the spe
   ],
   [
     ```side-by-side
-    #draw_cube(
-      rotate_cube(
+    #draw-cube(
+      rotate-cube(
         cube(),
         "x"
       )
@@ -564,12 +564,12 @@ This results in a cube that returns to the original state after applying the spe
 
 === Flat view
 
-It is possible to get a full representation of the cube with @cmd:draw_flat.
+It is possible to get a full representation of the cube with @cmd:draw-flat.
 This function takes a @type:cube and draws its unfolded net.
 It also accepts a #arg[length] argument to change the length of each face edge.
 
 ```example
-#draw_flat(cube())
+#draw-flat(cube())
 ```
 
 The faces are displayed in the standard cube net layout.
@@ -579,9 +579,9 @@ The upper face is placed above the front face, and the down face is placed below
 === 3D view
 
 You can also draw a three-dimensional representation of the cube.
-This is done with @cmd:draw_cube.
+This is done with @cmd:draw-cube.
 
-Apart from the #arg[cube] and #arg[length] arguments, which behave the same as in @cmd:draw_flat, it also accepts #arg[x], #arg[y] and #arg[z] arguments to customize the cube's orientation.
+Apart from the #arg[cube] and #arg[length] arguments, which behave the same as in @cmd:draw-flat, it also accepts #arg[x], #arg[y] and #arg[z] arguments to customize the cube's orientation.
 By default, the cube is drawn in an isometric projection.
 
 #grid(
@@ -590,14 +590,14 @@ By default, the cube is drawn in an isometric projection.
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       cube(),
     )
     ```
   ],
   [
     ```side-by-side
-    #draw_cube(
+    #draw-cube(
       cube(),
       x: -35.264deg,
       y: 225deg,
@@ -608,7 +608,7 @@ By default, the cube is drawn in an isometric projection.
 
 === Face view
 
-The third rendering mode is achieved with @cmd:draw_face.
+The third rendering mode is achieved with @cmd:draw-face.
 This draws a single face, optionally including the first row of the adjacent faces.
 This view is commonly used to illustrate Orientation of the Last Layer (OLL) and Permutation of the Last Layer (PLL) algorithms.
 
@@ -618,7 +618,7 @@ This view is commonly used to illustrate Orientation of the Last Layer (OLL) and
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_face(
+    #draw-face(
       apply(
         oll-cube,
         "F R U R' U' F'",
@@ -630,7 +630,7 @@ This view is commonly used to illustrate Orientation of the Last Layer (OLL) and
   ],
   [
     ```side-by-side
-    #draw_face(
+    #draw-face(
       apply(
         cube(),
         "M2 E2 S2"
@@ -651,7 +651,7 @@ This argument defaults to #typ.t.auto, which means that the #arg[top-face] will 
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_face(
+    #draw-face(
       apply(
         cube(),
         "F R l U' R2",
@@ -663,7 +663,7 @@ This argument defaults to #typ.t.auto, which means that the #arg[top-face] will 
   ],
   [
     ```side-by-side
-    #draw_face(
+    #draw-face(
       apply(
         cube(),
         "F R l U' R2",
@@ -685,7 +685,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
 #alert(
   "info",
 )[Check the API Reference on @sec:api for a complete list of arguments.]
-==== @cmd:draw_f2l
+==== @cmd:draw-f2l
 
 #grid(
   columns: 2,
@@ -693,7 +693,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_f2l(
+    #draw-f2l(
       "(R U' R' U)    (R U' R')",
       length: 45pt
 
@@ -702,7 +702,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
   ],
   [
     ```side-by-side
-    #draw_f2l(
+    #draw-f2l(
       "d (R' U2 R) d' (R U R')",
       length: 45pt
     )
@@ -710,7 +710,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
   ],
 )
 
-==== @cmd:draw_oll
+==== @cmd:draw-oll
 
 #grid(
   columns: 2,
@@ -718,7 +718,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_oll(
+    #draw-oll(
       "(R U R' U') r R' (U R U' r')",
       length: 45pt
 
@@ -727,7 +727,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
   ],
   [
     ```side-by-side
-    #draw_oll(
+    #draw-oll(
       "R U2 R2 U' R2 U' R2 U2 R",
       length: 45pt
     )
@@ -735,7 +735,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
   ],
 )
 
-==== @cmd:draw_pll
+==== @cmd:draw-pll
 
 #grid(
   columns: 2,
@@ -743,7 +743,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
   row-gutter: 2mm,
   [
     ```side-by-side
-    #draw_pll(
+    #draw-pll(
       "F R U' R' U' R U R' F' R U R' U' R' F R F'",
       length: 45pt
 
@@ -752,7 +752,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
   ],
   [
     ```side-by-side
-    #draw_pll(
+    #draw-pll(
       "R U R' U' R' F R2 U' R' U' R U R' F'",
       length: 45pt
     )
@@ -762,7 +762,7 @@ They take an algorithm, applies it to a predefined cube, and displays both the r
 
 #alert(
   "error",
-)[Arrows are an experimental feature for @cmd:draw_face and will improve in a future release.]
+)[Arrows are an experimental feature for @cmd:draw-face and will improve in a future release.]
 // }}}
 // }}}
 
@@ -783,7 +783,7 @@ There are six moves, one for each face of the cube: *F* (front), *R* (right), *U
 Each represents a single clockwise rotation.
 Double and counterclockwise rotations are explained in @sec:modifiers.
 
-// {{{
+// {{-
 #grid(
   columns: 3,
   column-gutter: 2mm,
@@ -793,7 +793,7 @@ Double and counterclockwise rotations are explained in @sec:modifiers.
     F
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "F",
@@ -806,7 +806,7 @@ Double and counterclockwise rotations are explained in @sec:modifiers.
     R
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "R",
@@ -819,7 +819,7 @@ Double and counterclockwise rotations are explained in @sec:modifiers.
     U
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "U",
@@ -833,7 +833,7 @@ Double and counterclockwise rotations are explained in @sec:modifiers.
     B
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "B",
@@ -846,7 +846,7 @@ Double and counterclockwise rotations are explained in @sec:modifiers.
     L
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "L",
@@ -859,7 +859,7 @@ Double and counterclockwise rotations are explained in @sec:modifiers.
     D
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "D",
@@ -892,7 +892,7 @@ The outermost layer has a depth of 1 and layer numbering always starts from the 
     F (or 1F)
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "F",
@@ -905,7 +905,7 @@ The outermost layer has a depth of 1 and layer numbering always starts from the 
     2R
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 5),
         "2R",
@@ -919,7 +919,7 @@ The outermost layer has a depth of 1 and layer numbering always starts from the 
     3U
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "3U",
@@ -932,7 +932,7 @@ The outermost layer has a depth of 1 and layer numbering always starts from the 
     2D
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "2D",
@@ -969,7 +969,7 @@ The central layers have a special notation:
     M
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "M",
@@ -982,7 +982,7 @@ The central layers have a special notation:
     E
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "E",
@@ -995,7 +995,7 @@ The central layers have a special notation:
     S
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "S",
@@ -1036,7 +1036,7 @@ For example, *3f* (or *3Fw*) rotates the first three front layers.
     f / Fw
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "f",
@@ -1049,7 +1049,7 @@ For example, *3f* (or *3Fw*) rotates the first three front layers.
     r / Rw
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "r",
@@ -1062,7 +1062,7 @@ For example, *3f* (or *3Fw*) rotates the first three front layers.
     4u / 4Uw
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 5),
         "4u",
@@ -1086,7 +1086,7 @@ To do so, write the first and last layers before the move separated with a dash.
     2-3l / 2-3Lw
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "2-3l",
@@ -1099,7 +1099,7 @@ To do so, write the first and last layers before the move separated with a dash.
     2-4r / 2-4Rw
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 6),
         "2-4r",
@@ -1131,7 +1131,7 @@ These movements do not alter the cube's state, only the viewing orientation.
     Original state
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       cube(),
       length: 45pt,
     )
@@ -1141,7 +1141,7 @@ These movements do not alter the cube's state, only the viewing orientation.
     x
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "x",
@@ -1155,7 +1155,7 @@ These movements do not alter the cube's state, only the viewing orientation.
     y
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "y",
@@ -1168,7 +1168,7 @@ These movements do not alter the cube's state, only the viewing orientation.
     z
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "z",
@@ -1197,7 +1197,7 @@ These modifiers can be applied to any notation described above.
     R'
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "R'",
@@ -1210,7 +1210,7 @@ These modifiers can be applied to any notation described above.
     2F2
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "2F2",
@@ -1224,7 +1224,7 @@ These modifiers can be applied to any notation described above.
     3Rw'
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "3Rw'",
@@ -1237,7 +1237,7 @@ These modifiers can be applied to any notation described above.
     x2
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 2),
         "x2",
@@ -1264,7 +1264,7 @@ These modifiers can be applied to any notation described above.
     F B R L F B R L F B R L
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "F B R L F B R L F B R L",
@@ -1277,7 +1277,7 @@ These modifiers can be applied to any notation described above.
     B2 R2 D' F2 D2 B2 U B2 L2 U L' R' B D U L2 R Fw2 Lw2 D U Bw2 Dw2 R2 B U2 R L
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(size: 4),
         "B2 R2 D' F2 D2 B2 U B2 L2 U L' R' B D U L2 R Fw2 Lw2 D U Bw2 Dw2 R2 B U2 R L",
@@ -1291,7 +1291,7 @@ These modifiers can be applied to any notation described above.
     F2 R' B' U R' L F' L F' B D' R B L2
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "F2 R' B' U R' L F' L F' B D' R B L2",
@@ -1304,7 +1304,7 @@ These modifiers can be applied to any notation described above.
     U' L' U' F' R2 B' R F U B2 U B' L U' F U R F'
     ```
   ][
-    #draw_cube(
+    #draw-cube(
       apply(
         cube(),
         "U' L' U' F' R2 B' R F U B2 U B' L U' F U R F'",
@@ -1344,7 +1344,7 @@ It accepts the following #typ.t.str values:
 === @type:cube
 
 @type:cube represents the complete state of a Rubik's cube, it is the main type in this package.
-However, you should not create or modify instances manually, as functions such as @cmd:draw_cube require the cube to be in a valid, consistent state.
+However, you should not create or modify instances manually, as functions such as @cmd:draw-cube require the cube to be in a valid, consistent state.
 Instead, use @cmd:cube to create instances and @cmd:apply to manipulate them.
 
 #frame(
