@@ -1,6 +1,6 @@
 [package]
 name = "bhs-school-bundle"
-version = "0.3.0"
+version = "0.3.1"
 entrypoint = "lib.typ"
 description = "Professional thesis and report template for vocational high schools in Austria following formal requirements of HAK/HAS and Kolleg Imst (Austria), easily customizable for other schools. The Template contains necassary headlines and examples for images, tables, citations, etc."
 authors = ["Stefan Stolz", "Claudio Landerer"]
