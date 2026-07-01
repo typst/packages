@@ -117,6 +117,7 @@
   show figure.where(kind: "listing"): set block(breakable: true)
   show figure.where(kind: image): set figure(placement: auto)
   show figure.where(kind: table): set figure(placement: auto)
+  show bibliography: set bibliography(title: [Literaturverzeichnis])
 
   // ── Titelseite ──────────────────────────────────────────────────────────────
   if title != none {
@@ -343,6 +344,7 @@
   show figure.where(kind: "listing"): set block(breakable: true)
   show figure.where(kind: image): set figure(placement: auto)
   show figure.where(kind: table): set figure(placement: auto)
+  show bibliography: set bibliography(title: [Literaturverzeichnis])
 
   let header_fallback = if title == none { [Projektarbeit] } else { title }
 
