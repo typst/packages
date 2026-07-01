@@ -1,4 +1,4 @@
-#import "@preview/bhs-school-bundle:0.3.0": *
+#import "@preview/bhs-school-bundle:0.3.1": *
 
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
 // Für Bericht siehe README Beispiel
