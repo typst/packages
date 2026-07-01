@@ -58,12 +58,8 @@ show every line.
 )
 ```
 
-`diffst(old-path, new-path, ..)` is the file convenience layer. Like Typst's
-path-taking built-ins, it accepts paths or strings. When using `diffst` as a
-package, pass Typst `path` values, such as `path("draft-old.typ")`, so files
-resolve in your project rather than inside the package. For text you already
-have in Typst, call `diffst-content(old-text, new-text, old-label: ...,
-new-label: ..., ..)`.
+`diffst(old-path, new-path, ..)` accepts paths or strings, with strings converted
+to paths; for text you already have in Typst, call `diffst-content(...)`.
 
 ## Main Options
 
