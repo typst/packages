@@ -1,4 +1,4 @@
-#import "@preview/fontawesome:0.6.1": *
+#import "@preview/fontawesome:0.6.2": *
 
 #let cventry-padding = (
   top: 0pt,
