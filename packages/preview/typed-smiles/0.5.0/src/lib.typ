@@ -104,6 +104,13 @@
   if bond-length == none { scale } else { bond-length }
 ) * 30pt
 
+#let _label-anchor-offset(label, anchor, anchor-len, label-width) = {
+  if label == "" or anchor-len == 0 { return 0.0 }
+  let prefix = label.slice(0, anchor)
+  let glyph = label.slice(anchor, anchor + anchor-len)
+  label-width(prefix) + label-width(glyph) / 2 - label-width(label) / 2
+}
+
 // Draws a molecule's bonds, atom labels, and lone pairs into the current CeTZ
 // canvas, centered at the local origin. The caller sets the canvas unit to
 // `_canvas-scale(scale, bond-length)` and may translate before calling. Atom and
@@ -925,7 +932,17 @@
           }
 
           if not symbol-centered-charge {
-            content((px, py), label-content, anchor: "center", padding: 1pt)
+            let label-x = if abbrev != "" {
+              px - _label-anchor-offset(
+                abbrev,
+                atom.at("abbrev_anchor", default: 0),
+                atom.at("abbrev_anchor_len", default: 0),
+                text => content-width(atom-label(text, fill: fill)),
+              )
+            } else {
+              px
+            }
+            content((label-x, py), label-content, anchor: "center", padding: 1pt)
           }
         }
       }
@@ -1341,12 +1358,19 @@
         let font = sp.at("font", default: "New Computer Modern")
         let label = text(size: fs, font: font, style: "normal", weight: "regular", abbrev)
         let w = measure(label).width / cs
+        let label-width = body => measure(text(size: fs, font: font, style: "normal", weight: "regular", body)).width / cs
+        let center-x = p.at(0) - _label-anchor-offset(
+          abbrev,
+          atom.at("abbrev_anchor", default: 0),
+          atom.at("abbrev_anchor_len", default: 0),
+          label-width,
+        )
         let h-units = measure(label).height / cs
         let pad-x = calc.max(0.08, fs / cs * 0.16)
         let thick = cs * calc.max(h-units + fs / cs * 0.55, cfg.atom-radius * 1.7)
         line(
-          (p.at(0) - w / 2 - pad-x, p.at(1)),
-          (p.at(0) + w / 2 + pad-x, p.at(1)),
+          (center-x - w / 2 - pad-x, p.at(1)),
+          (center-x + w / 2 + pad-x, p.at(1)),
           stroke: (paint: h.fill, thickness: thick, cap: "round"),
         )
       } else {

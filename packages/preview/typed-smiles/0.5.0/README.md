@@ -77,6 +77,9 @@ on its own.
 Heteroatom hydrogens are shown by default; carbon hydrogens stay implicit.
 Use `show-all-h: true` for carbon hydrogens, `[NH3]` bracket syntax for
 explicit hydrogens, and `{label}` / `{label|style}` for custom group labels.
+Use `>` inside a custom label to choose the attachment glyph, e.g. `{>PPh3}`.
+For the cleanest result, rotate the molecule so the bond approaches the chosen
+glyph roughly perpendicular to the written label.
 `font` sets the atom-label typeface.
 
 ```typst
@@ -91,7 +94,7 @@ explicit hydrogens, and `{label}` / `{label|style}` for custom group labels.
   [#smiles("CC(N)C(=O)O")],
   [#smiles("CCO", show-all-h: true)],
   [#smiles("[NH3]")],
-  [#smiles("{PPh3|P}C=O")],
+  [#smiles("{>PPh3|P}C=O")],
   [#smiles("CCN", font: "Libertinus Serif")],
 )
 ```
@@ -120,7 +123,7 @@ or any `#RRGGBB` hex code. See the documentation for the full color reference.
 
 ```typst
 // Override an element and a specific label group:
-#smiles("{PPh3}C({OEt})=O",
+#smiles("{>PPh3}C({OEt})=O",
   atom-colors: (O: rgb("#8B4513"), "{PPh3}": rgb("#7B2D8B")))
 
 // Set defaults for the whole document in the preamble:
@@ -327,6 +330,7 @@ SMILES string extensions:
 | Syntax | Meaning |
 |---|---|
 | `{label}` | Literal upright label at an atom position |
+| `{>label}` | Label anchored at the glyph after `>`; the marker is not shown |
 | `{label\|N}` | Label and bonds colored like element N |
 | `{label\|red}` | Label colored with a named color (17 names supported) |
 | `{label\|#RRGGBB}` | Label colored with a hex code |
