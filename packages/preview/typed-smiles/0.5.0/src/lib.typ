@@ -255,11 +255,29 @@
         count
       }
     }
-    let label-trim(atom, i) = {
+    // How far a bond retreats from a labeled atom, in bond-length units.
+    // Bare element symbols centered on the atom trim to the measured glyph
+    // extent projected onto the bond direction, so a short label like "C"
+    // hugs its bonds instead of eating a fixed margin. Labels with inline
+    // hydrogens, charges, isotopes, or abbreviations keep the conservative
+    // fixed margin because their content extends off-center.
+    let label-trim(atom, i, ux, uy) = {
+      let displays-h = visible-h-count(atom) > 0 and (show-all-h or not _is-carbon(atom))
       if not has-label(i) {
         0.0
-      } else if visible-h-count(atom) > 0 and atom-degree(i) == 1 and not _is-carbon(atom) {
+      } else if displays-h and atom-degree(i) == 1 and not _is-carbon(atom) {
         0.06
+      } else if (
+        atom.at("abbrev", default: "") == ""
+        and not displays-h
+        and atom.charge == 0
+        and atom.at("isotope", default: 0) == 0
+      ) {
+        let m = measure(atom-label(atom.symbol))
+        let hw = m.width / canvas-scale / 2
+        let hh = m.height / canvas-scale / 2
+        let extent = hw * calc.abs(ux) + hh * calc.abs(uy) + 0.07
+        calc.min(label-margin, calc.max(0.14, extent))
       } else {
         label-margin
       }
@@ -283,8 +301,8 @@
 
       let af-has-label = has-label(bond.from)
       let at-has-label = has-label(bond.to)
-      let s1 = label-trim(af, bond.from)
-      let s2 = label-trim(at, bond.to)
+      let s1 = label-trim(af, bond.from, ux, uy)
+      let s2 = label-trim(at, bond.to, ux, uy)
       let e1 = if not af-has-label and atom-degree(bond.from) > 1 { junction-overlap } else { 0.0 }
       let e2 = if not at-has-label and atom-degree(bond.to) > 1 { junction-overlap } else { 0.0 }
       let q1x = p1x + ux * s1 - ux * e1
