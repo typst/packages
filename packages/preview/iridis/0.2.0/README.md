@@ -2,12 +2,6 @@
 
 Iridis is a package to colorize parenthesis in your typst document. Iridis is a latin word that means "rainbow". This package is inspired by the many rainbow parenthesis plugins available for code editors.
 
-<!--EXCLUDE-->
-You can import the module with:
-```typ
-#import "@preview/iridis:0.2.0": *
-```
-<!--END-->
 
 ## Usage
 
