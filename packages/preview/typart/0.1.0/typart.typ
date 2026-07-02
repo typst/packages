@@ -1,6 +1,6 @@
 // SmartArt library — one import for every diagram in this poster.
 //
-//   #import "smartart.typ": *
+//   #import "typart.typ": *
 //
 // Each diagram lives in its own file under this directory.
 //

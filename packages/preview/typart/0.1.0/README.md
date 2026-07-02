@@ -1,11 +1,11 @@
-# smartart
+# typart
 
 SmartArt-style diagrams for Typst: card-table, process, gantt, pyramid, hierarchy, steps, venn, timeline, cycle, tree, matrix, and more.
 
 ## Installation
 
 ```typst
-#import "@preview/smartart:0.1.0": *
+#import "@preview/typart:0.1.0": *
 ```
 
 ## Widgets
