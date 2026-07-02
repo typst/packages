@@ -222,15 +222,16 @@
       }
       indices
     }
+    // A cumulene-center carbon (two double bonds, collinear neighbors) is
+    // drawn as an explicit C label: without it the two double bonds merge
+    // into what reads as one long double bond (O=C=O, ketene, allenes).
     let force-linear-carbon-label(i) = {
       let atom = layout.atoms.at(i)
       if not _is-carbon(atom) or atom.at("abbrev", default: "") != "" or atom-degree(i) != 2 {
         false
       } else {
         let bonds = real-bonds.filter(b => b.from == i or b.to == i)
-        let double-count = bonds.filter(b => b.order == 2).len()
-        let has-carbon-neighbor = atom-neighbor-indices(i).any(ni => _is-carbon(layout.atoms.at(ni)))
-        double-count == 2 and not has-carbon-neighbor
+        bonds.filter(b => b.order == 2).len() == 2
       }
     }
     let has-label(i) = {
