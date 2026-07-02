@@ -29,7 +29,7 @@ Click on an image to see the source code.
 
 ## Manual
 
-A full manual is available as a [PDF](https://github.com/nathan-ed/typst-package-taskize/blob/dcaf94e1f50ca7481f6070215f2f505aae9eb1d2/docs/manual.pdf), with a Typst source version in [docs/manual.typ](docs/manual.typ).
+A full manual is available as a [PDF](https://github.com/nathan-ed/typst-package-taskize/blob/dcaf94e1f50ca7481f6070215f2f505aae9eb1d2/docs/manual.pdf), with a Typst source version in [docs/manual.typ](https://github.com/nathan-ed/typst-package-taskize/blob/dcaf94e1f50ca7481f6070215f2f505aae9eb1d2/docs/manual.typ).
 
 ## Quick Start
 
