@@ -257,10 +257,16 @@ from a grid into one shared canvas — plain schemes are unaffected.
 ```typst
 #smiles(
   "N1CCN(CC1)C(C(F)=C2)=CC(=C2C4=O)N(C3CC3)C=C4C(=O)O",
-  highlight((bond(0, 5), bond(5, 4), bond(4, 3), bond(3, 6), bond(6, 10), bond(10, 11), bond(11, 15), bond(15, 19), bond(19, 20), bond(20, 21), bond(21, 23), bond(23, 25)), fill : rgb("#96BF0D"), include-atoms:true),
-  scale : 0.5,
-  bond-stroke : 0.8pt,
-  rotation : 90deg
+  highlight((bond(0, 5), bond(5, 4), bond(4, 3), bond(3, 6), bond(6, 10), bond(10, 11), bond(11, 15), bond(15, 19), bond(19, 20), bond(20, 21), bond(21, 23), bond(23, 25)), fill: rgb(150, 191, 13), include-atoms: true),
+  highlight((bond(15, 16), bond(16, 18), bond(18, 17), bond(17, 16)), fill: rgb(242, 148, 1), include-atoms: true),
+  highlight((bond(3, 2), bond(2, 1), bond(1, 0)), fill: rgb(137, 199, 168), include-atoms: true),
+  highlight((bond(6, 7), bond(7, 8), bond(7, 9), bond(9, 12)), fill: rgb(201, 143, 75), include-atoms: true),
+  highlight((bond(11, 12), bond(12, 13), bond(13, 20), bond(13, 14)), fill: rgb(236, 119, 137), include-atoms: true),
+  highlight((bond(21, 22)), fill: rgb(0, 134, 203), include-atoms: true),
+  color: false,
+  rotation: 90deg,
+  bond-stroke: 0.8pt,
+  scale: 0.5,
 )
 
 #reaction(
