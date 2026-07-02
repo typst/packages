@@ -2,7 +2,7 @@
 #import "default.typ": *
 #import "theorem.typ": *
 
-#import "@preview/hydra:0.6.2": anchor, hydra
+#import "@preview/hydra:0.6.3": anchor, hydra
 
 #let hydra = hydra.with(use-last: true)
 

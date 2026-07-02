@@ -31,7 +31,7 @@ A high-precision Typst document template engineered for mathematical monographs,
 ## Example
 
 ```typst
-#import "@preview/obelisk:0.1.0": *
+#import "@preview/obelisk:0.2.0": *
 
 #show: init
 
