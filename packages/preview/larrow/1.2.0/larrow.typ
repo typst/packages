@@ -9,6 +9,11 @@
                     (frame: "rect", fill: auto, stroke: 0pt, padding: 1pt),
                  debug: false
 ) = context {
+    // Append passed caption options to the default ones
+    let caption-options = (
+        frame: "rect", fill: auto, stroke: 0pt, padding: 1pt
+    ) + caption-options
+
     let get-element(elem) = {
         if type(elem) == label {
             query(elem).first()            
