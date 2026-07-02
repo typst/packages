@@ -99,10 +99,58 @@
 // Parse a SMILES string into layout JSON via the WASM plugin.
 #let _layout(smiles-str) = json(smiles-plugin.layout(bytes(smiles-str)))
 
+/// Computes the molecular weight of a SMILES string in g/mol, summing IUPAC
+/// standard atomic weights over all atoms including implicit and explicit
+/// hydrogens. Errors on input whose mass is undefined: wildcard `*` atoms,
+/// `{label}` abbreviations, and isotope-labeled atoms.
+///
+/// - smiles-str (str): A valid SMILES string, e.g. "CCO".
+/// -> float
+#let mol-weight(smiles-str) = json(smiles-plugin.mol_weight(bytes(smiles-str)))
+
 // CeTZ canvas unit: one bond length is 30 pt at scale 1.
 #let _canvas-scale(scale, bond-length) = (
   if bond-length == none { scale } else { bond-length }
 ) * 30pt
+
+// Reflects layout coordinates across an axis: "horizontal" swaps left and
+// right, "vertical" swaps top and bottom. Wedge and hash marks are exchanged
+// at the same time, so the drawing depicts the same configuration seen from
+// the other side; keeping them unchanged would silently depict the enantiomer.
+#let _mirror-layout(layout, mirror) = {
+  if mirror == none { return layout }
+  if mirror != "horizontal" and mirror != "vertical" {
+    panic("mirror must be none, \"horizontal\", or \"vertical\"")
+  }
+  let sx = if mirror == "horizontal" { -1.0 } else { 1.0 }
+  let sy = if mirror == "vertical" { -1.0 } else { 1.0 }
+  let flip-stereo(s) = {
+    if s == "wedge_up" { "wedge_down" }
+    else if s == "wedge_down" { "wedge_up" }
+    else { s }
+  }
+  let out = layout
+  out.atoms = layout.atoms.map(a => {
+    let m = a
+    m.pos = (x: a.pos.x * sx, y: a.pos.y * sy)
+    if "lone_pair_dirs" in a {
+      m.lone_pair_dirs = a.lone_pair_dirs.map(d => (x: d.x * sx, y: d.y * sy))
+    }
+    if "stereo_h_dir" in a {
+      m.stereo_h_dir = (x: a.stereo_h_dir.x * sx, y: a.stereo_h_dir.y * sy)
+    }
+    if "stereo_h" in a { m.stereo_h = flip-stereo(a.stereo_h) }
+    m
+  })
+  out.bonds = layout.bonds.map(b => {
+    let m = b
+    m.inner_x = b.inner_x * sx
+    m.inner_y = b.inner_y * sy
+    m.stereo = flip-stereo(b.stereo)
+    m
+  })
+  out
+}
 
 #let _label-anchor-offset(label, anchor, anchor-len, label-width) = {
   if label == "" or anchor-len == 0 { return 0.0 }
@@ -395,6 +443,42 @@
           let oy =  ux * w
           let c  = if t < 0.5 { near-c } else { far-c }
           line((cx - ox, cy - oy), (cx + ox, cy + oy), stroke: stroke-w + c)
+        }
+
+      } else if stereo == "wavy" {
+        // Wavy (squiggly) bond: a sine wave along the bond axis, split at the
+        // midpoint for bicoloring like a plain bond. A whole number of waves
+        // keeps both endpoints on-axis at the atoms.
+        let waves = 4
+        let amp = 0.075
+        let n-seg = 32
+        let bx = q2x - q1x
+        let by = q2y - q1y
+        let pts = range(n-seg + 1).map(i => {
+          let t = i / n-seg
+          let s = calc.sin(t * waves * 2.0 * calc.pi) * amp
+          (q1x + bx * t - uy * s, q1y + by * t + ux * s)
+        })
+        let half = calc.quo(n-seg, 2)
+        let wavy-stroke(c) = (paint: c, thickness: stroke-w, cap: "round", join: "round")
+        line(..pts.slice(0, half + 1), stroke: wavy-stroke(c1))
+        line(..pts.slice(half), stroke: wavy-stroke(c2))
+
+      } else if stereo == "dashed" {
+        // Dashed bond: evenly spaced dashes drawn as explicit segments so the
+        // pattern is symmetric about the bond center regardless of length.
+        let n-dash = 6
+        let duty = 0.62
+        let cell = 1.0 / n-dash
+        for i in range(n-dash) {
+          let t0 = (i + (1.0 - duty) / 2) * cell
+          let t1 = (i + (1.0 + duty) / 2) * cell
+          let c = if (t0 + t1) / 2 < 0.5 { c1 } else { c2 }
+          line(
+            (q1x + (q2x - q1x) * t0, q1y + (q2y - q1y) * t0),
+            (q1x + (q2x - q1x) * t1, q1y + (q2y - q1y) * t1),
+            stroke: stroke-w + c,
+          )
         }
 
       } else if bond.order == 1 {
@@ -1455,6 +1539,10 @@
 /// - color (bool): Apply Jmol CPK atom colors. Default: true.
 /// - rotation (angle): Rotate the molecule by this angle. Atom labels stay upright.
 ///   Example: rotation: 90deg. Default: 0deg.
+/// - mirror (none / "horizontal" / "vertical"): Reflect the molecule across an
+///   axis ("horizontal" swaps left and right). Applied before rotation. Wedges
+///   and hashes are exchanged so the depicted stereochemistry is preserved.
+///   Default: none.
 /// - show-all-h (bool): Show computed implicit hydrogens on all atoms,
 ///   including carbon. Default: false.
 /// - lone-pairs (none / "dots" / "lines"): Draw non-bonding electron pairs on
@@ -1475,13 +1563,14 @@
   bond-stroke: none,
   color: true,
   rotation: 0deg,
+  mirror: none,
   show-all-h: false,
   lone-pairs: none,
   atom-colors: (:),
   show-indices: false,
   ..annotations
 ) = context {
-  let layout = _layout(smiles-str)
+  let layout = _mirror-layout(_layout(smiles-str), mirror)
   let canvas-scale = _canvas-scale(scale, bond-length)
   let actual-font-size = if font-size == none { 11pt * scale } else { font-size }
   let ann = annotations.pos()
@@ -1538,7 +1627,9 @@
 /// - above (content): Label above a horizontal arrow / to the right of a vertical one.
 /// - below (content): Label below a horizontal arrow / to the left of a vertical one.
 /// - dir (str): Arrow direction — "right" (default), "left", "down", or "up".
-/// - kind (str): Arrow style — "single" (default), "equilibrium", or "equilibrium-filled".
+/// - kind (str): Arrow style — "single" (default), "equilibrium",
+///   "equilibrium-filled", "dashed" (hypothetical/formal step), or "wavy"
+///   (e.g. a distorted or non-elementary transformation).
 /// -> dictionary  (consumed by #reaction)
 #let rxn-arrow(above: none, below: none, dir: "right", kind: "single") = (
   __rxn_arrow__: true,
@@ -1557,6 +1648,25 @@
     import cetz.draw: *
     if kind == "single" {
       line((sx, 0), (ex, 0), mark: (end: ">", fill: black, size: 5), stroke: 0.8pt + black)
+    } else if kind == "dashed" {
+      line(
+        (sx, 0), (ex, 0),
+        mark: (end: ">", fill: black, size: 5),
+        stroke: (paint: black, thickness: 0.8pt, dash: (array: (3pt, 2.2pt), phase: 0pt)),
+      )
+    } else if kind == "wavy" {
+      // Sine wave over most of the shaft, then a short straight lead-out so
+      // the arrowhead points along the travel direction.
+      let sign = if ex > sx { 1 } else { -1 }
+      let lead = 8
+      let wave-end = ex - sign * lead
+      let n-seg = 28
+      let pts = range(n-seg + 1).map(i => {
+        let t = i / n-seg
+        (sx + (wave-end - sx) * t, calc.sin(t * 3.0 * 2.0 * calc.pi) * 2.4)
+      })
+      line(..pts, stroke: (paint: black, thickness: 0.8pt, cap: "round", join: "round"))
+      line((wave-end, 0), (ex, 0), mark: (end: ">", fill: black, size: 5), stroke: 0.8pt + black)
     } else if kind == "equilibrium" or kind == "equilibrium-filled" {
       let sign = if ex > sx { 1 } else { -1 }
       let head-len = 7
@@ -1584,7 +1694,7 @@
         line((sx, -2.2), (sx + sign * head-len, -2.2 - head-rise), stroke: 0.8pt + black)
       }
     } else {
-      panic("rxn-arrow kind must be \"single\", \"equilibrium\", or \"equilibrium-filled\"")
+      panic("rxn-arrow kind must be \"single\", \"equilibrium\", \"equilibrium-filled\", \"dashed\", or \"wavy\"")
     }
   }))
   if below != none { arrow-parts.push(align(center, text(size: 8pt, below))) }
@@ -1598,6 +1708,23 @@
     import cetz.draw: *
     if kind == "single" {
       line((0, from-y), (0, to-y), mark: (end: ">", fill: black, size: 5), stroke: 0.8pt + black)
+    } else if kind == "dashed" {
+      line(
+        (0, from-y), (0, to-y),
+        mark: (end: ">", fill: black, size: 5),
+        stroke: (paint: black, thickness: 0.8pt, dash: (array: (3pt, 2.2pt), phase: 0pt)),
+      )
+    } else if kind == "wavy" {
+      let sign = if to-y > from-y { 1 } else { -1 }
+      let lead = 8
+      let wave-end = to-y - sign * lead
+      let n-seg = 28
+      let pts = range(n-seg + 1).map(i => {
+        let t = i / n-seg
+        (calc.sin(t * 3.0 * 2.0 * calc.pi) * 2.4, from-y + (wave-end - from-y) * t)
+      })
+      line(..pts, stroke: (paint: black, thickness: 0.8pt, cap: "round", join: "round"))
+      line((0, wave-end), (0, to-y), mark: (end: ">", fill: black, size: 5), stroke: 0.8pt + black)
     } else if kind == "equilibrium" or kind == "equilibrium-filled" {
       let sign = if to-y > from-y { 1 } else { -1 }
       let head-len = 7
@@ -1625,7 +1752,7 @@
         line((2.2, from-y), (2.2 + head-rise, from-y + sign * head-len), stroke: 0.8pt + black)
       }
     } else {
-      panic("rxn-arrow kind must be \"single\", \"equilibrium\", or \"equilibrium-filled\"")
+      panic("rxn-arrow kind must be \"single\", \"equilibrium\", \"equilibrium-filled\", \"dashed\", or \"wavy\"")
     }
   })
   if above == none and below == none {
@@ -1652,7 +1779,8 @@
 ///   curly arrow()/highlight() in the same #reaction, switches it to mechanism mode.
 /// - ..opts: Molecule drawing options used when `spec` is a string. In mechanism
 ///   mode, use `reaction(scale: ...)` for bond length; per-molecule options control
-///   labels, strokes, colors, rotation, hydrogens, lone pairs, and index overlays.
+///   labels, strokes, colors, rotation, mirroring, hydrogens, lone pairs, and
+///   index overlays.
 /// -> dictionary  (consumed by #reaction)
 #let mol(spec, label: none, offset: (0, 0), ..opts) = (
   __mol__: true,
@@ -1816,7 +1944,7 @@
             (__mol__: true, spec: it, label: none, offset: (0, 0), opts: (:))
           }
           if type(m.spec) == str {
-            let lay = _layout(m.spec)
+            let lay = _mirror-layout(_layout(m.spec), m.opts.at("mirror", default: none))
             let w = lay.bbox_width
             let h = lay.bbox_height
             let mol-fs = m.opts.at("font-size", default: none)

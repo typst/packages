@@ -72,6 +72,23 @@ on its own.
 
 ![Balanced scaling examples](assets/readme/scaling.png)
 
+## Mirroring
+
+`mirror` reflects a molecule across an axis — something no rotation can do —
+so you can face a reacting group toward a reaction arrow. Wedges and hashes
+are exchanged in the same pass, keeping the depicted stereochemistry intact
+(an unswapped flip would silently draw the enantiomer). Mirroring is applied
+before `rotation`, and works per molecule inside `reaction()` via
+`mol("...", mirror: "horizontal")`.
+
+```typst
+#smiles("CC(=O)OC1=CC=CC=C1C(=O)O")
+#smiles("CC(=O)OC1=CC=CC=C1C(=O)O", mirror: "horizontal")
+#smiles("CC(=O)OC1=CC=CC=C1C(=O)O", mirror: "vertical")
+```
+
+![Mirroring examples](assets/readme/mirror.png)
+
 ## Hydrogens, labels, and fonts
 
 Heteroatom hydrogens are shown by default; carbon hydrogens stay implicit.
@@ -165,6 +182,25 @@ and formulas.
 ```
 
 ![Chemical formula and equation examples](assets/readme/formulas.png)
+
+## Molecular weights
+
+`mol-weight(smiles)` returns the molecular weight in g/mol as a float — the
+sum of IUPAC standard atomic weights over every atom, including implicit and
+explicit hydrogens. Dot-separated fragments (salts, hydrates) are summed
+together.
+
+```typst
+#import "@preview/typed-smiles:0.5.0": mol-weight
+
+Ethanol: #calc.round(mol-weight("CCO"), digits: 2) g/mol // 46.07
+Caffeine: #calc.round(mol-weight("CN1C=NC2=C1C(=O)N(C(=O)N2C)C"), digits: 2) g/mol // 194.19
+```
+
+Inputs whose weight is undefined fail with a descriptive error: wildcard `*`
+atoms, `{label}` abbreviations (no defined composition), and isotope-labeled
+atoms such as `[2H]` (a nuclide mass, not a standard atomic weight, would be
+needed).
 
 ## Reaction schemes
 
@@ -291,19 +327,24 @@ item. Every reference takes an optional `offset: (dx, dy)`.
 ## Stereochemistry and drawing extensions
 
 `[C@H]` / `[C@@H]` mark tetrahedral centers; `/` and `\` describe cis/trans
-geometry. `!w` forces a solid wedge and `!h` a hashed wedge.
+geometry. `!w` forces a solid wedge, `!h` a hashed wedge, `!s` a wavy
+(squiggly) bond for unspecified stereochemistry or attachment points, and `!d`
+a dashed bond for hydrogen bonds, partial bonds, and coordination.
 
 ```typst
 #table(
-  columns: (1fr, 1fr, 1fr, 1fr),
+  columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
   gutter: 0em, row-gutter: 0em,
   align: center + horizon,
   stroke: 0.4pt + rgb("#d8d8d8"),
 
-  [*Manual wedge*], [*Manual hash*], [*Tetrahedral @@*], [*trans alkene*],
+  [*Manual wedge*], [*Manual hash*], [*Wavy*], [*Dashed*],
+  [*Tetrahedral @@*], [*trans alkene*],
 
   [#smiles("C!wN")],
   [#smiles("C!hN")],
+  [#smiles("C!sN")],
+  [#smiles("C!dN")],
   [#smiles("N[C@@H](C)C(=O)O")],
   [#smiles("F/C=C/F")],
 )
@@ -325,6 +366,7 @@ geometry. `!w` forces a solid wedge and `!h` a hashed wedge.
 | `bond-stroke` | `none` | Bond width only |
 | `color` | `true` | Apply Jmol CPK atom colors |
 | `rotation` | `0deg` | Rotate molecule; labels stay upright |
+| `mirror` | `none` | Reflect `"horizontal"` or `"vertical"` (before `rotation`); wedges and hashes swap so the depicted stereochemistry is preserved |
 | `show-all-h` | `false` | Label carbon implicit hydrogens |
 | `lone-pairs` | `none` | Draw lone pairs as `"dots"` or `"lines"` |
 | `atom-colors` | `(:)` | Color overrides: element key `O: red` or label key `"{PPh3}": blue` |
@@ -342,6 +384,8 @@ SMILES string extensions:
 | `{label\|#RRGGBB}` | Label colored with a hex code |
 | `!w` | Force a solid wedge on the next single bond |
 | `!h` | Force a hashed wedge on the next single bond |
+| `!s` | Force a wavy (squiggly) bond on the next single bond |
+| `!d` | Force a dashed bond on the next single bond |
 
 ### `#reaction(gap-h, gap-v, scale, breakable, show-indices, …items)`
 
@@ -363,7 +407,7 @@ is present, an electron-pushing mechanism (shared canvas).
 | `above` | `none` | Label above a horizontal arrow (or right of vertical) |
 | `below` | `none` | Label below a horizontal arrow (or left of vertical) |
 | `dir` | `"right"` | `"right"`, `"left"`, `"down"`, or `"up"` |
-| `kind` | `"single"` | `"single"`, `"equilibrium"`, or `"equilibrium-filled"` |
+| `kind` | `"single"` | `"single"`, `"equilibrium"`, `"equilibrium-filled"`, `"dashed"`, or `"wavy"` |
 
 ### `#mol(spec, label: none, offset: (0,0), …opts)`
 
@@ -392,6 +436,11 @@ All references accept an `offset: (dx, dy)` nudge.
 
 Re-exports `chemformula`'s `ch`. Accepts `font` and `font-size` for local
 styling; other arguments pass through to chemformula.
+
+### `#mol-weight(smiles-str)`
+
+Molecular weight in g/mol as a `float`. Errors on wildcards, abbreviations,
+and isotopes.
 
 ## SMILES support
 
