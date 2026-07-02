@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 
 #let arrow-label(lbl, dx: 0pt, dy: 0pt) = [#sym.zws#metadata((dx, dy))#lbl#sym.zws]
 
