@@ -1,4 +1,5 @@
 #import "layout.typ": *
+#import "headers.typ": *
 #import "default.typ": *
 #import "theorem.typ": *
 
@@ -8,26 +9,13 @@
 
 #let init(
   it,
-  paper: (width: width, height: height),
-  margin: (
-    s: s-margin,
-    e: e-margin,
-    t: t-margin,
-    f: f-margin,
-  ),
-  side: (half-gutter: half-gutter, margin: e-margin-margin),
-  texts: (
-    size: text-size,
-    ascender: text-height,
-    step: step,
-  ),
-  fonts: (
-    body: body-font,
-    math: math-font,
-    sans: sans-font,
-    mono: mono-font,
-  ),
-  deco: (line-number: true),
+  paper: def-paper,
+  margin: def-margin,
+  side: def-side,
+  texts: def-texts,
+  fonts: def-fonts,
+  deco: def-deco,
+  headers: def-headers,
 ) = {
   let default = or-default-settings(
     paper,
@@ -36,9 +24,19 @@
     texts,
     fonts,
     deco,
+    headers,
   )
   default-settings.update(_ => default)
-  let (paper, margin, side, body, fonts, texts) = default
+  let (
+    paper,
+    margin,
+    side,
+    body,
+    fonts,
+    texts,
+    deco,
+    headers,
+  ) = default
   set page(
     margin: (
       top: margin.t + texts.step,
@@ -227,86 +225,7 @@
     }
   }
 
-  show heading: it => {
-    let step = texts.step
-    set block(
-      above: step * 3,
-      below: step * 2,
-      breakable: false,
-    )
-    set par(leading: step * 2, justify: false)
-    set text(font: fonts.sans)
-    block(it)
-  }
-
-  show heading.where(level: 1): it => context {
-    let step = texts.step
-    blank-page(to: "odd", weak: true)
-    let h1 = counter(heading).at(here()).at(0)
-    place(
-      top + right,
-      dx: margin.e + 10pt,
-      dy: -margin.t - step - 10pt,
-      box(
-        stroke: 0.75pt + luma(180),
-        fill: white,
-        width: 7cm,
-        height: 7cm,
-        align(
-          center + horizon,
-          text(
-            font: fonts.sans,
-            size: 120pt,
-            fill: white,
-            top-edge: "bounds",
-            bottom-edge: "bounds",
-            stroke: 1.5pt + luma(180),
-            [#h1],
-          ),
-        ),
-      ),
-    )
-    v(step * 12)
-    text(
-      size: texts.size * 3.5,
-      font: fonts.sans,
-      align(right)[
-        #text(weight: "light")[Section #h1]\ #text(
-          weight: "extrabold",
-          it,
-        )
-      ],
-    )
-    v(step * 3)
-  }
-
-  show heading.where(level: 2): it => {
-    let step = texts.step
-    set text(size: texts.size * 2)
-    set block(
-      above: step * 3,
-      below: step * 2,
-      breakable: false,
-    )
-    block(breakable: false)[#place-node(
-        $circle.filled$,
-        dy: -4pt,
-      ) #h(2pt)#box(it)]
-  }
-
-  show heading.where(level: 3): it => {
-    let step = texts.step
-    set text(texts.size * 1.5)
-    set block(
-      above: step * 3,
-      below: step * 2,
-      breakable: false,
-    )
-    block(breakable: false)[#place-node(
-        $triangle.filled.small.b$,
-        dy: 2pt,
-      ) #it]
-  }
+  show: show-headers
 
   show: init-theorem
 
