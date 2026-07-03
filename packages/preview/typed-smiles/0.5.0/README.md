@@ -89,10 +89,23 @@ before `rotation`, and works per molecule inside `reaction()` via
 
 ![Mirroring examples](assets/readme/mirror.png)
 
+## Aromatic ring circles
+
+Rings written in aromatic (lowercase) notation can draw as single bonds with
+an inscribed circle instead of alternating double bonds. Each fully aromatic
+ring of a fused system gets its own circle; Kekulé-written input keeps its
+explicit bonds.
+
+```typst
+#smiles("c1ccccc1", aromatic: "circle")
+#smiles("c1ccc2ccccc2c1", aromatic: "circle")
+#smiles("Cc1ccncc1", aromatic: "circle")
+```
+
 ## Hydrogens, labels, and fonts
 
 Heteroatom hydrogens are shown by default; carbon hydrogens stay implicit.
-Use `show-all-h: true` for carbon hydrogens, `[NH3]` bracket syntax for
+Use `show-h: "all"` for carbon hydrogens, `[NH3]` bracket syntax for
 explicit hydrogens, and `{label}` / `{label|style}` for custom group labels.
 Use `>` inside a custom label to choose the attachment glyph, e.g. `{>PPh3}`.
 For the cleanest result, rotate the molecule so the bond approaches the chosen
@@ -109,7 +122,7 @@ glyph roughly perpendicular to the written label.
   [*Default hetero H*], [*All H*], [*Explicit H*], [*Colored label*], [*Custom font*],
 
   [#smiles("CC(N)C(=O)O")],
-  [#smiles("CCO", show-all-h: true)],
+  [#smiles("CCO", show-h: "all")],
   [#smiles("[NH3]")],
   [#smiles("{>PPh3|P}C=O")],
   [#smiles("CCN", font: "Libertinus Serif")],
@@ -117,6 +130,29 @@ glyph roughly perpendicular to the written label.
 ```
 
 ![Hydrogen and custom label examples](assets/readme/hydrogens-labels.png)
+
+## Atom annotations and per-atom hydrogens
+
+`atom-annotations` places small gray side labels on the emptiest side of an
+atom — NMR numbering, Greek positions, footnote marks. Pass a tuple list where
+each entry is `(index, content)` or `(index, content, offset)`. Values are
+content, so wrap them in `text()` to restyle. `show-h` labels selected carbon
+hydrogens with `show-h: 1` or `show-h: (1, 2)`, and labels every implicit
+hydrogen with `show-h: "all"`.
+
+```typst
+#smiles(
+  "N[C@@H](C)C(=O)O",
+  atom-annotations: (
+    (1, [$alpha$], (-0.4, -0.05)),
+    (2, [$beta$]),
+    (3, [$gamma$], (-0.05, -0.3)),
+  ),
+)
+#smiles("CC(N)C(=O)O", show-h: 1)   // label just the central C-H
+```
+
+![Atom annotation and per-atom hydrogen examples](assets/readme/atom-annotations.png)
 
 ## Lone pairs
 
@@ -159,6 +195,23 @@ or any `#RRGGBB` hex code. See the documentation for the full color reference.
 > regardless of any `atom-colors` entries or inline label styles.
 > To selectively highlight a group in an otherwise black-and-white diagram,
 > keep `color: true` and drive everything through `atom-colors`.
+
+## Dark mode and theming
+
+Bond strokes and carbon labels follow `fg`, which defaults to `auto` and
+inherits the surrounding text color. On a dark slide theme, `theme: auto`
+switches to a dark CPK variant for hues that need more contrast.
+
+```typst
+#smiles("NC(Br)C(I)C(=O)O")
+
+#block(fill: rgb("#1E1E24"), inset: 8pt, radius: 4pt)[
+  #set text(fill: white)
+  #smiles("NC(Br)C(I)C(=O)O")
+]
+```
+
+![Light and dark theme comparison](assets/readme/dark.png)
 
 ## Chemical formulas and equations
 
@@ -365,9 +418,13 @@ a dashed bond for hydrogen bonds, partial bonds, and coordination.
 | `font` | `"New Computer Modern"` | Atom-label font |
 | `bond-stroke` | `none` | Bond width only |
 | `color` | `true` | Apply Jmol CPK atom colors |
+| `fg` | `auto` | Foreground for bonds/carbon labels; `auto` inherits the text color |
+| `theme` | `auto` | CPK palette variant; `auto` goes dark when `fg` is light |
 | `rotation` | `0deg` | Rotate molecule; labels stay upright |
 | `mirror` | `none` | Reflect `"horizontal"` or `"vertical"` (before `rotation`); wedges and hashes swap so the depicted stereochemistry is preserved |
-| `show-all-h` | `false` | Label carbon implicit hydrogens |
+| `show-h` | `()` | Label selected implicit hydrogens; use `"all"` for every atom |
+| `aromatic` | `"kekule"` | Lowercase-aromatic rings as doubles or `"circle"` |
+| `atom-annotations` | `()` | Small gray side labels as `(index, content)` or `(index, content, offset)` tuples |
 | `lone-pairs` | `none` | Draw lone pairs as `"dots"` or `"lines"` |
 | `atom-colors` | `(:)` | Color overrides: element key `O: red` or label key `"{PPh3}": blue` |
 | `show-indices` | `false` | Stamp atom indices for writing arrow references |
@@ -408,13 +465,14 @@ is present, an electron-pushing mechanism (shared canvas).
 | `below` | `none` | Label below a horizontal arrow (or left of vertical) |
 | `dir` | `"right"` | `"right"`, `"left"`, `"down"`, or `"up"` |
 | `kind` | `"single"` | `"single"`, `"equilibrium"`, `"equilibrium-filled"`, `"dashed"`, or `"wavy"` |
+| `color` | `auto` | Arrow color; `auto` inherits the surrounding text color |
 
 ### `#mol(spec, label: none, offset: (0,0), …opts)`
 
 A reaction item. `spec` is any content (`smiles(...)`, `ce(...)`, text) or a SMILES
 *string* — a string lets `reaction()` render it with addressable atoms. `offset`
 nudges it in bond-length units. String molecules accept common drawing options
-such as `font-size`, `font`, `bond-stroke`, `color`, `rotation`, `show-all-h`,
+such as `font-size`, `font`, `bond-stroke`, `color`, `rotation`, `show-h`,
 `lone-pairs`, `atom-colors`, and `show-indices`; use `reaction(scale: ...)` to
 resize a shared mechanism canvas.
 

@@ -34,11 +34,11 @@
 
 #let _is-carbon(atom) = atom.symbol == "C" or atom.symbol == "c"
 
-#let _visible-implicit-h(atom, show-all-h: false) = {
+#let _visible-implicit-h(atom, show-all-h: false, force: false) = {
   let count = atom.at("implicit_h", default: 0)
   if count == 0 {
     0
-  } else if show-all-h {
+  } else if show-all-h or force {
     count
   } else if not _is-carbon(atom) and atom.symbol != "*" {
     count
@@ -47,51 +47,112 @@
   }
 }
 
-#let _has-label(atom, show-all-h: false) = {
+#let _has-label(atom, show-all-h: false, force: false) = {
   let has-abbrev = atom.at("abbrev", default: "") != ""
   let has-hetero = (not _is-carbon(atom) and atom.symbol != "*") or (atom.charge != 0)
   let has-isotope = atom.at("isotope", default: 0) > 0
-  let has-explicit-h = atom.hcount > 0 and (show-all-h or not _is-carbon(atom))
+  let has-explicit-h = atom.hcount > 0 and (show-all-h or force or not _is-carbon(atom))
   let has-implicit-h = _visible-implicit-h(
     atom,
     show-all-h: show-all-h,
+    force: force,
   ) > 0
   has-abbrev or has-hetero or has-isotope or has-explicit-h or has-implicit-h
 }
 
-#let _atom-color(sym) = {
-  if sym == "N" or sym == "n"      { rgb("#3050F8") }
-  else if sym == "O" or sym == "o" { rgb("#FF0D0D") }
+#let _normalize-show-h(show-h) = {
+  if show-h == "all" {
+    (all: true, indices: ())
+  } else if type(show-h) == array {
+    (all: false, indices: show-h)
+  } else if type(show-h) == int {
+    (all: false, indices: (show-h,))
+  } else {
+    panic("show-h must be \"all\", an atom index, or an array of atom indices")
+  }
+}
+
+#let _normalize-atom-annotations(atom-annotations) = {
+  if type(atom-annotations) != array {
+    panic("atom-annotations must be an array of (index, content) or (index, content, offset) tuples")
+  }
+
+  let out = ()
+  for entry in atom-annotations {
+    if type(entry) != array or (entry.len() != 2 and entry.len() != 3) {
+      panic("atom-annotations entries must be (index, content) or (index, content, offset)")
+    }
+    if type(entry.at(0)) != int {
+      panic("atom-annotations index must be an integer")
+    }
+    out.push((
+      index: entry.at(0),
+      body: entry.at(1),
+      offset: if entry.len() == 3 { entry.at(2) } else { (0, 0) },
+    ))
+  }
+  out
+}
+
+// CPK hues bright enough to read on either background keep one value; the
+// dark theme lifts the lightness of the hues that vanish on dark slides
+// (N, Br, I; O slightly) without changing their identity.
+#let _atom-color(sym, theme: "light", fg: black) = {
+  let dark = theme == "dark"
+  if sym == "N" or sym == "n"      { if dark { rgb("#7A8CFF") } else { rgb("#3050F8") } }
+  else if sym == "O" or sym == "o" { if dark { rgb("#FF5252") } else { rgb("#FF0D0D") } }
   else if sym == "S" or sym == "s" { rgb("#E6C800") }
   else if sym == "P"               { rgb("#FF8000") }
   else if sym == "F"               { rgb("#90E050") }
   else if sym == "Cl"              { rgb("#1FF01F") }
-  else if sym == "Br"              { rgb("#A62929") }
-  else if sym == "I"               { rgb("#940094") }
-  else { black }
+  else if sym == "Br"              { if dark { rgb("#D07C7C") } else { rgb("#A62929") } }
+  else if sym == "I"               { if dark { rgb("#DC7CDC") } else { rgb("#940094") } }
+  else { fg }
 }
 
-#let _label-color(style) = {
-  if style == ""                             { black }
+#let _label-color(style, theme: "light", fg: black) = {
+  let dark = theme == "dark"
+  if style == ""                             { fg }
   else if style.starts-with("#")            { rgb(style) }
-  else if style == "red"                    { rgb("#FF0D0D") }
-  else if style == "blue"                   { rgb("#3050F8") }
-  else if style == "green"                  { rgb("#1FA51F") }
-  else if style == "black"                  { black }
-  else if style == "gray" or style == "grey"{ rgb("#777777") }
+  else if style == "red"                    { if dark { rgb("#FF5252") } else { rgb("#FF0D0D") } }
+  else if style == "blue"                   { if dark { rgb("#7A8CFF") } else { rgb("#3050F8") } }
+  else if style == "green"                  { if dark { rgb("#55C455") } else { rgb("#1FA51F") } }
+  else if style == "black"                  { fg }
+  else if style == "gray" or style == "grey"{ if dark { rgb("#A6A6A6") } else { rgb("#777777") } }
   else if style == "silver"                 { rgb("#C0C0C0") }
   else if style == "white"                  { white }
   else if style == "orange"                 { rgb("#FF8000") }
   else if style == "yellow"                 { rgb("#E6C800") }
-  else if style == "brown"                  { rgb("#8B4513") }
+  else if style == "brown"                  { if dark { rgb("#C98F5A") } else { rgb("#8B4513") } }
   else if style == "pink"                   { rgb("#FF69B4") }
-  else if style == "purple"                 { rgb("#940094") }
+  else if style == "purple"                 { if dark { rgb("#DC7CDC") } else { rgb("#940094") } }
   else if style == "cyan"                   { rgb("#00B4D8") }
   else if style == "lime"                   { rgb("#32CD32") }
-  else if style == "teal"                   { rgb("#008080") }
-  else if style == "maroon"                 { rgb("#800000") }
-  else if style == "navy"                   { rgb("#000080") }
-  else { _atom-color(style) }
+  else if style == "teal"                   { if dark { rgb("#35BDBD") } else { rgb("#008080") } }
+  else if style == "maroon"                 { if dark { rgb("#D06A6A") } else { rgb("#800000") } }
+  else if style == "navy"                   { if dark { rgb("#8F9BFF") } else { rgb("#000080") } }
+  else { _atom-color(style, theme: theme, fg: fg) }
+}
+
+// Resolves the fg/theme pair: an `auto` foreground inherits the surrounding
+// text color (so molecules recolor with the slide theme), and an `auto`
+// theme picks the dark palette when the foreground is light.
+#let _resolve-fg-theme(fg, theme) = {
+  let resolved-fg = if fg == auto {
+    if type(text.fill) == color { text.fill } else { black }
+  } else { fg }
+  let resolved-theme = if theme == auto {
+    if type(resolved-fg) == color and oklab(resolved-fg).components().at(0) > 60% {
+      "dark"
+    } else {
+      "light"
+    }
+  } else if theme == "light" or theme == "dark" {
+    theme
+  } else {
+    panic("theme must be auto, \"light\", or \"dark\"")
+  }
+  (resolved-fg, resolved-theme)
 }
 
 // ── SMILES renderer ───────────────────────────────────────────────────────────
@@ -149,6 +210,13 @@
     m.stereo = flip-stereo(b.stereo)
     m
   })
+  if "aromatic_rings" in layout {
+    out.aromatic_rings = layout.aromatic_rings.map(r => {
+      let m = r
+      m.center = (x: r.center.x * sx, y: r.center.y * sy)
+      m
+    })
+  }
   out
 }
 
@@ -173,15 +241,26 @@
   bond-stroke: none,
   color: true,
   rotation: 0deg,
-  show-all-h: false,
+  show-h: (),
   lone-pairs: none,
   atom-colors: (:),
   show-indices: false,
   index-prefix: "",
+  fg: black,
+  theme: "light",
+  aromatic: "kekule",
+  atom-annotations: (),
 ) = {
   if lone-pairs != none and lone-pairs != "dots" and lone-pairs != "lines" {
     panic("lone-pairs must be none, \"dots\", or \"lines\"")
   }
+  if aromatic != "kekule" and aromatic != "circle" {
+    panic("aromatic must be \"kekule\" or \"circle\"")
+  }
+  let show-h-state = _normalize-show-h(show-h)
+  let show-all-h = show-h-state.all
+  let show-h-list = show-h-state.indices
+  let atom-annotations = _normalize-atom-annotations(atom-annotations)
 
   let actual-bond-length = if bond-length == none { scale } else { bond-length }
   let actual-font-size = if font-size == none { 11pt * scale } else { font-size }
@@ -205,11 +284,17 @@
   let lone-pair-line-half = calc.max(0.055, stroke-units * 2.4)
 
   let atom-clr = if color {
-    (sym) => { if sym in atom-colors { atom-colors.at(sym) } else { _atom-color(sym) } }
-  } else { (sym) => black }
+    (sym) => {
+      if sym in atom-colors { atom-colors.at(sym) }
+      else { _atom-color(sym, theme: theme, fg: fg) }
+    }
+  } else { (sym) => fg }
   let label-clr = if color {
-    (style) => { if style in atom-colors { atom-colors.at(style) } else { _label-color(style) } }
-  } else { (style) => black }
+    (style) => {
+      if style in atom-colors { atom-colors.at(style) }
+      else { _label-color(style, theme: theme, fg: fg) }
+    }
+  } else { (style) => fg }
   let display-clr(atom) = {
     let abbrev = atom.at("abbrev", default: "")
     let abbrev-style = atom.at("abbrev_style", default: "")
@@ -221,7 +306,7 @@
       atom-clr(atom.symbol)
     }
   }
-  let atom-label(body, fill: black, size: actual-font-size) = text(
+  let atom-label(body, fill: fg, size: actual-font-size) = text(
     size: size,
     font: font,
     style: "normal",
@@ -289,9 +374,10 @@
         bonds.filter(b => b.order == 2).len() == 2
       }
     }
+    let forced-h(i) = show-h-list.contains(i)
     let has-label(i) = {
       let atom = layout.atoms.at(i)
-      _has-label(atom, show-all-h: show-all-h) or force-linear-carbon-label(i)
+      _has-label(atom, show-all-h: show-all-h, force: forced-h(i)) or force-linear-carbon-label(i)
     }
     let first-neighbor(i) = {
       let result = none
@@ -302,8 +388,13 @@
       }
       result
     }
-    let visible-h-count(atom) = {
-      let count = atom.hcount + _visible-implicit-h(atom, show-all-h: show-all-h)
+    let visible-h-count(i) = {
+      let atom = layout.atoms.at(i)
+      let count = atom.hcount + _visible-implicit-h(
+        atom,
+        show-all-h: show-all-h,
+        force: forced-h(i),
+      )
       if atom.at("stereo_h", default: "none") != "none" {
         calc.max(0, count - 1)
       } else {
@@ -317,7 +408,7 @@
     // hydrogens, charges, isotopes, or abbreviations keep the conservative
     // fixed margin because their content extends off-center.
     let label-trim(atom, i, ux, uy) = {
-      let displays-h = visible-h-count(atom) > 0 and (show-all-h or not _is-carbon(atom))
+      let displays-h = visible-h-count(i) > 0 and (show-all-h or forced-h(i) or not _is-carbon(atom))
       if not has-label(i) {
         0.0
       } else if displays-h and atom-degree(i) == 1 and not _is-carbon(atom) {
@@ -481,7 +572,9 @@
           )
         }
 
-      } else if bond.order == 1 {
+      } else if (aromatic == "circle" and bond.at("aromatic", default: false)) or bond.order == 1 {
+        // In circle mode an aromatic bond draws as a plain single line; the
+        // ring's pi system is shown by the inscribed circle instead.
         line((q1x, q1y), (mx, my),   stroke: stroke-w + c1)
         line((mx, my),   (q2x, q2y), stroke: stroke-w + c2)
 
@@ -556,6 +649,18 @@
             c1, c2,
           )
         }
+      }
+    }
+
+    // Aromatic rings as inscribed circles.
+    if aromatic == "circle" {
+      for ring in layout.at("aromatic_rings", default: ()) {
+        circle(
+          (rx(ring.center.x, ring.center.y), ry(ring.center.x, ring.center.y)),
+          radius: ring.radius,
+          stroke: stroke-w + fg,
+          fill: none,
+        )
       }
     }
 
@@ -701,7 +806,7 @@
         let has-inline-h = (
           atom.at("abbrev", default: "") == "" and
           not _is-carbon(atom) and
-          visible-h-count(atom) > 0
+          visible-h-count(i) > 0
         )
 
         if not has-inline-h {
@@ -782,7 +887,7 @@
         let px = rx(atom.pos.x, atom.pos.y)
         let py = ry(atom.pos.x, atom.pos.y)
         let deg = atom-degree(i)
-        let h-count = visible-h-count(atom)
+        let h-count = visible-h-count(i)
 
         let charge-str = if atom.charge == 1        { "+" }
                          else if atom.charge == -1  { "\u{2212}" }
@@ -805,7 +910,7 @@
           []
         }
         let sym-text = isotope-content + atom-label(atom.symbol, fill: fill)
-        let h-text = if abbrev != "" or h-count == 0 or (_is-carbon(atom) and not show-all-h) {
+        let h-text = if abbrev != "" or h-count == 0 or (_is-carbon(atom) and not (show-all-h or forced-h(i))) {
           []
         } else if h-count == 1 {
           atom-label("H", fill: fill)
@@ -1034,6 +1139,39 @@
 
     draw-lone-pairs()
 
+    // Small gray annotations placed on the emptiest side of an atom, offset
+    // beyond the label region so they read as side notes rather than as the
+    // sub- or superscripts of the chemical label itself.
+    let annotation-fill = if theme == "dark" { rgb("#9E9E9E") } else { rgb("#8F8F8F") }
+    for ann in atom-annotations {
+      let i = ann.index
+      let body = ann.body
+      let atom = layout.atoms.at(i)
+      if not atom.at("virtual_h", default: false) {
+        let px = rx(atom.pos.x, atom.pos.y)
+        let py = ry(atom.pos.x, atom.pos.y)
+        let sxv = atom-neighbor-indices(i)
+          .map(ni => neighbor-screen-dir(i, ni))
+          .filter(d => d != none)
+        let sum = sxv.fold((x: 0.0, y: 0.0), (acc, d) => (x: acc.x + d.x, y: acc.y + d.y))
+        let len = calc.sqrt(sum.x * sum.x + sum.y * sum.y)
+        let dir = if len > 0.05 {
+          (x: -sum.x / len, y: -sum.y / len)
+        } else {
+          // Symmetric surroundings or isolated atom: place diagonally.
+          (x: 0.7071, y: 0.7071)
+        }
+        let offset = if has-label(i) { label-margin + 0.14 } else { 0.30 }
+        let nudge = ann.at("offset", default: (0, 0))
+        content(
+          (px + dir.x * offset + nudge.at(0), py + dir.y * offset + nudge.at(1)),
+          text(size: actual-font-size * 0.62, fill: annotation-fill, body),
+          anchor: "center",
+          padding: 1pt,
+        )
+      }
+    }
+
     // Development overlay: stamp each atom's writing-order index so users can
     // read off the numbers used by atom()/bond()/lp() references.
     //
@@ -1042,6 +1180,7 @@
     // fragment markers expose the measured glyph centers for the overlay.
     if show-indices {
       let badge-size  = actual-font-size * 0.52
+      let badge-bg = if theme == "dark" { rgb(30, 30, 30, 220) } else { rgb(255, 255, 255, 220) }
 
       for i in range(layout.atoms.len()) {
         let a  = layout.atoms.at(i)
@@ -1051,13 +1190,17 @@
         let (bx, by, btarget) = if (
           not a.at("virtual_h", default: false) and
           str(i) in vh-child and
-          _has-label(a, show-all-h: show-all-h)
+          _has-label(a, show-all-h: show-all-h, force: forced-h(i))
         ) {
           (0.0, 0.0, index-marker-name(i, "-sym") + ".center")
         } else if (
           a.at("virtual_h", default: false) and
           str(i) in vh-parent and
-          _has-label(layout.atoms.at(vh-parent.at(str(i))), show-all-h: show-all-h)
+          _has-label(
+            layout.atoms.at(vh-parent.at(str(i))),
+            show-all-h: show-all-h,
+            force: forced-h(vh-parent.at(str(i))),
+          )
         ) {
           (0.0, 0.0, index-marker-name(i, "-h") + ".center")
         } else {
@@ -1067,7 +1210,7 @@
         content(
           if btarget == none { (bx, by) } else { btarget },
           box(
-            fill: rgb(255, 255, 255, 220),
+            fill: badge-bg,
             inset: 0.4pt,
             text(size: badge-size, fill: rgb("#C81E6E"), weight: "bold", str(i)),
           ),
@@ -1096,7 +1239,8 @@
   let cs = sp.at("canvas-scale", default: 30pt)
   let fs = sp.at("actual-font-size", default: 11pt)
   let font = sp.at("font", default: "New Computer Modern")
-  let show-all-h = sp.at("show-all-h", default: false)
+  let show-h-state = _normalize-show-h(sp.at("show-h", default: ()))
+  let show-all-h = show-h-state.all
   let label-margin = calc.max(0.27, fs / cs * 0.70)
   let subscript-size = fs * 1.00
   let superscript-size = fs * 1.00
@@ -1132,9 +1276,11 @@
       h(0.12em) + super(atom-label(charge-str, size: superscript-size))
     }
   }
-  let h-text(atom) = {
-    let count = atom.hcount + _visible-implicit-h(atom, show-all-h: show-all-h)
-    if atom.at("abbrev", default: "") != "" or count == 0 or (_is-carbon(atom) and not show-all-h) {
+  let show-h-list = show-h-state.indices
+  let h-text(atom, idx) = {
+    let force = show-h-list.contains(idx)
+    let count = atom.hcount + _visible-implicit-h(atom, show-all-h: show-all-h, force: force)
+    if atom.at("abbrev", default: "") != "" or count == 0 or (_is-carbon(atom) and not (show-all-h or force)) {
       []
     } else if count == 1 {
       atom-label("H")
@@ -1168,7 +1314,7 @@
     let py = sp.origin.at(1) + pyr
     let deg = atom-degree(parent)
     let sym-text = atom-label(atom.symbol)
-    let ht = h-text(atom)
+    let ht = h-text(atom, parent)
     let charge = charge-content(atom)
 
     if atom.at("abbrev", default: "") != "" or ht == [] {
@@ -1261,7 +1407,7 @@
     return label-fragment-pos(parent, "h")
   }
 
-  if not _has-label(a, show-all-h: show-all-h) { return base }
+  if not _has-label(a, show-all-h: show-all-h, force: show-h-list.contains(i)) { return base }
   let child = virtual-child(i)
   if child == none { return base }
   label-fragment-pos(i, "sym")
@@ -1527,8 +1673,8 @@
 
 /// Renders a SMILES string as a 2D skeletal molecular diagram.
 ///
-/// - smiles-str (str): A valid SMILES string, e.g. "C1=CC=CC=C1" for benzene.
-///   Use Kekulé notation for aromatic rings (C not c) until aromatic support lands.
+/// - smiles-str (str): A valid SMILES string, e.g. "C1=CC=CC=C1" or
+///   "c1ccccc1" for benzene.
 /// - scale (float): Balanced scale for bond length, atom labels, and bond stroke.
 ///   Explicit bond-length, font-size, or bond-stroke values override it.
 ///   Default: 1.0.
@@ -1537,14 +1683,28 @@
 /// - font (str): Font for atom labels. Default: "New Computer Modern".
 /// - bond-stroke (length): Bond stroke width.
 /// - color (bool): Apply Jmol CPK atom colors. Default: true.
+/// - fg (auto / color): Foreground color for bonds, carbon labels, and other
+///   currently-black elements. `auto` inherits the surrounding text color, so
+///   molecules recolor automatically on dark slides. Default: auto.
+/// - theme (auto / "light" / "dark"): CPK palette variant. "dark" lifts the
+///   lightness of hues that vanish on dark backgrounds (N, O, Br, I and the
+///   dark named label colors). `auto` picks "dark" when `fg` is light.
+///   Default: auto.
 /// - rotation (angle): Rotate the molecule by this angle. Atom labels stay upright.
 ///   Example: rotation: 90deg. Default: 0deg.
 /// - mirror (none / "horizontal" / "vertical"): Reflect the molecule across an
 ///   axis ("horizontal" swaps left and right). Applied before rotation. Wedges
 ///   and hashes are exchanged so the depicted stereochemistry is preserved.
 ///   Default: none.
-/// - show-all-h (bool): Show computed implicit hydrogens on all atoms,
-///   including carbon. Default: false.
+/// - show-h ("all" / int / array): Which implicit hydrogens to label beyond
+///   the default heteroatom hydrogens. Use "all" for every atom, an integer for
+///   one atom, or an array for selected atoms. Default: ().
+/// - aromatic ("kekule" / "circle"): How rings written in aromatic (lowercase)
+///   notation are depicted: alternating double bonds, or single bonds with an
+///   inscribed circle. Kekulé-written input always draws its explicit bonds.
+///   Default: "kekule".
+/// - atom-annotations (array): Small gray side labels as tuple entries:
+///   (index, content) or (index, content, offset). Default: ().
 /// - lone-pairs (none / "dots" / "lines"): Draw non-bonding electron pairs on
 ///   skeletal atom labels. Default: none.
 /// - atom-colors (dictionary): Color overrides taking priority over the CPK palette
@@ -1562,14 +1722,19 @@
   font: "New Computer Modern",
   bond-stroke: none,
   color: true,
+  fg: auto,
+  theme: auto,
   rotation: 0deg,
   mirror: none,
-  show-all-h: false,
+  show-h: (),
+  aromatic: "kekule",
+  atom-annotations: (),
   lone-pairs: none,
   atom-colors: (:),
   show-indices: false,
   ..annotations
 ) = context {
+  let (fg, theme) = _resolve-fg-theme(fg, theme)
   let layout = _mirror-layout(_layout(smiles-str), mirror)
   let canvas-scale = _canvas-scale(scale, bond-length)
   let actual-font-size = if font-size == none { 11pt * scale } else { font-size }
@@ -1583,7 +1748,7 @@
     canvas-scale: canvas-scale,
     actual-font-size: actual-font-size,
     font: font,
-    show-all-h: show-all-h,
+    show-h: show-h,
   ),)
   let cfg = _annotation-cfg(canvas-scale, actual-font-size, scale)
   let the-scale = scale // cetz.draw `scale` shadows the argument inside the canvas
@@ -1604,10 +1769,14 @@
       bond-stroke: bond-stroke,
       color: color,
       rotation: rotation,
-      show-all-h: show-all-h,
+      show-h: show-h,
       lone-pairs: lone-pairs,
       atom-colors: atom-colors,
       show-indices: show-indices,
+      fg: fg,
+      theme: theme,
+      aromatic: aromatic,
+      atom-annotations: atom-annotations,
     )
     for ar in ann {
       if type(ar) == dictionary and ar.at("__arrow__", default: false) {
@@ -1630,29 +1799,35 @@
 /// - kind (str): Arrow style — "single" (default), "equilibrium",
 ///   "equilibrium-filled", "dashed" (hypothetical/formal step), or "wavy"
 ///   (e.g. a distorted or non-elementary transformation).
+/// - color (auto / color): Arrow color. `auto` inherits the surrounding text
+///   color, matching dark slide themes. Default: auto.
 /// -> dictionary  (consumed by #reaction)
-#let rxn-arrow(above: none, below: none, dir: "right", kind: "single") = (
+#let rxn-arrow(above: none, below: none, dir: "right", kind: "single", color: auto) = (
   __rxn_arrow__: true,
   above: above,
   below: below,
   dir: dir,
   kind: kind,
+  color: color,
 )
 
 // Render a horizontal reaction arrow.
-#let _horiz-arrow(above, below, dir, kind) = {
+#let _horiz-arrow(above, below, dir, kind, clr) = context {
+  let clr = if clr == auto {
+    if type(text.fill) == color { text.fill } else { black }
+  } else { clr }
   let arrow-parts = ()
   if above != none { arrow-parts.push(align(center, text(size: 8pt, above))) }
   let (sx, ex) = if dir == "left" { (52, 0) } else { (0, 52) }
   arrow-parts.push(cetz.canvas(length: 1pt, {
     import cetz.draw: *
     if kind == "single" {
-      line((sx, 0), (ex, 0), mark: (end: ">", fill: black, size: 5), stroke: 0.8pt + black)
+      line((sx, 0), (ex, 0), mark: (end: ">", fill: clr, size: 5), stroke: 0.8pt + clr)
     } else if kind == "dashed" {
       line(
         (sx, 0), (ex, 0),
-        mark: (end: ">", fill: black, size: 5),
-        stroke: (paint: black, thickness: 0.8pt, dash: (array: (3pt, 2.2pt), phase: 0pt)),
+        mark: (end: ">", fill: clr, size: 5),
+        stroke: (paint: clr, thickness: 0.8pt, dash: (array: (3pt, 2.2pt), phase: 0pt)),
       )
     } else if kind == "wavy" {
       // Sine wave over most of the shaft, then a short straight lead-out so
@@ -1665,33 +1840,33 @@
         let t = i / n-seg
         (sx + (wave-end - sx) * t, calc.sin(t * 3.0 * 2.0 * calc.pi) * 2.4)
       })
-      line(..pts, stroke: (paint: black, thickness: 0.8pt, cap: "round", join: "round"))
-      line((wave-end, 0), (ex, 0), mark: (end: ">", fill: black, size: 5), stroke: 0.8pt + black)
+      line(..pts, stroke: (paint: clr, thickness: 0.8pt, cap: "round", join: "round"))
+      line((wave-end, 0), (ex, 0), mark: (end: ">", fill: clr, size: 5), stroke: 0.8pt + clr)
     } else if kind == "equilibrium" or kind == "equilibrium-filled" {
       let sign = if ex > sx { 1 } else { -1 }
       let head-len = 7
       let head-rise = 3.5
       if kind == "equilibrium-filled" {
         let top-base = ex - sign * head-len
-        line((sx, 2.2), (ex, 2.2), stroke: 0.8pt + black)
+        line((sx, 2.2), (ex, 2.2), stroke: 0.8pt + clr)
         line(
           (ex, 2.2), (top-base, 2.2), (top-base, 2.2 + head-rise),
-          close: true, fill: black, stroke: none,
+          close: true, fill: clr, stroke: none,
         )
       } else {
-        line((sx, 2.2), (ex, 2.2), stroke: 0.8pt + black)
-        line((ex, 2.2), (ex - sign * head-len, 2.2 + head-rise), stroke: 0.8pt + black)
+        line((sx, 2.2), (ex, 2.2), stroke: 0.8pt + clr)
+        line((ex, 2.2), (ex - sign * head-len, 2.2 + head-rise), stroke: 0.8pt + clr)
       }
       if kind == "equilibrium-filled" {
         let bottom-base = sx + sign * head-len
-        line((ex, -2.2), (sx, -2.2), stroke: 0.8pt + black)
+        line((ex, -2.2), (sx, -2.2), stroke: 0.8pt + clr)
         line(
           (sx, -2.2), (bottom-base, -2.2), (bottom-base, -2.2 - head-rise),
-          close: true, fill: black, stroke: none,
+          close: true, fill: clr, stroke: none,
         )
       } else {
-        line((ex, -2.2), (sx, -2.2), stroke: 0.8pt + black)
-        line((sx, -2.2), (sx + sign * head-len, -2.2 - head-rise), stroke: 0.8pt + black)
+        line((ex, -2.2), (sx, -2.2), stroke: 0.8pt + clr)
+        line((sx, -2.2), (sx + sign * head-len, -2.2 - head-rise), stroke: 0.8pt + clr)
       }
     } else {
       panic("rxn-arrow kind must be \"single\", \"equilibrium\", \"equilibrium-filled\", \"dashed\", or \"wavy\"")
@@ -1702,17 +1877,20 @@
 }
 
 // Render a vertical reaction arrow. `above` is shown to the right, `below` to the left.
-#let _vert-arrow(above, below, dir, kind) = {
+#let _vert-arrow(above, below, dir, kind, clr) = context {
+  let clr = if clr == auto {
+    if type(text.fill) == color { text.fill } else { black }
+  } else { clr }
   let (from-y, to-y) = if dir == "up" { (0, 52) } else { (52, 0) }
   let arrow-canvas = cetz.canvas(length: 1pt, {
     import cetz.draw: *
     if kind == "single" {
-      line((0, from-y), (0, to-y), mark: (end: ">", fill: black, size: 5), stroke: 0.8pt + black)
+      line((0, from-y), (0, to-y), mark: (end: ">", fill: clr, size: 5), stroke: 0.8pt + clr)
     } else if kind == "dashed" {
       line(
         (0, from-y), (0, to-y),
-        mark: (end: ">", fill: black, size: 5),
-        stroke: (paint: black, thickness: 0.8pt, dash: (array: (3pt, 2.2pt), phase: 0pt)),
+        mark: (end: ">", fill: clr, size: 5),
+        stroke: (paint: clr, thickness: 0.8pt, dash: (array: (3pt, 2.2pt), phase: 0pt)),
       )
     } else if kind == "wavy" {
       let sign = if to-y > from-y { 1 } else { -1 }
@@ -1723,33 +1901,33 @@
         let t = i / n-seg
         (calc.sin(t * 3.0 * 2.0 * calc.pi) * 2.4, from-y + (wave-end - from-y) * t)
       })
-      line(..pts, stroke: (paint: black, thickness: 0.8pt, cap: "round", join: "round"))
-      line((0, wave-end), (0, to-y), mark: (end: ">", fill: black, size: 5), stroke: 0.8pt + black)
+      line(..pts, stroke: (paint: clr, thickness: 0.8pt, cap: "round", join: "round"))
+      line((0, wave-end), (0, to-y), mark: (end: ">", fill: clr, size: 5), stroke: 0.8pt + clr)
     } else if kind == "equilibrium" or kind == "equilibrium-filled" {
       let sign = if to-y > from-y { 1 } else { -1 }
       let head-len = 7
       let head-rise = 3.5
       if kind == "equilibrium-filled" {
         let left-base = to-y - sign * head-len
-        line((-2.2, from-y), (-2.2, to-y), stroke: 0.8pt + black)
+        line((-2.2, from-y), (-2.2, to-y), stroke: 0.8pt + clr)
         line(
           (-2.2, to-y), (-2.2, left-base), (-2.2 - head-rise, left-base),
-          close: true, fill: black, stroke: none,
+          close: true, fill: clr, stroke: none,
         )
       } else {
-        line((-2.2, from-y), (-2.2, to-y), stroke: 0.8pt + black)
-        line((-2.2, to-y), (-2.2 - head-rise, to-y - sign * head-len), stroke: 0.8pt + black)
+        line((-2.2, from-y), (-2.2, to-y), stroke: 0.8pt + clr)
+        line((-2.2, to-y), (-2.2 - head-rise, to-y - sign * head-len), stroke: 0.8pt + clr)
       }
       if kind == "equilibrium-filled" {
         let right-base = from-y + sign * head-len
-        line((2.2, to-y), (2.2, from-y), stroke: 0.8pt + black)
+        line((2.2, to-y), (2.2, from-y), stroke: 0.8pt + clr)
         line(
           (2.2, from-y), (2.2, right-base), (2.2 + head-rise, right-base),
-          close: true, fill: black, stroke: none,
+          close: true, fill: clr, stroke: none,
         )
       } else {
-        line((2.2, to-y), (2.2, from-y), stroke: 0.8pt + black)
-        line((2.2, from-y), (2.2 + head-rise, from-y + sign * head-len), stroke: 0.8pt + black)
+        line((2.2, to-y), (2.2, from-y), stroke: 0.8pt + clr)
+        line((2.2, from-y), (2.2 + head-rise, from-y + sign * head-len), stroke: 0.8pt + clr)
       }
     } else {
       panic("rxn-arrow kind must be \"single\", \"equilibrium\", \"equilibrium-filled\", \"dashed\", or \"wavy\"")
@@ -1888,8 +2066,8 @@
           let d = item.at("dir", default: "right")
           let k = item.at("kind", default: "single")
           flat-cells.push(
-            if d == "right" or d == "left" { _horiz-arrow(item.above, item.below, d, k) }
-            else                           { _vert-arrow(item.above, item.below, d, k) }
+            if d == "right" or d == "left" { _horiz-arrow(item.above, item.below, d, k, item.at("color", default: auto)) }
+            else                           { _vert-arrow(item.above, item.below, d, k, item.at("color", default: auto)) }
           )
         }
       }
@@ -1930,9 +2108,9 @@
           annotations.push(it)
         } else if is-rxn-arrow(it) {
           let body = if it.dir == "right" or it.dir == "left" {
-            _horiz-arrow(it.above, it.below, it.dir, it.kind)
+            _horiz-arrow(it.above, it.below, it.dir, it.kind, it.at("color", default: auto))
           } else {
-            _vert-arrow(it.above, it.below, it.dir, it.kind)
+            _vert-arrow(it.above, it.below, it.dir, it.kind, it.at("color", default: auto))
           }
           let w = measure(body).width / canvas-scale
           flow.push((body: body, origin: (cursor + w / 2, 0)))
@@ -1960,7 +2138,7 @@
               canvas-scale: canvas-scale,
               actual-font-size: mol-actual-fs,
               font: m.opts.at("font", default: "New Computer Modern"),
-              show-all-h: m.opts.at("show-all-h", default: false),
+              show-h: m.opts.at("show-h", default: ()),
             ))
             cursor += w + gap
           } else {
@@ -1992,6 +2170,10 @@
           if sp.kind == "mol-smiles" {
             group({
               translate((sp.origin.at(0), sp.origin.at(1)))
+              let (mol-fg, mol-theme) = _resolve-fg-theme(
+                sp.opts.at("fg", default: auto),
+                sp.opts.at("theme", default: auto),
+              )
               _draw-molecule(
                 sp.layout,
                 scale: the-scale,
@@ -2000,11 +2182,15 @@
                 bond-stroke: sp.opts.at("bond-stroke", default: none),
                 color: sp.opts.at("color", default: true),
                 rotation: sp.rotation,
-                show-all-h: sp.opts.at("show-all-h", default: false),
+                show-h: sp.opts.at("show-h", default: ()),
                 lone-pairs: sp.opts.at("lone-pairs", default: none),
                 atom-colors: sp.opts.at("atom-colors", default: (:)),
                 show-indices: sp.opts.at("show-indices", default: show-indices),
                 index-prefix: "species-" + str(sp-idx) + "-",
+                fg: mol-fg,
+                theme: mol-theme,
+                aromatic: sp.opts.at("aromatic", default: "kekule"),
+                atom-annotations: sp.opts.at("atom-annotations", default: ()),
               )
             })
           } else {
