@@ -2,7 +2,7 @@
 name = "athena-tu-darmstadt-exercise"
 version = "0.3.0"
 entrypoint = "template/lib.typ"
-authors = ["JeyRunner <https://github.com/JeyRunner>", "FussballAndy <https://github.com/FussballAndy>"]
+authors = ["JeyRunner <https://github.com/JeyRunner>", "FussballAndy <https://github.com/FussballAndy>", "TU Darmstadt Typst members <https://github.com/tuda-typst>"]
 license = "MIT"
 description = "Exercise template for TU Darmstadt (Technische Universität Darmstadt)."
 repository = "https://github.com/tuda-typst/tuda-typst-templates"
