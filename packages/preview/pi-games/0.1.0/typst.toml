@@ -1,0 +1,13 @@
+[package]
+name = "pi-games"
+version = "0.1.0"
+entrypoint = "pi-games.typ"
+authors = ["Piotr Kuszewski <pkusze@sgh.waw.pl>"]
+license = "MIT"
+description = "Draw normal-form and extensive-form game-theory diagrams."
+repository = "https://github.com/piotr-m-kuszewski/Pi_games_Typst"
+keywords = ["game theory", "normal form", "extensive form", "game tree", "payoff matrix", "economics"]
+categories = ["visualization"]
+disciplines = ["economics", "mathematics"]
+compiler = "0.14.0"
+exclude = ["assets/**"]
