@@ -1,0 +1,12 @@
+[package]
+name = "otter-docs"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jeremy Gao <@wensimehrp>"]
+license = "Apache-2.0"
+description = "Make Web documentation w/o external tools"
+homepage = "https://wensimehrp.github.io/otter-docs"
+repository = "https://github.com/wensimehrp/otter-docs"
+keywords = ["html", "web", "mdbook", "documentation"]
+categories = ["components", "model", "utility"]
+compiler = "0.15.0"
