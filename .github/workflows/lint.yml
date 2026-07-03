@@ -28,7 +28,7 @@ jobs:
           git checkout ${{ github.base_ref }}
           git checkout $pr_head
           git rebase ${{ github.base_ref }} -X ours
-      - uses: typst/package-check@726248b5a6ce75af88c3c5c2ed0cf153bb007b88 # v0.4.4
+      - uses: typst/package-check@5c72da4ea8e2ec50e65050e94ce71e3ad94d6cfa # v0.6.0
         with:
           installation-id: ${{ secrets.GH_INSTALLATION_ID }}
           app-id: ${{ secrets.GH_APP_ID }}
