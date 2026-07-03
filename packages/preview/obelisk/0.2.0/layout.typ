@@ -149,7 +149,7 @@
         )
         let y-end = (
           if end-pos.page == page-num {
-            end-pos.y - step * 2
+            end-pos.y
           } else {
             height - f-margin
           }
@@ -189,24 +189,22 @@
   context {
     let id = counter("__obelisk_sblock-id").get().first()
 
-    [
-      #metadata((
-        stroke: stroke,
-        offset: offset,
-        outset: outset,
-      ))
-      #label("__obelisk_sblock_start-" + str(id))
-    ]
     block(
       width: 100%,
       breakable: true,
-      body,
+      [
+        #metadata((
+          stroke: stroke,
+          offset: offset,
+          outset: outset,
+        ))
+        #label("__obelisk_sblock_start-" + str(id))
+        #body
+        #metadata(none)
+        #label("__obelisk_sblock_end-" + str(id))
+      ],
       outset: outset,
     )
-    [
-      #metadata(none)
-      #label("__obelisk_sblock_end-" + str(id))
-    ]
   }
 }
 
@@ -221,7 +219,7 @@
   let margin-w = def.side.width
   let sans-font = def.fonts.sans
   let step = def.texts.step
-  let text-height = def.texts.ascender
+  let ascender = def.texts.ascender
   let t-width = def.body.width
   let half-gutter = def.side.half-gutter
 
@@ -232,7 +230,7 @@
     [*#env #numstr*\ #if name != none { name }],
   ))
   let s-height = measure(side).height
-  let bottom-out = step - text-height
+  let bottom-out = step - ascender
   let body-stroke = color + 3pt
   let body = block(
     [#place-side(side) #it],
@@ -248,7 +246,7 @@
     outset: (
       left: half-gutter,
       right: half-gutter,
-      top: text-height + bottom-out,
+      top: ascender + bottom-out,
       bottom: bottom-out,
     ),
   )
