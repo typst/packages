@@ -77,9 +77,32 @@ Customization is done via the global show rule: `#show eggs.with(...)`.
 
 ## HTML
 
-Eggs' fully custom richly inline-styled HTML output looks almost as good as the PDF one. [Check it out](https://html-preview.github.io/?url=https://github.com/retroflexivity/typst-eggs/blob/main/assets/example.html).
+Eggs' fully custom richly inline-styled HTML output looks almost as good as the PDF one. [Check it out](https://html-preview.github.io/?url=https://github.com/retroflexivity/typst-eggs/blob/0.9.0/assets/example.html).
 
 ## More stuff
 
 See [documentation.pdf](documentation.pdf) for more info.
 
+<!-- exclude -->
+## Installing locally
+On Linux, run `just` in the directory to install the package to ~/.local/typst/packages/local.
+
+## Contributing
+
+Please submit an issue for any bug you find and any suggestion you have.
+
+Contributions are much welcome, too.
+
+TODO:
+- Smarter gloss line styling;
+- Figure out how to modify spacing between examples specifically.
+
+## License
+
+MIT License.
+
+## Special thanks
+
+- [JJ](https://github.com/omentic) for various improvements.
+- [PgBiel](https://github.com/PgBiel) for creating elembic.
+- [Greg Shuflin](https://github.com/neunenak) and contributors for creating the original leipzig-glossing.
