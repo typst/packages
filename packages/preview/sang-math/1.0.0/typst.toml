@@ -1,0 +1,10 @@
+[package]
+name = "sang-math"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Sang Nguyen <sangnhc87@gmail.com>"]
+license = "MIT"
+description = "Vietnamese high school math macros: sign/variation tables (BBT), multiple-choice (MCQ), geometry with CeTZ"
+keywords = ["math", "exam", "vietnam", "table", "geometry"]
+homepage = "https://hdsd-conictypst.pages.dev"
+repository = "https://github.com/sangnhc87/conictypst"
