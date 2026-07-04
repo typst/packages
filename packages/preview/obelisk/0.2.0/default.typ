@@ -136,7 +136,7 @@
     height: paper.height - margin.t - margin.f,
   )
   texts.step-num = calc.floor(body.height / texts.step)
-  texts.descender = texts.step - texts.ascender
+  texts.descender = 0pt
   margin.f = (
     paper.height - margin.t - texts.step-num * texts.step
   )
