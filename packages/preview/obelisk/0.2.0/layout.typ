@@ -182,6 +182,7 @@
     top: 0pt,
     bottom: 0pt,
   ),
+  height: 0pt,
   ..args,
 ) = {
   counter("__obelisk_sblock-id").step()
@@ -199,7 +200,7 @@
           outset: outset,
         ))
         #label("__obelisk_sblock_start-" + str(id))
-        #body
+        #block(height: height, body)
         #metadata(none)
         #label("__obelisk_sblock_end-" + str(id))
       ],
