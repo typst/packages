@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://typst.app/universe/package/xwysyy"><img src="https://img.shields.io/badge/Typst%20Universe-available-239dad.svg" alt="Typst Universe"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://typst.app"><img src="https://img.shields.io/badge/Typst-%E2%89%A5%200.14.2-239dad.svg" alt="Typst version: >= 0.14.2"></a>
+  <a href="https://typst.app"><img src="https://img.shields.io/badge/Typst-%E2%89%A5%200.14.0-239dad.svg" alt="Typst version: >= 0.14.0"></a>
   <a href="https://github.com/touying-typ/touying"><img src="https://img.shields.io/badge/touying-0.7.4-blueviolet.svg" alt="touying version: 0.7.4"></a>
   <a href="#-themes"><img src="https://img.shields.io/badge/Themes-6%20built--in-ff69b4.svg" alt="Built-in themes"></a>
 </p>
@@ -20,19 +20,12 @@ Academic presentation and note-taking templates built on [touying](https://githu
 - Six built-in themes: `sky`, `sunset`, `forest`, `midnight`, `violet`, and `graphite`.
 - Custom theme dictionaries can be passed directly to `theme`, so users can customize colors without forking the package.
 - Slide font parameters match note mode: `font`, `code-font`, and `lang`.
-- Touying handout mode, `#speaker-note`, and pdfpc export are documented and covered by examples.
+- Touying handout mode, `#speaker-note`, and pdfpc export are documented with source examples.
 - `xwysyy-doc` compiles one source as a 16:9 deck by default and as A4 notes with `--input mode=note`.
-- CI scripts cover example compilation, visual regression, theme contrast, and README preview generation.
 
 ## Preview
 
-```bash
-typst compile --root . examples/slides-sky.typ
-typst compile --root . examples/slides-sunset.typ
-typst compile --root . examples/note.typ
-typst compile --root . examples/dual-source.typ
-typst compile --root . --input mode=note examples/dual-source.typ dual-note.pdf
-```
+Rendered previews are generated from the source repository. The source examples are available at <https://github.com/xwysyy/xwysyy-typst/tree/v0.3.0/examples>.
 
 ### Slide Themes
 
@@ -167,15 +160,21 @@ Each theme has the same eight fields:
 | Highlight | `red` / `bred` | `#red[text]` / `#bred[bold red]` |
 | Highlight | `yellow` / `byellow` | `#yellow[text]` / `#byellow[bold yellow]` |
 | Note entry | `xwysyy-note` | `#show: xwysyy-note.with(title: [...])` |
-| Extensions | `xwysyy-extras` | cetz, fletcher, and theorion integrations |
+| Extensions | `cetz-canvas` / `fletcher-diagram` | cetz, fletcher, and theorion integrations |
 
 ## Handouts And Speaker Notes
 
-`examples/slides-sky.typ` reads `--input handout=true` and passes `config-common(handout: true)` to touying:
+Enable touying handout mode by passing `config-common(handout: true)` through `xwysyy-pre`:
+
+```typst
+#show: xwysyy-pre.with(
+  config-common(handout: true),
+  config-info(title: [My Presentation]),
+)
+```
 
 ```bash
-typst compile --root . examples/slides-sky.typ slides.pdf
-typst compile --root . --input handout=true examples/slides-sky.typ slides-handout.pdf
+typst compile main.typ slides-handout.pdf
 ```
 
 Speaker notes are available because `xwysyy.typ` re-exports touying:
@@ -189,7 +188,7 @@ Speaker notes are available because `xwysyy.typ` re-exports touying:
 Export pdfpc metadata:
 
 ```bash
-typst query --root . examples/slides-sky.typ --field value --one "<pdfpc-file>" > slides-sky.pdfpc
+typst query main.typ --field value --one "<pdfpc-file>" > slides.pdfpc
 ```
 
 ## One Source, Two Outputs
@@ -209,36 +208,24 @@ Use `xwysyy-doc` when one source should produce both deck and notes:
 Compile the deck:
 
 ```bash
-typst compile --root . examples/dual-source.typ dual-slides.pdf
+typst compile main.typ slides.pdf
 ```
 
 Compile the A4 notes:
 
 ```bash
-typst compile --root . --input mode=note examples/dual-source.typ dual-note.pdf
+typst compile --input mode=note main.typ notes.pdf
 ```
 
 ## Requirements
 
-- Typst 0.14.2
+- Typst >= 0.14.0
 - touying 0.7.4, downloaded on first compile
 - physica 0.9.8, downloaded on first compile
 - Default local fonts: Times New Roman, Noto Serif CJK SC, and Maple Mono
 - Typst web app users can pass web-available fonts with `font:` and `code-font:`
 
-## Maintenance
-
-Regenerate README previews:
-
-```bash
-scripts/gen-previews
-```
-
-Regenerate visual regression baselines:
-
-```bash
-scripts/gen-previews --with-baseline
-```
+## Documentation
 
 Full API reference: [docs/USAGE.md](https://github.com/xwysyy/xwysyy-typst/blob/v0.3.0/docs/USAGE.md). Customization guide: [docs/CUSTOMIZATION.md](https://github.com/xwysyy/xwysyy-typst/blob/v0.3.0/docs/CUSTOMIZATION.md). Theme generator: [docs/THEME-GENERATOR.md](https://github.com/xwysyy/xwysyy-typst/blob/v0.3.0/docs/THEME-GENERATOR.md).
 

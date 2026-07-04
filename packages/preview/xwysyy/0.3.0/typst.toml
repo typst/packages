@@ -9,7 +9,7 @@ repository = "https://github.com/xwysyy/xwysyy-typst"
 keywords = ["slides", "presentation", "academic", "touying", "theme"]
 categories = ["presentation", "components"]
 disciplines = ["computer-science"]
-compiler = "0.14.2"
+compiler = "0.14.0"
 exclude = []
 
 [template]
