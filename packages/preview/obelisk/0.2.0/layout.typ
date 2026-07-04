@@ -33,13 +33,14 @@
   let def = default-settings.get()
   let t-width = def.body.width
   let side-margin = def.side.margin
+  let side-width = def.side.width
   let half-gutter = def.side.half-gutter
   let e-margin = def.margin.e
   let text-height = def.texts.ascender
 
   let page-num = here().page()
   let move = if calc.even(page-num) {
-    -e-margin + dx
+    -side-width - half-gutter + dx
   } else {
     t-width + half-gutter + dx
   }
@@ -50,7 +51,7 @@
   }
   set par(justify: false)
   let boxed = box(
-    width: def.side.width,
+    width: side-width,
     inset: (
       left: half-gutter,
       right: half-gutter,

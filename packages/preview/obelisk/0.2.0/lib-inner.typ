@@ -213,7 +213,7 @@
 
     // FIXME: if we wrap the equation in a box, it becomes unbreakable. The box may also break some diagram packages like fletcher.
     // This is a temporary fix that should work most of the time: when there is no adjustment needed, don't wrap the equation.
-    if gt + gb == 0 {
+    if gt + gb == 0pt {
       it
     } else {
       box(
