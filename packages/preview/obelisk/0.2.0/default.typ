@@ -45,7 +45,7 @@
 // Fonts
 #let body-font = "TeX Gyre Pagella"
 #let math-font = "TeX Gyre Pagella Math"
-#let sans-font = "Switzer"
+#let sans-font = "Inter"
 #let mono-font = "IBM Plex Mono"
 #let def-fonts = (
   body: body-font,
@@ -140,7 +140,7 @@
     paper.height - margin.t - texts.step-num * texts.step
   )
   body.height = paper.height - margin.t - margin.f
-  side.width = body.width - side.margin - side.half-gutter
+  side.width = margin.e - side.margin - side.half-gutter
   return (
     paper: paper,
     body: body,

@@ -1,2 +1,8 @@
-#import "lib-inner.typ": init, bblock, sidenote, blank-page, default-settings
-#import "theorem.typ": theorem, lemma, corollary, definition, proposition, remark, example, proof, make-environment
+#import "lib-inner.typ": (
+  bblock, blank-page, default-settings, init, sidenote,
+  v-step,
+)
+#import "theorem.typ": (
+  corollary, definition, example, lemma, make-environment,
+  proof, proposition, remark, theorem,
+)

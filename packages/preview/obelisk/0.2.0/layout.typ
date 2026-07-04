@@ -1,5 +1,10 @@
 #import "default.typ": default-settings
 
+#let v-step(size) = context {
+  let def = default-settings.get()
+  v(size * def.texts.step)
+}
+
 // A baseline-aligned block.
 #let bblock(it, ..args) = context {
   let def = default-settings.get()
@@ -36,7 +41,7 @@
   let move = if calc.even(page-num) {
     -e-margin + dx
   } else {
-    t-width - side-margin + half-gutter + dx
+    t-width + half-gutter + dx
   }
   let flush = if calc.even(page-num) {
     right
@@ -45,9 +50,9 @@
   }
   set par(justify: false)
   let boxed = box(
-    width: e-margin - half-gutter,
+    width: def.side.width,
     inset: (
-      left: half-gutter + side-margin,
+      left: half-gutter,
       right: half-gutter,
     ),
     outset: (
@@ -182,7 +187,7 @@
     top: 0pt,
     bottom: 0pt,
   ),
-  height: 0pt,
+  height: none,
   ..args,
 ) = {
   counter("__obelisk_sblock-id").step()
@@ -200,7 +205,18 @@
           outset: outset,
         ))
         #label("__obelisk_sblock_start-" + str(id))
-        #block(height: height, body)
+        #if height == none {
+          block(
+            body,
+            breakable: true,
+          )
+        } else {
+          block(
+            body,
+            height: height,
+            breakable: true,
+          )
+        }
         #metadata(none)
         #label("__obelisk_sblock_end-" + str(id))
       ],
@@ -225,11 +241,14 @@
   let half-gutter = def.side.half-gutter
 
   let page-num = here().page()
-  let side = block(width: margin-w, text(
-    fill: color,
-    font: sans-font,
-    [*#env #numstr*\ #if name != none { name }],
-  ))
+  let side = block(
+    width: def.side.width,
+    text(
+      fill: color,
+      font: sans-font,
+      [*#env #numstr*\ #if name != none { name }],
+    ),
+  )
   let s-height = measure(side).height
   let bottom-out = step - ascender
   let body-stroke = color + 3pt
@@ -241,7 +260,11 @@
   let b-height = measure(body).height
   sblock(
     body,
-    height: calc.max(b-height, s-height),
+    height: if s-height > b-height {
+      s-height
+    } else {
+      none
+    },
     stroke: body-stroke,
     offset: half-gutter,
     outset: (

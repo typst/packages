@@ -69,12 +69,10 @@ Obelisk exposes its architectural engine through a centralized configuration dic
 ### 1. Layout Configuration
 
 ```typst
-(
-  paper: (width, height),
-  margin: (s, e, t, f),
-  side: (half-gutter, margin),
-  texts: (size, ascender, step),
-)
+paper: (width, height),
+margin: (s, e, t, f),
+side: (half-gutter, margin),
+texts: (size, ascender, step),
 ```
 
 * **`paper`**: Maps the absolute dimensions of the physical canvas.
@@ -101,17 +99,32 @@ Obelisk exposes its architectural engine through a centralized configuration dic
 ```typst
 fonts: (body, math, sans, mono)
 ```
-By default, Obelisk uses **TeX Gyre Pagella (Math)** for body and math fonts, **Switzer** for sans and **IBM Plex Mono** for mono.
+By default, Obelisk uses **TeX Gyre Pagella (Math)** for body and math fonts, **Inter** for sans and **IBM Plex Mono** for mono. These fonts are already included in the web app.
 
 For font replacements, _we recommend_:
 
-* For the sans font: use heavy, geometric, or unextended modern grotesques.
-* For the mono font: use high-legibility coding typefaces.
+* For the sans font: use heavy, geometric, or unextended modern grotesques. We recommend: Switzer, Inter, IBM Plex Sans.
+* For the mono font: use high-legibility coding typefaces. We recommend: IBM Plex Mono, Jetbrains Mono.
 
 ### 3. Decoration Configuration
 
 ```typst
 deco: (line-number)
+headers: (h2: (sym, dy, size), h3: (sym, dy, size))
 ```
 
-* **`line-number`**: show line number or not. Default `true`.
+* **`deco`**: configures decorations.
+  * `line-number`: toggle show line number or not. Default `true`.
+
+* **`headers`**: configures H2 and H3 headers.
+  * `sym`: the symbol to place on the vertical line.
+  * `dy`: for some large symbols the symbol will be a bit off the horizontal line. Nudge this parameter to bring it back. Default: `0pt`.
+  * `size`: the size factor of the headings. Default: `2` for H2, `1.5` for H3.
+
+---
+
+## Known Issues
+
+1. Inline math equations are aligned using a box to adjust its height. However, once it is wrapped inside a box, it becomes unbreakable, so inline long equations may fail to break lines. Also, it may break some packages that rely on the layout of the equation, like `fletcher`. Currently the workaround is that if there is no need to adjust its height, then don't wrap it in a box. This should work most of the time; for extra tall equations, manual adjusting might be needed.
+
+2. Theorem blocks rely on measuring the height of the sidenote. However the current measuring mechanism is somewhat broken and sometimes returns the wrong height for very long paragraphs, a little less than the actual height. Manual adjusting might be needed; you can use `v-step(size)` (size being an integer) to insert spaces. This should not be needed for short texts.
