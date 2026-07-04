@@ -14,8 +14,6 @@ All texts are by default aligned to a baseline grid.
 
 $ integral_0^(+oo) "e"^(-x^2) dif x=sqrt(pi)/2 $
 
-Math blocks are also automatically aligned.
-
 === Third Level Header
 
 The template includes several theorem environments by default. #sidenote[inline sidenotes can be added] Theorems can have titles and referenced.

@@ -1,7 +1,7 @@
 // Paper measures
 #let width = 21cm
 #let height = width * calc.sqrt(2)
-#let def-paper = (width: width, height: height)
+#let def-paper = (width: width, height: height, two-sided: true)
 
 // Paper margins
 #let t-margin = width / 9
@@ -25,7 +25,7 @@
 
 // Text measures
 #let text-size = 12pt
-#let text-height = 9pt // Approximately the ascender height
+#let text-height = 10pt // Approximately the ascender height
 
 // Baseline grid
 #let step = 16pt
@@ -136,6 +136,7 @@
     height: paper.height - margin.t - margin.f,
   )
   texts.step-num = calc.floor(body.height / texts.step)
+  texts.descender = texts.step - texts.ascender
   margin.f = (
     paper.height - margin.t - texts.step-num * texts.step
   )

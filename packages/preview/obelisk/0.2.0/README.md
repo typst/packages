@@ -69,7 +69,7 @@ Obelisk exposes its architectural engine through a centralized configuration dic
 ### 1. Layout Configuration
 
 ```typst
-paper: (width, height),
+paper: (width, height, two-sided),
 margin: (s, e, t, f),
 side: (half-gutter, margin),
 texts: (size, ascender, step),
@@ -77,10 +77,11 @@ texts: (size, ascender, step),
 
 * **`paper`**: Maps the absolute dimensions of the physical canvas.
     * `width` / `height`: Explicit length dimensions. Defaults to A4 size.
+    * `two-sided`: whether to use a two-sided layout. Defaults to `true`.
 
 
 * **`margin`**: Uses logical binding scopes to handle alternating page layouts dynamically.
-    * `s` / `e`: Spine (Inside) and Face (Outside) horizontal margins. The layout engine flips these on odd and even pages to maintain binding gutters.
+    * `s` / `e`: Spine (Inside) and Face (Outside) horizontal margins. The layout engine flips these on odd and even pages to maintain binding gutters. In single-sided mode, they are right and left margins respectively.
     * `t` / `f`: Top and Foot (Bottom) vertical margins, defining the boundaries where the baseline grid activates and terminates.
 
 
@@ -127,4 +128,6 @@ headers: (h2: (sym, dy, size), h3: (sym, dy, size))
 
 1. Inline math equations are aligned using a box to adjust its height. However, once it is wrapped inside a box, it becomes unbreakable, so inline long equations may fail to break lines. Also, it may break some packages that rely on the layout of the equation, like `fletcher`. Currently the workaround is that if there is no need to adjust its height, then don't wrap it in a box. This should work most of the time; for extra tall equations, manual adjusting might be needed.
 
-2. Theorem blocks rely on measuring the height of the sidenote. However the current measuring mechanism is somewhat broken and sometimes returns the wrong height for very long paragraphs, a little less than the actual height. Manual adjusting might be needed; you can use `v-step(size)` (size being an integer) to insert spaces. This should not be needed for short texts.
+2. The Typst engine will try to automatically increase line height when a inline math equation is particularly tall or deep. This behaviour could sometimes cause the line to shift a little. To fix this, you can adjust the `texts.descender` field to a value such that tall equations are automatically handled by the template, rather than the Typst engine. The default value should be a descent estimate.
+
+3. Theorem blocks rely on measuring the height of the sidenote. However the current measuring mechanism is somewhat broken and sometimes returns the wrong height for very long paragraphs, a little less than the actual height. Manual adjusting might be needed; you can use `v-step(size)` (size being an integer) to insert spaces. This should not be needed for short texts.

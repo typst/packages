@@ -1,6 +1,10 @@
 #import "layout.typ": *
 #import "headers.typ": *
-#import "default.typ": *
+#import "default.typ": (
+  def-deco, def-fonts, def-headers, def-margin, def-paper,
+  def-side, def-texts, default-settings,
+  or-default-settings,
+)
 #import "theorem.typ": *
 
 #import "@preview/hydra:0.6.3": anchor, hydra
@@ -37,16 +41,28 @@
     deco,
     headers,
   ) = default
-  set page(
-    margin: (
+  let paper-margin = if paper.two-sided {
+    (
       top: margin.t + texts.step,
       outside: margin.e,
       inside: margin.s,
       bottom: margin.f,
-    ),
+    )
+  } else {
+    (
+      top: margin.t + texts.step,
+      left: margin.e,
+      right: margin.s,
+      bottom: margin.f,
+    )
+  }
+  set page(
+    margin: paper-margin,
     background: context {
       let page-num = here().page()
-      let dx = if calc.even(page-num) {
+      let dx = if (
+        calc.even(page-num) or not paper.two-sided
+      ) {
         margin.e - side.half-gutter
       } else {
         paper.width - margin.e + side.half-gutter
@@ -64,20 +80,24 @@
       // place(
       //   top + left,
       //   dx: margin.e,
-      //   dy: t-margin,
+      //   dy: margin.t,
       //   grid(
-      //     columns: (t-width,),
+      //     columns: (body.width,),
       //     stroke: (bottom: 0.5pt + gray),
-      //     ..(block(width: 100%, height: step),) * 42
+      //     ..(block(width: 100%, height:texts.step),) * 42
       //   ),
       // )
       if deco.line-number {
-        let dx = if calc.even(page-num) {
+        let dx = if (
+          calc.even(page-num) or not paper.two-sided
+        ) {
           paper.width - margin.s + side.half-gutter
         } else {
           margin.s - side.half-gutter - 3pt
         }
-        let rot = if calc.even(page-num) {
+        let rot = if (
+          calc.even(page-num) or not paper.two-sided
+        ) {
           90deg
         } else {
           -90deg
@@ -113,7 +133,7 @@
       let header-text = text(
         font: fonts.mono,
         fill: luma(210),
-        if calc.odd(page-num) {
+        if calc.odd(page-num) and paper.two-sided {
           context hydra(2) + " "
         } else {
           "" + context hydra(1)
@@ -123,7 +143,7 @@
       let dx = -body.width / 2 - side.half-gutter
       place(
         top + center,
-        dx: if calc.even(page-num) {
+        dx: if calc.even(page-num) or not paper.two-sided {
           dx
         } else {
           -dx
@@ -140,14 +160,16 @@
       )
 
       let dx = -side.half-gutter + pnum-width / 2
-      let flush = if calc.odd(page-num) {
+      let flush = if (
+        calc.odd(page-num) and paper.two-sided
+      ) {
         right
       } else {
         left
       }
       place(
         top + flush,
-        dx: if calc.even(page-num) {
+        dx: if calc.even(page-num) or not paper.two-sided {
           dx
         } else {
           -dx
@@ -191,24 +213,23 @@
   })
 
   show math.equation.where(block: false): it => context {
-    let h = measure({
-      set text(top-edge: "bounds", bottom-edge: "bounds")
-      it
-    }).height
-    let ht = measure({
-      set text(top-edge: "bounds", bottom-edge: "baseline")
-      it
-    }).height
-    let hb = h - ht
+    let (
+      height: h,
+      ascender: ht,
+      descender: hb,
+    ) = true-metrics(it)
     let gt = (
-      calc.max(calc.ceil((ht - step) / step), 0) * step
+      calc.max(calc.ceil((ht - texts.step + texts.descender) / texts.step), 0)
+        * texts.step
     )
     let gb = (
       calc.max(
-        calc.ceil((hb - step * 2 + text-height) / step),
+        calc.ceil(
+          (hb - texts.step + texts.ascender) / texts.step,
+        ),
         0,
       )
-        * step
+        * texts.step
     )
 
     // FIXME: if we wrap the equation in a box, it becomes unbreakable. The box may also break some diagram packages like fletcher.
@@ -217,10 +238,11 @@
       it
     } else {
       box(
-        box(align(bottom, it)),
-        height: gt + gb,
-        outset: (top: step),
-        inset: (bottom: gb),
+        // height: gt + gb,
+        inset: (top: gt - ht, bottom: gb - hb),
+        // stroke: blue,
+        text(top-edge: "bounds", bottom-edge: "bounds", it),
+        // outset: (top: texts.step),
       )
     }
   }

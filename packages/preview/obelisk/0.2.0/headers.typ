@@ -1,8 +1,9 @@
 #import "default.typ": default-settings
-#import "layout.typ": place-node, blank-page
+#import "layout.typ": blank-page, place-node
 
 #let show-headers(it) = context {
   let (
+    paper,
     margin,
     fonts,
     texts,
@@ -23,31 +24,47 @@
 
   show heading.where(level: 1): it => context {
     let step = texts.step
-    blank-page(to: "odd", weak: true)
+    let two-sided = paper.two-sided
+    if two-sided {
+      blank-page(to: "odd", weak: true)
+    } else {
+      blank-page(weak: true)
+    }
     let h1 = counter(heading).at(here()).at(0)
-    place(
-      top + right,
-      dx: margin.e + 10pt,
-      dy: -margin.t - step - 10pt,
-      box(
-        stroke: 0.75pt + luma(180),
-        fill: white,
-        width: 7cm,
-        height: 7cm,
-        align(
-          center + horizon,
-          text(
-            font: fonts.sans,
-            size: 120pt,
-            fill: white,
-            top-edge: "bounds",
-            bottom-edge: "bounds",
-            stroke: 1.5pt + luma(180),
-            [#h1],
-          ),
+    let boxed = box(
+      stroke: 0.75pt + luma(180),
+      fill: white,
+      width: 7cm,
+      height: 7cm,
+      align(
+        center + horizon,
+        text(
+          font: fonts.sans,
+          size: 120pt,
+          fill: white,
+          top-edge: "bounds",
+          bottom-edge: "bounds",
+          stroke: 1.5pt + luma(180),
+          [#h1],
         ),
       ),
     )
+    if two-sided {
+      place(
+        top + right,
+        dx: margin.e + 10pt,
+        dy: -margin.t - step - 10pt,
+        boxed,
+      )
+    } else {
+      place(
+        top + left,
+        dx: -margin.e - 10pt,
+        dy: -margin.t - step - 10pt,
+        boxed
+      )
+    }
+
     v(step * 12)
     text(
       size: texts.size * 3.5,

@@ -9,24 +9,52 @@
 #let bblock(it, ..args) = context {
   let def = default-settings.get()
   let step = def.texts.step
+  let ascender = def.texts.ascender
 
   set text(top-edge: "bounds", bottom-edge: "bounds")
   let height = measure({
     set text(top-edge: "bounds", bottom-edge: "bounds")
     it
   }).height
-  let desired-height = calc.round(height / step)
-  block(v(step * 2 / 3), spacing: 0pt, sticky: true)
+  let desired-height = calc.round(height / step) + 1
   block(
     height: desired-height * step,
+    inset: (top: (step - ascender) / 2),
     align(horizon, it),
-    // stroke: 1pt,
     above: 0pt,
     below: step,
-    sticky: true,
     ..args,
   )
-  block(v(step / 3), spacing: 0pt, sticky: true)
+}
+
+
+#let true-metrics(eq) = {
+  let total = measure(text(
+    top-edge: "bounds",
+    bottom-edge: "bounds",
+    eq,
+  ))
+  let strut-height = 1000pt
+  let strut = box(
+    width: 0pt,
+    height: strut-height,
+    baseline: 0pt,
+  )
+
+  let combined = measure(text(
+    top-edge: "bounds",
+    bottom-edge: "bounds",
+    eq + strut,
+  ))
+
+  let descender = combined.height - strut-height
+  let ascender = total.height - descender
+
+  return (
+    height: total.height,
+    ascender: ascender,
+    descender: descender,
+  )
 }
 
 #let place-side(it, dx: 0pt, dy: 0pt, ..args) = context {
@@ -37,14 +65,15 @@
   let half-gutter = def.side.half-gutter
   let e-margin = def.margin.e
   let text-height = def.texts.ascender
+  let two-sided = def.paper.two-sided
 
   let page-num = here().page()
-  let move = if calc.even(page-num) {
+  let move = if calc.even(page-num) or not two-sided {
     -side-width - half-gutter + dx
   } else {
     t-width + half-gutter + dx
   }
-  let flush = if calc.even(page-num) {
+  let flush = if calc.even(page-num) or not two-sided {
     right
   } else {
     left
@@ -69,9 +98,10 @@
 #let place-node(sym, dy: 0pt) = context {
   let def = default-settings.get()
   let half-gutter = def.side.half-gutter
+  let two-sided = def.paper.two-sided
   let page-num = here().page()
   let width = measure(sym).width
-  let dx = if calc.even(page-num) {
+  let dx = if calc.even(page-num) or not two-sided {
     half-gutter + width / 2
   } else {
     -half-gutter - width / 2
@@ -96,9 +126,10 @@
   let f-margin = def.margin.f
   let step = def.texts.step
   let ascender = def.texts.ascender
+  let two-sided = def.paper.two-sided
 
   let page-num = counter(page).get().first()
-  let is-odd = calc.odd(page-num)
+  let is-odd = calc.odd(page-num) and two-sided
 
   // Get the total number of sblocks in the document
   let total-blocks = counter("__obelisk_sblock-id")
@@ -279,10 +310,11 @@
 
 #let sidenote(it, dy: 0pt) = context {
   let def = default-settings.get()
+  let two-sided = def.paper.two-sided
   let page-num = here().page()
   let posx = here().position().x
   sym.wj
-  let dx = if calc.even(page-num) {
+  let dx = if calc.even(page-num) or not two-sided {
     -posx + def.margin.e
   } else {
     -posx + def.margin.s
