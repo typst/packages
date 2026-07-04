@@ -131,80 +131,69 @@
   let page-num = counter(page).get().first()
   let is-odd = calc.odd(page-num) and two-sided
 
+  let all-starts = query(<obelisk:sblock-start>)
+  let all-ends = query(<obelisk:sblock-end>)
+
   // Get the total number of sblocks in the document
-  let total-blocks = counter("__obelisk_sblock-id")
-    .final()
-    .first()
+  let total-blocks = calc.min(all-starts.len(), all-ends.len())
 
-  for id in range(1, total-blocks + 1) {
-    let start-elements = query(label(
-      "__obelisk_sblock_start-" + str(id),
-    ))
-    let end-elements = query(label(
-      "__obelisk_sblock_end-" + str(id),
-    ))
+  for id in range(total-blocks) {
+    let start-el = all-starts.at(id)
+    let start-loc = start-el.location()
+    let end-loc = all-ends.at(id).location()
+    let start-pos = start-loc.position()
+    let end-pos = end-loc.position()
 
-    if start-elements.len() > 0 and end-elements.len() > 0 {
-      let start-el = start-elements.first()
-      let start-pos = start-el.location().position()
-      let end-pos = end-elements
-        .first()
-        .location()
-        .position()
+    // If the block exists on the current page...
+    if (
+      start-pos.page <= page-num and end-pos.page >= page-num
+    ) {
+      // Extract the unique custom style dictionary from the metadata
+      let config = start-el.value
+      let stroke-style = config.at(
+        "stroke",
+        default: 1pt + black,
+      )
+      let offset = config.at("offset", default: 0.2cm)
+      let outset = config.at("outset", default: (
+        left: 0pt,
+        right: 0pt,
+        top: 0pt,
+        bottom: 0pt,
+      ))
 
-      // If the block exists on the current page...
-      if (
-        start-pos.page <= page-num
-          and end-pos.page >= page-num
-      ) {
-        // Extract the unique custom style dictionary from the metadata
-        let config = start-el.value
-        let stroke-style = config.at(
-          "stroke",
-          default: 1pt + black,
-        )
-        let offset = config.at("offset", default: 0.2cm)
-        let outset = config.at("outset", default: (
-          left: 0pt,
-          right: 0pt,
-          top: 0pt,
-          bottom: 0pt,
-        ))
-
-        let x-pos = if is-odd {
-          width - e-margin + offset
-        } else {
-          e-margin - offset
-        }
-        let y-start = (
-          if start-pos.page == page-num {
-            start-pos.y
-          } else {
-            t-margin + step
-          }
-            - outset.top
-        )
-        let y-end = (
-          if end-pos.page == page-num {
-            end-pos.y
-          } else {
-            height - f-margin
-          }
-            + outset.bottom
-        )
-
-        // Render the custom "stroke"
-        place(
-          top + left,
-          dx: x-pos,
-          dy: y-start,
-          line(
-            start: (0pt, 0pt),
-            end: (0pt, y-end - y-start),
-            stroke: stroke-style,
-          ),
-        )
+      let x-pos = if is-odd {
+        width - e-margin + offset
+      } else {
+        e-margin - offset
       }
+      let y-start = (
+        if start-pos.page == page-num {
+          start-pos.y
+        } else {
+          t-margin + step
+        }
+          - outset.top
+      )
+      let y-end = (
+        if end-pos.page == page-num {
+          end-pos.y
+        } else {
+          height - f-margin
+        }
+          + outset.bottom
+      )
+
+      place(
+        top + left,
+        dx: x-pos,
+        dy: y-start,
+        line(
+          start: (0pt, 0pt),
+          end: (0pt, y-end - y-start),
+          stroke: stroke-style,
+        ),
+      )
     }
   }
 }
@@ -222,11 +211,7 @@
   height: none,
   ..args,
 ) = {
-  counter("__obelisk_sblock-id").step()
-
   context {
-    let id = counter("__obelisk_sblock-id").get().first()
-
     block(
       width: 100%,
       breakable: true,
@@ -236,7 +221,7 @@
           offset: offset,
           outset: outset,
         ))
-        #label("__obelisk_sblock_start-" + str(id))
+        <obelisk:sblock-start>
         #if height == none {
           block(
             body,
@@ -250,7 +235,7 @@
           )
         }
         #metadata(none)
-        #label("__obelisk_sblock_end-" + str(id))
+        <obelisk:sblock-end>
       ],
       outset: outset,
     )
