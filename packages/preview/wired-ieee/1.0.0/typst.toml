@@ -2,7 +2,7 @@
 name = "wired-ieee"
 version = "1.0.0"
 entrypoint = "lib.typ"
-authors = ["Hugo Coto Flórez <hugoocoto>"]
+authors = ["Hugo Coto Flórez <hugo.coto@outlook.com>"]
 license = "MIT"
 description = "A multilanguage Typst template for writing academic papers in the IEEE style."
 repository = "https://github.com/hugoocoto/wired-ieee"
