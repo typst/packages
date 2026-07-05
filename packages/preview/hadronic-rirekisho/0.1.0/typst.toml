@@ -1,5 +1,5 @@
 [package]
-name = "rirekisho"
+name = "hadronic-rirekisho"
 version = "0.1.0"
 entrypoint = "rirekisho.typ"
 authors = ["yoshphys <@yoshphys>"]

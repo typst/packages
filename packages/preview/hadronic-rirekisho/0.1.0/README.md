@@ -1,19 +1,19 @@
 # typst-rirekisho
 
-[Typst](https://typst.app/) で書く日本語履歴書テンプレートです。[Typst Universe](https://typst.app/universe/) パッケージとして配布予定です（`@preview/rirekisho`）。
+[Typst](https://typst.app/) で書く日本語履歴書テンプレートです。[Typst Universe](https://typst.app/universe/) パッケージとして配布予定です（`@preview/hadronic-rirekisho`）。
 
 ## インストール・使い方
 
 新規プロジェクトをテンプレートから作成します:
 
 ```sh
-typst init @preview/rirekisho:0.1.0
+typst init @preview/hadronic-rirekisho:0.1.0
 ```
 
 または既存プロジェクトから直接インポートします:
 
 ```typst
-#import "@preview/rirekisho:0.1.0": *
+#import "@preview/hadronic-rirekisho:0.1.0": *
 ```
 
 ## ファイル構成
