@@ -1,6 +1,0 @@
-- Beware of Rogue Magnets: Keep an eye out for stray magnets attempting a great escape towards metallic objects-
-- Avoid Magnetic Personalities: Refrain from wearing metal accessories unless you want an unexpected magnetic makeover-
-- Polar Bear Proximity Warning: Be cautious of hypothetical polar bears magnetically attracted to the lab during experiments-
-- Anti-Gravity Zone: Secure loose items; levitating objects may cause spontaneous zero-gravity chaos-
-- Electromagnetic Hairdos: High magnetic fields might result in unintended stylishly spiked hair—consider it a bonus-
-- Quantum Entanglement Caution: Ensure lab partners are not entangled; disentangling quantum states can be tricky.

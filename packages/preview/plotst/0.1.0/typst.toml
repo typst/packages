@@ -1,8 +1,0 @@
-[package]
-name = "plotst"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["Pegacraft", "Gewi413"]
-license = "MIT"
-description = "A library to draw a variety of graphs and plots to use in your papers"
-repository = "https://github.com/Pegacraft/typst-plotting"

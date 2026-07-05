@@ -1,9 +1,0 @@
-[package]
-name = "t4t"
-version = "0.3.1"
-entrypoint = "tools4typst.typ"
-authors = ["Jonas Neugebauer"]
-license = "MIT"
-description = "A utility package for typst package authors"
-repository = "https://github.com/jneug/typst-tools4typst"
-exclude = ["tbump.toml", "t4t-manual.pdf", "t4t-manual.typ"]

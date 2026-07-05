@@ -1,9 +1,0 @@
-[package]
-name = "prooftrees"
-version = "0.1.0"
-entrypoint = "src/prooftrees.typ"
-authors = ["david-davies <https://github.com/david-davies>"]
-license = "MIT"
-description = "[Deprecated in favour of `curryst`; this package is no longer maintained.] Proof trees for natural deduction and type theories"
-repository = "https://github.com/david-davies/typst-prooftree"
-exclude = ["examples/"]
