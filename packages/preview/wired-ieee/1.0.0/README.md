@@ -2,7 +2,7 @@
 
 A multilanguage Typst template for writing academic papers in the IEEE style (Unofficial). Based on the ieee-charged template.
 
-![image](./thumbnail.png)
+![Thumbnail image to show what this template is about.](./thumbnail.png)
 
 ---
 
