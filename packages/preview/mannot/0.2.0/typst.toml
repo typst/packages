@@ -1,0 +1,12 @@
+[package]
+name = "mannot"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["ryuryu-ymj"]
+license = "MIT"
+description = "A package for marking and annotating in math blocks."
+repository = "https://github.com/ryuryu-ymj/mannot"
+keywords = ["mark", "highlight", "annotation", "math"]
+categories = ["visualization", "layout"]
+compiler = "0.12.0"
+exclude = ["docs/*", "tests/*", "examples/*"]

@@ -1,0 +1,9 @@
+[package]
+name = "kinase"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Lennart Schuster"]
+license = "MIT"
+description = "Easy styling for different link types like mails and urls."
+exclude = ["docs", "resources"]
+keywords = ["utility", "languages"]

@@ -1,0 +1,28 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "clean-cnam-template"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = [
+  "Tom Planche <tomplanche@proton.me>",
+]
+license = "MIT"
+description = "A modular and organized TYPST template for creating professional documents using CNAM branding and styling."
+repository = "https://github.com/TomPlanche/clean-cnam-template"
+keywords = ["template", "cnam", "academic", "document", "styling"]
+categories = ["utility", "model"]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail.png",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

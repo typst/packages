@@ -1,0 +1,11 @@
+[package]
+name = "blindex"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Naaktgeboren, C.", ]
+license = "MIT"
+description = "Index-making of Biblical literature citations in Typst"
+keywords = ["index", "biblical", "literature", "canonical", "deuterocanonical", "apocripha"]
+categories = ["model", "scripting"]
+disciplines = ["theology", ]
+compiler = "0.11.1"

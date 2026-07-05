@@ -1,0 +1,10 @@
+[package]
+name = "matador"
+version = "0.1.0"
+entrypoint = "matador.typ"
+authors = ["Astrid Lauenstein"]
+license = "MIT"
+description = "Parser for .mat files"
+repository = "https://github.com/AcqRel/matador"
+keywords = ["mat", "matlab"]
+categories = ["utility"]

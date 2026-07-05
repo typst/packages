@@ -1,0 +1,11 @@
+[package]
+categories = ["utility", "text", "visualization"]
+disciplines = ["linguistics"]
+name = "phonokit"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Guilherme D. Garcia <guilherme.garcia@lli.ulaval.ca>"]
+license = "MIT"
+description = "Phonology toolkit: IPA transcription (tipa-style), prosodic structures, vowel/consonant charts with language inventories"
+repository = "https://github.com/guilhermegarcia/phonokit"
+homepage = "https://gdgarcia.ca/phonokit"

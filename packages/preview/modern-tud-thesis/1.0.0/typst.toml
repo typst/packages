@@ -1,0 +1,16 @@
+[package]
+name = "modern-tud-thesis"
+version = "1.0.0"
+entrypoint = "template.typ"
+keywords = ["TUD", "TU Dresden", "Dresden University of Technology"]
+categories = [ "thesis" ]
+description = "Unofficial Thesis Template for Dresden University of Technology (TUD)"
+license = "ISC"
+repository = "https://codeberg.org/gwehrle/modern-tud-thesis"
+authors = [ "Gregor Wehrle", "Jonas Dieckow" ]
+exclude = [ "/gallery/*" ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

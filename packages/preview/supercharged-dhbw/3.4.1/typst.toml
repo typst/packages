@@ -1,0 +1,16 @@
+[package]
+name = "supercharged-dhbw"
+version = "3.4.1"
+entrypoint = "lib.typ"
+authors = ["Danny Seidel <@DannySeidel>"]
+license = "MIT"
+description = "Unofficial Template for DHBW"
+repository = "https://github.com/DannySeidel/typst-dhbw-template"
+keywords = ["dhbw", "thesis"]
+categories = ["paper", "thesis", "report"]
+exclude = ["examples/**", "CHANGELOG.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

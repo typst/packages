@@ -1,0 +1,19 @@
+[package]
+name = "trompet"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["CrowdingFaun624"]
+license = "MIT"
+description = "Draw Tromp lambda diagrams."
+repository = "https://github.com/CrowdingFaun624/trompet"
+keywords = [
+    "lambda",
+    "lambda calculus",
+    "Tromp"
+]
+categories = ["visualization", "fun"]
+disciplines = ["computer-science", "mathematics"]
+compiler = "0.14.0"
+exclude = ["example/", "doc/"]
+
+[tool]

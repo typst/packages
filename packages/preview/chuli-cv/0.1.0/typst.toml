@@ -1,0 +1,16 @@
+[package]
+name = "chuli-cv"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Naivy Pujol Méndez"]
+license = "MIT"
+description = "Minimalistic and modern CV and cover letter templates."
+repository = "https://github.com/npujol/chuli-cv"
+keywords = ["cv", "curriculum vitae", "cover letter", "application", "resume"]
+categories = ["cv"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "cv.typ"
+thumbnail = "thumbnail.png"

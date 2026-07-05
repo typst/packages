@@ -1,0 +1,24 @@
+[package]
+name = "tiaoma"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Wenzhuo Liu", "Tin Švagelj"]
+license = "MIT"
+description = "Barcode and QRCode generator for Typst using Zint."
+
+homepage = "https://github.com/Enter-tainer/zint-wasi"
+repository = "https://github.com/Enter-tainer/zint-wasi"
+keywords = [
+    "wasm",
+    "rust",
+    "zint",
+    "barcode",
+    "qrcode",
+]
+exclude = [
+  "tidy_style.typ",
+  "manual.typ",
+  "manual.pdf",
+  "example.typ",
+  "example.svg"
+]

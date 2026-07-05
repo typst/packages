@@ -1,0 +1,11 @@
+[package]
+name = "songting-book"
+version = "0.0.5"
+entrypoint = "lib.typ"
+authors = ["zhineng <@zhineng>"]
+license = "MIT"
+description = "Create Chinese-style books effortlessly using markup with built-in styling."
+categories = [ "layout", "book" ]
+keywords = ["chinese", "book"]
+repository = "https://github.com/zhinenggongziliaoku/songting-book"
+compiler="0.13.1"

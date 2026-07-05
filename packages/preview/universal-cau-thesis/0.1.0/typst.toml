@@ -1,0 +1,16 @@
+[package]
+name = "universal-cau-thesis"
+version = "0.1.0"
+entrypoint = "ref/template.typ"
+authors = ["JWangL5"]
+license = "MIT"
+description = "中国农业大学毕业论文的Typst模板"
+repository = "https://github.com/JWangL5/CAU-ThesisTemplate-Typst"
+keywords = ["thesis", "CAU"]
+categories = ["thesis"]
+exclude = ['thumbnail.png', 'images/PixPin_2024-03-13_17-19-53.png']
+
+[template]
+path = "template"
+entrypoint = "sample.typ"
+thumbnail = "thumbnail.png"

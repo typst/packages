@@ -1,0 +1,11 @@
+[package]
+name = "hagakiii"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["34j <@34j>"]
+categories = ["office"]
+keywords = ["postcard"]
+license = "MIT"
+repository = "https://github.com/34j/typst-hagakiii"
+description = "Print address labels on Japanese postcards."
+exclude = ["tests/test.png"]

@@ -1,0 +1,13 @@
+[package]
+name = "nassi"
+version = "0.1.1"
+entrypoint = "src/nassi.typ"
+authors = ["Jonas Neugebauer"]
+license = "MIT"
+description = "Draw Nassi-Shneiderman diagrams (Struktogramme) with Typst."
+repository = "https://github.com/jneug/typst-nassi"
+compiler = "0.11.0"
+exclude = ["/assets/*", "tbump.toml"]
+categories = ["visualization"]
+disciplines = ["computer-science"]
+keywords = ["Algorithms", "Struktogramm", "Nassi-Shneiderman diagrams"]

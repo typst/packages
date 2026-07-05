@@ -1,0 +1,11 @@
+[package]
+name = "pinit"
+version = "0.2.2"
+authors = ["OrangeX4"]
+entrypoint = "lib.typ"
+exclude = ["./examples"]
+keywords = ["layout", "positioning", "pinit", "pin", "slide", "presentation", "arrow", "draw"]
+license = "MIT"
+repository = "https://github.com/OrangeX4/typst-pinit"
+description = "Relative positioning by pins, especially useful for making slides in typst."
+categories = ["layout", "utility"]

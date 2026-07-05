@@ -1,0 +1,16 @@
+[package]
+name = "cereal-words"
+version = "0.1.0"
+compiler = "0.8.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/typst/templates"
+authors = ["Typst GmbH <https://typst.app>"]
+license = "MIT-0"
+description = "Time to kill? Search for words in a box of letters!"
+keywords = ["game", "word-search", "puzzle", "fun"]
+categories = ["fun"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

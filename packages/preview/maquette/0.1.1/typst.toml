@@ -1,0 +1,41 @@
+[package]
+name = "maquette"
+version = "0.1.1"
+entrypoint = "maquette.typ"
+authors = ["https://github.com/bernsteining"]
+repository = "https://github.com/bernsteining/maquette"
+license = "MIT"
+description = "🫖 Render 3D models (PLY, STL, OBJ) as SVG or PNG images."
+keywords = [
+  "3D",
+  "STL",
+  "OBJ",
+  "PLY",
+  "scanner",
+  "model",
+  "blender",
+  "AR",
+  "LiDAR",
+  "scan",
+  "render",
+  "SVG",
+  "PNG",
+  "CAD",
+  "CAO",
+  "mesh",
+  "shading",
+  "wireframe",
+]
+categories = ["visualization"]
+compiler = "0.14.0"
+disciplines = [
+  "architecture",
+  "chemistry",
+  "computer-science",
+  "design",
+  "drawing",
+  "engineering",
+  "mathematics",
+  "medicine",
+  "physics",
+]

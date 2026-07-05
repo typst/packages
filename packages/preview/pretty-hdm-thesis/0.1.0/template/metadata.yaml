@@ -1,0 +1,29 @@
+lang: en # en or de
+
+layout:
+    Type: bachelor
+    Study: Medieninformatik
+    Degree: Bachelor of Science
+    Institute: Hochschule der Medien Stuttgart
+    Location: Stuttgart
+    fonts:
+        body: New Computer Modern
+        heading: Roboto
+
+data:
+    title: Thesis Example
+    subtitle: An example of a thesis
+    # Should not be more than 4 to avoid page break
+    authors:
+        -
+            Name: Mia Rose Winter
+            StudentId: 00001
+    supervisors:
+        first:
+            Name: Prof. Dr. John Doe
+        second:
+            Name: Dr. Dr. Jane Doe
+        # optional
+        # external:
+        #     Name: Max Muster
+        #     Company: Company GmbH
