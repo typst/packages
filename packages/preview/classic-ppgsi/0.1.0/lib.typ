@@ -235,11 +235,29 @@
 // PRE-TEXTUAIS
 // ---------------------------------------------------------------------------
 
+// Logo-placeholder neutro (capelo academico) desenhado so com cetz — evita
+// embarcar a marca da USP no pacote. O consumidor sobrescreve com logo: "<path>".
+//   logo: <conteudo> -> renderiza como esta;  logo: "<path>" -> image(...).
+#let _logo(fill: luma(45%)) = {
+  let c = fill // cetz.draw exporta `fill`/`stroke`; capturamos a cor antes do import
+  cetz.canvas(length: 1cm, {
+    import cetz.draw: *
+    // moldura tracejada — sinaliza "placeholder, substituir"
+    rect((-1.35, -1.35), (1.35, 1.35), radius: 0.2,
+      stroke: (paint: c, thickness: 1pt, dash: "dashed"))
+    content((0, 0.3), text(fill: c, weight: "bold", size: 10pt, tracking: 1.5pt)[LOGOTIPO])
+    content((0, -0.35), text(fill: c, weight: "bold", size: 14pt, tracking: 2pt)[USP])
+  })
+}
+#let logo = _logo
+
 #let _capa(logo, instituicao, autor, titulo, local, data) = {
   set align(center)
   set par(leading: 1.1em, first-line-indent: 0pt, justify: false)
   set text(size: 12pt)
-  if logo != none { image(logo, width: 2.7cm) }
+  if logo != none {
+    if type(logo) == str { image(logo, width: 2.7cm) } else { logo }
+  }
   v(0.3cm)
   instituicao
   v(4cm)
@@ -329,7 +347,7 @@
   institution-ref: [Escola de Artes, Ciências e Humanidades, Universidade de São Paulo],
   institution-ref-en: [School of Arts, Sciences and Humanities, University of São Paulo],
   self-source: auto,
-  logo: "assets/usp_logo.jpg",
+  logo: _logo(),
   preamble: none,
   advisor: [Orientador: Prof. Dr. Fulano de Tal],
   co-advisor: [Coorientador: Prof. Dr. Fulano de Tal],
