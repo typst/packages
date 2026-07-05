@@ -1,13 +1,13 @@
 // Default fonts (Harano Aji ships with TeX Live; see README)
-#let latinCovers = regex("[\u{0}-\u{2023}]")  // glyph range drawn by the Latin font
-#let fontSerif = ((name: "New Computer Modern", covers: latinCovers), "Harano Aji Mincho")
-#let fontSan = "Harano Aji Gothic"
-#let fontMono = "DejaVu Sans Mono"
+#let latin-covers = regex("[\u{0}-\u{2023}]")  // glyph range drawn by the Latin font
+#let font-serif = ((name: "New Computer Modern", covers: latin-covers), "Harano Aji Mincho")
+#let font-san = "Harano Aji Gothic"
+#let font-mono = "DejaVu Sans Mono"
 
 // Default sizes
-#let systemFontSize = 8pt
-#let nameFontSize = 16pt
-#let inputFontSize = 10pt
+#let system-font-size = 8pt
+#let name-font-size = 16pt
+#let input-font-size = 10pt
 
 // Japanese era table (descending order for lookup)
 #let _eras = (
@@ -33,12 +33,12 @@
 
 // ── 設定 ─────────────────────────────────────────────────────
 #let _defaults = (
-  serif_font: fontSerif,
-  sans_font: fontSan,
-  mono_font: fontMono,
-  system_size: systemFontSize,  // labels and frame captions
-  name_size: nameFontSize,      // 氏名
-  input_size: inputFontSize,    // user-entered values
+  serif_font: font-serif,
+  sans_font: font-san,
+  mono_font: font-mono,
+  system_size: system-font-size,  // labels and frame captions
+  name_size: name-font-size,      // 氏名
+  input_size: input-font-size,    // user-entered values
   date: datetime.today(),
   date_style: "和暦",           // "和暦" or "西暦"
 )
@@ -123,12 +123,12 @@
   lang: "ja",
   paper: "a4",
   margin: 1.5cm,
-  font: fontSerif,       // body (serif) font
-  sans_font: fontSan,
-  mono_font: fontMono,
-  system_size: systemFontSize,
-  name_size: nameFontSize,
-  input_size: inputFontSize,
+  font: font-serif,       // body (serif) font
+  sans_font: font-san,
+  mono_font: font-mono,
+  system_size: system-font-size,
+  name_size: name-font-size,
+  input_size: input-font-size,
   base_size: none,       // body text size; defaults to system_size
   date: none,            // datetime; defaults to today
   date_style: "和暦",    // "和暦" or "西暦"

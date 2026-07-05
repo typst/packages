@@ -1,4 +1,4 @@
-# typst-rirekisho
+# typst-hadronic-rirekisho
 
 [Typst](https://typst.app/) で書く日本語履歴書テンプレートです。[Typst Universe](https://typst.app/universe/) パッケージとして配布予定です（`@preview/hadronic-rirekisho`）。
 
@@ -18,8 +18,8 @@ typst init @preview/hadronic-rirekisho:0.1.0
 
 ## ファイル構成
 
-```
-typst-rirekisho/
+```text
+typst-hadronic-rirekisho/
 ├── typst.toml         # パッケージマニフェスト
 ├── rirekisho.typ      # テンプレート本体（パッケージのエントリーポイント）
 ├── LICENSE
@@ -52,9 +52,9 @@ typst-rirekisho/
 | `lang`        | `str`      | `"ja"`                 | 文書言語（禁則処理・グリフ選択に影響）  |
 | `paper`       | `str`      | `"a4"`                 | 用紙サイズ                               |
 | `margin`      | `length`   | `1.5cm`                | ページ余白                               |
-| `font`        | `array`    | 明朝体 (`fontSerif`)   | 本文フォント                             |
-| `sans_font`   | `array`    | ゴシック体 (`fontSan`) | 見出し用フォント                         |
-| `mono_font`   | `array`    | 等幅 (`fontMono`)      | 郵便番号・電話・メール用フォント         |
+| `font`        | `array`    | 明朝体 (`font-serif`)   | 本文フォント                             |
+| `sans_font`   | `array`    | ゴシック体 (`font-san`) | 見出し用フォント                         |
+| `mono_font`   | `array`    | 等幅 (`font-mono`)      | 郵便番号・電話・メール用フォント         |
 | `system_size` | `length`   | `8pt`                  | ラベル・枠見出しの文字サイズ             |
 | `name_size`   | `length`   | `16pt`                 | 氏名の文字サイズ                         |
 | `input_size`  | `length`   | `10pt`                 | 記入値の文字サイズ                       |
@@ -173,14 +173,14 @@ TeX Live がない場合は [原ノ味フォントを直接インストール](h
 
 ```typst
 #show: 履歴書設定.with(
-  font: ((name: "New Computer Modern", covers: latinCovers), "Hiragino Mincho ProN"),
+  font: ((name: "New Computer Modern", covers: latin-covers), "Hiragino Mincho ProN"),
   sans_font: "Hiragino Kaku Gothic ProN",
 )
 ```
 
 [typst.app](https://typst.app/) 上で使う場合、原ノ味フォントはシステムに存在しないため、フォントファイルをプロジェクトのルートにアップロードすると自動的に認識されます。
 
-本文フォントのように `(欧文フォント, 和文フォント)` を組にする場合は、上の例のように `covers` で欧文の受け持ち範囲を指定します（`latinCovers` はテンプレートが公開している定数です）。
+本文フォントのように `(欧文フォント, 和文フォント)` を組にする場合は、上の例のように `covers` で欧文の受け持ち範囲を指定します（`latin-covers` はテンプレートが公開している定数です）。
 
 ---
 
