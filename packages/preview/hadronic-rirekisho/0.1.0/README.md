@@ -193,6 +193,12 @@ TeX Live がない場合は [原ノ味フォントを直接インストール](h
 
 ---
 
+## 記入例の画像について
+
+`example/photo.jpg` と `example/signature.png` は Wikimedia Commons の [File:Yukawa.jpg](https://commons.wikimedia.org/wiki/File:Yukawa.jpg)（PD Sweden）と [File:Hideki Yukawa signature.jpg](https://commons.wikimedia.org/wiki/File:Hideki_Yukawa_signature.jpg)（PD ineligible）に基づくパブリックドメイン画像です。
+
+---
+
 ## ライセンス
 
 [MIT No Attribution](LICENSE) です。記入済みの履歴書を配布・提出する際にライセンス表記を残す必要はありません。
