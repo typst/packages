@@ -1,16 +1,16 @@
 # typst-rirekisho
 
-[Typst](https://typst.app/) で書く日本語履歴書テンプレート。[Typst Universe](https://typst.app/universe/) パッケージとして配布予定（`@preview/rirekisho`）。
+[Typst](https://typst.app/) で書く日本語履歴書テンプレートです。[Typst Universe](https://typst.app/universe/) パッケージとして配布予定です（`@preview/rirekisho`）。
 
 ## インストール・使い方
 
-新規プロジェクトをテンプレートから作成する:
+新規プロジェクトをテンプレートから作成します:
 
 ```sh
 typst init @preview/rirekisho:0.1.0
 ```
 
-または既存プロジェクトから直接インポートする:
+または既存プロジェクトから直接インポートします:
 
 ```typst
 #import "@preview/rirekisho:0.1.0": *
@@ -37,7 +37,7 @@ typst-rirekisho/
 
 ## 設定（`履歴書設定`）
 
-フォントや文字サイズなどの定数はすべて `履歴書設定` で一括指定でき、各ブロックに反映される。
+フォントや文字サイズなどの定数はすべて `履歴書設定` で一括指定でき、各ブロックに反映されます。
 
 ```typst
 #show: 履歴書設定.with(
@@ -68,7 +68,7 @@ typst-rirekisho/
 
 ### `#基本情報(...)`
 
-氏名・生年月日・住所・写真を出力する。
+氏名・生年月日・住所・写真を出力します。
 
 ```typst
 #基本情報(
@@ -90,7 +90,7 @@ typst-rirekisho/
 
 ### `#学歴職歴(学歴: (...), 職歴: (...))`
 
-学歴と職歴を一つのテーブルに出力する。
+学歴と職歴を一つのテーブルに出力します。
 
 ```typst
 #学歴職歴(
@@ -107,23 +107,23 @@ typst-rirekisho/
 
 ### `#資格欄(資格: (...))`
 
-免許・資格を出力する。エントリー形式は学歴職歴と同じ。
+免許・資格を出力します。エントリー形式は学歴職歴と同じです。
 
 ### `#志望動機(height: 5cm)[...]`
 
-志望動機欄を出力する。`height` で欄の高さを指定する。
+志望動機欄を出力します。`height` で欄の高さを指定します。
 
 ### `#本人希望(height: 5cm)[...]`
 
-本人希望欄を出力する。`height` で欄の高さを指定する。
+本人希望欄を出力します。`height` で欄の高さを指定します。
 
 ### `#賞罰(エントリー: (...))`
 
-賞罰欄を出力する。エントリー形式は学歴職歴と同じ。
+賞罰欄を出力します。エントリー形式は学歴職歴と同じです。
 
 ### `#署名欄(signature: none)`
 
-署名欄を出力する。`signature` に画像を渡すと署名として表示する。
+署名欄を出力します。`signature` に画像を渡すと署名として表示します。
 
 ```typst
 #署名欄(signature: image("signature.png", height: 1.0cm))
@@ -133,7 +133,7 @@ typst-rirekisho/
 
 ## ユーティリティ
 
-テンプレートには以下の関数が含まれており、本文中でも使用できる。
+テンプレートには以下の関数が含まれており、本文中でも使用できます。
 
 | 関数 | 説明 |
 |---|---|
@@ -155,7 +155,7 @@ typst-rirekisho/
 
 ## フォントについて
 
-デフォルトフォントは [okumuralab/typst-js](https://github.com/okumuralab/typst-js) にならい、役割ごとに 1 書体を指定している。
+デフォルトフォントは [okumuralab/typst-js](https://github.com/okumuralab/typst-js) にならい、役割ごとに 1 書体を指定しています。
 
 | 用途               | フォント                                        |
 |--------------------|-------------------------------------------------|
@@ -163,13 +163,13 @@ typst-rirekisho/
 | 見出し（ゴシック） | 原ノ味角ゴシック                                |
 | 等幅               | DejaVu Sans Mono                                |
 
-New Computer Modern と DejaVu Sans Mono は Typst 本体に同梱されている。原ノ味フォントは TeX Live に同梱されているので、Typst が見つけられない場合はフォント検索パスに加えればよい:
+New Computer Modern と DejaVu Sans Mono は Typst 本体に同梱されています。原ノ味フォントは TeX Live に同梱されているので、Typst が見つけられない場合はフォント検索パスに加えてください:
 
 ```sh
 export TYPST_FONT_PATHS=/usr/local/texlive/2026/texmf-dist/fonts/opentype
 ```
 
-TeX Live がない場合は [原ノ味フォントを直接インストール](https://github.com/trueroad/HaranoAjiFonts)するか、`履歴書設定` の `font`・`sans_font`・`mono_font` パラメータで手元のフォント（ヒラギノ、游書体、Noto など）を指定する。
+TeX Live がない場合は [原ノ味フォントを直接インストール](https://github.com/trueroad/HaranoAjiFonts)するか、`履歴書設定` の `font`・`sans_font`・`mono_font` パラメータで手元のフォント（ヒラギノ、游書体、Noto など）を指定してください。
 
 ```typst
 #show: 履歴書設定.with(
@@ -178,15 +178,15 @@ TeX Live がない場合は [原ノ味フォントを直接インストール](h
 )
 ```
 
-[typst.app](https://typst.app/) 上で使う場合、原ノ味フォントはシステムに存在しないため、フォントファイルをプロジェクトのルートにアップロードすると自動的に認識される。
+[typst.app](https://typst.app/) 上で使う場合、原ノ味フォントはシステムに存在しないため、フォントファイルをプロジェクトのルートにアップロードすると自動的に認識されます。
 
-本文フォントのように `(欧文フォント, 和文フォント)` を組にする場合は、上の例のように `covers` で欧文の受け持ち範囲を指定する（`latinCovers` はテンプレートが公開している定数）。
+本文フォントのように `(欧文フォント, 和文フォント)` を組にする場合は、上の例のように `covers` で欧文の受け持ち範囲を指定します（`latinCovers` はテンプレートが公開している定数です）。
 
 ---
 
 ## 謝辞
 
-このテンプレートは以下のプロジェクトを参考にして作成した。
+このテンプレートは以下のプロジェクトを参考にして作成しました。
 
 - [Nikudanngo/typst-ja-resume-template](https://github.com/Nikudanngo/typst-ja-resume-template)
 - [okumuralab/typst-js](https://github.com/okumuralab/typst-js) — 和欧混植（`covers`）、均等割付（`kintou`）、和文組版の設定
@@ -195,4 +195,4 @@ TeX Live がない場合は [原ノ味フォントを直接インストール](h
 
 ## ライセンス
 
-[MIT No Attribution](LICENSE)。記入済みの履歴書を配布・提出する際にライセンス表記を残す必要はない。
+[MIT No Attribution](LICENSE) です。記入済みの履歴書を配布・提出する際にライセンス表記を残す必要はありません。
