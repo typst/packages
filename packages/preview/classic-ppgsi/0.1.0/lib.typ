@@ -9,7 +9,7 @@
 //   ppgsi.lq      → lilaq  (gráficos de dados, dentro de ppgsi.figure)
 //   ppgsi.cetz    → cetz   (desenho/diagramas, dentro de ppgsi.figure)
 // glossy/codly/cheq agem por show-rule no corpo (ver thesis()).
-#import "@preview/glossy:0.9.1" as glossy
+#import "@preview/glossy:0.9.2" as glossy
 #import "@preview/codly:1.3.0" as codly
 #import "@preview/cheq:0.4.0": checklist
 #import "@preview/lilaq:0.6.0" as lq
