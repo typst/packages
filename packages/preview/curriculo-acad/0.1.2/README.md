@@ -39,7 +39,7 @@ A estrutura do arquivo principal é bastante simples. Você só precisa indicar 
   database: "data/lattes.toml",
   kind: "completo",
   me: "PESSOA",
-  date: datetime.today()
+  date: datetime.today(),
   last_page: true
 )     
 ```
@@ -234,7 +234,7 @@ Embaixo tem uma tabela sobre as áreas no currículo Lattes. Eu não tenho todas
 
 That's why I'm trying to solve this problem by exporting the XML file and creating this template to generate a well-formatted PDF using [Typst](https://typst.app). If you haven't heard of [Typst](https://typst.app) yet, it's a much easier-to-learn language and a faster typesetting system than LaTeX.  
 
-I started this project, and since my [LATTES](https://lattes.cnpq.br) résumé does not include all possible options, there may be errors when you test it. You can open an [issue]() or create a pull request with a suggested fix. Additionally, this is just the beginning, so the code may not be as clean and elegant as it should be.
+I started this project, and since my [LATTES](https://lattes.cnpq.br) résumé does not include all possible options, there may be errors when you test it. You can open an [issue](https://github.com/philkleer/curriculo-acad/issues) or create a pull request with a suggested fix. Additionally, this is just the beginning, so the code may not be as clean and elegant as it should be.
 
 ## Fonts
 
@@ -266,7 +266,7 @@ The structure of the main file is quite simple. You only need to specify which v
   database: "data/lattes.toml",
   kind: "completo",
   me: "PESSOA",
-  date: datetime.today()
+  date: datetime.today(),
   last_page: true
 )     
 ```
