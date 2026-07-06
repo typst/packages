@@ -143,6 +143,16 @@
 
 #let credits(authors) = authors.map(author => [*#author.short:* #get-contributions(author).]).join([ ])
 
+#let orcid(authors) = {
+  set par(first-line-indent: 0pt)
+  (
+    authors.map(author => {
+      let id = author.at("orcid", default: none)
+      [#author.name: #if id != none { link("https://orcid.org/" + id, id) } else { [N/A] }]
+    })
+  ).join(linebreak())
+}
+
 #let init-authors(authors) = {
   for (i, author) in authors.enumerate() {
     if author.at("short", default: none) == none {
@@ -181,12 +191,14 @@
       institution-ref: 0,
       contribution: [],
       contribution-refs: range(7, 13),
+      orcid: "XXXX-XXXX-XXXX-XXXX",
     ),
     (
       name: "Third Charlie Author",
       institution-ref: 1,
       contribution: [],
       contribution-refs: range(7, 13),
+      orcid: "XXXX-XXXX-XXXX-XXXX",
     ),
   ),
   corresponding-ref: 0,
@@ -383,7 +395,11 @@
       .map(((i, v)) => box[
         #empty-warn(v.name)
         #set text(weight: "regular")
-        #super[#{ v.institution-ref + 1 }#if corresponding-ref == i [,\*]]])
+        #super[#{ v.institution-ref + 1 }#if corresponding-ref == i [,\*]]
+        #if v.at("orcid", default: none) != none [ #link("https://orcid.org/" + v.orcid, box(height: .8em, image(
+          "ORCID-iD_icon_vector.svg",
+          height: .8em,
+        )))]])
 
     inline-enum(prefix-fn: none, ..names)
   }

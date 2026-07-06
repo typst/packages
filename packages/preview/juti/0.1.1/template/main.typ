@@ -1,4 +1,5 @@
-#import "@preview/juti:0.1.1"
+// #import "@preview/juti:0.1.1"
+#import "../juti.typ"
 #import "setup.typ": *
 
 /**
@@ -29,11 +30,13 @@
     name: "Second Beta Author",
     institution-ref: 0,
     contribution-refs: (6, 9, 11),
+    orcid: "XXXX-XXXX-XXXX-XXXX",
   ),
   (
     name: "Third Charlie Author",
     institution-ref: 1,
     contribution-refs: (3, 4, 6, 9, 11, 12),
+    orcid: "XXXX-XXXX-XXXX-XXXX",
   ),
 ))
 
@@ -151,3 +154,7 @@ Please choose the appropriate data availability statement that applies to this s
 = Declaration of generative AI and AI-assisted technologies in the writing process
 
 The authors used generative AI to improve the writing clarity of this paper. They reviewed and edited the AI-assisted content and take full responsibility for the final publication.
+
+= ORCID
+
+#juti.orcid(authors)
