@@ -1,4 +1,4 @@
-#import "@preview/modern-innopolis-thesis:0.1.1": *
+#import "@preview/modern-innopolis-thesis:0.1.2": *
 
 #title-page(
   program-code: "09.04.01",
