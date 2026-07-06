@@ -61,10 +61,14 @@ value as the front.
 ### Graphs
 
 `graph` draws from an adjacency dictionary. Automatic layout places nodes on a
-circle; `layout: "manual"` lets you define every position yourself.
+circle; `layout: "manual"` lets you define every position yourself. An edge
+entry can be just a neighbor label, or `(neighbor, label)` when you want an
+edge label such as a weight.
 
 ```typst
 #graph(("v1": ("v2", "v3"), "v2": ("v3",), "v3": ())).diagram
+
+#graph(("A": (("B", [4]), ("C", [5])), "B": (("C", [11]),), "C": ())).diagram
 
 #graph(
   ("v1": ("v2", "v3"), "v2": ("v4",), "v3": ("v4",), "v4": ()),

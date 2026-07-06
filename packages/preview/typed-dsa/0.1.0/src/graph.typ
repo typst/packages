@@ -1,9 +1,10 @@
 // Graphs: directed or undirected, described as an adjacency dictionary.
 //
-// #graph(("v1": ("v2", "v3"), "v2": ("v3",), "v3": ())) — keys are node
-// labels, values are arrays of neighbor labels. A node with no outgoing edges
-// still needs its key present (with an empty array) to be drawn; a label that
-// only ever appears as someone else's neighbor is picked up automatically.
+// #graph(("v1": ("v2", ("v3", [edge label])), "v2": ("v3",), "v3": ())) —
+// keys are node labels, values are arrays of neighbor labels or
+// `(neighbor, edge-label)` pairs. A node with no outgoing edges still needs
+// its key present (with an empty array) to be drawn; a label that only ever
+// appears as someone else's neighbor is picked up automatically.
 //
 // `labels:` swaps what's drawn inside a node for arbitrary content, keeping
 // the adjacency keys as the plain-string identity used for edges,
@@ -23,6 +24,10 @@
 #import "style.typ": theme, resolve, scaled, edge-stroke, edge-arrow, edge-wave, wavy-parts
 #import cetz.draw: line, circle, rect, content, bezier-through
 
+// Adjacency entries are either `"to"` or `("to", label)`.
+#let _edge-to(entry) = if type(entry) == array { entry.at(0) } else { entry }
+#let _edge-label(entry) = if type(entry) == array and entry.len() > 1 { entry.at(1) } else { none }
+
 // Every key, plus every neighbor not already a key, in first-seen order.
 #let _nodes(adjacency) = {
   let seen = (:)
@@ -34,7 +39,8 @@
     }
   }
   for k in adjacency.keys() {
-    for t in adjacency.at(k) {
+    for entry in adjacency.at(k) {
+      let t = _edge-to(entry)
       if t not in seen {
         seen.insert(t, true)
         order.push(t)
@@ -54,14 +60,16 @@
   let edges = ()
   let seen = (:)
   for from in adjacency.keys() {
-    for to in adjacency.at(from) {
+    for entry in adjacency.at(from) {
+      let to = _edge-to(entry)
+      let label = _edge-label(entry)
       if directed {
-        edges.push((from, to))
+        edges.push((from, to, label))
       } else {
         let key = _norm-key(from, to)
         if key not in seen {
           seen.insert(key, true)
-          edges.push((from, to))
+          edges.push((from, to, label))
         }
       }
     }
@@ -169,6 +177,23 @@
   (a.at(0) + dx / len * r, a.at(1) + dy / len * r)
 }
 
+#let _edge-label-point(p, q, r, custom) = {
+  let bend = if custom != none { custom.at("bend", default: false) } else { false }
+  if bend == false or bend == none {
+    let dx = q.at(0) - p.at(0)
+    let dy = q.at(1) - p.at(1)
+    let len = calc.sqrt(dx * dx + dy * dy)
+    if len == 0 { return p }
+    let ux = dx / len
+    let uy = dy / len
+    let a = (p.at(0) + ux * r, p.at(1) + uy * r)
+    let b = (q.at(0) - ux * r, q.at(1) - uy * r)
+    return ((a.at(0) + b.at(0)) / 2, (a.at(1) + b.at(1)) / 2)
+  }
+  let angle = if custom != none { custom.at("angle", default: 25deg) } else { 25deg }
+  _bend-point(p, q, bend, angle)
+}
+
 #let _draw-edge(p, q, r, directed, th, custom) = {
   let stroke = edge-stroke(th, custom: custom)
   let mark = edge-arrow(th, directed, custom: custom)
@@ -202,6 +227,12 @@
   }
 }
 
+#let _draw-edge-label(label, p, q, r, th, custom) = {
+  if label == none { return }
+  let pt = _edge-label-point(p, q, r, custom)
+  content(pt, text(size: th.text-size, label))
+}
+
 #let _draw-node(label, p, th) = {
   if th.node-shape == "square" {
     let r = th.node-radius
@@ -218,9 +249,10 @@
   let pos = _resolve-positions(_circle-layout(nodes, th, radius), positions, nodes, layout)
   let edges = _edges(adjacency, directed)
   scaled(th, cetz.canvas({
-    for (from, to) in edges {
+    for (from, to, label) in edges {
       let custom = _edge-custom(edge-customizations, from, to, directed)
       _draw-edge(pos.at(from), pos.at(to), th.node-radius, directed, th, custom)
+      _draw-edge-label(label, pos.at(from), pos.at(to), th.node-radius, th, custom)
     }
     for name in nodes {
       _draw-node(labels.at(name, default: name), pos.at(name), th)
@@ -228,7 +260,8 @@
   }))
 }
 
-// `adjacency` maps each node label to an array of its neighbor labels.
+// `adjacency` maps each node label to an array of neighbor labels or
+// `(neighbor-label, edge-label)` pairs.
 // `directed` draws an arrowhead per declared pair; set it to `false` for an
 // undirected graph, where a reciprocal pair collapses to one plain edge.
 // `labels` swaps a node's drawn content, keyed by its adjacency label, any
