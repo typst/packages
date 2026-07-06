@@ -23,7 +23,7 @@
 #let authors = juti.init-authors((
   (
     name: "First Alpha Author",
-    institution-ref: 0,
+    institution-ref: (0, 1),
     contribution-refs: (0, 1, 2, 5, 6, 7, 8, 10, 13),
   ),
   (

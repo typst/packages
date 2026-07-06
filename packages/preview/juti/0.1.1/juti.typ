@@ -43,11 +43,10 @@
     return entries.at(0)
   }
   for (i, v) in entries.enumerate() {
-    if i > 0 and entries.len() > 2 {
-      [#join-sym ]
-    }
-    if n != 0 and i == n - 1 and last-join != none {
-      [#last-join ]
+    if i > 0 {
+      if n != 0 and i == n - 1 {
+        if last-join != none [#last-join ] else [#join-sym ]
+      } else [#join-sym ]
     }
     let prefix = if prefix-fn != none {
       prefix-fn(i)
@@ -104,6 +103,12 @@
     #d]
 }
 
+#let arrayfy(v) = if type(v) == array {
+  v
+} else {
+  (v,)
+}
+
 #let JOURNAL-NAME = [JUTI: Jurnal Ilmiah Teknologi Informasi]
 #let get-align-by-page(pagei) = if calc.rem-euclid(pagei, 2) == 0 {
   left
@@ -147,8 +152,9 @@
   set par(first-line-indent: 0pt)
   (
     authors.map(author => {
-      let id = author.at("orcid", default: none)
-      [#author.name: #if id != none { link("https://orcid.org/" + id, id) } else { [N/A] }]
+      let id = author.at("orcid", default: "")
+      let url = "https://orcid.org/" + id
+      [#author.name: #if id != "" { link(url, url) } else { [N/A] }]
     })
   ).join(linebreak())
 }
@@ -202,7 +208,7 @@
     ),
   ),
   corresponding-ref: 0,
-  corresponding-email: "first-author@email.com",
+  corresponding-email: none,
   institutions: (
     (
       name: "Department and institution name of authors",
@@ -234,6 +240,14 @@
 ) = context {
   let paper-id = paper-idx.get()
   let book = book-state.get()
+  let institution-ref-all = authors.map(a => arrayfy(a.institution-ref)).flatten()
+  let institutions = institutions.enumerate().filter(((i, v)) => institution-ref-all.contains(i)).map(((i, v)) => v)
+  let single-institution = institutions.len() == 1
+  let corresponding-email = (
+    if corresponding-email != none { corresponding-email } else {
+      authors.at(corresponding-ref).at("email", default: warn[No Email Defined for Corrseponding Author])
+    }
+  )
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
@@ -395,13 +409,25 @@
       .map(((i, v)) => box[
         #empty-warn(v.name)
         #set text(weight: "regular")
-        #super[#{ v.institution-ref + 1 }#if corresponding-ref == i [,\*]]
-        #if v.at("orcid", default: none) != none [ #link("https://orcid.org/" + v.orcid, box(height: .8em, image(
+        #if single-institution [
+          #if corresponding-ref == i {
+            super[\*]
+          }
+        ] else [
+          #super[
+            #let values = arrayfy(v.institution-ref).map(v => [#{ v + 1 }])
+            #if corresponding-ref == i {
+              values = values + ([\*],)
+            }
+            #values.join([, ])
+          ]
+        ]
+        #if v.at("orcid", default: "") != "" [ #link("https://orcid.org/" + v.orcid, box(height: .8em, image(
           "ORCID-iD_icon_vector.svg",
           height: .8em,
         )))]])
 
-    inline-enum(prefix-fn: none, ..names)
+    inline-enum(prefix-fn: none, last-join: none, ..names)
   }
 
   //? Institutions
@@ -411,21 +437,11 @@
     set par(spacing: .5em)
 
     for (i-institution, institution) in institutions.enumerate() {
-      let author-indices = authors
-        .enumerate()
-        .map(((i, v)) => (
-          ..v,
-          _index: i,
-        ))
-        .filter(v => if type(v.institution-ref) == array {
-          v.institution-ref.contains(i-institution)
-        } else {
-          v.institution-ref == i-institution
-        })
-        .map(v => v._index + 1)
-
       [
-        #super[#{ i-institution + 1 }] #empty-warn(institution.name), #institution.address
+        #if not single-institution {
+          super[#{ i-institution + 1 }]
+        }
+        #empty-warn(institution.name), #institution.address
 
       ]
     }
