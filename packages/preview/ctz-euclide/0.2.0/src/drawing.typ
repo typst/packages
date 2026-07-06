@@ -231,7 +231,9 @@
     ring-step: 4pt,     // extra distance per retry ring
     rings: 5,           // number of distance rings tried per anchor
     shrink: (0.85, 0.7),// font scales tried when NOTHING fits at full size
-    assoc-factor: 1.15, // label must be this factor closer to its own point
+    allow-shrink: true, // false: never reduce the font, whatever happens
+    assoc-factor: 1.0,  // label must be strictly closer to its own point
+                        // (raise above 1 to demand a clear margin)
     margin: 1.5pt,      // clearance around points and circle strokes
     weights: (label: 4, point: 2, segment: 1, circle: 1),
   )
@@ -245,7 +247,7 @@
   cfg.ring-step = to-units(cfg.ring-step)
   cfg.margin = to-units(cfg.margin)
   cfg.rings = calc.max(1, cfg.rings)
-  if cfg.shrink == false or cfg.shrink == none { cfg.shrink = () }
+  if cfg.shrink == false or cfg.shrink == none or not cfg.allow-shrink { cfg.shrink = () }
   cfg
 }
 
@@ -443,12 +445,70 @@
   })
 }
 
+/// Parse a position spec made of direction tokens with optional numeric
+/// offsets in canvas units: "above+0.3", "above+1.2 left+0.5", "top+1 right".
+/// Aliases: top/up = above, bottom/down = below. A negative amount flips the
+/// direction ("left-0.5" moves right).
+/// Returns none if the string is not made of direction tokens (e.g. "auto"),
+/// otherwise (pos:, offset:, enforced:) where pos is the standard anchor
+/// name composed from the directions and enforced is true iff at least one
+/// numeric offset is present — such labels are placed EXACTLY as written
+/// (the collision engine is off for them).
+#let _parse-precise-pos(s) = {
+  let dirs = (
+    "above": (0, 1), "top": (0, 1), "up": (0, 1),
+    "below": (0, -1), "bottom": (0, -1), "down": (0, -1),
+    "left": (-1, 0), "right": (1, 0),
+  )
+  let num-re = regex("^[0-9]*\.?[0-9]+$")
+  let enforced = false
+  let (dx, dy) = (0.0, 0.0)
+  let (vert, horiz) = (none, none)
+  let tokens = s.split(" ").filter(t => t != "")
+  if tokens.len() == 0 { return none }
+  for tok in tokens {
+    let word = tok
+    let amount = none
+    for sep in ("+", "-") {
+      if tok.contains(sep) {
+        let parts = tok.split(sep)
+        if parts.len() != 2 or parts.at(1).match(num-re) == none { return none }
+        word = parts.at(0)
+        amount = float(parts.at(1)) * if sep == "-" { -1 } else { 1 }
+        break
+      }
+    }
+    if word not in dirs { return none }
+    let (ux, uy) = dirs.at(word)
+    if amount != none {
+      enforced = true
+      dx += ux * amount
+      dy += uy * amount
+    }
+    // Anchor component: the token's direction, flipped for negative amounts
+    let flip = amount != none and amount < 0
+    if uy != 0 {
+      vert = if (uy > 0) != flip { "above" } else { "below" }
+    } else {
+      horiz = if (ux > 0) != flip { "right" } else { "left" }
+    }
+  }
+  let pos = if vert != none and horiz != none { vert + " " + horiz }
+    else if vert != none { vert }
+    else { horiz }
+  (pos: pos, offset: (dx, dy), enforced: enforced)
+}
+
 /// Label multiple points with automatic positioning based on global style
 /// Usage: label-points-styled(cetz-draw, pt, "A", "B", "C", A: "above", B: "below left")
 /// Position can be:
-/// - a string: "above", "below", "left", "right", "above left", etc.
+/// - a string: "above", "below", "left", "right", "above left", etc. — a
+///   SUGGESTION: the collision engine may move the label to keep it readable
+/// - a string with numeric offsets: "above+0.4", "top+1.2 left+0.5" — EXACT
+///   placement in canvas units, the collision engine is off for this label
 /// - "auto": automatically find best position avoiding connected lines and nearby points
 /// - a dictionary: (pos: "above", offset: (0.1, 0)) or (pos: "auto", avoid: ("B", "C"))
+///   or (pos: "above", avoid: false) to pin the label exactly where asked
 #let label-points-styled(cetz-draw, pt-func, ..args) = {
   let names = args.pos()
   let positions = args.named()
@@ -489,7 +549,13 @@
     for name in names {
       let spec = positions.at(name, default: default-pos)
       let (pos, offset, avoid-extra, label-content, avoid-flag) = if type(spec) == str {
-        (spec, (0, 0), (), none, auto)
+        let precise = _parse-precise-pos(spec)
+        if precise == none {
+          (spec, (0, 0), (), none, auto)
+        } else {
+          // Offsets in the string pin the label exactly where asked
+          (precise.pos, precise.offset, (), none, if precise.enforced { false } else { auto })
+        }
       } else if type(spec) == dictionary {
         // avoid: bool toggles the collision engine for this label;
         // avoid: (names...) keeps its meaning of extra points to avoid
@@ -497,9 +563,19 @@
         let (extra, flag) = if type(av) == array { (av, auto) }
           else if type(av) == bool { ((), av) }
           else { ((), auto) }
+        let raw-pos = spec.at("pos", default: default-pos)
+        let offset = spec.at("offset", default: (0, 0))
+        // pos: may use the precise "above+0.4 left+0.2" syntax too; its
+        // offsets add to offset: and pin the label unless avoid: overrides
+        let precise = if type(raw-pos) == str { _parse-precise-pos(raw-pos) } else { none }
+        if precise != none {
+          raw-pos = precise.pos
+          offset = (offset.at(0) + precise.offset.at(0), offset.at(1) + precise.offset.at(1))
+          if precise.enforced and flag == auto { flag = false }
+        }
         (
-          spec.at("pos", default: default-pos),
-          spec.at("offset", default: (0, 0)),
+          raw-pos,
+          offset,
           extra,
           spec.at("label", default: spec.at("text", default: none)),
           flag,
@@ -710,7 +786,7 @@
       rings: avoid-cfg.rings,
       weights: avoid-cfg.weights,
       margin: avoid-cfg.margin,
-      assoc-factor: avoid-cfg.at("assoc-factor", default: 1.15),
+      assoc-factor: avoid-cfg.at("assoc-factor", default: 1.0),
     )
 
     let measure-at(label, s) = {
@@ -744,11 +820,22 @@
             points: drawn-points.filter(p => util.dist((p.at(0), p.at(1)), sp.own) > 1e-6) + sp.obs-points,
             labels: placed2,
           )
-          let placement = find-label-placement(sp.pos, sp.base-coord, sizes, obstacles, cfg)
+          // Cluster tightness: when another point sits closer than this
+          // label could ever be (padding + half label diagonal), the
+          // standard 5pt of air reads as detachment — halve the gap so the
+          // label hugs its point. Points in open space keep the airy gap.
+          let halfdiag = calc.sqrt(w * w + h * h) / 2
+          let d-min = calc.min(3.4e38,
+            ..obstacles.points.map(p => util.dist((p.at(0), p.at(1)), sp.own)))
+          let pad-scale = if d-min < cfg.pad + halfdiag { 0.6 } else { 1.0 }
+          let cfg2 = cfg
+          cfg2.pad = cfg.pad * pad-scale
+          let placement = find-label-placement(sp.pos, sp.base-coord, sizes, obstacles, cfg2)
           placed2.push(placement.rect)
           results.push((
             name: sp.name, final-label: sp.final-label,
             pos: placement.pos, coord: placement.coord, scale: placement.scale,
+            cost: placement.cost, score: placement.score, pad-scale: pad-scale,
           ))
         } else {
           // Engine off (or unknown pos / empty label): exact requested spot
@@ -759,12 +846,14 @@
           results.push((
             name: sp.name, final-label: sp.final-label,
             pos: sp.pos, coord: sp.base-coord, scale: top,
+            cost: 0.0, score: 0.0, pad-scale: 1.0,
           ))
         }
       }
       (results, placed2)
     }
 
+    let allowed = scales
     let (results, placed2) = run-pass(scales)
     // Uniform-scale fixpoint: cap the allowed scales at the smallest used
     // scale and re-place until every label uses the same scale. Bounded by
@@ -778,6 +867,28 @@
       (results, placed2) = run-pass(scales)
       guard += 1
     }
+
+    // Group tidiness: when even one label had to travel far from its point
+    // (cost >= 3: a big stagger or a >= 135° anchor flip) or still collides,
+    // the figure is overcrowded for its label size. A uniformly smaller but
+    // CALM layout — every label at its requested anchor, pushed out at most
+    // one ring, nothing colliding — reads much better than full-size chaos.
+    // Try the allowed shrink scales (largest first) as locked uniform passes
+    // and take the first calm one; if none is calm, keep the original.
+    if results.len() > 0 {
+      let worst = calc.max(..results.map(r => r.cost))
+      let dirty = results.any(r => r.score > 0)
+      if worst >= 3 or dirty {
+        for s in allowed {
+          if s >= scales.first() - 1e-9 { continue }  // strictly smaller only
+          let (r2, p2) = run-pass((s,))
+          if r2.all(r => r.cost <= 1 + 1e-9 and r.score == 0) {
+            (results, placed2) = (r2, p2)
+            break
+          }
+        }
+      }
+    }
     placed = placed2
 
     // Remember the group scale for later label calls in this canvas
@@ -787,8 +898,9 @@
     for r in results {
       let anchor = draw.ctz-pos-to-anchor(r.pos)
       let body = if r.scale == 1.0 { r.final-label } else { text(size: 1em * r.scale, r.final-label) }
-      // 5pt is an absolute length → gap between label and point is canvas-scale independent.
-      elements += cetz-draw.content(r.coord, body, anchor: anchor, padding: 5pt)
+      // 5pt is an absolute length → gap between label and point is canvas-scale
+      // independent; labels in tight clusters use a reduced gap (pad-scale).
+      elements += cetz-draw.content(r.coord, body, anchor: anchor, padding: 5pt * r.at("pad-scale", default: 1.0))
     }
 
     ctx.shared-state.insert("ctz-drawn-label-ids", drawn-ids)

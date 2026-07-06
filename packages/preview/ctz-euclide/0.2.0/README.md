@@ -1,7 +1,7 @@
 # ctz-euclide
 
 [![ctz-euclide on Typst Universe](https://img.shields.io/badge/Typst_Universe-v._0.2.0-239dad?labelColor=eee)](https://typst.app/universe/package/ctz-euclide)
-[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-ctz-euclide/blob/de2afd1d645c71cdadc9a856c3cb29def41f3339/docs/manual.pdf)
+[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-ctz-euclide/blob/3a657e407fce6ab2ecf722296a4105a5445ff731/docs/manual.pdf)
 [![Distributed under the MIT license](https://img.shields.io/badge/License-MIT-333333?labelColor=eee)](LICENSE)
 
 A comprehensive Euclidean geometry package, inspired by the LaTeX **tkz-euclide** package.
@@ -26,21 +26,35 @@ This package is **by no means definitive**. Improvements and features are planne
 
 ## Changelog
 
-### 0.2.0 - 2026-07-06
+### 0.2.0 - 2026-07-07
 
 #### Added
 
 - **Automatic label placement (collision avoidance), on by default**: labels
-  are placed as close as possible to the requested anchor without overlapping
-  drawn segments, circles, point markers or other labels. Labels without an
-  explicit position are fully automatic (`labels: true`). Guarantees: a label
-  is always closer to its own point than to any other point by a clear margin
-  (never reads as the neighbor's label); the font is shrunk (85%, then 70%)
-  only when *no* full-size position exists — and then all labels of the
-  figure share the same scale. Global switch `ctz-label-avoid(false)`,
-  per-label `(pos: "above", avoid: false)`, tunable via
+  are placed as close as possible to the requested anchor while avoiding
+  drawn segments, circles, point markers and other labels. Labels without an
+  explicit position are fully automatic (`labels: true`, or `"auto"` per
+  label). The engine prefers the requested side (pushed slightly farther
+  out), then a 45° lean, then the *opposite* side — a crowded row alternates
+  its labels above/below the line instead of piling them up on one side. A
+  label is accepted as soon as its *text* is clear: thin geometry may run
+  through its padding, and free-floating candidates at 16 fine directions
+  nestle labels into open wedges at hub points (centroid, incenter...), so
+  they stay snug instead of drifting away. Guarantees: a label is always
+  strictly closer to its own point than to any other point (`assoc-factor`);
+  in tight clusters the point-to-text gap shrinks to 60% so labels hug their
+  point. The font is reduced (85%, then 70%) only when nothing calm fits at
+  full size — and then all labels of the figure share the same scale
+  (`allow-shrink: false` forbids it entirely). Global switch
+  `ctz-label-avoid(false)`, per-label `avoid: false`, tunable via
   `ctz-label-avoid((rings: ..., shrink: ..., assoc-factor: ...))`. Angle
   labels slide along the bisector to stay clear.
+- **Precise label placement**: direction tokens with numeric offsets pin a
+  label exactly where asked (collision engine off for it):
+  `labels: (A: "above+1.2 left+0.5", B: "top+0.8")` — offsets in canvas
+  units, `top/bottom/up/down` accepted as aliases, negative amounts flip the
+  direction. Equivalent dictionary form:
+  `(pos: "above left", offset: (-0.5, 1.2), avoid: false)`.
 - **Exterior angle support** (#2): `ctz-draw-angle(..., angle-type: "reflex")`
   (explementary) and `angle-type: "supplementary"` (exterior).
 - `ctz-def-golden(..., inside: false)` for the external golden section.
@@ -164,7 +178,7 @@ Click on an image to see the source code.
 
 ## Documentation
 
-📖 **[Complete Manual (PDF)](https://github.com/nathan-ed/typst-package-ctz-euclide/blob/de2afd1d645c71cdadc9a856c3cb29def41f3339/docs/manual.pdf)** - Comprehensive documentation with examples and gallery
+📖 **[Complete Manual (PDF)](https://github.com/nathan-ed/typst-package-ctz-euclide/blob/3a657e407fce6ab2ecf722296a4105a5445ff731/docs/manual.pdf)** - Comprehensive documentation with examples and gallery
 
 The manual includes:
 - Detailed API reference for all functions

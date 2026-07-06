@@ -169,10 +169,18 @@
 }
 
 /// Ordered list of (pos:, ring:, cost:) candidates, closest to the preferred
-/// anchor first: cost = 1.2 * (angular distance in 45° steps) + ring, with a
-/// deterministic tie-break (counter-clockwise neighbor first). Weighting the
-/// anchor change above the ring step keeps the label on the SIDE the user
-/// asked for whenever pushing it slightly farther out is enough.
+/// anchor first: cost = anchor-change cost + ring, with a deterministic
+/// tie-break (counter-clockwise neighbor first).
+///
+/// The anchor-change cost is deliberately NON-monotonic in the angle:
+///   same anchor 0 < 45° lean 2.2 < 180° opposite 2.6 < 90° 4.4 < 135° 6.6
+/// Staying on the requested side (pushed slightly farther out) is cheap;
+/// the OPPOSITE side is next-best because it keeps the label centered on
+/// the same axis (above <-> below, left <-> right) — a crowded row then
+/// alternates its labels above/below, which reads far calmer than piling
+/// them up in staggered rows on one side. Perpendicular and diagonal flips
+/// read as chaos and come last.
+#let _anchor-change-cost = (0, 2.2, 4.4, 6.6, 2.6)
 #let _candidate-list(preferred, rings) = {
   let pref = _label-positions.find(p => p.name == preferred)
   if pref == none { pref = (name: preferred, angle: 45) }
@@ -183,16 +191,37 @@
     let delta = _normalize-angle(p.angle - pref.angle)
     let tie = if delta <= 180 { 0 } else { 1 }
     for ring in range(rings) {
-      let cost = 1.2 * ang-steps + ring
+      let cost = _anchor-change-cost.at(int(ang-steps)) + ring
       items.push((
         key: cost * 1000 + tie * 100 + i,
         pos: p.name,
+        angle: p.angle,
         ring: ring,
         cost: cost,
       ))
     }
   }
-  items.sorted(key: it => it.key).map(it => (pos: it.pos, ring: it.ring, cost: it.cost))
+  // FLOAT candidates: the label CENTER placed at a fine direction around the
+  // point (16 directions, 22.5° apart), anchor "center". The 8-anchor grid
+  // cannot center a label inside a TILTED wedge (e.g. between two medians
+  // crossing at a centroid); these can nestle into any opening. They cost
+  // more than staying near the requested anchor but less than far rings and
+  // big anchor flips, so they kick in exactly when the grid fails nearby.
+  for k in range(16) {
+    let ang = k * 22.5
+    let ang-dist = _angular-distance(ang, pref.angle)
+    for ring in range(rings) {
+      let cost = 3.4 + 1.1 * ang-dist / 45 + ring
+      items.push((
+        key: cost * 1000 + 50 + k,
+        pos: "center",
+        angle: ang,
+        ring: ring,
+        cost: cost,
+      ))
+    }
+  }
+  items.sorted(key: it => it.key).map(it => (pos: it.pos, angle: it.angle, ring: it.ring, cost: it.cost))
 }
 
 /// Overlap area of two rects (0 if disjoint)
@@ -243,45 +272,63 @@
   calc.sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0))
 }
 
+/// SOFT collision score: thin drawn geometry (segments, circle strokes)
+/// crossing the given rect. A small soft score on a padded rect means a
+/// hairline runs through the label's PADDING, not through its text.
+#let _soft-score(rect, obstacles, weights, margin: 0) = {
+  // Deflate slightly so obstacles exactly on the rect boundary do not count.
+  let e = 1e-6
+  let r = (rect.at(0) + e, rect.at(1) + e, rect.at(2) - e, rect.at(3) - e)
+  let score = 0.0
+  let w-seg = weights.at("segment", default: 1)
+  for seg in obstacles.at("segments", default: ()) {
+    score += w-seg * _segment-rect-chord(r, seg.at(0), seg.at(1))
+  }
+  let w-circ = weights.at("circle", default: 1)
+  for c in obstacles.at("circles", default: ()) {
+    score += w-circ * _rect-circle-ring-depth(r, c.center, c.radius, margin + 0.02)
+  }
+  score
+}
+
+/// HARD collision score: overlaps that are never acceptable — point markers
+/// (tested against point-rect) and other labels' tight rects (tested against
+/// label-rect).
+#let _hard-score(point-rect, label-rect, obstacles, weights, margin: 0) = {
+  let score = 0.0
+  let w-pt = weights.at("point", default: 2)
+  for p in obstacles.at("points", default: ()) {
+    let depth = calc.max(0, p.at(2) + margin - _rect-point-dist(point-rect, p))
+    score += w-pt * depth
+  }
+  let w-lab = weights.at("label", default: 4)
+  for lr in obstacles.at("labels", default: ()) {
+    score += w-lab * _rect-overlap-area(label-rect, lr)
+  }
+  score
+}
+
 /// Collision score of a candidate label rect. 0 = collision-free.
 /// - rect: PADDED label rect, tested against geometry (segments, circles,
 ///   points) — the padding enforces visible air between text and geometry.
 /// - label-rect: TIGHT (near-text) rect, tested against other labels' tight
 ///   rects. Two neighboring labels may share padding space without being
 ///   considered colliding — texts just must not touch. Defaults to rect.
+/// - point-rect: rect tested against point markers. Markers are small, so a
+///   label may let its padding overlap a neighboring marker as long as the
+///   text keeps clear — testing the fully padded rect makes labels flee
+///   points they do not even touch. Defaults to rect.
 /// obstacles: (segments: ((p1, p2), ...), circles: ((center:, radius:), ...),
 ///             points: ((x, y, r), ...), labels: (tight-rect, ...))
 /// margin: clearance added around points and circle strokes (canvas units)
-#let score-label-rect(rect, obstacles, weights, margin: 0, label-rect: auto) = {
-  // Deflate slightly so obstacles exactly on the rect boundary do not count:
-  // the rect already includes the label padding, which is the visual gap.
+#let score-label-rect(rect, obstacles, weights, margin: 0, label-rect: auto, point-rect: auto) = {
   let e = 1e-6
   let r = (rect.at(0) + e, rect.at(1) + e, rect.at(2) - e, rect.at(3) - e)
   let lr0 = if label-rect == auto { rect } else { label-rect }
-  let score = 0.0
-
-  let w-seg = weights.at("segment", default: 1)
-  for seg in obstacles.at("segments", default: ()) {
-    score += w-seg * _segment-rect-chord(r, seg.at(0), seg.at(1))
-  }
-
-  let w-circ = weights.at("circle", default: 1)
-  for c in obstacles.at("circles", default: ()) {
-    score += w-circ * _rect-circle-ring-depth(r, c.center, c.radius, margin + 0.02)
-  }
-
-  let w-pt = weights.at("point", default: 2)
-  for p in obstacles.at("points", default: ()) {
-    let depth = calc.max(0, p.at(2) + margin - _rect-point-dist(r, p))
-    score += w-pt * depth
-  }
-
-  let w-lab = weights.at("label", default: 4)
-  for lr in obstacles.at("labels", default: ()) {
-    score += w-lab * _rect-overlap-area(lr0, lr)
-  }
-
-  score
+  let pr0 = if point-rect == auto { r } else { point-rect }
+  let soft = _soft-score(rect, obstacles, weights, margin: margin)
+  let hard = _hard-score(pr0, lr0, obstacles, weights, margin: margin)
+  soft + hard
 }
 
 /// Find the best label placement.
@@ -295,14 +342,20 @@
 ///   assoc-factor:) — canvas units. `pad` is the drawn content padding
 ///   (clearance against geometry); `label-pad` is the much smaller clearance
 ///   between two labels (their texts may come close, geometry may not).
-/// Returns (pos:, coord:, scale:, rect:, score:).
+/// Returns (pos:, coord:, scale:, rect:, score:, cost:) — cost is the
+/// displacement cost of the chosen candidate (0 = exactly where asked),
+/// used by the caller to judge how "calm" a whole figure's layout is.
 ///
 /// Search order (both are user requirements):
 /// - STRICT size phases: every full-size candidate (all anchors × all rings,
 ///   ordered by closeness to the preferred anchor) is tried before ANY
 ///   shrunk candidate — shrinking the font is a last resort.
+/// - A candidate is ACCEPTED when its text (plus margin) is clear of all
+///   geometry and it overlaps no label or marker; thin geometry may run
+///   through its PADDING (graze). Close-but-grazed beats far-but-sterile.
 /// - ASSOCIATION RULE (hard): the label center must be closer to its OWN
-///   point than to any other point by a clear margin (assoc-factor),
+///   point than to any other point (assoc-factor, default 1.0: strictly
+///   closer; raise it to demand a clear margin),
 ///   otherwise it visually attaches to the neighbor. Violating candidates
 ///   are rejected outright, from the search AND the fallback.
 /// If no candidate is collision-free at any size, the least-bad
@@ -312,11 +365,9 @@
 /// one sitting on it. Ties prefer the larger size (full size is tried first).
 #let find-label-placement(preferred, base-coord, sizes, obstacles, cfg) = {
   let candidates = _candidate-list(preferred, cfg.rings)
-  let angles = (:)
-  for p in _label-positions { angles.insert(p.name, p.angle) }
 
   let label-pad = cfg.at("label-pad", default: cfg.pad)
-  let assoc-factor = cfg.at("assoc-factor", default: 1.15)
+  let assoc-factor = cfg.at("assoc-factor", default: 1.0)
 
   let assoc-ok(rect) = {
     let cx = (rect.at(0) + rect.at(2)) / 2
@@ -334,14 +385,25 @@
     true
   }
 
+  let margin = cfg.at("margin", default: 0)
   let best = none
   // Size-major: exhaust all positions at each scale before shrinking.
   for (si, size) in sizes.enumerate() {
     for cand in candidates {
-      let a = angles.at(cand.pos) * 1deg
+      let a = cand.angle * 1deg
+      // Anchor candidates sit ON the point (pushed out by ring); float
+      // ("center") candidates place the label CENTER at the distance that
+      // leaves exactly the padding between text edge and point: pad + the
+      // box's support extent in that direction (not the worst-case half
+      // diagonal, which over-reserves in off-corner directions).
+      let d0 = if cand.pos == "center" {
+        let ext = calc.abs(calc.cos(a)) * size.w / 2 + calc.abs(calc.sin(a)) * size.h / 2
+        cfg.pad + ext
+      } else { 0 }
+      let dist = d0 + cand.ring * cfg.ring-step
       let coord = (
-        base-coord.at(0) + cand.ring * cfg.ring-step * calc.cos(a),
-        base-coord.at(1) + cand.ring * cfg.ring-step * calc.sin(a),
+        base-coord.at(0) + dist * calc.cos(a),
+        base-coord.at(1) + dist * calc.sin(a),
       )
       let rect = anchor-candidate-rect(cand.pos, coord, size.w, size.h, cfg.pad)
       if not assoc-ok(rect) { continue }
@@ -350,15 +412,44 @@
       // same drawn position, inset from the padded rect by (pad - label-pad).
       let inset = cfg.pad - label-pad
       let tight = (rect.at(0) + inset, rect.at(1) + inset, rect.at(2) - inset, rect.at(3) - inset)
-      let score = score-label-rect(rect, obstacles, cfg.weights,
-        margin: cfg.at("margin", default: 0), label-rect: tight)
-      if score == 0 {
-        return (pos: cand.pos, coord: coord, scale: size.scale, rect: tight, score: 0.0)
+      // Geometry clearance scales with the label size: a shrunk label only
+      // needs proportionally less air around its (smaller) text, otherwise
+      // the fixed padding dominates single-letter labels and shrinking buys
+      // no room at all.
+      let g-inset = cfg.pad * (1 - size.scale)
+      let geom = (rect.at(0) + g-inset, rect.at(1) + g-inset, rect.at(2) - g-inset, rect.at(3) - g-inset)
+      // Point markers are small: half the padding is enough clearance, the
+      // full padded rect would make labels dodge markers they don't touch.
+      let p-inset = calc.max(g-inset, cfg.pad * 0.5)
+      let pt-rect = (rect.at(0) + p-inset, rect.at(1) + p-inset, rect.at(2) - p-inset, rect.at(3) - p-inset)
+
+      let hard = _hard-score(pt-rect, tight, obstacles, cfg.weights, margin: margin)
+      let soft = _soft-score(geom, obstacles, cfg.weights, margin: margin)
+      // Reported cost feeds the caller's group-tidiness metric: a float at
+      // ring 0 sits snugly NEXT TO its point — visually calm despite its
+      // high search cost, so report it by how far out it actually is.
+      let vis-cost = if cand.pos == "center" { 1.0 + cand.ring } else { cand.cost }
+      if hard == 0 {
+        if soft == 0 {
+          return (pos: cand.pos, coord: coord, scale: size.scale, rect: tight, score: 0.0, cost: vis-cost)
+        }
+        // GRAZE acceptance: at a hub point (medians, bisectors... crossing
+        // at the labeled point) every nearby candidate has some hairline
+        // through its padding, and insisting on a perfectly clear rect
+        // exiles the label far from its point. A close label whose TEXT
+        // (plus margin) is clear of all geometry reads better than a far
+        // clean one, so accept it — the line only crosses the padding.
+        let tr = (tight.at(0) - margin, tight.at(1) - margin, tight.at(2) + margin, tight.at(3) + margin)
+        if _soft-score(tr, obstacles, cfg.weights) == 0 {
+          return (pos: cand.pos, coord: coord, scale: size.scale, rect: tight,
+            score: 0.0, cost: vis-cost, graze: soft)
+        }
       }
       // least-bad fallback: all sizes compete; strict < keeps ties at the
       // larger size / earlier candidate
+      let score = hard + soft
       if best == none or score < best.score {
-        best = (pos: cand.pos, coord: coord, scale: size.scale, rect: tight, score: score)
+        best = (pos: cand.pos, coord: coord, scale: size.scale, rect: tight, score: score, cost: vis-cost)
       }
     }
   }
@@ -370,5 +461,5 @@
   let size = sizes.first()
   let rect = anchor-candidate-rect(preferred, base-coord, size.w, size.h, label-pad)
   let score = score-label-rect(rect, obstacles, cfg.weights, margin: cfg.at("margin", default: 0))
-  (pos: preferred, coord: base-coord, scale: size.scale, rect: rect, score: calc.max(score, 1e-9))
+  (pos: preferred, coord: base-coord, scale: size.scale, rect: rect, score: calc.max(score, 1e-9), cost: 0.0)
 }
