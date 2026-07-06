@@ -24,13 +24,13 @@ These are sample content and colors used in the examples. Red color denotes the 
 ### Example 1: Table with `columns` Value
 In this example, only the number of columns is set.
 
-![Example 1](example1.svg)
+![A baled table and a Typst table filled with the same lorem ipsum example text as well as a circle filling 100% of the width of a column. The baled table takes up less vertical space, because the widths of columns are adjusted to fit the amount of content in each column.](example1.svg)
 
 ### Example 2: Grid with `columns` Array
 
 In this example, a `columns` array is set. In the case of *Balanced Grid with Size Limits*, the first column's size is set to exactly `70pt`, and the third column's size it set to an automatically determined value between `30pt` and `100pt`, which overrides the default minimum of `50pt` for `auto`. 
 
-![Example 1](example2.svg)
+![The same grid layed out three times with lorem ipsum content: twice with baled grid and once with Typst grid. The first grid is layed out with no restrictions and takes up the least vertical space. The second grid has different column widths due to columns restriction on the first and last column and takes up a middling amount of vertical space. The last table, laid out with Typst's table function, takes up the most space.](example2.svg)
 
 ## How It Works
 
