@@ -1,7 +1,7 @@
 [package]
 name = "clean-ut"
 version = "0.1.0"
-entrypoint = "template/lib.typ"
+entrypoint = "lib.typ"
 authors = [
 	"Elias Riedling <https://github.com/Lai-es/>"
 ]
@@ -10,7 +10,7 @@ description = "Thesis with two-column bibliography, subfigures, and custom capti
 repository = "https://github.com/Lai-es/typst-thesis-template"
 keywords = ["Bachelorarbeit", "Masterarbeit", "aio", "thesis"]
 categories = ["thesis"]
-compiler = "0.14.2"
+compiler = "0.14.0"
 
 [template]
 path = "template"

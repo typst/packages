@@ -36,4 +36,4 @@ figure(.., caption: []),
 caption: [caption describing the whole figure, including subfigures])
 ```
 
-Note that this does **not** allow for captioning of the subfigures directly (this will look bad), but instead requires a description  of subfigures in the total figure caption
+Note that this does **not** allow for captioning of the subfigures directly (this will look ugly), but instead requires a description  of subfigures in the total figure caption (as it is usual in the life sciences)
