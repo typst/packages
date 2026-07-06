@@ -1,0 +1,18 @@
+[package]
+name = "fancy-cookbook"
+version = "2.0.0"
+entrypoint = "lib/main.typ"
+authors = [ "Christophe Dos Santos" ]
+license = "MIT"
+repository = "https://github.com/Ajrarn/fancy-cookbook"
+description = "Create simple recipe collections and cookbooks in color and your language."
+keywords = [ "cookbook", "recipe", "food", "kitchen", "cooking" ]
+categories = [ "layout" ]
+compiler = "0.14.0"
+exclude = [ ".gitignore" ]
+disciplines = [ ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "recettes.png"

@@ -20,6 +20,17 @@ These things need to be checked for a new submission to be merged. If you're jus
 
 I have read and followed the submission guidelines and, in particular, I
 - [ ] selected [a name](https://github.com/typst/packages/blob/main/docs/manifest.md#naming-rules) that isn't the most obvious or canonical name for what the package does
+  - Explanation:
+    <!--
+    Please write one or two sentences explaining:
+    1. the name of your package, if necessary, e.g:
+      > Pergamon was an ancient Greek city state in Asia Minor. Its library was second only to the Library of Alexandria around 200 BC.
+    2. why it isn't too canonical/descriptive and complies with the naming rules, e.g:
+      - The name is a related but creative term
+      - The name is a neologism combining the words … and …
+      - The name contains a non-descriptive prefix
+      - The package is official ⇒ an email will be sent to hello@typst.app
+    -->
 - [ ] added a [`typst.toml`](https://github.com/typst/packages/blob/main/docs/manifest.md#package-metadata) file with all required keys
 - [ ] added a [`README.md`](https://github.com/typst/packages/blob/main/docs/documentation.md) with documentation for my package
 - [ ] have chosen [a license](https://github.com/typst/packages/blob/main/docs/licensing.md) and added a `LICENSE` file or linked one in my `README.md`

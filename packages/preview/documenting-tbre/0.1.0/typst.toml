@@ -1,0 +1,13 @@
+[package]
+name = "documenting-tbre"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Team Bath Racing Electric"]
+license = "MIT"
+description = "A Typst template for Team Bath Racing Electric Documentation, has support for git-cliff changelogs and acronym tracking."
+categories = ["layout", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

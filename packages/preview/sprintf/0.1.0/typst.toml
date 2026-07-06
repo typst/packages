@@ -1,0 +1,37 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "sprintf"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["litlighilit <https://github.com/litlighilit>"]
+license = "MIT"
+description = "`%`-style (printf) str format for typst"
+homepage = "https://nimtypst.github.io/sprintf"
+repository = "https://github.com/nimtypst/sprintf"
+keywords = [
+	"format",
+	"text",
+]
+categories = ["text"]
+disciplines = []
+# compiler = ""
+exclude = [
+  ".github",
+  "lib",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

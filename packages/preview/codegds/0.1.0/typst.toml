@@ -1,0 +1,12 @@
+[package]
+name = "codegds"
+version = "0.1.0"
+entrypoint = "codegds.typ"
+authors = ["Daniel Cancelas"]
+license = "MIT"
+description = "Syntax highlighting support for the GDScript programming language."
+repository = "https://github.com/Kioraga/typst-gdscript"
+keywords = ["syntax-highlighting", "gdscript"]
+categories = ["text"]
+compiler = "0.13.0"
+exclude = ["example.*"]
