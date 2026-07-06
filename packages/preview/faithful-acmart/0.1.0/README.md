@@ -81,7 +81,7 @@ typst compile --font-path <font-folder> main.typ
 In the Typst web app, upload the font files into the project. Libertinus is available
 from the [Libertinus releases](https://github.com/alerque/libertinus/releases);
 `Inconsolatazi4` ships with TeX Live's `inconsolata` package. The project repository
-also mirrors both families in [`fonts/`](https://github.com/fzaiser/faithful-acmart/tree/main/fonts).
+also mirrors both families in [`fonts/`](https://github.com/fzaiser/faithful-acmart/tree/v0.1.0/fonts).
 
 ## Formats
 
@@ -196,7 +196,7 @@ Some differences come from Typst and LaTeX being different layout engines:
 - PDF accessibility tags are emitted only with Typst 0.14+; visual output works from
   Typst 0.12.
 
-For the detailed design rationale and validation notes, see [`DESIGN.md`](https://github.com/fzaiser/faithful-acmart/blob/main/DESIGN.md).
+For the detailed design rationale and validation notes, see [`DESIGN.md`](https://github.com/fzaiser/faithful-acmart/blob/v0.1.0/DESIGN.md).
 
 ## Requirements
 
@@ -221,4 +221,4 @@ also the test suite: every format is diffed against real LaTeX acmart output.
 ## Contributing
 
 Development setup, validation, and repository internals are documented in
-[`CONTRIBUTING.md`](https://github.com/fzaiser/faithful-acmart/blob/main/CONTRIBUTING.md).
+[`CONTRIBUTING.md`](https://github.com/fzaiser/faithful-acmart/blob/v0.1.0/CONTRIBUTING.md).
