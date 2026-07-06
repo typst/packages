@@ -69,7 +69,7 @@ And from a game:
 
 - **User manual** — the complete reference (every function, option, and example),
   with each feature shown as the code you type beside the board it produces.
-  Read or download the compiled **[PDF](https://github.com/ndg6/staunton/blob/v0.1.0/docs/manual.pdf)**, or build it yourself
+  Download the compiled **[PDF](https://github.com/ndg6/staunton/releases/latest/download/manual.pdf)** (attached to each release), or build it yourself
   from its Typst source, [`docs/manual.typ`](https://github.com/ndg6/staunton/blob/v0.1.0/docs/manual.typ). The manual is part
   of the repo only — it is not shipped in the package bundle.
 - **[Showcase](https://github.com/ndg6/staunton/blob/v0.1.0/docs/examples/showcase.typ)** — a runnable capability tour.
