@@ -1,0 +1,19 @@
+[package]
+name        = "endfield-doc"
+version     = "0.1.0"
+entrypoint  = "lib.typ"
+authors     = ["metasequoiaNI <@Ives-Natsume>"]
+license     = "MIT"
+description = "A4 document theme styled after the Arknights: Endfield aesthetic."
+repository  = "https://github.com/Ives-Natsume/typst-endfield-doc-theme.git"
+keywords    = ["document", "theme", "arknights", "endfield", "a4"]
+categories  = ["office"]
+
+exclude = [
+  "/img/",
+]
+
+[template]
+path       = "template"
+entrypoint = "main.typ"
+thumbnail  = "thumbnail.png"
