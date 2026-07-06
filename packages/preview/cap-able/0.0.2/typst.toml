@@ -1,0 +1,12 @@
+[package]
+name = "cap-able"
+version = "0.0.2"
+entrypoint = "lib.typ"
+authors = ["SchrodingerBlume"]
+license = "MIT"
+description = "Professional three-line tables and figures with bilingual captions, continued tables/figures, subfigures, and 25+ language support for academic documents."
+repository = "https://github.com/SchrodingerBlume/typst-cap-able"
+keywords = ["table", "figure", "caption", "bilingual", "academic"]
+categories = ["components", "layout"]
+compiler = "0.13.0"
+exclude = ["*.pdf"]

@@ -1,0 +1,16 @@
+[package]
+name = "easy-abi-ausarbeitung"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.14.0"
+authors = ["Philipp Knoch"]
+license = "MIT"
+description = "Exposé template for the 5th component of the German Abitur in Berlin."
+repository = "https://github.com/kn0kh/easy-abi-ausarbeitung"
+keywords = ["5PK", "Ausarbeitung", "5.Prüfungskomponente", "Schriftliche Ausarbeitung", "Abitur", "Berlin"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

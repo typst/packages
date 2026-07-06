@@ -19,7 +19,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["The Typst Project Developers"]
 license = "MIT"
-description = "Calculate elementary arithemtics with functions."
+description = "Calculate elementary arithmetics with functions."
 ```
 
 The following fields are required by the compiler:
@@ -70,7 +70,10 @@ Optional:
   files will still be available on typst universe to link to from the README.\
   To be used for large support files like images or PDF documentation that would
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
-  the LICENSE, see [what to exclude].
+  the LICENSE, see [what to exclude]. Globs provided here have the same semantics
+  as lines in a [gitignore file](https://git-scm.com/docs/gitignore). They are
+  applied _recursively_ throughout the project directory. Prepend a forward
+  slash (e.g., `/assets*/`) to avoid recursive matching.
 
 Packages always live in folders named as `{name}/{version}`. The name and
 version in the folder name and manifest must match. Paths in a package are local
@@ -113,10 +116,9 @@ for languages that are not generally written using the Latin alphabet.
 A good package description is simple, easily understandable and succinct. Here
 are some rules to follow to write great descriptions:
 
-- Keep it short. Try to maximize the content to length ratio and weigh your words
-  thoughtfully. Ideally, it should be 40 to 60 characters long.
-
-- Terminate your description with a full stop.
+- Keep it short. Try to maximize the content to length ratio and weigh your
+  words thoughtfully. Ideally, it should be one sentence of about 40 to 60
+  characters length.
 
 - Avoid the word "Typst", which is redundant unless your package or template
   actually has to do with Typst itself or its ecosystem (like in the case of

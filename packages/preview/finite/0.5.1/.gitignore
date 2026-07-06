@@ -1,0 +1,10 @@
+
+tests/*/out/
+tests/*/diff/
+
+
+.env
+CLAUDE.md
+
+.DS_Store
+Thumbs.db

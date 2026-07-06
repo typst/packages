@@ -1,0 +1,14 @@
+[package]
+name = "tfgei"
+version = "0.1.0"
+entrypoint = "tfgei.typ"
+authors = ["Daniel Cancelas"]
+license = "MIT"
+description = "Template for making final degree projects in the Computer Science degree at ESEI (University of Vigo)."
+repository = "https://github.com/Kioraga/TFGEI"
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "portada.png"
