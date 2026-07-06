@@ -16,22 +16,7 @@ typst init @preview/hadronic-rirekisho:0.1.0
 #import "@preview/hadronic-rirekisho:0.1.0": *
 ```
 
-## ファイル構成
-
-```text
-typst-hadronic-rirekisho/
-├── typst.toml         # パッケージマニフェスト
-├── rirekisho.typ      # テンプレート本体（パッケージのエントリーポイント）
-├── LICENSE
-├── thumbnail.png      # Typst Universe 掲載用サムネイル
-├── template/
-│   └── main.typ       # `typst init` で複製される記入例
-└── example/
-    ├── example.typ    # 記入例（湯川秀樹）
-    ├── example.pdf    # 記入例の出力
-    ├── photo.jpg      # 証明写真（各自用意）
-    └── signature.png  # 署名画像（各自用意）
-```
+記入例（湯川秀樹）のソースと出力は [`example/example.typ`](example/example.typ) と [`example/example.pdf`](example/example.pdf) にあります。
 
 ---
 
@@ -202,3 +187,22 @@ TeX Live がない場合は [原ノ味フォントを直接インストール](h
 ## ライセンス
 
 [MIT No Attribution](LICENSE) です。記入済みの履歴書を配布・提出する際にライセンス表記を残す必要はありません。
+
+---
+
+## ファイル構成
+
+```text
+typst-hadronic-rirekisho/
+├── typst.toml         # パッケージマニフェスト
+├── rirekisho.typ      # テンプレート本体（パッケージのエントリーポイント）
+├── LICENSE
+├── thumbnail.png      # Typst Universe 掲載用サムネイル
+├── template/
+│   └── main.typ       # `typst init` で複製される記入例
+└── example/
+    ├── example.typ    # 記入例（湯川秀樹）
+    ├── example.pdf    # 記入例の出力
+    ├── photo.jpg      # 証明写真（各自用意）
+    └── signature.png  # 署名画像（各自用意）
+```
