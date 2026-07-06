@@ -667,4 +667,8 @@
       )
     }
   })
+
+  set text(weight: "bold")
+  place(bottom + left, text(size: 10pt, fill: primary-color, link("https://juti.if.its.ac.id/")))
+  place(bottom + right, text(size: 10pt, fill: primary-color, [Published by Institut Teknologi Sepuluh Nopember]))
 }
