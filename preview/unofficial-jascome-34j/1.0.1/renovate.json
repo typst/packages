@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "config:best-practices",
+    ":pinOnlyDevDependencies",
+    ":automergeAll"
+  ]
+}
