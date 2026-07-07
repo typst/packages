@@ -14,7 +14,9 @@
 #import "tree.typ": trans-view
 #import cetz.draw: line, rect, content
 
-#let _ann(pos, body, th) = content(pos, text(size: th.text-size * 0.85, fill: th.label-fill)[#body])
+#let _ann(pos, body, th) = {
+  content(pos, text(..th.label-text)[#body])
+}
 
 // A cell with its lower-left corner at `(x, y)`. `w` and `fill` default to
 // the theme's box width and fill; `mark`, when set, overrides fill/stroke via
@@ -25,8 +27,9 @@
   let m = if mark != none { mark-style(th, mark, base-fill: base-fill) } else { none }
   let f = if m != none { m.fill } else { base-fill }
   let s = if m != none { m.stroke } else { th.box-stroke }
+  let text-style = if m != none { m.text } else { th.node-text }
   rect((x, y), (x + ww, y + th.box-h), stroke: s, fill: f)
-  content((x + ww / 2, y + th.box-h / 2), text(size: th.text-size)[#body])
+  content((x + ww / 2, y + th.box-h / 2), text(..text-style)[#body])
 }
 
 #let _mark(marks, i) = marks.at(str(i), default: none)
@@ -60,7 +63,7 @@
         stroke: th.box-stroke,
       )
     }
-    content((vs.len() * step + th.box-w / 2, th.box-h / 2), text(size: th.text-size)[$nothing$])
+    content((vs.len() * step + th.box-w / 2, th.box-h / 2), text(..th.node-text)[$nothing$])
     if head and vs.len() > 0 { _head-arrow(th, -0.05) }
   })
 }
@@ -140,10 +143,10 @@
     if vs.len() > 0 {
       let x = (vs.len() - 1) * step
       line((x + th.box-w, th.box-h * 0.68), (x + step, th.box-h * 0.68), mark: (end: ">"), stroke: th.box-stroke)
-      content((x + step + th.box-w / 2, th.box-h / 2), text(size: th.text-size)[$nothing$])
+      content((x + step + th.box-w / 2, th.box-h / 2), text(..th.node-text)[$nothing$])
       if head { _head-arrow(th, -0.05) }
     } else {
-      content((th.box-w / 2, th.box-h / 2), text(size: th.text-size)[$nothing$])
+      content((th.box-w / 2, th.box-h / 2), text(..th.node-text)[$nothing$])
     }
   })
 }
@@ -204,9 +207,10 @@
 // First value is the top of the stack.
 #let _stack-render(vs, th, marks) = {
   let step = th.box-h + th.box-gap * 0.35
+  let label-gap = if th.box-gap > 0.45 { th.box-gap } else { 0.45 }
   scaled(th, cetz.canvas({
     for (i, v) in vs.enumerate() { _cell(0, -i * step, v, th, mark: _mark(marks, i)) }
-    if vs.len() > 0 { _ann((th.box-w + th.box-gap, th.box-h / 2), [top], th) }
+    if vs.len() > 0 { _ann((th.box-w + label-gap, th.box-h / 2), [top], th) }
   }))
 }
 

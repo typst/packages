@@ -88,6 +88,55 @@
   none
 }
 
+#let _node-custom(customizations, id) = {
+  for (key, opts) in customizations {
+    if key == id { return opts }
+  }
+  none
+}
+
+#let _text-style(style) = {
+  let res = style
+  if "color" in res {
+    res.fill = res.color
+    let _ = res.remove("color")
+  }
+  res
+}
+
+#let _lookup-key(items, id) = {
+  if type(items) == dictionary {
+    if type(id) == str or type(id) == int or type(id) == float {
+      return items.at(str(id), default: none)
+    }
+    return none
+  }
+  for (key, value) in items {
+    if key == id { return value }
+  }
+  none
+}
+
+#let _node-shape(th, custom) = {
+  if custom != none and "shape" in custom { return custom.shape }
+  th.node-shape
+}
+
+#let _node-radius(th, custom) = {
+  if custom != none and "node-radius" in custom { return custom.node-radius }
+  th.node-radius
+}
+
+#let _boundary-radius(shape, r, ux, uy) = {
+  if shape == "square" {
+    return r / calc.max(calc.abs(ux), calc.abs(uy))
+  }
+  if shape == "diamond" {
+    return r / (calc.abs(ux) + calc.abs(uy))
+  }
+  r
+}
+
 // Evenly spaced on a circle, starting at the top and going clockwise.
 // `radius: auto` grows with node count; a number fixes the circle radius.
 #let _circle-layout(nodes, th, radius) = {
@@ -169,32 +218,76 @@
 
 // Backs `a` off toward `b` by `r`, landing it on a node's circumference
 // instead of its center.
-#let _trim-toward(a, b, r) = {
+#let _trim-toward(a, b, r, shape: "circle") = {
   let dx = b.at(0) - a.at(0)
   let dy = b.at(1) - a.at(1)
   let len = calc.sqrt(dx * dx + dy * dy)
   if len == 0 { return a }
-  (a.at(0) + dx / len * r, a.at(1) + dy / len * r)
+  let ux = dx / len
+  let uy = dy / len
+  let d = _boundary-radius(shape, r, ux, uy)
+  (a.at(0) + ux * d, a.at(1) + uy * d)
 }
 
-#let _edge-label-point(p, q, r, custom) = {
-  let bend = if custom != none { custom.at("bend", default: false) } else { false }
-  if bend == false or bend == none {
-    let dx = q.at(0) - p.at(0)
-    let dy = q.at(1) - p.at(1)
-    let len = calc.sqrt(dx * dx + dy * dy)
-    if len == 0 { return p }
-    let ux = dx / len
-    let uy = dy / len
-    let a = (p.at(0) + ux * r, p.at(1) + uy * r)
-    let b = (q.at(0) - ux * r, q.at(1) - uy * r)
-    return ((a.at(0) + b.at(0)) / 2, (a.at(1) + b.at(1)) / 2)
+#let _edge-label-point(p, q, r, custom, th) = {
+  let dx = q.at(0) - p.at(0)
+  let dy = q.at(1) - p.at(1)
+  let len = calc.sqrt(dx * dx + dy * dy)
+  
+  let base = if len == 0 { p } else {
+    let bend = if custom != none { custom.at("bend", default: false) } else { false }
+    if bend == false or bend == none {
+      let ux = dx / len
+      let uy = dy / len
+      let a = (p.at(0) + ux * r, p.at(1) + uy * r)
+      let b = (q.at(0) - ux * r, q.at(1) - uy * r)
+      ((a.at(0) + b.at(0)) / 2, (a.at(1) + b.at(1)) / 2)
+    } else {
+      let angle = if custom != none { custom.at("angle", default: 25deg) } else { 25deg }
+      _bend-point(p, q, bend, angle)
+    }
   }
-  let angle = if custom != none { custom.at("angle", default: 25deg) } else { 25deg }
-  _bend-point(p, q, bend, angle)
+
+  if len == 0 { return base }
+
+  let ux = dx / len
+  let uy = dy / len
+  
+  let o1x = -uy
+  let o1y = ux
+  let o2x = uy
+  let o2y = -ux
+  
+  let bend = if custom != none { custom.at("bend", default: false) } else { false }
+  
+  // Choose the orthogonal shift direction.
+  let (ox, oy) = if bend == "left" {
+    (-uy, ux) // Shift further outward in the direction of the left bend
+  } else if bend == "right" {
+    (uy, -ux) // Shift further outward in the direction of the right bend
+  } else {
+    // For straight edges, we want the orthogonal vector that points "up" (negative y).
+    // If both have the same y (i.e. the edge is vertical, uy = 0), we pick right.
+    if o1y < o2y { 
+      (o1x, o1y) 
+    } else if o1y > o2y { 
+      (o2x, o2y) 
+    } else {
+      if o1x > 0 { (o1x, o1y) } else { (o2x, o2y) }
+    }
+  }
+
+  let size = th.label-text.at("size", default: 9pt)
+  // Gap is 10% of size. But since text is centered, we also need to shift by 50% of size 
+  // so the text's bounding box clears the line. Total shift = 60% of size.
+  // Convert pt to CetZ coordinate units (1 unit = 1cm = 28.346pt).
+  let shift-pt = if type(size) == length { (size / 1pt) * 0.6 } else { 6.0 }
+  let gap = shift-pt / 28.346
+  
+  (base.at(0) + ox * gap, base.at(1) + oy * gap)
 }
 
-#let _draw-edge(p, q, r, directed, th, custom) = {
+#let _draw-edge(p, q, from-boundary, to-boundary, directed, th, custom) = {
   let stroke = edge-stroke(th, custom: custom)
   let mark = edge-arrow(th, directed, custom: custom)
   let bend = if custom != none { custom.at("bend", default: false) } else { false }
@@ -205,8 +298,8 @@
     if len == 0 { return }
     let ux = dx / len
     let uy = dy / len
-    let a = (p.at(0) + ux * r, p.at(1) + uy * r)
-    let b = (q.at(0) - ux * r, q.at(1) - uy * r)
+    let a = _trim-toward(p, q, from-boundary.at(1), shape: from-boundary.at(0))
+    let b = _trim-toward(q, p, to-boundary.at(1), shape: to-boundary.at(0))
     if edge-wave(th, custom: custom) {
       let start-tip = mark != none and "start" in mark
       let end-tip = mark != none and "end" in mark
@@ -221,41 +314,179 @@
   } else {
     let angle = if custom != none { custom.at("angle", default: 25deg) } else { 25deg }
     let bp = _bend-point(p, q, bend, angle)
-    let p2 = _trim-toward(p, bp, r)
-    let q2 = _trim-toward(q, bp, r)
+    let p2 = _trim-toward(p, bp, from-boundary.at(1), shape: from-boundary.at(0))
+    let q2 = _trim-toward(q, bp, to-boundary.at(1), shape: to-boundary.at(0))
     bezier-through(p2, bp, q2, stroke: stroke, mark: mark)
   }
 }
 
 #let _draw-edge-label(label, p, q, r, th, custom) = {
   if label == none { return }
-  let pt = _edge-label-point(p, q, r, custom)
-  content(pt, text(size: th.text-size, label))
-}
-
-#let _draw-node(label, p, th) = {
-  if th.node-shape == "square" {
-    let r = th.node-radius
-    rect((p.at(0) - r, p.at(1) - r), (p.at(0) + r, p.at(1) + r), fill: th.node-fill, stroke: th.node-stroke)
-  } else {
-    circle(p, radius: th.node-radius, fill: th.node-fill, stroke: th.node-stroke)
+  let pt = _edge-label-point(p, q, r, custom, th)
+  
+  let label-style = th.label-text
+  let rotation = label-style.at("rotation", default: 0deg)
+  
+  if custom != none and "label" in custom {
+    let l-custom = custom.label
+    if type(l-custom) == dictionary {
+      if "color" in l-custom {
+        l-custom.fill = l-custom.color
+        let _ = l-custom.remove("color")
+      }
+      if "rotation" in l-custom {
+        rotation = l-custom.rotation
+        let _ = l-custom.remove("rotation")
+      }
+      label-style = label-style + l-custom
+    }
   }
-  content(p, text(size: th.text-size, label))
+  
+  // Remove rotation from label-style so text() doesn't fail
+  if "rotation" in label-style {
+    let _ = label-style.remove("rotation")
+  }
+  
+  if rotation == "edge" {
+    let (dx, dy) = (q.at(0) - p.at(0), q.at(1) - p.at(1))
+    let angle = calc.atan2(dx, dy)
+    if dx < 0 {
+      angle += 180deg
+    }
+    rotation = angle
+  }
+  
+  content(pt, text(..label-style, label), angle: rotation)
 }
 
-#let _render(adjacency, directed, labels, positions, layout, radius, edge-customizations, th) = {
+#let _label-vector(pos) = {
+  if pos == "right" { return (1, 0) }
+  if pos == "left" { return (-1, 0) }
+  if pos == "top" { return (0, 1) }
+  if pos == "bottom" { return (0, -1) }
+  if type(pos) == angle { return (calc.cos(pos), calc.sin(pos)) }
+  (1, 0)
+}
+
+#let _resolve-node-label(th, node-labels, id) = {
+  let raw = _lookup-key(node-labels, id)
+  if raw == none { return none }
+  let body = raw
+  let style = th.label-text
+  let defaults = th.at("node-labels", default: (:))
+  let position = defaults.at("position", default: "right")
+  let offset = defaults.at("offset", default: (0, 0))
+  let gap = defaults.at("gap", default: 0.22)
+  let d0 = defaults
+  for key in ("position", "offset", "gap", "enabled") {
+    if key in d0 { let _ = d0.remove(key) }
+  }
+  if "color" in d0 {
+    d0.fill = d0.color
+    let _ = d0.remove("color")
+  }
+  style = style + d0
+  if type(raw) == dictionary {
+    body = raw.at("content", default: raw.at("body", default: none))
+    let d = raw
+    let _ = d.remove("content", default: none)
+    let _ = d.remove("body", default: none)
+    if "position" in d {
+      position = d.position
+      let _ = d.remove("position")
+    }
+    if "offset" in d {
+      offset = d.offset
+      let _ = d.remove("offset")
+    }
+    if "gap" in d {
+      gap = d.gap
+      let _ = d.remove("gap")
+    }
+    if "color" in d {
+      d.fill = d.color
+      let _ = d.remove("color")
+    }
+    style = style + d
+  }
+  if body == none { return none }
+  (body: body, style: style, position: position, offset: offset, gap: gap)
+}
+
+#let _draw-node-label(p, boundary, th, label) = {
+  if label == none { return }
+  let dir = _label-vector(label.position)
+  let ox = label.offset.at(0)
+  let oy = label.offset.at(1)
+  let gap = label.gap
+  let r = _boundary-radius(boundary.at(0), boundary.at(1), dir.at(0), dir.at(1))
+  let pt = (p.at(0) + dir.at(0) * (r + gap) + ox, p.at(1) + dir.at(1) * (r + gap) + oy)
+  let text-style = label.style
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
+  content(pt, text(..text-style, label.body), angle: rotation)
+}
+
+#let _draw-node(label, p, th, custom) = {
+  let r = _node-radius(th, custom)
+  let shape = _node-shape(th, custom)
+  let fill = if custom != none and "fill" in custom { custom.fill } else { th.node-fill }
+  let stroke = if custom != none and "stroke" in custom { custom.stroke } else { th.node-stroke }
+  let text-style = th.node-text
+  if custom != none and "text" in custom { text-style = text-style + custom.text }
+  text-style = _text-style(text-style)
+  let polygon = pts => line(..pts, close: true, fill: fill, stroke: stroke)
+  if shape == "square" {
+    rect((p.at(0) - r, p.at(1) - r), (p.at(0) + r, p.at(1) + r), fill: fill, stroke: stroke)
+  } else if shape == "diamond" {
+    polygon(((p.at(0), p.at(1) + r), (p.at(0) + r, p.at(1)), (p.at(0), p.at(1) - r), (p.at(0) - r, p.at(1))))
+  } else if shape == "hexagon" {
+    let k = 0.86 * r
+    polygon((
+      (p.at(0) - r, p.at(1)),
+      (p.at(0) - r / 2, p.at(1) + k),
+      (p.at(0) + r / 2, p.at(1) + k),
+      (p.at(0) + r, p.at(1)),
+      (p.at(0) + r / 2, p.at(1) - k),
+      (p.at(0) - r / 2, p.at(1) - k),
+    ))
+  } else {
+    circle(p, radius: r, fill: fill, stroke: stroke)
+  }
+  content(p, text(..text-style, label))
+}
+
+#let _render(adjacency, directed, labels, positions, layout, radius, edge-customizations, node-customizations, node-labels, th) = {
   assert(layout == "auto" or radius == auto, message: "graph radius only works with layout \"auto\"")
   let nodes = _nodes(adjacency)
   let pos = _resolve-positions(_circle-layout(nodes, th, radius), positions, nodes, layout)
   let edges = _edges(adjacency, directed)
+  
+  for (u, v, opts) in edge-customizations {
+    let found = false
+    let key = if directed { u + "\u{0}" + v } else { _norm-key(u, v) }
+    for (from, to, _) in edges {
+      let k = if directed { from + "\u{0}" + to } else { _norm-key(from, to) }
+      if k == key { found = true }
+    }
+    assert(found, message: "edge-customizations specified edge " + u + " -> " + v + " which does not exist in the graph")
+  }
+
   scaled(th, cetz.canvas({
     for (from, to, label) in edges {
       let custom = _edge-custom(edge-customizations, from, to, directed)
-      _draw-edge(pos.at(from), pos.at(to), th.node-radius, directed, th, custom)
+      let from-custom = _node-custom(node-customizations, from)
+      let to-custom = _node-custom(node-customizations, to)
+      let from-boundary = (_node-shape(th, from-custom), _node-radius(th, from-custom))
+      let to-boundary = (_node-shape(th, to-custom), _node-radius(th, to-custom))
+      _draw-edge(pos.at(from), pos.at(to), from-boundary, to-boundary, directed, th, custom)
       _draw-edge-label(label, pos.at(from), pos.at(to), th.node-radius, th, custom)
     }
     for name in nodes {
-      _draw-node(labels.at(name, default: name), pos.at(name), th)
+      let custom = _node-custom(node-customizations, name)
+      _draw-node(labels.at(name, default: name), pos.at(name), th, custom)
+      let boundary = (_node-shape(th, custom), _node-radius(th, custom))
+      _draw-node-label(pos.at(name), boundary, th, _resolve-node-label(th, node-labels, name))
     }
   }))
 }
@@ -282,7 +513,9 @@
   layout: "auto",
   radius: auto,
   edge-customizations: (),
+  node-customizations: (),
+  node-labels: (:),
   style: (:),
 ) = (
-  diagram: _render(adjacency, directed, labels, positions, layout, radius, edge-customizations, resolve(style)),
+  diagram: _render(adjacency, directed, labels, positions, layout, radius, edge-customizations, node-customizations, node-labels, resolve(style)),
 )

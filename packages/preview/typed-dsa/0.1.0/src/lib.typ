@@ -8,10 +8,11 @@
 #import "linear.typ": linked-list, doubly-linked-list, stack, queue
 #import "heap.typ": min-heap, max-heap, _transition as _heap-trans, heap-insert, heap-extract
 #import "graph.typ": graph
+#import "grid.typ": array-view, matrix, sequence
 #import "style.typ": theme, resolve
 
-#let transition(variant, keys, op, style: (:), edge-customizations: ()) = {
+#let transition(variant, keys, op, style: (:), edge-customizations: (), node-customizations: (), node-labels: (:)) = {
   if variant == "min-heap" { return _heap-trans("min", keys, op, style: style) }
   if variant == "max-heap" { return _heap-trans("max", keys, op, style: style) }
-  _tree-transition(variant, keys, op, style: style, edge-customizations: edge-customizations)
+  _tree-transition(variant, keys, op, style: style, edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels)
 }

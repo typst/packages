@@ -9,7 +9,7 @@
 
 #import "@preview/cetz:0.5.2"
 #import "style.typ": theme, resolve, scaled, mark-style, edge-mark, edge-stroke, edge-wave, wavy-parts
-#import cetz.draw: line, circle, rect, content
+#import cetz.draw: line, circle, rect, content, bezier-through
 
 // ── Model: generated BST/AVL ─────────────────────────────────────────────────
 
@@ -44,13 +44,17 @@
   n
 }
 
-// One rotation's worth of nodes that actually changed parent: `pivot` (the
-// old subtree root, demoted), `new-top` (its child, promoted above it), and
-// `reattached` (the middle child that swaps from `new-top` over to `pivot`,
-// or `none` if there wasn't one).
-#let _rot-event(dir, pivot, new-top, reattached) = (
-  dir: dir, pivot: pivot, new-top: new-top,
-  reattached: if reattached == none { none } else { reattached.key },
+#let _node-key(n) = if n == none { none } else { n.key }
+
+// One rotation's worth of schematic parts. For a right rotation, `pivot` is
+// x, `new-top` is y, and `subs` are T_A, T_B, T_C from left to right. For a
+// left rotation, `pivot` is y, `new-top` is x, and `subs` are T_A, T_B, T_C
+// from left to right in the mirror schematic.
+#let _rot-event(dir, pivot, new-top, ta, tb, tc) = (
+  dir: dir,
+  pivot: pivot.key,
+  new-top: new-top.key,
+  subs: (_node-key(ta), _node-key(tb), _node-key(tc)).filter(k => k != none),
 )
 
 // AVL insert. Returns `(node, rot, mid)`:
@@ -90,28 +94,28 @@
   n = _fix-height(n)
   let b = _bf(n)
   if b > 1 and key < n.left.key {
-    let event = _rot-event("right", n.key, n.left.key, n.left.right)
+    let event = _rot-event("right", n, n.left, n.left.left, n.left.right, n.right)
     return (_rot-right(n), rot + (event,), mid)
   }
   if b < -1 and key > n.right.key {
-    let event = _rot-event("left", n.key, n.right.key, n.right.left)
+    let event = _rot-event("left", n, n.right, n.left, n.right.left, n.right.right)
     return (_rot-left(n), rot + (event,), mid)
   }
   if b > 1 and key > n.left.key {
     // LR: inner left-rotation at n.left, then outer right-rotation at n. `n`
     // with only the inner rotation applied (n.left updated, n itself not yet
     // rotated) is exactly the "after-inner" snapshot.
-    let inner = _rot-event("left", n.left.key, n.left.right.key, n.left.right.left)
+    let inner = _rot-event("left", n.left, n.left.right, n.left.left, n.left.right.left, n.left.right.right)
     n.left = _rot-left(n.left)
     mid = n
-    let outer = _rot-event("right", n.key, n.left.key, n.left.right)
+    let outer = _rot-event("right", n, n.left, n.left.left, n.left.right, n.right)
     return (_rot-right(n), rot + (inner, outer), mid)
   }
   if b < -1 and key < n.right.key {
-    let inner = _rot-event("right", n.right.key, n.right.left.key, n.right.left.right)
+    let inner = _rot-event("right", n.right, n.right.left, n.right.left.left, n.right.left.right, n.right.right)
     n.right = _rot-right(n.right)
     mid = n
-    let outer = _rot-event("left", n.key, n.right.key, n.right.left)
+    let outer = _rot-event("left", n, n.right, n.left, n.right.left, n.right.right)
     return (_rot-left(n), rot + (inner, outer), mid)
   }
   (n, rot, mid)
@@ -142,22 +146,22 @@
   let b = _bf(n)
   if b > 1 {
     if _bf(n.left) < 0 {
-      let inner = _rot-event("left", n.left.key, n.left.right.key, n.left.right.left)
+      let inner = _rot-event("left", n.left, n.left.right, n.left.left, n.left.right.left, n.left.right.right)
       n.left = _rot-left(n.left)
-      let outer = _rot-event("right", n.key, n.left.key, n.left.right)
+      let outer = _rot-event("right", n, n.left, n.left.left, n.left.right, n.right)
       return (_rot-right(n), rot + (inner, outer))
     }
-    let event = _rot-event("right", n.key, n.left.key, n.left.right)
+    let event = _rot-event("right", n, n.left, n.left.left, n.left.right, n.right)
     return (_rot-right(n), rot + (event,))
   }
   if b < -1 {
     if _bf(n.right) > 0 {
-      let inner = _rot-event("right", n.right.key, n.right.left.key, n.right.left.right)
+      let inner = _rot-event("right", n.right, n.right.left, n.right.left.left, n.right.left.right, n.right.right)
       n.right = _rot-right(n.right)
-      let outer = _rot-event("left", n.key, n.right.key, n.right.left)
+      let outer = _rot-event("left", n, n.right, n.left, n.right.left, n.right.right)
       return (_rot-left(n), rot + (inner, outer))
     }
-    let event = _rot-event("left", n.key, n.right.key, n.right.left)
+    let event = _rot-event("left", n, n.right, n.left, n.right.left, n.right.right)
     return (_rot-left(n), rot + (event,))
   }
   (n, rot)
@@ -210,8 +214,9 @@
 // ── Model: hand-composed trees ────────────────────────────────────────────────
 
 // A node with an arbitrary content `label`, optional children, and an optional fill tint.
-#let node(label, left: none, right: none, fill: none) = (
+#let node(label, left: none, right: none, children: none, fill: none) = (
   kind: "node", label: label, left: left, right: right,
+  children: children,
   fill: fill,
   height: 1,
 )
@@ -244,6 +249,23 @@
   if n.kind == "subtree" {
     n._col = col
     return (n, col + 2)
+  }
+  let cs = n.at("children", default: none)
+  if cs != none {
+    if cs.len() == 0 {
+      n._col = col
+      return (n, col + 1)
+    }
+    let placed = ()
+    let c = col
+    for child in cs {
+      let (p, next) = _place(child, depth + 1, c)
+      placed.push(p)
+      c = next
+    }
+    n.children = placed
+    n._col = (placed.first()._col + placed.last()._col) / 2
+    return (n, c)
   }
   let has-l = n.left != none
   let has-r = n.right != none
@@ -279,6 +301,20 @@
 
 #let _edge-id(n) = n.at("key", default: n.at("label", default: none))
 
+#let _explicit-children(n) = n.at("children", default: none)
+
+#let _multi-children(n) = {
+  let cs = _explicit-children(n)
+  if cs == none { return none }
+  cs
+}
+
+#let _visible-children(n) = {
+  let cs = _multi-children(n)
+  if cs != none { return cs.filter(c => c != none) }
+  (n.left, n.right).filter(c => c != none)
+}
+
 #let _edge-custom(customizations, from, to) = {
   for (a, b, opts) in customizations {
     if a == from and b == to { return opts }
@@ -286,18 +322,87 @@
   none
 }
 
+#let _node-custom(customizations, id) = {
+  for (key, opts) in customizations {
+    if key == id { return opts }
+  }
+  none
+}
+
+#let _text-style(style) = {
+  let res = style
+  if "color" in res {
+    res.fill = res.color
+    let _ = res.remove("color")
+  }
+  res
+}
+
+#let _lookup-key(items, id) = {
+  if type(items) == dictionary {
+    if type(id) == str or type(id) == int or type(id) == float {
+      return items.at(str(id), default: none)
+    }
+    return none
+  }
+  for (key, value) in items {
+    if key == id { return value }
+  }
+  none
+}
+
+#let _shape-radius(th, mark: none, custom: none) = {
+  if custom != none and "node-radius" in custom { return custom.node-radius }
+  if mark != none { return mark.node-radius }
+  th.node-radius
+}
+
+#let _shape-name(th, mark: none, custom: none) = {
+  if custom != none and "shape" in custom { return custom.shape }
+  if mark != none { return mark.shape }
+  th.node-shape
+}
+
+#let _boundary-radius(shape, r, ux, uy) = {
+  if shape == "square" {
+    return r / calc.max(calc.abs(ux), calc.abs(uy))
+  }
+  if shape == "diamond" {
+    return r / (calc.abs(ux) + calc.abs(uy))
+  }
+  r
+}
+
+#let _trim-shape(a, b, shape, r) = {
+  let dx = b.at(0) - a.at(0)
+  let dy = b.at(1) - a.at(1)
+  let len = calc.sqrt(dx * dx + dy * dy)
+  if len == 0 { return a }
+  let ux = dx / len
+  let uy = dy / len
+  let d = _boundary-radius(shape, r, ux, uy)
+  (a.at(0) + ux * d, a.at(1) + uy * d)
+}
+
 #let _draw-tree-edge(p, q, r1, r2, th, custom) = {
   let dx = q.at(0) - p.at(0)
   let dy = q.at(1) - p.at(1)
   let len = calc.sqrt(dx * dx + dy * dy)
   if len == 0 { return }
-  let ux = dx / len
-  let uy = dy / len
-  let a = (p.at(0) + ux * r1, p.at(1) + uy * r1)
-  let b = (q.at(0) - ux * r2, q.at(1) - uy * r2)
   let mark = edge-mark(if custom != none and "arrow" in custom { custom.arrow } else { th.edge-arrow })
   let stroke = edge-stroke(th, custom: custom)
-  if edge-wave(th, custom: custom) {
+  let bend = if custom != none { custom.at("bend", default: false) } else { false }
+  if bend != false and bend != none {
+    let bp = _bend-point(p, q, bend, custom.at("angle", default: 25deg))
+    let a = _trim-shape(p, bp, r1.at(0), r1.at(1))
+    let b = _trim-shape(q, bp, r2.at(0), r2.at(1))
+    bezier-through(a, bp, b, stroke: stroke, mark: mark)
+  } else {
+    let ux = dx / len
+    let uy = dy / len
+    let a = _trim-shape(p, q, r1.at(0), r1.at(1))
+    let b = _trim-shape(q, p, r2.at(0), r2.at(1))
+    if edge-wave(th, custom: custom) {
     let start-tip = mark != none and "start" in mark
     let end-tip = mark != none and "end" in mark
     let parts = wavy-parts(a, b, th, start-tip: start-tip, end-tip: end-tip)
@@ -305,41 +410,210 @@
     let fill = if mark == none { none } else { mark.at("fill", default: none) }
     if start-tip { line(a, parts.start-cap, stroke: stroke, mark: (start: ">", fill: fill)) }
     if end-tip { line(parts.end-cap, b, stroke: stroke, mark: (end: ">", fill: fill)) }
-  } else {
-    line(a, b, stroke: stroke, mark: mark)
+    } else {
+      line(a, b, stroke: stroke, mark: mark)
+    }
   }
 }
 
-#let _draw-edges(n, th, edge-customizations) = {
+#let _bend-point(p, q, bend, angle) = {
+  let dx = q.at(0) - p.at(0)
+  let dy = q.at(1) - p.at(1)
+  let len = calc.sqrt(dx * dx + dy * dy)
+  let mx = (p.at(0) + q.at(0)) / 2
+  let my = (p.at(1) + q.at(1)) / 2
+  if len == 0 { return (mx, my) }
+  let ux = dx / len
+  let uy = dy / len
+  let (px, py) = if bend == "left" { (-uy, ux) } else { (uy, -ux) }
+  let sagitta = (len / 2) * calc.tan(angle)
+  (mx + px * sagitta, my + py * sagitta)
+}
+
+#let _trim-toward(a, b, r) = {
+  let dx = b.at(0) - a.at(0)
+  let dy = b.at(1) - a.at(1)
+  let len = calc.sqrt(dx * dx + dy * dy)
+  if len == 0 { return a }
+  (a.at(0) + dx / len * r, a.at(1) + dy / len * r)
+}
+
+#let _tree-label-style(th, custom) = {
+  let style = th.label-text
+  let body = none
+  if custom != none and "label" in custom {
+    let lbl = custom.label
+    if type(lbl) == dictionary {
+      body = lbl.at("content", default: lbl.at("body", default: none))
+      let d = lbl
+      let _ = d.remove("content", default: none)
+      let _ = d.remove("body", default: none)
+      if "color" in d {
+        d.fill = d.color
+        let _ = d.remove("color")
+      }
+      style = style + d
+    } else {
+      body = lbl
+    }
+  }
+  (body: body, style: style)
+}
+
+#let _label-vector(pos) = {
+  if pos == "right" { return (1, 0) }
+  if pos == "left" { return (-1, 0) }
+  if pos == "top" { return (0, 1) }
+  if pos == "bottom" { return (0, -1) }
+  if type(pos) == angle { return (calc.cos(pos), calc.sin(pos)) }
+  (1, 0)
+}
+
+#let _resolve-node-label(th, node-labels, id) = {
+  let raw = _lookup-key(node-labels, id)
+  if raw == none { return none }
+  let body = raw
+  let style = th.label-text
+  let defaults = th.at("node-labels", default: (:))
+  let position = defaults.at("position", default: "right")
+  let offset = defaults.at("offset", default: (0, 0))
+  let gap = defaults.at("gap", default: 0.22)
+  let d0 = defaults
+  for key in ("position", "offset", "gap", "enabled") {
+    if key in d0 { let _ = d0.remove(key) }
+  }
+  if "color" in d0 {
+    d0.fill = d0.color
+    let _ = d0.remove("color")
+  }
+  style = style + d0
+  if type(raw) == dictionary {
+    body = raw.at("content", default: raw.at("body", default: none))
+    let d = raw
+    let _ = d.remove("content", default: none)
+    let _ = d.remove("body", default: none)
+    if "position" in d {
+      position = d.position
+      let _ = d.remove("position")
+    }
+    if "offset" in d {
+      offset = d.offset
+      let _ = d.remove("offset")
+    }
+    if "gap" in d {
+      gap = d.gap
+      let _ = d.remove("gap")
+    }
+    if "color" in d {
+      d.fill = d.color
+      let _ = d.remove("color")
+    }
+    style = style + d
+  }
+  if body == none { return none }
+  (body: body, style: style, position: position, offset: offset, gap: gap)
+}
+
+#let _draw-node-label(p, boundary, th, label) = {
+  if label == none { return }
+  let dir = _label-vector(label.position)
+  let ox = label.offset.at(0)
+  let oy = label.offset.at(1)
+  let gap = label.gap
+  let r = _boundary-radius(boundary.at(0), boundary.at(1), dir.at(0), dir.at(1))
+  let pt = (p.at(0) + dir.at(0) * (r + gap) + ox, p.at(1) + dir.at(1) * (r + gap) + oy)
+  let text-style = label.style
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
+  content(pt, text(..text-style, label.body), angle: rotation)
+}
+
+#let _draw-tree-edge-label(p, q, r1, r2, th, custom) = {
+  let lbl = _tree-label-style(th, custom)
+  if lbl.body == none { return }
+  let dx = q.at(0) - p.at(0)
+  let dy = q.at(1) - p.at(1)
+  let len = calc.sqrt(dx * dx + dy * dy)
+  if len == 0 { return }
+  let ux = dx / len
+  let uy = dy / len
+  let a = _trim-shape(p, q, r1.at(0), r1.at(1))
+  let b = _trim-shape(q, p, r2.at(0), r2.at(1))
+  let bend = if custom != none { custom.at("bend", default: false) } else { false }
+  let base = if bend == false or bend == none {
+    ((a.at(0) + b.at(0)) / 2, (a.at(1) + b.at(1)) / 2)
+  } else {
+    _bend-point(p, q, bend, if custom != none { custom.at("angle", default: 25deg) } else { 25deg })
+  }
+  let (ox, oy) = if bend == "right" {
+    (uy, -ux)
+  } else if bend == "left" {
+    (-uy, ux)
+  } else if dx < 0 {
+    (uy, -ux)
+  } else {
+    (-uy, ux)
+  }
+  let shift = 0.16
+  let text-style = lbl.style
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
+  if rotation == "edge" {
+    rotation = calc.atan2(dx, dy)
+    if dx < 0 { rotation += 180deg }
+  }
+  content((base.at(0) + ox * shift, base.at(1) + oy * shift), text(..text-style, lbl.body), angle: rotation)
+}
+
+#let _draw-edges(n, th, edge-customizations, node-customizations) = {
   if n == none or n.kind == "subtree" { return }
   let p = _xy(n, th)
-  for c in (n.left, n.right) {
+  for c in _visible-children(n) {
     if c != none {
       // Stop the edge at each node's boundary so arrowheads stay visible
       // instead of hiding under the node. Subtree leaves connect at the apex.
       let q = _xy(c, th)
-      let rc = if c.kind == "subtree" { 0 } else { th.node-radius }
+      let p-custom = _node-custom(node-customizations, _edge-id(n))
+      let c-custom = _node-custom(node-customizations, _edge-id(c))
+      let rp = (_shape-name(th, custom: p-custom), _shape-radius(th, custom: p-custom))
+      let rc = if c.kind == "subtree" { ("circle", 0) } else { (_shape-name(th, custom: c-custom), _shape-radius(th, custom: c-custom)) }
       let custom = _edge-custom(edge-customizations, _edge-id(n), _edge-id(c))
-      _draw-tree-edge(p, q, th.node-radius, rc, th, custom)
-      _draw-edges(c, th, edge-customizations)
+      _draw-tree-edge(p, q, rp, rc, th, custom)
+      _draw-tree-edge-label(p, q, rp, rc, th, custom)
+      _draw-edges(c, th, edge-customizations, node-customizations)
     }
   }
 }
 
 // `mark` is `none` (use `th`'s node defaults and `fill`) or a resolved dict
-// `(fill:, shape:, stroke:, node-radius:)` from `mark-style`, overriding the
-// shape/stroke/radius of this one node/cell.
-#let _draw-shape(p, label, th, fill, mark: none) = {
-  let shape = if mark != none { mark.shape } else { th.node-shape }
-  let r = if mark != none { mark.node-radius } else { th.node-radius }
-  let stroke = if mark != none { mark.stroke } else { th.node-stroke }
-  let f = if mark != none { mark.fill } else { fill }
+// from `mark-style`, overriding the shape/stroke/radius/text of this node.
+#let _draw-shape(p, label, th, fill, mark: none, custom: none) = {
+  let shape = _shape-name(th, mark: mark, custom: custom)
+  let r = _shape-radius(th, mark: mark, custom: custom)
+  let stroke = if custom != none and "stroke" in custom { custom.stroke } else if mark != none { mark.stroke } else { th.node-stroke }
+  let f = if custom != none and "fill" in custom { custom.fill } else if mark != none { mark.fill } else { fill }
+  let text-style = if mark != none { mark.text } else { th.node-text }
+  if custom != none and "text" in custom { text-style = text-style + custom.text }
+  text-style = _text-style(text-style)
+  let polygon = pts => line(..pts, close: true, fill: f, stroke: stroke)
   if shape == "square" {
     rect((p.at(0) - r, p.at(1) - r), (p.at(0) + r, p.at(1) + r), fill: f, stroke: stroke)
+  } else if shape == "diamond" {
+    polygon(((p.at(0), p.at(1) + r), (p.at(0) + r, p.at(1)), (p.at(0), p.at(1) - r), (p.at(0) - r, p.at(1))))
+  } else if shape == "hexagon" {
+    let k = 0.86 * r
+    polygon((
+      (p.at(0) - r, p.at(1)),
+      (p.at(0) - r / 2, p.at(1) + k),
+      (p.at(0) + r / 2, p.at(1) + k),
+      (p.at(0) + r, p.at(1)),
+      (p.at(0) + r / 2, p.at(1) - k),
+      (p.at(0) - r / 2, p.at(1) - k),
+    ))
   } else {
     circle(p, radius: r, fill: f, stroke: stroke)
   }
-  content(p, text(size: th.text-size, label))
+  content(p, text(..text-style, label))
 }
 
 #let _draw-triangle(n, th) = {
@@ -351,55 +625,58 @@
   let stroke = if tint == none { th.node-stroke } else { 1pt + tint }
   let ink = if tint == none { black } else { tint }
   line(p, (p.at(0) - hw, p.at(1) - hh), (p.at(0) + hw, p.at(1) - hh), close: true, stroke: stroke)
-  content((p.at(0), p.at(1) - hh * 0.62), text(size: th.text-size, fill: ink, n.label))
+  content((p.at(0), p.at(1) - hh * 0.62), text(..th.node-text, fill: ink, n.label))
   if n.h-label != none {
     let bx = p.at(0) - hw - 0.32
     line((bx, p.at(1)), (bx, p.at(1) - hh), stroke: stroke, mark: (start: ">", end: ">"))
-    content((bx - 0.3, p.at(1) - hh / 2), text(size: th.text-size, fill: ink, n.h-label))
+    content((bx - 0.3, p.at(1) - hh / 2), text(..th.node-text, fill: ink, n.h-label))
   }
 }
 
-#let _draw-nodes(n, th, marks) = {
+#let _draw-nodes(n, th, marks, node-customizations, node-labels) = {
   if n == none { return }
   if n.kind == "subtree" {
     _draw-triangle(n, th)
     return
   }
-  _draw-nodes(n.left, th, marks)
-  _draw-nodes(n.right, th, marks)
+  for c in _visible-children(n) { _draw-nodes(c, th, marks, node-customizations, node-labels) }
   let key = n.at("key", default: none)
   let tint = n.at("fill", default: none)
   let label = n.at("label", default: none)
   if label == none { label = str(key) }
+  let id = _edge-id(n)
+  let custom = _node-custom(node-customizations, id)
   // A hand-composed node(fill:) tint takes priority over an operation
   // highlight; generated bst/avl nodes never set `.fill`, so the two never
   // actually collide.
   if tint != none {
-    _draw-shape(_xy(n, th), label, th, tint)
+    _draw-shape(_xy(n, th), label, th, tint, custom: custom)
   } else {
     let kind = if key == none { none } else { marks.at(str(key), default: none) }
     let mark = if kind != none { mark-style(th, kind, base-fill: th.node-fill) } else { none }
-    _draw-shape(_xy(n, th), label, th, th.node-fill, mark: mark)
+    _draw-shape(_xy(n, th), label, th, th.node-fill, mark: mark, custom: custom)
   }
+  let boundary = (_shape-name(th, custom: custom), _shape-radius(th, custom: custom))
+  _draw-node-label(_xy(n, th), boundary, th, _resolve-node-label(th, node-labels, id))
 }
 
 // `marks` maps `str(key)` to a highlight kind ("new"/"path"/"remove"/"rotate"),
 // resolved against `th`'s `<kind>-style` via `mark-style` at draw time — so a
 // per-call `style:` override actually reaches the mark, not just the theme
 // default.
-#let _render(root, marks: (:), th: theme, edge-customizations: ()) = {
+#let _render(root, marks: (:), th: theme, edge-customizations: (), node-customizations: (), node-labels: (:)) = {
   if root == none { return scaled(th, cetz.canvas({ circle((0, 0), radius: 0.01, stroke: none) })) }
   let (placed, _) = _place(root, 0, 0)
   scaled(th, cetz.canvas({
-    _draw-edges(placed, th, edge-customizations)
-    _draw-nodes(placed, th, marks)
+    _draw-edges(placed, th, edge-customizations, node-customizations)
+    _draw-nodes(placed, th, marks, node-customizations, node-labels)
   }))
 }
 
 // ── Public structure builders ────────────────────────────────────────────────
 
 // Render a hand-composed tree built from `node(...)` and `subtree(...)`.
-#let tree(root, style: (:), edge-customizations: ()) = _render(root, th: resolve(style), edge-customizations: edge-customizations)
+#let tree(root, style: (:), edge-customizations: (), node-customizations: (), node-labels: (:)) = _render(root, th: resolve(style), edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels)
 
 // ── Operations ───────────────────────────────────────────────────────────────
 //
@@ -421,11 +698,11 @@
   m
 }
 
-// Every node a rotation event actually moved: the pivot, the child promoted
-// above it, and the middle child that swapped from one to the other, if any.
+// Every visible schematic part in a rotation: the pivot, the child promoted
+// above it, and the roots of T_A/T_B/T_C when those subtrees exist.
 #let _event-keys(event) = {
   let keys = (event.pivot, event.new-top)
-  if event.reattached != none { keys.push(event.reattached) }
+  keys += event.subs
   keys
 }
 #let _rotated-keys(rot) = {
@@ -433,6 +710,8 @@
   for e in rot { keys += _event-keys(e) }
   keys
 }
+
+#let _rot-label(event) = "rotate " + event.dir + " at " + str(event.pivot)
 
 // `rebalance: (enabled: false, all-steps: false)` — `enabled: true` adds a
 // panel for the tree right after the plain BST placement, before any
@@ -449,7 +728,6 @@
   if variant == "avl" {
     let cfg = (enabled: false, all-steps: false) + rebalance
     let (after, rot, mid-snapshot) = _avl-insert(root, key)
-    let ma = _marks((key,), "new") + _marks(_rotated-keys(rot), "rotate")
     let mids = ()
     if cfg.enabled and rot.len() > 0 {
       let broken = _bst-insert(root, key)
@@ -457,13 +735,18 @@
       mids.push((tree: broken, marks: new-mark, label: "insert " + str(key)))
       if cfg.all-steps and rot.len() == 2 and mid-snapshot != none {
         let inner-mark = new-mark + _marks(_event-keys(rot.at(0)), "rotate")
-        mids.push((tree: mid-snapshot, marks: inner-mark, label: "rotate at " + str(rot.at(0).pivot)))
+        mids.push((tree: mid-snapshot, marks: inner-mark, label: _rot-label(rot.at(0))))
       }
     }
-    let final-label = if mids.len() == 2 {
-      "rotate at " + str(rot.at(1).pivot)
+    let ma = if cfg.enabled and cfg.all-steps and rot.len() == 2 and mid-snapshot != none {
+      _marks(_event-keys(rot.at(1)), "rotate")
     } else {
-      "rotate at " + rot.map(e => str(e.pivot)).join(", ")
+      _marks((key,), "new") + _marks(_rotated-keys(rot), "rotate")
+    }
+    let final-label = if mids.len() == 2 {
+      _rot-label(rot.at(1))
+    } else {
+      rot.map(_rot-label).join(", ")
     }
     (after, (:), ma, if rot.len() > 0 { final-label } else { "insert " + str(key) }, mids)
   } else {
@@ -483,7 +766,7 @@
 
 #let tree-search(key) = (variant, root) => {
   let m = _marks(_search-path(root, key), "path")
-  (root, m, m, "search " + str(key), ())
+  (root, (:), m, "search " + str(key), ())
 }
 
 // ── Composable operation views ───────────────────────────────────────────────
@@ -523,13 +806,13 @@
 
 // Renders an operation's step diagram, expanding to extra panels when the op
 // returns non-empty `mids`.
-#let _op-diagram(before, mb, after, ma, label, mids, th, edge-customizations) = {
-  let b = _render(before, marks: mb, th: th, edge-customizations: edge-customizations)
-  let a = _render(after, marks: ma, th: th, edge-customizations: edge-customizations)
+#let _op-diagram(before, mb, after, ma, label, mids, th, edge-customizations, node-customizations, node-labels) = {
+  let b = _render(before, marks: mb, th: th, edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels)
+  let a = _render(after, marks: ma, th: th, edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels)
   if mids.len() == 0 {
     (before: b, after: a, diagram: trans-view(b, label, a))
   } else {
-    let rendered = mids.map(m => _render(m.tree, marks: m.marks, th: th, edge-customizations: edge-customizations))
+    let rendered = mids.map(m => _render(m.tree, marks: m.marks, th: th, edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels))
     let labels = mids.map(m => m.label) + (label,)
     (before: b, after: a, diagram: trans-view-n(b, rendered, labels, a))
   }
@@ -543,33 +826,33 @@
 //
 // ponytail: dictionary-backed object, not a custom type. Switch if Typst gains
 // user-defined types with method dispatch.
-#let _tree-obj(variant, root, style: (:), edge-customizations: ()) = {
+#let _tree-obj(variant, root, style: (:), edge-customizations: (), node-customizations: (), node-labels: (:)) = {
   let apply = op => {
     let (after, mb, ma, label, mids) = op(variant, root)
-    let v = _op-diagram(root, mb, after, ma, label, mids, resolve(style), edge-customizations)
+    let v = _op-diagram(root, mb, after, ma, label, mids, resolve(style), edge-customizations, node-customizations, node-labels)
     (
       label: label,
       before: v.before,
       after: v.after,
       diagram: v.diagram,
-      result: _tree-obj(variant, after, style: style, edge-customizations: edge-customizations),
+      result: _tree-obj(variant, after, style: style, edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels),
     )
   }
   (
-    diagram: _render(root, th: resolve(style), edge-customizations: edge-customizations),
+    diagram: _render(root, th: resolve(style), edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels),
     insert: (key, rebalance: (:)) => apply(tree-insert(key, rebalance: rebalance)),
     delete: key => apply(tree-delete(key)),
     search: key => apply(tree-search(key)),
   )
 }
 
-#let bst(style: (:), edge-customizations: (), ..keys) = _tree-obj("bst", _build("bst", keys.pos()), style: style, edge-customizations: edge-customizations)
-#let avl(style: (:), edge-customizations: (), ..keys) = _tree-obj("avl", _build("avl", keys.pos()), style: style, edge-customizations: edge-customizations)
+#let bst(style: (:), edge-customizations: (), node-customizations: (), node-labels: (:), ..keys) = _tree-obj("bst", _build("bst", keys.pos()), style: style, edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels)
+#let avl(style: (:), edge-customizations: (), node-customizations: (), node-labels: (:), ..keys) = _tree-obj("avl", _build("avl", keys.pos()), style: style, edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels)
 
 // ── Transition ───────────────────────────────────────────────────────────────
 
-#let transition(variant, keys, op, style: (:), edge-customizations: ()) = {
+#let transition(variant, keys, op, style: (:), edge-customizations: (), node-customizations: (), node-labels: (:)) = {
   let before = _build(variant, keys)
   let (after, mb, ma, label, mids) = op(variant, before)
-  _op-diagram(before, mb, after, ma, label, mids, resolve(style), edge-customizations).diagram
+  _op-diagram(before, mb, after, ma, label, mids, resolve(style), edge-customizations, node-customizations, node-labels).diagram
 }

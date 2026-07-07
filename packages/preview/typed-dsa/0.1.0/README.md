@@ -1,5 +1,7 @@
 # typed-dsa
 
+![Power of Rotations](assets/readme/rotations.png)
+
 `typed-dsa` draws data-structure diagrams in Typst from declarative calls.
 Give it keys, values, or an operation, and it produces a laid-out diagram with
 consistent styling. It is built on top of
@@ -9,9 +11,13 @@ consistent styling. It is built on top of
 #import "@preview/typed-dsa:0.1.0": *
 ```
 
+For the complete argument reference, including all nested `style:` and
+`edge-customizations:` options, see the
+[documentation PDF](https://github.com/GeronimoCastano/typed-dsa/blob/40df0a3d521132163d589b73b07e9e9fbbfd5bdf/docs/documentation.pdf).
+
 Use it for lecture notes, problem sets, and explanations where the shape of a
-tree, heap, list, queue, stack, or graph matters more than hand-positioning
-every node.
+tree, heap, list, queue, stack, array, matrix, or graph matters more than
+hand-positioning every node.
 
 ## Static Structures
 
@@ -63,12 +69,18 @@ value as the front.
 `graph` draws from an adjacency dictionary. Automatic layout places nodes on a
 circle; `layout: "manual"` lets you define every position yourself. An edge
 entry can be just a neighbor label, or `(neighbor, label)` when you want an
-edge label such as a weight.
+edge label such as a weight. Use `node-labels:` for outside annotations such
+as Dijkstra distances, ranks, or visit order.
 
 ```typst
 #graph(("v1": ("v2", "v3"), "v2": ("v3",), "v3": ())).diagram
 
 #graph(("A": (("B", [4]), ("C", [5])), "B": (("C", [11]),), "C": ())).diagram
+
+#graph(
+  ("S": (("A", [7]), ("B", [2])), "A": (), "B": ()),
+  node-labels: (("S", [$0$]), ("A", [$7$]), ("B", [$2$])),
+).diagram
 
 #graph(
   ("v1": ("v2", "v3"), "v2": ("v4",), "v3": ("v4",), "v4": ()),
@@ -83,6 +95,25 @@ edge label such as a weight.
 ```
 
 ![Automatically and manually laid out graphs](assets/readme/graphs.png)
+
+### Arrays And Matrices
+
+`array-view` and `matrix` draw compact grid-style cells. Use
+`style.indices` to draw array indices and `cell-customizations:` to restyle
+individual cells.
+
+```typst
+#array-view(
+  4, 1, 7, 3,
+  style: (indices: (enabled: true, weight: "bold")),
+  cell-customizations: ((2, (fill: rgb("#D3F9D8"), stroke: 1pt + rgb("#2B8A3E"))),),
+).diagram
+
+#matrix(
+  ((0, 1, 0), (1, 0, 1), (0, 1, 0)),
+  cell-customizations: (((1, 2), (fill: rgb("#E7F5FF"), stroke: 1pt + rgb("#1971C2"))),),
+).diagram
+```
 
 ## Operation Transitions
 
@@ -112,6 +143,9 @@ objects support `insert`, `delete`, and `search`; heaps support `insert` and
 `extract`; stacks, queues, linked lists, and doubly linked lists expose their
 natural operations too.
 
+Use `sequence(..., columns:)` to wrap multiple operation steps into rows
+instead of building one very long horizontal trace.
+
 ![BST and AVL operation transitions](assets/readme/transitions.png)
 
 ## Styling
@@ -132,8 +166,8 @@ Every builder accepts `style:`. Common tree and graph keys include
 
 Diff highlights are styleable too. `new-style`, `path-style`, `remove-style`,
 and `rotate-style` can be colors or dictionaries with `fill`, `shape`,
-`stroke`, and `node-radius`. Set `diff-colors: false` to keep operation marks
-while drawing their fills like ordinary nodes or cells.
+`stroke`, `node-radius`, and `text`. Set `diff-colors: false` to keep
+operation marks while drawing their fills like ordinary nodes.
 
 ![Per-call styling and hand-composed trees](assets/readme/styling.png)
 
@@ -144,13 +178,6 @@ extracts the two heaviest stones, inserts the difference when needed, and
 renders the heap state produced by the same algorithm.
 
 ![Last Stone Weight worked example](assets/readme/last-stone-weight.png)
-
-## Building
-
-```sh
-typst compile --root . tests/test.typ tests/test.pdf
-typst compile --root . docs/documentation.typ docs/documentation.pdf
-```
 
 ## License
 

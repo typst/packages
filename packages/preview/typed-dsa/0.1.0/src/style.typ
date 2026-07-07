@@ -35,14 +35,14 @@
   next-ptr-fill: rgb("#D7ECC9"), // next-pointer cell in doubly-linked-list(pointer: true)
 
   // Shared
-  text-size: 9pt,
-  label-fill: rgb("#555555"), // annotations: head, front/rear, addresses
+  node-text: (size: 9pt),
+  label-text: (color: rgb("#555555")), // annotations: head, front/rear, addresses; inherits size from node-text
   scale: 1.0, // uniform scale applied to the whole rendered diagram
   diff-colors: true, // false keeps operation marks but uses the normal fill
 
   // Diff highlight styles, used by operation transitions. Each is a plain
   // color (shorthand for `(fill: color)`) or a dict of `fill:`, `shape:`,
-  // `stroke:`, `node-radius:` overrides for a marked node/cell.
+  // `stroke:`, `node-radius:`, and `text:` overrides for a marked node/cell.
   new-style: rgb("#C8E6C9"),     // node added by the operation
   path-style: rgb("#FFE9A8"),    // nodes on the traversal path
   remove-style: rgb("#FFCDD2"),  // node removed by the operation
@@ -50,7 +50,36 @@
 )
 
 // Merge a per-call override dict over the defaults.
-#let resolve(style) = theme + style
+#let resolve(style) = {
+  let res = theme + style
+  if "node-text" in style {
+    res.node-text = theme.node-text + style.node-text
+  }
+  
+  let label-defaults = theme.label-text
+  // If label-text doesn't explicitly specify a size, derive it from node-text
+  if "size" not in label-defaults and ("label-text" not in style or "size" not in style.label-text) {
+     label-defaults.size = res.node-text.at("size", default: 9pt) * 0.85
+  }
+
+  if "label-text" in style {
+    res.label-text = label-defaults + style.label-text
+  } else {
+    res.label-text = label-defaults
+  }
+  
+  if "color" in res.node-text {
+    res.node-text.fill = res.node-text.color
+    let _ = res.node-text.remove("color")
+  }
+  
+  if "color" in res.label-text {
+    res.label-text.fill = res.label-text.color
+    let _ = res.label-text.remove("color")
+  }
+  
+  res
+}
 
 // Wraps a rendered diagram in the theme's `scale` factor. `reflow: true` so
 // surrounding layout (arrows, stacks, tables) sees the resized box instead of
@@ -156,17 +185,23 @@
 )
 
 // Resolves `th`'s `<kind>-style` value (a color, or a dict of `fill:`,
-// `shape:`, `stroke:`, `node-radius:`) into a complete per-node style. A
+// `shape:`, `stroke:`, `node-radius:`, `text:`) into a complete per-node style. A
 // plain color is shorthand for `(fill: color)`. With `diff-colors: false`,
 // fills stay at `base-fill`, while shape/stroke/radius overrides still apply.
 #let mark-style(th, kind, base-fill: auto) = {
   let value = th.at(kind + "-style")
   let d = if type(value) == color { (fill: value) } else { value }
   let normal-fill = if base-fill == auto { th.node-fill } else { base-fill }
+  let text-style = th.node-text + d.at("text", default: (:))
+  if "color" in text-style {
+    text-style.fill = text-style.color
+    let _ = text-style.remove("color")
+  }
   (
     fill: if th.diff-colors { d.at("fill", default: mark-defaults.at(kind)) } else { normal-fill },
     shape: d.at("shape", default: th.node-shape),
     stroke: d.at("stroke", default: th.node-stroke),
     node-radius: d.at("node-radius", default: th.node-radius),
+    text: text-style,
   )
 }

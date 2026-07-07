@@ -86,7 +86,8 @@
 #let heap-insert(key) = (variant, arr) => {
   let a = arr + (key,)
   let (after, path) = _sift-up(a, variant)
-  (after, (:), _path-marks(after, path, "new"), "insert " + str(key))
+  let ma = _path-marks(after, path, "path") + _marks((key,), "new")
+  (after, (:), ma, "insert " + str(key))
 }
 
 // Removes and returns the root: the smallest key for a min-heap, largest for
