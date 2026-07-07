@@ -33,6 +33,7 @@ TiefFiction is internationalized (is that a word?) and currently has versions fo
 - English US
 - English UK
 - Deutsch DE
+- Português BR
 
 As TiefFiction uses TiefLang (obviously), selecting a language can either be done by passing the `language` parameter to `setup` or `book` (see below), or using TiefLang directly. Look at [TiefLang](https://github.com/Tiefseetauchner/TiefLang) for more information.
 
