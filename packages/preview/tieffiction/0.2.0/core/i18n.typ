@@ -6,6 +6,7 @@
   english-us: "en-us",
   english-uk: "en-uk",
   deutsch-de: "de-de",
+  portuguese-br: "pt-br"
 )
 
 #let ordinal-en = number => {
@@ -26,6 +27,8 @@
 }
 
 #let ordinal-de = number => [#number.]
+
+#let ordinal-br = number => [#number.]
 
 #let copyright-line = (holder, year) => {
   if holder != none and year != none {
@@ -145,11 +148,47 @@
   ordinal: ordinal-de,
 )
 
+#let i18n-pt-br = (
+  copyright-page: (holder, publisher, year, isbn, edition, license, extra) => (
+    copyright-line(holder, year),
+    if edition != none {
+      [Edição #ordinal-br(edition)]
+    },
+    if publisher != none and year != none {
+      [Publicado por #publisher em #year.]
+    } else if publisher != none {
+      [Publicado por #publisher.]
+    } else if year != none {
+      [Publicado em #year.]
+    } else {
+      none
+    },
+    [Todos os direitos reservados.],
+    ..extra,
+    ..if license != none {
+      (
+        v(20pt),
+        [Esta obra é licenciada sob uma #link(cc-url(license), [licença Creative Commons '#license']).\
+          #ccicon(license + "-badge", scale: 3)],
+        v(20pt),
+      )
+    },
+    if isbn != none {
+      [ISBN: #isbn\
+        #render-isbn(isbn)]
+    },
+  ),
+  chapter: chapter-number => [Capítulo #chapter-number],
+  table-of-content: [Sumário],
+  ordinal: ordinal-br,
+)
+
 #let setup-i18n = () => configure-translations(
   (
     en-us: i18n-en-us,
     en-uk: i18n-en-uk,
     de-de: i18n-de-de,
+    pt-br: i18n-pt-br,
   ),
   strict: true,
   default: "en-us",
