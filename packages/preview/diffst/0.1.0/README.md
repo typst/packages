@@ -58,8 +58,8 @@ show every line.
 )
 ```
 
-`diffst(old-path, new-path, ..)` accepts paths or strings, with strings converted
-to paths; for text you already have in Typst, call `diffst-content(...)`.
+`diffst(old-path, new-path, ..)` accepts paths; for text you already have in
+Typst, call `diffst-content(...)`.
 
 ## Main Options
 

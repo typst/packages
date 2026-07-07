@@ -979,16 +979,11 @@
   table-layout: "split",
   colors: (:),
 ) = {
-  let old-input = old-path
-  let new-input = new-path
-  old-path = path(old-path)
-  new-path = path(new-path)
-
   diffst-content(
     read(old-path),
     read(new-path),
-    old-label: if old-label == auto { if type(old-input) == str { old-input } else { repr(old-path) } } else { old-label },
-    new-label: if new-label == auto { if type(new-input) == str { new-input } else { repr(new-path) } } else { new-label },
+    old-label: if old-label == auto { repr(old-path) } else { old-label },
+    new-label: if new-label == auto { repr(new-path) } else { new-label },
     ignore-whitespace: ignore-whitespace,
     show-whitespace: show-whitespace,
     algorithm: algorithm,
