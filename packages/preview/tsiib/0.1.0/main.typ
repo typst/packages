@@ -3,7 +3,7 @@
 // Tema: Regresión Lineal
 // ==========================================
 
-#import "lib.typ": tsiib, teorema, proposicion, corolario, lema, problema, ejemplo, definicion, demostracion, solucion, axioma, ecuacion, figura, tabla, imagen, codigo-formal
+#import "@preview/tsiib:0.1.0": tsiib, teorema, proposicion, corolario, lema, problema, ejemplo, definicion, demostracion, solucion, axioma, ecuacion, figura, tabla, imagen, codigo-formal
 
 #show: tsiib.with(
   title: "Fundamentos Matemáticos de la Regresión Lineal",
