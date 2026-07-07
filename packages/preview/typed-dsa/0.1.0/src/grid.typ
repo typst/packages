@@ -40,8 +40,10 @@
   let text-style = th.node-text
   if custom != none and "text" in custom { text-style = text-style + custom.text }
   text-style = _text-style(text-style)
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
   rect((x, y), (x + ww, y + hh), fill: f, stroke: s)
-  content((x + ww / 2, y + hh / 2), text(..text-style)[#body])
+  content((x + ww / 2, y + hh / 2), text(..text-style)[#body], angle: rotation)
 }
 
 #let _index-config(th) = {

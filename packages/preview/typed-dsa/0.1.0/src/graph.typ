@@ -435,6 +435,8 @@
   let text-style = th.node-text
   if custom != none and "text" in custom { text-style = text-style + custom.text }
   text-style = _text-style(text-style)
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
   let polygon = pts => line(..pts, close: true, fill: fill, stroke: stroke)
   if shape == "square" {
     rect((p.at(0) - r, p.at(1) - r), (p.at(0) + r, p.at(1) + r), fill: fill, stroke: stroke)
@@ -453,7 +455,7 @@
   } else {
     circle(p, radius: r, fill: fill, stroke: stroke)
   }
-  content(p, text(..text-style, label))
+  content(p, text(..text-style, label), angle: rotation)
 }
 
 #let _render(adjacency, directed, labels, positions, layout, radius, edge-customizations, node-customizations, node-labels, th) = {

@@ -18,6 +18,13 @@
   content(pos, text(..th.label-text)[#body])
 }
 
+#let _node-content(pos, body, th) = {
+  let text-style = th.node-text
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
+  content(pos, text(..text-style)[#body], angle: rotation)
+}
+
 // A cell with its lower-left corner at `(x, y)`. `w` and `fill` default to
 // the theme's box width and fill; `mark`, when set, overrides fill/stroke via
 // `mark-style` and takes priority over a plain `fill:`.
@@ -28,8 +35,10 @@
   let f = if m != none { m.fill } else { base-fill }
   let s = if m != none { m.stroke } else { th.box-stroke }
   let text-style = if m != none { m.text } else { th.node-text }
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
   rect((x, y), (x + ww, y + th.box-h), stroke: s, fill: f)
-  content((x + ww / 2, y + th.box-h / 2), text(..text-style)[#body])
+  content((x + ww / 2, y + th.box-h / 2), text(..text-style)[#body], angle: rotation)
 }
 
 #let _mark(marks, i) = marks.at(str(i), default: none)
@@ -63,7 +72,7 @@
         stroke: th.box-stroke,
       )
     }
-    content((vs.len() * step + th.box-w / 2, th.box-h / 2), text(..th.node-text)[$nothing$])
+    _node-content((vs.len() * step + th.box-w / 2, th.box-h / 2), $nothing$, th)
     if head and vs.len() > 0 { _head-arrow(th, -0.05) }
   })
 }
@@ -143,10 +152,10 @@
     if vs.len() > 0 {
       let x = (vs.len() - 1) * step
       line((x + th.box-w, th.box-h * 0.68), (x + step, th.box-h * 0.68), mark: (end: ">"), stroke: th.box-stroke)
-      content((x + step + th.box-w / 2, th.box-h / 2), text(..th.node-text)[$nothing$])
+      _node-content((x + step + th.box-w / 2, th.box-h / 2), $nothing$, th)
       if head { _head-arrow(th, -0.05) }
     } else {
-      content((th.box-w / 2, th.box-h / 2), text(..th.node-text)[$nothing$])
+      _node-content((th.box-w / 2, th.box-h / 2), $nothing$, th)
     }
   })
 }

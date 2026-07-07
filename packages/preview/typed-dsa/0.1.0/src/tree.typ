@@ -595,6 +595,8 @@
   let text-style = if mark != none { mark.text } else { th.node-text }
   if custom != none and "text" in custom { text-style = text-style + custom.text }
   text-style = _text-style(text-style)
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
   let polygon = pts => line(..pts, close: true, fill: f, stroke: stroke)
   if shape == "square" {
     rect((p.at(0) - r, p.at(1) - r), (p.at(0) + r, p.at(1) + r), fill: f, stroke: stroke)
@@ -613,7 +615,7 @@
   } else {
     circle(p, radius: r, fill: f, stroke: stroke)
   }
-  content(p, text(..text-style, label))
+  content(p, text(..text-style, label), angle: rotation)
 }
 
 #let _draw-triangle(n, th) = {
@@ -624,12 +626,15 @@
   let tint = n.fill
   let stroke = if tint == none { th.node-stroke } else { 1pt + tint }
   let ink = if tint == none { black } else { tint }
+  let text-style = th.node-text + (fill: ink)
+  let rotation = text-style.at("rotation", default: 0deg)
+  if "rotation" in text-style { let _ = text-style.remove("rotation") }
   line(p, (p.at(0) - hw, p.at(1) - hh), (p.at(0) + hw, p.at(1) - hh), close: true, stroke: stroke)
-  content((p.at(0), p.at(1) - hh * 0.62), text(..th.node-text, fill: ink, n.label))
+  content((p.at(0), p.at(1) - hh * 0.62), text(..text-style, n.label), angle: rotation)
   if n.h-label != none {
     let bx = p.at(0) - hw - 0.32
     line((bx, p.at(1)), (bx, p.at(1) - hh), stroke: stroke, mark: (start: ">", end: ">"))
-    content((bx - 0.3, p.at(1) - hh / 2), text(..th.node-text, fill: ink, n.h-label))
+    content((bx - 0.3, p.at(1) - hh / 2), text(..text-style, n.h-label), angle: rotation)
   }
 }
 
@@ -756,7 +761,7 @@
 }
 
 #let tree-delete(key) = (variant, root) => {
-  let mb = _marks((key,), "remove")
+  let mb = _marks(_search-path(root, key), "path") + _marks((key,), "remove")
   if variant == "avl" {
     let (after, rot) = _avl-delete(root, key)
     return (after, mb, _marks(_rotated-keys(rot), "rotate"), "delete " + str(key), ())
