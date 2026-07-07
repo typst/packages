@@ -32,7 +32,7 @@ An example of a discard pool:
 #river("1s6p7m67s8p253'z")
 ```
 
-![Example of a discard pool with a rotated tile to signify riichi.](./screenshots/rotate_example.png)
+![](./screenshots/rotate_example.png)
 
 ### Spaces
 
@@ -64,10 +64,10 @@ You have already seen examples of how to use `hand()` and `river()` to show hand
 #board(
     hands: "345m368p1233566s-7p",
     discards: ("0000z", "00000z", "9p8s5z7s8'm", "00000z"),
-    current_round: "East Round",
-    hero_wind: "N",
-    riichied_players: (false, false, true, false),
-    dora_indicators: "4p0000z",
+    current-round: "East Round",
+    hero-wind: "N",
+    riichied-players: (false, false, true, false),
+    dora-indicators: "4p0000z",
     pot: (riichi: 0, honba: 0),
     scores: (25000, 25000, 25000, 25000)
 )
@@ -80,8 +80,8 @@ You have already seen examples of how to use `hand()` and `river()` to show hand
 If you wish to display a riichi or a honba stick on its own, this library also provides these components:
 
 ```typ
-#riichi_stick(10em, 1em)
-#honba_stick(10em, 1em)
+#riichi-stick(10em, 1em)
+#honba-stick(10em, 1em)
 ```
 
 ![A horizontal riichi stick and honba stick](./screenshots/stick_example.png)
