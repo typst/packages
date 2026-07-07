@@ -1,6 +1,8 @@
 # classic-ppgsi
 
-Modelo de dissertação/tese para o **PPgSI–EACH–USP** (Programa de Pós-Graduação em Sistemas de Informação, Universidade de São Paulo) em [Typst](https://typst.app) — um porte 1:1 da classe LaTeX `abntex2ppgsi`, em conformidade com a ABNT NBR 14724 e os ajustes específicos do programa. O texto gerado é em português; os **nomes dos parâmetros da API são em inglês**.
+A [Typst](https://typst.app) dissertation/thesis template for **PPgSI–EACH–USP** (Graduate Program in Information Systems, University of São Paulo) — a 1:1 port of the `abntex2ppgsi` LaTeX class, compliant with ABNT NBR 14724. Since the template targets Brazilian graduate students, the documentation below is written in Portuguese, but the API itself is in English — see [`template/main.typ`](template/main.typ) for a complete working example.
+
+Este pacote reproduz em [Typst](https://typst.app) o modelo de dissertações e teses do **Programa de Pós-Graduação em Sistemas de Informação da EACH–USP**, com fidelidade à saída da classe LaTeX `abntex2ppgsi`: ABNT NBR 14724 mais os ajustes específicos do programa. O texto fixo do documento (títulos das seções pré-textuais, cabeçalhos, legendas) sai em português; os **nomes dos parâmetros da API são em inglês**.
 
 ![Página de capa do modelo](thumbnail.png)
 
