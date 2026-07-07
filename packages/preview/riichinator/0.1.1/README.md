@@ -32,7 +32,7 @@ An example of a discard pool:
 #river("1s6p7m67s8p253'z")
 ```
 
-![](./screenshots/rotate_example.png)
+![A discard pool with the riichi declaration tile rotated](./screenshots/rotate_example.png)
 
 ### Spaces
 
