@@ -4,7 +4,7 @@
 
 ![image](pics/uestc-love-typst.png)
 
-<a href="https://github.com/uestc-typst/thesis-template/blob/main/LICENSE">
+<a href="LICENSE">
 <img alt="Apache-2 License" src="https://img.shields.io/badge/license-Apache%202-brightgreen"
 ></a>
 
@@ -24,7 +24,6 @@
 </samp>
 </strong>
 </div>
-
 
 
 # 📚电子科技大学学位论文Typst模板
@@ -47,6 +46,7 @@
 >
 > The author has used this template to complete an **academic doctoral thesis and submitted it to the university**. For other degrees (bachelor's, master's), the format should only differ on the title page; this template already provides the corresponding title pages. If you find any formatting issues, feel free to open an issue in the [template repository](https://github.com/uestc-typst/thesis-template).
 
+
 # 🚀 快速开始
 
 ## 方式一：通过 Typst Universe 初始化（推荐）
@@ -59,7 +59,7 @@ typst init @preview/strict-modern-uestc-thesis:2.0.0 my-thesis
 cd my-thesis
 ```
 
-> [!WARNING]
+> [!NOTE]
 > **字体说明**：本模板依赖 Windows 系统自带的 SimHei（黑体）、SimSun（宋体）等字体。如果你是通过 Typst Universe 初始化的项目，并且**不在 Windows 系统上**使用（如 macOS、Linux），可能会因为缺少这些字体而无法正常编译。
 >
 > 解决方法：从 [uestc-typst/uestc-fonts](https://github.com/uestc-typst/uestc-fonts) 下载所需字体，放入 `template/fonts/` 目录下即可（`template/fonts/` 下的字体会被 Typst 自动加载）。
@@ -75,6 +75,7 @@ git clone https://github.com/uestc-typst/thesis-template.git thesis
 git clone https://github.com/{YOUR-NAME}/thesis-template.git thesis
 
 cd thesis
+# 也可以先点击右上角的use this template创建自己的repo，然后git clone自己的repo
 ```
 
 ## 🪶 使用 VS Code（推荐）
@@ -83,7 +84,7 @@ cd thesis
 
 1. **安装扩展**：在 VS Code 扩展市场搜索并安装 Tinymist Typst。
 
-2. **打开项目**：用 VS Code 直接打开项目根目录。
+2. **打开项目**：用 VS Code 直接打开项目根目录，仓库自带的 `.vscode/settings.json` 会自动生效，配置好字体路径、根目录、输出路径等。
 
 3. 打开 tinymist 的预览即可，同时此扩展可以直接输出 pdf。
 
@@ -154,6 +155,12 @@ cd thesis
 # 从 output-2.0.0 分支检出 PDF（不会切换分支）
 git restore --source=origin/output-2.0.0 --worktree "学位论文写作指南及例子.pdf"
 ```
+
+# 当 Fork 本仓库后需要更改的事情
+## 建议修改
+- 修改`.vscode/settings.json`文件
+    - 将`学位论文写作指南及例子.pdf`修改为需要的名字(务必以.pdf结尾)
+    - 修改`tinymist.exportPdf`参数(我不需要自动构建, 因为会卡, 你可以通过需求修改)
 
 ## 🏔️ 流水线构建(如果只想本地写可以忽略)
 可以在 `.github/workflows/ci.yml` 文件中修改流水线构建的配置. 比如流水线的名称, 触发条件, 构建命令等
