@@ -1,4 +1,4 @@
-#import "@preview/hydra:0.6.2": hydra
+#import "@preview/hydra:0.6.3": hydra
 
 // import all document parts
 #import "sections/outlines.typ": make-other-outlines, make-outline, outline-styles

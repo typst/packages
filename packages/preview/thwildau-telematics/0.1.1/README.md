@@ -107,7 +107,7 @@ The template integrates Typst’s bibliography system and allows configurable ci
 ## Example
 
 ```typst
-#import "@preview/thwildau-telematics:0.1.0": *
+#import "@preview/thwildau-telematics:0.1.1": *
 
 #show: conf.with(
   title: "My Thesis",
@@ -244,7 +244,7 @@ Die Vorlage integriert das Typst-Bibliographiesystem und ermöglicht konfigurier
 ## Beispiel
 
 ```typst
-#import "@preview/thwildau-telematics:0.1.0": *
+#import "@preview/thwildau-telematics:0.1.1": *
 
 #show: conf.with(
   title: "Meine Arbeit",

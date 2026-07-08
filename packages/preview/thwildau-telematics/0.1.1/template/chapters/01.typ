@@ -277,10 +277,10 @@ You can define a unit like #define-unit("v", $"ms"$, "Velocity", "Vector unit") 
 A glossary entry can be defined with #define-glossary("Telematics", "The combination of telecommunication and informatics") and later linked to with #glossary("Telematics").
 
 === Abbreviations
-Abbreviations can be defined in a similar fashion to units. The abbreviation #define-abbreviation("M.A.", "Master of Arts") will link to the corresponding abbreviation's outline, which will be generated automatically. As with units, new links to #abbreviation("M.A.") can be created anywhere in the text. When making heavy use of this functionality, it is advised to automatically replace all occurrences in the text or at least to import the function with an alias, to not have to type out ```#abbreviation("TH")``` every single time.
-
+Abbreviations can be defined in a similar fashion to units. The abbreviation #define-abbreviation("M.A.", "Master of Arts") will link to the corresponding abbreviation's outline, which will be generated automatically. As with units, new links to #abbreviation("M.A.") can be created anywhere in the text. When making heavy use of this functionality, it is advised to automatically replace all occurrences in the text or at least to import the function with an alias, to not have to type out `#abbreviation("TH")` every single time.
 === Image
 Even though it is not part of this template and just plain Typst, here is an image to complete the list of commonly used figures and to trigger the image's outline generation.
+
 #figure(
   image("../img/figs.png", width: 8cm),
   caption: [Fig 1, Fig 2 @web-fig1-fig2],

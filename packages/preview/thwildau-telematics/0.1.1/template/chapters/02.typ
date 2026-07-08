@@ -285,7 +285,7 @@ Mit #define-glossary("Telematik", "Die Kombination aus Telekommunikation und Inf
 
 
 === Abkürzungen
-Ähnlich den Einheiten können auch Abkürzungen definiert werden. Die Abkürzung #define-abbreviation("TH", "Technische Hochschule") verweißt dabei auf den dazugehörigen Eintrag im Abkürzungsverzeichnis, der automatisch erstellt wird. Wie bei der Einheit kann überall im Text erneut auf #abbreviation("TH") verwiesen werden, wobei sich bei häufigem Nutzen von Verweisen ein automatisches Ersetzen im Text oder wenigstens das Importieren der Funktion unter einem Alias, um nicht jeden mal ```#abbreviation("TH")``` tippen zu müssen, anbietet.
+Ähnlich den Einheiten können auch Abkürzungen definiert werden. Die Abkürzung #define-abbreviation("TH", "Technische Hochschule") verweißt dabei auf den dazugehörigen Eintrag im Abkürzungsverzeichnis, der automatisch erstellt wird. Wie bei der Einheit kann überall im Text erneut auf #abbreviation("TH") verwiesen werden, wobei sich bei häufigem Nutzen von Verweisen ein automatisches Ersetzen im Text oder wenigstens das Importieren der Funktion unter einem Alias, um nicht jeden mal `#abbreviation("TH")` tippen zu müssen, anbietet.
 
 === Abbildung
 Auch wenn dies kein spezielles Element dieser Vorlage ist, sondern direkt von Typst stammt, folgt hier eine Abbildung, um die Liste der häufig genutzten Figurentypen zu vervollständigen und das Generieren des Abblidungsverzeichnisses auszulösen.
