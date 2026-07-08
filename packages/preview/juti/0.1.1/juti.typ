@@ -674,3 +674,62 @@
   place(bottom + left, text(size: 10pt, fill: primary-color, link("https://juti.if.its.ac.id/")))
   place(bottom + right, text(size: 10pt, fill: primary-color, [Published by Institut Teknologi Sepuluh Nopember]))
 }
+
+#let cover2(
+  issn: "1412-6389",
+  eissn: "2406-8535",
+  papers: (),
+) = context {
+  let book = book-state.get()
+  let juti-blue = rgb("#113E68")
+  let juti-yellow = rgb("FFBD07")
+  let primary-color = white
+  let accent-color = rgb("#1e90ff")
+
+  set page(
+    paper: "a4",
+    margin: (x: 0.65in, y: 0.65in),
+    header: none,
+    footer: none,
+    background: image("cover_background.jpeg", width: 100%, height: 100%),
+  )
+  set text(font: ("Liberation Sans", "Arial", "Helvetica"), fallback: true)
+
+  v(17.5em)
+
+  {
+    set align(right)
+    set text(size: 18pt, weight: "bold", fill: primary-color)
+    let month-year = datetime(year: book.year, month: book.month, day: 1).display("[month repr:long] [year]")
+    [Vol. #book.volume, No. #book.number, #month-year]
+  }
+
+  v(3em)
+
+  // TOC entries — left-padded 36% to avoid robot head + brain circle
+  // (robot occupies x=0–177pt in content, brain circle x=0–120pt; both y=46–85% of page)
+
+  set text(size: 10pt, fill: primary-color)
+  set par(justify: false, leading: .5em, spacing: 1.2em)
+  for paper in papers {
+    grid(
+      columns: (1fr, auto),
+      column-gutter: 1em,
+      {
+        text(weight: "bold", upper(paper.title))
+        linebreak()
+        text(style: "italic", paper.authors)
+      },
+      {
+        set align(right + top)
+        if paper.at("pages", default: none) != none {
+          text(weight: "bold", paper.pages)
+        }
+      },
+    )
+  }
+
+  set text(weight: "bold")
+  place(bottom + left, text(size: 10pt, fill: primary-color, link("https://juti.if.its.ac.id/")))
+  place(bottom + right, text(size: 10pt, fill: primary-color, [Published by Institut Teknologi Sepuluh Nopember]))
+}
