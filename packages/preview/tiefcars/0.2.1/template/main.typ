@@ -1,5 +1,5 @@
 
-#import "@preview/tiefcars:0.2.0": single-page-layout, tiefcars
+#import "@preview/tiefcars:0.2.1": single-page-layout, tiefcars
 
 /* === Set up lcars with your theme === */
 #show: tiefcars.with(theme: "tng")
@@ -29,4 +29,4 @@ Build your own magic stuff with TiefCARS, now for free at
 #link("https://github.com/Tiefseetauchner/TiefCARS")! Make your own documents
 now!
 
-(Version 0.2.0, less buggy but still)
+(Version 0.2.1, less buggy but still)
