@@ -110,17 +110,17 @@
   let draw(vals, marks) = _linked-render(vals, th, pointer, addresses, head, marks)
   (
     diagram: draw(vs, (:)),
-    insert: v => _step(
-      [insert #v],
+    insert: (v, step-label: none) => _step(
+      if step-label == none { [insert #v] } else { step-label },
       draw(vs, (:)),
       draw(vs + (v,), (str(vs.len()): "new")),
       _linked-obj(vs + (v,), style, pointer, addresses, head),
     ),
-    delete: v => {
+    delete: (v, step-label: none) => {
       let i = vs.position(x => x == v)
       let rest = if i == none { vs } else { vs.slice(0, i) + vs.slice(i + 1) }
       let mb = if i == none { (:) } else { (str(i): "remove") }
-      _step([delete #v], draw(vs, mb), draw(rest, (:)),
+      _step(if step-label == none { [delete #v] } else { step-label }, draw(vs, mb), draw(rest, (:)),
         _linked-obj(rest, style, pointer, addresses, head))
     },
   )
@@ -191,17 +191,17 @@
   let draw(vals, marks) = _doubly-render(vals, th, pointer, addresses, head, marks)
   (
     diagram: draw(vs, (:)),
-    insert: v => _step(
-      [insert #v],
+    insert: (v, step-label: none) => _step(
+      if step-label == none { [insert #v] } else { step-label },
       draw(vs, (:)),
       draw(vs + (v,), (str(vs.len()): "new")),
       _doubly-obj(vs + (v,), style, pointer, addresses, head),
     ),
-    delete: v => {
+    delete: (v, step-label: none) => {
       let i = vs.position(x => x == v)
       let rest = if i == none { vs } else { vs.slice(0, i) + vs.slice(i + 1) }
       let mb = if i == none { (:) } else { (str(i): "remove") }
-      _step([delete #v], draw(vs, mb), draw(rest, (:)),
+      _step(if step-label == none { [delete #v] } else { step-label }, draw(vs, mb), draw(rest, (:)),
         _doubly-obj(rest, style, pointer, addresses, head))
     },
   )
@@ -227,14 +227,14 @@
   let th = resolve(style)
   (
     diagram: _stack-render(vs, th, (:)),
-    push: v => _step(
-      [push #v],
+    push: (v, step-label: none) => _step(
+      if step-label == none { [push #v] } else { step-label },
       _stack-render(vs, th, (:)),
       _stack-render((v,) + vs, th, ("0": "new")),
       _stack-obj((v,) + vs, style),
     ),
-    pop: () => _step(
-      [pop],
+    pop: (step-label: none) => _step(
+      if step-label == none { [pop] } else { step-label },
       _stack-render(vs, th, ("0": "remove")),
       _stack-render(vs.slice(1), th, (:)),
       _stack-obj(vs.slice(1), style),
@@ -283,14 +283,14 @@
   let draw(vals, marks) = _queue-render(vals, th, marks, none, none, front-label, rear-label)
   (
     diagram: _queue-render(vs, th, (:), enq, deq, front-label, rear-label),
-    enqueue: v => _step(
-      [enqueue #v],
+    enqueue: (v, step-label: none) => _step(
+      if step-label == none { [enqueue #v] } else { step-label },
       draw(vs, (:)),
       draw(vs + (v,), (str(vs.len()): "new")),
       _queue-obj(vs + (v,), style, enq, deq, front-label, rear-label),
     ),
-    dequeue: () => _step(
-      [dequeue],
+    dequeue: (step-label: none) => _step(
+      if step-label == none { [dequeue] } else { step-label },
       draw(vs, ("0": "remove")),
       draw(vs.slice(1), (:)),
       _queue-obj(vs.slice(1), style, enq, deq, front-label, rear-label),

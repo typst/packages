@@ -10,7 +10,8 @@
 
 #let _array-to-tree(arr, i) = {
   if i >= arr.len() { return none }
-  let n = _node(arr.at(i))
+  let n = _node(i)
+  n.label = arr.at(i)
   n.left = _array-to-tree(arr, 2 * i + 1)
   n.right = _array-to-tree(arr, 2 * i + 2)
   n
@@ -81,26 +82,30 @@
 // sitting at those positions before it can be turned into a mark map. `kind`
 // is a highlight kind string, resolved against the caller's `style:` at draw
 // time (see `tree.typ`'s `mark-style`).
-#let _path-marks(arr, path, kind) = _marks(path.map(i => arr.at(i)), kind)
+#let _index-marks(path, kind) = _marks(path, kind)
 
-#let heap-insert(key) = (variant, arr) => {
+#let heap-insert(key, step-label: none) = (variant, arr) => {
   let a = arr + (key,)
   let (after, path) = _sift-up(a, variant)
-  let ma = _path-marks(after, path, "path") + _marks((key,), "new")
-  (after, (:), ma, "insert " + str(key))
+  let inserted = path.last()
+  let ma = _index-marks(path, "path") + _index-marks((inserted,), "new")
+  (after, (:), ma, if step-label == none { "insert " + str(key) } else { step-label })
 }
 
 // Removes and returns the root: the smallest key for a min-heap, largest for
 // a max-heap.
-#let heap-extract(variant, arr) = {
-  let mb = _marks((arr.at(0),), "remove")
-  if arr.len() <= 1 { return ((), mb, (:), "extract") }
+#let _heap-extract-op(step-label: none) = (variant, arr) => {
+  let label = if step-label == none { "extract" } else { step-label }
+  let mb = _index-marks((0,), "remove")
+  if arr.len() <= 1 { return ((), mb, (:), label) }
   let a = arr
   a.at(0) = a.at(a.len() - 1)
   a = a.slice(0, a.len() - 1)
   let (after, path) = _sift-down(a, variant)
-  (after, mb, _path-marks(after, path, "path"), "extract")
+  (after, mb, _index-marks(path, "path"), label)
 }
+
+#let heap-extract = _heap-extract-op()
 
 // ── Public object ────────────────────────────────────────────────────────────
 
@@ -118,8 +123,8 @@
   }
   (
     diagram: draw(arr, (:)),
-    insert: key => apply(heap-insert(key)),
-    extract: () => apply(heap-extract),
+    insert: (key, step-label: none) => apply(heap-insert(key, step-label: step-label)),
+    extract: (step-label: none) => apply(_heap-extract-op(step-label: step-label)),
   )
 }
 

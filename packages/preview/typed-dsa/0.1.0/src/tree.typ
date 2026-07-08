@@ -615,7 +615,7 @@
   } else {
     circle(p, radius: r, fill: f, stroke: stroke)
   }
-  content(p, text(..text-style, label), angle: rotation)
+  content(p, text(..text-style)[#label], angle: rotation)
 }
 
 #let _draw-triangle(n, th) = {
@@ -729,7 +729,9 @@
 //
 // ponytail: `enabled`, not `show` — `show` is a reserved word in Typst
 // (show rules), so it can't be a bare dict key.
-#let tree-insert(key, rebalance: (:)) = (variant, root) => {
+#let tree-insert(key, rebalance: (:), step-label: none) = (variant, root) => {
+  let default-label = "insert " + str(key)
+  let final-step-label = if step-label == none { default-label } else { step-label }
   if variant == "avl" {
     let cfg = (enabled: false, all-steps: false) + rebalance
     let (after, rot, mid-snapshot) = _avl-insert(root, key)
@@ -737,7 +739,7 @@
     if cfg.enabled and rot.len() > 0 {
       let broken = _bst-insert(root, key)
       let new-mark = _marks((key,), "new")
-      mids.push((tree: broken, marks: new-mark, label: "insert " + str(key)))
+      mids.push((tree: broken, marks: new-mark, label: default-label))
       if cfg.all-steps and rot.len() == 2 and mid-snapshot != none {
         let inner-mark = new-mark + _marks(_event-keys(rot.at(0)), "rotate")
         mids.push((tree: mid-snapshot, marks: inner-mark, label: _rot-label(rot.at(0))))
@@ -753,25 +755,26 @@
     } else {
       rot.map(_rot-label).join(", ")
     }
-    (after, (:), ma, if rot.len() > 0 { final-label } else { "insert " + str(key) }, mids)
+    (after, (:), ma, if step-label != none { step-label } else if rot.len() > 0 { final-label } else { default-label }, mids)
   } else {
     let mb = _marks(_search-path(root, key), "path")
-    (_bst-insert(root, key), mb, _marks((key,), "new"), "insert " + str(key), ())
+    (_bst-insert(root, key), mb, _marks((key,), "new"), final-step-label, ())
   }
 }
 
-#let tree-delete(key) = (variant, root) => {
+#let tree-delete(key, step-label: none) = (variant, root) => {
+  let label = if step-label == none { "delete " + str(key) } else { step-label }
   let mb = _marks(_search-path(root, key), "path") + _marks((key,), "remove")
   if variant == "avl" {
     let (after, rot) = _avl-delete(root, key)
-    return (after, mb, _marks(_rotated-keys(rot), "rotate"), "delete " + str(key), ())
+    return (after, mb, _marks(_rotated-keys(rot), "rotate"), label, ())
   }
-  (_bst-delete(root, key), mb, (:), "delete " + str(key), ())
+  (_bst-delete(root, key), mb, (:), label, ())
 }
 
-#let tree-search(key) = (variant, root) => {
+#let tree-search(key, step-label: none) = (variant, root) => {
   let m = _marks(_search-path(root, key), "path")
-  (root, (:), m, "search " + str(key), ())
+  (root, (:), m, if step-label == none { "search " + str(key) } else { step-label }, ())
 }
 
 // ── Composable operation views ───────────────────────────────────────────────
@@ -845,9 +848,9 @@
   }
   (
     diagram: _render(root, th: resolve(style), edge-customizations: edge-customizations, node-customizations: node-customizations, node-labels: node-labels),
-    insert: (key, rebalance: (:)) => apply(tree-insert(key, rebalance: rebalance)),
-    delete: key => apply(tree-delete(key)),
-    search: key => apply(tree-search(key)),
+    insert: (key, rebalance: (:), step-label: none) => apply(tree-insert(key, rebalance: rebalance, step-label: step-label)),
+    delete: (key, step-label: none) => apply(tree-delete(key, step-label: step-label)),
+    search: (key, step-label: none) => apply(tree-search(key, step-label: step-label)),
   )
 }
 
