@@ -1,4 +1,4 @@
-#import "@preview/ost-thesis:1.0.0": appendix, template, toc
+#import "@preview/ost-ifs-thesis:1.0.0": appendix, template, toc
 #import "meta.typ": *
 
 #show: template.with(

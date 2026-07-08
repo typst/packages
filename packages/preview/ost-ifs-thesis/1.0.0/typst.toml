@@ -1,11 +1,11 @@
 [package]
-name = "ost-thesis"
+name = "ost-ifs-thesis"
 version = "1.0.0"
 entrypoint = "lib.typ"
 authors = ["David Bachmann", "Dominik Buehler", "Thomas Bocek"]
 license = "MIT"
-description = "A thesis template in the visual style of the OST, Eastern Switzerland University of Applied Sciences."
-keywords = ["thesis", "academic", "report", "university", "ost"]
+description = "A thesis template for the IFS Institute for Software at OST Eastern Switzerland University of Applied Sciences, using the OST visual style."
+keywords = ["thesis", "academic", "report", "university", "ost", "ifs"]
 categories = ["paper"]
 disciplines = ["computer-science", "engineering"]
 exclude = [".github"]

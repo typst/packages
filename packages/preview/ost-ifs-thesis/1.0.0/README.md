@@ -1,16 +1,21 @@
-# ost-thesis
+# ost-ifs-thesis
 
-A thesis template in the visual style of the OST Eastern Switzerland
-University of Applied Sciences. It provides a styled title page, running
-headers, automatic numbering, a table of contents, helper functions for tables,
-and ready-made chapter and appendix scaffolding.
+A thesis template for the
+[IFS Institute for Software](https://www.ost.ch/en/research-and-consulting-services/computer-science/ifs-institute-for-software)
+at OST Eastern Switzerland University of Applied Sciences, using the OST visual
+style. It provides a styled title page, running headers, automatic numbering, a
+table of contents, helper functions for tables, and ready-made chapter and
+appendix scaffolding.
+
+This is an IFS template, not an official OST-wide template. It is endorsed and
+maintained by the IFS Institute for Software.
 
 ## Usage
 
 Create a new project from the template:
 
 ```sh
-typst init @preview/ost-thesis
+typst init @preview/ost-ifs-thesis
 ```
 
 Then edit `meta.typ` to set your title, authors, and advisors, and write your

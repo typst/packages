@@ -1,4 +1,4 @@
-#import "@preview/ost-thesis:1.0.0": styled-table
+#import "@preview/ost-ifs-thesis:1.0.0": styled-table
 
 = Requirements
 
