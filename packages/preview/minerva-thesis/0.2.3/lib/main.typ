@@ -1,5 +1,5 @@
 #import "@preview/subpar:0.2.2"
-#import "@preview/abbr:0.3.0"
+#import "@preview/abbr:0.3.1"
 #import "states.typ": *
 #import "settings.typ": *
 

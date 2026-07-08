@@ -2,4 +2,4 @@
 #import "title-page.typ": title-page, ugent-logo, faculty-icon
 #import "abstract.typ": extended-abstract, abstract-keywords
 #import "settings.typ": *
-#import "@preview/abbr:0.3.0"
+#import "@preview/abbr:0.3.1"
