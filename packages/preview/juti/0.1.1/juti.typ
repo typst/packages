@@ -35,6 +35,7 @@
   join-sym: [,],
   last-join: [and],
   prefix-fn: i => [(#{ i + 1 }) ],
+  join-sym-on-two: false,
   ..entries,
 ) = {
   entries = entries.pos()
@@ -44,9 +45,10 @@
   }
   for (i, v) in entries.enumerate() {
     if i > 0 {
+      if n != 2 and not join-sym-on-two [#join-sym ]
       if n != 0 and i == n - 1 {
-        if last-join != none [#last-join ] else [#join-sym ]
-      } else [#join-sym ]
+        if last-join != none [#last-join ]
+      }
     }
     let prefix = if prefix-fn != none {
       prefix-fn(i)
@@ -221,10 +223,10 @@
   ),
   abstract: [],
   keywords: (
-    [Keyword1],
-    [Keyword2],
-    [Keyword3],
-    [Keyword4],
+    "Keyword1",
+    "Keyword2",
+    "Keyword3",
+    "Keyword4",
   ),
   meta: (
     // No need to change
@@ -465,7 +467,7 @@
         Keywords: \
         #{
           [
-            #inline-enum(prefix-fn: none, last-join: none, join-sym: [\ ], ..keywords.map(v => empty-warn(v)))
+            #inline-enum(prefix-fn: none, last-join: none, join-sym: [\ ], ..keywords.sorted().map(v => empty-warn(v)))
           ]
         }
         #v(.6em)

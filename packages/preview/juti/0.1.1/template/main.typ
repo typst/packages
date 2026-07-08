@@ -61,10 +61,10 @@
     These instructions give you guidelines for preparing JUTI (Jurnal Ilmiah Teknologi Informasi) papers. The electronic file of your paper will be formatted further by JUTI editorial board. Paper titles should be written in uppercase. Avoid writing long formulas with subscripts in the title; short formulas that identify the elements are fine (e.g., "Nd--Fe--B"). Do not write “(Invited)” in the title. Full names of authors are preferred in the author field but are not required. If you have to shorten the author’s name, leave first name and last name unshorten. Put a space between authors’ initials. Do not cite references in the abstract. The length of abstract must between 150 -- 250 words.
   ],
   keywords: (
-    [Keyword1],
-    [Keyword2],
-    [Keyword3],
-    [Keyword4],
+    "Keyword1",
+    "Keyword2",
+    "Keyword3",
+    "Keyword4",
   ),
   bib: bibliography("references.bib"),
   ..setup,
