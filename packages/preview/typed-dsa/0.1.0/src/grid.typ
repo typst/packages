@@ -118,13 +118,43 @@
   diagram: _matrix-render(rows, resolve(style), cell-customizations, row-labels, column-labels),
 )
 
-#let sequence(columns: 1, gap: 1em, row-gap: 1em, ..steps) = {
+#let _sequence-arrow(label) = align(horizon)[
+  #set align(center)
+  #if label != none [
+    #text(size: 8pt, label) \
+  ]
+  #text(size: 1.3em, $arrow.r$)
+]
+
+#let _sequence-panel(step, mode) = {
+  if type(step) == dictionary and mode == "result" and "result" in step {
+    return step.result.diagram
+  }
+  if type(step) == dictionary and mode == "after" and "after" in step {
+    return step.after
+  }
+  if type(step) == dictionary and mode == "before" and "before" in step {
+    return step.before
+  }
+  if type(step) == dictionary and "diagram" in step {
+    return step.diagram
+  }
+  step
+}
+
+#let sequence(columns: 1, gap: 1em, row-gap: 1em, mode: "all", ..steps) = {
+  assert(mode in ("all", "diagram", "before", "after", "result"), message: "sequence mode must be \"all\", \"before\", \"after\", or \"result\"")
   let cells = ()
   for step in steps.pos() {
-    if type(step) == dictionary and "diagram" in step {
-      cells.push(step.diagram)
+    let is-step = type(step) == dictionary and ("before" in step or "after" in step or "result" in step)
+    if mode not in ("all", "diagram") and is-step {
+      if cells.len() == 0 and "before" in step {
+        cells.push(step.before)
+      }
+      cells.push(_sequence-arrow(step.at("label", default: none)))
+      cells.push(_sequence-panel(step, mode))
     } else {
-      cells.push(step)
+      cells.push(_sequence-panel(step, mode))
     }
   }
   grid(columns: columns, column-gutter: gap, row-gutter: row-gap, ..cells)
