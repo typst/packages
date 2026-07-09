@@ -8,7 +8,7 @@
   lang: "en",
   authors: ("Author 1", "Author 2"),
   mentors: ("Mentors 1", "Mentors 2"),
-  logo: image("../assets/Logo_CNRS.png", height: 50pt),
+  logo: image("assets/Logo_CNRS.png", height: 50pt),
   place: "Place of the intership",
   date: "Beginning date",
   table-of-contents: true,
