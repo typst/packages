@@ -1,0 +1,17 @@
+[package]
+name = "gbt9704"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["songwupei"]
+license = "MIT"
+description = "Typst 模板 for GB/T 9704-2012 党政机关公文格式"
+repository = "https://codeberg.org/songwupei/typst-gbt9704"
+keywords = ["government", "document", "chinese", "cjk", "official", "gb"]
+categories = ["report"]
+compiler = "0.13.1"
+exclude = ["*.pdf", ".gitignore", "CLAUDE.md", "ds.md", ".claude/", ".omc/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
