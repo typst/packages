@@ -41,7 +41,7 @@ Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi impe
 tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
 
 #figure(
-  image("./content04/creodocs_logo.svg", width: 50%),
+  image("./images/lisbon.jpg", width: 50%),
   caption: [Figure caption.],
 ) <figure>
 
@@ -69,6 +69,6 @@ Referencing @figure in-text using its label and referencing @figure1 in-text usi
 
 #figure(
   placement: bottom,
-  image("./content04/creodocs_logo.svg", width: 100%),
+  image("./images/lisbon.jpg", width: 100%),
   caption: [Floating figure.],
 ) <figure1>

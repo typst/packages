@@ -35,10 +35,10 @@ Unidade Curricular is `ulreport`.
 The cover-page background (`cover_image.jpg`) reproduces Universidade
 Lusófona's own branding and is © Universidade Lusófona. It is included here
 so the template can be used freely to write documents for the university;
-it is not licensed for other uses. The "creodocs" logo used in the example
-chapters (`chapters/content04/creodocs_logo.svg`) is an unrelated
-placeholder graphic used only to demonstrate figure/image inclusion — it
-has no connection to Universidade Lusófona and can be freely replaced.
+it is not licensed for other uses. The Lisbon illustration used in the
+example chapters (`chapters/images/lisbon.jpg`) is an AI-generated,
+royalty-free placeholder image used only to demonstrate figure/image
+inclusion.
 
 ## Getting started
 

@@ -23,11 +23,11 @@ Os valores calculados com a @eq-velocidade são apresentados na @tab-resultados.
 #lorem(20)
 
 #figure(
-  image("./content04/creodocs_logo.svg", width: 40%),
-  caption: [Logótipo utilizado como imagem de exemplo.],
+  image("./images/lisbon.jpg", width: 40%),
+  caption: [Ilustração de Lisboa utilizada como imagem de exemplo.],
 ) <fig-exemplo>
 
-A @fig-exemplo ilustra a inclusão de uma imagem vetorial (SVG) com legenda.
+A @fig-exemplo ilustra a inclusão de uma imagem com legenda.
 
 == Tabelas <sec-tabela>
 
