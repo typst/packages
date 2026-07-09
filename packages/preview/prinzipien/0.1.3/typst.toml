@@ -1,6 +1,6 @@
 [package]
 name = "prinzipien"
-version = "0.1.1"
+version = "0.1.3"
 entrypoint = "lib.typ"
 authors = ["Lukas Grassauer <entze@grassauer.eu>"]
 license = "BSL-1.0"
@@ -19,9 +19,10 @@ exclude = [
   "hk.pkl",
   "mise.toml",
   "assets",
+  ".bumpversion.toml",
 ]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "assets/thumbnail.png"

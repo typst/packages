@@ -22,8 +22,8 @@ derived from it — does all the visual work.
 
 ![Four slides from the demo deck: a title slide with a logo, an overview map in the accent colour, a content slide flush against the wide margin, and a slide with labels in the margin beside an image.](assets/showcase.png)
 
-The slides above come from the `examples/demo.typ` deck, which relies on the
-theme's defaults; `examples/full-demo.typ` exercises every configuration option.
+The slides above come from the [`examples/demo.typ`](examples/demo.typ) deck, which relies on the
+theme's defaults; [`examples/full-demo.typ`](examples/full-demo.typ) exercises every configuration option.
 Both live in the [source repository](https://github.com/Entze/prinzipien).
 
 ## Installation
@@ -39,7 +39,7 @@ typst init @preview/prinzipien
 Or import the theme into an existing document:
 
 ```typ
-#import "@preview/prinzipien:0.1.1": *
+#import "@preview/prinzipien:0.1.3": *
 ```
 
 ### Requirements
@@ -55,7 +55,7 @@ Apply the theme with a show rule, then write one message per slide as a
 level-2 heading:
 
 ```typ
-#import "@preview/prinzipien:0.1.1": *
+#import "@preview/prinzipien:0.1.3": *
 
 #show: prinzipien-theme.with(
   config-info(
@@ -75,7 +75,7 @@ The heading carries the takeaway; the body only supports it.
 Highlight the words that matter with `#alert[..]`, mark the main points of your
 talk with `#point[..]`, and let `#preview()` / `#review()` build the overview
 maps automatically. See [`template/main.typ`](template/main.typ) for a complete
-starting point, and the `examples/` directory in the
+starting point, and the [`examples/`](examples/) directory in the
 [repository](https://github.com/Entze/prinzipien) for fuller decks.
 
 ### Configuration

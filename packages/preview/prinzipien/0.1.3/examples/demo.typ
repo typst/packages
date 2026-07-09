@@ -3,7 +3,7 @@
 // points with transitions -> review -> conclusion -> close,
 // plus backmatter (Q&A, references).
 
-#import "../lib.typ": *
+#import "@preview/prinzipien:0.1.3": *
 
 // Placeholder wordmark standing in for a real logo image.
 #let acme-logo = box({

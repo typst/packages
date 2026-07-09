@@ -2,7 +2,7 @@
 // deliberately non-default values throughout. See `demo.typ` for the
 // plain deck that sticks to the defaults.
 
-#import "../lib.typ": *
+#import "@preview/prinzipien:0.1.3": *
 
 // The accent colour of this deck, shared between the theme configuration
 // and the placeholder graphics below.

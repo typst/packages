@@ -3,7 +3,7 @@
 // single message of its slide, and the body only supports it. Replace the
 // placeholder content below with your own.
 
-#import "@preview/prinzipien:0.1.1": *
+#import "@preview/prinzipien:0.1.3": *
 
 #show: prinzipien-theme.with(
   config-info(
