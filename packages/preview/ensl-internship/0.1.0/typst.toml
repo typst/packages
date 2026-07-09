@@ -6,7 +6,7 @@ authors = ["Gavroche", "Adrien Guimbal"]
 license = "MIT"
 description = "A unofficial template for internship reports at ENS de Lyon"
 repository = "https://github.com/AdrienGuimbal/typst-report-template-ens-lyon"
-keywords = ["ENS", "ENS de Lyon", "École normale supérieure", "report", "internship"]
+keywords = ["ENS", "ENS de Lyon", "École normale supérieure", "report", "internship", "rapport", "stage"]
 categories = ["report"]
 
 [template]
