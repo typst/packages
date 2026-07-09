@@ -24,10 +24,10 @@
   acknowledgements: [
     Para a mãe, o pai e o gato.
   ],
-  abstract_pt: [
+  abstract-pt: [
     Um template para universidade
   ],
-  abstract_en: [
+  abstract-en: [
     A template for the university
   ]
 )

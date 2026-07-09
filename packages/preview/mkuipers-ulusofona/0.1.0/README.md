@@ -89,8 +89,8 @@ using the "Start from template" button.
   ),
   external: "Empresa XYZ", // Optional
   acknowledgements: [Acknowledgement text here],
-  abstract_pt: [Resumo em Português],
-  abstract_en: [Abstract in English],
+  abstract-pt: [Resumo em Português],
+  abstract-en: [Abstract in English],
   glossary-data: yaml("glossary.yaml"), // Optional — set to none to omit
   list-of-figures: true,
   list-of-tables: true,
@@ -114,8 +114,8 @@ using the "Start from template" button.
 | `external`             | Optional external entity (e.g., company)                       |
 | `department`           | The department, default: "Departamento de Engenharia Informática e Sistemas de Informação" |
 | `acknowledgements`     | Acknowledgements content                                       |
-| `abstract_en`          | Abstract (English)                                             |
-| `abstract_pt`          | Resumo (Portuguese)                                            |
+| `abstract-en`          | Abstract (English)                                             |
+| `abstract-pt`          | Resumo (Portuguese)                                            |
 | `glossary-data`        | Loaded glossary data, e.g. `yaml("glossary.yaml")`; set to `none` to omit |
 | `list-of-figures`      | Show list of figures (default: `true`)                          |
 | `list-of-tables`       | Show list of tables (default: `true`)                           |

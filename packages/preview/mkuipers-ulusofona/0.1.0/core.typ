@@ -772,8 +772,8 @@ figure(
   glossary-unused: false,
   glossary-position: "front",
   acknowledgements: none,
-  abstract_en: none,
-  abstract_pt: none,
+  abstract-en: none,
+  abstract-pt: none,
   copyright-phrase: "esta dissertação",
   supplement-chapter: "Chapter",
   supplement-part: "Part",
@@ -1065,19 +1065,19 @@ figure(
     [#acknowledgements]
   }
 
-  if (lang == "pt" and abstract_pt != none) {
+  if (lang == "pt" and abstract-pt != none) {
     heading(level: 1, numbering: none, outlined: true, translation("abstract_pt"))
-    [#abstract_pt]
+    [#abstract-pt]
   }
 
-  if (abstract_en != none) {
+  if (abstract-en != none) {
     heading(level: 1, numbering: none, outlined: true, translation("abstract_en"))
-    [#abstract_en]
+    [#abstract-en]
   }
 
-  if (lang == "en" and abstract_pt != none) {
+  if (lang == "en" and abstract-pt != none) {
     heading(level: 1, numbering: none, outlined: true, translation("abstract_pt"))
-    [#abstract_pt]
+    [#abstract-pt]
   }
 
   my-outline(front-matter-state, appendix-state, appendix-state-hide-parent, part-state, part-location,part-change,part-counter, main-color, lang, textSize1: outline-part, textSize2: outline-heading1, textSize3: outline-heading2, textSize4: outline-heading3, depth: toc-depth)
