@@ -1,6 +1,6 @@
 [package]
-name = "ens-lyon-internship"
-version = "1.0"
+name = "ensl-internship"
+version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Gavroche", "Adrien Guimbal"]
 license = "MIT"
