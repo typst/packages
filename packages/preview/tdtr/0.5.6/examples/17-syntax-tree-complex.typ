@@ -13,7 +13,7 @@
 )[
   #let leaf = node-attr(layer: "leaves")
   - S
-    - NP #node-attr(forest: true)
+    - NP
       - NP
         - Det
           - The #leaf
