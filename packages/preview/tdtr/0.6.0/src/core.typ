@@ -241,7 +241,7 @@
     } else if class == "builds-node" {
       indices.push(cnt)
       cnt = 0
-      tree.push((indices: indices, title: b.body + b.attr))
+      tree.push((indices: indices, title: [#b.body] + b.attr))
     }
   }
 
