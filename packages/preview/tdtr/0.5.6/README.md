@@ -1137,7 +1137,7 @@ Here is a much more complex example of syntax tree of sentence "The old man with
 )[
   #let leaf = node-attr(layer: "leaves")
   - S
-    - NP #node-attr(forest: true)
+    - NP
       - NP
         - Det
           - The #leaf
