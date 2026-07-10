@@ -568,7 +568,7 @@
     } // not leaf, not rotated, truly try to compress the subtree
     else {
       for (m, child) in tree.at(i + 1).at(n).enumerate() {
-        (xs, ys, dxs, dys, lefts, rights, body) = try-compress(i + 1, n, m, sink, xs, ys, dxs, dys, lefts, rights, body)
+        (xs, ys, dxs, dys, lefts, rights, body) = try-compress(i + 1, n, m, s + sink, xs, ys, dxs, dys, lefts, rights, body)
       }
 
       // from the first left subtree, continue to compact the right subtrees
