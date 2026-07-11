@@ -9,7 +9,7 @@ description = "Invoice and offer template for Austrian freelancers"
 keywords = ["invoice", "german"]
 categories = ["layout", "office"]
 disciplines = []
-homepage = "https://www.lukechriswalker.at/projects/6a26a275b6efd610e8e3928b"
+homepage = "https://www.lukechriswalker.at/projects/6a26a18ab6efd6aaf6d9776c"
 repository = "https://github.com/Tiefseetauchner/TiefLetter"
 
 [template]
