@@ -4,6 +4,6 @@ version = "0.2.0"
 entrypoint = "lib.typ"
 authors = ["Robotechnic <@Robotechnic>"]
 license = "MIT"
-compiler = "0.15.0"
+compiler = "0.14.0"
 description = "A package to colors matching parenthesis"
 exclude = [".gitignore", "tests/*", "Makefile"]
