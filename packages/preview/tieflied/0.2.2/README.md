@@ -18,7 +18,7 @@ To use TiefLied with the Typst web app, choose "Start from template" and select 
 To import the package manually in your Typst project, use:
 
 ```typst
-#import "@preview/tieflied:0.2.1": songbook, song
+#import "@preview/tieflied:0.2.2": songbook, song
 ```
 
 Alternatively, you can download the `lib.typ` file and use:
@@ -104,7 +104,7 @@ Annotations not only serve the orientation but also the formatting of the text. 
 ## Example
 
 ```typst
-#import "@preview/tieflied:0.2.1": annotation, author, bridge, chorus, set-page-breaking, song, songbook, verse
+#import "@preview/tieflied:0.2.2": annotation, author, bridge, chorus, set-page-breaking, song, songbook, verse
 
 #let cavetown = author(
   "Cavetown",
