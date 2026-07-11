@@ -7,10 +7,6 @@ A template to make halfway decent songbooks in a markup language that people can
 
 TiefLied is developed by Lena Tauchner (Tiefseetauchner) for use in making "hits" booklets for herself.
 
-## Planned features
-
-- [ ] Chords
-
 ## Usage
 
 To use TiefLied with the Typst web app, choose "Start from template" and select TiefLied. You will also need to include or install the Cormorant Garamond and Cormorant SC Fonts, should you chose to not change the default font.
@@ -19,12 +15,6 @@ To import the package manually in your Typst project, use:
 
 ```typst
 #import "@preview/tieflied:0.2.2": songbook, song
-```
-
-Alternatively, you can download the `lib.typ` file and use:
-
-```typst
-#import "lib.typ": songbook, song
 ```
 
 ## Exported Members
