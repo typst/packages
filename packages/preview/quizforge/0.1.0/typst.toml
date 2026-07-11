@@ -10,7 +10,7 @@ keywords = ["exam", "quiz", "test", "randomization", "mcq", "assessment", "teach
 categories = ["components", "utility"]
 disciplines = ["education"]
 compiler = "0.14.0"
-exclude = ["thumbnail.png"]
+exclude = []
 
 [template]
 path = "template"
