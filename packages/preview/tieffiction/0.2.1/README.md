@@ -46,7 +46,7 @@ TiefFiction currently has 4 main components:
 3. The Table of Content (ToC) `table-of-content`
 4. The Blurb `blurb-block`
 
-These components can be seperately inserted into your design, or automatically inserted using the [`book`](#book) function. `book` is a simple starting point, with opinionated defaults. See [examples/fiction](examples/fiction.pdf) for that.
+These components can be seperately inserted into your design, or automatically inserted using the [`book`](#book) function. `book` is a simple starting point, with opinionated defaults. See [examples/fiction](https://github.com/Tiefseetauchner/TiefFiction/blob/bc3283d1eeb464307184cc1d7679c0a68efab288/examples/fiction.pdf) for that.
 
 For manually building your layout, use the [`setup`](#setup) function. You can then start and end sections of the book ([preamble](#start-preamble), [before-main](#start-before-main), [main](#start-main), [after-main](#start-after-main)) and insert the components as you wish.
 
