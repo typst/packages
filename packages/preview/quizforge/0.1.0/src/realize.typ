@@ -123,6 +123,7 @@
       }
       qs.push(entry)
     }
+    sec-marks = calc.round(sec-marks, digits: 4) // f64 dust: 0.1+0.2 must print as 0.3
     total += sec-marks
     sections.push((
       title: sec.at("title", default: none),
@@ -131,7 +132,7 @@
       questions: qs,
     ))
   }
-  (exam: exam, "set": set-id, total: total, sections: sections)
+  (exam: exam, "set": set-id, total: calc.round(total, digits: 4), sections: sections)
 }
 
 // Pure-data view of a realized exam — this is what <answerkey> holds and what

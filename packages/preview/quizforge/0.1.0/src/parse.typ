@@ -173,6 +173,28 @@
   let body = body-parts.join()
   assert(body != none and plaintext(body).trim() != "", message: where + ": question has no body text")
 
+  // Word-habit blanks: `____` parses as emph(body: []) and renders as NOTHING.
+  let has-empty-em(c) = {
+    let rec(c, self) = {
+      if type(c) != content { return false }
+      if repr(c.func()) in ("emph", "strong") and c.at("body", default: none) == [] { return true }
+      for pair in c.fields().pairs() {
+        let v = pair.at(1)
+        if type(v) == content and self(v, self) { return true }
+        if type(v) == array {
+          for x in v { if type(x) == content and self(x, self) { return true } }
+        }
+      }
+      false
+    }
+    rec(c, rec)
+  }
+  assert(
+    not has-empty-em(body),
+    message: where + ": found underscore-style blanks (____) — in Typst, underscores "
+      + "toggle italics and render as nothing; write blanks as #blank[the answer]",
+  )
+
   let marks = 1
   let id = none
   let explanation = none
@@ -243,6 +265,15 @@
     assert(explanation == none, message: where + ": #explain[...] is only supported on MCQs")
     fib(id, body, answers: blanks, marks: marks)
   } else {
+    // A ✓ in a question that has NO options usually means the options were
+    // written markdown-style (`* item`) or dedented — and were silently
+    // absorbed into the body. Refuse rather than print a wrong paper.
+    let ptext = plaintext(body)
+    assert(
+      not ptext.contains("✓") and not ptext.contains("✔"),
+      message: where + ": a ✓ appears in the question text but the question has no options — "
+        + "options are '- ' list items indented two spaces under the '+ ' question",
+    )
     assert(explanation == none, message: where + ": #explain[...] is only supported on MCQs")
     let space = if ans-mk != none { ans-mk.space } else { default-space }
     subj(
@@ -291,7 +322,7 @@
         assert(
           false,
           message: "quizforge: found #" + _MARKER-NAMES.at(mk.qf, default: mk.qf)
-            + " between questions — markers belong inside a question's + item",
+            + " outside any question (in instructions or between questions) — markers belong inside a question's + item",
         )
       }
       continue
@@ -310,9 +341,19 @@
     } else if c.func() == enum.item {
       cur.items.push(c)
     } else {
+      // A bare '- item' at part level is almost always a dedented (or
+      // swapped +/-) option — silently treating it as prose would be cruel.
+      assert(
+        c.func() != list.item,
+        message: "quizforge: a '- option' appears outside any question — indent options two spaces "
+          + "under their '+ question' (questions start with '+', options with '-'; "
+          + "for a real bullet list in instructions, use the #list(..) function instead)",
+      )
       assert(
         cur.items.len() == 0,
-        message: "quizforge: free content between questions is not supported (it cannot move with shuffled questions) — fold it into a question body, or into the text right after the part heading (which becomes the part's instructions)",
+        message: "quizforge: free content between questions is not supported (it cannot move with "
+          + "shuffled questions) — fold it into a question body, start it with '+ ' if it is a new "
+          + "question, or put it right after the part heading (where it becomes the part's instructions)",
       )
       cur.pre.push(c)
     }

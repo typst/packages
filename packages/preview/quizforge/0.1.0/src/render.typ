@@ -111,9 +111,22 @@
       }
     }
   }
-  // Subjective questions may break across pages (large answer space); MCQ and
-  // fill-in-the-blank questions must stay whole.
-  if q.type == "subjective" { inner } else { block(breakable: false, inner) }
+  // Subjective questions may break across pages (large answer space). MCQ and
+  // fill-in-the-blank questions stay whole — unless taller than a full page,
+  // in which case they must break: an unbreakable over-tall block would
+  // silently overflow past the page edge and truncate in print.
+  if q.type == "subjective" {
+    inner
+  } else {
+    // context content is transparent to pagination (unlike layout(), whose
+    // implicit container would clip); page geometry matches exam-doc's set rule
+    context {
+      let avail-w = page.width - 4cm
+      let avail-h = page.height - 4.6cm
+      let h = measure(block(width: avail-w, inner)).height
+      if h > avail-h { inner } else { block(breakable: false, inner) }
+    }
+  }
 }
 
 #let _answer-grid(mcqs, key) = {
@@ -284,6 +297,10 @@
 //
 #let make-exam(exam: none, questions: (), sections: (), default-mode: "exam") = {
   assert(type(exam) == dictionary and "id" in exam, message: "make-exam needs exam: (id: \"...\", ...)")
+  assert(
+    type(exam.id) == str and exam.id.match(regex("^[A-Za-z0-9._-]+$")) != none,
+    message: "exam id must be a slug of letters/digits/._- (it seeds the shuffles and names the output files), got: " + repr(exam.id),
+  )
   let sets = exam.at("sets", default: ("A",))
   if type(sets) == str { sets = (sets,) }
   assert(sets.len() > 0, message: "exam.sets must not be empty")
