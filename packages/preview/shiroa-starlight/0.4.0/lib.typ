@@ -1,6 +1,5 @@
 
 #import "mod.typ": set-slot
-#import "page-header.typ": right-group-item
 #import "icons.typ": builtin-icon
 
 #let social-links(
@@ -76,6 +75,8 @@
     )
     return body
   }
+
+  import "page-header.typ": right-group-item
 
   let trampoline = paged-load-trampoline()
   let plain-body = if plain-body == auto { body } else { plain-body }
