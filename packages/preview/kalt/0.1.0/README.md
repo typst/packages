@@ -1,9 +1,9 @@
 # Kalt
 
-Kalt evaluates arbitrary nested Typst equations and removes the need to
-transcribe your equations into Typst's `calc` system. You will no longer run
-into unsupported operations, and it all works for scalars and matrices. Since
-everything runs on normal Typst content, you can store and adjust the results as
+Kalt evaluates arbitrary nested equations and removes the need to transcribe
+your equations into the default `calc` system. You will no longer run into
+unsupported operations, and it all works for scalars and matrices. Since
+everything runs on normal content, you can store and adjust the results as
 needed.
 
 Complex equation?
