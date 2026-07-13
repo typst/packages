@@ -41,7 +41,7 @@ No problem :D
 $comp(sqrt((3+i)!)) dot pi/(e + 2.3^(#N))$
 ```
 
-![evaluation](assets/evaluation.png)
+![evaluation of equation](assets/evaluation.png)
 
 ## Number Formats
 
