@@ -196,6 +196,29 @@
 }
 
 // =============================================================================
+// Adaptive row heights ("auto" row-gutter)
+// =============================================================================
+
+// Rows containing tall inline math (display fractions, matrices, ...) report
+// a height based on the font's cap-height/baseline edges, not the actual ink,
+// so the ink bleeds into the row-gutter. This rule measures each inline
+// equation with bounds text edges and switches only the tall ones over, so
+// row heights become truthful while ordinary rows keep their exact leading.
+// (Same approach as the breather package, inlined to avoid a dependency.)
+#let _breathe-rule(body) = {
+  show math.equation.where(block: false): it => context {
+    let bounded = {
+      set text(top-edge: "bounds", bottom-edge: "bounds")
+      it
+    }
+    if measure(bounded).height > 1.1em.to-absolute() { bounded } else { it }
+  }
+  body
+}
+
+#let _is-adaptive-row-gutter(value) = value == "auto" or value == "adaptive"
+
+// =============================================================================
 // Content Classification
 // =============================================================================
 
@@ -363,8 +386,10 @@
   below-spacing,
   flow-dir,
   start-num,
+  adaptive-rows: false,
 ) = {
   let num-items = task-items.len()
+  let wrap-content = if adaptive-rows { _breathe-rule } else { c => c }
 
   // Calculate label width if auto
   let actual-label-width = _compute-label-width(task-items, fmt, lbl-width, lbl-weight, indent-after, start-num)
@@ -398,7 +423,7 @@
   let make-content-cell(content) = {
     align(left + top)[
       #show math.vec: it => box(baseline: 30%, it)
-      #content
+      #wrap-content(content)
     ]
   }
 
@@ -426,7 +451,7 @@
     // so a `set par(hanging-indent: ..)` rule would not apply to it.
     grid.cell(colspan: span * 2, align(left + top, par(
       hanging-indent: actual-label-width + indent-after,
-      [#label-box#h(indent-after)#content],
+      [#label-box#h(indent-after)#wrap-content(content)],
     )))
   }
 
@@ -705,6 +730,13 @@
   let fmt = if label != auto { label } else if label-format != auto { label-format } else { cfg.label-format }
   let col-gut = if column-gutter == auto { cfg.column-gutter } else { column-gutter }
   let row-gut = if row-gutter == auto { cfg.row-gutter } else { row-gutter }
+  // "auto"/"adaptive" row-gutter: rows are sized to their true ink (tall
+  // inline math no longer bleeds into the gutter) and the numeric gutter
+  // falls back to the configured default.
+  let adaptive-rows = _is-adaptive-row-gutter(row-gut)
+  if adaptive-rows {
+    row-gut = if _is-adaptive-row-gutter(cfg.row-gutter) { 0.6em } else { cfg.row-gutter }
+  }
   let max-cols = if max-columns == auto { cfg.max-columns } else { max-columns }
   let fit-mode = if auto-fit-mode == auto { cfg.auto-fit-mode } else { auto-fit-mode }
   let fit-tolerance = if auto-fit-tolerance == auto { cfg.auto-fit-tolerance } else { auto-fit-tolerance }
@@ -902,6 +934,7 @@
           lbl-width, lbl-align, lbl-baseline, lbl-weight, indent-after,
           blk-indent, above-spacing, below-spacing,
           flow-dir, start-num,
+          adaptive-rows: adaptive-rows,
         )
       })
     } else {
@@ -910,6 +943,7 @@
         lbl-width, lbl-align, lbl-baseline, lbl-weight, indent-after,
         blk-indent, above-spacing, below-spacing,
         flow-dir, start-num,
+        adaptive-rows: adaptive-rows,
       )
     }
   }

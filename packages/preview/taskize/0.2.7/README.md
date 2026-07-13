@@ -1,7 +1,7 @@
 # taskize
 
 [![taskize on Typst Universe](https://img.shields.io/badge/Typst_Universe-v._0.2.7-239dad?labelColor=eee)](https://typst.app/universe/package/taskize)
-[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-taskize/blob/48261781f17c251117789de472e822bfb7af9de0/docs/manual.pdf)
+[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-taskize/blob/22fdb44f0383f32f91f323ba11571af591aebde2/docs/manual.pdf)
 [![Distributed under the MIT license](https://img.shields.io/badge/License-MIT-333333?labelColor=eee)](LICENSE)
 
 A Typst package for creating horizontal columned lists, similar to LaTeX's `tasks` package. Perfect for exercises, multiple-choice questions, and any content that benefits from a compact columned layout.
@@ -16,6 +16,8 @@ Click on an image to see the source code.
 | Basic Tasks | Math Exercises | Custom Labels | Styled Layout |
 | [![Vertical flow direction filling columns top-to-bottom](gallery/vertical.svg)](gallery/vertical.typ) | [![Column spanning: items spanning two or all columns](gallery/span.svg)](gallery/span.typ) | [![Bold label weight for emphasis in task lists](gallery/bold.svg)](gallery/bold.typ) | [![Resume numbering continuing across multiple task blocks](gallery/resume.svg)](gallery/resume.typ) |
 | Vertical Flow | Column Spanning | Bold Labels | Resume Numbering |
+| [![Adaptive row heights: display fractions bleeding into the row gutter, then fixed](gallery/adaptive.svg)](gallery/adaptive.typ) | | | |
+| Adaptive Row Heights | | | |
 
 ## Features
 
@@ -34,7 +36,7 @@ Click on an image to see the source code.
 
 ## Manual
 
-A full manual is available as a [PDF](https://github.com/nathan-ed/typst-package-taskize/blob/48261781f17c251117789de472e822bfb7af9de0/docs/manual.pdf), with a Typst source version in [docs/manual.typ](https://github.com/nathan-ed/typst-package-taskize/blob/48261781f17c251117789de472e822bfb7af9de0/docs/manual.typ).
+A full manual is available as a [PDF](https://github.com/nathan-ed/typst-package-taskize/blob/22fdb44f0383f32f91f323ba11571af591aebde2/docs/manual.pdf), with a Typst source version in [docs/manual.typ](https://github.com/nathan-ed/typst-package-taskize/blob/22fdb44f0383f32f91f323ba11571af591aebde2/docs/manual.typ).
 
 ## Quick Start
 
@@ -394,7 +396,7 @@ Items can span multiple columns using the `+()` or `+(N)` syntax (no space after
 | `start` | int | 1 | Starting number for labels |
 | `resume` | bool | false | Continue numbering from previous block |
 | `column-gutter` | length | 1em | Space between columns |
-| `row-gutter` | length | 0.6em | Space between rows |
+| `row-gutter` | length/string | 0.6em | Space between rows. `"auto"` (or `"adaptive"`) sizes rows to the true ink of their content so tall inline math (display fractions, matrices) no longer bleeds into the gutter |
 | `max-columns` | int/auto | auto | Maximum column count tested by `columns: "auto-fit"`; `auto` means up to the number of items |
 | `auto-fit-mode` | string | `"fill"` | `"fill"` measures spans at their rendered width; `"uniform"` requires every item to fit one ordinary column |
 | `auto-fit-tolerance` | length | 0.5pt | Measurement tolerance for auto-fit wrap detection |
@@ -531,6 +533,7 @@ All notable changes to taskize are documented here.
 #### Added
 - **Auto-fit columns** - `columns: "auto-fit"` selects the largest column count, bounded by `max-columns` (default: up to the number of items), that does not introduce a new item wrap or fixed-size content overflow. Useful for exercises mixing short choices, longer text, math, spans, and small figures.
 - **Auto-spanning in fill mode** - with `auto-fit-mode: "fill"` (default), a regular `+` item too wide for one column automatically spans the minimum number of columns it needs — no explicit `+(N)` required — so wide items share rows with densely packed short items. `auto-fit-mode: "uniform"` instead requires every item to fit one ordinary column and falls back to fewer columns when the widest item no longer fits.
+- **Adaptive row heights** - `row-gutter: "auto"` (or `"adaptive"`) sizes rows to the true ink of their content, so tall inline math (display fractions, matrices) no longer bleeds into the row-gutter and the configured numeric gutter becomes the real visual gap. Rows with ordinary content keep exactly the same spacing as before. Can be set document-wide with `tasks-setup(row-gutter: "adaptive")`.
 
 ### [0.2.6] - 2026-07-02
 
