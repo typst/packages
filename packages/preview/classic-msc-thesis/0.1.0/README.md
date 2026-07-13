@@ -7,7 +7,7 @@ four chapters, an appendix, figures, and a bibliography — so you can replace t
 placeholder text and start writing immediately.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Cobos-Bioinfo/classic-msc-thesis/main/thumbnail.png" alt="Title page of the template" width="360">
+  <img src="thumbnail.png" alt="Title page of the template" width="360">
 </p>
 
 ## Features
@@ -70,8 +70,8 @@ which now resolves to your local install.
 
 Starting from the template gives you:
 
-```
-main.typ              # metadata + front matter + #includes + back matter — you edit this
+```text
+main.typ              # metadata + front matter + #includes + back matter, you edit this
 chapters/
   01-introduction.typ
   02-methodology.typ
