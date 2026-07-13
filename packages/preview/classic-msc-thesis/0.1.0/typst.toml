@@ -1,0 +1,17 @@
+[package]
+name = "classic-msc-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alejandro Cobos <@Cobos-Bioinfo>"]
+license = "MIT"
+description = "A classic, formal Master's thesis with full front and back matter"
+repository = "https://github.com/Cobos-Bioinfo/classic-msc-thesis"
+keywords = ["thesis", "dissertation", "msc", "academic", "university"]
+categories = ["thesis", "report"]
+compiler = "0.12.0"
+exclude = ["thumbnail.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
