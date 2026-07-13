@@ -7,7 +7,7 @@
 /// Reduces most values into a intermediate representation which may for example be used for communication over the WASM boundary using additional CBOR serialization.
 /// See `serialize-cbor` and `deserialize-cbor`.
 ///
-/// Contrary to the string produced by `repr` or `cbor(cbor.encode(..))` this representation stores more type information an is less ambiguous.
+/// Unlike the string produced by `repr` or `cbor(cbor.encode(..))`, this representation stores more type information and is less ambiguous.
 /// Moreover the deserialization produces the actual **displayable** value instead of a representation of it.
 /// Args:
 /// v (any): The value to serialize.
@@ -50,7 +50,7 @@
 /// Serializes a value into CBOR format using the intermediate representation.
 /// See `serialize`.
 ///
-/// The double serilization (first into an intermediate representation and then into CBOR) allows to transmit non ambigous serialized types over the WASM boundary.
+/// The double serialization (first into an intermediate representation and then into CBOR) allows transmitting unambiguous serialized types over the WASM boundary.
 ///
 /// Args:
 /// v (any): The value to serialize.
@@ -101,7 +101,7 @@
   return deserialize(cbor(v), ctx: ctx)
 };
 
-/// Calls a WASM plugin function with a single argument, serializing the argument into CBOR format and deserializing the result from CBOR format.
+/// Calls a WASM plugin function with positional arguments, serializing each argument into CBOR format and deserializing the result from CBOR format.
 ///
 /// Args:
 /// func (function): The plugin function to call.
@@ -115,7 +115,7 @@
   return deserialize-cbor(func(..args.pos().map(arg => serialize-cbor(arg))), ctx: ctx)
 };
 
-/// Calls a WASM plugin function with a single argument, serializing the argument into CBOR format and deserializing the result from CBOR format into the intermediate sertyp format.
+/// Calls a WASM plugin function with positional arguments, serializing each argument into CBOR format and returning the result in the intermediate sertyp format.
 /// This can be useful for debugging purposes, as it allows to inspect the intermediate representation of the result before it is deserialized into a displayable value.
 ///
 /// Args:

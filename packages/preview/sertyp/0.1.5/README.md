@@ -10,8 +10,9 @@ Unlike `repr()` or `cbor.encode()`, which produce ambiguous strings or lose type
 information, `sertyp`:
 
 - **Enables roundtrips**: Deserialize back to the original displayable value,
-  not just a string representation. This means a content object will again be
-  fully displayed as content.
+  not just a string representation. Primitive values stay raw, while structured
+  values keep enough type information to roundtrip correctly. This means a
+  content object will again be fully displayed as content.
 - **Works with WASM plugins**: The intermediate representation can be further
   serialized to cbor and passed over the WASM boundary.
 
@@ -86,8 +87,9 @@ pub fn fibonacci<'a>(n: Integer) -> Result<Integer, String<'a>> {
 
 ### `serialize(value) -> any`
 
-Converts a Typst value into an intermediate representation (nested dicts/arrays
-with type tags).
+Converts a Typst value into an intermediate representation. Primitive values
+stay raw, while structured values are represented using nested dicts/arrays and
+type tags where needed.
 
 ```typst
 let serialized = sertyp.serialize(rgb(255, 0, 0))
@@ -109,7 +111,7 @@ deserialize trusted data**.
 
 ### `serialize-cbor(value) -> bytes`
 
-Serializes to CBOR binary format. Usefull when passing values to WASM plugins.
+Serializes to CBOR binary format. Useful when passing values to WASM plugins.
 
 ```typst
 let bytes = sertyp.serialize-cbor(my_value)
@@ -128,13 +130,16 @@ let value = sertyp.deserialize-cbor(plugin_output)
 untrusted values may therefore lead to arbitrary code execution. **Only
 deserialize trusted data**.
 
-### `call(function, arg) -> any`
+### `call(function, ..args) -> any`
 
-Shorthand for
+Shorthand for serializing each positional argument to CBOR, calling the
+function, and deserializing its CBOR result.
 
-```typst
-sertyp.deserialize-cbor(function(sertyp.serialize-cbor(arg)))
-```
+### `call-debug(function, ..args) -> any`
+
+Like `call`, but returns the intermediate sertyp representation of the plugin
+result instead of deserializing it. This is useful when debugging a WASM
+plugin's output.
 
 ## Supported Types
 

@@ -1,6 +1,6 @@
 #import "../utils.typ" as utils
 
-/// Serializes content using its string representation.
+/// Serializes content into the intermediate sertyp representation.
 #let str_serializer(ty) = v => {
   utils.assert_type(v, ty)
   import "string.typ" as string_
@@ -117,12 +117,12 @@
 
 #let no_value() = {};
 
-/// Serializes any content recursively into a dictionary with type and value.
+/// Serializes any content recursively into the intermediate sertyp representation.
 /// Args:
 /// content (any): The content to serialize.
 ///
 /// Returns:
-/// (str): The serialized representation of the content.
+/// (any): The serialized representation of the content.
 #let serializer(content) = {
   import "type.typ" as type_
   import "panic.typ" as panic_
@@ -237,18 +237,18 @@
   return tree.at(str(0)).at("data")
 }
 
-/// Deserializes content from its serialized representation.
+/// Deserializes content from its intermediate sertyp representation.
 ///
 /// Args:
 /// content: The serialized content.
-/// panic: if true deserialization will throw a runtime panic if a panic object is deserialized. The default behavior is to display a formatted error message box within the typst document.
+/// ctx: (panic: bool):  if panic is true deserialization will throw a runtime panic whenever a panic object is deserialized. The default behavior is to display a formatted error message box within the typst document.
 ///
 /// Returns:
 /// (any): The deserialized content.
 ///
 /// Note:
-/// Each type must provide the following two functions:
-/// - `deserializer(obj, ctx, request) -> any`: Deserializes the object from its serialized representation. The preprocessed output and deserialized child dependencies are passed as additional arguments to avoid recursion.
+/// Each type must provide the following functions:
+/// - `deserializer(obj, ctx, request) -> any`: Deserializes the object from its serialized representation.
 #let deserializer(content, ctx, request) = {
   import "type.typ" as type_
 
