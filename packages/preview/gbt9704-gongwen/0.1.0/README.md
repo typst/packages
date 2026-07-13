@@ -1,9 +1,9 @@
-# gbt9704 for Typst · 党政机关公文格式
+# gbt9704-gongwen — 适配 GB/T 9704-2012 · 党政机关公文格式
 
 Version: 0.1.0
 
-A Typst template for documents conforming to **GB/T 9704-2012** — the Chinese national standard for official government document layout.
-Typst 模板，用于排版符合 **GB/T 9704-2012**《党政机关公文格式》的文档。
+A Typst template that adapts **GB/T 9704-2012**, the Chinese national standard for official government document layout.
+适配 **GB/T 9704-2012**《党政机关公文格式》的 Typst 模板。
 
 ## Features · 功能特性
 
@@ -21,13 +21,13 @@ Typst 模板，用于排版符合 **GB/T 9704-2012**《党政机关公文格式�
 ### Using typst init · 初始化
 
 ```bash
-typst init @preview/gbt9704
+typst init @preview/gbt9704-gongwen
 ```
 
 ### Manual import · 手动导入
 
 ```typst
-#import "@preview/gbt9704:0.1.0": *
+#import "@preview/gbt9704-gongwen:0.1.0": *
 #show: gbt9704.with(redline: true, title-indent: true)
 
 // Your document content ... 文档内容 ...
@@ -85,7 +85,7 @@ The following fonts are required (fallbacks are used in order):
 ## Project Structure · 项目结构
 
 ```text
-gbt9704/
+gbt9704-gongwen/
 ├── src/
 │   └── lib.typ               # Template source / 模板主文件
 ├── template/
@@ -144,8 +144,8 @@ Pre-compiled PDFs / 预编译 PDF：
   字号：大标题二号 (22pt)、正文三号 (16pt)、发文字号四号 (12pt)。
 - Font fallback: FZDaBiaoSong, FangSong, SimHei, KaiTi, SimSun + open-source alternatives.
   字体回退链覆盖方正、仿宋、黑体、楷体、宋体及开源替代。
-- `typst init @preview/gbt9704` quick-start template.
-  `typst init @preview/gbt9704` 快速开始模板。
+- `typst init @preview/gbt9704-gongwen` quick-start template.
+  `typst init @preview/gbt9704-gongwen` 快速开始模板。
 
 ## Feedback & Contributing · 反馈与贡献
 
