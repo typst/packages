@@ -1,0 +1,11 @@
+[package]
+name = "kalt"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Uhrendoktor <docclock85@gmail.com>"]
+license = "MIT"
+description = "nested equation evaluation without limits"
+repository = "https://github.com/Uhrendoktor/kalt"
+keywords = ["calc", "math", "equation"]
+categories = ["utility"]
+exclude = ["test.typ"]
