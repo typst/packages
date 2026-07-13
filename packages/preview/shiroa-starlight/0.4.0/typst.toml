@@ -8,4 +8,4 @@ homepage = "https://myriad-dreamin.github.io/shiroa"
 repository = "https://github.com/Myriad-Dreamin/shiroa"
 keywords = ["book", "web"]
 categories = ["book"]
-description = "The starlight theme is a modern, responsive theme for [Shiroa](https://github.com/Myriad-Dreamin/shiroa/), inspired by the Astro Starlight."
+description = "The starlight theme is a modern, responsive theme for Shiroa, inspired by the Astro Starlight."
