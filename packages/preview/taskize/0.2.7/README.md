@@ -1,7 +1,7 @@
 # taskize
 
 [![taskize on Typst Universe](https://img.shields.io/badge/Typst_Universe-v._0.2.7-239dad?labelColor=eee)](https://typst.app/universe/package/taskize)
-[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-taskize/blob/72f1c061c939e8493eb26f3f4529596fcd831a61/docs/manual.pdf)
+[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-taskize/blob/48261781f17c251117789de472e822bfb7af9de0/docs/manual.pdf)
 [![Distributed under the MIT license](https://img.shields.io/badge/License-MIT-333333?labelColor=eee)](LICENSE)
 
 A Typst package for creating horizontal columned lists, similar to LaTeX's `tasks` package. Perfect for exercises, multiple-choice questions, and any content that benefits from a compact columned layout.
@@ -34,7 +34,7 @@ Click on an image to see the source code.
 
 ## Manual
 
-A full manual is available as a [PDF](https://github.com/nathan-ed/typst-package-taskize/blob/72f1c061c939e8493eb26f3f4529596fcd831a61/docs/manual.pdf), with a Typst source version in [docs/manual.typ](https://github.com/nathan-ed/typst-package-taskize/blob/72f1c061c939e8493eb26f3f4529596fcd831a61/docs/manual.typ).
+A full manual is available as a [PDF](https://github.com/nathan-ed/typst-package-taskize/blob/48261781f17c251117789de472e822bfb7af9de0/docs/manual.pdf), with a Typst source version in [docs/manual.typ](https://github.com/nathan-ed/typst-package-taskize/blob/48261781f17c251117789de472e822bfb7af9de0/docs/manual.typ).
 
 ## Quick Start
 
@@ -94,12 +94,14 @@ Use `columns: "auto-fit"` to choose the largest column count that does not make 
 ]
 ```
 
-By default, auto-fit uses `auto-fit-mode: "fill"`: span items such as `+()`
-may use their full row while later rows remain dense. Use
-`auto-fit-mode: "uniform"` when every item must fit one ordinary column; in
-that mode, a wide full-row span can force the whole task block to one column.
-If an item already wraps in the one-column layout, auto-fit keeps one column,
-because no no-wrap multi-column layout exists.
+By default, auto-fit uses `auto-fit-mode: "fill"`: an item too wide for one
+column automatically spans the minimum number of columns it needs — no
+explicit `+(N)` required — so wide items share rows with densely packed short
+items. Use `auto-fit-mode: "uniform"` when every item must fit one ordinary
+column; in that mode, the column count is the largest value where no item
+wraps at one-column width, so a wide item can force the whole block to fewer
+columns. If an item already wraps in the one-column layout, auto-fit keeps
+one column, because no no-wrap multi-column layout exists.
 
 ### Shorthand Functions
 
@@ -524,10 +526,11 @@ MIT License - see LICENSE file for details.
 
 All notable changes to taskize are documented here.
 
-### [0.2.7] - 2026-07-08
+### [0.2.7] - 2026-07-13
 
 #### Added
-- **Auto-fit columns** - `columns: "auto-fit"` selects the largest column count, bounded by `max-columns`, that does not introduce a new item wrap or fixed-size content overflow. `auto-fit-mode: "fill"` lets spans use their full rendered width, while `auto-fit-mode: "uniform"` requires every item to fit one ordinary column. Useful for exercises mixing short choices, longer text, math, spans, and small figures.
+- **Auto-fit columns** - `columns: "auto-fit"` selects the largest column count, bounded by `max-columns` (default: up to the number of items), that does not introduce a new item wrap or fixed-size content overflow. Useful for exercises mixing short choices, longer text, math, spans, and small figures.
+- **Auto-spanning in fill mode** - with `auto-fit-mode: "fill"` (default), a regular `+` item too wide for one column automatically spans the minimum number of columns it needs — no explicit `+(N)` required — so wide items share rows with densely packed short items. `auto-fit-mode: "uniform"` instead requires every item to fit one ordinary column and falls back to fewer columns when the widest item no longer fits.
 
 ### [0.2.6] - 2026-07-02
 

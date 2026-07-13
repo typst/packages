@@ -309,12 +309,28 @@
   let fits-cols(cols) = {
     for (i, item-data) in task-items.enumerate() {
       let content = item-data.at(0)
-      let span = if mode == "uniform" { 1 } else { calc.min(item-data.at(1), cols) }
-      let width = _task-content-width(available-width, cols, span, label-width, col-gut, indent-after, indent)
-      let natural-width = measure(content).width
-      let height = _task-height-at-width(content, width)
-      if natural-width > width + tol or height > base-heights.at(i) + tol {
-        return false
+      let explicit-span = item-data.at(1)
+      if mode == "uniform" or explicit-span > 1 {
+        // uniform: every item pinned to one column
+        // explicit span items: use their declared span, capped at cols
+        let span = if mode == "uniform" { 1 } else { calc.min(explicit-span, cols) }
+        let width = _task-content-width(available-width, cols, span, label-width, col-gut, indent-after, indent)
+        if measure(content).width > width + tol or _task-height-at-width(content, width) > base-heights.at(i) + tol {
+          return false
+        }
+      } else {
+        // fill mode, regular item: auto-span until height matches base.
+        // Only height is checked — text always reflows to fit any width, so
+        // natural-width would reject long sentences even at full-row span.
+        let fitted = false
+        for s in range(1, cols + 1) {
+          let width = _task-content-width(available-width, cols, s, label-width, col-gut, indent-after, indent)
+          if _task-height-at-width(content, width) <= base-heights.at(i) + tol {
+            fitted = true
+            break
+          }
+        }
+        if not fitted { return false }
       }
     }
     true
@@ -858,8 +874,31 @@
           task-items, max-cols, fmt, col-gut, lbl-width, lbl-weight,
           indent-after, blk-indent, start-num, fit-mode, fit-tolerance, size.width,
         )
+        // In fill mode, compute the minimum span each regular item needs to fit
+        // at the chosen column count, so wide items auto-span rather than forcing
+        // a lower column count.
+        let render-items = if fit-mode == "fill" {
+          let lw = _compute-label-width(task-items, fmt, lbl-width, lbl-weight, indent-after, start-num)
+          let tol = _resolve-length(fit-tolerance)
+          task-items.map(item-data => {
+            let content = item-data.at(0)
+            let explicit-span = item-data.at(1)
+            if explicit-span > 1 { return item-data }
+            let base-h = _task-height-at-width(content,
+              _task-content-width(size.width, 1, 1, lw, col-gut, indent-after, blk-indent))
+            for s in range(1, cols + 1) {
+              let w = _task-content-width(size.width, cols, s, lw, col-gut, indent-after, blk-indent)
+              if _task-height-at-width(content, w) <= base-h + tol {
+                return (content, s)
+              }
+            }
+            (content, cols)
+          })
+        } else {
+          task-items
+        }
         render-tasks-grid(
-          task-items, cols, fmt, col-gut, row-gut,
+          render-items, cols, fmt, col-gut, row-gut,
           lbl-width, lbl-align, lbl-baseline, lbl-weight, indent-after,
           blk-indent, above-spacing, below-spacing,
           flow-dir, start-num,
