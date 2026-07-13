@@ -150,7 +150,7 @@ Rendered words default to English. Pass `lang: "es"` for Spanish
 
 ## Known limitations
 
-See [`ROADMAP.md`](ROADMAP.md). In short: it does not *find* the roots for you
+See [`ROADMAP.md`](https://github.com/13Stokes31/ruffini/blob/main/ROADMAP.md). In short: it does not *find* the roots for you
 (you supply them — that is a root-finding problem, not a layout one), and it
 divides only by linear binomials `(x − a)`, which is what Ruffini's rule is for.
 
