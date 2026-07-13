@@ -8,4 +8,4 @@ description = "nested equation evaluation without limits"
 repository = "https://github.com/Uhrendoktor/kalt"
 keywords = ["calc", "math", "equation"]
 categories = ["utility"]
-exclude = ["test.typ"]
+exclude = ["test.typ", "assets/"]
