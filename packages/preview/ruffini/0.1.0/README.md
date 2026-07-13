@@ -9,12 +9,12 @@ sums, the boxed remainder. No more hand-building tables and quietly dropping the
 middle row. No dependencies (native `table`).
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/main/gallery/g1.png" width="45%" alt="Single division, three-row tableau">
-  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/main/gallery/g2.png" width="45%" alt="Full factorization staircase">
+  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/e3c8a0847b028f38e52e91fedec49ce00f168fe3/gallery/g1.png" width="45%" alt="Single division, three-row tableau">
+  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/e3c8a0847b028f38e52e91fedec49ce00f168fe3/gallery/g2.png" width="45%" alt="Full factorization staircase">
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/main/gallery/g3.png" width="45%" alt="Leading coefficient not one">
-  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/main/gallery/g4.png" width="45%" alt="Spanish labels">
+  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/e3c8a0847b028f38e52e91fedec49ce00f168fe3/gallery/g3.png" width="45%" alt="Leading coefficient not one">
+  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/e3c8a0847b028f38e52e91fedec49ce00f168fe3/gallery/g4.png" width="45%" alt="Spanish labels">
 </p>
 
 ## Usage
@@ -98,7 +98,7 @@ diagonals), **add the column** (the `+` signs) — so it doubles as a lecture
 figure. Drawn natively (no CeTZ). Best with integer coefficients.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/main/gallery/g5.png" width="60%" alt="Teaching trail: bring down, multiply by the root, add the column">
+  <img src="https://raw.githubusercontent.com/13Stokes31/ruffini/e3c8a0847b028f38e52e91fedec49ce00f168fe3/gallery/g5.png" width="60%" alt="Teaching trail: bring down, multiply by the root, add the column">
 </p>
 
 ```typ
@@ -150,7 +150,7 @@ Rendered words default to English. Pass `lang: "es"` for Spanish
 
 ## Known limitations
 
-See [`ROADMAP.md`](https://github.com/13Stokes31/ruffini/blob/main/ROADMAP.md). In short: it does not *find* the roots for you
+See [`ROADMAP.md`](https://github.com/13Stokes31/ruffini/blob/e3c8a0847b028f38e52e91fedec49ce00f168fe3/ROADMAP.md). In short: it does not *find* the roots for you
 (you supply them — that is a root-finding problem, not a layout one), and it
 divides only by linear binomials `(x − a)`, which is what Ruffini's rule is for.
 
