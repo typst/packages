@@ -6,12 +6,12 @@ cross-references, and solutions that can be toggled on and off. This package
 follows the spirit of the [exam class for LaTeX](https://ctan.org/pkg/exam?lang=en).
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/quiz.png" width="45%" alt="A quiz with empty answer boxes">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/quiz-solutions.png" width="45%" alt="The same quiz compiled with solutions shown">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/quiz.png" width="45%" alt="A quiz with empty answer boxes">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/quiz-solutions.png" width="45%" alt="The same quiz compiled with solutions shown">
 </p>
-<p align="center"><em><a href="https://github.com/siefkenj/typst-examy/blob/main/examples/quiz.typ">examples/quiz.typ</a>, compiled without and with solutions.</em></p>
+<p align="center"><em><a href="https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/quiz.typ">examples/quiz.typ</a>, compiled without and with solutions.</em></p>
 
-See [examples/](https://github.com/siefkenj/typst-examy/tree/main/examples/) for usage examples.
+See [examples/](https://github.com/siefkenj/typst-examy/tree/0.2.0/examples/) for usage examples.
 
 ## Quick start
 
@@ -54,7 +54,7 @@ A document is built out of an `#exam(..., questions: [...])`. Inside of `questio
 `#question[...]`, `#part[...]`, and `#subpart[...]` can be used to create a question hierarchy. 
 Questions/parts/subparts can be assigned points, heights, etc.
 
-From [examples/final-exam.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/final-exam.typ) (solutions
+From [examples/final-exam.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/final-exam.typ) (solutions
 abridged), rendered below it:
 
 ```typst
@@ -77,14 +77,14 @@ abridged), rendered below it:
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/question-page.png" width="60%" alt="A question with two parts and answer boxes">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/question-page.png" width="60%" alt="A question with two parts and answer boxes">
 </p>
 
 Numbering can be customized per division with the `number:` argument:
 `auto` (default), an integer to set the number (later divisions continue
 from it), arbitrary content (e.g. `number: "★"`) shown verbatim, or `none`
 for an unnumbered division. From
-[examples/numbering.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/numbering.typ):
+[examples/numbering.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/numbering.typ):
 
 ```typst
 #question[An automatically numbered question.]
@@ -97,7 +97,7 @@ for an unnumbered division. From
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/numbering.png" width="70%" alt="Questions numbered 1, 2, 10, 11, a star, an unnumbered one, and 12">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/numbering.png" width="70%" alt="Questions numbered 1, 2, 10, 11, a star, an unnumbered one, and 12">
 </p>
 
 ### Points
@@ -111,7 +111,7 @@ Related to points is:
 - `intent: "bonus"` bonus points are tracked separately and excluded from the
   regular totals.
 
-From [examples/points.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/points.typ):
+From [examples/points.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/points.typ):
 
 ```typst
 This exam has #num-questions questions worth #num-points points.
@@ -136,7 +136,7 @@ This exam has #num-questions questions worth #num-points points.
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/points.png" width="70%" alt="Questions with point badges, and a points table totalling 10">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/points.png" width="70%" alt="Questions with point badges, and a points table totalling 10">
 </p>
 
 ### Answer boxes
@@ -164,18 +164,18 @@ When given on the command line, the `show-solutions` input overrides the documen
 build scripts that must produce a specific variant regardless of what the
 source file currently configures.
 
-Both renders of [examples/solutions.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/solutions.typ), which puts
+Both renders of [examples/solutions.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/solutions.typ), which puts
 one solution inside an answer box and one inline:
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/solutions.png" width="45%" alt="Two questions with an empty answer box">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/solutions-key.png" width="45%" alt="The same questions with solutions shown in blue">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/solutions.png" width="45%" alt="Two questions with an empty answer box">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/solutions-key.png" width="45%" alt="The same questions with solutions shown in blue">
 </p>
 
 Alternatively, Typst's (experimental) *bundle* export can emit both PDFs
 from a single compilation: wrap the exam in a function of the
 `show-solutions` value and construct one `document` per variant. From
-[examples/bundle.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/bundle.typ):
+[examples/bundle.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/bundle.typ):
 
 ```typst
 #let quiz(solutions) = {
@@ -220,7 +220,7 @@ Solutions are wrapped in `context {...}`, which limits their use in some cases. 
 })
 ```
 
-[examples/quiz.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/quiz.typ) uses this to add the answer curve of
+[examples/quiz.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/quiz.typ) uses this to add the answer curve of
 a sketch-the-derivative question (drawn with
 [lilaq](https://typst.app/universe/package/lilaq)) only on the answer key —
 visible in the screenshot pair at the top of this page.
@@ -231,7 +231,7 @@ Label a division with `label: <name>` and reference it with `@name`. The
 displayed text adapts to where the reference appears: referencing question 1
 part (a) shows "1 (a)" from inside question 2, but just "(a)" from elsewhere
 in question 1. From
-[examples/cross-references.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/cross-references.typ):
+[examples/cross-references.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/cross-references.typ):
 
 ```typst
 #question[
@@ -242,7 +242,7 @@ in question 1. From
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/cross-references.png" width="70%" alt="References rendering as (a) from a sibling part and 1 (a) from another question">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/cross-references.png" width="70%" alt="References rendering as (a) from a sibling part and 1 (a) from another question">
 </p>
 
 ### Page breaks inside questions
@@ -259,7 +259,7 @@ The rows are configurable with
 `fields:` — an entry is either a `(prefix: ..., suffix: ...)` dictionary,
 rendered as the prefix, an underline extending to the end of the line, and
 the suffix sitting on the line at its right end. An optional `title:` is shown above the block.
-From [examples/name-blocks.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/name-blocks.typ):
+From [examples/name-blocks.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/name-blocks.typ):
 
 ```typst
 // The default block: a Name row and a Student ID row.
@@ -278,7 +278,7 @@ From [examples/name-blocks.typ](https://github.com/siefkenj/typst-examy/blob/mai
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/name-blocks.png" width="70%" alt="A default name block and a custom one with a name hint, an email suffix, and a verbatim row">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/name-blocks.png" width="70%" alt="A default name block and a custom one with a name hint, an email suffix, and a verbatim row">
 </p>
 
 Institution-specific layouts ship with the package as `presets`; the
@@ -292,7 +292,7 @@ details (`institution`, `exam-name`, `term`, `duration`) on the `config`
 object and render them with `#maketitle()`. Each configured value can
 be overridden by passing arguments to `maketitle()`, e.g. `#maketitle(term: [Summer 2026])`.
 
-From [examples/final-exam.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/final-exam.typ) (name fields
+From [examples/final-exam.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/final-exam.typ) (name fields
 abridged), rendered below:
 
 ```typst
@@ -307,7 +307,7 @@ abridged), rendered below:
 #maketitle()
 #name-block(fields: (
   (prefix: [#text(size: .85em)[(Given then Family)] \ NAME:]),
-  ..
+  // ...more fields
 ))
 
 #underline[_Instructions:_]
@@ -327,14 +327,14 @@ abridged), rendered below:
 #exam(questions: [...])
 ```
 
-See [examples/quiz.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/quiz.typ) for a minimal quiz,
-[examples/final-exam.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/final-exam.typ) for a complete exam with
+See [examples/quiz.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/quiz.typ) for a minimal quiz,
+[examples/final-exam.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/final-exam.typ) for a complete exam with
 custom name fields, and
-[examples/utoronto-exam.typ](https://github.com/siefkenj/typst-examy/blob/main/examples/utoronto-exam.typ) for the preset in
+[examples/utoronto-exam.typ](https://github.com/siefkenj/typst-examy/blob/0.2.0/examples/utoronto-exam.typ) for the preset in
 use.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/main/examples/images/cover.png" width="60%" alt="An exam cover page with a points table">
+  <img src="https://raw.githubusercontent.com/siefkenj/typst-examy/0.2.0/examples/images/cover.png" width="60%" alt="An exam cover page with a points table">
 </p>
 
 ## API Reference
