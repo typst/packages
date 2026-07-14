@@ -1,0 +1,18 @@
+[package]
+name = "noteworks"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Sihoo Lee <@sihooleebd>", "Hojun Lee"]
+license = "MIT"
+description = "Modular educational notes with themed blocks and plots"
+repository = "https://github.com/sihooleebd/noteworks"
+keywords = ["notes", "education", "plotting", "themes"]
+categories = ["book"]
+disciplines = ["education", "mathematics"]
+compiler = "0.15.0"
+exclude = ["examples", "PUBLISHING.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
