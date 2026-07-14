@@ -1294,8 +1294,6 @@
 #let formule-end(label, formula) = {
   formule-recap-state.update(entries => entries + ((label, formula),))
 }
-#let formule_end = formule-end
-
 /// Print formulas collected since the previous recap, then start a new collection.
 #let formules-recap(title: [Formules à retenir], clear: true) = {
   context {
