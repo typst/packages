@@ -68,7 +68,7 @@ The sign in each interval is inferred by evaluating the function at a test point
 `signs` always takes precedence over `fn` if both are provided. Return `none` from `fn`
 to mark an interval as HD (hors-domaine):
 
-```typst
+```typ
 fn: x => if x <= 0 { none } else { 1 / (2 * calc.sqrt(x)) }
 ```
 
