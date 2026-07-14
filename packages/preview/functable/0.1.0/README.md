@@ -1,7 +1,7 @@
 # functable
 
 [![functable on Typst Universe](https://img.shields.io/badge/Typst_Universe-v._0.1.0-239dad?labelColor=eee)](https://typst.app/universe/package/functable)
-[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-functable/blob/645f7014a482edd3c97059fbbb60a48c6d7b9480/docs/manual.pdf)
+[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-functable/blob/a1715b249f7b987c7dc2080172d0c00ad8702371/docs/manual.pdf)
 [![Distributed under the MIT license](https://img.shields.io/badge/License-MIT-333333?labelColor=eee)](LICENSE)
 
 Sign, variation and convexity tables in the French tkz-tab style, plus value tables (tableaux de valeurs).
@@ -11,8 +11,8 @@ Supports auto-computed signs and values from Typst functions.
 |---|---|---|
 | [![sign-table with two factors, variation row, and labelled local extrema](gallery/sign-table.svg)](gallery/sign-table.typ) | [![full analysis table with f-prime block, variation, f-double-prime block, and convexity row](gallery/full-analysis.svg)](gallery/full-analysis.typ) | [![rational function sign table with pole and broken arrows](gallery/rational.svg)](gallery/rational.typ) |
 | Basic sign + variation | Full f'/f'' analysis | Rational function / pole |
-| [![fully automatic sign table with fn — all signs inferred, with convexity](gallery/auto-sign.svg)](gallery/auto-sign.typ) | [![simple variation table without facteurs strip](gallery/simple.svg)](gallery/simple.typ) | [![value table with explicit values and auto-computed rows](gallery/fun-table.svg)](gallery/fun-table.typ) |
-| Auto-signs with `fn` | Simple (no strip) | Value table (`fun-table`) |
+| [![fully automatic sign table with fn — all signs inferred, with convexity](gallery/auto-sign.svg)](gallery/auto-sign.typ) | [![sign and variation table from direct signs, without factor rows](gallery/simple.svg)](gallery/simple.typ) | [![value table with explicit values and auto-computed rows](gallery/fun-table.svg)](gallery/fun-table.typ) |
+| Auto-signs with `fn` | Direct signs (no factors) | Value table (`fun-table`) |
 
 ## Usage
 
@@ -67,6 +67,37 @@ The sign in each interval is inferred by evaluating the function at a test point
 
 `signs` always takes precedence over `fn` if both are provided. Return `none` from `fn`
 to mark an interval as HD (hors-domaine), e.g. `fn: x => if x <= 0 { none } else { 1 / (2 * calc.sqrt(x)) }`.
+
+### Direct signs — no factor rows
+
+When the factorisation is not the point, give the signs of the function directly with the
+top-level `signs`/`zeros` parameters (mutually exclusive with `factors`). Zeros can be
+plain numbers — shorthand for `(value: $n$, approx: n)` — mixed with dictionaries:
+
+```typst
+#sign-table(
+  signs: ("+", "-", "+"),
+  zeros: (-1, (value: $2$, approx: 2, pole: true)),
+  summary-label: $f(x)$,
+)
+```
+
+The same mechanism gives a variation table alone (no sign row): leave `summary-label`
+at `none`, set `variation: true`, and the signs only steer the arrows:
+
+```typst
+#sign-table(
+  signs: ("-", "+"),
+  zeros: (2,),
+  variation: true,
+  variation-label: $f(x)$,
+  start-value: $+oo$,
+  end-value: $+oo$,
+  variation-values: ((at: 2, label: $-3$),),
+)
+```
+
+`second-signs` does the same for the f'' block / convexity row, sharing the top-level `zeros`.
 
 ### Full analysis table (f' + variation + f'' + convexity)
 
@@ -160,6 +191,8 @@ For irrational x values or custom display, use dictionary entries:
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `factors` | array | `()` | Factor rows for f'. Each: `(expr, zeros, signs, fn, interdit)`. |
+| `signs` | array | `()` | Direct signs for the summary row, without factor rows. Mutually exclusive with `factors`. |
+| `zeros` | array | `()` | Zeros attached to top-level `signs`/`second-signs`. Same format as a factor's `zeros`. |
 | `summary-label` | content, none | `none` | Label for the f' summary row. |
 | `variation` | bool | `false` | Show variation row with diagonal arrows. |
 | `variation-label` | content, none | `none` | Label for the variation row. |
@@ -173,8 +206,9 @@ For irrational x values or custom display, use dictionary entries:
 | `row-height` | length | `0.9cm` | Height of sign/factor rows. |
 | `var-row-height` | auto, length | `auto` | Height of variation/convexity rows. |
 | `second-factors` | array | `()` | Factor rows for f''. Same structure as `factors`. |
+| `second-signs` | array | `()` | Direct signs for the f'' block, without factor rows. Mutually exclusive with `second-factors`. |
 | `second-summary-label` | content, none | `none` | Label for the f'' summary row. |
-| `convexity` | bool | `false` | Show convexity row with ∪/∩ symbols. |
+| `convexity` | bool, string | `false` | Convexity row: `true`/`"symbol"` → ∪/∩, `"text"` → "convexe"/"concave", `"both"` → symbol + word. |
 | `convexity-label` | content, none | `none` | Label for the convexity row. |
 | `hd-fill` | color | `rgb("#cfe2f3")` | Fill color for HD bands when `hd-style: "fill"`. |
 | `hd-style` | string | `"hatch"` | HD rendering: `"hatch"`, `"fill"`, or `"blank"`. |
@@ -182,6 +216,8 @@ For irrational x values or custom display, use dictionary entries:
 | `background` | color | `white` | Background for label knockout rects. Match your page/container fill. |
 
 ### Factor dictionary keys
+
+Exactly one of `signs` or `fn` is required; every other key is optional.
 
 | Key | Type | Description |
 |-----|------|-------------|
@@ -193,10 +229,14 @@ For irrational x values or custom display, use dictionary entries:
 
 ### Zero dictionary keys
 
+Each entry in a `zeros` array is either a plain **number** — shorthand for
+`(value: $n$, approx: n)` — or a dictionary. `value` and `approx` are required;
+the rest are optional:
+
 | Key | Type | Description |
 |-----|------|-------------|
-| `value` | content | Displayed label (e.g. `$sqrt(2)$`). |
-| `approx` | float | Numeric approximation used for sorting and interval test points. |
+| `value` | content | **Required.** Displayed label (e.g. `$sqrt(2)$`). |
+| `approx` | float | **Required.** Numeric approximation used for sorting and interval test points. |
 | `pole` | bool | Valeur interdite — double bar ‖ in summary/variation/convexity. |
 | `mark` | content, `"bar"`, `"hd"` | Custom marker in factor and summary rows. |
 | `summary-mark` | content, `"bar"`, `"hd"` | Custom marker in summary row only. |
@@ -247,3 +287,6 @@ draws the asymptote double-bar.
 - Variation arrows with auto-positioned function value labels
 - Automatic zero merging across factors
 - `mark: "hd"` for domain-boundary points without asymptote implication
+- Top-level `signs`/`zeros`/`second-signs` for direct sign tables and standalone variation tables without factor rows
+- Number shorthand in `zeros` arrays: `zeros: (-2, 1)` ≡ `(value: $n$, approx: n)` per entry
+- Convexity display modes: `"symbol"` (∪/∩), `"text"` ("convexe"/"concave"), `"both"`

@@ -24,19 +24,29 @@
 /// ```
 ///
 /// - factors (array): Array of factor definitions for f'. Each is a dictionary with:
-///   - `expr` (content): Math expression for the row label
-///   - `zeros` (array): Zero declarations, each with `value` (content) and `approx` (float).
-///     Optional per-zero keys:
-///     - `pole` (bool): marks a valeur interdite of f — double bar in summary,
+///   - `expr` (content, optional): Math expression for the row label
+///   - `zeros` (array, optional): Zero declarations. Each entry is either a plain
+///     **number** (shorthand for `(value: $n$, approx: n)`) or a dictionary with:
+///     - `value` (content, *required*): displayed label (e.g. `$sqrt(2)$`)
+///     - `approx` (float, *required*): numeric approximation, used for sorting,
+///       merging shared zeros, and computing test points for `fn`
+///     - `pole` (bool, optional): marks a valeur interdite of f — double bar in summary,
 ///       variation and convexity rows; breaks variation arrows
-///     - `summary-mark` (content or "bar" or "hd"): custom marker in summary row only
-///     - `mark` (content or "bar" or "hd"): custom marker in factor and summary rows.
+///     - `summary-mark` (content or "bar" or "hd", optional): custom marker in summary row only
+///     - `mark` (content or "bar" or "hd", optional): custom marker in factor and summary rows.
 ///       `"bar"` draws a double bar; `"hd"` continues the hors-domaine hatch through
 ///       the point (f' undefined at a domain boundary, not an asymptote).
 ///   - `signs` (array): Sign in each interval ("+" or "-"). `""` = blank; `"HD"` =
-///     hors-domaine (hatched band, no sign, no arrow)
-///   - `interdit` (bool): All zeros of this factor are forbidden values of f (shorthand
-///     for setting `pole: true` on each zero)
+///     hors-domaine (hatched band, no sign, no arrow). *Required unless `fn` is given.*
+///   - `fn` (function): `x => number` for auto-sign inference; return `none` for HD.
+///     *Required unless `signs` is given* (`signs` wins when both are present).
+///   - `interdit` (bool, optional): All zeros of this factor are forbidden values of f
+///     (shorthand for setting `pole: true` on each zero)
+/// - signs (array): Direct signs for the summary row, one per interval, without any
+///   factor rows. Mutually exclusive with `factors`. Use together with the top-level
+///   `zeros` parameter. Same values as a factor's `signs` ("+", "-", "", "HD").
+/// - zeros (array): Zero declarations attached to the top-level `signs` (and
+///   `second-signs`). Same format as a factor's `zeros`, including the number shorthand.
 /// - summary-label (content, none): Label for the f' summary row. `none` hides it.
 /// - variation (bool): Show a variation row with diagonal arrows.
 /// - variation-label (content, none): Label for the variation row.
@@ -55,8 +65,13 @@
 /// - var-row-height (auto, length): Height of variation and convexity rows.
 ///   `auto` grows to fit the tallest overlaid value label.
 /// - second-factors (array): Factor rows for f'', same structure as `factors`.
+/// - second-signs (array): Direct signs for the f'' summary/convexity row, without
+///   factor rows. Mutually exclusive with `second-factors`. Zeros come from the
+///   top-level `zeros` parameter.
 /// - second-summary-label (content, none): Label for the f'' summary row.
-/// - convexity (bool): Show a convexity row with ∪ (f''>0) and ∩ (f''<0) symbols.
+/// - convexity (bool, string): Show a convexity row. `true` or `"symbol"` draws
+///   ∪ (f''>0) and ∩ (f''<0) symbols; `"text"` writes "convexe"/"concave";
+///   `"both"` stacks the symbol above the word. `false` hides the row.
 /// - convexity-label (content, none): Label for the convexity row.
 /// - hd-fill (color): Fill color for HD bands when `hd-style: "fill"` (default light blue).
 /// - hd-style (string): HD band rendering — `"hatch"` (diagonal lines), `"fill"` (solid tint), or `"blank"` (no fill).
@@ -64,6 +79,8 @@
 /// - background (color): Background color used for label knockout rectangles. Set to match your page or container fill (default `white`).
 #let sign-table(
   factors: (),
+  signs: (),
+  zeros: (),
   summary-label: none,
   variation: false,
   variation-label: none,
@@ -78,6 +95,7 @@
   row-height: 0.9cm,
   var-row-height: auto,
   second-factors: (),
+  second-signs: (),
   second-summary-label: none,
   convexity: false,
   convexity-label: none,
@@ -86,9 +104,39 @@
   show-facteurs: true,
   background: white,
 ) = {
+  assert(
+    factors.len() == 0 or signs.len() == 0,
+    message: "sign-table: provide either `factors` or top-level `signs`, not both",
+  )
+  assert(
+    second-factors.len() == 0 or second-signs.len() == 0,
+    message: "sign-table: provide either `second-factors` or `second-signs`, not both",
+  )
+  let convexity-mode = if convexity == true { "symbol" } else if convexity == false { none } else { convexity }
+  assert(
+    convexity-mode in (none, "symbol", "text", "both"),
+    message: "sign-table: `convexity` must be a bool, \"symbol\", \"text\" or \"both\"",
+  )
+  let convexity = convexity-mode != none
+
+  // Numbers in a `zeros` array are shorthand for (value: $n$, approx: n).
+  let normalize-zero(z) = if type(z) == int or type(z) == float {
+    (value: $#z$, approx: z)
+  } else { z }
+  let normalize-factor(f) = if "zeros" in f {
+    f + (zeros: f.zeros.map(normalize-zero))
+  } else { f }
+  let factors = factors.map(normalize-factor)
+  let second-factors = second-factors.map(normalize-factor)
+  let zeros = zeros.map(normalize-zero)
+
+  // Top-level signs/zeros behave like a single anonymous factor per block.
+  let direct-summary = if signs.len() > 0 { (zeros: zeros, signs: signs) } else { none }
+  let direct-second = if second-signs.len() > 0 { (zeros: zeros, signs: second-signs) } else { none }
+
   // Collect and merge zeros from all factors (f' and f''), sorted by approx.
   let all-zeros = ()
-  for factor in factors + second-factors {
+  for factor in factors + second-factors + ((zeros: zeros),) {
     if "zeros" in factor {
       for zero in factor.zeros {
         let idx = none
@@ -155,7 +203,11 @@
   }
 
   // Summary sign = product of factor signs; first non-+/- propagates (HD, blank).
+  // With top-level `signs`, the summary is read directly from them instead.
   let get-summary-sign-in-interval(interval-idx) = {
+    if direct-summary != none {
+      return get-factor-sign-in-interval(direct-summary, interval-idx)
+    }
     let negative-count = 0
     for factor in factors {
       let sign = get-factor-sign-in-interval(factor, interval-idx)
@@ -166,6 +218,9 @@
   }
 
   let get-second-summary-sign-in-interval(interval-idx) = {
+    if direct-second != none {
+      return get-factor-sign-in-interval(direct-second, interval-idx)
+    }
     let negative-count = 0
     for factor in second-factors {
       let sign = get-factor-sign-in-interval(factor, interval-idx)
@@ -518,6 +573,11 @@
         else { in-itvl-cell(i, y-top, row-height, render-sign(sign)) }
       }
       for (i, zero) in all-zeros.enumerate() {
+        let is-first-zero = (
+          factors.any(f => factor-has-zero-at(f, zero.approx))
+          or (direct-summary != none and factor-has-zero-at(direct-summary, zero.approx))
+        )
+        if not is-first-zero and not is-pole(zero) { continue }
         let m = zero.at("summary-mark", default: zero.at("mark", default: none))
         if m == "hd" { hd-through(i, y-top, row-height) }
         else { in-zero-cell(i, y-top, row-height, summary-marker(zero)) }
@@ -822,8 +882,11 @@
           else { in-itvl-cell(i, y-top, row-height, render-sign(sign)) }
         }
         for (i, zero) in all-zeros.enumerate() {
-          let is-second-zero = second-factors.any(f =>
-            "zeros" in f and f.zeros.any(z => z.approx == zero.approx)
+          let is-second-zero = (
+            second-factors.any(f =>
+              "zeros" in f and f.zeros.any(z => z.approx == zero.approx)
+            )
+            or (direct-second != none and factor-has-zero-at(direct-second, zero.approx))
           )
           if is-second-zero {
             let m = zero.at("summary-mark", default: zero.at("mark", default: none))
@@ -875,13 +938,19 @@
           )
         }
 
+        let convexity-cell(sign) = {
+          if sign != "+" and sign != "-" { return none }
+          let symbol = if sign == "+" { $union$ } else { $inter$ }
+          let word = if sign == "+" { "convexe" } else { "concave" }
+          if convexity-mode == "symbol" { symbol }
+          else if convexity-mode == "text" { text(size: 0.85em, word) }
+          else { stack(dir: ttb, spacing: 3pt, align(center, symbol), align(center, text(size: 0.75em, word))) }
+        }
         for i in range(num-intervals) {
           let sign = get-second-summary-sign-in-interval(i)
           place(top + left, dx: x-itvl-left(i), dy: y-conv-top,
             box(width: col-width, height: var-row-height,
-              align(center + horizon)[
-                #if sign == "+" { $union$ } else if sign == "-" { $inter$ }
-              ]
+              align(center + horizon, convexity-cell(sign))
             )
           )
         }
