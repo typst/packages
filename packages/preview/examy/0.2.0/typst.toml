@@ -1,0 +1,15 @@
+[package]
+name = "examy"
+version = "0.2.0"
+compiler = "0.15.0"
+repository = "https://github.com/siefkenj/typst-examy"
+entrypoint = "src/lib.typ"
+authors = ["Jason Siefken <https://github.com/siefkenj>"]
+categories = ["office", "layout"]
+license = "MIT OR Apache-2.0"
+description = "Template for making exams in Typst"
+keywords = ["exam"]
+exclude = ["test", "examples"]
+
+[tool.typst-test]
+tests = "test/unit"
