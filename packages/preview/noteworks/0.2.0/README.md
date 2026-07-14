@@ -84,21 +84,6 @@ That single import provides the themed blocks (`definition`, `theorem`,
 `example`, `note`, `proof`, `solution`, ...) and the qualified modules
 (`canvas`, `graph`, `shape`, `data`, `combi`, `dsa`, `trees`, `timeline`).
 
-## Examples
-
-[examples/](examples/) contains a small calculus notes book built with the
-template. Because it lives inside this repo, it imports the package
-entrypoint relatively (`#import "../lib.typ": *`) instead of
-`@preview/noteworks:x.y.z` — it compiles from a fresh clone with no
-installation and never needs a version bump:
-
-```bash
-typst compile --root . examples/main.typ examples/calculus.pdf
-```
-
-(Scaffolded projects can't do this — `typst init` copies only the
-template files, so they import the package by name.)
-
 ## Notes
 
 - The package exports `page`, `toc`, and `outline`, which shadow the Typst
