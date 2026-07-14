@@ -1,9 +1,9 @@
 # The `parcio-thesis` Template
 
 <p align="center">
-    <img src="thumbnails/p-01.png" width=32%>&nbsp;
-    <img src="thumbnails/p-05.png" width=32%>&nbsp;
-    <img src="thumbnails/p-07.png" width=32%>
+    <img src="thumbnails/p-01.png" width=32% alt="a thesis preview image">&nbsp;
+    <img src="thumbnails/p-05.png" width=32% alt="a thesis preview image">&nbsp;
+    <img src="thumbnails/p-07.png" width=32% alt="a thesis preview image">
 </p>
 
 <p align="center">A simple thesis template for the ParCIO working group at Otto-von-Guericke University Magdeburg.</p>
