@@ -1,4 +1,4 @@
-#import "@local/parcio-thesis:0.3.1": subfigure, section, ovgu-fin-logo
+#import "@preview/parcio-thesis:0.3.1": subfigure, section, ovgu-fin-logo
 
 = Introduction<intro>
 

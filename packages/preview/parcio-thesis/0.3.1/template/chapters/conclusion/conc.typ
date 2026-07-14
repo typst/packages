@@ -1,4 +1,4 @@
-#import "@local/parcio-thesis:0.3.1": todo, section
+#import "@preview/parcio-thesis:0.3.1": todo, section
 
 = Conclusion<conc>
 _In this chapter, ..._\ \
