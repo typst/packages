@@ -1,0 +1,7 @@
+[package]
+name = "na-arabox"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Teacher Nassim"]
+license = "MIT"
+description = "حزمة لإنشاء صناديق عربية تدعم RTL."
