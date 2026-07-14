@@ -8,7 +8,7 @@ authors = ["Jason Siefken <https://github.com/siefkenj>"]
 categories = ["office", "layout"]
 license = "MIT OR Apache-2.0"
 description = "Template for writing exams, quizzes, and homework with automatic numbering, points, and cross-references"
-keywords = ["exam"]
+keywords = ["exam", "homework", "quiz", "assignment"]
 exclude = ["test", "examples"]
 
 [tool.typst-test]
