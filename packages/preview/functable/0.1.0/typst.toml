@@ -1,0 +1,11 @@
+[package]
+name = "functable"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Nathan Scheinmann"]
+license = "MIT"
+description = "Sign, variation, and convexity tables in the French tkz-tab style, plus value tables (tableaux de valeurs)"
+repository = "https://github.com/nathan-ed/typst-package-functable"
+categories = ["visualization", "education"]
+keywords = ["sign table", "variation table", "value table", "tableau de signes", "tableau de variations", "tableau de valeurs", "French math", "tkz-tab"]
+exclude = ["docs/*", "gallery", "tests", "*.pdf"]
