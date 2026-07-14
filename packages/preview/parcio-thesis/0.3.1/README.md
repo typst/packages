@@ -28,7 +28,7 @@ To use this template, simply import it as shown below (more options under `Usage
 ### Local Installation
 
 In order to make the template available locally under the `@local` namespace, clone this repository and refer to [Local Packages](https://github.com/typst/packages/#local-packages) or use the [Unofficial Typst Package Manager](https://github.com/typst-community/utpm).
-You can also use the provided [`justfile`](./justfile) to move this template to the correct location as well as generate up-to-date thumbnails for publishing.
+You can also use the provided [`justfile`](https://github.com/parcio/templates/blob/master/thesis-typst/justfile) to move this template to the correct location as well as generate up-to-date thumbnails for publishing.
 
 ## Usage
 
