@@ -61,6 +61,7 @@
 /// - hd-fill (color): Fill color for HD bands when `hd-style: "fill"` (default light blue).
 /// - hd-style (string): HD band rendering — `"hatch"` (diagonal lines), `"fill"` (solid tint), or `"blank"` (no fill).
 /// - show-facteurs (bool): Show the rotated "facteur(s)" strip at the far left spanning the factor rows.
+/// - background (color): Background color used for label knockout rectangles. Set to match your page or container fill (default `white`).
 #let sign-table(
   factors: (),
   summary-label: none,
@@ -83,6 +84,7 @@
   hd-fill: rgb("#cfe2f3"),
   hd-style: "hatch",
   show-facteurs: true,
+  background: white,
 ) = {
   // Collect and merge zeros from all factors (f' and f''), sorted by approx.
   let all-zeros = ()
@@ -246,7 +248,7 @@
     text(size: 8pt, if n == 1 { "fact." } else { "facteurs" })
   )
   let lbl-w = strip-w + label-width
-  let value-box(label) = box(fill: white, inset: (x: 2pt, y: 1pt), bounded(label))
+  let value-box(label) = box(fill: background, inset: (x: 2pt, y: 1pt), bounded(label))
 
   let has-bounds = left-bound != none or right-bound != none
   let bound-gutter = if has-bounds {
@@ -293,14 +295,24 @@
   }
   let start-val = if start-value != none {
     let pos = if start-pos == "auto" {
-      if get-summary-sign-in-interval(0) == "+" { "bottom" } else { "top" }
+      let s = none
+      for i in range(num-intervals) {
+        let sg = get-summary-sign-in-interval(i)
+        if sg == "+" or sg == "-" { s = sg; break }
+      }
+      if s == "+" { "bottom" } else { "top" }
     } else { start-pos }
     let b = value-box(start-value)
     (pos: pos, body: b, size: measure(b))
   } else { none }
   let end-val = if end-value != none {
     let pos = if end-pos == "auto" {
-      if get-summary-sign-in-interval(num-intervals - 1) == "+" { "top" } else { "bottom" }
+      let s = none
+      for i in range(num-intervals) {
+        let sg = get-summary-sign-in-interval(i)
+        if sg == "+" or sg == "-" { s = sg }
+      }
+      if s == "+" { "top" } else { "bottom" }
     } else { end-pos }
     let b = value-box(end-value)
     (pos: pos, body: b, size: measure(b))
@@ -347,9 +359,9 @@
   // background strip that masks the grid line and dotted stubs above/below.
   let in-zero-cell(i, y-row-top, h, content) = {
     place(top + left, dx: x-at-zero(i) - 0.25cm, dy: y-row-top,
-      box(fill: white, width: 0.5cm, height: h)
+      box(fill: background, width: 0.5cm, height: h)
     )
-    let b = box(fill: white, inset: (x: 2pt, y: 1pt))[#bounded(content)]
+    let b = box(fill: background, inset: (x: 2pt, y: 1pt))[#bounded(content)]
     let m = measure(b)
     border-stubs(x-at-zero(i), y-row-top, y-row-top + (h - m.height) / 2 - stub-gap)
     border-stubs(x-at-zero(i), y-row-top + (h + m.height) / 2 + stub-gap, y-row-top + h)
@@ -362,9 +374,9 @@
 
   let in-bound-cell(x, y-row-top, h, content) = {
     place(top + left, dx: x - 0.25cm, dy: y-row-top,
-      box(fill: white, width: 0.5cm, height: h)
+      box(fill: background, width: 0.5cm, height: h)
     )
-    let b = box(fill: white, inset: (x: 2pt, y: 1pt))[#bounded(content)]
+    let b = box(fill: background, inset: (x: 2pt, y: 1pt))[#bounded(content)]
     let m = measure(b)
     place(top + left,
       dx: x - m.width / 2,
@@ -586,8 +598,34 @@
       let tip-gap = 3pt
 
       let cy-of(pos, h) = if pos == "top" { y-top + pad-v + h / 2 } else { y-bottom - pad-v - h / 2 }
-      let start-cx = if start-val != none { lbl-w + 3pt + start-val.size.width / 2 } else { 0pt }
-      let end-cx = if end-val != none { total-width - 3pt - end-val.size.width / 2 } else { 0pt }
+      let first-valid-k = {
+        let k = none
+        for (i, s) in spans.enumerate() {
+          if s.sign == "+" or s.sign == "-" { k = i; break }
+        }
+        k
+      }
+      let last-valid-k = {
+        let k = none
+        for (i, s) in spans.enumerate() {
+          if s.sign == "+" or s.sign == "-" { k = i }
+        }
+        k
+      }
+      let start-cx = if start-val != none {
+        if first-valid-k != none and spans.at(first-valid-k).start > 0 {
+          x-at-zero(spans.at(first-valid-k).start - 1)
+        } else {
+          lbl-w + 3pt + start-val.size.width / 2
+        }
+      } else { 0pt }
+      let end-cx = if end-val != none {
+        if last-valid-k != none and spans.at(last-valid-k).end < num-intervals - 1 {
+          x-at-zero(spans.at(last-valid-k).end)
+        } else {
+          total-width - 3pt - end-val.size.width / 2
+        }
+      } else { 0pt }
       let zero-val-at(i, want) = {
         for v in zero-values {
           if v.i == i and v.pos == want { return v }
@@ -596,7 +634,7 @@
       }
 
       let geoms = ()
-      for span in spans {
+      for (k, span) in spans.enumerate() {
         if span.sign != "+" and span.sign != "-" { geoms.push(none); continue }
         let up = span.sign == "+"
         let sx = x-itvl-left(span.start) + margin-h
@@ -612,6 +650,10 @@
             sy = cy-of(want-l, start-val.size.height)
             s-box = start-val.size
           }
+        } else if k == first-valid-k and start-val != none and start-val.pos == want-l {
+          sx = start-cx
+          sy = cy-of(want-l, start-val.size.height)
+          s-box = start-val.size
         } else {
           let v = zero-val-at(span.start - 1, want-l)
           if v != none {
@@ -627,6 +669,10 @@
             ey = cy-of(want-r, end-val.size.height)
             e-box = end-val.size
           }
+        } else if k == last-valid-k and end-val != none and end-val.pos == want-r {
+          ex = end-cx
+          ey = cy-of(want-r, end-val.size.height)
+          e-box = end-val.size
         } else {
           let v = zero-val-at(span.end, want-r)
           if v != none {

@@ -183,6 +183,7 @@ For irrational x values or custom display, use dictionary entries:
 | `hd-fill` | color | `rgb("#cfe2f3")` | Fill color for HD bands when `hd-style: "fill"`. |
 | `hd-style` | string | `"hatch"` | HD rendering: `"hatch"`, `"fill"`, or `"blank"`. |
 | `show-facteurs` | bool | `true` | Show rotated "facteur(s)" strip at left. |
+| `background` | color | `white` | Background for label knockout rects. Match your page/container fill. |
 
 ### Factor dictionary keys
 
