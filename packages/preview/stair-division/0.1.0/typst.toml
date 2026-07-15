@@ -1,5 +1,5 @@
 [package]
-name = "ruffini"
+name = "stair-division"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Jesús Manuel González Meneses <https://github.com/13Stokes31>"]

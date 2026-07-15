@@ -1,4 +1,4 @@
-# ruffini
+# stair-division
 
 Typeset **synthetic division (Ruffini's rule)** in [Typst](https://typst.app) — the
 classic three-row division box and the stacked factorization staircase.
@@ -20,7 +20,7 @@ middle row. No dependencies (native `table`).
 ## Usage
 
 ```typ
-#import "@preview/ruffini:0.1.0": ruffini, ruffini-factor
+#import "@preview/stair-division:0.1.0": ruffini, ruffini-factor
 
 // Divide x³ − 2x² + 1 by (x − 2):
 #ruffini((1, -2, 0, 1), 2)
