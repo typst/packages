@@ -1,0 +1,13 @@
+[package]
+name = "haita"
+version = "0.2.1"
+entrypoint = "lib.typ"
+authors = ["Jeremy Gao <@wensimehrp>"]
+license = "Apache-2.0"
+description = "Make Web documentation w/o external tools"
+homepage = "https://wensimehrp.github.io/haita"
+repository = "https://github.com/wensimehrp/haita"
+keywords = ["html", "web", "mdbook", "documentation"]
+categories = ["components", "model", "utility"]
+# requires bundle export
+compiler = "0.15.0"
