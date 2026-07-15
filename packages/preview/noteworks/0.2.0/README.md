@@ -9,7 +9,7 @@ configuration, the structure, and (if you like) the pages themselves.
 As your notes grow, split pages out into one file per page and
 `#include` them:
 
-```
+```txt
 my-notes/
 ├── main.typ      # your book: configuration + structure
 └── content/      # optional: one file per page
