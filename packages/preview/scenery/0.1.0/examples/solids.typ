@@ -3,9 +3,9 @@
 // vertices. Meshes are flat-shaded with hidden facet seams; the icosahedron is
 // drawn from `hull-faces`, one filled `face` per hull plane, so its edges read
 // as visible strokes.
-#import "/lib.typ": face, build-scene
-#import "/lib.typ": uv-sphere, cylinder, cone, prism, hull-faces
-#import "/lib.typ": camera, render-scene
+#import "@preview/scenery:0.1.0": face, build-scene
+#import "@preview/scenery:0.1.0": uv-sphere, cylinder, cone, prism, hull-faces
+#import "@preview/scenery:0.1.0": camera, render-scene
 
 #set page(width: auto, height: auto, margin: 0.5cm)
 #set text(font: "New Computer Modern", size: 10pt)

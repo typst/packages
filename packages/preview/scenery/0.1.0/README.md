@@ -37,7 +37,7 @@ The sources for these figures are in [`examples/`](examples/).
 #render-scene(scene, camera(azimuth: 30deg, elevation: 20deg), width: 5cm)
 ```
 
-`build-scene` collects primitives into pure scene data; `render-scene` resolves any named anchors, projects through a `camera`, and paints at the requested on-page `width`. That is the whole loop. (The examples in this repository import `/lib.typ` directly so they run against the working tree; in your own documents use the `@preview` import shown here.)
+`build-scene` collects primitives into pure scene data; `render-scene` resolves any named anchors, projects through a `camera`, and paints at the requested on-page `width`. That is the whole loop. The examples use the same `@preview` import shown here; the source repository resolves it to the working tree through `TYPST_PACKAGE_PATH`.
 
 ### Named objects and anchors
 

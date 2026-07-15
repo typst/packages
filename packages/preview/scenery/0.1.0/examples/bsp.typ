@@ -1,4 +1,4 @@
-#import "/lib.typ": *
+#import "@preview/scenery:0.1.0": build-scene, face, camera, render-scene
 
 #set page(width: auto, height: auto, margin: 0.6cm)
 #set text(font: "New Computer Modern", size: 10pt)

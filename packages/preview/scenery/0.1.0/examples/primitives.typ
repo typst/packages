@@ -1,12 +1,8 @@
 // Primitive showcase: one annotated scene exercising every primitive kind —
 // spheres, a bond segment, wireframe edges, an arrow, a translucent face and
 // text labels — all depth-sorted through the same pipeline.
-//
-// Examples import the working tree via the package-root path `/lib.typ`
-// (compiled with `--root .`); published documents use the `@preview` import
-// shown in the README quickstart instead.
-#import "/lib.typ": sphere, seg, edge, arrow, face, label, build-scene
-#import "/lib.typ": camera, render-scene
+#import "@preview/scenery:0.1.0": sphere, seg, edge, arrow, face, label, build-scene
+#import "@preview/scenery:0.1.0": camera, render-scene
 
 #set page(width: auto, height: auto, margin: 0.5cm)
 #set text(font: "New Computer Modern", size: 10pt)

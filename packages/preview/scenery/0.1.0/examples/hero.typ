@@ -4,8 +4,8 @@
 // Two coloured strands of shaded balls spiral up a shared axis; the rungs
 // between them are tinted by height through the same colormap the colorbar
 // samples. Everything is one `build-scene`, depth-sorted back-to-front.
-#import "/lib.typ": sphere, seg, build-scene
-#import "/lib.typ": camera, render-scene
+#import "@preview/scenery:0.1.0": sphere, seg, build-scene
+#import "@preview/scenery:0.1.0": camera, render-scene
 
 #set page(width: auto, height: auto, margin: 0.5cm)
 #set text(font: "New Computer Modern", size: 10pt)

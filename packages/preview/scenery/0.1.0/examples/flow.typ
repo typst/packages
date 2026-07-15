@@ -2,8 +2,8 @@
 // exact same pipeline as the 3D scenes. `camera-2d()` passes (x, y) straight
 // through, so spheres become shaded node discs and arrows become 2D connectors —
 // no projection, no depth foreshortening, same `build-scene` / `render-scene`.
-#import "/lib.typ": sphere, arrow, label, build-scene
-#import "/lib.typ": camera-2d, render-scene
+#import "@preview/scenery:0.1.0": sphere, arrow, label, build-scene
+#import "@preview/scenery:0.1.0": camera-2d, render-scene
 
 #set page(width: auto, height: auto, margin: 0.5cm)
 #set text(font: "New Computer Modern", size: 9pt)

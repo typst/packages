@@ -1,7 +1,7 @@
 // C60 fullerene as an exact truncated icosahedron, constructed entirely in
 // Typst. The topology assertions make this example a geometry regression test.
-#import "/lib.typ": sphere, seg, build-scene, camera, render-scene
-#import "/lib.typ": vsub, vlen, lerp
+#import "@preview/scenery:0.1.0": sphere, seg, build-scene, camera, render-scene
+#import "@preview/scenery:0.1.0": vsub, vlen, lerp
 
 #set page(width: auto, height: auto, margin: 0.45cm)
 #set text(font: "New Computer Modern", size: 9pt)

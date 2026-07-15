@@ -1,8 +1,8 @@
 // Visibility regression: one changing-depth arrow crosses an opaque plane and
 // an opaque sphere. Its rear interval is removed, its foreground interval stays
 // visible, and exactly one arrowhead remains.
-#import "/lib.typ": sphere, arrow, face, edge, label, build-scene
-#import "/lib.typ": camera, render-scene
+#import "@preview/scenery:0.1.0": sphere, arrow, face, edge, label, build-scene
+#import "@preview/scenery:0.1.0": camera, render-scene
 
 #set page(width: auto, height: auto, margin: 0.5cm)
 #set text(font: "New Computer Modern", size: 9pt)
