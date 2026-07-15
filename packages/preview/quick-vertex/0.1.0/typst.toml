@@ -1,5 +1,5 @@
 [package]
-name = "feasible-region"
+name = "quick-vertex"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Jesús Manuel González Meneses"]
@@ -9,3 +9,4 @@ repository = "https://github.com/13Stokes31/feasible-region"
 keywords = ["linear-programming", "optimization", "plot", "math", "education"]
 categories = ["visualization"]
 compiler = "0.14.0"
+exclude = ["gallery"]

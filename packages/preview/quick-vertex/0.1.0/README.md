@@ -1,4 +1,4 @@
-# feasible-region
+# quick-vertex
 
 Plot **feasible regions of two-variable linear programs** in [Typst](https://typst.app),
 drawn with [CeTZ](https://github.com/cetz-package/cetz). One call gives you the
@@ -21,7 +21,7 @@ optima, unbounded objectives, empty regions, strict inequalities and any quadran
 ## Usage
 
 ```typ
-#import "@preview/feasible-region:0.1.0": feasible-region
+#import "@preview/quick-vertex:0.1.0": feasible-region
 
 #feasible-region(
   ((1, 1, 4, "<="), (1, 3, 6, "<=")),
