@@ -19,7 +19,7 @@ The exams module manages constraints for student testing, providing native suppo
 
 - Numbered Code Snippets (`#exam.code-block`): Formats code containers into distinct line-numbered (optional) code blocks
 ```typst
-#import "@preview/codepoint:0.2.1": exams
+#import "@preview/codepoint:0.2.2": exams
 
 #show: exams.init
 
@@ -78,7 +78,7 @@ The labs module configures layout, custom raw-code themes, and uniform section l
 - Rubrics (`#labs.lab-rubric` / `#labs.rubric`): Renders point-breakdown blocks alongside automated, and supplemental notes
 
 ```typst
-#import "@preview/codepoint:0.2.1": labs
+#import "@preview/codepoint:0.2.2": labs
 
 #show: labs.init
 
