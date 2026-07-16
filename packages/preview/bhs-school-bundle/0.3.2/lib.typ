@@ -102,6 +102,7 @@
 
   set page(paper: paper, margin: margin, footer: none)
   set par(justify: true, leading: 0.55em)
+  show table: set par(justify: false)
 
   if font == none {
     set text(lang: lang, region: region, size: fontsize)
@@ -332,6 +333,7 @@
 
   set page(paper: paper, margin: margin, footer: none)
   set par(justify: true, leading: 0.55em)
+  show table: set par(justify: false)
 
   if font == none {
     set text(lang: lang, region: region, size: fontsize)

@@ -458,7 +458,7 @@ Und danach geht es gleich wieder direkt weiter.
 == Beispiele Abbildungen
 <beispiele-abbildungen>
 Auf diese Weise kann man zum Beispiel in typst auf die
-#link(<fig:ArduExample>)[13.1] verweisen. Die Kennung für den Verweis
+@fig:ArduExample verweisen. Die Kennung für den Verweis
 vergibt man selbst mit dem "label" Kommando bei der Abbildung.
 
 Jede Abbildung muss nicht nur mindestens einen Verweis im Text haben. Es
@@ -469,7 +469,7 @@ verstehen, was am Bild zu erkennen ist.
 Der nächste wichtige Punkt sind die Quellenangaben bei Abbildungen. Der
 Author muss zu jeder Abbildung die notwendigen Rechte haben und idealer
 Weise gibt man diese bei der Abbildung mit an. In
-#link(<fig:ArduExample>)[13.1] auf Seite sieht man das.
+@fig:ArduExample auf Seite sieht man das.
 
 Es ist wichtig zu verstehen, dass typst die Positionierung von
 Abbildungen übernimmt. Man definiert die Abbildung über begin-figure
@@ -485,27 +485,26 @@ typst
     Durch leichte Modifikationen kann man damit eine Lichtschranke oder
     auch eine Helligkeitssteuerung für das Smartphone simulieren.
   ]
-)
-<fig:ArduExample>
+)<fig:ArduExample>
 
 ==== Beispiele Tabellen
 <beispiele-tabellen>
-#link(<tbl:lineBreak>)[13.1] ist ein Beispiel für eine einfache Tabelle
-mit Zeilenumbruch, #link(<tbl:shiftReg>)[13.2] für eine aufwändigere
+@tbl:lineBreak ist ein Beispiel für eine einfache Tabelle
+mit Zeilenumbruch, @tbl:shiftReg für eine aufwändigere
 Tabelle mit einer Abbildung und Überschrift.
 
-<tbl:lineBreak>
+
 #figure( 
   table(
     columns: 2,
     align: left,
     [Use Case], [Opret Server],
-    [Scenarie], [At oprette en server med bestemte regler som tillader folk at spille zusammen. More Text more text More Text],
+    [Scenarie], [#lorem(40)],
   ),
   caption: [Einfache Tabelle mit Zeilenumbruch],
-)
+)<tbl:lineBreak>
 
-<tbl:shiftReg>
+
 #figure(
     stack(
       image("./typst_media/figures/shift_reg.png", width: 28%),
@@ -532,7 +531,7 @@ Tabelle mit einer Abbildung und Überschrift.
       ),
     ),
     caption: [Aufwändige Tabelle mit Abbildung und Caption],
-)
+)<tbl:shiftReg>
 
 Tabellen sind in typst sehr kompliziert zu erzeugen. Alternativ kann man
 die Tabellen auch in einem anderen Programm gestalten und als Bild
@@ -608,13 +607,14 @@ C T T C A A T A C T A C A C T T G C A G G A T C C $
 
 == Beispiel Codesequenz
 <beispiel-codesequenz>
-In #link(<code:qj>)[\[code:qj\]] sieht man ein Quick-Sort-Listing in der
+In @code:qj sieht man ein Quick-Sort-Listing in der
 Programmiersprache JAVA. Das Listings-Paket übernimmt die Formatierung
 von Codebausteinen und kann in der Präambel nach Belieben auf eine
 andere Sprache konfiguriert werden.
 
 === Quicksort in JAVA
 <quicksort-in-java>
+
 #figure(
   kind: "listing",
   supplement: [Quelltext],
