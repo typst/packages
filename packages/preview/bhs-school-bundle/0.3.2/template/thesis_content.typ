@@ -676,23 +676,41 @@ public class QuickSort {
 
 == mermaid Diagramme
 
-@figure:mermaid zeigt eine Abbildung die durch mermaid Code erstellt wurde.
+@figure:mermaid zeigt eine simple Abbildung die durch mermaid Code erstellt wurde. In @figure:mermaid-big wird eine komplexere Abbildung generiert, welche eine Umgebung mit Zeilenumbrüchen zur Übersichtlichkeit nutzt.
+
+Es folgt ein wenig Fülltext: #lorem(200)
+
+#lorem(100)
 
 #figure(
   placement: auto,
   mermaid(
     "graph TD; A-->B;",
-    base-theme: "default",
-    theme: (
-      background: "#f4f4f4",
-      primary_color: "#ff0000",
-    ),
-    layout: (
-      node_spacing: 50,
-    ),
   ),
-  caption: [Ein Mermaid Diagramm]
+  caption: [Ein simples Mermaid Diagramm]
 )<figure:mermaid>
+
+#figure(
+  placement: auto,
+  ```mermaid
+  graph TD
+      Addr[Taproot-Adresse: bc1p...] --> MAST[Merkle-Baum / MAST]
+      MAST --> PathA[Pfad A: Sofort]
+      MAST --> PathB[Pfad B: Später]
+      
+      PathA --> KeyA[Alltagsschlüssel]
+      KeyA --> DispA[Sofort einsatzbereit]
+      
+      PathB --> KeyB[Backup-Schlüssel]
+      KeyB --> CSV[OP_CHECKSEQUENCEVERIFY]
+      CSV --> DispB[Aktiv nach z.B. 1 Jahr Inaktivität]
+      
+      style Addr fill:#1c3d5a,stroke:#333,stroke-width:2px,color:#fff
+      style PathA fill:#d4edda,stroke:#28a745,stroke-width:1px
+      style PathB fill:#f8d7da,stroke:#dc3545,stroke-width:1px
+  ```,
+  caption: [Ein komplexeres Mermaid Diagramm]
+)<figure:mermaid-big>
 
 = Anhang-Kapitel
 <anhang-kapitel>

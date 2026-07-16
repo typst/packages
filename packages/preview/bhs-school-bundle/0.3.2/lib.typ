@@ -89,6 +89,8 @@
   //   Handelsakademie und Handelsschule Imst
   // ]
 
+  show raw.where(lang: "mermaid"): it => mermaid(it.text)
+
   show terms: it => {
     it.children
       .map(child => [
@@ -316,6 +318,8 @@
   //   #box(image("template/typst_media/logos/Logo_Kolleg_Imst.png", height: 0.7em))
   //   IT-KOLLEG IMST
   // ]
+
+  show raw.where(lang: "mermaid"): it => mermaid(it.text)
 
   show terms: it => {
     it.children
