@@ -7,7 +7,7 @@ A clean, colour-customisable engineering report template for Typst. Designed for
 ```typst
 #import "@preview/breezy-report:0.1.0": breezy, end-breezy
 
-#show: breezy.with (
+#show: breezy.with(
   semester: "Semester 1 2026",
   courseCode: "ENGE500",
   courseName: "Engineering Mathematics I",
