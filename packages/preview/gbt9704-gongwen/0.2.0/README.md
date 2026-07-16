@@ -31,7 +31,7 @@ typst init @preview/gbt9704-gongwen
 ### Manual import
 
 ```typst
-#import "@preview/gbt9704-gongwen:0.1.0": *
+#import "@preview/gbt9704-gongwen:0.2.0": *
 #show: gbt9704.with(redline: true, title-indent: true)
 
 // Your document content here ...

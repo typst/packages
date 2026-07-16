@@ -2,7 +2,7 @@
 // Quick start: typst init @preview/gbt9704-gongwen
 // 快速开始：typst init @preview/gbt9704-gongwen
 
-#import "@preview/gbt9704-gongwen:0.1.0": *
+#import "@preview/gbt9704-gongwen:0.2.0": *
 
 #show: gbt9704.with(
   redline: true,
