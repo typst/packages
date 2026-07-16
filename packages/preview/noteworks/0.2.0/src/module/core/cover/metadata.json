@@ -1,0 +1,9 @@
+{
+    "name": "cover",
+    "description": "Document covers and title pages",
+    "dependencies": [],
+    "exports": [
+        "cover-page",
+        "chapter-cover"
+    ]
+}
