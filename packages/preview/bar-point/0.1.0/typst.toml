@@ -15,4 +15,4 @@ keywords = [
 categories = [ "fun", "visualization" ]
 disciplines = []
 compiler = "0.15.0"
-exclude = ["/docs/*", ".git", ".gitignore"]
+exclude = ["/docs/*", ".git", ".gitignore","/examples/*"]
