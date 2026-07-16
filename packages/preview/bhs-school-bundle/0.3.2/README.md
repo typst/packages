@@ -15,7 +15,7 @@ You can also decide to start a new *.typ file on your own and add the necessary 
 Minimalistic example for **diploma thesis** (see "Configuration" section for all available options):
 
 ```typst
-#import "@preview/bhs-school-bundle:0.3.1": *
+#import "@preview/bhs-school-bundle:0.3.2": *
 
 // For Kolleg variant: replace "hak" with "kolleg"
 #show: hak.with(
@@ -48,7 +48,7 @@ Using `typst init @preview/bhs-school-bundle` to initialize this project,you wil
 Minimalistic example for **report** (see "Configuration" section for all available options):
 
 ```typst
-#import "@preview/bhs-school-bundle:0.3.1": *
+#import "@preview/bhs-school-bundle:0.3.2": *
 
 #show: report.with(
   title: [Der Titel der Arbeit],

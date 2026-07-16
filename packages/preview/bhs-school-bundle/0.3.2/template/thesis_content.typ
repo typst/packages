@@ -1,5 +1,5 @@
 // dieser Import ist nur für set-responsible notwendig und kann auch ganz am Ende hinzugefügt werden
-#import "@preview/bhs-school-bundle:0.3.1": *
+#import "@preview/bhs-school-bundle:0.3.2": *
 
 #set-responsible([Claudio Landerer])
 
