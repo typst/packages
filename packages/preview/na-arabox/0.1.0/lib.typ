@@ -11,11 +11,13 @@
   stroke: black,
   radius: 4pt,
   body-inset: (left: 10pt, right: 10pt, top: 18pt, bottom: 10pt),
+  shadow: false, // <-- الخيار الجديد
   body
 ) = {
   set text(dir: rtl)
   
-  block(
+  // تعريف الصندوق الأساسي كمتغير
+  let content = block(
     breakable: true,
     fill: fill,
     stroke: 1pt + stroke,
@@ -41,4 +43,17 @@
       )
     ]
   )
+
+  // تطبيق منطق الظل إذا تم تفعيله
+  if shadow {
+    block(
+      fill: black.transparentize(80%),
+      radius: radius,
+      // الظل يبرز فقط من الأسفل واليمين
+      outset: (left: 0pt, top: 0pt, right: 4pt, bottom: 4pt),
+      content
+    )
+  } else {
+    content
+  }
 }
