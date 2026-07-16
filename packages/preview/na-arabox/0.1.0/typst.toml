@@ -1,7 +1,12 @@
 [package]
 name = "na-arabox"
 version = "0.1.0"
-entrypoint = "lib.typ"
 authors = ["Naam Mohamed"]
 license = "MIT"
-description = "A customized box for Arabic content with professional styling / حزمة لإنشاء صناديق مخصصة تدعم الكتابة باللغة العربية"
+description = "A Typst package for creating Arabic RTL boxes with customizable styles and shadow effects. (حزمة لإنشاء صناديق عربية تدعم RTL مع أنماط مخصصة وتأثير ظل)"
+repository = "https://github.com/naam11/na-arabox"
+keywords = ["arabic", "rtl", "box", "layout"]
+categories = ["layout"]
+
+[template]
+path = "lib.typ"
