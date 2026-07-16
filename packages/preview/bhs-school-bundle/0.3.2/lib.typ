@@ -104,11 +104,14 @@
   set par(justify: true, leading: 0.55em)
   show table: set par(justify: false)
 
-  if font == none {
-    set text(lang: lang, region: region, size: fontsize)
-  } else {
-    set text(lang: lang, region: region, font: font, size: fontsize)
-  }
+  // if font == none {
+  //   set text(lang: lang, region: region, size: fontsize)
+  // } else {
+  //   set text(lang: lang, region: region, font: font, size: fontsize)
+  // }
+
+  set text(lang: lang, region: region, size: fontsize)
+  set text(font: font) if font != none
 
   set heading(numbering: sectionnumbering)
   show heading.where(level: 1): it => [
@@ -335,11 +338,14 @@
   set par(justify: true, leading: 0.55em)
   show table: set par(justify: false)
 
-  if font == none {
-    set text(lang: lang, region: region, size: fontsize)
-  } else {
-    set text(lang: lang, region: region, font: font, size: fontsize)
-  }
+  // if font == none {
+  //   set text(lang: lang, region: region, size: fontsize)
+  // } else {
+  //   set text(lang: lang, region: region, font: font, size: fontsize)
+  // }
+
+  set text(lang: lang, region: region, size: fontsize)
+  set text(font: font) if font != none
 
   set heading(numbering: sectionnumbering)
   show heading.where(level: 1): it => [
