@@ -1,17 +1,25 @@
 # na-arabox
 
-`na-arabox` هي حزمة لبرنامج Typst توفر صناديق نصية (Boxes) مخصصة للنصوص العربية، مصممة لتناسب المجلات التعليمية والمواد الأكاديمية.
+`na-arabox` is a Typst package for creating Arabic boxes that support Right-to-Left (RTL) text direction.
 
-`na-arabox` is a Typst package that provides custom text boxes tailored for Arabic content, designed for educational magazines and academic materials.
+## Features
+- **RTL Support**: Designed specifically for Arabic content.
+- **Customizable**: Control title, colors, radii, and more.
+- **Shadow Effect**: Optional shadow to give depth to your boxes.
 
-## الاستخدام / Usage
-
-يمكنك استخدام هذه الحزمة عبر استيرادها من Typst Universe:
-You can use this package by importing it from the Typst Universe:
+## Usage
 
 ```typst
 #import "@preview/na-arabox:0.1.0": na-arabox
 
-#na-arabox(title: "عنوان الصندوق", color: blue)[
-  محتوى الصندوق هنا باللغة العربية.
-]
+#na-arabox(
+  title: "ملاحظة",
+  [هذا محتوى الصندوق باللغة العربية.]
+)
+
+// With shadow effect:
+#na-arabox(
+  title: "تنبيه",
+  shadow: true,
+  [هذا صندوق مع تأثير ظل.]
+)
