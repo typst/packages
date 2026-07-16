@@ -1,0 +1,10 @@
+[package]
+name = "sang-math"
+version = "1.0.0"
+entrypoint = "lib.typ"
+compiler = "0.11.0"
+authors = ["Sang Nguyen <nguyensangnch@gmail.com>"]
+license = "MIT"
+description = "A comprehensive toolkit for typesetting high school mathematics (Vietnamese curriculum) – variations, sign tables, multiple choice, exams, and CeTZ geometry."
+keywords = ["math", "exam", "vietnam", "thpt", "bbt"]
+
