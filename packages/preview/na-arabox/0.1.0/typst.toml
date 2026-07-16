@@ -2,6 +2,6 @@
 name = "na-arabox"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["Teacher Nassim"]
+authors = ["Naam Mohamed"]
 license = "MIT"
-description = "حزمة لإنشاء صناديق عربية تدعم RTL."
+description = "A customized box for Arabic content with professional styling / حزمة لإنشاء صناديق مخصصة تدعم الكتابة باللغة العربية"
