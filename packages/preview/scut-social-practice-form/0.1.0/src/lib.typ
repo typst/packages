@@ -2,8 +2,8 @@
 //
 // 使用方法：在自己的 Typst 文件中导入并调用本模板。
 //
-//   #import "lib.typ": social_practice_form
-//   #social_practice_form(
+//   #import "@preview/scut-social-practice-form:0.1.0": social-practice-form
+//   #social-practice-form(
 //     name: [张三],
 //     political-status: [共青团员],
 //     hometown: [广东省广州市],
@@ -21,7 +21,7 @@
 // 未传入的字段保持为空。长文本可直接使用 Typst 内容块编写多段文字。
 
 // Public template function. Each parameter accepts Typst content, e.g. [张三].
-#let social_practice_form(
+#let social-practice-form(
   name: none,
   political-status: none,
   hometown: none,

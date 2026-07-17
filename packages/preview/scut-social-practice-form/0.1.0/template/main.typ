@@ -1,6 +1,6 @@
-#import "../src/lib.typ": social_practice_form
+#import "@preview/scut-social-practice-form:0.1.0": social-practice-form
 
-#social_practice_form(
+#social-practice-form(
   name: [张三],
   political-status: [共青团员],
   hometown: [广东省广州市],
