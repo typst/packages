@@ -2,7 +2,7 @@
 name = "bar-point"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
-authors = [ "H Mort <@mismatchtea" ]
+authors = [ "H Mort <@mismatchtea>" ]
 license = "MIT"
 description = "create backgammon diagrams and show checker movement"
 repository = "https://github.com/mismatchtea/bar-point/"
