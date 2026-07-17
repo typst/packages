@@ -1,0 +1,27 @@
+data_nacl
+# NaCl with an explicit symmetry-op loop, applied directly by materia-io.
+# Minimal op set that generates the full cell from THIS asymmetric unit;
+# database exports typically list all 192 Fm-3m ops. The parser applies
+# whatever the file asserts and deduplicates.
+_cell_length_a 5.64
+_cell_length_b 5.64
+_cell_length_c 5.64
+_cell_angle_alpha 90
+_cell_angle_beta 90
+_cell_angle_gamma 90
+loop_
+_symmetry_equiv_pos_as_xyz
+'x, y, z'
+'z, x, y'
+'y, z, x'
+'-x, -y, -z'
+'x, y+1/2, z+1/2'
+'1/2+x, y, 1/2+z'
+'x+1/2, y+1/2, z'
+loop_
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Na1 0.0 0.0 0.0
+Cl1 0.5 0.0 0.0
