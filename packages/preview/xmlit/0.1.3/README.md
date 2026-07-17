@@ -30,7 +30,7 @@ Creates one tag function per name, returned in order for destructuring;
 `handlers` is forwarded to each.
 
 ```typst
-#import "@preview/xmlit:0.1.0": make-tags, xml-to-string
+#import "@preview/xmlit:0.1.3": make-tags, xml-to-string
 
 #{
   let (foo, bar) = make-tags("foo", "bar")
@@ -149,7 +149,7 @@ plugin (see [plugin/](https://github.com/siefkenj/typst-xmlit/blob/0.1.3/plugin/
 - `wasm` — the validator plugin; defaults to the bundled one.
 
 ```typst
-#import "@preview/xmlit:0.1.0": create-from-relaxng
+#import "@preview/xmlit:0.1.3": create-from-relaxng
 
 #let (utils, elements) = create-from-relaxng(
   "start = element foo { element bar { attribute baz { text } }* }",
