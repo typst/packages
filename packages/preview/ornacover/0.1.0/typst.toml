@@ -1,0 +1,10 @@
+[package]
+name = "ornacover"
+version = "0.1.0"
+authors = ["Naam Mohamed"]
+description = "A package for creating ornamental covers for educational documents, perfect for mathematics materials and exam papers."
+license = "MIT"
+repository = "https://github.com/naam11/ornacover"
+
+[dependencies]
+cetz = "0.5.2"
