@@ -1,4 +1,4 @@
-/// حزمة na-arabox لإنشاء صناديق عربية تدعم RTL.
+// حزمة na-arabox لإنشاء صناديق عربية تدعم RTL.
 #let na-arabox(
   title: none,
   title-align: center,
