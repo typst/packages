@@ -8,5 +8,4 @@ repository = "https://github.com/naam11/na-arabox"
 keywords = ["arabic", "rtl", "box", "layout"]
 categories = ["layout"]
 
-[template]
-path = "lib.typ"
+
