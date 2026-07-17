@@ -7,3 +7,4 @@ description = "A Typst package for creating Arabic RTL boxes with customizable s
 repository = "https://github.com/naam11/na-arabox"
 keywords = ["arabic", "rtl", "box", "layout"]
 categories = ["layout"]
+entrypoint = "lib.typ"
