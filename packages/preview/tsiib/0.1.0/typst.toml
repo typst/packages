@@ -1,0 +1,12 @@
+[package]
+name = "tsiib"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["M.H. Alberto"]
+license = "MIT"
+description = "Plantilla tipográfica para artículos académicos en español con estilo LaTeX."
+repository = "https://github.com/MHAlberto/tsiib"
+keywords = ["article", "spanish", "math", "latex", "academic"]
+categories = ["paper"]
+compiler = "0.15.0"
+exclude = ["/main.typ", "/refs.bib", "/cuadrado.png"]
