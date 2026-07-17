@@ -6,7 +6,3 @@ authors = ["Naam Mohamed"]
 license = "MIT"
 description = "Ornamental covers package for educational documents"
 repository = "https://github.com/naam11/ornacover"
-
-[dependencies]
-cetz = "0.5.2"
-
