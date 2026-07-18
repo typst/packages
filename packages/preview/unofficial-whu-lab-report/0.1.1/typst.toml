@@ -9,9 +9,9 @@ repository = "https://github.com/zoomy14112/report-theme-whu"
 keywords = ["report", "whu", "course", "chinese"]
 categories = ["report", "thesis"]
 compiler = "0.14.0"
+exclude = ["template/example.png", "template/signature.png"]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
-exclude = ["template/example.png", "template/signature.png"]
