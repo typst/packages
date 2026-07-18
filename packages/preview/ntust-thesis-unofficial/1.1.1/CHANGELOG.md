@@ -2,7 +2,7 @@
 
 ## [1.1.1]
 
-- Removed copyright from.
+- Removed copyright form.
 
 ## [1.1.0]
 
