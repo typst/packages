@@ -344,7 +344,7 @@ The file `example.typ` is a complete demo presentation covering all template fea
 
 ## Repository layout
 
-```
+```text
 black-angular-frame/
 ├── typst.toml                 # Package manifest
 ├── black-angular-frame.typ    # Package entrypoint

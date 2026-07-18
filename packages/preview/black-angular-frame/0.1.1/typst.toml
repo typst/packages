@@ -5,7 +5,6 @@ entrypoint = "black-angular-frame.typ"
 authors = ["Miguel Montes <@miguelm7654>"]
 license = "MIT"
 description = "Formal academic slide decks."
-repository = "https://github.com/miguelm7654/black-angular-frame"
 keywords = ["slides", "presentation", "academic", "beamer"]
 categories = ["presentation"]
 exclude = [
