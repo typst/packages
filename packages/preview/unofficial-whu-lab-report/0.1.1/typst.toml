@@ -14,3 +14,4 @@ compiler = "0.14.0"
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
+exclude = ["template/example.png", "template/signature.png"]
