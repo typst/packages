@@ -212,12 +212,12 @@
         #v(2em)
     ]
 
-    #par(justify: true, first-line-indent: 2em)[
+    #text[
+      #set par(justify: true, first-line-indent: 2em)
       评语:
       #for value in range(1,2) {
         " _______________________________________________________________\n"
       }
-
       #for value in range(1,8) {
           "_________________________________________________________________________\n"
       }
