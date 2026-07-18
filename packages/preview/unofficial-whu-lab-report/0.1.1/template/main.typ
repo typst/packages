@@ -43,15 +43,6 @@ def train_target():
     print("sota")
 ```
 
-== 图片
-
-使用 Typst 原生的 `#image()` 或 `#figure()` 插入图片：
-
-#figure(
-  image("example.png", width: 80%),
-  caption: [示例图片],
-)
-
 == 表格
 
 #figure(
