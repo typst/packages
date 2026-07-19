@@ -1,0 +1,5 @@
+manuscrit/
+manuscrit/*
+test/
+test/*
+**/test_template.yml

@@ -1,0 +1,39 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "moodular"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+  "Clemens Koza <https://github.com/SillyFreak/>"
+]
+license = "GPL-3.0-or-later"
+description = "Use Typst's HTML export to generate content for your Moodle courses"
+# homepage = ""
+repository = "https://github.com/SillyFreak/typst-moodular"
+keywords = ["moodle", "html"]
+categories = ["components", "integration"]
+disciplines = ["education"]
+compiler = "0.13.0"
+exclude = [
+  ".github",
+  "docs",
+  "gallery",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail.svg",
+  "thumbnail-moodle.png",
+  "thumbnail-moodle-no-spacer.png",
+  # "thumbnail-dark.svg",
+  # "thumbnail-light.svg",
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

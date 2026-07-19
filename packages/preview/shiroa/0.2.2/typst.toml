@@ -1,0 +1,11 @@
+[package]
+name = "shiroa"
+version = "0.2.2"
+entrypoint = "lib.typ"
+authors = ["Myriad-Dreamin <https://github.com/Myriad-Dreamin>"]
+license = "Apache-2.0"
+homepage = "https://myriad-dreamin.github.io/shiroa"
+repository = "https://github.com/Myriad-Dreamin/shiroa"
+keywords = ["book", "web"]
+categories = ["book"]
+description = "A simple tool for creating modern online books in pure typst."

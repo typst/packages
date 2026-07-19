@@ -1,0 +1,14 @@
+[package]
+name = "hypraw"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["QuadnucYard"]
+license = "MIT"
+description = "A lightweight package for creating headless code blocks optimized for HTML export."
+repository = "https://github.com/QuadnucYard/typst-hypraw"
+keywords = ["code", "highlight", "raw", "html"]
+categories = ["components", "layout"]
+compiler = "0.14.0"
+exclude = ["examples"]
+
+[tool]

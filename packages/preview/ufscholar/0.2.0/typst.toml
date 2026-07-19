@@ -1,0 +1,15 @@
+[package]
+name = "ufscholar"
+version = "0.2.0"
+authors = [ "Marcelo Vogt" ]
+entrypoint = "src/lib.typ"
+categories = [ "thesis", "layout" ]
+disciplines = [ "engineering", "education" ]
+license = "MIT"
+description = "ABNT-compliant thesis and dissertations for works at UFSC"
+repository = "https://github.com/MarkV43/ufscholar"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

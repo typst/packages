@@ -1,0 +1,11 @@
+{
+    "name": "dsa",
+    "description": "Data structures: linked lists, stacks, queues, graphs",
+    "dependencies": [],
+    "exports": [
+        "linked-list",
+        "stack",
+        "queue",
+        "free-graph"
+    ]
+}
