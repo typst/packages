@@ -60,18 +60,69 @@ by that rule. Named arguments:
 - `main-sections`: sections in the wider left column.
 - `aside-sections`: sections in the narrower right column.
 - `full-sections`: sections below both columns.
-- `accent`, `paper-fill`, `ink`, `muted`: document colors.
-- `page-paper`, `page-margin`, `language`: page size, margins, and document
-  language. Defaults: A4, compact resume margins, and English.
+- `language`: document language. Default: English.
 - `document-title`: title stored in document metadata. Default: `"Resume"`.
-- `display-font`: font used for the name.
-- `body-font`: font used for entries, dates, and skills rows.
-- `label-font`: font used for contacts, the profile, and entry subtitles.
-- `section-font`: optional font used for section headings. It defaults to
-  `label-font`. All font roles otherwise default to portable
-  `Libertinus Serif`.
-- `text-size`: base size used to scale the layout. Default: `11pt`.
 - `footer`: optional footer content.
+- `style`: visual overrides grouped by page region. Default: `(:)`.
+
+### `default-style`
+
+`default-style` contains every visual default used by `resume`. Normal use does
+not need it: pass only the values you want to change in `style`. Each supplied
+group is merged with its defaults.
+
+```typ
+#show: resume.with(
+  name: [Avery Example],
+  style: (
+    typography: (
+      base-size: 10.5pt,
+      display-font: ("New Computer Modern", "Libertinus Serif"),
+    ),
+    header: (
+      name-size: 3.3em,
+      contact-size: 7pt,
+    ),
+    columns: (widths: (1.7fr, 1fr),),
+  ),
+)
+```
+
+Relative `em` lengths scale with `typography.base-size`; absolute lengths such
+as `7pt` remain fixed. Unknown groups and keys produce an error with the full
+path.
+
+Available style groups:
+
+- `page`: `paper`, `fill`, `margin`, `footer-size`, `footer-fill`, and
+  `footer-alignment`.
+- `colors`: `accent`, `ink`, `muted`, `hairline`, `link`, `emphasis`, and
+  `marker`. `auto` makes the last three use their semantic default.
+- `typography`: `base-size`, `display-font`, `body-font`, `label-font`,
+  `section-font`, `emphasis-font`, `emphasis-style`, `paragraph-justify`, and
+  `paragraph-leading`. Optional font roles fall back to their related base
+  role.
+- `header`: `name-size`, `name-weight`, `name-tracking`, `name-after-gap`,
+  `contact-size`, `contact-separator`, `contact-separator-gap`, `rule-length`,
+  `rule-stroke`, `profile-size`, and `profile-weight`.
+- `columns`: `widths`, `gutter`, `divider-stroke`, `aside-inset`, and
+  `full-section-gap`.
+- `sections`: `before`, `title-columns`, `title-rule-gap`, `title-size`,
+  `title-weight`, `title-tracking`, `title-transform`, `rule-length`,
+  `rule-stroke`, `rule-start`, and `after`.
+- `entries`: `heading-columns`, `column-gutter`, `title-size`,
+  `compact-title-size`, `title-weight`, `inline-organisation-size`,
+  `dates-size`, `organisation-size`, `compact-organisation-size`,
+  `organisation-style`, `subtitle-size`, `metadata-gap`,
+  `metadata-separator`, `body-size`, `compact-body-size`, `body-before`,
+  `body-leading`, `compact-body-leading`, `after`, `compact-after`,
+  `divider-before`, `divider-after`, `divider-length`, and `divider-stroke`.
+- `skills`: `size`, `label-weight`, `columns`, and `row-gutter`.
+- `list`: `indent`, `body-indent`, `spacing`, and `marker`.
+
+Stroke values accept `none`, any value supported by Typst's `line` or `grid`
+stroke parameters, or a function that receives the relevant semantic color.
+Use `none` to remove a rule or divider.
 
 ### `contact`
 
