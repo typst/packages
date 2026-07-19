@@ -2,7 +2,7 @@
 // black-angular-frame -- Typst presentation template
 // Formal academic presentation theme for Typst
 // Usage:
-//   #import "black-angular-frame.typ": *
+//   #import "@preview/black-angular-frame:0.1.1": *
 //   #show: black-angular-frame.with(config: (title: "My Talk", ...))
 //   #slide(title: "First")[...]
 // ============================================================
@@ -73,6 +73,10 @@
 
 #let _single-line(content) = {
   if content == none { none } else if type(content) == str { content.replace("\n", " ") } else { content }
+}
+
+#let _footer-single-line(content) = {
+  if content == none { none } else if type(content) == str { content.replace("\n", "").replace("\r", "") } else { content }
 }
 
 #let _fit-ellipsis(value, remaining, width, text-width, suffix: "...") = {
@@ -403,13 +407,13 @@
 ) = {
   let hfc1 = if header-font-color-1 == auto { _muted-nav(primary) } else { header-font-color-1 }
   let hfc2 = if header-font-color-2 == auto { primary } else { header-font-color-2 }
-  let footer-side-width = w * 0.3 - _slide-x-margin
+  let footer-side-width = w * 0.4 - _slide-x-margin
   stack(
     dir: ttb,
     spacing: 0pt,
     block(width: w, height: 14.1pt, fill: secondary, inset: (left: 22.4pt, right: 22.4pt, top: 0pt, bottom: 0pt), {
       grid(
-        columns: (w * 0.3 - _slide-x-margin, w * 0.4, w * 0.3 - _slide-x-margin),
+        columns: (w * 0.4 - _slide-x-margin, w * 0.2, w * 0.4 - _slide-x-margin),
         block(
           width: 100%,
           height: 100%,
@@ -429,7 +433,7 @@
     }),
     block(width: w, height: 15.51pt, fill: primary, inset: (left: 22.4pt, right: 22.4pt, top: 0pt, bottom: 0pt), {
       grid(
-        columns: (w * 0.3 - _slide-x-margin, w * 0.4, w * 0.3 - _slide-x-margin),
+        columns: (w * 0.4 - _slide-x-margin, w * 0.2, w * 0.4 - _slide-x-margin),
         block(
           width: 100%,
           height: 100%,
@@ -1105,9 +1109,9 @@
     let al = if type(cfg-authors) == array { cfg-authors } else { (cfg-authors,) }
     al.join([,  ])
   } else { none }
-  let footer-content-1 = if cfg-footer-content-1 == auto { auth } else { cfg-footer-content-1 }
-  let footer-content-2 = if cfg-footer-content-2 == auto { inst } else { cfg-footer-content-2 }
-  let footer-content-3 = if cfg-footer-content-3 == auto { ft } else { cfg-footer-content-3 }
+  let footer-content-1 = _footer-single-line(if cfg-footer-content-1 == auto { auth } else { cfg-footer-content-1 })
+  let footer-content-2 = _footer-single-line(if cfg-footer-content-2 == auto { inst } else { cfg-footer-content-2 })
+  let footer-content-3 = _footer-single-line(if cfg-footer-content-3 == auto { ft } else { cfg-footer-content-3 })
 
   let w = if ratio > (16 / 9 - 0.01) { 254mm } else { 190mm }
   let h = w / ratio

@@ -5,9 +5,9 @@
 
 A Typst presentation template with a square, minimal, academic design language: a solid navigation bar on top, a two-level footer with page number, a tinted title strip for regular content slides, and compact box environments without wasted whitespace.
 
-![First four slides from the black-angular-frame demo](assets/example-preview.png)
+![Slides 1, 2, 22, and 23 from the black-angular-frame demo](assets/example-preview.svg)
 
-For a complete rendered demo, check the full example PDF: [example.pdf](https://github.com/mntsx/black-angular-frame/blob/d07d030e63d1b2a4a61f6e304819c92d03cabf90/example.pdf).
+For a complete rendered demo, check the full example PDF: [example.pdf](https://github.com/mntsx/black-angular-frame/blob/386626cba356b4db9ca8070c612c74e54a5deef9/example.pdf).
 
 ---
 
@@ -360,7 +360,7 @@ black-angular-frame/
 │   ├── typst-logo.png         # Local demo logo asset
 │   ├── github-logo.png        # Local demo logo asset
 │   ├── fonts/                 # IBM Plex Serif / Sans / Mono TTF files
-│   ├── example-preview.png    # README preview of the first four demo slides
+│   ├── example-preview.svg    # README preview of selected demo slides
 │   └── curves.csv             # Sample data for the line chart slide
 └── README.md
 ```

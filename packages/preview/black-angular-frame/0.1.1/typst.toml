@@ -10,7 +10,7 @@ categories = ["presentation"]
 exclude = [
   "example.typ",
   "example.pdf",
-  "assets/example-preview.png",
+  "assets/example-preview.svg",
   "assets/fonts/**",
   "assets/curves.csv",
   "tinymist.lock",
