@@ -84,22 +84,19 @@ Example usage:
 ### Additional functions
 `customFunctions.typ` contains additional functions that can be used in the template.
 
-`#smallLine`: A small line that can be used to separate sections.
+`#small-line`: A small line that can be used to separate sections.
 
 `#task`: A card that can be used to create a list of tracks (see example in 1-einleitung.typ).
 
-`#track` or `##narrowTrack`: A track that can be displayed inside a task (see example in 1-einleitung.typ).
+`#track` or `##narrow-track`: A track that can be displayed inside a task (see example in 1-einleitung.typ).
 
-`#useCase`: Display a Use Case (see example in 1-einleitung.typ).
+`#use-case`: Display a Use Case (see example in 1-einleitung.typ).
 
-`#attributedQuote`: Display a quote with an attribution.
+`#attributed-quote`: Display a quote with an attribution.
 
-`#diagramFigure`, `#codeFigure`, `#imageFigure`, `#treeFigure`: Wrap an image/code/diagram/tree-list in a figure with a caption.
+`#diagram-figure`, `#code-figure`, `#image-figure`, `#tree-figure`: Wrap an image/code/diagram/tree-list in a figure with a caption.
 
-`#imageFigureNoPad`: Display a figure without padding.
-
-`#getCurrentHeadingHydra`: Get the heading of the current page.
-
+`#image-figure-no-pad`: Display a figure without padding.
 
 
 ### Development Environment
