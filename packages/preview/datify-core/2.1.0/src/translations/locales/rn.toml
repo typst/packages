@@ -1,0 +1,98 @@
+[days.format.wide]
+1 = "Ku wa mbere"
+2 = "Ku wa kabiri"
+3 = "Ku wa gatatu"
+4 = "Ku wa kane"
+5 = "Ku wa gatanu"
+6 = "Ku wa gatandatu"
+7 = "Ku w’indwi"
+
+[days.format.abbreviated]
+1 = "mbe."
+2 = "kab."
+3 = "gtu."
+4 = "kan."
+5 = "gnu."
+6 = "gnd."
+7 = "cu."
+
+[days.stand-alone.wide]
+1 = "Ku wa mbere"
+2 = "Ku wa kabiri"
+3 = "Ku wa gatatu"
+4 = "Ku wa kane"
+5 = "Ku wa gatanu"
+6 = "Ku wa gatandatu"
+7 = "Ku w’indwi"
+
+[days.stand-alone.abbreviated]
+1 = "mbe."
+2 = "kab."
+3 = "gtu."
+4 = "kan."
+5 = "gnu."
+6 = "gnd."
+7 = "cu."
+
+[months.format.wide]
+1 = "Nzero"
+2 = "Ruhuhuma"
+3 = "Ntwarante"
+4 = "Ndamukiza"
+5 = "Rusama"
+6 = "Ruheshi"
+7 = "Mukakaro"
+8 = "Nyandagaro"
+9 = "Nyakanga"
+10 = "Gitugutu"
+11 = "Munyonyo"
+12 = "Kigarama"
+
+[months.format.abbreviated]
+1 = "Mut."
+2 = "Gas."
+3 = "Wer."
+4 = "Mat."
+5 = "Gic."
+6 = "Kam."
+7 = "Nya."
+8 = "Kan."
+9 = "Nze."
+10 = "Ukw."
+11 = "Ugu."
+12 = "Uku."
+
+[months.stand-alone.wide]
+1 = "Nzero"
+2 = "Ruhuhuma"
+3 = "Ntwarante"
+4 = "Ndamukiza"
+5 = "Rusama"
+6 = "Ruheshi"
+7 = "Mukakaro"
+8 = "Nyandagaro"
+9 = "Nyakanga"
+10 = "Gitugutu"
+11 = "Munyonyo"
+12 = "Kigarama"
+
+[months.stand-alone.abbreviated]
+1 = "Mut."
+2 = "Gas."
+3 = "Wer."
+4 = "Mat."
+5 = "Gic."
+6 = "Kam."
+7 = "Nya."
+8 = "Kan."
+9 = "Nze."
+10 = "Ukw."
+11 = "Ugu."
+12 = "Uku."
+
+[patterns]
+full = "EEEE d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "d/M/y"
+

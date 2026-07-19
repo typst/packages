@@ -1,0 +1,30 @@
+# Community overlay for Brazilian Portuguese (pt-BR).
+#
+# Only data that genuinely differs from CLDR lives here: the common Brazilian
+# numbered narrow weekdays (2ª..6ª, S, D) instead of CLDR's single letters
+# (S, T, Q, Q, S, S, D). This is a different representation, not derivable from
+# the CLDR value.
+#
+# Casing (e.g. "Segunda-feira" vs "segunda-feira") is intentionally NOT encoded
+# here: datify-core is a data backend, so capitalization is a presentation
+# choice left to the caller. This file is hand-maintained and is not touched by
+# the generator, so it survives the monthly regeneration. It is partial — every
+# cell it doesn't define falls through to CLDR.
+
+[days.format.narrow]
+1 = "2ª"
+2 = "3ª"
+3 = "4ª"
+4 = "5ª"
+5 = "6ª"
+6 = "S"
+7 = "D"
+
+[days.stand-alone.narrow]
+1 = "2ª"
+2 = "3ª"
+3 = "4ª"
+4 = "5ª"
+5 = "6ª"
+6 = "S"
+7 = "D"

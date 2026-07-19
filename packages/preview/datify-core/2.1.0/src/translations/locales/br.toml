@@ -1,0 +1,138 @@
+[days.format.wide]
+1 = "Lun"
+2 = "Meurzh"
+3 = "Mercʼher"
+4 = "Yaou"
+5 = "Gwener"
+6 = "Sadorn"
+7 = "Sul"
+
+[days.format.abbreviated]
+1 = "Lun"
+2 = "Meu."
+3 = "Mer."
+4 = "Yaou"
+5 = "Gwe."
+6 = "Sad."
+7 = "Sul"
+
+[days.format.narrow]
+1 = "L"
+2 = "Mz"
+3 = "Mc"
+4 = "Y"
+5 = "G"
+6 = "Sa"
+7 = "Su"
+
+[days.stand-alone.wide]
+1 = "Lun"
+2 = "Meurzh"
+3 = "Mercʼher"
+4 = "Yaou"
+5 = "Gwener"
+6 = "Sadorn"
+7 = "Sul"
+
+[days.stand-alone.abbreviated]
+1 = "Lun"
+2 = "Meu."
+3 = "Mer."
+4 = "Yaou"
+5 = "Gwe."
+6 = "Sad."
+7 = "Sul"
+
+[days.stand-alone.narrow]
+1 = "L"
+2 = "Mz"
+3 = "Mc"
+4 = "Y"
+5 = "G"
+6 = "Sa"
+7 = "Su"
+
+[months.format.wide]
+1 = "Genver"
+2 = "Cʼhwevrer"
+3 = "Meurzh"
+4 = "Ebrel"
+5 = "Mae"
+6 = "Mezheven"
+7 = "Gouere"
+8 = "Eost"
+9 = "Gwengolo"
+10 = "Here"
+11 = "Du"
+12 = "Kerzu"
+
+[months.format.abbreviated]
+1 = "Gen."
+2 = "Cʼhwe."
+3 = "Meur."
+4 = "Ebr."
+5 = "Mae"
+6 = "Mezh."
+7 = "Goue."
+8 = "Eost"
+9 = "Gwen."
+10 = "Here"
+11 = "Du"
+12 = "Kzu."
+
+[months.format.narrow]
+1 = "01"
+2 = "02"
+3 = "03"
+4 = "04"
+5 = "05"
+6 = "06"
+7 = "07"
+8 = "08"
+9 = "09"
+
+[months.stand-alone.wide]
+1 = "Genver"
+2 = "Cʼhwevrer"
+3 = "Meurzh"
+4 = "Ebrel"
+5 = "Mae"
+6 = "Mezheven"
+7 = "Gouere"
+8 = "Eost"
+9 = "Gwengolo"
+10 = "Here"
+11 = "Du"
+12 = "Kerzu"
+
+[months.stand-alone.abbreviated]
+1 = "Gen."
+2 = "Cʼhwe."
+3 = "Meur."
+4 = "Ebr."
+5 = "Mae"
+6 = "Mezh."
+7 = "Goue."
+8 = "Eost"
+9 = "Gwen."
+10 = "Here"
+11 = "Du"
+12 = "Kzu."
+
+[months.stand-alone.narrow]
+1 = "01"
+2 = "02"
+3 = "03"
+4 = "04"
+5 = "05"
+6 = "06"
+7 = "07"
+8 = "08"
+9 = "09"
+
+[patterns]
+full = "EEEE d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "dd/MM/y"
+

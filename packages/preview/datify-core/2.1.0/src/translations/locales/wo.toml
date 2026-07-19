@@ -1,0 +1,116 @@
+[days.format.wide]
+1 = "Altine"
+2 = "Talaata"
+3 = "Àlarba"
+4 = "Alxamis"
+5 = "Àjjuma"
+6 = "Aseer"
+7 = "Dibéer"
+
+[days.format.abbreviated]
+1 = "Alt"
+2 = "Tal"
+3 = "Àla"
+4 = "Alx"
+5 = "Àjj"
+6 = "Ase"
+7 = "Dib"
+
+[days.format.narrow]
+1 = "Alt"
+2 = "Tal"
+3 = "Àla"
+4 = "Alx"
+5 = "Àjj"
+6 = "Ase"
+7 = "Dib"
+
+[days.stand-alone.wide]
+1 = "Altine"
+2 = "Talaata"
+3 = "Àlarba"
+4 = "Alxamis"
+5 = "Àjjuma"
+6 = "Aseer"
+7 = "Dibéer"
+
+[days.stand-alone.abbreviated]
+1 = "Alt"
+2 = "Tal"
+3 = "Àla"
+4 = "Alx"
+5 = "Àjj"
+6 = "Ase"
+7 = "Dib"
+
+[days.stand-alone.narrow]
+1 = "Alt"
+2 = "Tal"
+3 = "Àla"
+4 = "Alx"
+5 = "Àjj"
+6 = "Ase"
+7 = "Dib"
+
+[months.format.wide]
+1 = "Samwiyee"
+2 = "Fewriyee"
+3 = "Mars"
+4 = "Awril"
+5 = "Mee"
+6 = "Suwe"
+7 = "Sulet"
+8 = "Ut"
+9 = "Sàttumbar"
+10 = "Oktoobar"
+11 = "Nowàmbar"
+12 = "Desàmbar"
+
+[months.format.abbreviated]
+1 = "Sam"
+2 = "Few"
+3 = "Mar"
+4 = "Awr"
+5 = "Mee"
+6 = "Suw"
+7 = "Sul"
+8 = "Ut"
+9 = "Sàt"
+10 = "Okt"
+11 = "Now"
+12 = "Des"
+
+[months.stand-alone.wide]
+1 = "Samwiyee"
+2 = "Fewriyee"
+3 = "Mars"
+4 = "Awril"
+5 = "Mee"
+6 = "Suwe"
+7 = "Sulet"
+8 = "Ut"
+9 = "Sàttumbar"
+10 = "Oktoobar"
+11 = "Nowàmbar"
+12 = "Desàmbar"
+
+[months.stand-alone.abbreviated]
+1 = "Sam"
+2 = "Few"
+3 = "Mar"
+4 = "Awr"
+5 = "Mee"
+6 = "Suw"
+7 = "Sul"
+8 = "Ut"
+9 = "Sàt"
+10 = "Okt"
+11 = "Now"
+12 = "Des"
+
+[patterns]
+full = "EEEE, d MMM, y"
+long = "d MMMM, y"
+medium = "d MMM, y"
+short = "dd-MM-y"
+
