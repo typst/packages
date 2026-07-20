@@ -76,6 +76,7 @@ article.diprint {
   max-width: var(--main-width);
   margin: 2rem auto;
   padding: var(--content-padding);
+  font-family: var(--font-body);
 }
 
 /* ============================================================
@@ -253,7 +254,6 @@ h4 + p {
    ============================================================ */
 
 p {
-  font-family: var(--font-body);
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
@@ -281,14 +281,13 @@ a:hover {
    ============================================================ */
 
 figure {
-  margin: 4rem auto;
+  margin: 2rem auto;
   text-align: center;
   overflow-x: auto;
   overflow-y: hidden;
 }
 
 figcaption {
-  font-family: var(--font-body);
   font-size: 0.9rem;
   line-height: 1.5rem;
   margin-top: 1.5rem;
@@ -303,7 +302,6 @@ table {
   border-collapse: collapse;
   margin: 0 auto;
   display: inline-table;
-  font-family: var(--font-body);
   max-width: var(--main-width);
 }
 
@@ -359,7 +357,6 @@ math[display="block"] {
 
 ul, ol {
   padding-left: 1.5rem;
-  font-family: var(--font-body);
 }
 
 li {
@@ -370,11 +367,30 @@ li {
    Bibliography
    ============================================================ */
 
-.ltx_bibitem {
-  font-family: var(--font-body);
-  padding-left: 10px;
+section[role="doc-bibliography"] {
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+section[role="doc-bibliography"] > h2 {
+  font-family: var(--font-headings);
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+section[role="doc-bibliography"] ul {
+  padding-left: 0;
+}
+
+section[role="doc-bibliography"] li {
   margin-bottom: 0.75rem;
   line-height: 1.5rem;
+}
+
+section[role="doc-bibliography"] .prefix {
+  margin-right: 0.5rem;
 }
 
 /* ============================================================

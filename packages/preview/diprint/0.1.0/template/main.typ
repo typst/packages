@@ -104,9 +104,7 @@ Lists work as usual:
 + Ordered items
 + Another ordered item
 
-= References
-
-#bibliography("references.bib")
+#bibliography(title: [References], "references.bib")
 
 // ---- Appendices ----
 #show: diprint-appendices
