@@ -4,10 +4,6 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/bookly/blob/4d424ceb57be727ad76cadce070d019860cbe64d/LICENSE)
 [![User Manual](https://img.shields.io/badge/Manual-.pdf-mediumpurple)](https://github.com/maucejo/bookly/blob/4d424ceb57be727ad76cadce070d019860cbe64d/docs/manual.pdf)
 
-<p align="center">
-<img src="docs/manual-images/bookly-logo.png" alt="drawing" width="200"/>
-</p>
-
 The `bookly` template is a Typst package designed for writing academic documents such as theses, French habilitations, or scientific books. It provides a structured format that adheres to academic standards, making it easier for authors to focus on content rather than formatting.
 
 ## Basic usage
