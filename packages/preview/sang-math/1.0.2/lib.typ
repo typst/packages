@@ -8,6 +8,7 @@
 #import "sang-exam.typ": *      // Trắc nghiệm, Tự luận, q-wrap...
 #import "exam-templates.typ": * // Preset giao diện đề thi đẹp
 #import "book-templates.typ": * // Preset giao diện sách, SGK, chuyên đề
+#import "print-layouts.typ": *  // Layout 70/30, nháp đảo bên khi in hai mặt
 #import "math-sym.typ": *       // Ký hiệu toán tắt (vô cùng, tập hợp...)
 #import "geometry.typ": *       // Hình học phẳng/không gian CeTZ (legacy v1)
 
