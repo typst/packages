@@ -64,17 +64,6 @@ Khi chỉ dùng một nhóm chức năng, nên import đúng tên cần dùng đ
 )
 ```
 
-## Bộ mẫu để copy và sửa
-
-Thư mục [`examples/copy-ready`](./examples/copy-ready) có các mẫu chạy sẵn cho
-đề 15 phút, giữa kỳ hỗn hợp, cấu trúc THPT 12–4–6, đề tự luận có nháp, phiếu học
-tập và câu có bảng biến thiên/CeTZ. Xem bảng chọn mẫu tại
-[`examples/README.md`](./examples/README.md).
-
-Giáo viên dùng AI/OCR để tạo hoặc chuyển đề có thể sao chép bộ hướng dẫn tại
-[`PROMPT_AI_TAO_DE.md`](./PROMPT_AI_TAO_DE.md). Prompt quy định đúng chữ ký
-`tn/ds/tln/tl`, ID ổn định, cú pháp toán Typst và bước tự kiểm tra đáp án.
-
 Các theme đề có thể lấy trực tiếp bằng `exam-template-names`; hiện gồm `classic`, `ocean`, `emerald`, `royal`, `violet`, `crimson`, `graphite`, `amber`, `teal-pro`, `sky`, `indigo-minimal`, `print-economy`, `aurora`, `lotus`, `navy-gold`, `jade`, `coral`, `plum`.
 
 ## Ví dụ sách/chuyên đề
@@ -123,10 +112,7 @@ Danh sách giao diện sách có sẵn nằm trong `book-template-names`.
 Nội dung đề thi...
 ```
 
-Trang lẻ đặt vùng nháp bên phải, trang chẵn đặt vùng nháp bên trái. Lề nội dung
-dùng cơ chế `inside`/`outside` nên tự đảo đúng khi in hai mặt. Mẫu đầy đủ nằm tại
-[`examples/copy-ready/07-de-70-30-nhap-in-hai-mat.typ`](./examples/copy-ready/07-de-70-30-nhap-in-hai-mat.typ).
-
+Trang lẻ đặt vùng nháp bên phải, trang chẵn đặt vùng nháp bên trái. Lề nội dung dùng cơ chế `inside`/`outside` nên tự đảo đúng khi in hai mặt.
 
 ## Hình học CeTZ nâng cao
 
