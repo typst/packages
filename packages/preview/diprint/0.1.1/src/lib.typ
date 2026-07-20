@@ -80,8 +80,6 @@
     }
   }
 
-  show figure: set block(spacing: 12pt)
-
   show link: underline
 
   context {
@@ -96,6 +94,16 @@
       }
 
       html.meta(name: "color-scheme", content: "light dark")
+
+      // Rasterize figures to SVG
+      show figure: it => {
+        html.elem("figure", {
+          html.frame(it.body)
+          if it.has("caption") {
+            it.caption
+          }
+        })
+      }
 
       html.elem("article", attrs: (class: "diprint", "data-font": font), {
 
@@ -183,6 +191,7 @@
       })
     } else {
       set text(font: "New Computer Modern")
+      show figure: set block(spacing: 12pt)
 
       line(length: 100%, stroke: 2pt)
 

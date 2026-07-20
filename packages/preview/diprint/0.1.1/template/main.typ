@@ -3,7 +3,7 @@
 //   typst compile main.typ              # PDF
 //   typst compile --features html main.typ output.html
 
-#import "@preview/diprint:0.1.0": diprint, diprint-appendices
+#import "@preview/diprint:0.1.1": diprint, diprint-appendices
 
 #show: diprint.with(
   title: "Typst Template for arXiv-style Preprints",
@@ -65,8 +65,7 @@ elements depending on the target format. The approach uses Typst's
 
 Tables and figures are numbered automatically.
 
-#figure(
-  table(
+#table(
     align: center,
     columns: (auto, auto, auto),
     stroke: 0.5pt,
@@ -74,16 +73,16 @@ Tables and figures are numbered automatically.
     [Method], [Precision], [F1],
     [Baseline], [0.72], [0.70],
     [Ours], [0.89], [0.90],
-  ),
-  caption: [Results on the benchmark dataset.]
-) <tab:results>
+  )
+
+  Table 1: Results on the benchmark dataset.
 
 #figure(
-  rect(width: 40%, height: 60pt, fill: rgb("e0e0e0")),
+  square(fill: gradient.conic(..color.map.rainbow)),
   caption: [A placeholder figure.]
 ) <fig:placeholder>
 
-In @tab:results we report precision and F1 scores. The figure in
+We report precision and F1 scores in the table above. The figure in
 @fig:placeholder illustrates the pipeline.
 
 = Discussion

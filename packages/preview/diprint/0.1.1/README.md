@@ -8,7 +8,7 @@ Compile to HTML and PDF from the same source!
 ## Quick start
 
 ```typ
-#import "@preview/diprint:0.1.0": diprint, diprint-appendices
+#import "@preview/diprint:0.1.1": diprint, diprint-appendices
 
 #show: diprint.with(
   title: "The Paper Of All Time",
@@ -45,7 +45,7 @@ For multi-file HTML output with an external stylesheet you can try:
 
 ```typ
 // bundle.typ
-#import "@preview/diprint:0.1.0": diprint, diprint-css, diprint-appendices
+#import "@preview/diprint:0.1.1": diprint, diprint-css, diprint-appendices
 
 #asset("diprint.css", diprint-css())
 

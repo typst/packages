@@ -17,7 +17,6 @@
   --color-table-border: #292929;
   --color-table-header-bg: #f5f5f5;
   --color-note-highlight: #ffffd4;
-  --font-headings: "Noto Sans", system-ui, -apple-system, sans-serif;
   --font-body: "Noto Serif", "New Computer Modern", Georgia, "Times New Roman", serif;
   --font-mono: "IBM Plex Mono", "Noto Sans Mono", "Courier New", monospace;
   --content-padding: 1rem;
@@ -27,7 +26,6 @@
    Dark mode
    ============================================================ */
 
-[data-theme="dark"],
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #282623;
@@ -100,7 +98,6 @@ article.diprint {
 .title-block {
   text-align: center;
   padding: 0.5rem 0;
-  font-family: var(--font-headings);
   font-size: 1.7rem;
   font-weight: normal;
   line-height: 1.3;
@@ -109,7 +106,6 @@ article.diprint {
 .subtitle {
   text-align: center;
   margin-bottom: 0.75rem;
-  font-family: var(--font-headings);
   font-size: 0.85rem;
   font-variant: small-caps;
   color: var(--color-text-secondary);
@@ -178,7 +174,6 @@ article.diprint {
 
 .abstract-heading {
   text-align: left;
-  font-family: var(--font-headings);
   font-size: 1.4rem;
   font-weight: bold;
   margin-top: 4rem;
@@ -191,10 +186,6 @@ article.diprint {
   text-justify: inter-word;
   hyphens: auto;
   margin-bottom: 1.5rem;
-}
-
-.abstract-content .ltx_p:first-of-type {
-  text-indent: 0;
 }
 
 /* ============================================================
@@ -221,7 +212,6 @@ article.diprint {
    ============================================================ */
 
 h2 {
-  font-family: var(--font-headings);
   font-size: 1.4rem;
   font-weight: bold;
   margin-top: 2rem;
@@ -230,7 +220,6 @@ h2 {
 }
 
 h3 {
-  font-family: var(--font-headings);
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1.5rem;
@@ -238,7 +227,6 @@ h3 {
 }
 
 h4 {
-  font-family: var(--font-headings);
   font-size: 1rem;
   font-weight: bold;
   display: inline;
@@ -285,6 +273,14 @@ figure {
   text-align: center;
   overflow-x: auto;
   overflow-y: hidden;
+  max-width: 100%;
+}
+
+figure svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 
 figcaption {
@@ -300,13 +296,12 @@ figcaption {
 
 table {
   border-collapse: collapse;
-  margin: 0 auto;
-  display: inline-table;
+  margin: 2rem auto;
+  display: table;
   max-width: var(--main-width);
 }
 
 th {
-  font-family: var(--font-headings);
   font-weight: 700;
   padding: 0.1em 0.5em;
   border-bottom: 0.063rem solid var(--color-table-border);
@@ -373,7 +368,6 @@ section[role="doc-bibliography"] {
 }
 
 section[role="doc-bibliography"] > h2 {
-  font-family: var(--font-headings);
   font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
