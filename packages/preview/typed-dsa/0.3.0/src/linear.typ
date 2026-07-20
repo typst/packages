@@ -446,9 +446,18 @@
 
 // Which node indices are present at each level, level 0 first. A node is
 // present at every level up to its own assigned height.
+// The tallest element is conventionally a sentinel head that spans every
+// level on its own, not a promoted data value (see the skip list article's
+// "Implementation details"). This library has no separate head box, so the
+// first real value stands in for it and is always drawn at every level,
+// regardless of what its own height would otherwise be.
+#let _skip-list-top(nodes) = calc.max(0, ..nodes.map(n => n.level))
+
+#let _skip-list-height(nodes, i) = if i == 0 { _skip-list-top(nodes) } else { nodes.at(i).level }
+
 #let _skip-list-level-filters(nodes) = {
-  let top = calc.max(0, ..nodes.map(n => n.level))
-  range(top + 1).map(level => nodes.map(n => n.level >= level))
+  let top = _skip-list-top(nodes)
+  range(top + 1).map(level => nodes.enumerate().map(((i, n)) => i == 0 or n.level >= level))
 }
 
 // A cheap, deterministic stand-in for a coin flip: Typst has no RNG, and
@@ -529,7 +538,7 @@
       let i = 0
       while i < nodes.len() and nodes.at(i).value < value { i += 1 }
       let new-nodes = nodes.slice(0, i) + ((value: value, level: assigned),) + nodes.slice(i)
-      let marks = range(assigned + 1).map(l => (l, i, "new"))
+      let marks = range(_skip-list-height(new-nodes, i) + 1).map(l => (l, i, "new"))
       _step(
         if step-label == none { [insert #value] } else { step-label },
         draw(nodes, ()),
@@ -541,7 +550,7 @@
     delete: (value, step-label: none) => {
       let i = nodes.position(n => n.value == value)
       assert(i != none, message: "delete key is not part of skip list")
-      let marks = range(nodes.at(i).level + 1).map(l => (l, i, "remove"))
+      let marks = range(_skip-list-height(nodes, i) + 1).map(l => (l, i, "remove"))
       let rest = nodes.slice(0, i) + nodes.slice(i + 1)
       _step(
         if step-label == none { [delete #value] } else { step-label },
