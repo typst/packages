@@ -457,9 +457,29 @@ canvas — plain schemes are unaffected.
 
 References: `atom(s, i)`, `bond(s, i, j)`, `lp(s, i)` (the species index `s` is
 optional inside a single `smiles()`), and `species(k)` for a whole `ce()`/content
-item. Every reference takes an optional `offset: (dx, dy)`.
+item. Every reference takes an optional `offset: (dx, dy)`. Curly arrows accept
+`heads: "end"/"both"/"none"` and `style: "solid"/"dashed"/"wavy"`, all working
+with `bend` — e.g. a double-headed dashed interaction arrow or a wavy
+photochemical one.
 
 ![Electron-pushing mechanism examples](assets/readme/mechanisms.png)
+
+In mechanism mode `reaction(scale:)` sets the shared canvas scale and each
+`mol(scale:)` multiplies it for its own species, so molecules in one mechanism
+can be sized individually. A `mol()` item placed in a `rxn-arrow(above:/below:)`
+slot draws a molecule over or under the arrow; in mechanism mode it also becomes
+a species of its own, counted in written order at the arrow's position (`above`
+before `below`), so curly arrows can connect it to any other species:
+
+```typst
+#reaction(
+  mol("C=C"),
+  rxn-arrow(above: mol("BrBr", scale: 0.8), below: [CCl#sub[4]]),
+  mol("BrC(Br)C"),
+  arrow(from: bond(0, 0, 1), to: atom(1, 0), color: red),
+  arrow(from: atom(1, 0), to: atom(1, 1), color: red, bend: "right"),
+)
+```
 
 ## Catalytic cycles
 
@@ -594,8 +614,8 @@ own sub-reaction, then continue.
 
 | Parameter | Default | Description |
 |---|---|---|
-| `above` | `none` | Label above a horizontal arrow (or right of vertical) |
-| `below` | `none` | Label below a horizontal arrow (or left of vertical) |
+| `above` | `none` | Label above a horizontal arrow (or right of vertical); content or a `mol()` item |
+| `below` | `none` | Label below a horizontal arrow (or left of vertical); content or a `mol()` item |
 | `dir` | `auto` | `"right"`, `"left"`, `"down"`, `"up"`, or `auto` (follows `reaction(flow:)`) |
 | `kind` | `"single"` | `"single"`, `"equilibrium"`, `"equilibrium-filled"`, `"dashed"`, or `"wavy"` |
 | `scale` | `1.0` | Uniform arrow scale, including condition labels |
@@ -610,9 +630,11 @@ A reaction item. `spec` is any content (`smiles(...)`, `ce(...)`, text) or a SMI
 *string* — a string lets `reaction()` render it with addressable atoms. `offset`
 nudges it in page coordinates, in bond-length units: positive x moves right and
 positive y moves up regardless of `reaction(flow:)`. String molecules accept
-common drawing options such as `font-size`, `font`, `bond-stroke`, `color`, `rotation`, `show-h`,
+common drawing options such as `scale`, `font-size`, `font`, `bond-stroke`, `color`, `rotation`, `show-h`,
 `lone-pairs`, `opacity`, `bond-customizations`, `atom-colors`, and
-`show-indices`; use `reaction(scale: ...)` to resize a shared mechanism canvas.
+`show-indices`; `reaction(scale: ...)` resizes a shared mechanism canvas, and
+each `mol(scale: ...)` multiplies it for that molecule alone. A `mol()` item
+also works inside `rxn-arrow(above:/below:)` slots.
 In ordinary schemes, the offset also updates the reaction's layout bounds, so
 wrappers such as `brackets()` follow a shifted edge.
 
@@ -637,7 +659,7 @@ an explicit angle such as `rotation: 45deg` is also accepted.
 | `bond(i, j)` / `bond(s, i, j)` | Bond-midpoint reference |
 | `lp(i)` / `lp(s, i)` | Lone-pair reference (`pair: n` to select) |
 | `species(k)` | Bounding-box edge of a whole item |
-| `arrow(from:, to:, label:, color:, bend:, angle:, half:)` | Curly electron arrow |
+| `arrow(from:, to:, label:, color:, bend:, angle:, half:, heads:, style:)` | Curly electron arrow; `heads: "end"/"both"/"none"`, `style: "solid"/"dashed"/"wavy"` |
 | `highlight(ref, fill:, stroke:, radius:)` | Shade an atom (disk) or bond (capsule) |
 | `brackets(body, sup:, sub:)` | Square brackets with optional corner marks |
 

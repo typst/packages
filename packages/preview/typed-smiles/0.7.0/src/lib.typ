@@ -1466,8 +1466,11 @@
 // Absolute canvas position of atom `i` in a placed species. Label references use
 // the rendered atom glyph center rather than the full label box.
 #let _atom-pos(sp, i) = {
+  // `mol-scale` shrinks or grows one species around its own origin; layout
+  // coordinates are stored unscaled, so every read multiplies by it.
+  let ms = sp.at("mol-scale", default: 1.0)
   let a = sp.layout.atoms.at(i)
-  let (rxv, ryv) = _rot(a.pos.x, a.pos.y, sp.rotation)
+  let (rxv, ryv) = _rot(a.pos.x * ms, a.pos.y * ms, sp.rotation)
   let base = (sp.origin.at(0) + rxv, sp.origin.at(1) + ryv)
 
   let cs = sp.at("canvas-scale", default: 30pt)
@@ -1475,7 +1478,7 @@
   let font = sp.at("font", default: "New Computer Modern")
   let show-h-state = _normalize-show-h(sp.at("show-h", default: ()))
   let show-all-h = show-h-state.all
-  let label-margin = calc.max(0.27, fs / cs * 0.70)
+  let label-margin = calc.max(0.27 * ms, fs / cs * 0.70)
   let subscript-size = fs * 1.00
   let superscript-size = fs * 1.00
   let atom-label(body, size: fs) = text(
@@ -1543,7 +1546,7 @@
 
   let label-fragment-pos(parent, fragment) = {
     let atom = sp.layout.atoms.at(parent)
-    let (pxr, pyr) = _rot(atom.pos.x, atom.pos.y, sp.rotation)
+    let (pxr, pyr) = _rot(atom.pos.x * ms, atom.pos.y * ms, sp.rotation)
     let px = sp.origin.at(0) + pxr
     let py = sp.origin.at(1) + pyr
     let deg = atom-degree(parent)
@@ -1560,7 +1563,7 @@
       let ni = first-neighbor(parent)
       if ni == none { return (px, py) }
       let nb = sp.layout.atoms.at(ni)
-      let (nbx, nby) = _rot(nb.pos.x, nb.pos.y, sp.rotation)
+      let (nbx, nby) = _rot(nb.pos.x * ms, nb.pos.y * ms, sp.rotation)
       let dx = nbx - pxr
       let dy = nby - pyr
       let pad-u = 1pt / cs
@@ -1616,7 +1619,7 @@
         false
       } else {
         let neighbor = sp.layout.atoms.at(ni)
-        let (nx, _) = _rot(neighbor.pos.x, neighbor.pos.y, sp.rotation)
+        let (nx, _) = _rot(neighbor.pos.x * ms, neighbor.pos.y * ms, sp.rotation)
         nx - pxr > 0.05
       }
     }
@@ -1673,6 +1676,7 @@
     nudge(((pa.at(0) + pb.at(0)) / 2, (pa.at(1) + pb.at(1)) / 2))
   } else if kind == "lp" {
     let sp = species.at(ref.species)
+    let ms = sp.at("mol-scale", default: 1.0)
     let a = sp.layout.atoms.at(ref.atom)
     let dirs = a.at("lone_pair_dirs", default: ())
     let base = _atom-pos(sp, ref.atom)
@@ -1681,7 +1685,7 @@
     } else {
       let d = dirs.at(calc.min(ref.pair, dirs.len() - 1))
       let (dx, dy) = _rot(d.x, d.y, sp.rotation)
-      nudge((base.at(0) + dx * lp-offset, base.at(1) + dy * lp-offset))
+      nudge((base.at(0) + dx * lp-offset * ms, base.at(1) + dy * lp-offset * ms))
     }
   } else if kind == "species" {
     // Bounding-box center of an opaque item; edge selection happens at draw time.
@@ -1737,9 +1741,13 @@
 /// - color (color): arrow color. Default: red.
 /// - bend (str): "left", "right", or none (straight). Which way the curve bows.
 /// - angle (angle): how strongly the curve bows. Default: 15deg.
-/// - half (bool): draw a half (fishhook) arrowhead for single-electron flow.
+/// - half (bool): draw half (fishhook) arrowheads for single-electron flow;
+///   applies to every head selected by `heads`.
+/// - heads (str): which ends carry an arrowhead — "end" (default), "both", or
+///   "none".
+/// - style (str): shaft style — "solid" (default), "dashed", or "wavy".
 /// -> dictionary  (consumed by smiles()/reaction())
-#let arrow(from: none, to: none, label: none, color: red, bend: "left", angle: 15deg, half: false) = (
+#let arrow(from: none, to: none, label: none, color: red, bend: "left", angle: 15deg, half: false, heads: "end", style: "solid") = (
   __arrow__: true,
   from: from,
   to: to,
@@ -1748,6 +1756,8 @@
   bend: bend,
   angle: angle,
   half: half,
+  heads: heads,
+  style: style,
 )
 
 /// Highlights an atom (disk) or bond (capsule) behind the structure.
@@ -1793,27 +1803,29 @@
   for ref in refs {
     if ref.__ref__ == "bond" {
       let sp = specs.at(ref.species)
+      let ms = sp.at("mol-scale", default: 1.0)
       let pa = _atom-pos(sp, ref.i)
       let pb = _atom-pos(sp, ref.j)
       let dx = pb.at(0) - pa.at(0)
       let dy = pb.at(1) - pa.at(1)
       let len = calc.max(1e-6, calc.sqrt(dx * dx + dy * dy))
-      let trim = if h.include-atoms { 0.0 } else { calc.min(cfg.bond-trim, len * 0.45) }
+      let trim = if h.include-atoms { 0.0 } else { calc.min(cfg.bond-trim * ms, len * 0.45) }
       let ux = dx / len
       let uy = dy / len
       line(
         (pa.at(0) + ux * trim, pa.at(1) + uy * trim),
         (pb.at(0) - ux * trim, pb.at(1) - uy * trim),
-        stroke: (paint: h.fill, thickness: cfg.bond-thickness, cap: "round"),
+        stroke: (paint: h.fill, thickness: cfg.bond-thickness * ms, cap: "round"),
       )
       if h.include-atoms {
-        let r = if h.radius == auto { cfg.atom-radius } else { h.radius }
+        let r = if h.radius == auto { cfg.atom-radius * ms } else { h.radius }
         circle(pa, radius: r, fill: h.fill, stroke: h.stroke)
         circle(pb, radius: r, fill: h.fill, stroke: h.stroke)
       }
     } else {
       let p = _resolve(ref, specs, cfg.lp-offset)
       let sp = specs.at(ref.species)
+      let ms = sp.at("mol-scale", default: 1.0)
       let atom = sp.layout.atoms.at(ref.index)
       let abbrev = atom.at("abbrev", default: "")
       if ref.__ref__ == "atom" and abbrev != "" {
@@ -1833,15 +1845,15 @@
           label-width,
         )
         let h-units = measure(label).height / cs
-        let pad-x = calc.max(0.08, fs / cs * 0.16)
-        let thick = cs * calc.max(h-units + fs / cs * 0.55, cfg.atom-radius * 1.7)
+        let pad-x = calc.max(0.08 * ms, fs / cs * 0.16)
+        let thick = cs * calc.max(h-units + fs / cs * 0.55, cfg.atom-radius * ms * 1.7)
         line(
           (center-x - w / 2 - pad-x, p.at(1)),
           (center-x + w / 2 + pad-x, p.at(1)),
           stroke: (paint: h.fill, thickness: thick, cap: "round"),
         )
       } else {
-        let r = if h.radius == auto { cfg.atom-radius } else { h.radius }
+        let r = if h.radius == auto { cfg.atom-radius * ms } else { h.radius }
         circle(p, radius: r, fill: h.fill, stroke: h.stroke)
       }
     }
@@ -1850,6 +1862,14 @@
 
 #let _draw-arrow(a, specs, cfg) = {
   import cetz.draw: *
+  let heads = a.at("heads", default: "end")
+  if heads not in ("end", "both", "none") {
+    panic("arrow heads must be \"end\", \"both\", or \"none\"")
+  }
+  let style = a.at("style", default: "solid")
+  if style not in ("solid", "dashed", "wavy") {
+    panic("arrow style must be \"solid\", \"dashed\", or \"wavy\"")
+  }
   let raw0 = _resolve(a.from, specs, cfg.lp-offset)
   let raw1 = _resolve(a.to, specs, cfg.lp-offset)
   let p0 = _endpoint(a.from, specs, cfg, raw1)
@@ -1875,9 +1895,68 @@
   let mag = (len / 2) * calc.tan(a.angle) * sign
   let apex = (mx + nx * mag, my + ny * mag)
 
-  let mk = (end: ">", fill: a.color, scale: cfg.arrow-scale, harpoon: a.half)
-  let strk = (paint: a.color, thickness: cfg.arrow-thickness)
-  if sign == 0 {
+  let mark-opts = (fill: a.color, scale: cfg.arrow-scale, harpoon: a.half)
+  let mk = if heads == "none" { none }
+           else if heads == "both" { (..mark-opts, start: ">", end: ">") }
+           else { (..mark-opts, end: ">") }
+  let strk = if style == "dashed" {
+    (paint: a.color, thickness: cfg.arrow-thickness,
+     dash: (array: (3pt * cfg.arrow-scale, 2.2pt * cfg.arrow-scale), phase: 0pt))
+  } else {
+    (paint: a.color, thickness: cfg.arrow-thickness)
+  }
+
+  if style == "wavy" {
+    // Parametrize the shaft — the straight segment or the bend's quadratic
+    // through the apex — and lay a sine wave along its normals. The wave spans
+    // a whole number of half-periods so it meets the ends flat, and each drawn
+    // head sits on a short straight lead pointing along the travel direction.
+    let ctrl = (
+      2 * apex.at(0) - (q0.at(0) + q1.at(0)) / 2,
+      2 * apex.at(1) - (q0.at(1) + q1.at(1)) / 2,
+    )
+    let pt(t) = if sign == 0 {
+      (q0.at(0) + (q1.at(0) - q0.at(0)) * t, q0.at(1) + (q1.at(1) - q0.at(1)) * t)
+    } else {
+      let u = 1 - t
+      (
+        u * u * q0.at(0) + 2 * t * u * ctrl.at(0) + t * t * q1.at(0),
+        u * u * q0.at(1) + 2 * t * u * ctrl.at(1) + t * t * q1.at(1),
+      )
+    }
+    let tangent(t) = if sign == 0 {
+      (q1.at(0) - q0.at(0), q1.at(1) - q0.at(1))
+    } else {
+      let u = 1 - t
+      (
+        2 * u * (ctrl.at(0) - q0.at(0)) + 2 * t * (q1.at(0) - ctrl.at(0)),
+        2 * u * (ctrl.at(1) - q0.at(1)) + 2 * t * (q1.at(1) - ctrl.at(1)),
+      )
+    }
+    let lead = calc.min(0.3, len * 0.25)
+    let t-start = if heads == "both" { lead / len } else { 0.0 }
+    let t-end = if heads == "none" { 1.0 } else { 1.0 - lead / len }
+    let span-t = t-end - t-start
+    let amp = 0.075
+    let n-half = calc.max(2, int(calc.round(len * span-t / 0.25)))
+    let n-seg = calc.max(24, n-half * 6)
+    let pts = range(n-seg + 1).map(k => {
+      let s = k / n-seg
+      let t = t-start + span-t * s
+      let p = pt(t)
+      let d = tangent(t)
+      let dl = calc.max(1e-6, calc.sqrt(d.at(0) * d.at(0) + d.at(1) * d.at(1)))
+      let off = calc.sin(s * n-half * 180deg) * amp
+      (p.at(0) - d.at(1) / dl * off, p.at(1) + d.at(0) / dl * off)
+    })
+    line(..pts, stroke: (..strk, cap: "round", join: "round"))
+    if heads == "end" or heads == "both" {
+      line(pt(t-end), q1, stroke: strk, mark: (..mark-opts, end: ">"))
+    }
+    if heads == "both" {
+      line(pt(t-start), q0, stroke: strk, mark: (..mark-opts, end: ">"))
+    }
+  } else if sign == 0 {
     line(q0, q1, stroke: strk, mark: mk)
   } else {
     bezier-through(q0, apex, q1, stroke: strk, mark: mk)
@@ -2170,8 +2249,11 @@
 
 /// Creates a reaction arrow for use inside #reaction().
 ///
-/// - above (content): Label above a horizontal arrow / to the right of a vertical one.
-/// - below (content): Label below a horizontal arrow / to the left of a vertical one.
+/// - above (content / dictionary): Label above a horizontal arrow / to the right
+///   of a vertical one. A mol() item renders as a molecule; in mechanism mode it
+///   also becomes a referenceable species of its own.
+/// - below (content / dictionary): Label below a horizontal arrow / to the left
+///   of a vertical one. Accepts the same values as `above`.
 /// - dir (auto / str): Arrow direction — "right", "left", "down", or "up".
 ///   `auto` follows the enclosing #reaction(flow:) (right for horizontal flows,
 ///   down for vertical). Default: auto.
@@ -2192,6 +2274,63 @@
   scale: scale,
   color: color,
 )
+
+/// A reaction-scheme item: a molecule or any content, with an optional label and
+/// position offset. Consumed by #reaction() and by the above/below slots of
+/// #rxn-arrow().
+///
+/// - spec (str / content): A SMILES string (rendered by #reaction with addressable
+///   atoms) or any content (e.g. ce(...), smiles(...), text — an opaque block).
+/// - label (content): Optional label shown below. Default: none.
+/// - offset (array): (dx, dy) page-axis nudge in bond-length units. Positive x
+///   moves right and positive y moves up, independent of reaction flow.
+/// - ..opts: Molecule drawing options used when `spec` is a string, including a
+///   per-molecule `scale`. In mechanism mode, per-molecule options control scale,
+///   labels, strokes, colors, rotation, mirroring, hydrogens, lone pairs, opacity,
+///   bond customizations, and index overlays; `reaction(scale: ...)` sets the
+///   shared base bond length that per-molecule scale multiplies.
+/// -> dictionary  (consumed by #reaction / #rxn-arrow)
+#let mol(spec, label: none, offset: (0, 0), ..opts) = (
+  __mol__: true,
+  spec: spec,
+  label: label,
+  offset: offset,
+  opts: opts.named(),
+)
+
+// Render a mol() item to standalone content (scheme/grid path).
+#let _render-mol(m, show-indices-default: false, offset-unit: 30pt) = context {
+  let opts = m.opts
+  if type(m.spec) == str and not ("show-indices" in opts) {
+    opts.insert("show-indices", show-indices-default)
+  }
+  let body = if type(m.spec) == str { smiles(m.spec, ..opts) } else { m.spec }
+  let rendered = if m.label == none { body } else { stack(spacing: 4pt, body, align(center, m.label)) }
+  if m.offset == (0, 0) {
+    rendered
+  } else {
+    let dx = m.offset.at(0) * offset-unit
+    let dy = -m.offset.at(1) * offset-unit
+    let size = measure(rendered)
+    // Keep the visual nudge while shrinking or expanding its layout box by the
+    // same amount. A surrounding layout consequently tracks the moved edge.
+    box(
+      width: calc.max(0pt, size.width + dx),
+      height: calc.max(0pt, size.height + dy),
+      move(dx: dx, dy: dy, rendered),
+    )
+  }
+}
+
+// An arrow label slot accepts plain content (rendered as small text) or a
+// mol() item (rendered as a molecule).
+#let _arrow-label-content(x) = {
+  if type(x) == dictionary and x.at("__mol__", default: false) {
+    _render-mol(x)
+  } else {
+    text(size: 8pt, x)
+  }
+}
 
 // Uniformly scales an arrow component while preserving its layout dimensions.
 #let _scale-rxn-arrow(body, factor) = {
@@ -2266,8 +2405,8 @@
   let body = if above == none and below == none {
     align(center + horizon, arrow-canvas)
   } else {
-    let above-label = if above != none { text(size: 8pt, above) } else { [] }
-    let below-label = if below != none { text(size: 8pt, below) } else { [] }
+    let above-label = if above != none { _arrow-label-content(above) } else { [] }
+    let below-label = if below != none { _arrow-label-content(below) } else { [] }
     let above-size = if above != none { measure(above-label) } else { (width: 0pt, height: 0pt) }
     let below-size = if below != none { measure(below-label) } else { (width: 0pt, height: 0pt) }
     let arrow-size = measure(arrow-canvas)
@@ -2344,8 +2483,8 @@
   let body = if above == none and below == none {
     align(center + horizon, arrow-canvas)
   } else {
-    let right-label = if above != none { text(size: 8pt, above) } else { [] }
-    let left-label = if below != none { text(size: 8pt, below) } else { [] }
+    let right-label = if above != none { _arrow-label-content(above) } else { [] }
+    let left-label = if below != none { _arrow-label-content(below) } else { [] }
     let right-w = if above != none { measure(right-label).width } else { 0pt }
     let left-w = if below != none { measure(left-label).width } else { 0pt }
     let side-w = calc.max(left-w, right-w)
@@ -2361,51 +2500,6 @@
   _scale-rxn-arrow(body, arrow-scale)
 }
 
-/// A reaction-scheme item: a molecule or any content, with an optional label and
-/// position offset. Consumed by #reaction().
-///
-/// - spec (str / content): A SMILES string (rendered by #reaction with addressable
-///   atoms) or any content (e.g. ce(...), smiles(...), text — an opaque block).
-/// - label (content): Optional label shown below. Default: none.
-/// - offset (array): (dx, dy) page-axis nudge in bond-length units. Positive x
-///   moves right and positive y moves up, independent of reaction flow.
-/// - ..opts: Molecule drawing options used when `spec` is a string. In mechanism
-///   mode, use `reaction(scale: ...)` for bond length; per-molecule options control
-///   labels, strokes, colors, rotation, mirroring, hydrogens, lone pairs, opacity,
-///   bond customizations, and index overlays.
-/// -> dictionary  (consumed by #reaction)
-#let mol(spec, label: none, offset: (0, 0), ..opts) = (
-  __mol__: true,
-  spec: spec,
-  label: label,
-  offset: offset,
-  opts: opts.named(),
-)
-
-// Render a mol() item to standalone content (scheme/grid path).
-#let _render-mol(m, show-indices-default: false, offset-unit: 30pt) = context {
-  let opts = m.opts
-  if type(m.spec) == str and not ("show-indices" in opts) {
-    opts.insert("show-indices", show-indices-default)
-  }
-  let body = if type(m.spec) == str { smiles(m.spec, ..opts) } else { m.spec }
-  let rendered = if m.label == none { body } else { stack(spacing: 4pt, body, align(center, m.label)) }
-  if m.offset == (0, 0) {
-    rendered
-  } else {
-    let dx = m.offset.at(0) * offset-unit
-    let dy = -m.offset.at(1) * offset-unit
-    let size = measure(rendered)
-    // Keep the visual nudge while shrinking or expanding its layout box by the
-    // same amount. A surrounding layout consequently tracks the moved edge.
-    box(
-      width: calc.max(0pt, size.width + dx),
-      height: calc.max(0pt, size.height + dy),
-      move(dx: dx, dy: dy, rendered),
-    )
-  }
-}
-
 /// Lays out a reaction scheme or an electron-pushing mechanism.
 ///
 /// Items are any mix of mol(), content (smiles(), ce(), text…), rxn-arrow()
@@ -2419,12 +2513,15 @@
 ///  - Mechanism: any curly arrow()/highlight(). Species are placed in one shared
 ///    canvas (left to right, each nudged by its offset) so curly arrows can
 ///    reference atoms across species. References are atom(s, i),
-///    bond(s, i, j), lp(s, i) and species(k), where s/k count mol()/content items in
-///    written order (rxn-arrows and annotations are not counted).
+///    bond(s, i, j), lp(s, i) and species(k), where s/k count mol()/content items
+///    in written order — including mol() items inside rxn-arrow(above:/below:)
+///    slots (above before below, at the arrow's position in the sequence).
+///    Plain arrow-label content and annotations are not counted.
 ///
 /// - gap-h (length): Horizontal gap between grid items (scheme mode). Default: 1.5em.
 /// - gap-v (length): Vertical gap between grid items (scheme mode). Default: 1.5em.
-/// - scale (float): Uniform scale. In mechanism mode it sets the canvas bond length.
+/// - scale (float): Uniform scale. In mechanism mode it sets the shared canvas
+///   bond length, which each mol(scale: ...) multiplies for its own species.
 /// - breakable (bool): Whether the block may split across pages. Default: false.
 /// - show-indices (bool): Default index overlay for string SMILES molecules in
 ///   this reaction. Individual mol(..., show-indices: ...) calls can override it.
@@ -2583,63 +2680,108 @@
       let flow = ()        // positioned but non-referenceable content (rxn-arrows)
       let annotations = () // curly arrows and highlights
       let cursor = 0.0
+      let lift-pad = 0.15  // gap between an arrow and a species lifted from its label slot
+
+      // Build a placed-species record for a mol() item, centered at (0, 0) plus
+      // its own offset. `place-spec` shifts it to its final canvas position.
+      let make-spec(m) = {
+        if type(m.spec) == str {
+          let mol-scale = float(m.opts.at("scale", default: 1.0))
+          if mol-scale <= 0 { panic("mol scale must be positive") }
+          let lay = _mirror-layout(
+            _layout(m.spec),
+            m.opts.at("mirror", default: none),
+            rotation: m.opts.at("rotation", default: 0deg),
+          )
+          let mol-fs = m.opts.at("font-size", default: none)
+          (
+            kind: "mol-smiles",
+            layout: lay,
+            mol-scale: mol-scale,
+            rotation: m.opts.at("rotation", default: 0deg),
+            origin: (m.offset.at(0), m.offset.at(1)),
+            size: (lay.bbox_width * mol-scale, lay.bbox_height * mol-scale),
+            label: m.label,
+            opts: m.opts,
+            canvas-scale: canvas-scale,
+            actual-font-size: if mol-fs == none { 11pt * the-scale * mol-scale } else { mol-fs },
+            font: m.opts.at("font", default: "New Computer Modern"),
+            show-h: m.opts.at("show-h", default: ()),
+          )
+        } else {
+          let meas = measure(m.spec)
+          (
+            kind: "content",
+            body: m.spec,
+            rotation: 0deg,
+            origin: (m.offset.at(0), m.offset.at(1)),
+            size: (meas.width / canvas-scale, meas.height / canvas-scale),
+            label: m.label,
+          )
+        }
+      }
+      let place-spec(sp, cx, cy) = sp + (origin: (sp.origin.at(0) + cx, sp.origin.at(1) + cy))
 
       for it in steps {
         if is-curly(it) or is-highlight(it) {
           annotations.push(it)
         } else if is-rxn-arrow(it) {
-          let body = if it.dir == "right" or it.dir == "left" {
-            _horiz-arrow(it.above, it.below, it.dir, it.kind, it.at("color", default: auto), arrow-scale: it.at("scale", default: 1.0))
+          // mol() items in the arrow's above/below slots are lifted out of the
+          // arrow body and registered as species of their own (above before
+          // below), so their atoms stay addressable; any other label content
+          // stays part of the arrow.
+          let lift-above = if is-mol(it.above) { make-spec(it.above) } else { none }
+          let lift-below = if is-mol(it.below) { make-spec(it.below) } else { none }
+          let above = if lift-above == none { it.above } else { none }
+          let below = if lift-below == none { it.below } else { none }
+          let horizontal = it.dir == "right" or it.dir == "left"
+          let body = if horizontal {
+            _horiz-arrow(above, below, it.dir, it.kind, it.at("color", default: auto), arrow-scale: it.at("scale", default: 1.0))
           } else {
-            _vert-arrow(it.above, it.below, it.dir, it.kind, it.at("color", default: auto), arrow-scale: it.at("scale", default: 1.0))
+            _vert-arrow(above, below, it.dir, it.kind, it.at("color", default: auto), arrow-scale: it.at("scale", default: 1.0))
           }
-          let w = measure(body).width / canvas-scale
-          flow.push((body: body, origin: (cursor + w / 2, 0)))
-          cursor += w + gap
+          let aw = measure(body).width / canvas-scale
+          let ah = measure(body).height / canvas-scale
+          if horizontal {
+            // Lifted species sit above/below the arrow inside a slot wide
+            // enough for all three.
+            let slot-w = calc.max(
+              aw,
+              if lift-above == none { 0.0 } else { lift-above.size.at(0) },
+              if lift-below == none { 0.0 } else { lift-below.size.at(0) },
+            )
+            let cx = cursor + slot-w / 2
+            flow.push((body: body, origin: (cx, 0)))
+            if lift-above != none {
+              specs.push(place-spec(lift-above, cx, ah / 2 + lift-pad + lift-above.size.at(1) / 2))
+            }
+            if lift-below != none {
+              specs.push(place-spec(lift-below, cx, -(ah / 2 + lift-pad + lift-below.size.at(1) / 2)))
+            }
+            cursor += slot-w + gap
+          } else {
+            // A vertical arrow shows `above` on its right and `below` on its left.
+            let left-w = if lift-below == none { 0.0 } else { lift-below.size.at(0) + lift-pad }
+            let right-w = if lift-above == none { 0.0 } else { lift-above.size.at(0) + lift-pad }
+            let cx = cursor + left-w + aw / 2
+            flow.push((body: body, origin: (cx, 0)))
+            if lift-above != none {
+              specs.push(place-spec(lift-above, cx + aw / 2 + lift-pad + lift-above.size.at(0) / 2, 0))
+            }
+            if lift-below != none {
+              specs.push(place-spec(lift-below, cx - aw / 2 - lift-pad - lift-below.size.at(0) / 2, 0))
+            }
+            cursor += left-w + aw + right-w + gap
+          }
         } else {
           let m = if is-mol(it) {
             it
           } else {
             (__mol__: true, spec: it, label: none, offset: (0, 0), opts: (:))
           }
-          if type(m.spec) == str {
-            let lay = _mirror-layout(
-              _layout(m.spec),
-              m.opts.at("mirror", default: none),
-              rotation: m.opts.at("rotation", default: 0deg),
-            )
-            let w = lay.bbox_width
-            let h = lay.bbox_height
-            let mol-fs = m.opts.at("font-size", default: none)
-            let mol-actual-fs = if mol-fs == none { 11pt * scale } else { mol-fs }
-            specs.push((
-              kind: "mol-smiles",
-              layout: lay,
-              rotation: m.opts.at("rotation", default: 0deg),
-              origin: (cursor + w / 2 + m.offset.at(0), m.offset.at(1)),
-              size: (w, h),
-              label: m.label,
-              opts: m.opts,
-              canvas-scale: canvas-scale,
-              actual-font-size: mol-actual-fs,
-              font: m.opts.at("font", default: "New Computer Modern"),
-              show-h: m.opts.at("show-h", default: ()),
-            ))
-            cursor += w + gap
-          } else {
-            let meas = measure(m.spec)
-            let w = meas.width / canvas-scale
-            let h = meas.height / canvas-scale
-            specs.push((
-              kind: "content",
-              body: m.spec,
-              rotation: 0deg,
-              origin: (cursor + w / 2 + m.offset.at(0), m.offset.at(1)),
-              size: (w, h),
-              label: m.label,
-            ))
-            cursor += w + gap
-          }
+          let sp = make-spec(m)
+          specs.push(place-spec(sp, cursor + sp.size.at(0) / 2, 0))
+          cursor += sp.size.at(0) + gap
         }
       }
 
@@ -2653,15 +2795,21 @@
         for sp-idx in range(specs.len()) {
           let sp = specs.at(sp-idx)
           if sp.kind == "mol-smiles" {
+            // A per-species scale is a canvas transform around the species
+            // origin plus a matching factor on the drawing scale, so strokes
+            // and labels (which transforms leave untouched) shrink in step
+            // with the geometry.
+            let ms = sp.at("mol-scale", default: 1.0)
             group({
               translate((sp.origin.at(0), sp.origin.at(1)))
+              if ms != 1.0 { scale(ms) }
               let (mol-fg, mol-theme) = _resolve-fg-theme(
                 sp.opts.at("fg", default: auto),
                 sp.opts.at("theme", default: auto),
               )
               _draw-molecule(
                 sp.layout,
-                scale: the-scale,
+                scale: the-scale * ms,
                 font-size: sp.opts.at("font-size", default: none),
                 font: sp.opts.at("font", default: "New Computer Modern"),
                 bond-stroke: sp.opts.at("bond-stroke", default: none),
