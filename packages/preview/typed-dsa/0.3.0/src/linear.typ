@@ -481,23 +481,65 @@
 // capped at `max-level`.
 #let _skip-list-node-level(value, decision-fn, max-level) = {
   let level = 0
-  while level < max-level and decision-fn(level + 1, value) {
+  while level < max-level {
+    let promote = decision-fn(level + 1, value)
+    assert(type(promote) == bool, message: "skip-list decision-fn must return a boolean")
+    if not promote { break }
     level += 1
   }
   level
 }
 
+#let _skip-list-is-number(value) = type(value) == int or type(value) == float
+#let _skip-list-is-value(value) = _skip-list-is-number(value) or type(value) == str
+#let _skip-list-compatible(a, b) = (_skip-list-is-number(a) and _skip-list-is-number(b)) or (type(a) == str and type(b) == str)
+
+#let _validate-skip-list-values(vs) = {
+  for value in vs {
+    assert(_skip-list-is-value(value), message: "skip-list values must be int, float, or str")
+  }
+  let i = 1
+  while i < vs.len() {
+    let previous = vs.at(i - 1)
+    let value = vs.at(i)
+    assert(_skip-list-compatible(previous, value), message: "skip-list values must all be numbers or all be strings")
+    assert(previous < value, message: "skip-list values must be strictly ascending with no duplicates")
+    i += 1
+  }
+}
+
+#let _validate-skip-list-insert(nodes, value, level) = {
+  assert(_skip-list-is-value(value), message: "skip-list values must be int, float, or str")
+  if nodes.len() > 0 {
+    assert(_skip-list-compatible(nodes.first().value, value), message: "skip-list values must all be numbers or all be strings")
+  }
+  assert(not (value in nodes.map(n => n.value)), message: "skip-list insert value must not already be present")
+  if level != auto {
+    assert(type(level) == int and level >= 0, message: "skip-list insert level must be a non-negative integer")
+  }
+}
+
+#let _validate-skip-list-key(nodes, key) = {
+  assert(_skip-list-is-value(key), message: "skip-list keys must be int, float, or str")
+  if nodes.len() > 0 {
+    assert(_skip-list-compatible(nodes.first().value, key), message: "skip-list keys must be compatible with the list values")
+  }
+}
+
 // Returns the list of `(level, column-index, "path")` marks tracing the
-// search path down to `key`.
+// search path down to `key`, or to its predecessor when it is absent.
 #let _skip-list-search-marks(vs, level-filters, key) = {
-  assert(key in vs, message: "search key is not part of skip list")
-  let key-index = vs.position(k => k == key)
+  let key-index = 0
+  for (i, value) in vs.enumerate() {
+    if value <= key { key-index = i } else { break }
+  }
 
   let marks = ()
 
   let current-column = 0
   for (current-level, level-filter) in level-filters.enumerate().rev() {
     let next-entry-indices = level-filter.enumerate().filter(l => l.at(0) >= current-column and l.at(1)).map(l => l.at(0))
+    if next-entry-indices.len() == 0 { continue }
     let next-entry-index = next-entry-indices.remove(0)
 
     while next-entry-index != none and next-entry-index <= key-index {
@@ -524,16 +566,20 @@
 
   (
     diagram: draw(nodes, ()),
-    search: (key, step-label: none) => _step(
-      if step-label == none { [search #key] } else { step-label },
-      draw(nodes, ()),
-      draw(nodes, _skip-list-search-marks(nodes.map(n => n.value), _skip-list-level-filters(nodes), key)),
-      _skip-list-obj(nodes, style, decision-fn, level-spacing, max-level),
-      style: style,
-    ),
+    search: (key, step-label: none) => {
+      _validate-skip-list-key(nodes, key)
+      _step(
+        if step-label == none { [search #key] } else { step-label },
+        draw(nodes, ()),
+        draw(nodes, _skip-list-search-marks(nodes.map(n => n.value), _skip-list-level-filters(nodes), key)),
+        _skip-list-obj(nodes, style, decision-fn, level-spacing, max-level),
+        style: style,
+      ) + (found: key in nodes.map(n => n.value), index: nodes.position(n => n.value == key))
+    },
     // `level: auto` assigns the new value's height with `decision-fn`;
     // pass an explicit level to force a specific tower height instead.
     insert: (value, level: auto, step-label: none) => {
+      _validate-skip-list-insert(nodes, value, level)
       let assigned = if level == auto { _skip-list-node-level(value, decision-fn, max-level) } else { level }
       let i = 0
       while i < nodes.len() and nodes.at(i).value < value { i += 1 }
@@ -548,6 +594,7 @@
       )
     },
     delete: (value, step-label: none) => {
+      _validate-skip-list-key(nodes, value)
       let i = nodes.position(n => n.value == value)
       assert(i != none, message: "delete key is not part of skip list")
       let marks = range(_skip-list-height(nodes, i) + 1).map(l => (l, i, "remove"))
@@ -564,6 +611,10 @@
 }
 
 #let skip-list(style: (:), decision-fn: default-decision-fn, level-spacing: 1.4, max-level: 4, ..vals) = {
-  let nodes = vals.pos().map(v => (value: v, level: _skip-list-node-level(v, decision-fn, max-level)))
+  let values = vals.pos()
+  assert(type(max-level) == int and max-level >= 0, message: "skip-list max-level must be a non-negative integer")
+  assert((type(level-spacing) == int or type(level-spacing) == float) and level-spacing > 0, message: "skip-list level-spacing must be a positive number")
+  _validate-skip-list-values(values)
+  let nodes = values.map(v => (value: v, level: _skip-list-node-level(v, decision-fn, max-level)))
   _skip-list-obj(nodes, style, decision-fn, level-spacing, max-level)
 }

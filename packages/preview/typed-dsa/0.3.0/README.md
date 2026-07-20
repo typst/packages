@@ -67,12 +67,12 @@ value as the front. List objects support `prepend`, append or indexed
 
 ### Skip Lists
 
-`skip-list` draws a sorted list with express-lane levels above it. Pass
-values already in ascending order. A node's height is assigned once — by
+`skip-list` draws a sorted list with express-lane levels above it. Pass values
+in strictly ascending order, without duplicates. A node's height is assigned once — by
 `decision-fn`, deterministically from the value since Typst has no RNG — and
 never changes just because something else is inserted or deleted elsewhere.
 Objects support `search`, `insert` (`level: auto` or an explicit height), and
-`delete`.
+`delete`. Searches return `found` and `index`, including for a missing value.
 
 ```typst
 #let l = skip-list(1, 2, 3, 4, 5, 6)
