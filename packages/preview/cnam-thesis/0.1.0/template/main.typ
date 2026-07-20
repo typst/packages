@@ -1,4 +1,4 @@
-#import "../src/cnam-thesis.typ": *
+#import "@preview/cnam-thesis:0.1.0": *
 
 #let supervisor = (
   (name: "Henri Grégoire", title: "Abbé constitutionnelle", institution: "Cnam, Paris"),

@@ -1,4 +1,4 @@
-#import "../../src/cnam-thesis.typ": *
+#import "@preview/cnam-thesis:0.1.0": *
 
 // #show: chapter.with(title: "Conclusions et perspectives", toc: false)
 
