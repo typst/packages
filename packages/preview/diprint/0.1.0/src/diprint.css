@@ -1,0 +1,421 @@
+/* diprint — arXiv-style HTML paper stylesheet */
+
+/* ============================================================
+   Design tokens — light theme
+   ============================================================ */
+
+:root {
+  --main-width: 52rem;
+  --color-bg: #ffffff;
+  --color-text: #292929;
+  --color-text-secondary: #7D7568;
+  --color-rule: #292929;
+  --color-rule-thin: #999999;
+  --color-link: #1b7cac;
+  --color-link-hover: #6b6459;
+  --color-figure-bg: #f5f5f5;
+  --color-table-border: #292929;
+  --color-table-header-bg: #f5f5f5;
+  --color-note-highlight: #ffffd4;
+  --font-headings: "Noto Sans", system-ui, -apple-system, sans-serif;
+  --font-body: "Noto Serif", "New Computer Modern", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", "Noto Sans Mono", "Courier New", monospace;
+  --content-padding: 1rem;
+}
+
+/* ============================================================
+   Dark mode
+   ============================================================ */
+
+[data-theme="dark"],
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #282623;
+    --color-text: #f9f7f7;
+    --color-text-secondary: #ADA4A4;
+    --color-rule: #c9d1d9;
+    --color-rule-thin: #555555;
+    --color-link: #2198d4;
+    --color-link-hover: #a5d6fe;
+    --color-figure-bg: #1c1a17;
+    --color-table-border: #c9d1d9;
+    --color-table-header-bg: #1c1a17;
+    --color-note-highlight: #231d02;
+  }
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.5rem;
+  font-size: 1rem;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================
+   Sans-serif font override
+   ============================================================ */
+
+[data-font="sans"] article.diprint,
+article.diprint[data-font="sans"] {
+  --font-body: "Noto Sans", system-ui, -apple-system, sans-serif;
+}
+
+article.diprint {
+  max-width: var(--main-width);
+  margin: 2rem auto;
+  padding: var(--content-padding);
+}
+
+/* ============================================================
+   Title block
+   ============================================================ */
+
+.header-rule {
+  border: none;
+  border-top: 0.063rem solid var(--color-rule);
+  margin: 0;
+}
+
+.header-spacer-top {
+  margin-top: 1rem;
+}
+
+.header-spacer-bottom {
+  margin-top: 0.2rem;
+}
+
+.title-block {
+  text-align: center;
+  padding: 0.5rem 0;
+  font-family: var(--font-headings);
+  font-size: 1.7rem;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-headings);
+  font-size: 0.85rem;
+  font-variant: small-caps;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   Authors — flexbox layout
+   ============================================================ */
+
+.authors-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 3rem;
+  margin: 0.75rem 0;
+}
+
+.author-entry {
+  text-align: center;
+  flex: 1 1 0px;
+  max-width: calc(0.65 * var(--main-width));
+  min-width: calc(0.27 * var(--main-width));
+  padding: 0.5rem;
+  overflow-wrap: break-word;
+}
+
+.author-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.author-affil {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.author-email {
+  font-size: 0.85rem;
+}
+
+.orcid-link {
+  text-decoration: none;
+}
+
+.orcid-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Date
+   ============================================================ */
+
+.date-block {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   Abstract
+   ============================================================ */
+
+.abstract-heading {
+  text-align: left;
+  font-family: var(--font-headings);
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.abstract-content {
+  font-family: var(--font-body);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  margin-bottom: 1.5rem;
+}
+
+.abstract-content .ltx_p:first-of-type {
+  text-indent: 0;
+}
+
+/* ============================================================
+   Keywords
+   ============================================================ */
+
+.keywords {
+  font-family: var(--font-body);
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   Thin rule between header and body
+   ============================================================ */
+
+.rule-thin {
+  border: none;
+  border-top: 0.063rem solid var(--color-rule);
+  margin: 1.5rem 0;
+}
+
+/* ============================================================
+   Headings
+   ============================================================ */
+
+h2 {
+  font-family: var(--font-headings);
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: var(--font-headings);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-family: var(--font-headings);
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+h4 + p {
+  display: inline;
+}
+
+/* ============================================================
+   Paragraphs
+   ============================================================ */
+
+p {
+  font-family: var(--font-body);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   Links
+   ============================================================ */
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: none;
+}
+
+/* ============================================================
+   Figures and tables
+   ============================================================ */
+
+figure {
+  margin: 4rem auto;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+figcaption {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-secondary);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  display: inline-table;
+  font-family: var(--font-body);
+  max-width: var(--main-width);
+}
+
+th {
+  font-family: var(--font-headings);
+  font-weight: 700;
+  padding: 0.1em 0.5em;
+  border-bottom: 0.063rem solid var(--color-table-border);
+  text-align: center;
+  white-space: nowrap;
+  overflow-wrap: break-word;
+}
+
+td {
+  padding: 0.1em 0.5em;
+  border-bottom: 0.063rem solid var(--color-table-border);
+  text-align: center;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* ============================================================
+   Code
+   ============================================================ */
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+pre {
+  background: var(--color-figure-bg);
+  padding: 0.8em 1em;
+  overflow-x: auto;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   Math (MathML)
+   ============================================================ */
+
+math[display="block"] {
+  display: block;
+  margin: 0.65rem auto;
+  overflow-x: auto;
+  font-family: "STIX Two Math", "Cambria Math", "Latin Modern Math", math;
+}
+
+/* ============================================================
+   Lists
+   ============================================================ */
+
+ul, ol {
+  padding-left: 1.5rem;
+  font-family: var(--font-body);
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================================
+   Bibliography
+   ============================================================ */
+
+.ltx_bibitem {
+  font-family: var(--font-body);
+  padding-left: 10px;
+  margin-bottom: 0.75rem;
+  line-height: 1.5rem;
+}
+
+/* ============================================================
+   Footnotes
+   ============================================================ */
+
+.footnote {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   Section spacing
+   ============================================================ */
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 52rem) {
+  :root {
+    --content-padding: 0.5rem;
+  }
+
+  article.diprint {
+    margin: 1rem auto;
+  }
+
+  .title-block {
+    font-size: 1.4rem;
+  }
+
+  .authors-container {
+    gap: 0.5rem;
+  }
+
+  .author-entry {
+    min-width: 100%;
+  }
+}
