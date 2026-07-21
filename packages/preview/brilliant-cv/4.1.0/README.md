@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/thumbnail.png" alt="Brilliant CV Preview" width="100%">
+  <img src="thumbnail.png" alt="Brilliant CV Preview" width="100%">
   <br>
   <br>
   Brilliant CV
