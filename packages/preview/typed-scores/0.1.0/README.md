@@ -1,6 +1,6 @@
 # typed-scores
 
-See the [documentation](https://github.com/GeronimoCastano/typed-scores/blob/3ee50d55643a98825bd5bd2f7280d514d1c402b9/docs/documentation.pdf) for the complete reference.
+See the [documentation](https://github.com/GeronimoCastano/typed-scores/blob/8a548a009bf46ada16b9c2714fa6bc089f3f9616/docs/documentation.pdf) for the complete reference.
 
 ![Chopin Nocturne Op. 9 No. 2 opening](assets/readme/chopin-opening.png)
 
@@ -283,7 +283,7 @@ naturals before the new signature when required.
 - Pedals and hairpins do not split automatically at system breaks.
 - Dense markings may need `staff-gap`, `note-spacing`, or `scale` adjustment.
 
-See the [user guide](https://github.com/GeronimoCastano/typed-scores/blob/3ee50d55643a98825bd5bd2f7280d514d1c402b9/docs/documentation.pdf)
+See the [user guide](https://github.com/GeronimoCastano/typed-scores/blob/8a548a009bf46ada16b9c2714fa6bc089f3f9616/docs/documentation.pdf)
 for the complete reference. The
 [five-piece release showcase](https://github.com/GeronimoCastano/typed-scores/blob/ad89a0fc891f9eb71d67b83731af872992f5a56e/examples/showcase.pdf)
 includes famous piano, string-score, solo-cello, and alto-saxophone excerpts;
