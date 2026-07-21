@@ -1,4 +1,4 @@
-# cnam-thesis
+# community-cnam-thesis
 
 [![Generic badge](https://img.shields.io/badge/Version-0.1.0-cornflowerblue.svg)](https://github.com/maucejo/bookly/releases/tag/0.1.0)
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/book_template/blob/83b81913230586d26d11426b1a642ebb9081a360/LICENSE)
