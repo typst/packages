@@ -1,0 +1,16 @@
+[package]
+name = "yuuko-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Yuuko <@YuuKozlx>"]
+license = "MIT AND MIT-0"
+description = "Technical reports with portrait or landscape chart layouts."
+keywords = ["report", "landscape", "portrait", "charts", "grid"]
+categories = ["report"]
+compiler = "0.15.0"
+exclude = ["/examples/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
