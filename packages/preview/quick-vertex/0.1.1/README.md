@@ -10,18 +10,18 @@ the cases a synthetic example set usually forgets: **unbounded regions, multiple
 optima, unbounded objectives, empty regions, strict inequalities and any quadrant**.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/13Stokes31/quick-vertex/main/gallery/g1.png" width="47%" alt="Bounded region, unique optimum">
-  <img src="https://raw.githubusercontent.com/13Stokes31/quick-vertex/main/gallery/g2.png" width="47%" alt="Unbounded region, finite minimum">
+  <img src="gallery/g1.png" width="47%" alt="Bounded region, unique optimum">
+  <img src="gallery/g2.png" width="47%" alt="Unbounded region, finite minimum">
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/13Stokes31/quick-vertex/main/gallery/g3.png" width="47%" alt="Multiple optima along a segment">
-  <img src="https://raw.githubusercontent.com/13Stokes31/quick-vertex/main/gallery/g4.png" width="47%" alt="Region outside the first quadrant">
+  <img src="gallery/g3.png" width="47%" alt="Multiple optima along a segment">
+  <img src="gallery/g4.png" width="47%" alt="Region outside the first quadrant">
 </p>
 
 ## Usage
 
 ```typ
-#import "@preview/quick-vertex:0.1.0": feasible-region
+#import "@preview/quick-vertex:0.1.1": feasible-region
 
 #feasible-region(
   ((1, 1, 4, "<="), (1, 3, 6, "<=")),
