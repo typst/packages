@@ -1,7 +1,7 @@
 #import "cnam-theme.typ": *
 #import "cnam-helper.typ": *
 
-#let cnam-thesis(
+#let community-cnam-thesis(
     title: "Titre de la thèse",
     author: "Nom de l'auteur",
     thesis-info: thesis-info-default,
@@ -10,9 +10,9 @@
     body
 ) = context {
     // Merge the default thesis info with the provided thesis info
-    let cnam-thesis-info = thesis-info-default + thesis-info
-     if cnam-thesis-info.logo != none {
-        cnam-states.logo.update(cnam-thesis-info.logo)
+    let community-cnam-thesis-info = thesis-info-default + thesis-info
+     if community-cnam-thesis-info.logo != none {
+        cnam-states.logo.update(community-cnam-thesis-info.logo)
     }
     cnam-states.lang.update(lang)
     cnam-states.note-counter.step()
@@ -26,7 +26,7 @@
         theme: cnam,
         colors: cnam-colors,
         lang: lang,
-        title-page: cnam-titlepage(cnam-thesis-info),
+        title-page: cnam-titlepage(community-cnam-thesis-info),
         config-options: (
             open-right: open-right,
             par-indent: true

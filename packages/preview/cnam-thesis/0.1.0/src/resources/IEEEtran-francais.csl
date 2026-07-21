@@ -3,8 +3,8 @@
   <info>
     <title>IEEEtran Français (autonome)</title>
     <title-short>IEEEtran FR autonome</title-short>
-    <id>https://github.com/maucejo/cnam-thesis/styles/ieeetran-francais-autonome</id>
-    <link href="https://github.com/maucejo/cnam-thesis/styles/ieeetran-francais-autonome" rel="self"/>
+    <id>https://github.com/maucejo/community-cnam-thesis/styles/ieeetran-francais-autonome</id>
+    <link href="https://github.com/maucejo/community-cnam-thesis/styles/ieeetran-francais-autonome" rel="self"/>
     <link href="https://journals.ieeeauthorcenter.ieee.org/your-role-in-article-production/ieee-editorial-style-manual/" rel="documentation"/>
     <author>
       <name>Michael Berkowitz</name>

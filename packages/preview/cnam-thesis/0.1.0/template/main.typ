@@ -1,4 +1,4 @@
-#import "@preview/cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.0": *
 
 #let supervisor = (
   (name: "Henri Grégoire", title: "Abbé constitutionnelle", institution: "Cnam, Paris"),
@@ -25,7 +25,7 @@
 )
 
 
-#show: cnam-thesis.with(
+#show: community-cnam-thesis.with(
     title: "Titre de la thèse",
     author: "Nom de l'auteur",
     thesis-info: (
