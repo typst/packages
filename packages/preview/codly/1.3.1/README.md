@@ -173,25 +173,31 @@ print(fib(25))
 
 You can annotate a line/group of lines using the `annotations` parameters :
 
-```typ
+````typ
 // Add an annotation from the second line (0 indexing) to the 5th line included.
 #codly(
   annotations: (
     (
-      start: 2,
-      end: 4,
+      start: 2, end: 5,
       content: block(
         width: 2em,
         // Rotate the element to make it look nice
-        rotate(
-          -90deg,
-          align(center, box(width: 100pt)[Function body])
+        rotate(-90deg, reflow: true,
+          align(center)[Function body]
         )
       )
     ), 
-  )
+  ),
 )
+```py
+def fib(n):
+  if n <= 1:
+    return n
+  else:
+    return fib(n - 1) + fib(n - 2)
+print(fib(25))
 ```
+````
 
 ![annotations](./assets/annotations.png)
 
