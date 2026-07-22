@@ -6,8 +6,8 @@
 
 *Unofficial template. Ported from the [`revtex4-2`]-based [`PKUMpLtX`] (v2.1.6)*
 
-[![Typst](https://img.shields.io/badge/built%20with-Typst-239dad.svg)](https://typst.app/)
-[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg)](#)
+[![Built with Typst](https://img.shields.io/badge/built%20with-Typst-239dad.svg)](https://typst.app/)
+[![Supported platforms: macOS, Linux, Windows](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg)](#)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0-blue.svg)](./LICENSE)
 
 English | [中文](./README_zh.md)

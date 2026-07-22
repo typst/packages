@@ -18,8 +18,6 @@ exclude = [
   "fig",
   "fig.mplstyle",
   "figgen.py",
-  "bibli.bib",
-  "american-physics-society.csl",
   "CHANGELOG.md",
   "Justfile",
   ".gitignore",
