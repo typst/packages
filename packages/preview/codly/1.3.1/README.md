@@ -18,7 +18,7 @@ A full set of documentation can be found [in the repo](https://raw.githubusercon
 
 ````typ
 #import "@preview/codly:1.3.1": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.8": *
 #show: codly-init.with()
 
 #codly(languages: codly-languages)
