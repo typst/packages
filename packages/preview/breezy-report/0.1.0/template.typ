@@ -2,8 +2,6 @@
 // Author: Breanna Barraclough
 // License: MIT-0
 
-#let date = datetime.today()
-
 #let in-body = state("in-body", false)
 
 #let end-breezy(bib-file: none) = {
@@ -11,10 +9,11 @@
 }
 #let breezy(
   semester: "Semester 1, 20##", 
+  date: datetime.today(),
   course-code: "ENGE500",
   course-name: "Course Name",
   title:"Report Title: The purpose of the report",
-  student-ID:"########",
+  student-id:"########",
   author:"Author Name",
   accent-colour:rgb("#300649"),
   table-header-text-colour:white,
@@ -118,7 +117,7 @@
                 }
               ],
               [
-                ID: #student-ID
+                ID: #student-id
               ]
             )
           ]
@@ -170,7 +169,7 @@
           [
             #text(size:14pt,font:headingFont,fill:white,weight:"bold")[#author]
             #v(-0.5em)
-            #text(size:11pt,font:headingFont,fill:accent-colour.lighten(70%))[Student ID: #student-ID]
+            #text(size:11pt,font:headingFont,fill:accent-colour.lighten(70%))[Student ID: #student-id]
           ],
           [
           #text(size:11pt,font:headingFont,fill:accent-colour.lighten(94%))[ *Submission date:* \

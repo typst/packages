@@ -5,7 +5,7 @@
   course-code: "ENGE500",
   course-name: "Course Name",
   title: "Report Title: The purpose of the report",
-  student-ID: "12345678",
+  student-id: "12345678",
   author: "Student Name",
 )
 

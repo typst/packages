@@ -1,6 +1,6 @@
 # breezy-report
 
-A clean, colour-customisable engineering report template for Typst. Designed for university assignment submissions. The submission date is auto-populated.
+A clean, colour-customisable engineering report template for Typst. Designed for university assignment submissions. The submission date is auto-populated, but can be overridden.
 
 ## Usage
 
@@ -32,6 +32,8 @@ A clean, colour-customisable engineering report template for Typst. Designed for
 |---|---|---|
 | `accentColour` | `rgb("#300649")` | Primary accent colour |
 | `tableHeaderTextColour` | `white` | Table header text colour |
+| `date` | datetime.today() | Date for the title page. Override with `date: datetime(day: #, month: #, year: ####)`|
+
 
 ## Default fonts
  - **Georgia**: Body text.
