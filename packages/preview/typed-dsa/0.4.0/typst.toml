@@ -1,0 +1,11 @@
+[package]
+name = "typed-dsa"
+version = "0.4.0"
+entrypoint = "src/lib.typ"
+authors = ["Geronimo Castano"]
+license = "MIT"
+description = "Declarative data-structure and algorithm diagrams with operation transitions and teaching traces."
+repository = "https://github.com/GeronimoCastano/typed-dsa"
+keywords = ["data-structures", "algorithms", "diagrams", "trees", "education"]
+categories = ["visualization"]
+exclude = ["assets/readme/*.png"]
