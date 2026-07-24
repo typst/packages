@@ -1097,7 +1097,11 @@
 #let tln = short
 
 // ── exam-mode ─────────────────────────────────────────────
-#let exam-mode(mode: "dethi", accent: palette.accent) = (
+#let exam-mode(
+  mode: "dethi",
+  accent: palette.accent,
+  ..args
+) = (
   tn: tn.with(mode: mode, accent: accent),
   ds: ds.with(mode: mode, accent: accent),
   tln: tln.with(mode: mode, accent: accent),
