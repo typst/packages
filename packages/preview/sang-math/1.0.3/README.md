@@ -35,11 +35,13 @@ Phiên bản 1.0.3 bổ sung các module chuyên sâu cho sách và bài giảng
 ```typ
 // Sử dụng module sách
 #import "@preview/sang-math:1.0.3": book
-#show: book.sang-book.with(title: "Chuyên đề Toán")
+#show: book.stexgv-book.with(title: "Chuyên đề Toán")
 
 // Sử dụng module trình chiếu
 #import "@preview/sang-math:1.0.3": beamer
-#show: beamer.theme-focus.with(title: "Bài 1: Hàm số")
+#show: beamer.sang-beamer-theme.with(
+  title: "Bài 1: Hàm số",
+)
 ```
 
 ## API chính
