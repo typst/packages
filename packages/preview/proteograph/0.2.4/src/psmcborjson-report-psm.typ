@@ -130,27 +130,31 @@
   if (protein-dict != none) {
     psm-cbor-display-psm-protein-region(psm, protein-dict)
   }
-  if ("ms2" in scan) and ("spectrum" in scan.ms2) {
+  if ("ms2" in scan) {
     [
-      #get-ms2spectra-plot-from-proforma(
-        width: 14cm,
-        height: 5cm,
-        proforma: psm.proforma,
-        spectra: scan.ms2.spectrum,
-        precision: 0.02,
-        charge-max: scan.precursor.z,
-      )
+      #if "spectrum" in scan.ms2 {
+        get-ms2spectra-plot-from-proforma(
+          width: 14cm,
+          height: 5cm,
+          proforma: psm.proforma,
+          spectra: scan.ms2.spectrum,
+          precision: 0.02,
+          charge-max: scan.precursor.z,
+        )
+      }
       #columns(2, gutter: 1cm)[
         #box(width: 100%, inset: (x: 0.5em), [
-          / hyperscore: #calc.round(
-              compute-hyperscore(
-                proforma: psm.proforma,
-                spectra: scan.ms2.spectrum,
-                precision: 0.02,
-                charge-max: scan.precursor.z,
-              ),
-              digits: 2,
-            )
+          #if "spectrum" in scan.ms2 [
+            / hyperscore: #calc.round(
+                compute-hyperscore(
+                  proforma: psm.proforma,
+                  spectra: scan.ms2.spectrum,
+                  precision: 0.02,
+                  charge-max: scan.precursor.z,
+                ),
+                digits: 2,
+              )
+          ]
           / peptide length: #get-sequence-from-proforma(psm.proforma).len()
           / peptide mh: #calc.round(
               get-mass-from-proforma(psm.proforma) + mass-hplus,
@@ -162,7 +166,7 @@
               digits: 5,
             )
           / #sym.Delta mh: #calc.round(
-              psm-cbor-compute-precursor-mass(scan.precursor) - get-mass-from-proforma(psm.proformax),
+              psm-cbor-compute-precursor-mass(scan.precursor) - get-mass-from-proforma(psm.proforma),
               digits: 5,
             )
         ])
@@ -182,6 +186,9 @@
 #let psm-cbor-scan-report(scan, protein-dict: none, offset: 0) = {
   [
 
+
+    #heading([#set text(hyphenate: true)
+      #scan.sample.name])
     #heading(
       offset: offset,
       level: auto,
