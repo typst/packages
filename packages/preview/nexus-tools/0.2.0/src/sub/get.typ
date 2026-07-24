@@ -44,7 +44,7 @@ also a named value for the year.
   not set.
 
 pattern: <- string
-  Pattern used to parse datetime from string.
+  Pattern used to parse datetime from string (basic `dd`, `mm`, and `yyyy` support).
 **/
 #let date(..date, pattern: "mm/dd/yyyy") = {
   if type(date.pos().at(0, default: "")) == datetime {return date.pos().at(0)}
@@ -124,13 +124,13 @@ pattern: <- string
 /**
 == Relative Luminance
 :relative-luminance:
-Calculates the relative relative luminance of a color (0 is lighter and 1 is darker)
+Returns the relative relative luminance --- something like the "amount of light" --- of a color, ranging from 0 (darkest) to 1 (lightest).
 
 colour <- color
   Color to be evaluated.
 
 `#relative-luminance()` -> float
-  The relative luminance is expressed as a floating-point number (0 is lighter and 1 is darker).
+  The relative luminance obtained, as a floating-point number.
 **/
 #let relative-luminance(colour) = {
   assert.eq(type(colour), color, message: "Argument must be a color")
@@ -150,17 +150,18 @@ colour <- color
 == Dynamic colors
 :dynamic-color: => #get.<name>(<capt>)
 
-Return a foreground color based on a background color luminance: lighter color when dark and darker color when light.
+Derive different colors based on the relative luminance of a color.
+This is ideal to set optimal foreground colors that contrasts with background colors (e.g.: texts).
 **/
 #let dynamic-color(
   background, /// <- color
-    /// Background color evaluated. |
+    /// Color evaluated. |
   dark: white, /// <- color
-    /// Foreground color when background is darker. |
+    /// Color returned when the relative luminance evaluated is low (darker color). |
   light: black, /// <- color
-    /// Foreground color when background is lighter. |
+    /// Color returned when the relative luminance evaluated is high (lighter color). |
   limit: 0.55 /// <- float
-    /// Luminance limit (0 is light and 1 is dark). |
+    /// Relative luminance limit (0--1). |
 ) = {
   assert.eq(type(background), color, message: "Argument must be a color")
   assert.eq(type(dark), color, message: "Dark must be a color")
