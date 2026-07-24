@@ -1,0 +1,116 @@
+[days.format.wide]
+1 = "mɔ́ndɔ"
+2 = "sɔ́ndɔ mafú mába"
+3 = "sɔ́ndɔ mafú málal"
+4 = "sɔ́ndɔ mafú mána"
+5 = "mabágá má sukul"
+6 = "sásadi"
+7 = "sɔ́ndɔ"
+
+[days.format.abbreviated]
+1 = "mɔ́n"
+2 = "smb"
+3 = "sml"
+4 = "smn"
+5 = "mbs"
+6 = "sas"
+7 = "sɔ́n"
+
+[days.format.narrow]
+1 = "m"
+2 = "s"
+3 = "s"
+4 = "s"
+5 = "m"
+6 = "s"
+7 = "s"
+
+[days.stand-alone.wide]
+1 = "mɔ́ndɔ"
+2 = "sɔ́ndɔ mafú mába"
+3 = "sɔ́ndɔ mafú málal"
+4 = "sɔ́ndɔ mafú mána"
+5 = "mabágá má sukul"
+6 = "sásadi"
+7 = "sɔ́ndɔ"
+
+[days.stand-alone.abbreviated]
+1 = "mɔ́n"
+2 = "smb"
+3 = "sml"
+4 = "smn"
+5 = "mbs"
+6 = "sas"
+7 = "sɔ́n"
+
+[days.stand-alone.narrow]
+1 = "m"
+2 = "s"
+3 = "s"
+4 = "s"
+5 = "m"
+6 = "s"
+7 = "s"
+
+[months.format.wide]
+1 = "ngwɛn matáhra"
+2 = "ngwɛn ńmba"
+3 = "ngwɛn ńlal"
+4 = "ngwɛn ńna"
+5 = "ngwɛn ńtan"
+6 = "ngwɛn ńtuó"
+7 = "ngwɛn hɛmbuɛrí"
+8 = "ngwɛn lɔmbi"
+9 = "ngwɛn rɛbvuâ"
+10 = "ngwɛn wum"
+11 = "ngwɛn wum navǔr"
+12 = "krísimin"
+
+[months.format.abbreviated]
+1 = "ng1"
+2 = "ng2"
+3 = "ng3"
+4 = "ng4"
+5 = "ng5"
+6 = "ng6"
+7 = "ng7"
+8 = "ng8"
+9 = "ng9"
+10 = "ng10"
+11 = "ng11"
+12 = "kris"
+
+[months.stand-alone.wide]
+1 = "ngwɛn matáhra"
+2 = "ngwɛn ńmba"
+3 = "ngwɛn ńlal"
+4 = "ngwɛn ńna"
+5 = "ngwɛn ńtan"
+6 = "ngwɛn ńtuó"
+7 = "ngwɛn hɛmbuɛrí"
+8 = "ngwɛn lɔmbi"
+9 = "ngwɛn rɛbvuâ"
+10 = "ngwɛn wum"
+11 = "ngwɛn wum navǔr"
+12 = "krísimin"
+
+[months.stand-alone.abbreviated]
+1 = "ng1"
+2 = "ng2"
+3 = "ng3"
+4 = "ng4"
+5 = "ng5"
+6 = "ng6"
+7 = "ng7"
+8 = "ng8"
+9 = "ng9"
+10 = "ng10"
+11 = "ng11"
+12 = "kris"
+
+[patterns]
+full = "EEEE d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "d/M/y"
+

@@ -1,0 +1,115 @@
+[days.format.wide]
+1 = "suno esun #1"
+2 = "suno esun #2"
+3 = "suno esun #3"
+4 = "suno esun #4"
+5 = "suno esun #5"
+6 = "suno esun #6"
+7 = "suno esun #7"
+
+[days.format.abbreviated]
+1 = "suno esun #1"
+2 = "suno esun #2"
+3 = "suno esun #3"
+4 = "suno esun #4"
+5 = "suno esun #5"
+6 = "suno esun #6"
+7 = "suno esun #7"
+
+[days.format.narrow]
+1 = "1"
+2 = "2"
+3 = "3"
+4 = "4"
+5 = "5"
+6 = "6"
+7 = "7"
+
+[days.stand-alone.wide]
+1 = "suno esun #1"
+2 = "suno esun #2"
+3 = "suno esun #3"
+4 = "suno esun #4"
+5 = "suno esun #5"
+6 = "suno esun #6"
+7 = "suno esun #7"
+
+[days.stand-alone.abbreviated]
+1 = "suno esun #1"
+2 = "suno esun #2"
+3 = "suno esun #3"
+4 = "suno esun #4"
+5 = "suno esun #5"
+6 = "suno esun #6"
+7 = "suno esun #7"
+
+[days.stand-alone.narrow]
+1 = "1"
+2 = "2"
+3 = "3"
+4 = "4"
+5 = "5"
+6 = "6"
+7 = "7"
+
+[months.format.wide]
+1 = "tenpo mun #1"
+2 = "tenpo mun #2"
+3 = "tenpo mun #3"
+4 = "tenpo mun #4"
+5 = "tenpo mun #5"
+6 = "tenpo mun #6"
+7 = "tenpo mun #7"
+8 = "tenpo mun #8"
+9 = "tenpo mun #9"
+10 = "tenpo mun #10"
+11 = "tenpo mun #11"
+12 = "tenpo mun #12"
+
+[months.format.abbreviated]
+1 = "tenpo mun #1"
+2 = "tenpo mun #2"
+3 = "tenpo mun #3"
+4 = "tenpo mun #4"
+5 = "tenpo mun #5"
+6 = "tenpo mun #6"
+7 = "tenpo mun #7"
+8 = "tenpo mun #8"
+9 = "tenpo mun #9"
+10 = "tenpo mun #10"
+11 = "tenpo mun #11"
+12 = "tenpo mun #12"
+
+[months.stand-alone.wide]
+1 = "tenpo mun #1"
+2 = "tenpo mun #2"
+3 = "tenpo mun #3"
+4 = "tenpo mun #4"
+5 = "tenpo mun #5"
+6 = "tenpo mun #6"
+7 = "tenpo mun #7"
+8 = "tenpo mun #8"
+9 = "tenpo mun #9"
+10 = "tenpo mun #10"
+11 = "tenpo mun #11"
+12 = "tenpo mun #12"
+
+[months.stand-alone.abbreviated]
+1 = "tenpo mun #1"
+2 = "tenpo mun #2"
+3 = "tenpo mun #3"
+4 = "tenpo mun #4"
+5 = "tenpo mun #5"
+6 = "tenpo mun #6"
+7 = "tenpo mun #7"
+8 = "tenpo mun #8"
+9 = "tenpo mun #9"
+10 = "tenpo mun #10"
+11 = "tenpo mun #11"
+12 = "tenpo mun #12"
+
+[patterns]
+full = "'sike' #y 'la' MMM 'la' 'suno' #d"
+long = "'tenpo' 'sike' #y 'la' 'tenpo' MMMM 'la' 'tenpo' 'suno' #d"
+medium = "'sike' #y 'la' MMM 'la' 'suno' #d"
+
