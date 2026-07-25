@@ -8,4 +8,4 @@ categories = ["components"]
 license = "MIT"
 description = "Reusable components for math worksheets"
 keywords = ["worksheet", "teaching", "math"]
-exclude = ["/examples/*"]
+exclude = ["/examples/*", "/AGENTS.md"]
