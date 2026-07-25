@@ -22,16 +22,15 @@ Reusable components for guided worksheets in Typst. Built for my [math-work](htt
 
 ## Sample
 
-See [sample.typ](https://github.com/ZaneH/ditto/blob/main/examples/sample.typ) for a full working example. The sample
-file includes optional style rules defined at the top. To compile the sample, run this in the package root:
+See [sample.typ](./examples/sample.typ) for a full working example. The sample file includes optional style rules
+defined at the top. To compile the sample, run this in the package root:
 
 ```sh
-$ typst compile --root . examples/sample.typ
+$ typst compile --root . examples/sample.typ 
 ```
 
 ## Agentic Workflow
 
-See [AGENTS.md](https://github.com/ZaneH/ditto/blob/main/AGENTS.md) for my system prompt and customize it to your
-liking. In the initial prompt, it is useful to include the contents of
-[examples/sample.typ](https://github.com/ZaneH/ditto/blob/main/examples/sample.typ). I'm using Claude Projects to
-organize everything.
+See [AGENTS.md](./AGENTS.md) for my system prompt and customize it to your liking. In the initial prompt, it is useful
+to include the contents of [examples/sample.typ](./examples/sample.typ). I'm using Claude Projects to organize
+everything.
