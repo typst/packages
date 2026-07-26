@@ -8,27 +8,6 @@ high-contrast palette, clear section dividers, focus slides, and reusable conten
 
 ## Quick start
 
-Until the package is published, import the local source:
-
-```typst
-#import "src/lib.typ": *
-
-#show: deck.with(
-  title: "Introduction to Linear Models",
-  subtitle: "From observations to predictions",
-  author: "Dr. Ada Lovelace",
-  date: "Spring 2026",
-)
-
-#slide(title: "A useful model", eyebrow: "Key idea", number: "01")[
-  #callout(title: "Linear model", accent: coral)[
-    $ y = beta_0 + beta_1 x $
-  ]
-]
-```
-
-After publication on Typst Universe:
-
 ```typst
 #import "@preview/modern-class-presentation:0.1.0": *
 ```
