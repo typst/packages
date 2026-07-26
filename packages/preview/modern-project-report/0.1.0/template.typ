@@ -57,6 +57,12 @@
   return build-main-header(last-main-heading.body)
 }
 
+// Backward compatibility aliases
+#let buildMainHeader = build-main-header
+#let buildSecondaryHeader = build-secondary-header
+#let isAfter = is-after
+#let getHeader = get-header
+
 // Main Project Template Function
 #let project(
   title: "", 
