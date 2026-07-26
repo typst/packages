@@ -43,7 +43,6 @@
   ]
 }
 
-#show math.equation.where(block: true): set align(center)
 #set math.equation(numbering: none)
 
 // ── title ─────────────────────────────────────────────────────────────────
@@ -102,9 +101,8 @@
 ]
 
 // ── workspace ─────────────────────────────────────────────────────────────
-// For: space to work after a derivation. Title is customisable.
+// For: space to work. Set the title to "" for no title.
 
-#workspace()
 #workspace(lines: 8, title: [Now derive $1 + cot^2(theta) = csc^2(theta)$ the same way.])
 
 // ── problems ──────────────────────────────────────────────────────────────
@@ -112,8 +110,11 @@
 
 = Practice Problems
 
-#problem[
+#problem(hint: "This is a hint, it's meant to be difficult to read.")[
   A straightforward problem to build confidence.
+]
+#answer[
+  Answer to the problem would go here.
 ]
 
 // ── nobreak ───────────────────────────────────────────────────────────────
@@ -123,18 +124,26 @@
   A problem requiring two or three steps.
 ]
 
-#hint[
-  Try rewriting $cot^2(x)$ using the identity you just proved.
-]
-
-#workspace(lines: 5, title: "")
+#workspace(lines: 7, title: "")
 ]
 
 #problem[
   A harder problem that requires connecting two ideas from this worksheet.
+
+  (a) Try this #h(2em) (b) Then try this #h(2em) (c) Then try this
 ]
+#answer[
+  (a) 100
+
+  (b) 200
+
+  (c) 300
+]
+#workspace(lines: 7, title: "")
 
 // ── blanks ────────────────────────────────────────────────────────────────
 // For: fill-in-the-blank style questions inline.
 
 The derivative of $sin(x)$ is #blanks(2cm), and the derivative of $cos(x)$ is #blanks(2cm).
+
+#render-answers()

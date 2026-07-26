@@ -10,15 +10,16 @@ Reusable components for guided worksheets in Typst. Built for my [math-work](htt
 
 | Component | Purpose |
 |---|---|
-| `#kernelbox[...]` | Facts worth memorising — everything else is derived from these |
+| `#kernelbox(title, body)` | Facts worth memorising — everything else is derived from these |
 | `#stepbox(title, body)` | Worked derivation step. Use `[]` not `""` if the title contains math |
 | `#appbox(title, body)` | Application or "in practice" example |
 | `#definition(term, body)` | Vocabulary introduction |
-| `#hint[...]` | A nudge without giving away the answer |
-| `#problem[...]` | Auto-numbered practice problem |
+| `#problem(hint, body)` | Auto-numbered practice problem |
+| `#answer[...]` | Answer to the previously defined problem (optional) |
 | `#workspace(lines, title)` | Ruled space for working by hand. Defaults: 5 lines, "Try it yourself:" |
 | `#blanks(width)` | Inline fill-in-the-blank, e.g. `#blanks(2cm)` |
 | `#nobreak[...]` | Ensure related content stays together |
+| `#render-answers()` | Render the accumulated answers |
 
 ## Sample
 
