@@ -2,7 +2,7 @@
 
 A clean, modern, two-column academic research poster template for Typst (75 × 100 cm). Built for university project presentations, research showcases and conference poster sessions.
 
-<img src="https://i.ibb.co/Kph0YryK/preview.png">
+<img src="https://i.ibb.co/Kph0YryK/preview.png" alt="A two-column academic poster with a blue gradient header band, title and authors at the top, and sections of text and figures below">
 
 ---
 
