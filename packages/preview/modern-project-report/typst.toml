@@ -1,0 +1,23 @@
+[package]
+name = "modern-project-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aurghyadip Kundu"]
+license = "MIT"
+description = "A clean, modern college and university project report template with dynamic running headers, cover page, and structured outlines."
+repository = "https://github.com/aurghya-0/Project-Report-Typst"
+keywords = ["report", "project", "university", "college", "academic", "template"]
+categories = ["report"]
+compiler = "0.11.0"
+exclude = [
+  "/.github",
+  "output.pdf",
+  "main.pdf",
+  "page-*.png",
+  "thumbnail.typ"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
