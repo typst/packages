@@ -13,6 +13,7 @@ exclude = [
   "/.github",
   "output.pdf",
   "main.pdf",
+  "main.typ",
   "page-*.png",
   "thumbnail.typ"
 ]

@@ -1,4 +1,4 @@
-#import "lib.typ": project
+#import "@preview/modern-project-report:0.1.0": project
 
 // Sample report content for testing and generating previews
 #show: project.with(
