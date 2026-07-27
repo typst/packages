@@ -115,7 +115,7 @@ Tạo bài giảng mới: copy `main.typ` thành `bai-1.typ` rồi sửa nội d
 ## 1. Trình chiếu
 
 ```typst
-#import "baigiang.typ": *
+#import "@preview/conic-toan:0.3.0": *
 
 #show: bai-giang.with(
   tieu-de: [CHƯƠNG I. KHẢO SÁT HÀM SỐ],
@@ -591,8 +591,10 @@ khoảng `bk`, quay góc `goc` (số trần = ĐỘ, nhận cả `30deg`; dươn
 kim đồng hồ). TikZ `(30:2)` ⇔ `toa-cuc((0,0), 2, 30)`. Ví dụ lục giác đều:
 
 ```typst
-let dinh = range(6).map(k => toa-cuc((0, 0), 2.6, 60 * k))
-duong-gap-khuc(ctx, dinh, dong: true)
+#hinh(w: 6cm, xmin: -3, xmax: 3, ymin: -3, ymax: 3, ctx => {
+  let dinh = range(6).map(k => toa-cuc((0, 0), 2.6, 60 * k))
+  duong-gap-khuc(ctx, dinh, dong: true)
+})
 ```
 Lưu ý: `gach-vung` mô tả miền theo toạ độ GỐC của khung (không qua ctx-quay);
 riêng elip xoay đã có `trong-elip(..., quay:)` tương ứng.
@@ -819,7 +821,7 @@ Bước 1 chiếu đề cho học sinh làm, bấm một cái → phương án �
 
 `#lo` dùng được với MỌI nội dung — ví dụ hiện dần lời giải khảo sát:
 
-```typst
+```text
 #slide(tieu-de: [Khảo sát hàm số], so-buoc: 4)[
   #vi-du[Khảo sát $y = -x^3 + 3x$.]        // bước 1: đề
   #lo(2)[#loi-giai[$y' = ...$]]             // bước 2: đạo hàm
@@ -855,7 +857,7 @@ Soạn đề MỘT LẦN trong file kiểu `de-mau.typ`, xuất được 3 bản
 | `"beamer"` | Trình chiếu: **mỗi câu một slide** — hiện đề → lời giải hiện dần theo từng dấu `\` → cuối cùng đánh dấu đáp án |
 
 ```typst
-#import "baigiang.typ": *
+#import "@preview/conic-toan:0.3.0": *
 #let ho-so = sys.inputs.at("ho-so", default: "dethi")
 
 #show: de-toan.with(ho-so: ho-so, tieu-de: [ĐỀ KIỂM TRA...],
@@ -1016,7 +1018,7 @@ lời giải. Màn `#sang-man` sau muốn có hình thì chèn thẳng trong n�
 Hình trong PHƯƠNG ÁN (tn) hoặc Ý (ds): phương án là content nên nhúng trực
 tiếp, thường kèm `cols:` cố định:
 
-```typst
+```text
 #tn([Đồ thị nào là của $y = x^2$?], (
   [#do-thi-ham(x => x*x*x, w: 3.2cm, ...)],
   True([#do-thi-ham(x => x*x, w: 3.2cm, ...)]),
@@ -1067,7 +1069,7 @@ Quy tắc dò (duyệt ngược nội dung, tìm ký tự có nghĩa cuối cùn
 
 Tắt/bật:
 
-```typst
+```text
 #kieu-cau-hoi(cham-cuoi: false)          // tắt toàn bài (từ vị trí này)
 #tn([...], (...), cham: false)           // tắt riêng một câu
 #ds([...], (...), cham: true)            // ép bật riêng một câu
@@ -1194,7 +1196,7 @@ Dữ liệu vào của bảng và biểu đồ KHỚP NHAU: cùng `moc:` (n+1 m�
 và `tan-so:` — một nguồn số liệu dùng cho cả bảng lẫn biểu đồ. Mọi biểu đồ
 đều có `them: ctx => ...` để vẽ chồng như các hình khác.
 
-```typ
+```text
 // 4 bảng tần số bố cục NGANG đúng SGK (don-vi: hiện «tên (đơn vị)» ô góc)
 #bang-tan-so(gia-tri: (0, 1, 2, 3), tan-so: (4, 3, 4, 7), ten-gia-tri: [Số con])
 #bang-ghep-nhom(moc: (150, 155, 160, 165, 170, 175), tan-so: (5, 12, 18, 9, 4),
