@@ -1,9 +1,0 @@
-[package]
-name = "statementsp"
-version = "0.1.0"
-entrypoint = "statementsp.typ"
-exclude = ["/images/*"]
-authors = ["Riley"]
-license = "MIT"
-repository = "https://github.com/Riley719/typst-statementsp"
-description = "Happy statement box and its cross referrence system."

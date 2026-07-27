@@ -1,4 +1,0 @@
-slug = "edit-distance"
-title = "Edit Distance"
-difficulty = "medium"
-labels = ["string", "dynamic-programming"]

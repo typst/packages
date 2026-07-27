@@ -1,5 +1,0 @@
-slug = "subsets"
-title = "Subsets"
-difficulty = "medium"
-labels = ["array", "backtracking", "bit-manipulation"]
-validator = "unordered-compare"

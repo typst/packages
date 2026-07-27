@@ -1,3 +1,0 @@
-= Conclusion
-
-#lorem(180)

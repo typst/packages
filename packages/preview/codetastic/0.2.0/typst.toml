@@ -1,9 +1,0 @@
-[package]
-name = "codetastic"
-version = "0.2.0"
-entrypoint = "codetastic.typ"
-authors = ["J. Neugebauer"]
-license = "MIT"
-description = "Generate all sorts of codes in Typst."
-repository = "https://github.com/jneug/typst-codetastic"
-exclude = ["manual.typ", "manual.pdf", "assets/"]

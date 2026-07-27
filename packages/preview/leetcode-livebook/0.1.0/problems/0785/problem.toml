@@ -1,5 +1,0 @@
-slug = "is-graph-bipartite"
-title = "Is Graph Bipartite?"
-difficulty = "medium"
-labels = ["graph", "depth-first-search", "breadth-first-search"]
-custom-display = true

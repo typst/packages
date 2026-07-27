@@ -1,1 +1,0 @@
-# ucpc-solutions examples

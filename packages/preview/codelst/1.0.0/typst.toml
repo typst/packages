@@ -1,9 +1,0 @@
-[package]
-name = "codelst"
-version = "1.0.0"
-entrypoint = "codelst.typ"
-authors = ["Jonas Neugebauer"]
-license = "MIT"
-description = "A typst package to render sourcecode"
-repository = "https://github.com/jneug/typst-codelst"
-exclude = ["example.typ", "example.pdf", "manual.pdf", "manual.typ"]

@@ -1,1 +1,0 @@
-#import "@preview/navigator:0.1.2": slide-title

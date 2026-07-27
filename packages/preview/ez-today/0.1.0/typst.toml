@@ -1,9 +1,0 @@
-[package]
-name = "ez-today"
-version = "0.1.0"
-entrypoint = "ez-today.typ"
-authors = ["Carlo Schafflik"]
-license = "MIT"
-description = "Simply displays the full current date."
-repository = "https://github.com/CarloSchafflik12/typst-ez-today"
-exclude = ["./examples"]

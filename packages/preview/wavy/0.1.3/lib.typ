@@ -1,1 +1,0 @@
-#import "./wavy.typ": render

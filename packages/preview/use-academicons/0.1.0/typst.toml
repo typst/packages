@@ -1,8 +1,0 @@
-[package]
-name = "use-academicons"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["duskmoon (Campbell He) <kp.campbell.he@duskmoon314.com>", "bpkleer (Philipp Kleer) <philipp.kleer@posteo.com>"]
-license = "MIT"
-description = "A Typst library for Academicons the desktop fonts."
-repository = "https://github.com/bpkleer/typst-academicons"

@@ -1,1 +1,0 @@
-#include "gallery/title-simple.typ"

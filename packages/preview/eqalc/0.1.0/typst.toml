@@ -1,9 +1,0 @@
-[package]
-name = "eqalc"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["Tijme"]
-license = "MIT"
-description = "Convert math equations to functions."
-repository = "https://github.com/7ijme/eqalc"
-categories = ["utility", "visualization"]

@@ -1,1 +1,0 @@
-#import "yinsh.typ": play, record

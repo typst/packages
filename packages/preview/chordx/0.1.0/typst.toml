@@ -1,8 +1,0 @@
-[package]
-name = "chordx"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["Leonardo Gago <https://github.com/ljgago>"]
-license = "MIT"
-description = "A library to write song lyrics with chord diagrams in Typst."
-repository = "https://github.com/ljgago/typst-chords"

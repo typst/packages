@@ -1,8 +1,0 @@
-[package]
-name = "minitoc"
-version = "0.1.0"
-description = "An outline function just for one section and nothing else"
-authors = ["nxe <https://github.com/RosiePuddles>"]
-license = "GPL-3.0-only"
-entrypoint = "lib.typ"
-repository = "https://gitlab.com/human_person/typst-local-outline"
