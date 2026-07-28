@@ -12,8 +12,7 @@ high-contrast palette, clear section dividers, focus slides, and reusable conten
 #import "@preview/modern-class-presentation:0.1.0": *
 ```
 
-The `template/` directory is a complete starting presentation. Copy it into a
-new project, or select it from Typst Universe once published.
+The `template/` directory contains a complete starting presentation. You can initialize a new project with `typst init @preview/modern-class-presentation` or copy the template into your project.
 
 ## Building blocks
 
