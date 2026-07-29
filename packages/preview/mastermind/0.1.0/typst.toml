@@ -1,5 +1,5 @@
 [package]
-name = "class-diagram"
+name = "mastermind"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Manuel Zani <https://github.com/manu3053>"]

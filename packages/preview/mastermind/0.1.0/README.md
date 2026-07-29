@@ -3,7 +3,6 @@
 ![Version](https://img.shields.io/badge/package-v0.1.0-239dad?logo=typst)
 [![Gitlab Repo](https://img.shields.io/badge/gitlab-repo-blue?logo=gitlab)](https://gitlab.com/zani.manuel328/mastermind)
 ![License](https://img.shields.io/badge/license-GPLv3-green)
-[![Manual](https://img.shields.io/badge/docs-manual.pdf-red?logo=readthedocs)](docs/manual.pdf?raw=true)
 
 # Usage
 
@@ -56,7 +55,7 @@ Available relationships:
 *Theme inspired by Fairly OddParents pixies:*
 
 <p align="center">
-  <img src="thumbnails/pixies.png"/>
+  <img src="thumbnails/pixies.png" alt="UML diagram with a theme inspired by Fairly OddParents pixies"/>
 </p>
 <details>
   <summary>See the source code</summary>
@@ -128,7 +127,7 @@ Available relationships:
 *You can also build your own custom theme:*
 
 <p align="center">
-  <img src="thumbnails/custom-theme.png"/>
+  <img src="thumbnails/custom-theme.png" alt="UML diagram with a custom theme"/>
 </p>
 <details>
   <summary>See the source code</summary>
