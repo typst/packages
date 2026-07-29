@@ -189,9 +189,3 @@ Available relationships:
 #draw-class-diagram(classes, relationships, custom-theme)
 ```
 </details>
-
-# Roadmap
-
-- [ ] Space marks if there are multiple marks on the same class
-- [ ] Introduce icons for known class types (interface, trait, abstract, ...)
-- [ ] Better scaling for relationships
