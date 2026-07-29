@@ -167,7 +167,7 @@ Khung nội dung (tự đánh số ví dụ/luyện tập):
 `#dinh-nghia[...]`, `#dinh-ly[...]`, `#tinh-chat[...]`, `#vi-du[...]`,
 `#loi-giai[...]`, `#chu-y[...]`, `#ghi-nho[...]`, `#nhan-xet[...]`, `#luyen-tap[...]`.
 
-Bố cục: `#cot(trai, phai)` hoặc `#cot(a, b, c, ti-le: (2fr, 1fr, 1fr))`.
+Bố cục: `#chia-cot(trai, phai)` hoặc `#chia-cot(a, b, c, ti-le: (2fr, 1fr, 1fr))`.
 Các bước giải: `#buoc([Bước 1...], [Bước 2...])`.
 
 ## 2. Vẽ hình tự do (ve.typ)
@@ -821,7 +821,7 @@ Bước 1 chiếu đề cho học sinh làm, bấm một cái → phương án �
 
 `#lo` dùng được với MỌI nội dung — ví dụ hiện dần lời giải khảo sát:
 
-```text
+```typ
 #slide(tieu-de: [Khảo sát hàm số], so-buoc: 4)[
   #vi-du[Khảo sát $y = -x^3 + 3x$.]        // bước 1: đề
   #lo(2)[#loi-giai[$y' = ...$]]             // bước 2: đạo hàm
@@ -1018,7 +1018,7 @@ lời giải. Màn `#sang-man` sau muốn có hình thì chèn thẳng trong n�
 Hình trong PHƯƠNG ÁN (tn) hoặc Ý (ds): phương án là content nên nhúng trực
 tiếp, thường kèm `cols:` cố định:
 
-```text
+```typ
 #tn([Đồ thị nào là của $y = x^2$?], (
   [#do-thi-ham(x => x*x*x, w: 3.2cm, ...)],
   True([#do-thi-ham(x => x*x, w: 3.2cm, ...)]),
@@ -1069,7 +1069,7 @@ Quy tắc dò (duyệt ngược nội dung, tìm ký tự có nghĩa cuối cùn
 
 Tắt/bật:
 
-```text
+```typ
 #kieu-cau-hoi(cham-cuoi: false)          // tắt toàn bài (từ vị trí này)
 #tn([...], (...), cham: false)           // tắt riêng một câu
 #ds([...], (...), cham: true)            // ép bật riêng một câu
@@ -1196,7 +1196,7 @@ Dữ liệu vào của bảng và biểu đồ KHỚP NHAU: cùng `moc:` (n+1 m�
 và `tan-so:` — một nguồn số liệu dùng cho cả bảng lẫn biểu đồ. Mọi biểu đồ
 đều có `them: ctx => ...` để vẽ chồng như các hình khác.
 
-```text
+```typ
 // 4 bảng tần số bố cục NGANG đúng SGK (don-vi: hiện «tên (đơn vị)» ô góc)
 #bang-tan-so(gia-tri: (0, 1, 2, 3), tan-so: (4, 3, 4, 7), ten-gia-tri: [Số con])
 #bang-ghep-nhom(moc: (150, 155, 160, 165, 170, 175), tan-so: (5, 12, 18, 9, 4),

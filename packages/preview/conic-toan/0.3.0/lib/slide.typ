@@ -10,7 +10,7 @@
 //
 // Khung nội dung: #dinh-nghia[...], #dinh-ly[...], #vi-du[...],
 // #loi-giai[...], #chu-y[...], #ghi-nho[...], #nhan-xet[...], #luyen-tap[...]
-// Bố cục: #cot(trai, phai, ti-le: (3fr, 2fr))
+// Bố cục: #chia-cot(trai, phai, ti-le: (3fr, 2fr))
 // =====================================================================
 
 // Bảng màu (đọc qua state để mọi hàm dùng chung).
@@ -706,8 +706,8 @@
 )
 
 // ---------- Bố cục ----------
-// Hai (hoặc nhiều) cột: #cot(a, b) hoặc #cot(a, b, ti-le: (3fr, 2fr))
-#let cot(ti-le: auto, khoang: 16pt, ..noi-dung) = {
+// Hai (hoặc nhiều) cột: #chia-cot(a, b) hoặc #chia-cot(a, b, ti-le: (3fr, 2fr))
+#let chia-cot(ti-le: auto, khoang: 16pt, ..noi-dung) = {
   let cells = noi-dung.pos()
   grid(
     columns: if ti-le == auto { (1fr,) * cells.len() } else { ti-le },
