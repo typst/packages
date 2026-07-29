@@ -824,9 +824,16 @@ Bước 1 chiếu đề cho học sinh làm, bấm một cái → phương án �
 ```typ
 #slide(tieu-de: [Khảo sát hàm số], so-buoc: 4)[
   #vi-du[Khảo sát $y = -x^3 + 3x$.]        // bước 1: đề
-  #lo(2)[#loi-giai[$y' = ...$]]             // bước 2: đạo hàm
-  #lo(3)[#bbt(...)]                         // bước 3: bảng biến thiên
-  #lo(4)[#figure(do-thi-bac-ba(...))]       // bước 4: đồ thị
+  #lo(2)[#loi-giai[$y' = -3x^2 + 3$]]       // bước 2: đạo hàm
+  #lo(3)[
+    #bbt(
+      x: ($-oo$, $-1$, $1$, $+oo$),
+      dau: ("", "-", "0", "+", "0", "-", ""),
+      gia-tri: ($+oo$, $-2$, $2$, $-oo$),
+      huong: ("xuong", "len", "xuong"),
+    )
+  ]                                          // bước 3: bảng biến thiên
+  #lo(4)[#figure(do-thi-bac-ba(-1, 0, 3, 0))] // bước 4: đồ thị
 ]
 ```
 
@@ -1020,10 +1027,11 @@ tiếp, thường kèm `cols:` cố định:
 
 ```typ
 #tn([Đồ thị nào là của $y = x^2$?], (
-  [#do-thi-ham(x => x*x*x, w: 3.2cm, ...)],
-  True([#do-thi-ham(x => x*x, w: 3.2cm, ...)]),
-  ...
-), cols: 4, loigiai: [...])
+  [#do-thi-ham(x => x*x*x, w: 3.2cm)],
+  True([#do-thi-ham(x => x*x, w: 3.2cm)]),
+  [#do-thi-ham(x => -x*x, w: 3.2cm)],
+  [#do-thi-ham(x => 2*x, w: 3.2cm)],
+), cols: 4, loigiai: [Đồ thị hàm bậc hai $y = x^2$ có đỉnh tại gốc toạ độ, bề lõm hướng lên.])
 ```
 
 ## 11. Giao diện câu hỏi (theme tiền tố)
@@ -1071,8 +1079,8 @@ Tắt/bật:
 
 ```typ
 #kieu-cau-hoi(cham-cuoi: false)          // tắt toàn bài (từ vị trí này)
-#tn([...], (...), cham: false)           // tắt riêng một câu
-#ds([...], (...), cham: true)            // ép bật riêng một câu
+#tn([Đề bài], ([A], True([B]), [C], [D]), cham: false)   // tắt riêng một câu
+#ds([Đề bài], ([ý a], True([ý b])), cham: true)          // ép bật riêng một câu
 ```
 
 File thử: `thu-cham-cau.typ` (đủ 5 nhóm ca).
