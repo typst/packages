@@ -1,8 +1,10 @@
 # mastermind
 
-![Version](https://img.shields.io/badge/package-v0.1.0-239dad?logo=typst)
+[![Package version 0.1.0](https://img.shields.io/badge/package-v0.1.0-239dad?logo=typst)](https://typst.app)
+
 [![Gitlab Repo](https://img.shields.io/badge/gitlab-repo-blue?logo=gitlab)](https://gitlab.com/zani.manuel328/mastermind)
-![License](https://img.shields.io/badge/license-GPLv3-green)
+
+[![License: GPLv3](https://img.shields.io/badge/license-GPLv3-green)](https://www.gnu.org/licenses/gpl-3.0.html)
 
 # Usage
 
