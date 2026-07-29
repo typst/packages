@@ -1,4 +1,4 @@
-#import "@local/class-diagram:0.1.0": *
+#import "@local/mastermind:0.1.0": *
 
 #set page(width: auto, height: auto)
 
