@@ -40,7 +40,7 @@ You can also import the framework into an existing Typst project:
 
 The public `resume` function is exported from `lib.typ`; its implementation lives in `template/resume.typ`.
 
-The package defaults to New Computer Modern because it is bundled with Typst and renders consistently across platforms. Pass `body_font: "Your Font"` to use another installed or project-provided family.
+The package defaults to New Computer Modern because it is bundled with Typst and renders consistently across platforms. Pass `body-font: "Your Font"` to use another installed or project-provided family.
 
 ## Develop from source
 
@@ -83,11 +83,11 @@ The `sections` parameter supports:
 
 Include only sections that improve fit for the target role.
 
-Use `featured_sections` for strong Projects, Open Source, Publications, or Architecture Highlights that should appear before Education. Use `sections` for Education-following material such as Certifications, Languages, or additional details.
+Use `featured-sections` for strong Projects, Open Source, Publications, or Architecture Highlights that should appear before Education. Use `sections` for Education-following material such as Certifications, Languages, or additional details.
 
 ## Use A4
 
-Pass `page_size: "a4"` to `resume.with(...)`.
+Pass `page-size: "a4"` to `resume.with(...)`.
 
 ## Documentation
 

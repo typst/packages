@@ -2,7 +2,7 @@
 
 #show: resume.with(
   name: "Jordan Lee",
-  body_font: "Arial",
+  body-font: "Arial",
   headline: "Senior Software Engineer | Backend & Platform Systems",
   contact: (
     "Tel Aviv, Israel",
@@ -60,7 +60,7 @@
       ),
     ),
   ),
-  featured_sections: (
+  featured-sections: (
     (
       title: "Selected Engineering Highlights",
       kind: "bullets",

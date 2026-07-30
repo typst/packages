@@ -4,7 +4,7 @@
 #show: resume.with(
   name: "Alex Morgan",
   headline: "Backend-Focused Full-Stack & Platform Engineer",
-  list_spacing: 0.90em,
+  list-spacing: 0.90em,
   contact: (
     "City, Country",
     link("tel:+15550100")[+1 555 0100],
@@ -46,7 +46,7 @@
       ),
     ),
   ),
-  featured_sections: (),
+  featured-sections: (),
   education: (),
   sections: (
     (

@@ -2,9 +2,9 @@
 
 #show: resume.with(
   name: "David Sasson",
-  body_font: "Arial",
+  body-font: "Arial",
   headline: "Backend-Focused Full-Stack & Platform Engineer",
-  list_spacing: 0.90em,
+  list-spacing: 0.90em,
   contact: (
     "Jerusalem, Israel",
     link("tel:+972522626684")[+972 52 262 6684],
@@ -48,7 +48,7 @@
       ),
     ),
   ),
-  featured_sections: (),
+  featured-sections: (),
   education: (),
   sections: (
     (

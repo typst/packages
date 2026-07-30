@@ -10,22 +10,22 @@
   skills: (),
   experience: (),
   education: (),
-  featured_sections: (),
+  featured-sections: (),
   sections: (),
-  body_font: "New Computer Modern",
-  page_size: "us-letter",
-  list_spacing: 0.34em,
+  body-font: "New Computer Modern",
+  page-size: "us-letter",
+  list-spacing: 0.34em,
 ) = {
   set document(title: name, author: name)
   set page(
-    paper: page_size,
+    paper: page-size,
     margin: 18mm,
     header: none,
     footer: none,
   )
-  set text(font: body_font, size: 11pt, fill: rgb("181818"))
+  set text(font: body-font, size: 11pt, fill: rgb("181818"))
   set par(leading: 0.55em, justify: false)
-  set list(indent: 1.15em, body-indent: 0.42em, spacing: list_spacing, marker: [•])
+  set list(indent: 1.15em, body-indent: 0.42em, spacing: list-spacing, marker: [•])
 
   let section-heading(title) = {
     v(0.42em)
@@ -140,7 +140,7 @@
     }
   }
 
-  for featured-section in featured_sections {
+  for featured-section in featured-sections {
     render-custom(featured-section)
   }
 
