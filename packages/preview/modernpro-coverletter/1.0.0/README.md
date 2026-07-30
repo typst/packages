@@ -1,9 +1,10 @@
 # modernpro-coverletter
 
 An academic-first Typst package for cover letters and research, teaching, or
-personal statements. It shares its design system and its `profile` dictionary
-with [modernpro-cv](https://typst.app/universe/package/modernpro-cv), so a CV, a
-letter, and a statement read as one application.
+personal statements. It shares its design system and `profile` shape with
+[modernpro-cv](https://typst.app/universe/package/modernpro-cv), so a CV, a
+letter, and a statement read as one application while each source file remains
+self-contained.
 
 The default design is intentionally complete. Most users only need to provide
 their profile, the recipient, and the letter text.
@@ -28,8 +29,9 @@ fictional. Reserved domains and an all-zero ORCID are used deliberately.
 | Cover letter | `coverletter.typ` | A role, fellowship, grant, or programme application addressed to a recipient |
 | Statement | `statement.typ` | Research, teaching, diversity, service, or personal statements with section headings |
 
-Both documents use the same `profile.typ`. Keep the profile unchanged across an
-application so its header aligns with modernpro-cv.
+Both documents keep an editable `profile` dictionary at the top of their own
+file. Copy the same values when you want matching headers, without adding a
+shared-file dependency.
 
 ## Quick start
 
@@ -46,7 +48,6 @@ The generated project contains:
 
 ```plain
 modernpro-coverletter/
-├── profile.typ       <- edit identity and contacts once
 ├── coverletter.typ   <- recipient, letter body, and closing
 └── statement.typ     <- title, headings, and statement body
 ```
@@ -56,7 +57,7 @@ recompilation while editing.
 
 ### First edit checklist
 
-1. Replace the placeholder identity in `profile.typ`.
+1. Replace the placeholder identity at the top of the document you are using.
 2. In `coverletter.typ`, replace every recipient field and write the letter in
    short block paragraphs.
 3. In `statement.typ`, rename the title and headings to match the requested
@@ -67,11 +68,11 @@ recompilation while editing.
 
 ## Minimal academic cover letter
 
-Keep your identity in `profile.typ` — the same file modernpro-cv takes — and
-import it:
+Keep your identity beside the letter content in the same source file:
 
 ```typst
-// profile.typ
+#import "@preview/modernpro-coverletter:1.0.0": *
+
 #let profile = (
   name: [Dr. Maya Chen],
   role: [Lecturer in Computational Social Science],
@@ -82,11 +83,6 @@ import it:
     (text: [ORCID~0000-0000-0000-0000], link: "https://orcid.org/0000-0000-0000-0000"),
   ),
 )
-```
-
-```typst
-#import "@preview/modernpro-coverletter:1.0.0": *
-#import "profile.typ": profile
 
 #show: coverletter.with(
   profile: profile,
@@ -171,7 +167,16 @@ stays easy to edit:
 
 ```typst
 #import "@preview/modernpro-coverletter:1.0.0": *
-#import "profile.typ": profile
+
+#let profile = (
+  name: [Dr. Maya Chen],
+  role: [Lecturer in Computational Social Science],
+  address: [Edinburgh, United Kingdom],
+  contacts: (
+    (text: [maya\@northbridge.example], link: "mailto:maya@northbridge.example"),
+    (text: [maya.example.org], link: "https://maya.example.org"),
+  ),
+)
 
 #show: statement.with(
   profile: profile,
@@ -192,25 +197,23 @@ Use level-one headings (`= Heading`) for the major argument. Prefer three to
 five descriptive sections over many short fragments. Statements add a compact
 continuation header from page 2 by default.
 
-## Share one profile across documents
+## Keep every document self-contained
 
-The profile dictionary is compatible with modernpro-cv. In a local application
-folder, keep one file and import it from each document:
+The profile dictionary has the same shape as modernpro-cv, but each generated
+document keeps its own copy. An application folder therefore has no shared
+personal-data dependency:
 
 ```plain
 application/
-├── profile.typ
 ├── cv.typ
 ├── coverletter.typ
 └── research-statement.typ
 ```
 
-```typst
-#import "profile.typ": profile
-```
-
-This keeps the displayed name, role, location, contact order, and links
-consistent. It does not copy application-specific recipients or titles.
+Copy the small `#let profile = (...)` block when starting another document.
+This deliberate duplication makes every file portable and independently
+compilable; update the copied values only when the application needs a
+different role or contact order.
 
 ## Shared academic design
 

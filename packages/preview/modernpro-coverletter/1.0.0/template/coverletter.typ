@@ -1,5 +1,17 @@
 #import "@preview/modernpro-coverletter:1.0.0": *
-#import "profile.typ": profile
+
+// Edit identity and contacts here. Keeping them beside the letter content
+// makes this starter a self-contained document with no personal-data imports.
+#let profile = (
+  name: [Your Name],
+  role: [Your Current Role],
+  address: [City, Country],
+  contacts: (
+    (text: [you\@example.edu], link: "mailto:you@example.edu"),
+    (text: [your-site.example], link: "https://your-site.example"),
+    (text: [ORCID~0000-0000-0000-0000], link: "https://orcid.org/0000-0000-0000-0000"),
+  ),
+)
 
 // Academic cover letter. Everything below `profile` and `recipient` is optional:
 //   preset: "compact" | "default" | "relaxed"   vertical rhythm
