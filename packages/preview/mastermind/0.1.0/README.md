@@ -9,7 +9,7 @@
 - Import the package:
 
 ```typst
-#import "@preview/class-diagram:0.1.0": *
+#import "@preview/mastermind:0.1.0": *
 ```
 
 - Create the list of classes:
@@ -61,7 +61,7 @@ Available relationships:
   <summary>See the source code</summary>
   
 ```typ
-#import "@local/class-diagram:0.1.0": *
+#import "@preview/mastermind:0.1.0": *
 
 #set page(width: auto, height: auto)
 
@@ -133,7 +133,7 @@ Available relationships:
   <summary>See the source code</summary>
   
 ```typ
-#import "@local/class-diagram:0.1.0": *
+#import "@preview/mastermind:0.1.0": *
 
 #set page(width: auto, height: auto)
 
