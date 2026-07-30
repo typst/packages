@@ -3,7 +3,6 @@ name = "ssrn-scribe"
 version = "0.10.0"
 entrypoint = "paper_template.typ"
 authors = [ "Academic Template Collective",]
-repository = "https://example.invalid/academic-templates/ssrn-scribe"
 license = "MIT"
 description = "A clean, modern academic working-paper template for SSRN and general research drafts."
 categories = [ "paper",]
