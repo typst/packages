@@ -125,7 +125,7 @@ Quill provides dedicated functions for structuring coursework content:
 | `#kv-table("Key", "Value", ...)` | Structured key-value grid (`kvtable`). |
 | `#watermark("Text or Image")` | Background watermark overlay. |
 
-For complete function signatures and parameter references, see [Configuration](https://github.com/h-jangra/quill-assignment/blob/main/docs/configuration.md).
+For complete function signatures and parameter references, see [docs/configuration.md](https://github.com/h-jangra/quill-assignment/blob/0.1.0/docs/configuration.md).
 
 ## Customization
 
@@ -147,7 +147,7 @@ Override default colors, fonts, and page settings directly:
 
 ## Example
 
-See the full example: [`example.typ`](https://github.com/h-jangra/quill-assignment/blob/main/example.typ)
+A complete working document demonstrating all features is available in [example.typ](https://github.com/h-jangra/quill-assignment/blob/0.1.0/example.typ).
 
 ## License
 
