@@ -1,0 +1,19 @@
+[package]
+name = "quill-assignment"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+authors = ["h-jangra"]
+license = "MIT"
+description = "A minimal, elegant academic assignment template."
+repository = "https://github.com/h-jangra/quill-assignment"
+keywords = ["assignment", "university", "academic", "homework", "problem-set", "course"]
+categories = ["components", "report"]
+exclude = [
+  "**/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
