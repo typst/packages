@@ -174,7 +174,7 @@ lines rather than a CSS-style total line height.
 Semantic theme values can be overridden together:
 
 ```typst
-theme: (
+#let theme = (
   font: ("Times New Roman", "Libertinus Serif"),
   heading-font: ("Times New Roman", "Libertinus Serif"),
   body-size: 11pt,
