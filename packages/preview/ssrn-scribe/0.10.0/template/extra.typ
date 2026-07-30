@@ -6,7 +6,7 @@
 // Typst 0.15.0, so keep it disabled unless you pin a compatible Typst/package.
 // #import "@preview/mitex:0.2.5": *
 
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 
 #import "@preview/tablex:0.0.9": tablex, rowspanx, colspanx, hlinex
 
