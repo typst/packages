@@ -3,7 +3,7 @@
 北京大学学位论文 Typst 模板（博士 / 硕士），支持学术学位与专业学位。
 
 <p align="center">
-  <img src="thumbnail.png" alt="demo" width="80%">
+  <img src="thumbnail.png" alt="Cover of an example thesis" width="80%">
 </p>
 
 ## 使用方式
@@ -46,7 +46,7 @@ typst compile thesis.typ --input system=linux
 在 `thesis.typ` 中调用 `config()` 函数配置论文信息，返回的字典解构后可按任意顺序编排：
 
 ```typst
-#let (setup, cover, body-wrap, bibliography, ...) = config(
+#let (setup, cover, body-wrap, bibliography, ..) = config(
   author-zh: "张三",
   title-zh: "论文中文题目",
   system: "default",
@@ -91,19 +91,19 @@ typst compile thesis.typ --input system=linux
 
 ## 功能特性
 
-- [x] 封面（含盲审版）
-- [x] 版权声明页
-- [x] 中英文摘要
-- [x] 自动目录（含图、表、代码列表）
-- [x] 中文章节编号（第X章 + 附录 A/B）
-- [x] GB/T 7714 参考文献（2015 / 2025 标准）
-- [x] 三线表、代码高亮
-- [x] 页眉页脚自动切换
-- [x] 脚注
-- [x] 附录
-- [x] 致谢、原创性声明
-- [x] 命令行参数控制（`blind` / `preview` / `system`）
-- [x] 跨平台字体方案（macOS / Windows / Linux）
+- 封面（含盲审版）
+- 版权声明页
+- 中英文摘要
+- 自动目录（含图、表、代码列表）
+- 中文章节编号（第X章 + 附录 A/B）
+- GB/T 7714 参考文献（2015 / 2025 标准）
+- 三线表、代码高亮
+- 页眉页脚自动切换
+- 脚注
+- 附录
+- 致谢、原创性声明
+- 命令行参数控制（`blind` / `preview` / `system`）
+- 跨平台字体方案（macOS / Windows / Linux）
 
 ## 字体配置
 
@@ -159,41 +159,6 @@ Typst 按列表顺序依次 fallback，优先使用列表中靠前的字体。
 | 黑体 | Times New Roman, SimHei, Noto Sans CJK SC, Source Han Sans |
 | 楷体 | Times New Roman, KaiTi, STKaiti, AR PL UKai |
 | 代码 | Consolas, Courier New, Noto Serif CJK SC, Source Han Serif, SimSun |
-
-## 项目结构
-
-```
-pku-thesis-pass/
-├── lib.typ              # 包入口（re-export）
-├── typst.toml           # 包清单
-├── thumbnail.png        # 模板预览图
-├── assets/              # 资源文件
-├── format/
-│   ├── config.typ      # 配置总控
-│   ├── const.typ       # 常量（font-set、size、supplement）
-│   ├── utils.typ       # 工具函数 + 三线表 + 代码块
-│   ├── page.typ        # 页面设置
-│   ├── headings.typ    # 标题系统
-│   ├── header.typ      # 页眉
-│   ├── footer.typ      # 页脚
-│   ├── show.typ        # show 规则
-│   ├── covers.typ      # 封面
-│   ├── bibliography.typ # 参考文献
-│   ├── outline.typ     # 目录
-│   ├── listoffigures.typ # 图表代码列表
-│   ├── copyright.typ   # 版权声明
-│   ├── declaration.typ # 原创性声明
-│   ├── acknowledgements.typ # 致谢
-│   ├── abstract-zh.typ # 中文摘要
-│   └── abstract-en.typ # 英文摘要
-├── template/           # Typst Universe 模板
-│   ├── thesis.typ
-│   ├── ref.bib
-│   └── content/
-├── thesis.typ           # 用户主文档
-├── ref.bib              # 参考文献
-└── content/             # 用户文档（使用指南）
-```
 
 ## 致谢
 
