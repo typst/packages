@@ -15,8 +15,8 @@ A clean, minimal Typst template for assignments, lab reports, and technical docu
 
 | Cover Page | Document Page |
 | :---: | :---: |
-| ![Cover Page Preview](assets/example_page-1.png) | ![Page 2 Preview](assets/example_page-2.png) |
-| ![Page 3 Preview](assets/example_page-3.png) | ![Page 4 Preview](assets/example_page-4.png) |
+| ![Cover Page Preview](assets/preview-1.png) | ![Page 2 Preview](assets/preview-2.png) |
+| ![Page 3 Preview](assets/preview-3.png) | ![Page 4 Preview](assets/preview-4.png) |
 
 ### Cover Page Gallery
 
@@ -125,7 +125,7 @@ Quill provides dedicated functions for structuring coursework content:
 | `#kv-table("Key", "Value", ...)` | Structured key-value grid (`kvtable`). |
 | `#watermark("Text or Image")` | Background watermark overlay. |
 
-For complete function signatures and parameter references, see [docs/configuration.md](docs/configuration.md).
+For complete function signatures and parameter references, see [Configuration](https://github.com/h-jangra/quill-assignment/blob/main/docs/configuration.md).
 
 ## Customization
 
@@ -147,7 +147,7 @@ Override default colors, fonts, and page settings directly:
 
 ## Example
 
-A complete working document demonstrating all features is available in [example.typ](example.typ).
+See the full example: [`example.typ`](https://github.com/h-jangra/quill-assignment/blob/main/example.typ)
 
 ## License
 
