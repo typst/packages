@@ -1,4 +1,4 @@
-#import "@preview/touying-liu:0.1.0": *
+#import "@preview/touying-liu-nyckel:0.1.0": *
 #import "@preview/touying:0.7.4": utils.fit-to-height
 
 #show: liu-theme.with(
@@ -66,7 +66,7 @@ Basic slides are easily created as a second level heading with content.
 == Initializing the template
 First, import the template // (not yet published to the Typst universe, so use a relative path)
 ```typst
-#import "@preview/touying-liu:0.1.0": *
+#import "@preview/touying-liu-nyckel:0.1.0": *
 ```
 then initialize the template with the `liu-theme` function, setting up the title page
 ```typst
