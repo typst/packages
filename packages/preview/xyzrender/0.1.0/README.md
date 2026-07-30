@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="branding/logo_big.svg" alt="xyzrender_logo" width="720" />
+  <img src="branding/logo_big.svg" alt="xyzrender logo depicting a stylized molecular structure" width="720" />
 </p>
 
 # xyzrender
@@ -7,8 +7,8 @@
 **Molecules that look like they belong in a paper — rendered straight
 inside your Typst document, no external tools involved.**
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Typst](https://img.shields.io/badge/Typst-0.15%2B-239dad.svg)](https://typst.app)
+[![MIT License badge](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Typst 0.15 or newer badge](https://img.shields.io/badge/Typst-0.15%2B-239dad.svg)](https://typst.app)
 
 <p align="center">
   <img src="gallery/caffeine_default.png" alt="caffeine, default preset" width="300" />
@@ -63,15 +63,15 @@ The same caffeine molecule across every built-in preset.
 
 | Default | Flat | Paton (PyMOL-like) | Pmol |
 |---------|------|--------------------|------|
-| ![default](gallery/caffeine_default.png) | ![flat](gallery/caffeine_flat.png) | ![paton](gallery/caffeine_paton.png) | ![pmol](gallery/caffeine_pmol.png) |
+| ![Caffeine rendered with the default preset](gallery/caffeine_default.png) | ![Caffeine rendered with the flat preset](gallery/caffeine_flat.png) | ![Caffeine rendered with the paton (PyMOL-like) preset](gallery/caffeine_paton.png) | ![Caffeine rendered with the pmol preset](gallery/caffeine_pmol.png) |
 
 | Bubble | Tube | BTube | MTube |
 |--------|------|-------|-------|
-| ![bubble](gallery/caffeine_bubble.png) | ![tube](gallery/caffeine_tube.png) | ![btube](gallery/caffeine_btube.png) | ![mtube](gallery/caffeine_mtube.png) |
+| ![Caffeine rendered with the bubble preset](gallery/caffeine_bubble.png) | ![Caffeine rendered with the tube preset](gallery/caffeine_tube.png) | ![Caffeine rendered with the btube preset](gallery/caffeine_btube.png) | ![Caffeine rendered with the mtube preset](gallery/caffeine_mtube.png) |
 
 | Wire | Graph | vdW |
 |------|-------|-----|
-| ![wire](gallery/caffeine_wire.png) | ![graph](gallery/caffeine_graph.png) | ![vdw](gallery/caffeine_vdw.png) |
+| ![Caffeine rendered with the wire preset](gallery/caffeine_wire.png) | ![Caffeine rendered with the graph preset](gallery/caffeine_graph.png) | ![Caffeine rendered with the vdw preset](gallery/caffeine_vdw.png) |
 
 ### Aromatic vs. Kekulé
 
@@ -79,7 +79,7 @@ Aromatic rings render as a solid-outer / dashed-inner pair by default; pass `kek
 
 | Aromatic (default) | Kekulé (`kekule: true`) |
 |--------------------|-------------------------|
-| ![aromatic](gallery/caffeine_default.png) | ![kekule](gallery/caffeine_kekule.png) |
+| ![Caffeine with aromatic rings rendered as solid-outer/dashed-inner pairs (default)](gallery/caffeine_default.png) | ![Caffeine with aromatic rings rendered as alternating Kekulé single/double bonds](gallery/caffeine_kekule.png) |
 
 ## Usage
 
