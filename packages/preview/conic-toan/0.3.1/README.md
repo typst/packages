@@ -44,7 +44,7 @@ Function and parameter names are in unaccented Vietnamese (`doan`, `duong-tron`,
 **Quick start**
 
 ```typst
-#import "@preview/conic-toan:0.3.0": *
+#import "@preview/conic-toan:0.3.1": *
 
 #do-thi-bac-ba(1, 0, -3, 1)          // graph with exact extrema
 #bbt-bac-ba(1, 0, -3, 1)             // matching variation table
@@ -84,7 +84,7 @@ Thuần Typst, **không phụ thuộc package nào** — biên dịch offline đ
 ## Cài đặt
 
 ```typst
-#import "@preview/conic-toan:0.3.0": *
+#import "@preview/conic-toan:0.3.1": *
 ```
 
 Không cần tải gì thêm — Typst tự tải gói về khi biên dịch lần đầu.
@@ -116,7 +116,7 @@ Tạo bài giảng mới: copy `main.typ` thành `bai-1.typ` rồi sửa nội d
 ## 1. Trình chiếu
 
 ```typst
-#import "baigiang.typ": *
+#import "@preview/conic-toan:0.3.1": *
 #show math.equation.where(block: false): it => math.display(it)
 
 #show: bai-giang.with(
@@ -668,8 +668,8 @@ khoảng `bk`, quay góc `goc` (số trần = ĐỘ, nhận cả `30deg`; dươn
 kim đồng hồ). TikZ `(30:2)` ⇔ `toa-cuc((0,0), 2, 30)`. Ví dụ lục giác đều:
 
 ```typst
-let dinh = range(6).map(k => toa-cuc((0, 0), 2.6, 60 * k))
-duong-gap-khuc(ctx, dinh, dong: true)
+#let dinh = range(6).map(k => toa-cuc((0, 0), 2.6, 60 * k))
+#duong-gap-khuc(ctx, dinh, dong: true)
 ```
 
 Lưu ý: `gach-vung` mô tả miền theo toạ độ GỐC của khung (không qua ctx-quay);
@@ -940,7 +940,7 @@ Soạn đề MỘT LẦN trong file kiểu `de-mau.typ`, xuất được 3 bản
 | `"beamer"`  | Trình chiếu:**mỗi câu một slide** — hiện đề → lời giải hiện dần theo từng dấu `\` → cuối cùng đánh dấu đáp án                                                                                    |
 
 ```typst
-#import "baigiang.typ": *
+#import "@preview/conic-toan:0.3.1": *
 #let ho-so = sys.inputs.at("ho-so", default: "dethi")
 
 #show: de-toan.with(ho-so: ho-so, tieu-de: [ĐỀ KIỂM TRA...],
@@ -1324,10 +1324,12 @@ và `tan-so:` — một nguồn số liệu dùng cho cả bảng lẫn biểu �
 // HISTOGRAM — cột dính sát nhau (tần số ghép nhóm, Toán 11–12)
 #bieu-do-tan-so(moc: (150, 155, 160, 165, 170, 175), tan-so: (5, 12, 18, 9, 4),
   ten-x: [Chiều cao (cm)])
-#bieu-do-tan-so(moc: .., tan-so: .., gap-khuc: true)  // + gấp khúc tần số chồng lên
+#bieu-do-tan-so(moc: (150, 155, 160, 165, 170, 175), tan-so: (5, 12, 18, 9, 4),
+  gap-khuc: true)  // + gấp khúc tần số chồng lên
 
 // ĐƯỜNG GẤP KHÚC TẦN SỐ đứng riêng (nối trung điểm, kéo dài về 0 hai đầu)
-#da-giac-tan-so(moc: .., tan-so: .., keo-dai: true)
+#da-giac-tan-so(moc: (150, 155, 160, 165, 170, 175), tan-so: (5, 12, 18, 9, 4),
+  keo-dai: true)
 
 // BIỂU ĐỒ CỘT RỜI — giá trị rời rạc: số (đặt đúng hoành độ) hoặc chữ
 #bieu-do-cot(gia-tri: (0, 1, 2, 3, 4), tan-so: (4, 9, 13, 6, 2), ten-x: [Số con])
