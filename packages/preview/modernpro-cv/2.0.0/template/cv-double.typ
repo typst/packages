@@ -1,11 +1,23 @@
 #import "@preview/modernpro-cv:2.0.0": *
-#import "profile.typ": profile
+
+// Edit identity and contacts here. Keeping them beside the CV content makes
+// this starter a self-contained document with no application-specific imports.
+#let profile = (
+  name: [Your Name],
+  role: [Your Current Role],
+  address: [City, Country],
+  contacts: (
+    (text: [you\@example.edu], link: "mailto:you@example.edu"),
+    (text: [your-site.example], link: "https://your-site.example"),
+    (text: [ORCID~0000-0000-0000-0000], link: "https://orcid.org/0000-0000-0000-0000"),
+  ),
+)
 
 // Two-column variant. Prefer cv-single.typ for a full academic CV or for ATS
 // parsing; this layout suits a one-page summary.
 //
 // For icons beside each contact, add `#import "@preview/fontawesome:0.6.2": fa-icon`
-// and give any contact in profile.typ an `icon:` field.
+// and give any contact in the profile above an `icon:` field.
 #show: cv.with(
   profile: profile,
   columns: 2,

@@ -38,8 +38,8 @@ on 2.0.0 will look different, which is the point of the release.
 - 新增统一入口 `cv`，接受 `profile`、`preset`、`accent`、`columns`。常规文档只需配置一个键。`cv-single` 与 `cv-double` 继续可用。
 - `preset: "compact" | "default" | "relaxed"` replaces `layout: (density: ...)`, which still works.
 - `preset: "compact" | "default" | "relaxed"` 取代 `layout: (density: ...)`，后者仍可使用。
-- The starter template ships a `profile.typ` holding your identity once, so a CV, a cover letter, and a statement import the same dictionary.
-- 起始模板附带 `profile.typ`，身份信息只维护一份，CV、求职信与研究陈述导入同一个字典。
+- Each starter keeps its editable profile dictionary inline, so every generated CV is self-contained and can be managed as one file.
+- 每个起始模板都将可编辑的个人资料字典直接放在正文文件中，使生成的 CV 自包含并可用单文件管理。
 - Added optional contact icons with a fixed alignment column while keeping the core template independent of icon libraries and preserving text-only defaults.
 - 增加可选联系方式图标与固定对齐列；核心模板不依赖图标库，并继续保留纯文字默认方案。
 - Introduced `section-block` and `render-sections` helpers for composing section content once and reordering it declaratively in templates and examples.

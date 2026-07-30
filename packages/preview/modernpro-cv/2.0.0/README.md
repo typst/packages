@@ -13,8 +13,9 @@ The examples use fictional people, institutions, publications, and awards.
 
 For a matching letter and statement template, see
 [modernpro-coverletter](https://typst.app/universe/package/modernpro-coverletter). The two
-packages share a design system and take the same `profile` dictionary, so a CV,
-a cover letter, and a research statement read as one application.
+packages share a design system and take the same `profile` shape, so a CV, a
+cover letter, and a research statement read as one application. Each starter
+keeps that dictionary inline so the document remains self-contained.
 
 ## Preview
 
@@ -51,7 +52,6 @@ The starter contains:
 ```plain
 modernpro-cv/
 ├── bib.bib
-├── profile.typ      <- your identity, defined once
 ├── cv-double.typ
 └── cv-single.typ
 ```
@@ -67,7 +67,7 @@ app.
 
 ### First edit checklist
 
-1. Replace the placeholder identity once in `profile.typ`.
+1. Replace the placeholder identity at the top of `cv-single.typ`.
 2. Open `cv-single.typ` and delete any sections that do not apply.
 3. Replace every fictional appointment, degree, publication, date, and claim.
 4. Compile the document and check page breaks, contact wrapping, and the final
@@ -80,11 +80,12 @@ downstream document, not in a public template fork.
 
 ## Minimal academic CV
 
-`profile` is the only argument a typical CV needs. Keep it in `profile.typ` and
-import the same file from your cover letter and statements:
+`profile` is the only argument a typical CV needs. Define it at the top of the
+same file so identity, content, and presentation stay together:
 
 ```typst
-// profile.typ
+#import "@preview/modernpro-cv:2.0.0": *
+
 #let profile = (
   name: [Dr. Maya Chen],
   role: [Lecturer in Computational Social Science],
@@ -95,11 +96,6 @@ import the same file from your cover letter and statements:
     (text: [ORCID~0000-0000-0000-0000], link: "https://orcid.org/0000-0000-0000-0000"),
   ),
 )
-```
-
-```typst
-#import "@preview/modernpro-cv:2.0.0": *
-#import "profile.typ": profile
 
 #show: cv.with(profile: profile)
 
@@ -144,7 +140,7 @@ to hide it.
 Keep presentation decisions in the `#show: cv.with(...)` call and keep
 application content below it:
 
-- Put identity and contacts in `profile.typ`.
+- Put identity and contacts immediately above the `#show` rule in the same file.
 - Use one `#section(...)` for each academic category.
 - Use semantic helpers such as `experience`, `education`, and `entry` instead
   of manually aligning dates.
@@ -293,7 +289,16 @@ canonical CV. Only the page structure changes.
 
 ```typst
 #import "@preview/modernpro-cv:2.0.0": *
-#import "profile.typ": profile
+
+#let profile = (
+  name: [Dr. Maya Chen],
+  role: [Lecturer in Computational Social Science],
+  address: [Edinburgh, United Kingdom],
+  contacts: (
+    (text: [maya\@northbridge.example], link: "mailto:maya@northbridge.example"),
+    (text: [maya.example.org], link: "https://maya.example.org"),
+  ),
+)
 
 #show: cv.with(
   profile: profile,
