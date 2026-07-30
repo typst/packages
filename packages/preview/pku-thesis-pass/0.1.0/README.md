@@ -1,0 +1,204 @@
+# pku-thesis-pass
+
+北京大学学位论文 Typst 模板（博士 / 硕士），支持学术学位与专业学位。
+
+<p align="center">
+  <img src="thumbnail.png" alt="demo" width="80%">
+</p>
+
+## 使用方式
+
+### 方式一：从 Typst Universe 创建（推荐）
+
+```bash
+typst init @preview/pku-thesis-pass:0.1.0 my-thesis
+cd my-thesis
+```
+
+### 方式二：本地使用
+
+```bash
+git clone https://github.com/chuxinyuan/pku-thesis-pass.git
+cd pku-thesis-pass
+```
+
+## 编译文档
+
+```bash
+# 普通版本
+typst compile thesis.typ
+
+# 盲审版本
+typst compile thesis.typ --input blind=true
+
+# 打印版本（链接不着色）
+typst compile thesis.typ --input preview=false
+
+# 章节不强制从奇数页开始
+typst compile thesis.typ --input always-start-odd=false
+
+# 指定系统字体方案（macOS/Windows/Linux）
+typst compile thesis.typ --input system=linux
+```
+
+## 配置说明
+
+在 `thesis.typ` 中调用 `config()` 函数配置论文信息，返回的字典解构后可按任意顺序编排：
+
+```typst
+#let (setup, cover, body-wrap, bibliography, ...) = config(
+  author-zh: "张三",
+  title-zh: "论文中文题目",
+  system: "default",
+)
+```
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| `author-zh` | str | 中文姓名 |
+| `author-en` | str | 英文姓名 |
+| `student-id` | str | 学号 |
+| `blind-id` | str | 盲审论文编号 |
+| `thesis-name` | str | 论文类型（如"博士研究生学位论文"） |
+| `header-text` | str | 页眉统一文本 |
+| `title-zh` | str | 中文题目 |
+| `title-en` | str | 英文题目 |
+| `school` | str | 院系 |
+| `first-major` | str | 一级学科 |
+| `major-zh` | str | 专业中文名 |
+| `major-en` | str | 专业英文名 |
+| `direction` | str | 研究方向 |
+| `supervisor-zh` | str | 导师中文名 |
+| `supervisor-en` | str | 导师英文名 |
+| `degree-type` | str | `"academic"` 或 `"professional"` |
+| `year` | int | 提交年份 |
+| `month` | int | 提交月份 |
+| `system` | str | 系统字体方案：`"default"`/`"mac"`/`"windows"`/`"linux"` |
+| `blind` | bool | 盲审模式（默认 `false`） |
+| `preview` | bool | 预览模式（默认 `true`） |
+| `first-line-indent` | length | 首行缩进（默认 `2em`） |
+| `always-start-odd` | bool | 章节从奇数页开始（默认 `true`） |
+| `clean-declaration` | bool | 声明页隐藏页眉页脚（默认 `false`） |
+| `outline-depth` | int | 目录深度（默认 `3`） |
+| `supplements` | dict | 自定义引用记号（图/表/代码/公式前缀） |
+| `codly-args` | dict | 代码块样式参数（行号、语言图标等） |
+| `override-bib` | bool | 自定义参考文献样式（默认 `false`） |
+| `bib-file` | str | BibTeX 文件路径 |
+| `bib-style` | str | `"numeric"` 或 `"author-date"` |
+| `bib-version` | str | `"2015"` 或 `"2025"` |
+| `bib-cn-first` | bool | 中文文献优先（默认 `true`） |
+| `bib-pinyin-override` | dict | 多音字校正，如 `("重": "chong2")` |
+
+## 功能特性
+
+- [x] 封面（含盲审版）
+- [x] 版权声明页
+- [x] 中英文摘要
+- [x] 自动目录（含图、表、代码列表）
+- [x] 中文章节编号（第X章 + 附录 A/B）
+- [x] GB/T 7714 参考文献（2015 / 2025 标准）
+- [x] 三线表、代码高亮
+- [x] 页眉页脚自动切换
+- [x] 脚注
+- [x] 附录
+- [x] 致谢、原创性声明
+- [x] 命令行参数控制（`blind` / `preview` / `system`）
+- [x] 跨平台字体方案（macOS / Windows / Linux）
+
+## 字体配置
+
+模板为每个平台预定义了字体方案，通过 `system` 参数切换：
+`"default"` / `"mac"` / `"windows"` / `"linux"`。
+
+Typst 按列表顺序依次 fallback，优先使用列表中靠前的字体。
+
+### 跨平台通用（system: "default"）
+
+优先 Windows 字体，次选 Noto / Source Han，无 macOS 独占字体。
+
+| 用途 | 字体列表 |
+|------|----------|
+| 仿宋 | Times New Roman, FangSong, STFangsong |
+| 宋体 | Times New Roman, SimSun, STSong, Noto Serif CJK SC, Source Han Serif |
+| 黑体 | Times New Roman, SimHei, STHeiti, Noto Sans CJK SC, Source Han Sans |
+| 楷体 | Times New Roman, KaiTi, STKaiti, AR PL UKai |
+| 代码 | Consolas, Courier New, SimSun, STSong, Noto Serif CJK SC, Source Han Serif |
+
+### macOS（system: "mac"）
+
+使用 Apple 自带字体，无冗余 fallback。
+
+| 用途 | 字体列表 |
+|------|----------|
+| 仿宋 | Times New Roman, STFangsong |
+| 宋体 | Times New Roman, STSong |
+| 黑体 | Arial, PingFang SC, STHeiti |
+| 楷体 | Times New Roman, STKaiti |
+| 代码 | Menlo, Courier New, STSong |
+
+### Windows（system: "windows"）
+
+使用 Windows 自带中文字体（SimSun / SimHei / KaiTi 等）。
+
+| 用途 | 字体列表 |
+|------|----------|
+| 仿宋 | Times New Roman, FangSong |
+| 宋体 | Times New Roman, SimSun |
+| 黑体 | Times New Roman, SimHei |
+| 楷体 | Times New Roman, KaiTi |
+| 代码 | Consolas, SimSun |
+
+### Linux（system: "linux"）
+
+优先 Noto / Source Han 系列开源字体。
+
+| 用途 | 字体列表 |
+|------|----------|
+| 仿宋 | Times New Roman, FangSong, STFangsong |
+| 宋体 | Times New Roman, Noto Serif CJK SC, Source Han Serif, SimSun |
+| 黑体 | Times New Roman, SimHei, Noto Sans CJK SC, Source Han Sans |
+| 楷体 | Times New Roman, KaiTi, STKaiti, AR PL UKai |
+| 代码 | Consolas, Courier New, Noto Serif CJK SC, Source Han Serif, SimSun |
+
+## 项目结构
+
+```
+pku-thesis-pass/
+├── lib.typ              # 包入口（re-export）
+├── typst.toml           # 包清单
+├── thumbnail.png        # 模板预览图
+├── assets/              # 资源文件
+├── format/
+│   ├── config.typ      # 配置总控
+│   ├── const.typ       # 常量（font-set、size、supplement）
+│   ├── utils.typ       # 工具函数 + 三线表 + 代码块
+│   ├── page.typ        # 页面设置
+│   ├── headings.typ    # 标题系统
+│   ├── header.typ      # 页眉
+│   ├── footer.typ      # 页脚
+│   ├── show.typ        # show 规则
+│   ├── covers.typ      # 封面
+│   ├── bibliography.typ # 参考文献
+│   ├── outline.typ     # 目录
+│   ├── listoffigures.typ # 图表代码列表
+│   ├── copyright.typ   # 版权声明
+│   ├── declaration.typ # 原创性声明
+│   ├── acknowledgements.typ # 致谢
+│   ├── abstract-zh.typ # 中文摘要
+│   └── abstract-en.typ # 英文摘要
+├── template/           # Typst Universe 模板
+│   ├── thesis.typ
+│   ├── ref.bib
+│   └── content/
+├── thesis.typ           # 用户主文档
+├── ref.bib              # 参考文献
+└── content/             # 用户文档（使用指南）
+```
+
+## 致谢
+
+感谢 [pkuthss-typst](https://github.com/pku-typst/pkuthss-typst) 项目成员前期的伟大贡献，让论文排版这项工作变得简单而有趣，我在此模板的基础上，借助 AI 的力量做了一点点调整。
+
+## License
+
+MIT License

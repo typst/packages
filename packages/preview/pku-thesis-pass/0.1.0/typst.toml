@@ -1,0 +1,17 @@
+[package]
+name = "pku-thesis-pass"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Xinyuan Chu"]
+license = "MIT"
+description = "北京大学学位论文 Typst 模板。Dissertation Thesis Typst Template for Peking University (PKU)."
+repository = "https://github.com/chuxinyuan/pku-thesis-pass"
+keywords = ["dissertation", "thesis", "template", "Peking University"]
+categories = ["thesis"]
+disciplines = ["computer-science"]
+compiler = "0.15.1"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
