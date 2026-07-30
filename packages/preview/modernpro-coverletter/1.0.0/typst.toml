@@ -7,6 +7,7 @@ license = "MIT"
 description = "A clean, modern cover letter and statement template for academic and professional applications."
 keywords = [ "coverletter", "cv", "academic", "job",]
 categories = [ "cv", "utility",]
+exclude = [ "/screenshots/",]
 
 [template]
 path = "template"

@@ -132,7 +132,7 @@ Everything beyond `profile` and `recipient` is optional:
 ```typst
 #show: coverletter.with(
   profile: profile,
-  recipient: (...),
+  recipient: (name: [Recipient Name],),
   preset: "compact",
   accent: rgb("#1e3a5f"),
 )
@@ -246,7 +246,7 @@ optional settings are grouped by purpose:
 The semantic theme keys match modernpro-cv:
 
 ```typst
-theme: (
+#let theme = (
   font: "PT Serif",
   text: rgb("#1f2933"),
   heading: rgb("#1f2933"),
