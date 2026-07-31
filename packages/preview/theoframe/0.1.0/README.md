@@ -36,7 +36,7 @@ To use, simply import the package:
 
 ```
 
-![](./assets/example1.png)
+![Example of theorem-like environments including Definition and Theorem with colored headers and borders.](./assets/example1.png)
 
 # Customization
 
@@ -47,7 +47,7 @@ Each environment accepts a `color` parameter to customize its appearance:
   $a^2 + b^2 = c^2$
 ]
 ```
-![](./assets/customization1.png)
+![Customizing a theorem frame with a custom blue color for the left border and header background.](./assets/customization1.png)
 
 The `color` affects both the left border stroke and the header background tint. The content area uses a lighter transparent variant of the same color.
 
