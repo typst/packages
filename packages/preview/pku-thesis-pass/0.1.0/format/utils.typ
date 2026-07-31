@@ -29,9 +29,9 @@
 
 // ========== 辅助函数 ==========
 
-/// 附录切换函数：在正文末尾调用，进入附录模式。
-/// 发射 pkuthss-appendix 元数据标记（用于触发参考文献渲染），
-/// 并将附录计数器置为 10（>=10 即表示附录区域），重置章节和标题计数器。
+/// 附录切换函数：在正文末尾调用，进入附录模式
+/// 发射 pkuthss-appendix 元数据标记（用于触发参考文献渲染）
+/// 并将附录计数器置为 10（>=10 即表示附录区域），重置章节和标题计数器
 #let appendix() = {
   metadata("pkuthss-appendix")
   appendixcounter.update(10)
@@ -39,7 +39,7 @@
   counter(heading).update(0)
 }
 
-/// 阿拉伯数字转中文数字（如 3 → "三"）。
+/// 阿拉伯数字转中文数字（如 3 → "三"）
 #let chinesenumber(num) = numbering("一", num)
 
 /// 年份转中文（如 2026 → "二〇二六"）。
@@ -52,10 +52,10 @@
     .join("")
 )
 
-/// 中文章节编号格式化。
-/// - 正文部分（appendix < 10）：一级标题显示"第X章"，多级显示"X.X"。
-/// - 附录部分（appendix >= 10）：一级显示"附录 A"，多级显示"A.X"。
-/// brackets: 是否为公式引用加括号（如"(1.1)"）。
+/// 中文章节编号格式化
+/// - 正文部分（appendix < 10）：一级标题显示"第X章"，多级显示"X.X"
+/// - 附录部分（appendix >= 10）：一级显示"附录 A"，多级显示"A.X"
+/// brackets: 是否为公式引用加括号（如"(1.1)"）
 #let chinesenumbering(..nums, location: none, brackets: false) = context {
   let actual_loc = if location == none { here() } else { location }
   if appendixcounter.at(actual_loc).first() < 10 {
@@ -71,6 +71,23 @@
       numbering(if brackets { "(A.1)" } else { "A.1" }, ..nums)
     }
   }
+}
+
+/// 将用户传入的文件路径解析为可被 `image()` / `read()` 直接使用的路径
+/// - `path` 类型：在调用处创建，可穿透包沙箱访问用户项目文件
+/// - `str` 类型：按本地开发模式处理，路径相对项目根目录（函数位于 format/ 下，需回溯一层）
+#let _resolve-path(p) = if type(p) == path { p } else { ("../" + p) }
+
+/// 校验图片文件不是 eps 格式（Typst 的 `image()` 仅支持 png/jpg/gif/webp/svg/pdf）
+/// 通过文件头魔数 `%!PS-Adobe` 识别 eps，避免报出晦涩的 "unknown image format"
+/// 返回原路径，以便直接传给 `image()`
+#let _ensure-not-eps(p) = {
+  let b = read(p, encoding: none)
+  assert(
+    not (b.len() >= 10 and b.slice(0, 10) == bytes("%!PS-Adobe")),
+    message: "图片不支持 eps 格式：Typst 仅支持 png/jpg/gif/webp/svg/pdf，请先转换为支持的格式，或者直接用 CTAN pkuthss 包里的 PDF 文件",
+  )
+  p
 }
 
 // ========== 页面排版工具 ==========
@@ -155,7 +172,7 @@
   result
 }
 
-/// 未选中复选框（空心方框）。
+/// 未选中复选框（空心方框）
 #let sym-box-unchecked(size) = box(width: size, align(
   center + horizon,
   square(size: size),
@@ -167,10 +184,10 @@
   square(size: size)[✓],
 ))
 
-/// 构建封面页的字段网格（如姓名、学号等），支持自动换行。
-/// fields: 数组，每项为 (字段名, 字段值) 元组。
-/// name-width / value-width: 两列宽度。
-/// row-height: 每行高度。
+/// 构建封面页的字段网格（如姓名、学号等），支持自动换行
+/// fields: 数组，每项为 (字段名, 字段值) 元组
+/// name-width / value-width: 两列宽度
+/// row-height: 每行高度
 #let build-field-grid(fields, name-width, value-width, row-height, font: font) = context {
   let grid-contents = ()
 
@@ -200,9 +217,9 @@
   )
 }
 
-/// 学位类型选择框。
-/// degree-type: "academic"（学术学位）或 "professional"（专业学位）。
-/// 其他值会触发 assert 报错。
+/// 学位类型选择框
+/// degree-type: "academic"（学术学位）或 "professional"（专业学位）
+/// 其他值会触发 assert 报错
 #let degree-type-checkbox(degree-type) = {
   assert(
     degree-type == "academic" or degree-type == "professional",
@@ -251,14 +268,14 @@
 
 // ========== 三线表组件 ==========
 
-/// 计算表格列数：int 直接返回，array 返回长度，否则默认为 1。
+/// 计算表格列数：int 直接返回，array 返回长度，否则默认为 1
 #let _booktab-column-count(columns) = if type(columns) == int {
   columns
 } else if type(columns) == array { columns.len() } else { 1 }
 
-/// 三线表内部构建块：block 包裹的 table。
-/// 固定顶线 1.5pt、表头线 0.75pt、底线 1.5pt。
-/// footer: 可选的 table.footer 内容。
+/// 三线表内部构建块：block 包裹的 table
+/// 固定顶线 1.5pt、表头线 0.75pt、底线 1.5pt
+/// footer: 可选的 table.footer 内容
 #let _booktab-block(table-args, header, body, width: auto, footer: none) = block(
   width: width,
   breakable: true,
@@ -277,10 +294,10 @@
   },
 )
 
-/// 创建并可选包装为 figure 的三线表。
-/// 第一行位置参数自动作为表头行（strong 加粗）。
-/// outlined: true 时包装为 figure(kind: table)，支持 caption 和 @ 引用。
-/// 支持所有 table 的命名参数（除 stroke 被固定为 none）。
+/// 创建并可选包装为 figure 的三线表
+/// 第一行位置参数自动作为表头行（strong 加粗）
+/// outlined: true 时包装为 figure(kind: table)，支持 caption 和 @ 引用
+/// 支持所有 table 的命名参数（除 stroke 被固定为 none）
 /// 示例：
 ///   #booktab(
 ///     columns: 3,
@@ -312,7 +329,7 @@
   }
 }
 
-/// 将 table.cell 的内容用 strong 包裹（用于 as-booktab 的表头单元）。
+/// 将 table.cell 的内容用 strong 包裹（用于 as-booktab 的表头单元）
 #let _booktab-header-cell(cell) = {
   if cell.func() != table.cell {
     cell
@@ -323,7 +340,7 @@
   }
 }
 
-/// 不修改 table 结构，仅包裹在 block 中设置表文字号。
+/// 不修改 table 结构，仅包裹在 block 中设置表文字号
 #let _booktab-unstyled(it, width: auto) = block(
   width: width,
   breakable: true,
@@ -333,9 +350,9 @@
   },
 )
 
-/// 将现有原生 table 装饰为三线表样式。
-/// 自动识别 table.header，或取前 N 个单元格作为表头。
-/// 若 table 已包含 table.hline，则仅包裹不修改（保留已有样式）。
+/// 将现有原生 table 装饰为三线表样式
+/// 自动识别 table.header，或取前 N 个单元格作为表头
+/// 若 table 已包含 table.hline，则仅包裹不修改（保留已有样式）
 /// 示例：
 ///   #figure(
 ///     as-booktab(table(
@@ -386,10 +403,10 @@
 
 // ========== 代码块组件 ==========
 
-/// 代码块组件。
-/// raw: 由 ``` 标记的 raw 代码块。
-/// caption: 代码标题（可选，有标题时可被 @label 引用）。
-/// 省略 caption 时仅显示代码，不编号、不入列表、不可引用。
+/// 代码块组件
+/// raw: 由 ``` 标记的 raw 代码块
+/// caption: 代码标题（可选，有标题时可被 @label 引用）
+/// 省略 caption 时仅显示代码，不编号、不入列表、不可引用
 #let codeblock(raw, caption: none) = {
   if caption != none {
     figure(

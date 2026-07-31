@@ -8,7 +8,7 @@
 #import "const.typ": size
 #import "utils.typ": partcounter, skippedstate
 
-/// 生成页脚页码（作为 place 元素放置在页面底部）。
+/// 生成页脚页码（作为 place 元素放置在页面底部）
 #let make-footer() = context {
   let part = partcounter.at(here()).first()
   if part == 0 { return }
@@ -16,7 +16,7 @@
   let logical-page = counter(page).at(here()).first()
   if skippedstate.at(here()) and calc.even(logical-page) { return }
 
-  // clean-declaration 检测：若在声明页之后且无更多 heading，隐藏页码。
+  // clean-declaration 检测：若在声明页之后且无更多 heading，隐藏页码
   if (
     query(selector(heading).after(here())).len() == 0
       and query(selector(<__clean_declaration__>)).len() > 0

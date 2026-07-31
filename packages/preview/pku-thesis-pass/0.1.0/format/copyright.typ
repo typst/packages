@@ -7,8 +7,8 @@
 #import "headings.typ": front-heading
 #import "const.typ": size
 
-/// 版权声明页。
-/// 内容为固定的法律声明文字，无参数。
+/// 版权声明页
+/// 内容为固定的法律声明文字，无参数
 #let copyright-page() = {
   set align(left + top)
   set text(size: size.正文)

@@ -9,8 +9,8 @@
 #import "utils.typ": chinesenumbering, partcounter, skippedstate
 #import "headings.typ": get-heading-meta
 
-/// 生成页眉内容（作为 place 元素放置在页面顶部）。
-/// header-text: 偶数页统一显示的页眉文本。
+/// 生成页眉内容（作为 place 元素放置在页面顶部）
+/// header-text: 偶数页统一显示的页眉文本
 #let make-header(header-text: none) = context {
   let part = partcounter.at(here()).first()
   let logical-page = counter(page).at(here()).first()

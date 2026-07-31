@@ -5,9 +5,9 @@
 
 #import "headings.typ": back-heading
 
-/// 致谢页。
-/// first-line-indent: 段落首行缩进。
-/// acknowledgements: 致谢正文（body 参数）。
+/// 致谢页
+/// first-line-indent: 段落首行缩进
+/// acknowledgements: 致谢正文（body 参数）
 #let acknowledgements-page(first-line-indent: 2em, acknowledgements) = {
   back-heading("致谢")
   set par(

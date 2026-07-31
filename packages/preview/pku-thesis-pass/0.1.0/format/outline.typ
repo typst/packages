@@ -7,10 +7,10 @@
 #import "headings.typ": front-heading
 #import "utils.typ": appendixcounter, chaptercounter, chinesenumbering, partcounter
 
-/// 中文目录。
-/// title: 目录标题（默认"目录"）。
-/// depth: 目录深度（默认 none 表示全部）。
-/// indent: 是否按标题等级缩进。
+/// 中文目录
+/// title: 目录标题（默认"目录"）
+/// depth: 目录深度（默认 none 表示全部）
+/// indent: 是否按标题等级缩进
 #let chineseoutline(title: "目录", depth: none, indent: false) = {
   front-heading(title)
 
@@ -85,8 +85,8 @@
   }
 
   outline(
-    title: none, 
-    target: heading.where(outlined: true), 
+    title: none,
+    target: heading.where(outlined: true),
     depth: depth
   )
 }

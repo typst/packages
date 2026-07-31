@@ -6,8 +6,8 @@
 #import "const.typ": size
 #import "@preview/gb7714-bilingual:0.2.3": gb7714-bibliography, init-gb7714
 
-/// 原生 bibliography 的 show 规则（override-bib 时使用）。
-/// 设置五号字、悬挂缩进 1.66em，并提升方括号编号的垂直位置。
+/// 原生 bibliography 的 show 规则（override-bib 时使用）
+/// 设置五号字、悬挂缩进 1.66em，并提升方括号编号的垂直位置
 #let bibliography-show-rule(it) = {
   set text(size: size.参考文献正文)
   set par(
@@ -25,9 +25,9 @@
   it
 }
 
-/// 渲染参考文献。
-/// 非 override-bib 且有 bib-content 时：通过 gb7714-bilingual 处理 doc 全文。
-/// 否则回落为 Typst 原生 bibliography 加 show 规则。
+/// 渲染参考文献
+/// 非 override-bib 且有 bib-content 时：通过 gb7714-bilingual 处理 doc 全文
+/// 否则回落为 Typst 原生 bibliography 加 show 规则
 #let render-bibliography(
   bib-content: none,
   bib-style: "numeric",

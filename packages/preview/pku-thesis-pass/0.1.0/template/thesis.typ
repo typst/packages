@@ -61,9 +61,19 @@
   outline-depth: 3,
   supplements: (:),
   codly-args: (:),
+  // 官方校徽和字标建议从 CTAN 的 pkuthss 包获取：
+  //   https://ctan.org/pkg/pkuthss
+  // Typst 的 `image()` 暂不支持 eps 格式，推荐使用 pdf 或 svg
+  // 封面校徽和字标：参数默认值为 none，封面显示灰色占位框
+  // 如需使用真实校徽和字标，建议您将相关文件放在项目根目录下的 `assets` 路径下
+  // 相应 `path` 的参数值指向该文件即可，例如：
+  //   logo: path("assets/logo.svg"),
+  //   wordmark: path("assets/wordmark.svg"),
+  logo: none,
+  wordmark: none,
 
   // ========== 参考文献 ==========
-  bib-file: "ref.bib",
+  bib-file: path("ref.bib"),
   bib-style: "numeric",
   bib-version: "2025",
 )

@@ -6,12 +6,12 @@
 
 #import "const.typ": size
 
-/// 英文摘要页。
-/// title-en: 英文论文题目（自动 upper 全大写）。
-/// author-en / major-en / supervisor-en: 作者姓名、专业、导师（盲审时隐藏）。
-/// keywords-en: 英文关键词数组，以 "KEY WORDS:" 为前缀。
-/// blind: 盲审模式开关。
-/// body: 摘要正文。
+/// 英文摘要页
+/// title-en: 英文论文题目（自动 upper 全大写）
+/// author-en / major-en / supervisor-en: 作者姓名、专业、导师（盲审时隐藏）
+/// keywords-en: 英文关键词数组，以 "KEY WORDS:" 为前缀
+/// blind: 盲审模式开关
+/// body: 摘要正文
 #let abstract-page-en(
   title-en: none,
   author-en: none,

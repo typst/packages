@@ -1,6 +1,6 @@
 # pku-thesis-pass
 
-北京大学学位论文 Typst 模板（博士 / 硕士），支持学术学位与专业学位。
+北京大学学位论文 Typst 模板（博士 / 硕士） / Dissertation Thesis Typst Template (Doctoral / Master) for Peking University.
 
 <p align="center">
   <img src="thumbnail.png" alt="Cover of an example thesis" width="80%">
@@ -82,12 +82,31 @@ typst compile thesis.typ --input system=linux
 | `outline-depth` | int | 目录深度（默认 `3`） |
 | `supplements` | dict | 自定义引用记号（图/表/代码/公式前缀） |
 | `codly-args` | dict | 代码块样式参数（行号、语言图标等） |
+| `logo` | path | 封面校徽图片路径，如 `path("assets/logo.svg")`（默认 `none`，显示占位框） |
+| `wordmark` | path | 封面校名字标图片路径（默认 `none`，显示占位框） |
 | `override-bib` | bool | 自定义参考文献样式（默认 `false`） |
-| `bib-file` | str | BibTeX 文件路径 |
+| `bib-file` | path | BibTeX 文件路径，如 `path("ref.bib")` |
 | `bib-style` | str | `"numeric"` 或 `"author-date"` |
 | `bib-version` | str | `"2015"` 或 `"2025"` |
 | `bib-cn-first` | bool | 中文文献优先（默认 `true`） |
 | `bib-pinyin-override` | dict | 多音字校正，如 `("重": "chong2")` |
+
+## 校徽和字标配置
+
+出于版权考虑，这里**不包含**北京大学的官方校徽和字标，封面默认显示灰色占位框。
+
+如需在封面使用真实校徽和字标，请自行获取官方校徽文件并放入项目目录，然后在 `config()` 中配置，例如：
+
+```typst
+#let (.., cover) = config(
+  logo: path("assets/logo.svg"),
+  wordmark: path("assets/wordmark.svg"),
+)
+```
+
+官方校徽和字标（`pkulogo` / `pkuword`）可从 CTAN 的 [pkuthss](https://ctan.org/pkg/pkuthss) 包获取。
+
+CTAN 提供 eps 和 pdf 两种格式。Typst 目前仅支持 png/jpg/gif/webp/svg/pdf，请先转换为支持的格式，或者直接用 CTAN pkuthss 包里的 pdf 格式文件。
 
 ## 功能特性
 

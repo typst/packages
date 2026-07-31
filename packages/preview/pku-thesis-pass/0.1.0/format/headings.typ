@@ -10,7 +10,7 @@
 #import "const.typ": size
 #import "utils.typ": partcounter, chaptercounter, footnotecounter, imagecounter, tablecounter, rawcounter, equationcounter
 
-/// 根据标题等级返回对应字号（用于 2–4 级标题）。
+/// 根据标题等级返回对应字号（用于 2–4 级标题）
 #let get-heading-size(level) = {
   if level == 1 {
     size.一级标题
@@ -23,7 +23,7 @@
   }
 }
 
-/// 各级标题段前/段后默认间距。
+/// 各级标题段前/段后默认间距
 #let default-heading-spacing-before = (17pt, 24pt, 12pt, 6pt)
 #let default-heading-spacing-after = (16.5pt, 6pt, 6pt, 6pt)
 
@@ -37,7 +37,7 @@
 //   linespacing             - 覆盖默认行距
 //   font                    - 覆盖默认字体
 
-/// 创建前置部分的无编号标题（摘要、目录等）。
+/// 创建前置部分的无编号标题（摘要、目录等）
 /// enter-front: true 时将 part 切换到 1（前置部分）并重置页码。
 #let front-heading(
   title,
@@ -58,7 +58,7 @@
   )[#title]
 }
 
-/// 创建后置部分的无编号标题（致谢、声明等）。
+/// 创建后置部分的无编号标题（致谢、声明等）
 /// 与 front-heading 不同，默认 outlined: true（出现在目录中）。
 #let back-heading(
   title,
@@ -87,7 +87,7 @@
   }
 }
 
-/// 渲染标题正文（不重新触发 show heading）。
+/// 渲染标题正文（不重新触发 show heading）
 /// fs: 字号；meta: 通过 ..args 传入的元数据覆盖。
 #let sizedheading(it, fs, ..meta) = {
   if it.body == none or it.body == [] { return }
@@ -120,8 +120,8 @@
 }
 
 /// heading show rule：处理第 1 级标题的分页、状态转换、计数器步进，
-/// 然后委托 sizedheading 渲染。
-/// smartpagebreak: 由 config() 传入的分页函数（处理 always-start-odd）。
+/// 然后委托 sizedheading 渲染
+/// smartpagebreak: 由 config() 传入的分页函数（处理 always-start-odd）
 #let heading-show-rule(it, smartpagebreak) = {
   set par(first-line-indent: 0em)
 

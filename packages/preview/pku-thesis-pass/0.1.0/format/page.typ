@@ -15,9 +15,9 @@
 #import "footer.typ": make-footer
 #import "show.typ": _figure-show-rule, _ref-show-rule
 
-/// 页面基础设置函数。
-/// 在 #show: setup 处被 config() 调用，作用于全文。
-/// 参数全部由 config() 传入，保持关注点分离。
+/// 页面基础设置函数
+/// 在 #show: setup 处被 config() 调用，作用于全文
+/// 参数全部由 config() 传入，保持关注点分离
 #let page-setup(
   font: font,
   header-text: none,

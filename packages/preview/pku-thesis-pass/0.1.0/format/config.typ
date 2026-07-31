@@ -27,7 +27,7 @@
 
 // 基础定义
 #import "const.typ": supplement, font-set
-#import "utils.typ": skippedstate, appendix, booktab, as-booktab, codeblock
+#import "utils.typ": skippedstate, appendix, booktab, as-booktab, codeblock, _resolve-path
 
 // 基础设施
 #import "page.typ": page-setup
@@ -95,10 +95,12 @@
 ///   outline-depth — 目录深度（默认 3）
 ///   supplements — 自定义引用记号
 ///   codly-args — 控制代码块行号、背景色、语言图标等
+///   logo — 封面校徽图片路径，`path` 类型（如 `path("assets/logo.svg")`，默认 none 显示占位框）
+///   wordmark — 封面校名字标图片路径，`path` 类型（如 `path("assets/wordmark.svg")`，默认 none 显示占位框）
 ///
 /// 参考文献参数：
 ///   override-bib — 使用 Typst 原生 bibliography（默认 false）
-///   bib-file — BibTeX 文件（如："path/to/xxxx.bib"）
+///   bib-file — BibTeX 文件（如：`path("path/to/xxxx.bib")`，`path` 类型）
 ///   bib-style — "numeric"(顺序编码) / "author-date"(著者-出版年)
 ///   bib-version — "2015" / "2025"
 ///   bib-cn-first — 中文文献优先（默认 true）
@@ -153,6 +155,10 @@
     lang-format: none,    // 语言名称
     zebra-fill: none,     // 斑马条纹
   ),
+  // 封面校徽、字标图片文件路径，参数值为 none 时封面显示灰色占位框
+  // 示例：logo: path("assets/logo.svg"), wordmark: path("assets/wordmark.svg")
+  logo: none,
+  wordmark: none,
   // ========== 参考文献参数 ==========
   // 完全自定义参考文献样式，忽略以下参数
   override-bib: false,    // 自定义引用样式时设为 true
@@ -160,7 +166,7 @@
   bib-style: "numeric",   // 引用风格："numeric" 或 "author-date"
   // 引用版本（默认为 "2015"，可选 "2025"。注意： GB/T 7714-2025 标准从 2026 年 7 月 1 日开始实施）
   bib-version: "2015",    // "2015" 或 "2025"
-  // 仅 bibstyle: "author-date"。true（默认）时中文条目排在外文之前；false 时外文在前（传给 gb7714-bilingual 的 cn-first）
+  // 仅 bib-style: "author-date"。true（默认）时中文条目排在外文之前；false 时外文在前（传给 gb7714-bilingual 的 cn-first）
   bib-cn-first: true,
   // 仅 author-date 且中文作者：多音字校正，传给 auto-pinyin 的 to-pinyin(..., override: ...)
   // 键为汉字（字符串），值为 tone-num-end 音节串，如 ("重": "chong2")
@@ -177,9 +183,10 @@
     font-set.at(sys, default: font-set.default)
   }
 
-  // 读取参考文献文件；路径相对于项目根目录，config() 在 format/ 下需回溯一层
-  let _bib-content = if bib-file != none { 
-    read(("../" + bib-file)) 
+  // 读取参考文献文件；路径应使用 path 类型（在调用处解析，可穿透包沙箱），
+  // 字符串路径则按本地模式处理（相对项目根目录）
+  let _bib-content = if bib-file != none {
+    read(_resolve-path(bib-file))
   }
 
   // 合并用户自定义引用记号
@@ -245,6 +252,8 @@
         degree-type: degree-type,
         year: year,
         month: month,
+        logo: logo,
+        wordmark: wordmark,
       )
     }
     smartpagebreak()
@@ -281,8 +290,8 @@
   // ========== 论文目录 ==========
   let outline = () => {
     chineseoutline(
-      title: "目录", 
-      depth: outline-depth, 
+      title: "目录",
+      depth: outline-depth,
       indent: true
     )
   }

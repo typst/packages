@@ -9,8 +9,8 @@
 #import "@preview/cuti:0.4.0": show-cn-fakebold
 #import "const.typ": size
 
-/// 原创性声明与授权说明页。
-/// clean-declaration: 为 true 时清除该页的页眉和页码（通过 <__clean_declaration__> 标签）。
+/// 原创性声明与授权说明页
+/// clean-declaration: 为 true 时清除该页的页眉和页码（通过 <__clean_declaration__> 标签）
 #let declaration-page(clean-declaration: false) = {
   set par(first-line-indent: 2em)
   back-heading(
@@ -68,7 +68,7 @@
       )
       - 按照学校要求提交学位论文的印刷本和电子版本；
       - 学校有权保存学位论文的印刷本和电子版，并提供目录检索与阅览服务，在校园网上提供服务；
-      - 学校可以采用缩印、缩印、数字化或其它复制手段保存论文；
+      - 学校可以采用影印、缩印、数字化或其它复制手段保存论文；
       - 因某种特殊原因须要延迟发布学位论文电子版，授权学校#box(width: 12pt, align(center, square(size: 9pt)))一年/#box(width: 12pt, align(center, square(size: 9pt)))两年/#box(width: 12pt, align(center, square(size: 9pt)))三年以后，在校园网上全文发布。
     ]
     #v(1fr)

@@ -25,9 +25,9 @@
   }
 }
 
-/// 图/表/代码列表。
-/// title: 列表标题。
-/// kind: image / table / "code"。
+/// 图/表/代码列表
+/// title: 列表标题
+/// kind: image / table / "code"
 /// supplements: 引用记号字典（用于前缀标签）。
 #let listoffigures(title: "插图", kind: image, supplements: supplement) = {
   front-heading(title)

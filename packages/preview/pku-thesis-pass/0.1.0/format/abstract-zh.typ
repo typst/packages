@@ -6,10 +6,10 @@
 
 #import "headings.typ": front-heading
 
-/// 中文摘要页。
-/// keywords-zh: 中文关键词数组，以"键词："为前缀、顿号分隔。
-/// first-line-indent: 段落首行缩进。
-/// body: 摘要正文。
+/// 中文摘要页
+/// keywords-zh: 中文关键词数组，以"关键词："为前缀、顿号分隔
+/// first-line-indent: 段落首行缩进
+/// body: 摘要正文
 #let abstract-page-zh(
   keywords-zh: (),
   first-line-indent: 2em,
