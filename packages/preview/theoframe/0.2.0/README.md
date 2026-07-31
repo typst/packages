@@ -41,8 +41,10 @@ To use, simply import the package:
 #definition("prime number")[A natural number is called a _prime number_ if it is greater than 1 and cannot be written as the product of two smaller natural numbers.]
 
 ```
+<p align="center">
+  <img src="./assets/example1.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+</p>
 
-![Example of theorem-like environments including Definition and Theorem with colored headers and borders.](./assets/example1.svg)
 
 # Customization
 
@@ -51,7 +53,9 @@ Each environment accepts a `color` parameter to customize its appearance:
 ```typst
 #definition("prime number",color: rgb("#005eff"))[A natural number is called a _prime number_ if it is greater than 1 and cannot be written as the product of two smaller natural numbers.]
 ```
-![Customizing a theorem frame with a custom blue color for the left border and header background.](./assets/customization1.svg)
+<p align="center">
+  <img src="./assets/customization1.svg" alt="Customizing a theorem frame with a custom blue color for the left border and header background.">
+</p>
 
 The `color` affects both the left border stroke and the header background tint. The content area uses a lighter transparent variant of the same color.
 
