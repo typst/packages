@@ -9,6 +9,7 @@ To use, simply import the package:
 
 ```typst
 #import "@preview/theoframe:0.2.0": *
+#show: reset
 ```
 
 # Example
