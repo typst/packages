@@ -11,6 +11,7 @@ keywords = ["assignment", "university", "academic", "homework", "problem-set", "
 categories = ["components", "report"]
 exclude = [
   "**/*.pdf",
+  "assets/**",
 ]
 
 [template]
