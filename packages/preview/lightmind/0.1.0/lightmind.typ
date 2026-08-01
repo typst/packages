@@ -2,7 +2,7 @@
 // 基于 lightmind.css 改写的 Typst 模板
 
 // 伪粗体、伪斜体
-#import "@preview/cuti:0.3.0": fakeitalic, show-cn-fakebold
+#import "@preview/cuti:0.4.0": fakeitalic, show-cn-fakebold
 // 类markdown中的表格语法
 #import "@preview/tablem:0.3.0": tablem
 
