@@ -8,7 +8,7 @@ description = "A TU/e thesis template"
 repository = "https://github.com/alikaansun/TUe_typst_thesis_template"
 keywords = ["thesis", "Eindhoven University of Technology", "TUe", "TU/e"]
 categories = ["thesis"]
-exclude = ["main.pdf","example.svg"]
+exclude = ["main.pdf","template/figures/example.svg"]
 
 [template]
 path = "template"             # folder copied to the user's project on `typst init`
