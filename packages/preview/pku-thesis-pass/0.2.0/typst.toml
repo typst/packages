@@ -1,7 +1,7 @@
 [package]
 name = "pku-thesis-pass"
 version = "0.2.0"
-entrypoint = "lib.typ"
+entrypoint = "format/main.typ"
 authors = ["Xinyuan Chu"]
 license = "MIT"
 description = "北京大学学位论文模板。Dissertation Thesis Template for Peking University (PKU)."
