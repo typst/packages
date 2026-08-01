@@ -8,6 +8,8 @@ description = "A TU/e thesis template in Typst"
 repository = "https://github.com/alikaansun/TUe_typst_thesis_template"
 keywords = ["thesis", "Eindhoven University of Technology", "TUe", "TU/e"]
 categories = ["thesis"]
+exclude = ["main.pdf"]
+
 [template]
 path = "template"             # folder copied to the user's project on `typst init`
 entrypoint = "main.typ"       # the file the user starts editing
