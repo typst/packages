@@ -1,0 +1,12 @@
+[package]
+name = "facharbeit-bbz-dormagen"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["BDO", "AI Assistant"]
+description = "State-of-the-art Typst template for Facharbeiten (BDO)"
+license = "MIT"
+compiler = "0.15.1"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
