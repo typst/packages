@@ -4,8 +4,6 @@ A modular, colorful, and highly customizable Typst template for academic
 documentation, lecture notes, and assignments. Designed to be simple to use,
 yet powerful.
 
-![Template Preview](./thumbnail.png)
-
 ## Quick Start
 
 You can initialize a project directly from the CLI:
