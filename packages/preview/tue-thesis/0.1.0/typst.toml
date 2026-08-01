@@ -1,7 +1,7 @@
 [package]
 name = "tue-thesis"
 version = "0.1.0"
-entrypoint = "lib.typ"        # the file imported via @preview/tue-thesis
+entrypoint = "template/main.typ"        # the file imported via @preview/tue-thesis
 authors = ["Ali Kaan Sun <asunnetcoglu@gmail.com>"]
 license = "MIT-0"             # permissive/no-attribution is required for templates
 description = "A TU/e thesis template in Typst"
