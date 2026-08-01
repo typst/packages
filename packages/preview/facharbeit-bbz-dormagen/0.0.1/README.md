@@ -4,9 +4,9 @@ Eine state-of-the-art Typst-Vorlage für wissenschaftliche Facharbeiten (FOS/BOS
 
 ## Initialisierung
 
-`ash
+```bash
 typst init @preview/bdo-facharbeit
-``n
+``` 
 ## Features
 - Automatisches Inhalts-, Abbildungs- und Tabellenverzeichnis
 - Barrierefreies PDF (PDF/UA)
