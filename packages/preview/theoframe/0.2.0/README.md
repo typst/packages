@@ -13,6 +13,8 @@ To use, simply import the package:
 
 # Example
 
+**Note on numbering:** The `theorems-counter` resets to `0` only when a level-1 heading (`= Heading`) is encountered. Each time a theorem-like environment (e.g., `#definition`, `#theorem`) is called, the counter increments by `1` and is displayed as a letter starting from `"a"`.
+
 ```typst
 #import "@preview/theoframe:0.2.0":*
 #show: reset
