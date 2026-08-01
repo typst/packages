@@ -61,7 +61,7 @@
     box(heading-counter-str + theoframe-counter-str)
   }
   #text(fill: color, weight: 700)[#framename #counter-content #h(1em) ] #text(weight: 500)[#name] #linebreak()
-  #it #sym
+  #it #text(fill:color)[#sym]
 ]
 
 #let definition(name, color: rgb("#794e04"), it) = theoframe(
@@ -117,7 +117,7 @@
   framename: [#context translation.proof.at(text.lang, default: "Proof")],
   proof-counter,
   color: color,
-  sym.qed,
+  sym.square.filled,
   it,
 )
 
@@ -142,7 +142,7 @@
   framename: [#context translation.example.at(text.lang, default: "Example")],
   example-counter,
   color: color,
-  sym.checkmark,
+  sym.square.filled,
   it,
 )
 
@@ -151,7 +151,7 @@
   framename: [#context translation.problem.at(text.lang, default: "Problem")],
   problem-counter,
   color: color,
-  sym.quest,
+  sym.square.filled,
   it,
 )
 
@@ -160,7 +160,7 @@
   framename: [#context translation.solution.at(text.lang, default: "Solution")],
   solution-counter,
   color: color,
-  sym.checkmark,
+  sym.square.filled,
   it,
 )
 
