@@ -4,11 +4,11 @@ version = "0.1.0"
 entrypoint = "template/main.typ"        # the file imported via @preview/tue-thesis
 authors = ["Ali Kaan Sun <asunnetcoglu@gmail.com>"]
 license = "MIT-0"             # permissive/no-attribution is required for templates
-description = "A TU/e thesis template in Typst"
+description = "A TU/e thesis template"
 repository = "https://github.com/alikaansun/TUe_typst_thesis_template"
 keywords = ["thesis", "Eindhoven University of Technology", "TUe", "TU/e"]
 categories = ["thesis"]
-exclude = ["main.pdf"]
+exclude = ["main.pdf","example.svg"]
 
 [template]
 path = "template"             # folder copied to the user's project on `typst init`
