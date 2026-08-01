@@ -5,12 +5,12 @@
 We cite the article a second time @example-article.
 
 An external image figure (drop your PNG/SVG/PDF files in `figures/`):
-
+/*
 #figure(
   image("../figures/example.svg", width: 55%),
   caption: [An external image — replace me.],
 ) <external-example>
-
+*/
 A diagram drawn in Typst with CeTZ (the TikZ equivalent):
 
 #figure(
