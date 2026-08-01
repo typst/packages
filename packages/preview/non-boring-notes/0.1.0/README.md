@@ -100,8 +100,3 @@ Switch between English and Spanish seamlessly. All environment labels (e.g.,
 automatically based on `text_lang`.
 
 The full list of labels can be found in [src/translated_terms.typ](https://github.com/aruzdh/non-boring-notes/blob/311756828cf77b5c309ebc8d048e9156ccdbeab3/src/translated_terms.typ)
-
-## Project Structure
-
-- `main.typ`: Entry point of your project.
-- `.typst_main_file`: Internal marker for project identification (mainly for nvim).
