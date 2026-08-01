@@ -65,9 +65,10 @@
     set text(font: font.宋体, size: size.脚注)
     set par(
       justify: true,
-      leading: size.脚注 * 7 / 8,
+      leading: 1.2em,  // 模拟单倍行距
       spacing: 0pt,
       hanging-indent: 1.5em,
+      first-line-indent: 0pt,
     )
     numbering(it.note.numbering, ..counter(footnote).at(loc))
     h(0.5em)
