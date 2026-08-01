@@ -7,7 +7,7 @@ license = "MIT"
 description = "Forest-green theme for Chinese documents with light and dark modes."
 categories = ["report"]
 keywords = ["forest", "green", "chinese", "theme", "markdown", "light", "dark", "wenkai"]
-exclude = ["lightmind-dark.png","lightmind-light.png","test_lightmind_dark.png","test_lightmind_light.png","thumbnail.png"]
+exclude = ["lightmind-dark.png","lightmind-light.png","test_lightmind_dark.png","test_lightmind_light.png"]
 
 [template]
 path = "template"
