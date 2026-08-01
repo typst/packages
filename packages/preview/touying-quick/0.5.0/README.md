@@ -225,7 +225,7 @@ Make sure `info.lang` exists in both `names` and `styles`.
 
 When `supplement` is not empty, it is displayed after the ending slide. This is useful for backup slides, appendices, or extra contents. A handy usage is include your supplements in it, for example
 
-```typst
+```text
 #show: touying-quick.with(
   ...,
   supplement: [
