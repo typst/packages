@@ -64,7 +64,7 @@
   #it #text(fill:color)[#sym]
 ]
 
-#let definition(name, color: rgb("#794e04"), it) = theoframe(
+#let definition(name:[], color: rgb("#794e04"), it) = theoframe(
   name: [#name],
   framename: [#context translation.definition.at(text.lang, default: "Definition")],
   definition-counter,
@@ -72,7 +72,7 @@
   it,
 )
 
-#let postulate(name, color: rgb("#5a3d00"), it) = theoframe(
+#let postulate(name:[], color: rgb("#5a3d00"), it) = theoframe(
   name: [#name],
   framename: [#context translation.postulate.at(text.lang, default: "Postulate")],
   postulate-counter,
@@ -80,7 +80,7 @@
   it,
 )
 
-#let assumption(name, color: rgb("#4a4a4a"), it) = theoframe(
+#let assumption(name:[], color: rgb("#4a4a4a"), it) = theoframe(
   name: [#name],
   framename: [#context translation.assumption.at(text.lang, default: "Assumption")],
   assumption-counter,
@@ -88,7 +88,7 @@
   it,
 )
 
-#let conjecture(name, color: rgb("#6a1b9a"), it) = theoframe(
+#let conjecture(name:[], color: rgb("#6a1b9a"), it) = theoframe(
   name: [#name],
   framename: [#context translation.conjecture.at(text.lang, default: "Conjecture")],
   conjecture-counter,
@@ -96,7 +96,7 @@
   it,
 )
 
-#let proposition(name, color: rgb("#1b5e20"), it) = theoframe(
+#let proposition(name:[], color: rgb("#1b5e20"), it) = theoframe(
   name: [#name],
   framename: [#context translation.proposition.at(text.lang, default: "Proposition")],
   proposition-counter,
@@ -104,7 +104,7 @@
   it,
 )
 
-#let lemma(name, color: rgb("#020202"), it) = theoframe(
+#let lemma(name:[], color: rgb("#020202"), it) = theoframe(
   name: [#name],
   framename: [#context translation.lemma.at(text.lang, default: "Lemma")],
   lemma-counter,
@@ -112,7 +112,7 @@
   it,
 )
 
-#let proof(name, color: rgb("#050505"), it) = theocolor(
+#let proof(name:[], color: rgb("#050505"), it) = theocolor(
   name: [#name],
   framename: [#context translation.proof.at(text.lang, default: "Proof")],
   proof-counter,
@@ -121,7 +121,7 @@
   it,
 )
 
-#let theorem(name, color: rgb("#09658a"), it) = theoframe(
+#let theorem(name:[], color: rgb("#09658a"), it) = theoframe(
   name: [#name],
   framename: [#context translation.theorem.at(text.lang, default: "Theorem")],
   theorem-counter,
@@ -129,7 +129,7 @@
   it,
 )
 
-#let corollary(name, color: rgb("#0d47a1"), it) = theoframe(
+#let corollary(name:[], color: rgb("#0d47a1"), it) = theoframe(
   name: [#name],
   framename: [#context translation.corollary.at(text.lang, default: "Corollary")],
   corollary-counter,
@@ -137,7 +137,7 @@
   it,
 )
 
-#let example(name, color: rgb("#030303"), it) = theocolor(
+#let example(name:[], color: rgb("#030303"), it) = theocolor(
   name: [#name],
   framename: [#context translation.example.at(text.lang, default: "Example")],
   example-counter,
@@ -146,7 +146,7 @@
   it,
 )
 
-#let problem(name, color: rgb("#b71c1c"), it) = theocolor(
+#let problem(name:[], color: rgb("#b71c1c"), it) = theocolor(
   name: [#name],
   framename: [#context translation.problem.at(text.lang, default: "Problem")],
   problem-counter,
@@ -155,7 +155,7 @@
   it,
 )
 
-#let solution(name, color: rgb("#1a237e"), it) = theocolor(
+#let solution(name:[], color: rgb("#1a237e"), it) = theocolor(
   name: [#name],
   framename: [#context translation.solution.at(text.lang, default: "Solution")],
   solution-counter,
@@ -164,7 +164,7 @@
   it,
 )
 
-#let conclusion(name, color: rgb("#004d40"), it) = theoframe(
+#let conclusion(name:[], color: rgb("#004d40"), it) = theoframe(
   name: [#name],
   framename: [#context translation.conclusion.at(text.lang, default: "Conclusion")],
   conclusion-counter,
