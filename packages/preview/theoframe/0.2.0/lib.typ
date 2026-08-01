@@ -50,6 +50,19 @@
   ]
 ]
 
+#let theocolor(name: [], framename: [], theoframe-counter, color: none, sym, it) = block(
+  width: 100%,
+  inset: 0em,
+)[
+  #theoframe-counter.step(level: 1)
+  #let counter-content = context {
+    let heading-counter-str = numbering("1.", counter(heading).get().first())
+    let theoframe-counter-str = theoframe-counter.display("a")
+    box(heading-counter-str + theoframe-counter-str)
+  }
+  #text(fill: color, weight: 700)[#framename #counter-content #h(1em) ] #text(weight: 500)[#name] #linebreak()
+  #it #sym
+]
 
 #let definition(name, color: rgb("#794e04"), it) = theoframe(
   name: [#name],
@@ -99,11 +112,12 @@
   it,
 )
 
-#let proof(name, color: rgb("#050505"), it) = theoframe(
+#let proof(name, color: rgb("#050505"), it) = theocolor(
   name: [#name],
   framename: [#context translation.proof.at(text.lang, default: "Proof")],
   proof-counter,
   color: color,
+  sym.qed,
   it,
 )
 
@@ -123,27 +137,30 @@
   it,
 )
 
-#let example(name, color: rgb("#030303"), it) = theoframe(
+#let example(name, color: rgb("#030303"), it) = theocolor(
   name: [#name],
   framename: [#context translation.example.at(text.lang, default: "Example")],
   example-counter,
   color: color,
+  sym.checkmark,
   it,
 )
 
-#let problem(name, color: rgb("#b71c1c"), it) = theoframe(
+#let problem(name, color: rgb("#b71c1c"), it) = theocolor(
   name: [#name],
   framename: [#context translation.problem.at(text.lang, default: "Problem")],
   problem-counter,
   color: color,
+  sym.quest,
   it,
 )
 
-#let solution(name, color: rgb("#1a237e"), it) = theoframe(
+#let solution(name, color: rgb("#1a237e"), it) = theocolor(
   name: [#name],
   framename: [#context translation.solution.at(text.lang, default: "Solution")],
   solution-counter,
   color: color,
+  sym.checkmark,
   it,
 )
 
