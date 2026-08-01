@@ -1,5 +1,5 @@
 // ============================================================
-// lib.typ — 包入口
+// main.typ — 包入口
 // 北京大学学位论文 Typst 模板 (pku-thesis-pass)
 //
 // 北京大学学位论文（博士 / 硕士）模板，支持学术学位与专业学位
@@ -12,4 +12,4 @@
 //   --input system=default|mac|windows|linux    系统字体方案
 // ============================================================
 
-#import "format/config.typ": config, booktab, as-booktab, codeblock
+#import "config.typ": config, booktab, as-booktab, codeblock
