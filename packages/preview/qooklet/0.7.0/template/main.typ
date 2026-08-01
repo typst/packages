@@ -1,1 +1,1 @@
-#import "@local/qooklet:0.1.0": *
+#import "@preview/qooklet:0.7.0": *

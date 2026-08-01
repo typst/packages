@@ -33,7 +33,7 @@ set of configurable TOML files.
 ### From Typst Universe
 
 ```typst
-#import "@preview/qooklet:0.6.2": *
+#import "@preview/qooklet:0.7.0": *
 ```
 
 ### From a Local Checkout
@@ -62,7 +62,7 @@ Use note mode when you only need a chapter-based document without cover pages or
 front matter.
 
 ```typst
-#import "@preview/qooklet:0.6.2": *
+#import "@preview/qooklet:0.7.0": *
 
 #let info = (
   title: "Qooklet Note",
@@ -83,14 +83,14 @@ Your content starts here.
 ]
 ```
 
-![Note mode example](https://raw.githubusercontent.com/ivaquero/typst-qooklet/refs/heads/main/example.png)
+![Note mode example](https://github.com/ivaquero/qooklet/blob/34a163c/example.png)
 
 ### Booklet Mode
 
 Calling `cover()` switches the document to booklet mode.
 
 ```typst
-#import "@preview/qooklet:0.6.2": *
+#import "@preview/qooklet:0.7.0": *
 
 #let info = (
   title: "Qooklet Booklet",
@@ -137,7 +137,7 @@ Appendix content.
 ]
 ```
 
-![Booklet mode example](https://raw.githubusercontent.com/ivaquero/typst-qooklet/refs/heads/main/example-book.png)
+![Booklet mode example](https://github.com/ivaquero/qooklet/blob/34a163c/example-book.png)
 
 ## Configuration
 
@@ -351,8 +351,8 @@ code block from a string.
 
 ## Examples
 
-- [`examples/example.typ`](examples/example.typ): a compact note-mode example.
-- [`examples/example-book.typ`](examples/example-book.typ): a booklet-mode
+- [`examples/example.typ`](https://github.com/ivaquero/qooklet/blob/34a163c/examples/example.typ): a compact note-mode example.
+- [`examples/example-book.typ`](https://github.com/ivaquero/qooklet/blob/34a163c/examples/example-book.typ): a booklet-mode
   tutorial and regression example.
 
 ## Credits
