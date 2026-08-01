@@ -3,10 +3,11 @@ name = "facharbeit-bbz-dormagen"
 version = "0.0.1"
 entrypoint = "lib.typ"
 authors = ["Wm", "AI Assistant"]
-description = "Typst template for Facharbeiten (Wm)"
+description = Template for Facharbeiten (Wm)"
 license = "MIT"
 compiler = "0.15.1"
 categories = ["thesis", "report"]
+exclude = ["**/*.pdf"]
 
 [template]
 path = "template"
