@@ -25,8 +25,8 @@ A diagram drawn in Typst with CeTZ (the TikZ equivalent):
   caption: [A CeTZ diagram — replace me.],
 ) <cetz-example>
 
-Reference figures with per-chapter numbers: see @fig:external-example
-and @fig:cetz-example.
+//Reference figures with per-chapter numbers: see @fig:external-example
+//and @fig:cetz-example.
 
 #lorem(120)
 
