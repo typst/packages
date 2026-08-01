@@ -7,7 +7,6 @@ description = "Template for Facharbeiten (Wm)"
 license = "MIT"
 compiler = "0.15.1"
 categories = ["thesis", "report"]
-exclude = ["**/*.pdf"]
 
 [template]
 path = "template"
