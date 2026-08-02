@@ -1100,7 +1100,7 @@ Bộ trộn là **tất định** (LCG có mầm, không dùng ngẫu nhiên th�
 luôn cho cùng một thứ tự, nên bản `dethi` và bản `loigiai` biên dịch hai lần
 vẫn trộn **giống hệt nhau** — bảng đáp án luôn khớp.
 
-```
+```sh
 typst compile --input ho-so=dethi   de-mau.typ de-0101.pdf
 typst compile --input ho-so=loigiai de-mau.typ dapan-0101.pdf   # cùng thứ tự
 ```
