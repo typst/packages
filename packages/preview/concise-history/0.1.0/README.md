@@ -174,7 +174,7 @@ cover: [
 ## 自定义示例（文字描述）
 
 ```typst
-#import "@preview/concise-history:0.0.4": concise-history-book, concise-history-a4
+#import "@preview/concise-history:0.1.0": concise-history-book, concise-history-a4
 
 #let my-cfg = (
   ..concise-history-a4,
