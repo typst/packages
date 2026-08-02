@@ -2,9 +2,9 @@
 // concise-history 为排版《简明世界史》而设计的模板。
 // 
 
-#import "@preview/outrageous:0.4.0"
+#import "@preview/outrageous:0.4.1"
 #import "@preview/numbly:0.1.0": numbly
-#import "@preview/hydra:0.6.1": hydra
+#import "@preview/hydra:0.6.3": hydra
 #import "@preview/i-figured:0.2.4"
 #import "@preview/ornamentalyst:0.1.0": ornament
 
