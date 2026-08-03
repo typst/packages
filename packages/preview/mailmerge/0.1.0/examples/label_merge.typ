@@ -1,6 +1,6 @@
 // examples/label_merge.typ - Address Labels & Badge Grid Mail Merge Example
 
-#import "../lib.typ": mail-merge-labels, presets, field, fmt-field, join-fields, if-field
+#import "@preview/mailmerge:0.1.0": mail-merge-labels, presets, field, fmt-field, join-fields, if-field
 
 // 1. Address Labels (using Avery 5160 preset with cut lines enabled)
 #mail-merge-labels(

@@ -1,6 +1,6 @@
 // examples/envelope_merge.typ - Envelope Printing Mail Merge Example
 
-#import "../lib.typ": mail-merge, field, fmt-field, join-fields, if-field
+#import "@preview/mailmerge:0.1.0": mail-merge, field, fmt-field, join-fields, if-field
 
 #set page(
   width: 220mm,
