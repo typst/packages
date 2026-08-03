@@ -1,5 +1,5 @@
 // #import "../lib.typ":*
-#import "@preview/theoframe:0.2.0"
+#import "@preview/theoframe:0.2.0":*
 #show: reset
 
 #set page(width: 200mm, height: auto, margin: 0cm)
