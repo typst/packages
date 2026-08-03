@@ -48,15 +48,78 @@
 )
 
 // Đổi ký hiệu dấu -> nội dung.
+// Nhận cả SỐ (AI hay gõ `0` thay vì `"0"`) — quy về chuỗi rồi xử lý như cũ.
 #let ky-hieu-dau(s) = {
-  if type(s) == str {
+  if type(s) == int or type(s) == float {
+    if s == 0 { $0$ } else { $#s$ }
+  } else if type(s) == str {
     if s == "+" { $+$ } else if s == "-" { $-$ } else if s == "0" { $0$ }
     else if s == "||" { kep-vach(1.1em) } else if s == "" { none } else { s }
   } else { s }
 }
 
+// ---------- TỰ BÙ Ô TRỐNG HAI ĐẦU DÃY DẤU ----------
+// Dãy `dau` (bbt) / mảng dấu mỗi dòng (bang-xet-dau) phải có ĐÚNG 2n−1 phần
+// tử, xen kẽ [tại mốc, trên khoảng, tại mốc, ...] nên HAI ĐẦU luôn là ô
+// TRỐNG "". AI sinh bài rất hay quên đúng hai ô đó (viết ("+","0","-") thay
+// vì ("","+","0","-","")) — trước đây lỗi ra "array index out of bounds",
+// VS Code không báo trước, GV phải tự thêm tay.
+//
+// `_diem-day-dau` chấm điểm một dãy theo quy ước vị trí: "+"/"-" phải nằm ở
+// chỉ số LẺ (trên khoảng), "0"/"||" ở chỉ số CHẴN (tại mốc).
+#let _diem-day-dau(day) = {
+  let d = 0
+  for (j, s) in day.enumerate() {
+    let so = type(s) == int or type(s) == float
+    let k = if so { str(s) } else if type(s) == str { s } else { "?" }
+    if k == "+" or k == "-" { d += (if calc.odd(j) { 1 } else { -1 }) }
+    if k == "0" or k == "||" { d += (if calc.even(j) { 1 } else { -1 }) }
+  }
+  d
+}
+
+// Chuẩn hoá dãy dấu về đúng `m` = 2n−1 phần tử. CHỈ chèn "" vào ĐẦU/CUỐI,
+// không bao giờ chèn vào giữa; chọn cách chèn khớp quy ước nhất, hoà thì ưu
+// tiên chèn CÂN hai đầu. Thiếu quá 2 phần tử hoặc thừa -> báo lỗi rõ ràng.
+#let _chuan-day-dau(day, m, ten: "dau") = {
+  if day == none { return none }
+  if type(day) != array {
+    panic("`" + ten + "` phải là MẢNG " + str(m) + " phần tử (= 2 × số mốc − 1).")
+  }
+  let l = day.len()
+  if l == m { return day }
+  let ns = " Dãy dấu xen kẽ [tại mốc, trên khoảng, tại mốc, ...], hai đầu là ô trống \"\"."
+  if l > m {
+    panic("`" + ten + "` có " + str(l) + " phần tử nhưng bảng cần đúng "
+      + str(m) + " (= 2 × " + str(int((m + 1) / 2)) + " mốc − 1): thừa "
+      + str(l - m) + " phần tử." + ns)
+  }
+  if m - l > 2 {
+    panic("`" + ten + "` chỉ có " + str(l) + " phần tử, bảng cần " + str(m)
+      + " (= 2 × " + str(int((m + 1) / 2)) + " mốc − 1): thiếu " + str(m - l)
+      + " phần tử nên không tự bù được." + ns)
+  }
+  let thieu = m - l
+  let tot = none
+  let diem-tot = -10000
+  for k in range(thieu + 1) {
+    let thu = range(k).map(i => "") + day + range(thieu - k).map(i => "")
+    // ưu tiên điểm khớp quy ước; hoà thì ưu tiên chèn cân hai đầu
+    let uu = _diem-day-dau(thu) * 10 - calc.abs(k - (thieu - k))
+    if uu > diem-tot { diem-tot = uu; tot = thu }
+  }
+  tot
+}
+
+// Đổi độ dài -> số pt (nhận sẵn số thì giữ nguyên).
+#let _pt-so(v) = if type(v) == length { v.pt() } else { v }
+
 // Mũi tên biến thiên trong ô (rong × cao).
-#let mui-ten-bbt(rong, cao, huong: "len", mau: black, day: 1pt) = box(
+// `y1`, `y2` (tuỳ chọn): TUNG ĐỘ đầu/cuối tính từ MÉP TRÊN ô, y hướng XUỐNG.
+// Dùng để đặt đầu mút mũi tên đúng vào TIM chữ số ở hai mốc kề (lối tikz-tab)
+// — `auto` thì rơi về mốc cũ (sát mép trên/dưới ô).
+#let mui-ten-bbt(rong, cao, huong: "len", mau: black, day: 1pt,
+                 y1: auto, y2: auto) = box(
   width: rong, height: cao,
   {
     let w = rong.pt()
@@ -73,7 +136,9 @@
       "xuong-duoi": (h / 2, h - 1.5),
       "ngang":      (h / 2, h / 2),
     ).at(huong)
-    let (p, q) = ((1.5, dau-cuoi.at(0)), (w - 1.5, dau-cuoi.at(1)))
+    let ya = if y1 == auto { dau-cuoi.at(0) } else { _pt-so(y1) }
+    let yb = if y2 == auto { dau-cuoi.at(1) } else { _pt-so(y2) }
+    let (p, q) = ((1.5, ya), (w - 1.5, yb))
     doan-pt(p, q, mau: mau, day: day)
     let dx = q.at(0) - p.at(0)
     let dy = q.at(1) - p.at(1)
@@ -103,14 +168,40 @@
 }
 
 // Ô có kẹp ‖: giá trị trái + kẹp + giá trị phải.
-#let o-kep(trai, phai, tren-trai, tren-phai, cao) = grid(
-  columns: 3,
-  column-gutter: 2.6pt,
-  rows: cao,
-  o-gia-tri(trai, tren-trai, cao),
-  align(horizon, kep-vach(cao)),
-  o-gia-tri(phai, tren-phai, cao),
-)
+// `cao` = chiều cao BĂNG nội dung (nơi đặt giá trị, khớp với mũi tên).
+// `cao-kin` = chiều cao TOÀN Ô: vạch ‖ kẻ KÍN từ mép trên tới mép dưới ô
+// (lối tikz-tab), còn giá trị vẫn nằm trong băng nội dung nhờ đệm `dem`.
+// ⚠️ PHẢI dùng `box` (không phải `block`) để bọc đệm dọc: `block` là phần tử
+// KHỐI, bề rộng mặc định NUỐT TRỌN chỗ trống của cột `auto` -> bảng phình ra
+// hết bề ngang trang, các cột mốc bị bóp lại làm số có căn thức XÔ XUỐNG DÒNG.
+#let o-kep(trai, phai, tren-trai, tren-phai, cao, cao-kin: auto, dem: 0pt) = {
+  let hk = if cao-kin == auto { cao } else { cao-kin }
+  grid(
+    columns: 3,
+    column-gutter: 2.6pt,
+    rows: hk,
+    box(height: hk, inset: (y: dem), o-gia-tri(trai, tren-trai, cao)),
+    kep-vach(hk),
+    box(height: hk, inset: (y: dem), o-gia-tri(phai, tren-phai, cao)),
+  )
+}
+
+// ---------- CHUẨN HOÁ MỐC & GIÁ TRỊ ----------
+// AI sinh bài hay gõ x: ("-oo", -3, -1, "+oo") và gia-tri: ("-oo", 5, -5/3,
+// "+oo") — tức CHUỖI "-oo" (in ra chữ "-oo" chứ không ra −∞) và SỐ trần
+// (Typst không nhận số ở vị trí nội dung). Hàm này quy về nội dung toán:
+// chuỗi vô cực -> $-oo$/$+oo$, số nguyên -> $#v$, số thập phân -> so-toan
+// (ra phân số đẹp: -5/3). Nội dung có sẵn ($...$) giữ NGUYÊN.
+#let _chuan-o(v) = {
+  if type(v) == array { return v.map(_chuan-o) }
+  if type(v) == int { return $#v$ }
+  if type(v) == float { return so-toan(v) }
+  if type(v) != str { return v }
+  let t = v.trim()
+  if t in ("-oo", "−oo", "-inf", "-infty", "-∞", "−∞") { $-oo$ }
+  else if t in ("+oo", "oo", "+inf", "inf", "+infty", "infty", "+∞", "∞") { $+oo$ }
+  else { v }
+}
 
 // ---------- BẢNG BIẾN THIÊN ----------
 #let bbt(
@@ -128,12 +219,33 @@
   cao-bt: 2.3cm,     // chiều cao dòng biến thiên
   mau-mui-ten: blue.darken(20%),
   co-chu: 11pt,
-) = {
+) = context {
   let n = x.len()
   let m = 2 * n - 1
+  // "-oo"/số trần -> nội dung toán (xem _chuan-o)
+  let x = x.map(_chuan-o)
+  let gia-tri = gia-tri.map(_chuan-o)
+  // tự bù 2 ô trống hai đầu nếu dãy dấu bị thiếu (xem _chuan-day-dau)
+  let dau = _chuan-day-dau(dau, m)
+  // báo lỗi RÕ thay cho "array index out of bounds" khi mảng bị hụt
+  if gia-tri.len() < n {
+    panic("`gia-tri` có " + str(gia-tri.len()) + " phần tử nhưng `x` có "
+      + str(n) + " mốc — cần ĐÚNG " + str(n) + " giá trị (mỗi mốc một giá trị).")
+  }
+  if huong.len() < n - 1 {
+    panic("`huong` có " + str(huong.len()) + " phần tử nhưng `x` có " + str(n)
+      + " mốc — cần ĐÚNG " + str(n - 1) + " chiều mũi tên (\"len\"/\"xuong\"/\"ngang\").")
+  }
   let inset = 5pt
+  // đệm NGANG nhỏ hơn đệm dọc: số nằm gần mũi tên hơn (lối tikz-tab, nơi
+  // mũi tên nối thẳng từ số này sang số kia)
+  let inset-x = 2.5pt
   let cao-o = cao-bt - 2 * inset
   let co-dau = dau != none
+  // ĐO chiều cao thật của từng giá trị -> đặt đầu mút mũi tên đúng vào TIM
+  // chữ số (mũi tên thẳng hàng với ký tự, lối tikz-tab).
+  let cao-cua(v) = measure(text(size: co-chu, v)).height
+  let h-tri = gia-tri.map(v => if type(v) == array { v.map(cao-cua) } else { cao-cua(v) })
   // dòng dấu cao CỐ ĐỊNH để kẹp ‖ và dải gạch phủ kín từ mép trên tới mép dưới
   let cao-hang-dau = co-chu * 1.3 + 2 * inset
   // ô gạch kín (tự đo đúng kích thước ô qua layout)
@@ -159,6 +271,11 @@
   }
 
   // ----- dòng dấu f' -----
+  // Ô dấu tại MỐC: "||" -> cặp vạch ‖ kẻ KÍN từ mép trên tới mép dưới ô
+  // (bỏ đệm dọc của ô), như tikz-tab; dấu khác vẫn căn giữa như cũ.
+  let o-dau-moc(s, cao) = if s == "||" {
+    table.cell(inset: (x: inset-x, y: 0pt), kep-vach(cao))
+  } else { align(horizon + center, ky-hieu-dau(s)) }
   let hang-dau = ()
   if co-dau {
     hang-dau.push(align(horizon + center, ten-fp))
@@ -187,7 +304,7 @@
               giua,
               if phai { nua-gach(cao-hang-dau) } else { none },
             ))
-          } else { align(horizon + center, ky-hieu-dau(dau.at(j))) }
+          } else { o-dau-moc(dau.at(j), cao-hang-dau) }
         )
       }
     }
@@ -218,6 +335,32 @@
       mut-phai.at(ben-phai, default: bottom)
     } else { horizon }
   }
+  // Chiều cao ĐO ĐƯỢC của giá trị tại mốc i, nhìn từ phía `ben` (mốc có kẹp ‖
+  // mang HAI giá trị: trái = giá trị bên trái vạch, phải = bên phải).
+  let cao-tai(i, ben) = {
+    let h = h-tri.at(i)
+    if type(h) == array { if ben == "trai" { h.at(0) } else { h.at(1) } } else { h }
+  }
+  // TUNG ĐỘ (tính từ mép trên BĂNG nội dung cao `cao-o`, y hướng XUỐNG) của
+  // đầu mút mũi tên tại mốc i, nhìn từ phía `ben`.
+  //   * Nếu giá trị THẬT SỰ nằm ở đầu mút đó -> ngắm đúng TIM chữ số (đo bằng
+  //     `measure`) => mũi tên thẳng hàng với ký tự, lối tikz-tab.
+  //   * Nếu không (vd hai mũi tên cùng "len" liên tiếp: số nằm ở ĐỈNH ô bên
+  //     trái, mũi tên sau phải xuất phát từ ĐÁY ô) -> giữ sát mép như cũ.
+  let y-tai(i, ben) = {
+    let d = if ben == "trai" {
+      mut-trai.at(huong.at(i - 1), default: bottom)
+    } else {
+      mut-phai.at(huong.at(i), default: bottom)
+    }
+    let co-so = (i in kep) or (d == vi-tri-tai(i))
+    let h = cao-tai(i, ben)
+    if d == top {
+      if co-so { h / 2 } else { 1.5pt }
+    } else if d == bottom {
+      if co-so { cao-o - h / 2 } else { cao-o - 1.5pt }
+    } else { cao-o / 2 }
+  }
   let hang-f = (align(horizon + center, ten-f),)
   for j in range(m) {
     if calc.even(j) {
@@ -227,22 +370,24 @@
       let phai = i in gach
       if i in kep {
         let (tr, ph) = if type(v) == array { (v.at(0), v.at(1)) } else { (v, v) }
-        hang-f.push(o-kep(
+        // ‖ kẻ KÍN toàn ô (cao-bt), giá trị vẫn nằm trong băng nội dung
+        hang-f.push(table.cell(inset: (x: inset-x, y: 0pt), o-kep(
           tr, ph,
-          if i > 0 { huong.at(i - 1) == "len" } else { false },
-          if i < n - 1 { huong.at(i) == "xuong" } else { false },
-          cao-o,
-        ))
+          if i > 0 { mut-trai.at(huong.at(i - 1), default: bottom) } else { bottom },
+          if i < n - 1 { mut-phai.at(huong.at(i), default: bottom) } else { bottom },
+          cao-o, cao-kin: cao-bt, dem: inset,
+        )))
       } else if trai or phai {
         // mốc kề vùng gạch: gạch phủ nửa ô tới đúng tim cột (thẳng với ‖ ở trên),
         // giá trị dạt SÁT về phía mép gạch (trai -> căn trái, phai -> căn phải)
         let doc = vi-tri-tai(i)
         let ngang = if trai and phai { center } else if trai { left } else { right }
         // inset nhỏ ở phía mép gạch, nhỏ luôn phía mũi tên để số gần cả hai
-        let inset-x = if trai and phai { (x: 1pt) }
+        // (tên KHÁC `inset-x` ở đầu hàm để khỏi che nhầm)
+        let dem-x = if trai and phai { (x: 1pt) }
           else if trai { (left: 2pt, right: 1pt) }
           else { (left: 1pt, right: 2pt) }
-        let o-gia = block(width: 100%, height: 100%, inset: (..inset-x, y: inset), align(doc + ngang, v))
+        let o-gia = block(width: 100%, height: 100%, inset: (..dem-x, y: inset), align(doc + ngang, v))
         hang-f.push(table.cell(inset: 0pt,
           if trai and phai {
             grid(columns: (1fr, auto, 1fr), rows: cao-bt,
@@ -258,16 +403,19 @@
       }
     } else {
       let k = int((j - 1) / 2)
-      // khoảng kề vùng gạch: đẩy mũi tên SÁT về phía mép gạch
-      let ngang-mt = if (k + 1) in gach { right }
-        else if (k - 1) in gach { left }
-        else { center }
       hang-f.push(
         if k in gach { o-gach-kin }
         else {
-          align(horizon + ngang-mt, mui-ten-bbt(
-            rong-cot - 2 * inset - 6pt, cao-o - 4pt,
+          // đầu mút ngắm đúng TIM giá trị hai mốc kề; "ngang" giữ nằm ngang.
+          // Mũi tên CHIẾM TRỌN bề ngang cột khoảng (ô inset ngang = 0) để nối
+          // liền hai số hai bên như tikz-tab — trước đây hụt 2·(5+3)pt mỗi bên
+          // nên nhìn như mũi tên "rời" khỏi số.
+          let ngang-hoa = huong.at(k) == "ngang"
+          table.cell(inset: (x: 0pt, y: inset), mui-ten-bbt(
+            rong-cot, cao-o,
             huong: huong.at(k), mau: mau-mui-ten,
+            y1: if ngang-hoa { auto } else { y-tai(k, "phai") },
+            y2: if ngang-hoa { auto } else { y-tai(k + 1, "trai") },
           ))
         }
       )
@@ -279,7 +427,7 @@
   table(
     columns: cols,
     rows: if co-dau { (auto, cao-hang-dau, cao-bt) } else { (auto, cao-bt) },
-    inset: inset,
+    inset: (x: inset-x, y: inset),
     align: center + horizon,
     stroke: (x, y) => (
       left: if x <= 1 { 0.7pt } else { none },
@@ -305,6 +453,7 @@
 ) = {
   let n = x.len()
   let m = 2 * n - 1
+  let x = x.map(_chuan-o)
   let cols = (auto,) + range(m).map(j => if calc.odd(j) { rong-cot } else { auto })
   // hàng cao cố định để kẹp ‖ và dải gạch phủ kín
   let cao-hang = co-chu * 1.3 + 14pt
@@ -316,6 +465,8 @@
     cells.push(if calc.even(j) { align(horizon + center, x.at(int(j / 2))) } else { none })
   }
   for (ten, mang) in dong {
+    // tự bù 2 ô trống hai đầu cho từng dòng dấu
+    let mang = _chuan-day-dau(mang, m, ten: "mảng dấu của dòng")
     cells.push(align(horizon + center, ten))
     for j in range(m) {
       if calc.odd(j) {
@@ -339,6 +490,9 @@
               giua,
               if phai { nua-gach } else { none },
             ))
+          } else if mang.at(j) == "||" {
+            // ‖ kẻ KÍN từ mép trên tới mép dưới ô (bỏ đệm dọc)
+            table.cell(inset: (x: 5pt, y: 0pt), kep-vach(cao-hang))
           } else { align(horizon + center, ky-hieu-dau(mang.at(j))) }
         )
       }

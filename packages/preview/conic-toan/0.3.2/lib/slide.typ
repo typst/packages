@@ -40,19 +40,32 @@
 //   #gian-dong(1.4)              — đổi giữa bài (áp cho các slide/khung sau đó)
 //   #tn(..., gian-dong: 1.4)     — ghi đè RIÊNG một câu
 // Dùng khi phân số / căn thức / chỉ số chồng tầng làm hai dòng dính nhau.
-#let _gd = state("bg-gian-dong", (nen: 0.62em, he-so: 1.0))
-#let _dat-gian(nen, k) = _gd.update((nen: nen, he-so: k))
-#let gian-dong(k) = _gd.update(g => (nen: g.nen, he-so: k))
-// Hai helper dưới đây CHỈ gọi được trong `context`.
+// `doan` = khoảng cách GIỮA HAI ĐOẠN (khi nội dung có DÒNG TRỐNG). Phải giãn
+// theo cùng hệ số với `leading`, kẻo dòng nối bằng `\` (cùng một đoạn) thì
+// giãn ra mà chỗ cách bằng dòng trống (sang đoạn mới) lại y nguyên — đó là lý
+// do trước đây #voi-gian-dong "chỉ ăn đoạn đầu".
+// 1.2em là mốc mặc định của Typst ⇒ he-so = 1.0 giữ nguyên bố cục mọi bài cũ.
+#let _doan-nen = 1.2em
+#let _gd = state("bg-gian-dong", (nen: 0.62em, doan: _doan-nen, he-so: 1.0))
+#let _dat-gian(nen, k, doan: _doan-nen) = _gd.update((nen: nen, doan: doan, he-so: k))
+#let gian-dong(k) = _gd.update(g => (
+  nen: g.nen, doan: g.at("doan", default: _doan-nen), he-so: k))
+// Ba helper dưới đây CHỈ gọi được trong `context`.
 #let _he-so-gian() = _gd.get().he-so
 #let _gian-ht() = {
   let g = _gd.get()
   g.nen * g.he-so
 }
+#let _gian-doan() = {
+  let g = _gd.get()
+  g.at("doan", default: _doan-nen) * g.he-so
+}
 // Áp hệ số giãn dòng cho MỘT KHỐI nội dung bất kì (phần còn lại không đổi):
 //   #voi-gian-dong(1.4)[ ... đoạn nhiều phân số ... ]
+// Giãn CẢ khoảng cách dòng lẫn khoảng cách đoạn.
 #let voi-gian-dong(k, body) = context {
-  set par(leading: _gd.get().nen * k)
+  let g = _gd.get()
+  set par(leading: g.nen * k, spacing: g.at("doan", default: _doan-nen) * k)
   body
 }
 
@@ -420,7 +433,7 @@
     )
     set text(font: phong, size: 11.5pt * ti-le-chu, lang: "vi", fill: rgb("#1c2833"))
     _dat-gian(0.6em, gian-dong)
-    set par(justify: true, leading: 0.6em * gian-dong)
+    set par(justify: true, leading: 0.6em * gian-dong, spacing: _doan-nen * gian-dong)
     set heading(numbering: none)   // không đánh số — chỉ dùng thanh màu
     // Thanh tiêu đề màu thay cho heading (giữ heading để có bookmark + mục lục).
     show heading.where(level: 1): it => block(width: 100%, above: 16pt, below: 10pt,
@@ -452,7 +465,7 @@
     set page(paper: "presentation-16-9", margin: 0pt, fill: _giay)
     set text(font: phong, size: co-chu * ti-le-chu, lang: "vi", fill: rgb("#1c2833"))
     _dat-gian(0.62em, gian-dong)
-    set par(justify: false, leading: 0.62em * gian-dong)
+    set par(justify: false, leading: 0.62em * gian-dong, spacing: _doan-nen * gian-dong)
 
     // ----- Trang bìa (1 trong 5 kiểu) -----
     _ve-bia(_kb, mau-chinh, mau-nhan, don-vi, logo, tieu-de, phu-de,
@@ -518,11 +531,12 @@
   // gọi giữa bài có tác dụng cho các slide phía sau. Với he-so = 1.0 giá trị
   // này TRÙNG mốc mặc định nên bố cục không đổi.
   let _gl = _gian-ht()
+  let _gs = _gian-doan()
   if _la-sach(_ho-so.get()) {
     // Bản in A4: thanh tiêu đề màu (heading cấp 2) + nội dung chảy liên tục.
     if tieu-de != none { heading(level: 2, tieu-de) }
     block(above: 4pt, below: 12pt, {
-      set par(leading: _gl)
+      set par(leading: _gl, spacing: _gs)
       body
     })
   } else {
@@ -609,7 +623,7 @@
       ))<bg-nav>])
     }
     pad(x: 28pt, {
-      set par(leading: _gl)
+      set par(leading: _gl, spacing: _gs)
       body
     })
     // hết slide: cộng dồn số đã dùng vào tổng tích luỹ (đúng một lần)

@@ -200,15 +200,18 @@
 // ---------- Kiểu tiền tố (thẻ) — đồng bộ màu & hình dáng ----------
 // hien-o: hiện ô tick Đ/S (câu ds có o-tick) và ô điền "Trả lời" (câu tln);
 //         false = ẨN đồng bộ toàn bài (đề gọn, HS làm thẳng vào phiếu).
-#let _kieu = state("ch-kieu", (mau: rgb("#0f4c81"), hinh: "bo-tron", hien-o: true, cham: true))
+// om-hinh: chữ ÔM hình (phần dư tràn hết bề rộng dưới hình) — xem voi-hinh.
+#let _kieu = state("ch-kieu", (mau: rgb("#0f4c81"), hinh: "bo-tron", hien-o: true, cham: true, om-hinh: true))
 
 // Đổi kiểu ở bất kỳ đâu trong tài liệu:
 //   #kieu-cau-hoi(mau: rgb("#e67e22"), hinh: "luc-giac", hien-o: false)
-#let kieu-cau-hoi(mau: auto, hinh: auto, hien-o: auto, cham-cuoi: auto) = _kieu.update(k => (
+//   #kieu-cau-hoi(om-hinh: false)   // tắt chế độ chữ ôm hình từ đây trở đi
+#let kieu-cau-hoi(mau: auto, hinh: auto, hien-o: auto, cham-cuoi: auto, om-hinh: auto) = _kieu.update(k => (
   mau: if mau == auto { k.mau } else { mau },
   hinh: if hinh == auto { k.hinh } else { hinh },
   hien-o: if hien-o == auto { k.at("hien-o", default: true) } else { hien-o },
   cham: if cham-cuoi == auto { k.at("cham", default: true) } else { cham-cuoi },
+  om-hinh: if om-hinh == auto { k.at("om-hinh", default: true) } else { om-hinh },
 ))
 
 // Ô tick/ô điền có được hiện không (đọc trong context).
@@ -296,6 +299,109 @@
 // (_khoi-giai/_hien-giai chuyển xuống SAU voi-hinh — nay hỗ trợ hình
 // kèm LỜI GIẢI thông qua voi-hinh.)
 
+// ---------- ÔM HÌNH: cắt nội dung theo ĐOẠN để chữ ôm sát hình ----------
+// Bài toán: hình hẹp + lời giải DÀI ⇒ cột hình trống một khoảng lớn phía
+// dưới, lãng phí giấy. Cách chữa: đặt các ĐOẠN ĐẦU cạnh hình cho vừa đúng
+// chiều cao hình, phần còn lại in NGUYÊN BỀ RỘNG bên dưới hình.
+
+// Tách nội dung thành mảng "khối" (đoạn văn, công thức tách dòng, danh
+// sách, bảng…). Dấu ngắt đoạn KHÔNG giữ lại — ghép lại bằng parbreak().
+// Nội dung ghép từ nhiều mảnh có thể LỒNG sequence trong sequence — trải
+// phẳng (CHỈ trải sequence, không đụng grid/table/list… dù chúng cũng có
+// trường "children").
+#let _f-seq = [].func()
+#let _la-seq(c) = {
+  if type(c) != content { return false }
+  let f = c.func()
+  if f == _f-seq { return true }
+  // Dự phòng (phòng khi `[].func()` không nhận ra): có trường "children"
+  // mà KHÔNG phải các phần tử gom nhóm thật sự.
+  c.has("children") and not (f == grid or f == table or f == list or f == enum
+    or f == terms or f == stack or f == figure)
+}
+#let _phang-seq(c) = {
+  if _la-seq(c) { return c.children.map(_phang-seq).flatten() }
+  (c,)
+}
+
+// Mỗi khối là dict `(nd: nội dung, sep: dấu ngắt đi sau nó)`. PHẢI giữ dấu
+// ngắt GỐC: bản A4 đi qua `_ghep` (che-do.typ) nên mọi dấu ngắt ĐOẠN đã bị
+// đổi thành ngắt DÒNG — ghép lại bằng parbreak sẽ giãn rộng ra, đổi bố cục
+// mọi bài cũ. Vì vậy cũng phải CẮT ở cả linebreak, không riêng parbreak.
+#let _tach-doan(c) = {
+  if c == none { return () }
+  if type(c) != content { return ((nd: c, sep: none),) }
+  let ds = _phang-seq(c)
+  let ra = ()
+  let cum = ()
+  for x in ds {
+    let f = if type(x) == content { x.func() } else { none }
+    if f == parbreak or f == linebreak {
+      if cum.len() > 0 {
+        ra.push((nd: cum.join(), sep: x))
+        cum = ()
+      } else if ra.len() > 0 {
+        // Dấu ngắt đi ngay sau một khối (vd sau công thức tách dòng): gắn
+        // vào khối trước, ĐỪNG bỏ đi kẻo mất một lần xuống dòng.
+        let u = ra.pop()
+        ra.push((nd: u.nd, sep: if u.sep == none { x } else { u.sep + x }))
+      }
+    } else {
+      cum.push(x)
+      if (f == block or f == grid or f == table or f == list or f == enum
+          or f == terms or f == figure
+          or (f == math.equation and x.at("block", default: false))) {
+        ra.push((nd: cum.join(), sep: none))
+        cum = ()
+      }
+    }
+  }
+  if cum.len() > 0 { ra.push((nd: cum.join(), sep: none)) }
+  ra
+}
+
+// Ghép các khối lại NGUYÊN như cũ (kèm dấu ngắt gốc), bỏ dấu ngắt cuối cùng.
+#let _noi-khoi(ds) = {
+  let ra = none
+  for (i, u) in ds.enumerate() {
+    ra = if ra == none { u.nd } else { ra + u.nd }
+    if i + 1 < ds.len() and u.sep != none { ra = ra + u.sep }
+  }
+  if ra == none { [] } else { ra }
+}
+
+// Phần tử KHÔNG xuống dòng được (công thức tách dòng, ảnh, bảng): bề rộng
+// tự nhiên phải lọt cột hẹp, nếu không sẽ tràn ra ngoài lề.
+#let _khoi-cung(x) = {
+  if type(x) != content { return false }
+  let f = x.func()
+  if f == math.equation { return x.at("block", default: false) }
+  (f == image or f == table or f == grid or f == figure)
+}
+
+// Khối có phần nào QUÁ RỘNG so với cột hẹp không? (gọi trong context)
+#let _qua-rong(x, hep) = {
+  if type(x) != content { return false }
+  if _khoi-cung(x) { return measure(x).width > hep }
+  if x.has("children") { return x.children.any(y => _qua-rong(y, hep)) }
+  false
+}
+
+// Số khối ĐẦU đặt vừa cạnh hình (cột rộng `hep`, cao tối đa `cao`).
+// Gọi trong context (dùng measure).
+#let _dem-khoi-om(khoi, hep, cao) = {
+  let k = 0
+  while k < khoi.len() {
+    if _qua-rong(khoi.at(k).nd, hep) { break }
+    if measure(block(width: hep, _noi-khoi(khoi.slice(0, k + 1)))).height > cao { break }
+    k = k + 1
+  }
+  k
+}
+
+// Chế độ ôm có bật không: om = auto → theo kieu-cau-hoi(om-hinh:).
+#let _om-bat(om) = if om == auto { _kieu.get().at("om-hinh", default: true) } else { om }
+
 // ---------- BỐ CỤC ĐỀ + HÌNH ----------
 // Quy tắc chung cho MỌI dạng câu (dùng qua tham số hinh: của
 // cau-mc/cau-tf/cau-sa/cau-tl/... hoặc gọi trực tiếp trong thân câu):
@@ -309,7 +415,9 @@
 // vi-tri ("right" | "left" | "top" | "bottom"): vị trí hình so với đề;
 // be-rong: auto = ôm đúng bề rộng hình (hình rộng tự xuống dòng riêng),
 //          hoặc chỉ định (35%, 5cm...) = cột hình chiếm đúng bề rộng đó.
-#let voi-hinh(de, hinh, duoi: none, ti-le: 0.46, khoang: 14pt, vi-tri: "right", be-rong: auto) = {
+// om: chữ ÔM hình — auto = theo kieu-cau-hoi(om-hinh:), mặc định BẬT;
+//     false = giữ lối 2 cột cũ (cột hình có thể trống nhiều phía dưới).
+#let voi-hinh(de, hinh, duoi: none, ti-le: 0.46, khoang: 14pt, vi-tri: "right", be-rong: auto, om: auto) = {
   let rieng = block(width: 100%, above: 8pt, below: 8pt, align(center, hinh))
   if hinh == none {
     de
@@ -323,27 +431,60 @@
     duoi
     rieng
   } else {
+    let than = { de; duoi }
     let hai-cot(o-hinh) = if vi-tri == "left" {
       grid(
         columns: (if be-rong == auto { auto } else { be-rong }, 1fr),
         column-gutter: khoang,
         align: (center + horizon, left + horizon),
-        o-hinh, { de; duoi },
+        o-hinh, than,
       )
     } else {
       grid(
         columns: (1fr, if be-rong == auto { auto } else { be-rong }),
         column-gutter: khoang,
         align: (left + horizon, center + horizon),
-        { de; duoi }, o-hinh,
+        than, o-hinh,
       )
     }
+    // Bố cục ÔM (gọi TRONG context): none = không cắt được hoặc không cần
+    // cắt (nội dung vốn đã thấp hơn hình) ⇒ quay về lối 2 cột cũ.
+    let bo-cuc-om(w-hinh, kich) = {
+      let hep = kich.width - w-hinh - khoang
+      if hep < 3cm { return none }
+      let khoi = _tach-doan(than)
+      if khoi.len() < 2 { return none }
+      let k = _dem-khoi-om(khoi, hep, measure(hinh).height)
+      if k == 0 or k == khoi.len() { return none }
+      let tren = _noi-khoi(khoi.slice(0, k))
+      block(above: 0pt, below: 0pt, if vi-tri == "left" {
+        grid(
+          columns: (w-hinh, 1fr), column-gutter: khoang,
+          align: (center + top, left + top),
+          hinh, tren,
+        )
+      } else {
+        grid(
+          columns: (1fr, w-hinh), column-gutter: khoang,
+          align: (left + top, center + top),
+          tren, hinh,
+        )
+      })
+      parbreak()
+      _noi-khoi(khoi.slice(k))
+    }
     if be-rong != auto {
-      hai-cot(align(center + horizon, hinh))
+      context layout(kich => {
+        let w = if type(be-rong) == ratio { kich.width * be-rong } else if type(be-rong) == length { be-rong } else { none }
+        let r = if _om-bat(om) and w != none { bo-cuc-om(w, kich) } else { none }
+        if r == none { hai-cot(align(center + horizon, hinh)) } else { r }
+      })
     } else {
       context layout(kich => {
-        if measure(hinh).width <= ti-le * kich.width {
-          hai-cot(hinh)
+        let w = measure(hinh).width
+        if w <= ti-le * kich.width {
+          let r = if _om-bat(om) { bo-cuc-om(w, kich) } else { none }
+          if r == none { hai-cot(hinh) } else { r }
         } else {
           de
           rieng

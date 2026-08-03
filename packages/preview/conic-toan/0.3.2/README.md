@@ -813,6 +813,27 @@ tại điểm gián đoạn thêm chỉ số vào `kep` và cho `gia-tri` một 
 
 Ký hiệu dấu: `"+"`, `"-"`, `"0"`, `"||"` (kẹp), `""` (trống); `huong`: `"len" | "xuong" | "ngang"`.
 
+**Tự bù ô trống hai đầu** (08/2026) — dãy `dau` phải dài `2n−1` nên **hai đầu
+luôn là ô trống `""`**; AI sinh bài rất hay quên đúng hai ô đó. Nay `bbt` và
+`bang-xet-dau` **tự chèn thêm** (chỉ chèn ở ĐẦU/CUỐI, không bao giờ chèn vào
+giữa; thiếu 1 ô thì tự đoán đầu nào thiếu theo quy ước `"+"`/`"-"` nằm trên
+khoảng, `"0"`/`"||"` nằm tại mốc). Thiếu quá 2 ô hoặc thừa ô thì báo lỗi bằng
+tiếng Việt nói rõ cần bao nhiêu phần tử — thay cho `array index out of bounds`.
+Kèm theo: `dau` nhận cả số trần (`0` thay vì `"0"`), còn `x` và `gia-tri` nhận
+chuỗi `"-oo"`/`"+oo"` và số trần (`-5/3`) rồi tự quy về nội dung toán. Nghĩa là
+đoạn dưới đây chạy đúng y như bản viết đủ:
+
+```typst
+#bbt(                                  // thiếu 2 ô trống + "-oo" dạng chuỗi
+  x: ("-oo", -3, -1, "+oo"),
+  dau: ("+", 0, "-", 0, "+"),
+  gia-tri: ("-oo", 5, -5/3, "+oo"),
+  huong: ("len", "xuong", "len"),
+)
+```
+
+File thử: `thu-bbt-bu-dau.typ`.
+
 **Mũi tên nửa ô** (07/2026) — khi hàm đơn điệu qua mốc y′ = 0 (nghiệm kép),
 để 2 mũi tên cùng chiều nằm **trên 1 đường thẳng** đi qua giá trị đặt giữa ô:
 `"len-duoi"` (đáy→giữa) rồi `"len-tren"` (giữa→đỉnh); nghịch biến dùng
@@ -1029,6 +1050,11 @@ Mốc `1.0` ứng với leading gốc của từng hồ sơ (trình chiếu `0.6
 giảng `0.6em` · A4 đề thi `0.65em`) nên **một hệ số dùng chung được cho cả 3
 bản PDF**, và đặt `1.0` thì bố cục/số trang y như trước.
 
+Hệ số này giãn **cả hai** loại khoảng cách: giữa các dòng trong cùng một đoạn
+(nối bằng `\`) và giữa hai đoạn (chỗ để **dòng trống**, mốc `1.2em`). Trước
+08/2026 chỉ giãn loại thứ nhất, nên nội dung có dòng trống trông như
+`voi-gian-dong` "chỉ ăn đoạn đầu rồi mất tác dụng".
+
 Khung lời giải hiện dần ở beamer (`giai-buoc`) vốn đã rộng hơn thân slide
 (mốc `0.95em`); hệ số `gian-dong` nhân thêm vào mốc đó. Muốn ấn định độ dài
 tuyệt đối thì dùng `giai-buoc(..., gian: 1.2em)`.
@@ -1064,6 +1090,85 @@ mỗi loại đánh số `1..n` độc lập theo thứ tự xuất hiện. Tham
 được — hàm tự tách thành từng ký tự để điền vào ô; nếu không tách được thì in
 nguyên nội dung vào một ô. Để in bảng có điều kiện, bọc trong `#if`:
 `#if muon-in-dap-an { bang-dap-an(ma-de: ma-de) }`.
+
+### Chia cột phần câu hỏi — `#chia-2-cot`, `#chia-2-cot-lech` (08/2026)
+
+Hai lệnh bố cục dùng như **show-rule**: *đặt ở đâu thì áp dụng từ dòng đó trở
+xuống*, đúng lối `#show: de-toan.with(...)` đã quen.
+
+```
+#show: de-toan.with(ho-so: ho-so, tieu-de: [ĐỀ KIỂM TRA])
+
+#show: chia-2-cot            // từ đây trở xuống: câu hỏi xếp 2 cột ĐỀU nhau
+#show: chia-2-cot-lech       // hoặc: trái = câu hỏi, phải = chỗ HS làm bài
+```
+
+`#chia-2-cot(so: 2, khoang: 18pt, can: true)` — chia phần câu hỏi thành hai cột
+bằng nhau (đặt `so: 3` nếu muốn ba cột), chữ chảy từ cột trái sang cột phải.
+Hai cột được **tự cân bằng chiều cao** (`can: false` để tắt): Typst vốn rót
+đầy cột 1 tới hết chiều cao trang rồi mới sang cột 2, nên đề ngắn sẽ nằm gọn
+một cột và cột 2 để trống — thư viện tự chèn dấu ngắt cột để hai bên đều nhau.
+
+`#chia-2-cot-lech(...)` — cột **trái** chứa câu hỏi, cột **phải** để trống có
+hàng kẻ ngang mờ cho học sinh làm bài (kèm vạch dọc mờ ngăn hai cột). Số hàng
+kẻ tự tính theo chiều cao thật của phần câu hỏi nên không thừa/thiếu giấy.
+
+| Tham số | Mặc định | Ý nghĩa |
+|---|---|---|
+| `rong-trai` | `70%` | **bề rộng cột trái** — nhận tỉ lệ (`60%`) hoặc độ dài (`11cm`) |
+| `khoang` | `10pt` | khe giữa hai cột |
+| `cao-dong` | `9mm` | khoảng cách giữa hai hàng kẻ |
+| `mau` / `day` | `luma(65%)` / `0.4pt` | màu và độ dày hàng kẻ |
+| `ke` | `true` | `false` = cột phải trắng trơn (không kẻ dòng) |
+| `vach-ngan` | `true` | vạch dọc mờ ngăn hai cột |
+| `tieu-de-phai` | `none` | vd `[Bài làm]` — in nhạt ở đầu cột phải |
+
+**Ngừng chia cột** bằng `#thoi-cot()`: phần sau dấu này trở lại nguyên khổ
+giấy. **Bắt buộc** đặt `#thoi-cot()` trước `#het()`/`#bang-dap-an()` — hàm
+`#bang-dap-an` có `#pagebreak` mà lệnh ngắt trang không chạy được bên trong
+cột.
+
+```typst
+#show: chia-2-cot-lech.with(rong-trai: 65%, tieu-de-phai: [Bài làm])
+#tl([Giải phương trình $x^2 - 5x + 6 = 0$.])
+#tl([Tính đạo hàm của hàm số $y = x^3 - 3x + 1$.])
+#thoi-cot()          // trở lại nguyên khổ giấy
+#het()
+#bang-dap-an()
+```
+
+Cả hai lệnh cũng dùng được **dạng khối** cho một đoạn: `#chia-2-cot[ ... ]`,
+`#chia-2-cot-lech(rong-trai: 55%)[ ... ]`.
+
+Ghi chú: hai lệnh chỉ tác dụng ở bản in A4 (`dethi`/`loigiai`); bản trình
+chiếu `beamer` tự bỏ qua (mỗi câu vốn đã là một slide riêng). Khi bật hoán vị
+(trộn đề), các câu nằm trong cột **vẫn được trộn** bình thường và bản `dethi`
+với bản `loigiai` vẫn trộn giống hệt nhau. File thử: `thu-chia-cot.typ`.
+
+### Kẻ dòng lấp đầy trang — `#ke-het-trang` (08/2026)
+
+Đặt ở đâu thì kẻ dòng từ chỗ đó xuống **hết trang đó** — số dòng tự tính theo
+chỗ trống còn lại, không phải đếm tay.
+
+```
+#ke-het-trang()                              // nét chấm, cách 9mm
+#ke-het-trang(cao-dong: 7mm, kieu: none)     // nét liền, dòng dày hơn
+#ke-het-trang(chua: 3cm)                     // chừa 3cm cuối trang
+#ke-het-trang(dai: 50%, them-trang: 1)       // nửa bề ngang + kẻ trọn 1 trang nữa
+```
+
+| Tham số | Mặc định | Ý nghĩa |
+|---|---|---|
+| `cao-dong` | `9mm` | khoảng cách giữa hai dòng kẻ |
+| `mau` / `day` | `luma(65%)` / `0.4pt` | màu và độ dày nét |
+| `kieu` | `"dotted"` | `"dashed"`, `"dash-dotted"`, hoặc `none` = nét liền |
+| `dai` | `100%` | bề dài dòng kẻ (`50%` = nửa bề ngang) |
+| `chua` | `0pt` | chừa thêm khoảng trắng ở đáy trang |
+| `them-trang` | `0` | kẻ thêm bấy nhiêu **trang đầy** nữa sau trang hiện tại |
+| `le-tren` / `le-duoi` | `auto` | tự đọc từ lề trang; chỉ đặt tay khi lề khai kiểu lạ |
+
+Chỉ dựng ở bản in A4 (`dethi`/`loigiai`); bản `beamer` tự bỏ qua. File thử:
+`thu-ke-het-trang.typ`.
 
 ### Hoán vị — trộn đề (08/2026)
 
@@ -1240,7 +1345,26 @@ tiếp, thường kèm `cols:` cố định:
 //   in đậm cùng màu, dấu liền kề (kiểu LaTeX).
 // hien-o: false = ẩn ô tick Đ/S (ds có o-tick) và ô điền "Trả lời" (tln)
 //   đồng bộ toàn bài — dùng khi HS làm thẳng vào phiếu trả lời.
+// om-hinh: false = TẮT chế độ chữ ôm hình (xem ngay dưới), quay về lối
+//   2 cột cũ từ vị trí này trở đi.
 ```
+
+### Chữ ôm hình (mặc định BẬT)
+
+Hình đặt bên phải/trái mà **lời giải dài hơn hình** thì cột hình sẽ trống
+một khoảng lớn phía dưới. Từ 08/2026 thư viện tự chữa: đo chiều cao hình,
+đặt vừa đủ các **đoạn đầu** cạnh hình, phần còn lại tràn **nguyên bề rộng**
+xuống dưới hình — không phải khai báo gì thêm.
+
+- Chỗ cắt luôn rơi vào ranh giới đoạn văn / công thức tách dòng / bảng /
+  danh sách, nên không bao giờ cắt ngang một công thức.
+- Công thức tách dòng quá rộng so với cột hẹp sẽ được đẩy xuống phần dưới
+  (tràn hết bề rộng) thay vì bị bó trong cột.
+- Nội dung vốn đã thấp hơn hình ⇒ giữ nguyên lối 2 cột canh giữa như cũ.
+- Tắt: `#kieu-cau-hoi(om-hinh: false)` (toàn bài hoặc một đoạn), hoặc
+  `voi-hinh(..., om: false)` khi gọi trực tiếp.
+
+File thử: `thu-om-hinh.typ`.
 
 - **MC tự chia cột**: mặc định `cot: auto` — đo phương án dài nhất rồi tự
   chọn 4 / 2 / 1 cột; vẫn ép được `cot: 2`.

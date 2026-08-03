@@ -178,7 +178,11 @@
 }
 
 // Trạng thái để #tn biết có xáo phương án hay không (và xáo theo mầm nào).
-#let _hv = state("bg-hoan-vi", (bat: false, mam: 0))
+//   bat: xáo PHƯƠNG ÁN · cau: xáo THỨ TỰ CÂU · mam: mầm chung.
+// Khoá `cau` để các lệnh bố cục (#chia-2-cot, #chia-2-cot-lech) tự xáo lại
+// phần thân NẰM TRONG cột — vì thân đó đã bị bọc thành MỘT phần tử nên vòng
+// duyệt ở #de-toan không nhìn thấy các câu bên trong.
+#let _hv = state("bg-hoan-vi", (bat: false, cau: false, mam: 0))
 
 // Tách công tắc hoan-vi thành hai cờ: xáo CÂU và xáo PHƯƠNG ÁN.
 #let _hv-che(h) = (
@@ -193,7 +197,7 @@
 #let hoan-vi-de(bat, mam: auto, body) = {
   let che = _hv-che(bat)
   let m = _hv-mam(mam)
-  _hv.update((bat: che.pa, mam: m))
+  _hv.update((bat: che.pa, cau: che.cau, mam: m))
   if che.cau { _hv-xao-than(body, m) } else { body }
 }
 
@@ -269,7 +273,7 @@
     context {
       let k = if gian-dong == auto { _he-so-gian() } else { gian-dong }
       let g = if gian == auto { 0.95em * k } else { gian }
-      set par(leading: g)
+      set par(leading: g, spacing: _gd.get().at("doan", default: 1.2em) * k)
       align(center, text(fill: _luc, weight: "bold", size: 0.84em, nhan))
       dong.at(0)
       for i in range(1, dong.len()) {
@@ -283,7 +287,9 @@
 // gd == auto -> giữ nguyên; ngược lại nhân hệ số gd vào leading NỀN của hồ sơ.
 #let _voi-gian(gd, nd) = if gd == auto { nd } else {
   context {
-    set par(leading: _gd.get().nen * gd)
+    let g = _gd.get()
+    // giãn CẢ khoảng cách dòng lẫn khoảng cách đoạn (dòng trống trong nội dung)
+    set par(leading: g.nen * gd, spacing: g.at("doan", default: 1.2em) * gd)
     nd
   }
 }
@@ -341,7 +347,7 @@
   // ----- Hoán vị (trộn đề): chỉ ở bản in A4, beamer giữ nguyên bài giảng -----
   let _che = _hv-che(hoan-vi)
   let _mam = _hv-mam(if mam == auto { ma-de } else { mam })
-  _hv.update((bat: _che.pa and hs != "beamer", mam: _mam))
+  _hv.update((bat: _che.pa and hs != "beamer", cau: _che.cau and hs != "beamer", mam: _mam))
   let body = if _che.cau and hs != "beamer" { _hv-xao-than(body, _mam) } else { body }
   if hs == "beamer" {
     bai-giang(tieu-de: tieu-de, tieu-de-ngan: tieu-de-ngan, nen: nen,
@@ -372,7 +378,7 @@
     }
     // 0.65em = leading mặc định của Typst -> gian-dong: 1.0 giữ y nguyên bố cục.
     _dat-gian(0.65em, gian-dong)
-    set par(justify: true, leading: 0.65em * gian-dong)
+    set par(justify: true, leading: 0.65em * gian-dong, spacing: 1.2em * gian-dong)
     if hs == "loigiai" { bat-dap-an() } else { tat-dap-an() }
     // ----- đầu đề thi -----
     grid(
@@ -690,6 +696,249 @@
     heading(level: 1, ten)
   } else {
     muc(ten, ngan: ngan)
+  }
+}
+
+// =====================================================================
+// BỐ CỤC PHẦN CÂU HỎI — #chia-2-cot · #chia-2-cot-lech   (08/2026)
+// ---------------------------------------------------------------------
+// Hai lệnh này dùng như SHOW-RULE: ĐẶT Ở ĐÂU THÌ ÁP DỤNG TỪ DÒNG ĐÓ TRỞ
+// XUỐNG (đúng lối #show: de-toan.with(...) đã quen):
+//
+//     #show: de-toan.with(ho-so: ho-so, tieu-de: [...])
+//     #show: chia-2-cot                  // từ đây trở xuống: 2 cột đều nhau
+//     #tn(...) #tn(...) ...
+//
+//     #show: chia-2-cot-lech             // trái = câu hỏi, phải = chỗ làm bài
+//     #show: chia-2-cot-lech.with(rong-trai: 60%)     // đổi bề rộng cột trái
+//
+// Muốn NGỪNG chia cột (bắt buộc trước #bang-dap-an, vì lệnh đó có
+// #pagebreak mà pagebreak không chạy được bên trong cột) thì đặt
+//     #thoi-cot()
+// — phần sau dấu này trở lại nguyên khổ giấy.
+//
+// Cũng dùng được dạng KHỐI cho một đoạn: #chia-2-cot[ ... ].
+//
+// Chỉ tác dụng ở bản in A4 (dethi/loigiai); trình chiếu beamer bỏ qua
+// (mỗi câu vốn đã là một slide riêng).
+// =====================================================================
+
+// ---------- Dấu kết thúc vùng chia cột ----------
+#let thoi-cot() = metadata("bg-thoi-cot")
+
+#let _la-thoi-cot(c) = (type(c) == content and c.func() == metadata
+  and c.value == "bg-thoi-cot")
+
+// Tách thân thành (phần NẰM TRONG cột, phần SAU #thoi-cot()).
+// Không có dấu #thoi-cot() ⇒ (toàn bộ thân, none).
+#let _tach-thoi-cot(than) = {
+  if type(than) != content or not than.has("children") { return (than, none) }
+  let cs = than.children
+  let i = cs.position(_la-thoi-cot)
+  if i == none { return (than, none) }
+  let truoc = cs.slice(0, i)
+  let sau = cs.slice(i + 1)
+  (
+    if truoc.len() == 0 { none } else { truoc.join() },
+    if sau.len() == 0 { none } else { sau.join() },
+  )
+}
+
+// Phần thân nằm TRONG cột đã bị bọc thành MỘT phần tử nên vòng duyệt hoán vị
+// ở #de-toan không nhìn thấy các câu bên trong ⇒ xáo lại ngay tại đây.
+// (Mầm vẫn là mầm chung ⇒ bản dethi và bản loigiai trộn giống hệt nhau.)
+#let _cot-than(nd) = {
+  let hv = _hv.get()
+  if nd != none and hv.at("cau", default: false) { _hv-xao-than(nd, hv.mam) } else { nd }
+}
+
+// ---------- Tự CÂN BẰNG chiều cao các cột ----------
+// Typst KHÔNG cân bằng `columns`: cột 1 được rót đầy tới HẾT chiều cao trang
+// rồi mới tràn sang cột 2 ⇒ phần câu hỏi ngắn (chưa đầy một trang) nằm gọn
+// trong cột 1, cột 2 để trống — nhìn y như lệnh không chạy.
+// Cách chữa: đo chiều cao thân ở bề rộng MỘT CỘT rồi chèn #colbreak() tại các
+// mốc 1/so, 2/so… của tổng chiều cao. KHÔNG dùng block(height:) cố định (thân
+// cao hơn dự tính là tràn ra ngoài khung).
+// Thân DÀI hơn `tran` (không gọn trong một trang) thì để Typst tự rót như cũ.
+#let _can-cot(nd, so, wcol, tran) = {
+  if so < 2 or type(nd) != content or not nd.has("children") { return nd }
+  let tong = measure(block(width: wcol, nd)).height
+  if tong <= 0pt or tong >= tran { return nd }
+  let cs = nd.children
+  // Đo TỪNG phần tử (bỏ qua phần tử trắng) — dùng chính tổng của các phép đo
+  // rời này làm mốc chia, nhờ vậy sai số khoảng cách giữa các khối tự triệt
+  // tiêu, không bị lệch dồn về một phía.
+  let cao = cs.map(c => if _hv-trong(c) { 0pt } else {
+    measure(block(width: wcol, c)).height })
+  let tong-le = cao.fold(0pt, (a, b) => a + b)
+  if tong-le <= 0pt { return nd }
+  let muc = tong-le / so
+  let kq = ()
+  let dang = 0pt
+  let cot = 1
+  for (i, c) in cs.enumerate() {
+    if cot < so and dang >= muc * cot and not _hv-trong(c) {
+      kq.push(colbreak())
+      cot = cot + 1
+    }
+    kq.push(c)
+    dang = dang + cao.at(i)
+  }
+  kq.join()
+}
+
+// ---------- #chia-2-cot — chia phần câu hỏi thành 2 cột đều nhau ----------
+//   so     : số cột (mặc định 2; đặt 3 nếu muốn ba cột)
+//   khoang : khe giữa hai cột
+//   can    : true (mặc định) = tự cân chiều cao hai cột; false = để Typst rót
+//            đầy cột 1 trước (lối gốc của Typst)
+#let chia-2-cot(so: 2, khoang: 18pt, can: true, body) = context {
+  if not _la-sach(_ho-so.get()) { body } else {
+    let (nd0, sau) = _tach-thoi-cot(body)
+    if nd0 != none {
+      let nd = _cot-than(nd0)
+      layout(kich => {
+        let wcol = (kich.width - khoang * (so - 1)) / so
+        let than = if can { _can-cot(nd, so, wcol, kich.height * so) } else { nd }
+        columns(so, gutter: khoang, than)
+      })
+    }
+    if sau != none { sau }
+  }
+}
+
+// ---------- #chia-2-cot-lech — cột trái câu hỏi, cột phải cho HS làm bài ----
+// Cột phải để trống, kẻ hàng ngang MỜ (kiểu vở kẻ ngang) và có vạch dọc mờ
+// ngăn giữa hai cột. Số hàng kẻ tính theo chiều cao thật của phần câu hỏi
+// (đo bằng measure) nên không thừa/thiếu giấy.
+//   rong-trai   : BỀ RỘNG CỘT TRÁI — mặc định 70% khổ chữ; nhận cả tỉ lệ
+//                 (60%) lẫn độ dài tuyệt đối (11cm).
+//   khoang      : khe giữa hai cột
+//   cao-dong    : khoảng cách giữa hai hàng kẻ (mặc định 9mm)
+//   mau, day    : màu và độ dày hàng kẻ
+//   ke          : false = cột phải để trắng trơn (không kẻ dòng)
+//   vach-ngan   : true (mặc định) = vạch dọc mờ ngăn hai cột
+//   tieu-de-phai: vd [Bài làm] — in nhạt ở đầu cột phải; none = không in
+#let chia-2-cot-lech(
+  rong-trai: 70%,
+  khoang: 10pt,
+  cao-dong: 9mm,
+  mau: luma(65%),
+  day: 0.4pt,
+  ke: true,
+  vach-ngan: true,
+  tieu-de-phai: none,
+  body,
+) = context {
+  if not _la-sach(_ho-so.get()) { body } else {
+    let (nd0, sau) = _tach-thoi-cot(body)
+    let nd = _cot-than(nd0)
+    if nd != none {
+      layout(kich => {
+        let wc = kich.width
+        let w0 = if type(rong-trai) == ratio { wc * rong-trai
+        } else if type(rong-trai) == relative { wc * rong-trai.ratio + rong-trai.length
+        } else { rong-trai }
+        // chốt chặn: cột trái không hẹp quá 2cm, không nuốt hết cột phải
+        let wt = calc.max(2cm, calc.min(w0, wc - khoang - 1.5cm))
+        let wp = wc - wt - khoang
+        if wp <= 0pt {
+          // không đủ chỗ cho cột phải ⇒ giữ nguyên lối một cột (an toàn)
+          nd
+        } else {
+          let cao = measure(block(width: wt, nd)).height
+          let so-dong = calc.min(4000, calc.max(1, int(calc.floor(cao / cao-dong))))
+          let dong-ke = block(
+            width: 100%, height: cao-dong, above: 0pt, below: 0pt, breakable: false,
+            place(bottom + left, line(length: 100%, stroke: day + mau)),
+          )
+          grid(
+            columns: (wt, wp), column-gutter: khoang,
+            block(width: 100%, nd),
+            block(
+              width: 100%,
+              stroke: if vach-ngan { (left: day + mau) } else { none },
+              inset: (left: if vach-ngan { 7pt } else { 0pt }),
+              above: 0pt, below: 0pt,
+              {
+                if tieu-de-phai != none {
+                  block(above: 0pt, below: 3pt,
+                    text(size: 0.85em, style: "italic", fill: mau.darken(25%), tieu-de-phai))
+                }
+                if ke { for _ in range(so-dong) { dong-ke } }
+              },
+            ),
+          )
+        }
+      })
+    }
+    if sau != none { sau }
+  }
+}
+
+// =====================================================================
+// #ke-het-trang — KẺ DÒNG LẤP ĐẦY CHỖ TRỐNG CÒN LẠI CỦA TRANG  (08/2026)
+// ---------------------------------------------------------------------
+// Đặt ở đâu thì kẻ dòng từ chỗ đó xuống HẾT TRANG ĐÓ — số dòng tự tính, không
+// phải đếm tay:
+//     #ke-het-trang()                        // nét chấm, cách 9mm
+//     #ke-het-trang(cao-dong: 7mm, kieu: none)   // nét liền, dày dòng hơn
+//     #ke-het-trang(chua: 2cm)               // chừa 2cm cuối trang
+//     #ke-het-trang(them-trang: 1)           // kẻ thêm TRỌN 1 trang nữa
+//
+// Cách làm: `here().position().y` cho biết đang ở đâu trên trang, trừ khỏi
+// `page.height` và lề dưới là ra chỗ còn lại, chia cho `cao-dong` ra số dòng.
+// Vị trí của chính lệnh này KHÔNG bị đẩy đi bởi các dòng kẻ nó sinh ra (chúng
+// nằm SAU nó) nên phép đo ổn định, không lặp vô hạn.
+//
+// Chỉ dựng ở bản in A4 (dethi/loigiai); beamer bỏ qua như #het/#bang-dap-an.
+// =====================================================================
+#let ke-het-trang(
+  cao-dong: 9mm,     // khoảng cách giữa hai dòng kẻ
+  mau: luma(65%),    // màu nét
+  day: 0.4pt,        // độ dày nét
+  kieu: "dotted",    // "dotted" | "dashed" | "dash-dotted" | none (nét liền)
+  dai: 100%,         // bề dài dòng kẻ (50% = nửa bề ngang)
+  chua: 0pt,         // chừa thêm chỗ trống ở đáy trang
+  le-tren: auto,     // ghi đè lề trang nếu lề khai kiểu lạ
+  le-duoi: auto,
+  them-trang: 0,     // kẻ thêm bao nhiêu TRANG ĐẦY nữa sau trang hiện tại
+) = context {
+  if not _la-sach(_ho-so.get()) { } else if type(page.height) != length { } else {
+    // ----- lấy lề trên / lề dưới từ thiết lập trang -----
+    let m = page.margin
+    let _le(khoa, mac-dinh) = {
+      if type(m) == dictionary { m.at(khoa, default: m.at("y", default: mac-dinh))
+      } else if m == auto { 2.5cm } else { m }
+    }
+    let lt = if le-tren != auto { le-tren } else { _le("top", 1.6cm) }
+    let ld = if le-duoi != auto { le-duoi } else { _le("bottom", 2.2cm) }
+
+    // MỘT dòng kẻ = MỘT khối cao ĐÚNG `cao-dong`, nét vẽ sát đáy khối.
+    // ⚠️ ĐỪNG viết `v(cao-dong); line(...)`: `line` tự tạo một ĐOẠN VĂN nên
+    // Typst cộng thêm khoảng cách đoạn trên/dưới ⇒ mỗi dòng chiếm gần GẤP ĐÔI
+    // `cao-dong`, số dòng tính ra thừa và tràn sang trang sau.
+    let net = (paint: mau, thickness: day, dash: kieu)
+    let mot-dong = block(
+      width: 100%, height: cao-dong, above: 0pt, below: 0pt, breakable: false,
+      place(bottom + left, line(length: dai, stroke: net)),
+    )
+
+    // ----- phần còn lại của TRANG HIỆN TẠI -----
+    // trừ thêm 1mm chống tràn (khoảng cách đoạn của khối đứng ngay trên lệnh
+    // có thể đẩy vị trí xuống một chút so với phép đo)
+    let con = page.height - here().position().y - ld - chua - 1mm
+    for _ in range(calc.max(0, int(calc.floor(con / cao-dong)))) { mot-dong }
+
+    // ----- các trang ĐẦY tiếp theo (nếu có) -----
+    if them-trang > 0 {
+      let cao-trang = page.height - lt - ld - chua
+      let n-day = calc.max(0, int(calc.floor(cao-trang / cao-dong)))
+      for _ in range(them-trang) {
+        pagebreak()
+        for _ in range(n-day) { mot-dong }
+      }
+    }
   }
 }
 
