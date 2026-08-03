@@ -1,19 +1,8 @@
+// theoframe: A Typst package providing 13 theorem-like environments (e.g., Definition, Theorem, Proof)
+// with automatic section-based numbering, multilingual localization, and customizable color themes.
+// Implemented on top of native figure and counter primitives.
 
-#let definition-counter = counter("definition")
-#let postulate-counter = counter("postulate")
-#let assumption-counter = counter("assumption")
-#let conjecture-counter = counter("conjecture")
-#let proposition-counter = counter("proposition")
-#let lemma-counter = counter("lemma")
-#let proof-counter = counter("proof")
-#let theorem-counter = counter("theorem")
-#let corollary-counter = counter("corollary")
-#let example-counter = counter("example")
-#let problem-counter = counter("problem")
-#let solution-counter = counter("solution")
-#let conclusion-counter = counter("conclusion")
-
-#let translation = (
+#let trans = (
   definition: (en: "Definition", fr: "Définition", ko: "정의", ja: "定義", zh: "定义"),
   postulate: (en: "Postulate", fr: "Postulat", ko: "공준", ja: "公準", zh: "公设"),
   assumption: (en: "Assumption", fr: "Hypothèse", ko: "가정", ja: "仮定", zh: "假设"),
@@ -29,169 +18,217 @@
   conclusion: (en: "Conclusion", fr: "Conclusion", ko: "결론", ja: "結論", zh: "结论"),
 )
 
+#let trans-array = trans.values().map(v => v.en)
+
+// Generate a composite figure numbering for the given figure kind and location
+#let theo-number(kind, loc) = context {
+  let h-counter = counter(heading.where(level: 1)).at(loc)
+  let f-counter = counter(figure.where(kind: kind)).at(loc)
+  numbering("1.", ..h-counter) + numbering("a", ..f-counter)
+}
+
+// Generate the full caption string for the given figure element
+// By combining the element's supplement with its  composite numbering at the element location.
+#let theo-cap-title(element) = context {
+  let loc = element.location()
+  element.supplement + " " + theo-number(element.kind, loc)
+}
 
 
-#let theoframe(name: [], framename: [], theoframe-counter, color: none, it) = block(
-  width: 100%,
-  stroke: (left: 2pt + color),
-  inset: 0em,
-)[
-  #theoframe-counter.step(level: 1)
-  #let counter-content = context {
-    let heading-counter-str = numbering("1.", counter(heading).get().first())
-    let theoframe-counter-str = theoframe-counter.display("a")
-    box(heading-counter-str + theoframe-counter-str)
+// Bordered theorem environment: renders a rectangular frame with a colored left stroke,
+// a tinted header bar displaying the title and number, and a dedicated content area.
+#let theoframe(name: [], framename: [], kind: "", color: none, it) = figure(
+  block(
+    width: 100%,
+    stroke: (left: 2pt + color),
+    inset: 0em,
+  )[
+      #block(width: 100%, inset: 1em, outset: 0em, below: 0em, fill: color.lighten(80%).transparentize(70%))[
+        #align(left)[#text(fill: color, weight: 700)[#framename #context theo-number(kind, here()) #h(1em) ] #text(
+            weight: 500,
+          )[#name]]
+      ]
+      #block(width: 100%, inset: 1em, outset: 0em, above:0em, fill: color.lighten(80%).transparentize(90%))[
+        #align(left)[#it]
+      ]
+
+  ],
+  kind: kind,
+  supplement: framename,
+  numbering: _ => context theo-number(kind, here()),
+  outlined: true,
+  caption: none,
+)
+
+
+// Minimal theorem environment: presents the heading and content inline without a surrounding border,
+// appending a customizable trailing symbol (e.g., a Q.E.D. marker).
+#let theocolor(name: [], framename: [], kind: "", color: none, sym, it) = figure(
+  rect(
+    width: 100%,
+    inset: 0em,
+    stroke: none,
+  )[
+    #align(left)[
+      #text(fill: color, weight: 700)[#framename #context theo-number(kind, here()) #h(1em) ]
+      #text(weight: 500)[#name]
+      #linebreak()
+      #it #text(fill: color)[#sym]
+    ]
+  ],
+  kind: kind,
+  supplement: framename,
+  numbering: _ => context theo-number(kind, here()),
+  outlined: true,
+  caption: none,
+)
+
+
+#let definition(name: [], color: rgb("#794e04"), it) = theoframe(
+  name: [#name],
+  framename: context trans.definition.at(text.lang, default: "Definition"),
+  kind: "Definition",
+  color: color,
+  it,
+)
+
+#let postulate(name: [], color: rgb("#5a3d00"), it) = theoframe(
+  name: [#name],
+  framename: context trans.postulate.at(text.lang, default: "Postulate"),
+  kind: "Postulate",
+  color: color,
+  it,
+)
+
+#let assumption(name: [], color: rgb("#4a4a4a"), it) = theoframe(
+  name: [#name],
+  framename: context trans.assumption.at(text.lang, default: "Assumption"),
+  kind: "Assumption",
+  color: color,
+  it,
+)
+
+#let conjecture(name: [], color: rgb("#6a1b9a"), it) = theoframe(
+  name: [#name],
+  framename: context trans.conjecture.at(text.lang, default: "Conjecture"),
+  kind: "Conjecture",
+  color: color,
+  it,
+)
+
+#let proposition(name: [], color: rgb("#1b5e20"), it) = theoframe(
+  name: [#name],
+  framename: context trans.proposition.at(text.lang, default: "Proposition"),
+  kind: "Proposition",
+  color: color,
+  it,
+)
+
+#let lemma(name: [], color: rgb("#020202"), it) = theoframe(
+  name: [#name],
+  framename: context trans.lemma.at(text.lang, default: "Lemma"),
+  kind: "Lemma",
+  color: color,
+  it,
+)
+
+#let proof(name: [], color: rgb("#050505"), it) = theocolor(
+  name: [#name],
+  framename: context trans.proof.at(text.lang, default: "Proof"),
+  kind: "Proof",
+  color: color,
+  sym.square.filled,
+  it,
+)
+
+#let theorem(name: [], color: rgb("#09658a"), it) = theoframe(
+  name: [#name],
+  framename: context trans.theorem.at(text.lang, default: "Theorem"),
+  kind: "Theorem",
+  color: color,
+  it,
+)
+
+#let corollary(name: [], color: rgb("#0d47a1"), it) = theoframe(
+  name: [#name],
+  framename: context trans.corollary.at(text.lang, default: "Corollary"),
+  kind: "Corollary",
+  color: color,
+  it,
+)
+
+#let example(name: [], color: rgb("#030303"), it) = theocolor(
+  name: [#name],
+  framename: context trans.example.at(text.lang, default: "Example"),
+  kind: "Example",
+  color: color,
+  sym.square.filled,
+  it,
+)
+
+#let problem(name: [], color: rgb("#b71c1c"), it) = theocolor(
+  name: [#name],
+  framename: context trans.problem.at(text.lang, default: "Problem"),
+  kind: "Problem",
+  color: color,
+  sym.square.filled,
+  it,
+)
+
+#let solution(name: [], color: rgb("#1a237e"), it) = theocolor(
+  name: [#name],
+  framename: context trans.solution.at(text.lang, default: "Solution"),
+  kind: "Solution",
+  color: color,
+  sym.square.filled,
+  it,
+)
+
+#let conclusion(name: [], color: rgb("#004d40"), it) = theoframe(
+  name: [#name],
+  framename: context trans.conclusion.at(text.lang, default: "Conclusion"),
+  kind: "Conclusion",
+  color: color,
+  it,
+)
+
+
+#let reset-fig-counter-per-level1-heading(it) = {
+  for k in trans-array {
+    counter(figure.where(kind: k)).update(0)
   }
-  #block(width: 100%, inset: 1em, outset: 0em, below: 0em, fill: color.lighten(80%).transparentize(70%))[
-    #text(fill: color, weight: 700)[#framename #counter-content #h(1em) ] #text(weight: 500)[#name]
-  ]
-  #block(width: 100%, inset: 1em, outset: 0em, above: 0em, fill: color.lighten(80%).transparentize(90%))[
-    #it
-  ]
-]
+  it
+}
 
-#let theocolor(name: [], framename: [], theoframe-counter, color: none, sym, it) = block(
-  width: 100%,
-  inset: 0em,
-)[
-  #theoframe-counter.step(level: 1)
-  #let counter-content = context {
-    let heading-counter-str = numbering("1.", counter(heading).get().first())
-    let theoframe-counter-str = theoframe-counter.display("a")
-    box(heading-counter-str + theoframe-counter-str)
+#let refer(it) = {
+  set text(fill: blue)
+  if (it.element.func() != figure) {
+    return it
+  } else if (it.element.kind not in trans-array) { return it } else {
+    link(
+      it.element.location(),
+      theo-cap-title(it.element),
+    )
   }
-  #text(fill: color, weight: 700)[#framename #counter-content #h(1em) ] #text(weight: 500)[#name] #linebreak()
-  #it #text(fill:color)[#sym]
-]
+}
 
-#let definition(name:[], color: rgb("#794e04"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.definition.at(text.lang, default: "Definition")],
-  definition-counter,
-  color: color,
-  it,
-)
-
-#let postulate(name:[], color: rgb("#5a3d00"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.postulate.at(text.lang, default: "Postulate")],
-  postulate-counter,
-  color: color,
-  it,
-)
-
-#let assumption(name:[], color: rgb("#4a4a4a"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.assumption.at(text.lang, default: "Assumption")],
-  assumption-counter,
-  color: color,
-  it,
-)
-
-#let conjecture(name:[], color: rgb("#6a1b9a"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.conjecture.at(text.lang, default: "Conjecture")],
-  conjecture-counter,
-  color: color,
-  it,
-)
-
-#let proposition(name:[], color: rgb("#1b5e20"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.proposition.at(text.lang, default: "Proposition")],
-  proposition-counter,
-  color: color,
-  it,
-)
-
-#let lemma(name:[], color: rgb("#020202"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.lemma.at(text.lang, default: "Lemma")],
-  lemma-counter,
-  color: color,
-  it,
-)
-
-#let proof(name:[], color: rgb("#050505"), it) = theocolor(
-  name: [#name],
-  framename: [#context translation.proof.at(text.lang, default: "Proof")],
-  proof-counter,
-  color: color,
-  sym.square.filled,
-  it,
-)
-
-#let theorem(name:[], color: rgb("#09658a"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.theorem.at(text.lang, default: "Theorem")],
-  theorem-counter,
-  color: color,
-  it,
-)
-
-#let corollary(name:[], color: rgb("#0d47a1"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.corollary.at(text.lang, default: "Corollary")],
-  corollary-counter,
-  color: color,
-  it,
-)
-
-#let example(name:[], color: rgb("#030303"), it) = theocolor(
-  name: [#name],
-  framename: [#context translation.example.at(text.lang, default: "Example")],
-  example-counter,
-  color: color,
-  sym.square.filled,
-  it,
-)
-
-#let problem(name:[], color: rgb("#b71c1c"), it) = theocolor(
-  name: [#name],
-  framename: [#context translation.problem.at(text.lang, default: "Problem")],
-  problem-counter,
-  color: color,
-  sym.square.filled,
-  it,
-)
-
-#let solution(name:[], color: rgb("#1a237e"), it) = theocolor(
-  name: [#name],
-  framename: [#context translation.solution.at(text.lang, default: "Solution")],
-  solution-counter,
-  color: color,
-  sym.square.filled,
-  it,
-)
-
-#let conclusion(name:[], color: rgb("#004d40"), it) = theoframe(
-  name: [#name],
-  framename: [#context translation.conclusion.at(text.lang, default: "Conclusion")],
-  conclusion-counter,
-  color: color,
-  it,
-)
-
-#let reset-theorems-counter() = {
-  definition-counter.update(0)
-  postulate-counter.update(0)
-  assumption-counter.update(0)
-  conjecture-counter.update(0)
-  proposition-counter.update(0)
-  lemma-counter.update(0)
-  proof-counter.update(0)
-  theorem-counter.update(0)
-  corollary-counter.update(0)
-  example-counter.update(0)
-  problem-counter.update(0)
-  solution-counter.update(0)
-  conclusion-counter.update(0)
+#let outline-entry(it) = if (it.element.func() != figure) { return it } else if (
+  it.element.kind not in trans-array
+) { return it } else {
+  link(
+    it.element.location(),
+    it.indented(theo-cap-title(it.element), it.inner()),
+  )
 }
 
 #let reset(doc) = {
-  show heading.where(level: 1): it => {
-    it
-    reset-theorems-counter()
-  }
+  set heading(numbering: "1.1")
+
+  show heading.where(level: 1): it => reset-fig-counter-per-level1-heading(it)
+
+  show ref: it => refer(it)
+
+  show outline.entry: it => outline-entry(it)
+
   doc
 }

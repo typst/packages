@@ -21,38 +21,77 @@ To use, simply import the package:
 
 #set page(width: 210mm, height: auto, margin: 1cm)
 #set heading(numbering: "1.1")
-#show heading: set text(fill: rgb(0, 0, 200))
+#show heading: set text(fill: rgb("#040404"))
 
-#outline()
-
-= Basic Definitions
+= Preliminaries
 #lorem(20)
-#definition(name:"even number")[An integer is called an _even number_ if it is divisible by $2$.]
 
-== More Definitions
-#lorem(20)
-#definition(name:"odd number")[An integer is called an _odd number_ if it is not divisible by $2$.]
+#definition(name: "Even Integer")[
+  An integer $n$ is called *even* if it is divisible by $2$, i.e., there exists an integer $k$ such that $n = 2k$.
+]<def:even>
 
-= A Simple Proof
-#lorem(20)
-#proof(name:"sum of two even numbers")[Let $a$ and $b$ be two even numbers. Then $a = 2k$ and $b = 2m$ for some integers $k$ and $m$. Their sum is $a + b = 2k + 2m = 2(k + m)$, which is also even.]
+#definition(name: "Odd Integer")[
+  An integer $n$ is called *odd* if it is not divisible by $2$, i.e., there exists an integer $k$ such that $n = 2k + 1$.
+]<def:odd>
 
-= A Practice Problem
+= Main Results
 #lorem(20)
-#problem(name:"sum of odd numbers")[Prove that the sum of two odd numbers is always even.]
 
-== Solution
-#lorem(20)
-#solution(name:"sum of odd numbers")[Let $a$ and $b$ be two odd numbers. Then $a = 2k + 1$ and $b = 2m + 1$ for some integers $k$ and $m$. Their sum is $a + b = (2k + 1) + (2m + 1) = 2k + 2m + 2 = 2(k + m + 1)$, which is even.]
+#theorem(name: "Sum of Two Even Integers")[
+  The sum of any two even integers is even.
+]<thm:sum-even>
 
-== Worked Example
+#proof(name: "Proof of @thm:sum-even")[
+  Let $a$ and $b$ be two even integers. By @def:even, there exist integers $k$ and $m$ such that $a = 2k$ and $b = 2m$. Then
+  $a + b = 2k + 2m = 2(k + m)$,
+  which shows that $a + b$ is divisible by $2$, hence even by @def:even.
+]<pf:sum-even>
+
+#corollary(name: "Sum of Multiple Even Integers")[
+  The sum of any finite number of even integers is even.
+]<cor:sum-multiple>
+
+#proof[
+  This follows directly from @thm:sum-even by induction on the number of terms.
+]
+
+= Additional Examples
 #lorem(20)
-#example(name:"checking even numbers")[Consider the numbers $4$ and $10$. Both are even because $4 = 2 times 2$ and $10 = 2 times 5$. Their sum is $14$, and indeed $14 = 2 times 7$, so it is also even.]
+
+#example(name: "Concrete Even Numbers")[
+  The integers $4$, $10$, and $16$ are even since $4 = 2 times 2$, $10 = 2 times 5$, and $16 = 2 times 8$.
+]<ex:even-numbers>
+
+#problem(name: "Sum of Two Odd Integers")[
+  Show that the sum of two odd integers is even.
+]<prob:sum-odd>
+
+#solution(name: "Solution to @prob:sum-odd")[
+  Let $a$ and $b$ be odd integers. By @def:odd, there exist integers $k$ and $m$ such that $a = 2k + 1$ and $b = 2m + 1$. Then
+  $a + b = (2k + 1) + (2m + 1) = 2k + 2m + 2 = 2(k + m + 1)$,
+  which is even by @def:even.
+]<sol:sum-odd>
 
 ```
 
 <p align="center">
   <img src="./assets/example1.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+</p>
+
+# Outline for theorems
+
+```typst
+#show outline: it => {
+  show heading: set text(fill: rgb("#000000"))
+  it
+}
+
+#outline(title:"Definitions", target: figure.where(kind:"Definition"))
+#outline(title:"Theorems", target: figure.where(kind:"Theorem"))
+#outline(title:"Corollaries", target: figure.where(kind:"Corollary"))
+```
+<p align="center">
+  <img src="./assets/example2.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
 </p>
 
 # Customization
@@ -80,5 +119,6 @@ The `color` affects both the left border stroke and the header background tint. 
 
 ## Version: 0.2.0
 
+- Add: Cross-reference support.
 - Fix: Counter not resetting when encountering a level-1 heading (= heading).
 - Root Cause Analysis: In Typst, #import only brings in variable bindings (functions and variables defined with #let) from a module. Meanwhile, #show rules are document-level directives, meaning their scope is strictly confined to the module where they are defined.
