@@ -2,7 +2,7 @@
 name = "theoframe"
 version = "0.2.0"
 entrypoint = "lib.typ"
-exclude = ["local/example.typ", "local/customization.typ", "assets/*", "*.pdf"]
+exclude = ["assets/*", "*.pdf"]
 authors = ["HeXiongwu"]
 license = "MIT"
 description = "A mini Theorem Environments that is very easy to use."
