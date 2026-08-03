@@ -12,3 +12,4 @@ repository = "https://github.com/aurghya-0/modern-class-presentation"
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

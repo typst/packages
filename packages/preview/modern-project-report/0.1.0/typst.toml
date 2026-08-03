@@ -10,11 +10,7 @@ keywords = ["report", "project", "university", "college", "academic", "template"
 categories = ["report"]
 compiler = "0.11.0"
 exclude = [
-  "/.github",
-  "/output.pdf",
-  "/main.pdf",
-  "/main.typ",
-  "/thumbnail.typ"
+  "/.github"
 ]
 
 [template]
