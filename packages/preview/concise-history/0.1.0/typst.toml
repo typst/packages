@@ -9,3 +9,4 @@ categories = [ "layout", "book"]
 keywords = ["chinese", "book", "classic"]
 repository = "https://codeberg.org/RivuletCedar/concise-history-template"
 compiler="0.15.1"
+exclude = ["example/*"]

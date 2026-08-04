@@ -6,7 +6,7 @@
 
 导入模板后，调用 concise-history-book 函数，传入必要的 title、author、publisher、date 等参数，以及 cfg 预设（如 concise-history-a4）。正文中使用等号定义一级标题，双等号定义二级标题，依此类推。
 
-示例参考 example（Codeberg 仓库）目录下的《简明世界史》排版样例。
+示例参考 example 目录下的排版样例。
 
 ## 主要参数说明
 

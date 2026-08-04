@@ -7,6 +7,7 @@
 #import "@preview/hydra:0.6.3": hydra
 #import "@preview/i-figured:0.2.4"
 #import "@preview/ornamentalyst:0.1.0": ornament
+#import "@preview/pointless-size:0.1.2": zh, zihao
 
 // 部分参考了 songting-book:0.0.5。
 
@@ -56,7 +57,7 @@
 #let _base-a4 = (
   paper: "a4",
   margin: (top: 2.5cm, bottom: 2.5cm, left: 3cm, right: 3cm),
-  size: 10pt,
+  size: zh(5),
   display-page-numbers: true,
   use-odd-pagebreak: false,
   lang: "zh",
@@ -71,7 +72,7 @@
   ),
   headingone-adjust-char: "　　",
   outline_depth: 3,
-  dedication-size-offset: 6pt,
+  dedication-size-offset: 2pt,
 
   // 排版
   
@@ -98,7 +99,7 @@
   // 标题
   heading: (
     font: (_fonts.hei, _fonts.hei, _fonts.hei, _fonts.hei, _fonts.hei, _fonts.hei),
-    size: (16pt, 14pt, 10pt, 10pt, 10pt, 10pt),
+    size: (zh(3), zh(4), zh(5), zh(5), zh(5), zh(5)),
     weight: ("bold", "medium", "medium", "regular", "regular", "regular"),
     align: (center, center, left, left, left, left),
     above: (2em, 2em, 2em, 2em, 2em, 2em),
@@ -110,23 +111,23 @@
   // 目录
   toc: (
     title-font: _fonts.song,
-    title-size: 14pt,
+    title-size: zh(4),
     title-weight: "bold",
     title-align: center,
     level1-font: _fonts.hei,
     other-font: _fonts.song,
-    entry-size: (12pt, 10pt, 10pt),
+    entry-size: (zh(-4), zh(5), zh(5)),
     vspace: (2em, 1em),
   ),
 
   // 封面
   cover: (
-    title-size: 36pt,
-    subtitle-size: 18pt,
-    author-size: 12pt,
-    publisher-size: 12pt,
-    date-size: 12pt,
-    edition-size: 14pt,
+    title-size: zh("小初"),
+    subtitle-size: zh(-2),
+    author-size: zh(-4),
+    publisher-size: zh(-4),
+    date-size: zh(-4),
+    edition-size: zh(4),
     ornament-offset: -1.5cm,
     ornament-size: 2cm,
     title-gap: 1.5em,
@@ -210,7 +211,15 @@
     tracking: typo.tracking,
   )
 
-  show strong: set text(font: _fonts.hei, weight: "light")
+  show strong: it => {
+  show regex("\p{Han}"): it => {
+    set strong(delta: 0)
+    set text(font: _fonts.hei, weight: 200)
+    it
+  }
+  it
+}
+
   show "——": set text(font: "Source Han Serif SC")
 
   let _punct-map = (
@@ -401,7 +410,7 @@
       }
     grid(
       rows: (1fr, auto),
-      gutter: 10pt,
+      gutter: zh(5),
       align(center)[
         #text(font: typo.header-font, size: cfg.size * typo.header-font-size-factor)[
           #heading-text #if typo.header-suffix != none { typo.header-suffix }
@@ -426,18 +435,15 @@
   for item in sections.back { item }
 }
 
-// 我找不到在Typst中实现着重号效果的包。自己写了个凑合用。
-// 在本模板使用的行间距下效果良好。
-
 #let 着重号(body) = {
   show regex("\p{sc=Han}"): it => {
     box(
       grid(
         columns: 1,
-        rows: (auto, -0.05em),
-        row-gutter: 0.04em,
+        rows: (auto, -0.2em),
+        row-gutter: 0.2em,
         align(center, it),
-        align(center, text("・", size: 0.8em, weight: "extrabold")),
+        align(center, circle(fill: black, width: 0.2em)),
       )
     )
   }
