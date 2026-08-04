@@ -1,0 +1,19 @@
+[package]
+name = "fei-thesis"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Oskar Mihalik"]
+license = "MIT"
+description = "Official template for writing thesis on Slovak University of Technology in Bratislava Faculty of Electrical Engineering and Information Technology  (STU FEI)"
+keywords = ["thesis", "STU", "FEI", "STU FEI"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool.tyler]
+srcdir = "."
+outdir = "dist"
+ignore = ["LICENSE"]
