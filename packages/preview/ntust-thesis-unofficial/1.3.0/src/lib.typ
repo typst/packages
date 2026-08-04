@@ -283,7 +283,9 @@
   // full-bleed on its own page without a heading; otherwise a titled
   // placeholder page is emitted instead.
   let form-page(title, form, hint) = if form != none {
-    page(margin: 0pt, header: none, footer: none, numbering: none, {
+    page(margin: 0pt, header: none, footer: none, {
+      show heading.where(level: 1): it => place(hide(it.body))
+      heading(level: 1, numbering: none)[#title]
       set image(width: 100%, height: 100%, fit: "contain")
       form
     })
