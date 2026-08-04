@@ -14,7 +14,7 @@ compiler = "0.14.0"
 exclude = [
   "docs/documentation.typ",
   "docs/documentation.pdf",
-  "assets/",
+  "/assets/",
   "tests/",
   "plugin/",
   "examples/",
