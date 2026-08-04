@@ -23,6 +23,8 @@ Reusable components for guided worksheets in Typst. Built for my [math-work](htt
 
 ## Sample
 
+- [Sample PDF](./examples/sample.pdf)
+
 See [sample.typ](./examples/sample.typ) for a full working example. The sample file includes optional style rules
 defined at the top. To compile the sample, run this in the package root:
 
