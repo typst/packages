@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/concise-history:0.1.0"： *
 
 // 基本信息
 #show: concise-history-book.with(
