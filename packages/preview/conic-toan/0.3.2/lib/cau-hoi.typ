@@ -201,17 +201,21 @@
 // hien-o: hiện ô tick Đ/S (câu ds có o-tick) và ô điền "Trả lời" (câu tln);
 //         false = ẨN đồng bộ toàn bài (đề gọn, HS làm thẳng vào phiếu).
 // om-hinh: chữ ÔM hình (phần dư tràn hết bề rộng dưới hình) — xem voi-hinh.
-#let _kieu = state("ch-kieu", (mau: rgb("#0f4c81"), hinh: "bo-tron", hien-o: true, cham: true, om-hinh: true))
+// eq-dong: ép công thức KHỐI ($ ... $ có khoảng trắng) trong phương án #tn /
+//          ý #ds thành công thức TRONG DÒNG — xem `_ep-trong-dong`.
+#let _kieu = state("ch-kieu", (mau: rgb("#0f4c81"), hinh: "bo-tron", hien-o: true, cham: true, om-hinh: true, eq-dong: true))
 
 // Đổi kiểu ở bất kỳ đâu trong tài liệu:
 //   #kieu-cau-hoi(mau: rgb("#e67e22"), hinh: "luc-giac", hien-o: false)
 //   #kieu-cau-hoi(om-hinh: false)   // tắt chế độ chữ ôm hình từ đây trở đi
-#let kieu-cau-hoi(mau: auto, hinh: auto, hien-o: auto, cham-cuoi: auto, om-hinh: auto) = _kieu.update(k => (
+//   #kieu-cau-hoi(eq-trong-dong: false)  // giữ nguyên $ ... $ khối như cũ
+#let kieu-cau-hoi(mau: auto, hinh: auto, hien-o: auto, cham-cuoi: auto, om-hinh: auto, eq-trong-dong: auto) = _kieu.update(k => (
   mau: if mau == auto { k.mau } else { mau },
   hinh: if hinh == auto { k.hinh } else { hinh },
   hien-o: if hien-o == auto { k.at("hien-o", default: true) } else { hien-o },
   cham: if cham-cuoi == auto { k.at("cham", default: true) } else { cham-cuoi },
   om-hinh: if om-hinh == auto { k.at("om-hinh", default: true) } else { om-hinh },
+  eq-dong: if eq-trong-dong == auto { k.at("eq-dong", default: true) } else { eq-trong-dong },
 ))
 
 // Ô tick/ô điền có được hiện không (đọc trong context).
@@ -519,6 +523,37 @@
 
 // ---------- MC: trắc nghiệm nhiều phương án ----------
 // Một phương án: thẻ chữ cái + nội dung; phương án đúng tô xanh lá.
+// ---------- ÉP CÔNG THỨC KHỐI THÀNH TRONG DÒNG ----------
+// Người soạn (và nhất là AI sinh bài) rất hay gõ `$ cases(x > 0, y > 0, x + y < 3) $`
+// CÓ khoảng trắng sát hai dấu $ ⇒ Typst hiểu là công thức TRÌNH BÀY GIỮA DÒNG
+// (block) ⇒ phương án bị xuống dòng và canh giữa, cột phình cao, hệ 3 bpt trông
+// khác hẳn hệ 2 bpt viết `$cases(...)$`. Hàm này duyệt nội dung phương án/ý và
+// đổi MỌI equation `block: true` → `block: false`, cho ra đúng dáng trong dòng.
+//   AN TOÀN: chỉ đụng tới `math.equation`; nội dung không có công thức khối thì
+//   trả về NGUYÊN VẸN (so sánh `==` giữ nguyên đối tượng cũ). KHÔNG đệ quy vào
+//   block/grid/table/figure… (phương án là hình, bảng… giữ nguyên bố cục cũ).
+#let _ep-trong-dong(c) = {
+  if type(c) == array { return c.map(_ep-trong-dong) }
+  if type(c) != content { return c }
+  let f = c.func()
+  if f == math.equation {
+    if c.at("block", default: false) { return math.equation(block: false, c.body) }
+    return c
+  }
+  if _la-seq(c) {
+    let ds = c.children.map(_ep-trong-dong)
+    return if ds.len() == 0 { c } else { ds.join() }
+  }
+  c
+}
+
+// Có ép công thức khối thành trong dòng không? (đọc trong context)
+//   trong-dong: auto = theo cài đặt toàn bài; true/false = ép riêng câu này.
+#let _ep-ds(ds, trong-dong) = {
+  let bat = if trong-dong == auto { _kieu.get().at("eq-dong", default: true) } else { trong-dong }
+  if bat { ds.map(_ep-trong-dong) } else { ds }
+}
+
 #let _o-pa(chu, noi-dung, dung) = {
   if dung {
     box(fill: _luc.lighten(87%), radius: 3.5pt, inset: (x: 5pt, y: 3.5pt))[
@@ -536,6 +571,7 @@
 #let cau-mc(
   cau, phuong-an, dap-an: none, cot: auto, diem: none, hinh: none,
   lo-da: none, loi-giai: none, lo-giai: auto, cham: auto, khoa-pa: false,
+  trong-dong: auto,
   fig-pos: "right", fig-width: auto, lines: 0, num: auto, prefix: "Câu", boxed: false,
   fig-giai: none, hinh-giai: none, fig-giai-pos: "right", fig-giai-width: auto,
 ) = {
@@ -551,7 +587,9 @@
     v(6pt)
     context {
       let hien = _da-hien(lo-da) and da != none
-      let pa = _cham-ds(pa, cham)
+      // ÉP TRONG DÒNG TRƯỚC rồi mới chấm câu: sau khi ép, `$ ... $` không còn
+      // là "khối" nên `cham-cau` thêm được dấu chấm — đúng như hệ 2 bpt.
+      let pa = _cham-ds(_ep-ds(pa, trong-dong), cham)
       let cells = pa.enumerate().map(p => {
         let chu = ("A", "B", "C", "D", "E", "F").at(p.at(0))
         _o-pa(chu, p.at(1), hien and chu == da)
@@ -741,7 +779,7 @@
 #let cau-tf(
   cau, cac-y, dap-an: none, diem: none, hinh: none,
   lo-da: none, loi-giai: none, lo-giai: auto, o-tick: false, cham: auto,
-  khoa-y: false,
+  khoa-y: false, trong-dong: auto,
   fig-pos: "right", fig-width: auto, lines: 0, num: auto, prefix: "Câu", boxed: false,
   fig-giai: none, hinh-giai: none, fig-giai-pos: "right", fig-giai-width: auto,
 ) = {
@@ -771,7 +809,7 @@
     v(4pt)
     context {
       let hien = _da-hien(lo-da) and dap-an != none
-      let cac-y = _cham-ds(cac-y, cham)
+      let cac-y = _cham-ds(_ep-ds(cac-y, trong-dong), cham)
       let nhan-y = ("a", "b", "c", "d", "e")
       let k-mau = _kieu.get().mau
       if o-tick and _hien-o() {

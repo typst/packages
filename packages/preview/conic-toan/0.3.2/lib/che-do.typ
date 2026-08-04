@@ -523,6 +523,7 @@
   loi-giai: none, loigiai: none, lines: 0, num: auto, prefix: "Câu",
   boxed: false, fig-giai: none, hinh-giai: none, cham: auto, khoa-pa: false,
   fig-giai-pos: "right", fig-giai-width: auto, gian-dong: auto,
+  trong-dong: auto,
   tieu-de: [Trắc nghiệm],
 ) = _gan-tn(context {
   let lg = _uu-tien(loigiai, loi-giai)
@@ -543,7 +544,7 @@
   } else { phuong-an }
   let goi(..them) = cau-mc(
     cau, phuong-an, dap-an: dap-an, cot: cot, diem: diem, hinh: hinh, cham: cham,
-    khoa-pa: khoa-pa,
+    khoa-pa: khoa-pa, trong-dong: trong-dong,
     fig-pos: fig-pos, fig-width: fig-width, lines: lines,
     num: num, prefix: prefix, boxed: boxed,
     hinh-giai: hg, fig-giai-pos: fig-giai-pos, fig-giai-width: fig-giai-width, ..them,
@@ -583,7 +584,7 @@
   cau, cac-y, dap-an: none, diem: none,
   hinh: none, fig: none, fig-pos: "right", fig-width: auto,
   loi-giai: none, loigiai: none, o-tick: false, lines: 0, num: auto, cham: auto,
-  khoa-y: false,
+  khoa-y: false, trong-dong: auto,
   prefix: "Câu", boxed: false, fig-giai: none, hinh-giai: none,
   fig-giai-pos: "right", fig-giai-width: auto, gian-dong: auto,
   tieu-de: [Đúng — Sai],
@@ -594,7 +595,7 @@
   let gd = gian-dong
   let goi(..them) = cau-tf(
     cau, cac-y, dap-an: dap-an, diem: diem, hinh: hinh, o-tick: o-tick, cham: cham,
-    khoa-y: khoa-y,
+    khoa-y: khoa-y, trong-dong: trong-dong,
     fig-pos: fig-pos, fig-width: fig-width, lines: lines,
     num: num, prefix: prefix, boxed: boxed,
     hinh-giai: hg, fig-giai-pos: fig-giai-pos, fig-giai-width: fig-giai-width, ..them,

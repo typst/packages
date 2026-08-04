@@ -1347,7 +1347,27 @@ tiếp, thường kèm `cols:` cố định:
 //   đồng bộ toàn bài — dùng khi HS làm thẳng vào phiếu trả lời.
 // om-hinh: false = TẮT chế độ chữ ôm hình (xem ngay dưới), quay về lối
 //   2 cột cũ từ vị trí này trở đi.
+// eq-trong-dong: false = giữ nguyên công thức khối `$ ... $` trong phương án
+//   (xem ngay dưới); mặc định true = ép thành công thức trong dòng.
 ```
+
+### Công thức trong phương án luôn nằm TRONG DÒNG (mặc định BẬT)
+
+Viết `$ cases(x > 0, y > 0, x + y < 3) $` (có khoảng trắng sát hai dấu `$`)
+là công thức **trình bày giữa dòng**: Typst tách nó xuống dòng riêng và canh
+giữa, nên hệ 3 bất phương trình trông khác hẳn hệ 2 bất phương trình viết
+`$cases(...)$`. Từ 08/2026 thư viện tự ép mọi công thức khối trong **phương án
+`#tn`** và **ý `#ds`** về dạng trong dòng, nên hai lối viết cho ra cùng một
+bố cục — khỏi phải sửa tay từng file do AI sinh ra.
+
+- Chỉ đụng tới công thức toán; phương án là hình, bảng, danh sách… giữ nguyên.
+- Vì công thức không còn là "khối", dấu chấm cuối phương án cũng được thêm
+  như các phương án chữ (xem `cham-cuoi`).
+- Số cột `cot: auto` đo theo bề rộng TRONG DÒNG ⇒ hệ 3 bpt thường xếp đủ 4 cột.
+- Tắt toàn bài: `#kieu-cau-hoi(eq-trong-dong: false)`; tắt một câu:
+  `#tn(..., trong-dong: false)` / `#ds(..., trong-dong: false)`.
+
+File thử: `thu-eq-trong-dong.typ`.
 
 ### Chữ ôm hình (mặc định BẬT)
 
@@ -1616,6 +1636,112 @@ Tất cả TRẢ GIÁ TRỊ (không vẽ) — dùng thẳng trong lời giải, 
 #khoang-bien-thien-ghep-nhom(moc, tan-so)  // mốc phải nhóm cuối − mốc trái nhóm đầu CÓ dữ liệu
 #khoang-tu-phan-vi-ghep-nhom(moc, tan-so)
 ```
+
+## Nón & trụ có NÉT KHUẤT TỰ ĐỘNG — kể cả hai khối che nhau (08/2026)
+
+`lib/mat-cong.typ` bổ khuyết cho `da-dien.typ`: engine đa diện chỉ lo được khối
+đa diện LỒI và KHÔNG xử lý được hai khối che nhau. Ở đây dùng một cơ chế duy
+nhất cho cả hai việc — bắn tia từ điểm đang xét về phía người nhìn, tia gặp lòng
+bất kì khối nào (kể cả chính nó) thì đoạn đó vẽ NÉT ĐỨT.
+
+```typ
+// nón có trục là một đường sinh của trụ — đường sinh nón chui vào lòng trụ
+// TỰ chuyển sang nét đứt, không phải cắt tay
+#mat-cong(
+  mat-non(r: 2, cao: 4, mau: red),
+  mat-tru(tam: (0, 2, 0), r: 2, cao: 4, mau: blue),
+  w: 9cm,
+)
+
+#mat-cong(mat-non(r: 2.6, cao: 4), mat-tru(r: 1.1, cao: 2))   // trụ nội tiếp nón
+#mat-cong(mat-non(r: 2, cao: 3.6), hien-khuat: false)          // bỏ hẳn nét đứt
+```
+
+Camera MẶC ĐỊNH của engine này là chiếu TRỰC GIAO
+(`chieu-truc-giao(ngang: 15deg, cao: 22deg)`), KHÔNG phải `chieu-xien` như
+`da-dien.typ`: khối vẽ ra NGAY NGẮN — elip đáy có trục lớn nằm ngang, trục
+khối thẳng đứng, đúng lối hình sách giáo khoa, khỏi phải khai `cam:` gì cả.
+Muốn lối chiếu xiên cũ thì khai rõ `cam: chieu-xien()` hoặc `cam: chieu-oxyz()`.
+
+Mô tả khối (TRẢ GIÁ TRỊ): `mat-non(tam:, r:, cao:, nghieng:, huong:, truc:,
+mau:, to:)` và `mat-tru(...)` cùng bộ tham số — `tam` là tâm mặt đáy, `cao` đo
+DỌC TRỤC; `mau`/`to` để `auto` thì lấy theo lệnh vẽ.
+Tiện ích: `dinh-non(k)`, `tron-ngang(tam, r, truc:)`.
+
+**Trục khối đặt nghiêng được.** `nghieng` là góc giữa trục khối và `Oz`,
+`huong` là hướng ngả (đo trong mặt phẳng `Oxy`); hoặc ghi đè thẳng bằng
+`truc: (a, b, c)`. Mặt đáy LUÔN vuông góc với trục, nên trục nghiêng thì mặt
+đáy và đường sinh nghiêng cùng — toàn thân khối nghiêng:
+
+```typ
+#mat-cong(mat-tru(r: 1.2, cao: 5, nghieng: 55deg, huong: 200deg))  // trụ nằm nghiêng
+#mat-cong(mat-non(r: 1.6, cao: 4.5, nghieng: 90deg))               // nón nằm ngang
+```
+
+Mọi công thức trong engine viết theo KHUNG RIÊNG `(u, v, w)` của khối (`w` là
+trục, `(u, v)` là hai phương trong mặt đáy) nên trục đứng chỉ là trường hợp
+riêng `nghieng: 0deg`.
+
+`ve-mat-cong(..khoi, cam:, mau:, day:, to:, hien-khuat:, mau-khuat:, day-khuat:,
+n:, duong:, them:)` nhận `ctx`; `mat-cong(...)` tự tạo khung hình, mọi
+tuỳ chọn khác chảy thẳng xuống `ve-mat-cong`.
+
+Đường vẽ thêm cũng được tự chia liền/đứt — mỗi mục của `duong:` là một dict:
+
+```typ
+#mat-cong(
+  mat-non(r: 2, cao: 4), mat-tru(tam: (0, 2, 0), r: 2, cao: 4),
+  duong: ((pts: tron-ngang((0, 0, 1.6), 1.2), mau: green, day: 0.9pt),),
+)
+```
+
+### Hệ trục Oxyz nghiêng CÙNG góc với khối — `truc:` / `ve-truc-3d`
+
+`oxyz` của `hinh-khong-gian.typ` tự dựng phép chiếu XIÊN riêng. Trong phép chiếu
+xiên, đường tròn nằm ngang chiếu ra elip NGHIÊNG trong khi `Oz` vẫn dựng đứng —
+đáy nghiêng mà trục đứng, nhìn vô lý. Muốn cả khung hình chung MỘT góc nghiêng
+thì dùng camera TRỰC GIAO thật và vẽ hệ trục bằng chính camera đó:
+
+```typ
+#let nghieng = 22deg    // góc nhìn từ trên xuống — MỘT biến cho cả khung hình
+#let quay = 15deg       // xoay quanh trục đứng, chỉnh cho hai khối tách nhau
+
+#mat-cong(
+  mat-non(r: 2, cao: 4), mat-tru(tam: (0, 2, 0), r: 2, cao: 4),
+  cam: chieu-truc-giao(ngang: quay, cao: nghieng),
+  truc: (x: 2.6, y: 4.4, z: 4.6),        // hệ trục vẽ bằng CHÍNH camera đó
+)
+```
+
+Với `chieu-truc-giao`, elip đáy có trục lớn NẰM NGANG (bán trục bé =
+`sin(nghieng)`) và trục khối THẲNG ĐỨNG — đúng như nhìn vật thật.
+ĐÁNH ĐỔI cần biết: bù lại `Ox` và `Oy` đều chếch xuống, không còn `Oy` nằm
+ngang như lối vẽ trục quen thuộc. Không thể có đồng thời cả hai — đó là tính
+chất hình học, không phải lỗi.
+
+`ve-truc-3d(cam, x:, y:, z:, am:, dm:, ten:, ten-goc:, huong-ten:, huong-goc:,
+mau:, day:, cach:)` dùng được với BẤT KÌ camera nào (`chieu-xien`,
+`chieu-oxyz`, `chieu-truc-giao`). `ve-mat-cong` còn có `truoc:` (vẽ trước khối)
+song song với `them:` (vẽ sau khối).
+
+Nếu vẫn muốn dùng `oxyz` sẵn có thì `k` và `goc` của `oxyz` PHẢI trùng với
+`chieu-oxyz(k:, goc:)`, nếu không khối sẽ lệch khỏi hệ trục:
+
+```typ
+#oxyz(x: 2.6, y: 4.4, z: 4.6, k: 0.7, goc: 30deg, them: (ctx, t3) => {
+  ve-mat-cong(ctx, mat-non(r: 2, cao: 4), mat-tru(tam: (0, 2, 0), r: 2, cao: 4),
+    cam: chieu-oxyz(k: 0.7, goc: 30deg))
+})
+```
+
+Phép thử che khuất là GIẢI TÍCH (giao tia với mặt đáy là bậc nhất, với mặt bên
+là bậc hai), KHÔNG quét mẫu — nên không bỏ sót nét khuất dù dây cung qua khối
+rất ngắn. Sai số duy nhất còn lại nằm ở mắt lưới của đường được vẽ, chỉnh bằng
+`n:`.
+
+GIỚI HẠN, đọc trước khi dùng: chưa có mặt cầu; đường sinh biên CỐ Ý không để
+chính khối của nó che (tia bắn từ đúng đường biên là tiếp tuyến, xét ở đó sẽ
+chập chờn làm nét biên lúc liền lúc đứt).
 
 ## Engine đa diện tổng quát, mặt phẳng Oxyz & thiết diện (07/2026)
 

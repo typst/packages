@@ -6,6 +6,7 @@
 #import "lib/hinh-phang.typ": *
 #import "lib/hinh-khong-gian.typ": *
 #import "lib/da-dien.typ": *
+#import "lib/mat-cong.typ": *
 #import "lib/oxyz-toan.typ": *
 #import "lib/do-thi.typ": *
 #import "lib/so-do-cay.typ": *
@@ -119,6 +120,9 @@
   mat-phang-oxyz: (..a) => mat-phang-oxyz(ctx, ..a),
   mat-phang-bh: (..a) => mat-phang-bh(ctx, ..a),
   ve-thiet-dien: (..a) => ve-thiet-dien(ctx, ..a),
+  // mat-cong.typ — nón/trụ có nét khuất tự động (mat-cong tự tạo khung, không kê)
+  ve-mat-cong: (..a) => ve-mat-cong(ctx, ..a),
+  ve-truc-3d: (..a) => ve-truc-3d(ctx, ..a),
 )
 
 
@@ -501,3 +505,20 @@
 /// THẤY, ĐỨT ở phần nằm trên mặt KHUẤT (nhận ctx ⇒ kê vào ve-voi).
 /// ve-thiet-dien(ctx, dinh: d, mat: m, mp: mp-qua-3-diem(P, Q, R))
 #let ve-thiet-dien = _voi-ctx(ve-thiet-dien)
+
+// ---------------------------------------------------------------------
+// mat-cong.typ — nón / trụ có NÉT KHUẤT TỰ ĐỘNG (kể cả hai khối che nhau).
+// `mat-non`, `mat-tru`, `dinh-non` TRẢ GIÁ TRỊ ⇒ KHÔNG kê ở đây.
+// `mat-cong` tự tạo khung hình ⇒ cũng KHÔNG kê.
+// ---------------------------------------------------------------------
+/// `ve-mat-cong(..khoi, cam: auto, mau: black, day: 1.1pt, to: none, hien-khuat: true, mau-khuat: auto, day-khuat: auto, n: 48, duong: (), truc: none, truoc: none, them: none)`
+///
+/// Vẽ một hoặc nhiều khối nón/trụ trục đứng, TỰ chia nét liền/đứt bằng cách
+/// bắn tia về phía người nhìn — lo cả tự khuất lẫn hai khối che nhau.
+/// ve-mat-cong(mat-non(r: 2, cao: 4), mat-tru(tam: (0, 2, 0), r: 2, cao: 4))
+#let ve-mat-cong = _voi-ctx(ve-mat-cong)
+/// `ve-truc-3d(cam, x: 3, y: 4, z: 4, am: 0.4, dm: 0.55, ten: ($x$, $y$, $z$), ten-goc: $O$, huong-ten: ("below-left", "below-right", "left"), huong-goc: "below-right", mau: black, day: 0.9pt, cach: 5pt)`
+///
+/// Vẽ hệ trục Oxyz bằng CHÍNH camera của khối ⇒ cả khung hình chung một góc
+/// nghiêng (khác `oxyz`, vốn tự dựng phép chiếu xiên riêng).
+#let ve-truc-3d = _voi-ctx(ve-truc-3d)
