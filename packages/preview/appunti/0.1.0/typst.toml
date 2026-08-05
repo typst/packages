@@ -8,7 +8,7 @@ description = "Lecture notes with theorem environments, algorithms and a customi
 repository = "https://github.com/evaevangelisti/appunti"
 keywords = ["notes", "university"]
 categories = ["report"]
-compiler = "0.15.1"
+compiler = "0.13.0"
 
 [template]
 path = "template"

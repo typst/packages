@@ -44,11 +44,13 @@ Content.
 Any subset of these keys is accepted; the rest keep their defaults.
 
 ```typst
-logo: (
-    data: read("assets/logo.svg", encoding: none),
-    width: 7.5cm,
-    align: left,
-),
+#show: notes.with(
+    logo: (
+        data: read("assets/logo.svg", encoding: none),
+        width: 7.5cm,
+        align: left,
+    ),
+)
 ```
 
 `data` must be bytes, since relative paths cannot be resolved from inside the package.
@@ -64,12 +66,14 @@ data: recolor(read("assets/logo.svg", encoding: none), "black", white),
 Any subset of these keys is accepted; the rest keep their defaults.
 
 ```typst
-theme: (
-    background: white,
-    foreground: luma(20),
-    link: rgb("#1a5fb4"),
-    rule: luma(180),
-),
+#show: notes.with(
+    theme: (
+        background: white,
+        foreground: luma(20),
+        link: rgb("#1a5fb4"),
+        rule: luma(180),
+    ),
+)
 ```
 
 `rule` applies to the title page rule, the header rule, table borders and algorithm lines.
@@ -80,6 +84,6 @@ theme: (
 
 ## Example
 
-[Source code](https://github.com/evaevangelisti/appunti/blob/main/examples/catppuccin.typ)
+[Source code](https://github.com/evaevangelisti/appunti/blob/v0.1.0/examples/catppuccin.typ)
 
-![Catppuccin Mocha](https://raw.githubusercontent.com/evaevangelisti/appunti/main/examples/catppuccin.png)
+![Catppuccin Mocha](https://raw.githubusercontent.com/evaevangelisti/appunti/v0.1.0/examples/catppuccin.png)
