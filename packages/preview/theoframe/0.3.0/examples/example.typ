@@ -1,8 +1,8 @@
-#import "./lib1.typ": *
+#import "../lib.typ": *
 // #import "@preview/theoframe:0.2.0":*
 #show: reset
 
-#set page(paper: "a4", margin: 2cm)
+#set page(width:210mm, height: auto,  margin: 2cm)
 #set heading(numbering: "1.1")
 #show heading: set text(fill: rgb("#040404"))
 // #set text(lang:"zh")
