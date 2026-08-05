@@ -133,7 +133,7 @@ $#add-en-ligne(1.2,7,248,45.385)$ et $#sous-en-ligne(248,1.2,7,45.385,digits: 3)
   <img alt="exemple d'addition" src="Exemples/detail.svg" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt; box-sizing: border-box; background: white">
 </div>
 
-More on these functions in the [french manual](https://github.com/Akilon27/longops/0.1.0/Exemples/manual.pdf).
+More on these functions in the [french manual](https://github.com/Akilon27/longops/0.1.0/Exemples/manual-longops.pdf).
 
 ## Contributing
 
