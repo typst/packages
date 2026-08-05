@@ -1,10 +1,12 @@
-#import "@preview/lightmind:0.1.0": lightmind, frontmatter, mark, kbd, task
+#import "@preview/lightmind-typst:0.1.0": lightmind, frontmatter, mark, kbd, task
 
 // 应用 Lightmind 主题。
+// Apply the Lightmind theme.
 // 常用选项：
-//   - dark-mode: true       启用暗色主题
-//   - font / code-font      自定义正文字体 / 代码字体
-//   - allow-page-breaks     是否允许分页（false 输出无限长单页）
+// Common options:
+//   - dark-mode: true       启用暗色主题   // enable dark mode
+//   - font / code-font      自定义正文字体 / 代码字体   // custom body font / code font
+//   - allow-page-breaks     是否允许分页（false 输出无限长单页）   // allow page breaks (false outputs an infinitely long single page)
 #show: doc => lightmind(
   title: "Lightmind 主题文档",
   allow-page-breaks: false,
@@ -13,6 +15,7 @@
 )
 
 // 可选：YAML 风格的前置元信息块
+// Optional: YAML-style frontmatter block
 #frontmatter(
   title: "Lightmind 主题文档",
   author: "作者",
