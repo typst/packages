@@ -1,0 +1,16 @@
+[package]
+name = "appunti"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Eva Evangelisti"]
+license = "MIT"
+description = "Lecture notes with theorem environments, algorithms and a customizable color theme."
+repository = "https://github.com/evaevangelisti/appunti"
+keywords = ["notes", "university"]
+categories = ["report"]
+compiler = "0.15.1"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
