@@ -1,2 +1,2 @@
-#import "template/template/thesis.typ": thesis, appendix, backmatter
-#import "template/template/todos.typ": list-of-todos
+#import "src/thesis.typ": thesis, appendix, backmatter
+#import "src/todos.typ": todo, should, could, would, may, feedback, at-prof, list-of-todos

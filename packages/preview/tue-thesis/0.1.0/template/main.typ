@@ -1,5 +1,4 @@
-#import "template/thesis.typ": thesis, appendix, backmatter
-#import "template/todos.typ": list-of-todos
+#import "@preview/tue-thesis:0.1.0": thesis, appendix, backmatter, list-of-todos
 #import "@preview/glossarium:0.5.10": make-glossary, register-glossary, print-glossary
 #import "@preview/in-dexter:0.7.2": make-index
 #import "frontback/glossary.typ": glossary-entries

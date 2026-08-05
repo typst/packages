@@ -1,4 +1,4 @@
-#import "../template/prelude.typ": *
+#import "../prelude.typ": *
 
 = Introduction <chap:intro>
 
