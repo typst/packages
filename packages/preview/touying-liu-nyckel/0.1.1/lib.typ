@@ -14,7 +14,7 @@
   "gray": rgb("#6a7e91"),
 )
 
-#let background_image(n) = {
+#let background-image(n) = {
   let lz_n = if n < 10 { "0" + str(n) } else { str(n) }
   return image("assets/backgrounds/background_" + lz_n + ".jpg")
 }

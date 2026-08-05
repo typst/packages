@@ -11,7 +11,7 @@
   // handout: true, // Flatten dynamic content for handouts
   // lang: "sv",
   // title-background: none,  // Use a theme colored background
-  // title-background: background_image(11), // predefined 1-13 available
+  // title-background: background-image(11), // predefined 1-13 available
   // title-background: image("my_custom_background.jpg"), // use your own background
   // size: 19pt,
   config-colors(theme: liu-colors.darkblue, primary: liu-colors.darkblue), // if you prefer another color scheme
@@ -166,7 +166,7 @@ The full list of options with their default values are
   - `text-box` - A simple boxed expression
   - `text-block` - A box like this one with a heading. Similar to the beamer environment `block`
   - `end-slide` - A simple end-of-slides page
-  - `background_image` - Access to template predefined background images, 01-13 available
+  - `background-image` - Access to template predefined background images, 01-13 available
 ]))
 
 = Example slides
