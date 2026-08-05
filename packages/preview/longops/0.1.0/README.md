@@ -87,10 +87,10 @@ Install longops by cloning it or importing like this:
 </div>
 
 ```typ
-#import "@preview/longops:0.1.0": DD, DE, add, sous
+#import "@preview/longops:0.1.0": egalite-euclidienne, egalite-decimale, add-en-ligne, sous-en-ligne
 
-$#add(1.2,7,248,45.385)$ et $#sous(248,1.2,7,45.385,digits: 3)$\
-#DE(37,9) et #DD(37,8)
+$#add-en-ligne(1.2,7,248,45.385)$ et $#sous-en-ligne(248,1.2,7,45.385,digits: 3)$\
+#egalite-euclidienne(37,9) et #egalite-decimale(37,8)
 ```
 
 <div align="center">
