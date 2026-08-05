@@ -2,7 +2,7 @@
 
 Package to present long operations (addition, substraction multiplication, square root) and detailed calculations (automatic with etapes-calcul or manually with detail). Inspired by the LaTeX package xlop
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Akilon27/longops/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.txt)
 
 ## Installing
 
