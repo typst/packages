@@ -1,0 +1,12 @@
+[package]
+name = "sprig"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak"]
+license = "MIT"
+description = "Mind maps whose hub is a polygon with one side per branch. Eight leaf shapes, six palettes, sub-leaves, compass placement, RTL, a print theme and a hand-drawn mode."
+repository = "https://github.com/fergousA/sprig"
+keywords = ["mind map", "diagram", "brainstorm", "chart", "concept map"]
+categories = ["visualization"]
+compiler = "0.12.0"
+exclude = ["gallery"]

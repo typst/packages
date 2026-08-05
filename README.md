@@ -1,78 +1,123 @@
-# Typst Packages
-The package repository for Typst, where package authors submit their packages.
-The packages submitted here are available on [Typst Universe][universe].
+# sprig
 
-## Package format
+Mind maps for Typst. A hub, branches growing out of it, a card at the end of
+each one.
 
-A package is a collection of Typst files and assets that can be imported as a
-unit. A `typst.toml` manifest with metadata is required at the root of a
-package. [Read more about the manifest format][manifest].
+![cover](gallery/cover.png)
 
-## Published packages
+The hub is a polygon with **exactly as many sides as there are branches**,
+and each branch leaves from the **midpoint of its own side** — so the stalk
+meets a flat edge square-on instead of sprouting from a corner. That is the
+default; a rectangle with twelve branches is one keyword away.
 
-This repository contains a collection of published packages. Due to its early
-and experimental nature, all packages in this repository are scoped in a
-`preview` namespace. A package that is stored in
-`packages/preview/{name}/{version}` in this repository will become available in
-Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
-package version.
+No dependencies, no plugin binary: everything is drawn with Typst's own
+`curve`.
 
-You can use template packages to create new Typst projects with the CLI with
-the `typst init` command or the web application by clicking the _Start from
-template_ button.
+```typ
+#import "@preview/sprig:0.1.0": *
 
-If you want to submit your own package, you can follow [our documentation on
-publishing packages][publishing] that will guide you through the process and
-give you some tips.
+#mindmap([*Le verbe*],
+  branch(title: [Groupe])[1ᵉʳ, 2ᵉ, 3ᵉ.],
+  branch(title: [Temps])[Simples, composés.],
+  branch(title: [Mode])[Indicatif, subjonctif.],
+  branch(title: [Voix])[Active, passive.],
+)
+```
 
-### Downloads
+## What you can change
 
-The Typst compiler downloads packages from the `preview` namespace on-demand.
-Once used, they are cached in `{cache-dir}/typst/packages/preview` where
-`{cache-dir}` is
+| | |
+|---|---|
+| **hub** | `sides`, `hub-shape` (`"box"`, `"rounded"`, `"circle"`, `"ellipse"`, a number, or your own function), `hub-ratio`, `hub-fill` / `hub-ink` / `hub-text` |
+| **leaves** | `shape` — fifteen built in, or a function — `palette` (six sets or an array), `weight`, `tint`, `leaf-fill`, `leaf-ink`, `icon` |
+| **branches** | `stalk`, `stalk-tip`, `wave`, `waves`, `bend`, `start`, `spread` |
+| **placement** | `dist`, `dx`, `dy`, `at` (compass points), `angle` |
+| **sub-leaves** | `children` (nest them again for a third rank), `children-at`, `spread`, `child-dist`, `child-width` |
+| **cross-links** | `links: (link(0, 2, label: [implies]), ..)` — a dashed curve with an arrow, over the cards |
+| **modes** | `dir` (`ltr` / `rtl` / auto), `theme: "print"`, `rough` / `roughness` |
 
-- `$XDG_CACHE_HOME` or `~/.cache` on Linux
-- `~/Library/Caches` on macOS
-- `%LOCALAPPDATA%` on Windows
+`mindgrid` lays the cards on a grid you choose instead of a ring, and runs
+the branches behind whatever is in the way — or round it, with
+`route: true`.
 
-You may also run `typst info` and check _Package cache path_ for the actual path.
-This would be helpful if you have installed the Typst compiler from Snap or are
-using special environment variables.
+## The illustrated guide
 
-Importing a cached package does not result in network access.
+`gallery/guide.pdf` shows every option with the code beside it, after the
+manner of *visual-tikz*. `gallery/cover.typ` draws the package's own syntax
+as a mind map — the obvious thing to make with a mind-map package, and a
+fair test of it.
 
-## Local packages
+## Beyond the tree
 
-Want to install a package locally on your system without publishing it or
-experiment with it before publishing? You can store packages in
-`{data-dir}/typst/packages/{namespace}/{name}/{version}` to make them available
-locally on your system. Here, `{data-dir}` is
+A mind map is a tree; the ideas in it rarely are.
 
-- `$XDG_DATA_HOME` or `~/.local/share` on Linux
-- `~/Library/Application Support` on macOS
-- `%APPDATA%` on Windows
+```typ
+#mindmap([Cycle],
+  links: (link(0, 1, label: [forme]), link(3, 0, via: "inside")),
+  branch(title: [Évaporation], icon: [▲], children: (
+    branch(title: [soleil], children: (branch[énergie],)),
+  ))[..],
+  ..)
+```
 
-You may also run `typst info` and check _Package path_ for the actual path. This
-would be helpful if you have installed the Typst compiler from Snap or are using
-special environment variables.
+`link` draws the association without breaking the hierarchy — dashed, over
+the cards, so it reads as an annotation rather than as part of the skeleton.
+`children` nests as deep as you like: three ranks are laid out, each fanning
+around its own parent on the bearing that parent has from *its* parent, so
+the tree always opens outward.
 
-You can create an arbitrary `{namespace}`. A good namespace for system-local
-packages is `local`. Using this namespace:
+## Sizing
 
-- Store a package in `{data-dir}/typst/packages/local/mypkg/1.0.0`
-- Import from it with `#import "@local/mypkg:1.0.0": *`.
+`leaf-width` is a **maximum**, not a fixed width: each card is measured
+against its own text and shrinks to fit, floored at `min-width`. That is
+what stops a one-word leaf from being handed the full width and breaking
+`Évaporation` across two lines. The hub is sized from its title the same way — and it is inscribed in an
+**ellipse** rather than a circle, because a line of text is almost always
+wider than it is tall while a circle grows in both directions at once.
+`hub-round: true` restores the circular hub. The ring is pushed out to clear
+whatever size the hub turned out to be.
 
-Packages in the data directory have precedence over ones in the cache directory.
+Not every shape fills its box. A speech balloon spends its bottom sixth on
+the tail, a shield's flanks start a fifth of the way up, `torn` chews its
+foot into teeth, `banner` bites a dovetail out of each end. Each shape
+therefore declares the margin its ornament eats, and the card both grows by
+it and insets its text — otherwise a line hangs out through the balloon's
+tail, which is exactly what the Arabic example used to do.
 
-Note that future iterations of Typst's package management may change/break this
-local setup.
+`mindgrid` keeps fixed cell **widths** on purpose — in a grid, lining up is
+the point — so an ornamented card there insets its text rather than growing
+sideways; its height still follows its contents.
 
-## License
+## Notes
 
-The infrastructure around the package repository is licensed under the terms of
-the Apache-2.0 license. Packages in `packages/` are licensed under their
-respective license.
+* **Colours are removed, not desaturated, in `print`.** A grey wash still
+  costs toner and still greys the text, so the branches are told apart by
+  their outlines. The stalk is thinned too: a black area weighs far more
+  than a coloured one of the same size.
+* **Under `rtl` the branches run anticlockwise**, so the reading order goes
+  right-to-left round the map. Compass names work in English, abbreviated,
+  and in French.
+* **`hub-text` follows the fill's luminance** rather than being white come
+  what may — white on a pale hub is invisible.
 
-[universe]: https://typst.app/universe/
-[manifest]: docs/manifest.md
-[publishing]: docs/README.md
+## What is in the box
+
+```
+gallery/guide.pdf     the illustrated manual — every option, shown
+gallery/cover.pdf     the map of sprig's own syntax
+examples/basic        a first map
+examples/subleaves    a leaf that becomes a hub, compass placement
+examples/rich         icons, three ranks, cross-links, a free-form hub
+examples/print        the ink-saving theme
+examples/arabic       right-to-left
+examples/typst        a full map: Typst itself, documentation style
+examples/relatifs-ar  a full map in Arabic: signed-number arithmetic
+examples/grammar-en   a full map in English: parts of speech, sketched
+```
+
+The last three are complete, real maps rather than option demos; the guide
+reproduces all three with the source that made them.
+
+## Licence
+
+MIT.
