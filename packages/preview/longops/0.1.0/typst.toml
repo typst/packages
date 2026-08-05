@@ -1,7 +1,7 @@
 [package]
 name = "longops"
 version = "0.1.0"
-entrypoint = "Operations.typ"
+entrypoint = "lib.typ"
 authors = [ "Akilon <https://github.com/Akilon27>" ]
 license = "MIT"
 description = "Long operations and detailed calculations.                        Opérations posées et calculs détaillés."
