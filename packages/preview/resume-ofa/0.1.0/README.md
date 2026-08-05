@@ -125,8 +125,6 @@ git push origin main
 
 Do not copy the source repository's `.git` directory and do not use a Git submodule. Open a pull request from the fork to `typst/packages`, wait for CI, and address maintainer feedback. After the pull request is merged, Typst makes the package available through the `@preview` namespace.
 
-For the portfolio-specific migration and release workflow, see [`docs/portfolio-integration.md`](docs/portfolio-integration.md).
-
 ## License
 
 The layout code in this repository is licensed under the MIT License. See [`LICENSE`](LICENSE). The `scienceicons` dependency remains separately licensed by its authors.
