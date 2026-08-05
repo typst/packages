@@ -6,11 +6,11 @@
 
 > 山林森林绿调的中文文档主题，支持亮色 / 暗色双模式。
 
-[![Typst](https://img.shields.io/badge/Typst-0.13%2B-239dad?logo=typst&logoColor=white)](https://typst.app)
-[![Typst Universe](https://img.shields.io/badge/Typst%20Universe-@preview%2Flightmind--typst-2ea44f)](https://typst.app/universe/package/lightmind-typst)
-[![Version](https://img.shields.io/badge/version-0.1.0-orange)](https://typst.app/universe/package/lightmind-typst)
-[![License](https://img.shields.io/github/license/childishtree/lightmind-typst)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/childishtree/lightmind-typst?style=social)](https://github.com/childishtree/lightmind-typst)
+[![Built with Typst](https://img.shields.io/badge/Typst-0.13%2B-239dad?logo=typst&logoColor=white)](https://typst.app)
+[![Available on Typst Universe](https://img.shields.io/badge/Typst%20Universe-@preview%2Flightmind--theme-2ea44f)](https://typst.app/universe/package/lightmind-theme)
+[![Package version 0.1.0](https://img.shields.io/badge/version-0.1.0-orange)](https://typst.app/universe/package/lightmind-theme)
+[![MIT license](https://img.shields.io/github/license/childishtree/lightmind-typst)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/childishtree/lightmind-typst?style=social)](https://github.com/childishtree/lightmind-typst)
 
 </div>
 
@@ -55,13 +55,13 @@ Lightmind 是一个山林森林绿调的中文文档主题，由同名 Typora �
 使用模板初始化一个新项目：
 
 ```bash
-typst init @preview/lightmind-typst:0.1.0
+typst init @preview/lightmind-theme:0.1.0
 ```
 
 或在已有文档中引入主题：
 
 ```typst
-#import "@preview/lightmind-typst:0.1.0": lightmind, frontmatter, mark, kbd, task
+#import "@preview/lightmind-theme:0.1.0": lightmind, frontmatter, mark, kbd, task
 ```
 
 > 需要 Typst 0.13+（推荐 0.15+）。
