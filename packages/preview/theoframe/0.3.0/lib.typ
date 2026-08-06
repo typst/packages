@@ -1,9 +1,9 @@
 // thmbox: A Typst package providing 19 theorem-like environments (e.g., Definition, Theorem, Proof)
-// with automatic section-based numbering, multilingual localization, customizable style and color themes.
+// with colormatic section-based numbering, multilingual localization, customizable style and color themes.
 
 
 #import "./src/translation.typ": *
-#let thm-theme = state("thm-theme", (style: "minimal", color: rgb("#000000")))
+#let theoframe-theme = state("theoframe-theme", (style: "minimal", color: rgb("#000000")))
 #let cap(str) = upper(str.at(0)) + str.slice(1)
 
 //Generate a composite figure numbering for the given figure kind and location
@@ -20,20 +20,19 @@
 
 
 // Create a template function used to produce a figure with customizable style and color.
-#let thmbox(trans-supplement: [], kind: "", color: auto, name: [], content) = figure(
+#let thmbox(trans-supplement: [], kind: "", color: color, name: [], content) = figure(
   context {
-    let computed-color = if (color == auto or color == none) { thm-theme.final().color } else { color }
-    if thm-theme.final().style == "minimal" {
+    let computed-color = if (color != rgb("#000000")) { color } else { theoframe-theme.final().color }
+    if theoframe-theme.final().style == "minimal" {
       block(
         width: 100%,
       )[
         #set align(left)
         #trans-supplement #context fig-number(kind, here()) #h(1em) #text(style: "italic")[#name] #h(1em) #content]
-    } else if thm-theme.final().style == "box" {
+    } else if theoframe-theme.final().style == "box" {
       block(
         width: 100%,
         stroke: (left: 0.2pt + computed-color),
-        inset: 0em,
       )[
         #block(
           width: 100%,
@@ -57,7 +56,7 @@
           #content
         ]
       ]
-    }
+    } else { panic("Unknown theme style. Available: 'minimal', 'box'") }
   },
   kind: kind,
   supplement: trans-supplement,
@@ -66,7 +65,7 @@
   caption: none,
 )
 
-#let definition(name: [], color: auto, content) = thmbox(
+#let definition(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.definition.at(text.lang, default: "Definition"),
   kind: "definition",
   color: color,
@@ -75,7 +74,7 @@
 )
 
 
-#let property(name: [], color: auto, content) = thmbox(
+#let property(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.property.at(text.lang, default: "Property"),
   kind: "property",
   color: color,
@@ -84,7 +83,7 @@
 )
 
 
-#let axiom(name: [], color: auto, content) = thmbox(
+#let axiom(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.axiom.at(text.lang, default: "Axiom"),
   kind: "axiom",
   color: color,
@@ -93,7 +92,7 @@
 )
 
 
-#let postulate(name: [], color: auto, content) = thmbox(
+#let postulate(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.postulate.at(text.lang, default: "Postulate"),
   kind: "postulate",
   color: color,
@@ -102,7 +101,7 @@
 )
 
 
-#let assumption(name: [], color: auto, content) = thmbox(
+#let assumption(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.assumption.at(text.lang, default: "Assumption"),
   kind: "assumption",
   color: color,
@@ -111,7 +110,7 @@
 )
 
 
-#let hypothesis(name: [], color: auto, content) = thmbox(
+#let hypothesis(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.hypothesis.at(text.lang, default: "Hypothesis"),
   kind: "hypothesis",
   color: color,
@@ -120,7 +119,7 @@
 )
 
 
-#let conjecture(name: [], color: auto, content) = thmbox(
+#let conjecture(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.conjecture.at(text.lang, default: "Conjecture"),
   kind: "conjecture",
   color: color,
@@ -129,7 +128,7 @@
 )
 
 
-#let proposition(name: [], color: auto, content) = thmbox(
+#let proposition(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.proposition.at(text.lang, default: "Proposition"),
   kind: "proposition",
   color: color,
@@ -138,7 +137,7 @@
 )
 
 
-#let lemma(name: [], color: auto, content) = thmbox(
+#let lemma(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.lemma.at(text.lang, default: "Lemma"),
   kind: "lemma",
   color: color,
@@ -147,7 +146,7 @@
 )
 
 
-#let theorem(name: [], color: auto, content) = thmbox(
+#let theorem(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.theorem.at(text.lang, default: "Theorem"),
   kind: "theorem",
   color: color,
@@ -156,7 +155,7 @@
 )
 
 
-#let corollary(name: [], color: auto, content) = thmbox(
+#let corollary(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.corollary.at(text.lang, default: "Corollary"),
   kind: "corollary",
   color: color,
@@ -164,7 +163,7 @@
   content,
 )
 
-#let remark(name: [], color: auto, content) = thmbox(
+#let remark(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.remark.at(text.lang, default: "Remark"),
   kind: "remark",
   color: color,
@@ -173,7 +172,7 @@
 )
 
 
-#let note(name: [], color: auto, content) = thmbox(
+#let note(name: [], color: rgb("#000000"), content) = thmbox(
   trans-supplement: context thm-dict.note.at(text.lang, default: "Note"),
   kind: "note",
   color: color,
@@ -183,11 +182,9 @@
 
 
 // Create another template function used to produce a figure with very plain appearance.
-#let thmplain(trans-supplement: [], kind: "", color: auto, name: [], content) = figure(
+#let thmplain(trans-supplement: [], kind: "", color: color, name: [], content) = figure(
   block(
     width: 100%,
-    inset: 0em,
-    stroke: none,
   )[
     #align(left)[
       #text(weight: 500)[ #trans-supplement #context fig-number(kind, here()) #h(1em) ]
@@ -203,7 +200,7 @@
 )
 
 
-#let proof(name: [], color: auto, content) = thmplain(
+#let proof(name: [], color: rgb("#000000"), content) = thmplain(
   trans-supplement: context support-dict.proof.at(text.lang, default: "Proof"),
   kind: "proof",
   color: color,
@@ -212,7 +209,7 @@
 )
 
 
-#let example(name: [], color: auto, content) = thmplain(
+#let example(name: [], color: rgb("#000000"), content) = thmplain(
   trans-supplement: context support-dict.example.at(text.lang, default: "Example"),
   kind: "example",
   color: color,
@@ -221,7 +218,7 @@
 )
 
 
-#let exercise(name: [], color: auto, content) = thmplain(
+#let exercise(name: [], color: rgb("#000000"), content) = thmplain(
   trans-supplement: context support-dict.exercise.at(text.lang, default: "Exercise"),
   kind: "exercise",
   color: color,
@@ -230,7 +227,7 @@
 )
 
 
-#let problem(name: [], color: auto, content) = thmplain(
+#let problem(name: [], color: rgb("#000000"), content) = thmplain(
   trans-supplement: context support-dict.problem.at(text.lang, default: "Problem"),
   kind: "problem",
   color: color,
@@ -239,7 +236,7 @@
 )
 
 
-#let solution(name: [], color: auto, content) = thmplain(
+#let solution(name: [], color: rgb("#000000"), content) = thmplain(
   trans-supplement: context support-dict.solution.at(text.lang, default: "Solution"),
   kind: "solution",
   color: color,
@@ -248,7 +245,7 @@
 )
 
 
-#let conclusion(name: [], color: auto, content) = thmplain(
+#let conclusion(name: [], color: rgb("#000000"), content) = thmplain(
   trans-supplement: context support-dict.conclusion.at(text.lang, default: "Conclusion"),
   kind: "conclusion",
   color: color,
@@ -264,36 +261,35 @@
   h1
 }
 // customize  references' color and figure supplement
-#let refer(it) = {
-  if (it.element == none or it.element.func() != figure) {
-    return it
-  } else if (it.element.kind not in kind-array) { return it } else {
-    link(
-      it.element.location(),
-      context [
-        #set text(fill: thm-theme.final().color.darken(30%))
-        #h(0.2em) #emph(fig-supplement(it.element))  #h(0.2em)
-      ],
-    )
-  }
-}
+#let refer(it) = if (it.element == none or it.element.func() != figure or it.element.kind not in kind-array) {
+  return it
+} else if (it.element.kind in kind-array) {
+  link(
+    it.element.location(),
+    context [
+      #set text(fill: theoframe-theme.final().color.darken(30%))
+      #h(0.2em) #emph(fig-supplement(it.element))  #h(0.2em)
+    ],
+  )
+} else { panic("some reference error") }
+
 // customize figure supplement and numbering in outline entries'
-#let outline-entry(it) = if (it.element == none or it.element.func() != figure) { return it } else if (
-  it.element.kind not in kind-array
-) { return it } else {
+#let outline-entry(it) = if (it.element == none or it.element.func() != figure or it.element.kind not in kind-array) {
+  return it
+} else if (it.element.kind in kind-array) {
   link(
     it.element.location(),
     it.indented(fig-supplement(it.element), it.inner()),
   )
-}
+} else { panic("some outline error") }
 
 //customize document's style
-#let reset(theme: (style: "minimal", color: rgb("#000000")), doc) = {
-  thm-theme.update((style: theme.style, color: theme.color))
+#let reset(theme: (style: "box", color: rgb("#000000")), doc) = {
+  theoframe-theme.update((style: theme.style, color: theme.color))
 
   set heading(numbering: "1.1")
 
-  set par(leading: 0.8em, spacing: 2em, justify: true)
+  set par(leading: 0.8em, spacing: 1.5em, justify: true)
 
   show heading.where(level: 1): h1 => reset-fig-counter-per-level1-heading(h1)
 
