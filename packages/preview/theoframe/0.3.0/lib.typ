@@ -25,7 +25,7 @@
         width: 100%,
       )[
         #set align(left)
-        #trans-supplement #fig-number(kind, here()) #h(1em) #name #h(1em) #content]
+        #text(weight:600)[#trans-supplement] #fig-number(kind, here()) #h(1em) #name #h(1em) #content]
     } else if theoframe-theme.final().style == "box" {
       block(
         width: 100%,
@@ -169,7 +169,6 @@
   content,
 )
 
-
 #let note(name: [], color: auto, content) = thmbox(
   trans-supplement: context thm-dict.note.at(text.lang, default: "Note"),
   kind: "note",
@@ -185,7 +184,7 @@
     width: 100%,
   )[
     #align(left)[
-      #text(weight: 500)[ #trans-supplement #context fig-number(kind, here()) #h(1em) ]
+      #text(weight: 600)[ #trans-supplement] #context fig-number(kind, here()) #h(1em) 
       #name #h(1em)
       #content
     ]

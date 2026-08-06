@@ -39,7 +39,8 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ```typst
 #import "@preview/theoframe:0.3.0":*
 #show: theoframe-setup
-// #show: theoframe-setup.with(theme: (style: "box", color: rgb("#000000")))
+// #show: theoframe-setup.with(theme: (style: "box", color: rgb("#0084ff")))
+
 #set page(paper:"a4",  margin: 1cm)
 
 = Preliminaries
@@ -102,7 +103,7 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ```typst
 #import "@preview/theoframe:0.3.0":*
 // #show: theoframe-setup
-#show: theoframe-setup.with(theme: (style: "box", color: rgb("#000000")))
+#show: theoframe-setup.with(theme: (style: "box", color: rgb("#0084ff")))
 ```
 
 <p align="left">

@@ -1,7 +1,7 @@
 #import "../lib.typ": *
 // #import "@preview/theoframe:0.3.0":*
-#show: theoframe-setup
-// #show: theoframe-setup.with(theme: (style: "box", color: rgb("#000000")))
+// #show: theoframe-setup
+#show: theoframe-setup.with(theme: (style: "box", color: rgb("#0084ff")))
 // #set page(paper:"a4",  margin: 1cm)
 #set page(width:210mm, height: auto,  margin: 1cm)
 // #set text(lang:"zh")
