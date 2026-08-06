@@ -2,7 +2,7 @@
 
 Package to present long operations (addition, substraction multiplication, square root) and detailed calculations (automatic with etapes-calcul or manually with detail). Inspired by the LaTeX package xlop
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.txt)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/Akilon27/longops/0.1.0/LICENSE)
 
 ## Installing
 
@@ -133,7 +133,9 @@ $#add-en-ligne(1.2,7,248,45.385)$ et $#sous-en-ligne(248,1.2,7,45.385,digits: 3)
   <img alt="exemple d'addition" src="Exemples/detail.svg" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt; box-sizing: border-box; background: white">
 </div>
 
-More on these functions in the [french manual](Exemples/manual-longops.pdf).
+More on these functions in the [french manual](Exemples/manual-longops.pdf) or the [english manual](Exemples/manual-longops-en.pdf).
+
+Warning: the examples are only in the french manual.
 
 ## Contributing
 
