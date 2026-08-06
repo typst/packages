@@ -149,4 +149,5 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ## Version: 0.3.0
 
 - Add: Global theme configuration via `theoframe-setup`. Users can now set `theme.style` (`"minimal"` or `"box"`) and `theme.color` globally, instead of configuring each environment individually.
-- Refactor: Restructured the codebase to separate `thmbox` (highlighted framed blocks) and `thmplain` (plain blocks) templates, improving maintainability and clarity. Added six new environments: `Property`, `Axiom`, `Hypothesis`, `Remark`, `Note`, and `Exercise`.
+- Added six new environments: `Property`, `Axiom`, `Hypothesis`, `Remark`, `Note`, and `Exercise`.
+- Refactor: Restructured the codebase to separate `thmbox` (highlighted framed blocks) and `thmplain` (plain blocks) templates, improving maintainability and clarity. 
