@@ -13,8 +13,10 @@ To use, simply import the package:
 
 # Example
 
-**Note on numbering:** The `theorems-counter` resets to `0` only when a level-1 heading (`= Heading`) is encountered. Each time a theorem-like environment (e.g., `#definition`, `#theorem`) is called, the counter increments by `1` and is displayed as a letter starting from `"a"`.
+**Note on numbering:** The `fig-counter` resets to `0` only when a level-1 heading (`= Heading`) is encountered. Each time a theorem-like environment (e.g., `#definition`, `#theorem`) is called, the counter increments by `1` and is displayed as a letter starting from `"a"`.
 
+
+## minimal style
 ```typst
 #import "@preview/theoframe:0.3.0":*
 #show: reset
@@ -73,10 +75,22 @@ To use, simply import the package:
 ```
 
 
-
-<p align="center">
-  <img src="./assets/example1.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+<p align="left">
+  <img src="./assets/example-minimal1.svg"  alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
 </p>
+
+## box style
+
+```typst
+#import "@preview/theoframe:0.3.0":*
+// #show: reset
+#show: reset.with(theme: (style: "box", color: rgb("#000000")))
+```
+
+<p align="left">
+  <img src="./assets/example-box1.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+</p>
+
 
 # Outline for theorems
 
@@ -94,13 +108,12 @@ To use, simply import the package:
 
 #line(length: 100%)
 
-
 #let fig-arr = kind-array.map(it => figure.where(kind: it))
 
 #outline(title: "Theorems-like environment", target: selector.or(..fig-arr))
 ```
-<p align="center">
-  <img src="./assets/example2.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+<p align="left">
+  <img src="./assets/example-minimal2.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
 </p>
 
 
