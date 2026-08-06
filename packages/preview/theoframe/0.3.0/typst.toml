@@ -1,8 +1,8 @@
 [package]
 name = "theoframe"
-version = "0.2.0"
+version = "0.3.0"
 entrypoint = "lib.typ"
-exclude = ["assets/*", "*.pdf"]
+exclude = ["local/*","assets/*", "*.pdf"]
 authors = ["HeXiongwu"]
 license = "MIT"
 description = "A mini Theorem Environments that is very easy to use."
@@ -11,3 +11,4 @@ keywords = ["theorem", "lemma", "environment", "math"]
 disciplines = ["computer-science", "engineering", "mathematics", "physics", "education"]
 categories = ["components"]
 compiler = "0.15.0"
+

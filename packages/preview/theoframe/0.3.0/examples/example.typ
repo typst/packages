@@ -1,8 +1,7 @@
 #import "../lib.typ": *
 // #import "@preview/theoframe:0.3.0":*
-#show: reset
-// #show: reset.with(theme: (style: "box", color: rgb("#000000")))
-// color: rgb("#09658a"), color: rgb("#0d47a1"),
+#show: theoframe-setup
+// #show: theoframe-setup.with(theme: (style: "box", color: rgb("#000000")))
 // #set page(paper:"a4",  margin: 1cm)
 #set page(width:210mm, height: auto,  margin: 1cm)
 // #set text(lang:"zh")
@@ -10,7 +9,7 @@
 = Preliminaries
 #lorem(20)
 
-#definition(name: [Even Integer], color:rgb("#000000"))[
+#definition(name: [Even Integer])[
   An integer $n$ is called *even* if it is divisible by $2$, i.e., there exists an integer $k$ such that $n = 2k$.
 ]<def:even>
 
@@ -63,27 +62,20 @@
 
 
 #line(length: 100%)
+// #show outline: it => {
+//   show heading: set text(fill: rgb("#0077ff"))
+//   it
+// }
+
 #outline(title: "Definitions", target: figure.where(kind: "definition"))
 #outline(title: "Theorems", target: figure.where(kind: "theorem"))
-#outline(title: "Corollaries", target: figure.where(kind: "corollary"))
 
-// #pagebreak()
 
 #line(length: 100%)
 
 #let fig-arr = kind-array.map(it => figure.where(kind: it))
 
 #outline(title: "Theorems-like environment", target: selector.or(..fig-arr))
-
-
-
-
-// #show outline: it => {
-//   show heading: set text(fill: rgb("#000000"))
-//   it
-// }
-
-
 
 
 
