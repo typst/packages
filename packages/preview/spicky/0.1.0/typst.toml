@@ -1,0 +1,32 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "spicky"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Basil Feitknecht"]
+license = "Unlicense"
+description = "Package with definitions and quality of life imports for simple cheatsheet template."
+# homepage = ""
+repository = "https://github.com/bfeitknecht/spicky"
+keywords = ["cheatsheet"]
+categories = ["components", "layout"]
+disciplines = ["computer-science"]
+# compiler = ""
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "assets/example.png"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

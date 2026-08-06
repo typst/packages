@@ -1,0 +1,9 @@
+[package]
+name = "numera"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Moritz Hedtke <https://github.com/mohe2015>"]
+license = "Unlicense"
+description = "Per-chapter figure and equation numbering, subfigure numbering, numbering functions that can render differently for references, equate package compatibility"
+repository = "https://github.com/mohe2015/numera"
+exclude = [".git", ".github", "tests"]

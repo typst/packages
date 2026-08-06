@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="380"
+   viewBox="0 0 190 190"
+   width="380"
+   version="1.1"
+   id="svg7"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs7" />
+  <path
+     d="M 0,0 H 190 V 190 H 0 Z"
+     fill="#237f52"
+     id="path2" />
+  <g
+     fill="#ecece7"
+     id="g7"
+     transform="translate(-5,-5)">
+    <g
+       stroke-width="1.57836"
+       transform="matrix(-1,0,0,1,200,0)"
+       id="g4">
+      <path
+         d="m 21.382884,23.600586 v 10.700195 h 6.313476 v -5.964843 h 45.203125 53.845695 45.20215 v 5.964843 h 6.31348 V 23.600586 H 126.74518 72.899485 Z"
+         id="path3" />
+      <path
+         d="m 21.382889,177.871 v -10.70019 h 6.313476 v 5.96484 h 45.203125 53.8457 45.20214 v -5.96484 h 6.31348 V 177.871 H 126.74518 72.89949 Z"
+         id="path4" />
+    </g>
+    <g
+       transform="matrix(-1,0,0,1,199.91304,-0.100526)"
+       id="g6">
+      <path
+         d="M 33.930706,34.886497 H 99.40263 V 166.78614 H 33.930706 Z"
+         id="path5" />
+      <path
+         d="m 154.71875,80.321183 v 11.43457 H 113.02246 V 109.9159 h 41.69629 v 11.43555 l 11.41016,-10.25781 11.41015,-10.25781 -11.41015,-10.256835 z"
+         id="path6" />
+    </g>
+  </g>
+</svg>
