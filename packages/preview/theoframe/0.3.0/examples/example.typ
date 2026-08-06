@@ -1,5 +1,6 @@
 #import "../lib.typ": *
-#show: reset.with(theme: (style: "minimal", color: rgb("#000000")))
+#show: reset.with(theme: (style: "box", color: rgb("#000000")))
+// color: rgb("#09658a"), color: rgb("#0d47a1"),
 
 #set page(width:210mm, height: auto,  margin: 2cm)
 // #set text(lang:"zh")

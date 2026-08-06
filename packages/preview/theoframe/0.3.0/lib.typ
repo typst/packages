@@ -1,7 +1,6 @@
 // thmbox: A Typst package providing 19 theorem-like environments (e.g., Definition, Theorem, Proof)
 // with colormatic section-based numbering, multilingual localization, customizable style and color themes.
 
-
 #import "./src/translation.typ": *
 #let theoframe-theme = state("theoframe-theme", (style: "minimal", color: rgb("#000000")))
 #let cap(str) = upper(str.at(0)) + str.slice(1)
@@ -28,11 +27,11 @@
         width: 100%,
       )[
         #set align(left)
-        #trans-supplement #context fig-number(kind, here()) #h(1em) #text(style: "italic")[#name] #h(1em) #content]
+        #trans-supplement #context fig-number(kind, here()) #h(1em) #name #h(1em) #content]
     } else if theoframe-theme.final().style == "box" {
       block(
         width: 100%,
-        stroke: (left: 0.2pt + computed-color),
+        stroke: (left: 2pt + computed-color),
       )[
         #block(
           width: 100%,
@@ -188,7 +187,7 @@
   )[
     #align(left)[
       #text(weight: 500)[ #trans-supplement #context fig-number(kind, here()) #h(1em) ]
-      #emph(name) #h(1em)
+      #name #h(1em)
       #content
     ]
   ],
@@ -290,6 +289,8 @@
   set heading(numbering: "1.1")
 
   set par(leading: 0.8em, spacing: 1.5em, justify: true)
+
+  set text(cjk-latin-spacing: auto, hyphenate: true)
 
   show heading.where(level: 1): h1 => reset-fig-counter-per-level1-heading(h1)
 
