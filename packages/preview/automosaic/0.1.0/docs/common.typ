@@ -4,7 +4,7 @@
 //
 //   cd packages/mosaic && typst compile --root . docs/figure.typ docs/how-it-works.png --format png --ppi 300
 
-#import "../lib.typ": *
+#import "@preview/automosaic:0.1.0": *
 
 #let palette = (
   rgb("#3b82f6"), // blue
