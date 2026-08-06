@@ -43,7 +43,7 @@ longer maintained by the original author.*
 
 This produces
 
-![](https://github.com/sdiebolt/suboutline/blob/main/example/example.png?raw=true)
+![Example output showing an outline and local sub-outlines](https://github.com/sdiebolt/suboutline/blob/0.3.1/example/example.png?raw=true)
 
 ## Usage
 
@@ -56,7 +56,8 @@ The `suboutline` function has the following signature:
   depth: none,
   indent: auto,
   fill: repeat([.], gap: 0.15em),
-) { /* .. */ }
+) { // ..
+}
 ```
 
 This is designed to be as close to the
