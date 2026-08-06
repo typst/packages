@@ -284,7 +284,7 @@
 } else { panic("some outline error") }
 
 //customize document's style
-#let reset(theme: (style: "box", color: rgb("#000000")), doc) = {
+#let reset(theme: (style: "minimal", color: rgb("#000000")), doc) = {
   theoframe-theme.update((style: theme.style, color: theme.color))
 
   set heading(numbering: "1.1")

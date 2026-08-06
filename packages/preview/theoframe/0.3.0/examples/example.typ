@@ -1,7 +1,9 @@
 #import "../lib.typ": *
-#show: reset.with(theme: (style: "box", color: rgb("#000000")))
+// #import "@preview/theoframe:0.3.0":*
+#show: reset
+// #show: reset.with(theme: (style: "box", color: rgb("#000000")))
 // color: rgb("#09658a"), color: rgb("#0d47a1"),
-
+// #set page(paper:"a4",  margin: 2cm)
 #set page(width:210mm, height: auto,  margin: 2cm)
 // #set text(lang:"zh")
 
@@ -54,10 +56,10 @@
   which is even by @def:even.
 ]<sol:sum-odd>
 
-#pagebreak()
+// #pagebreak()
 
-#remark(name:[remark name])[#lorem(20)]
-#note(name:[note name])[#lorem(20)]
+// #remark(name:[remark name])[#lorem(20)]
+// #note(name:[note name])[#lorem(20)]
 
 #pagebreak()
 
