@@ -31,7 +31,8 @@
     } else if theoframe-theme.final().style == "box" {
       block(
         width: 100%,
-        stroke: (left: 2pt + computed-color),
+        // stroke: (left: 0.2pt + computed-color),
+        stroke: none,
       )[
         #block(
           width: 100%,
@@ -266,7 +267,7 @@
   link(
     it.element.location(),
     context [
-      #set text(fill: theoframe-theme.final().color.darken(30%))
+      #set text(fill: theoframe-theme.final().color.darken(30%).opacify(100%))
       #h(0.2em) #emph(fig-supplement(it.element))  #h(0.2em)
     ],
   )
