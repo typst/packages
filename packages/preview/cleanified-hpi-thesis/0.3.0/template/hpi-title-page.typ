@@ -63,12 +63,16 @@
       ))),
     )
 
-    #align(center, block[
-      #line(length: 100%, stroke: 0.75pt + accent-color)\
+    #align(center, block(
+      width: 100%,
+      inset: (x: 1em, y: 2em),
+      stroke: (
+        top: 0.75pt + accent-color,
+        bottom: 0.75pt + accent-color,
+      ),
+    )[
       #text(2em, weight: "bold", title)
-      #if translation != "" [\ #text(1.5em, translation)]
-      \
-      #line(length: 100%, stroke: 0.75pt + accent-color)
+      #if translation != "" [\ #v(0.5em) #text(1.5em, translation)]
     ])
 
     #align(center, text(1.5em, weight: "bold", name))
