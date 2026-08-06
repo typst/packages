@@ -56,8 +56,7 @@ The `suboutline` function has the following signature:
   depth: none,
   indent: auto,
   fill: repeat([.], gap: 0.15em),
-) { // ..
-}
+) = none
 ```
 
 This is designed to be as close to the
