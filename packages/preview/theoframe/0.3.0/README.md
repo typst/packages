@@ -1,6 +1,6 @@
 # theoframe
 
-A lightweight and easy-to-use [Typst](https://typst.app/) package that provides beautifully styled theorem-like environments for academic writing. It offers `Definition`, `Postulate`, `Assumption`, `Conjecture`, `Proposition`, `Lemma`, `Proof`, `Theorem`, `Corollary`, `Example`, `Problem`, `Solution`, and `Conclusion` blocks with automatic numbering, customizable colors, and multi-language support.
+A lightweight and easy-to-use [Typst](https://typst.app/) package that provides beautifully styled theorem-like environments for academic writing. It offers two styles of blocks: **highlighted framed** blocks — `Definition`, `Property`, `Axiom`, `Postulate`, `Assumption`, `Hypothesis`, `Conjecture`, `Proposition`, `Lemma`, `Theorem`, `Corollary`, `Remark`, and `Note`; and **plain** blocks — `Proof`, `Example`, `Exercise`, `Problem`, `Solution`, and `Conclusion`. All blocks come with automatic numbering, customizable colors, and multi-language support.
 
 ## Basic Usage
 
@@ -10,6 +10,25 @@ To use, simply import the package:
 #import "@preview/theoframe:0.3.0": *
 #show: theoframe-setup
 ```
+
+### Setup Options
+
+The `#show: theoframe-setup` rule accepts a `theme` argument to customize the appearance of all theorem-like environments:
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `theme.style` | `string` | `"minimal"` | Visual style of blocks. Options: `"minimal"` (inline header) or `"box"` (highlighted framed header with background). |
+| `theme.color` | `color` | `rgb("#000000")` | Base theme color applied to titles, borders, and references. |
+
+**Example with custom theme:**
+
+```typst
+#show: theoframe-setup.with(theme: (style: "box", color: rgb("#0077ff")))
+```
+
+- With `style: "minimal"`, the block title appears inline with the content.
+- With `style: "box"`, the block has a colored header background and a subtle content background.
+- The `color` affects all environment titles and cross-reference links.
 
 # Example
 
@@ -74,7 +93,6 @@ To use, simply import the package:
 
 ```
 
-
 <p align="left">
   <img src="./assets/example-minimal1.svg"  alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
 </p>
@@ -129,3 +147,5 @@ To use, simply import the package:
 
 ## Version: 0.3.0
 
+- Add: Global theme configuration via `theoframe-setup`. Users can now set `theme.style` (`"minimal"` or `"box"`) and `theme.color` globally, instead of configuring each environment individually.
+- Refactor: Restructured the codebase to separate `thmbox` (highlighted framed blocks) and `thmplain` (plain blocks) templates, improving maintainability and clarity. Added six new environments: `Property`, `Axiom`, `Hypothesis`, `Remark`, `Note`, and `Exercise`.
