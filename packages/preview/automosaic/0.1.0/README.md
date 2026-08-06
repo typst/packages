@@ -1,6 +1,6 @@
-# mosaic
+# automosaic
 
-Automatic aspect-ratio-preserving grid layouts for (mostly photo) mosaics.
+Automatic aspect-ratio-preserving nested tree layouts for (mostly photo) mosaics.
 
 ![Six items — two photos, three placeholders, and a fixed-height caption strip — auto-laid-out to fill the available box while each keeps its own aspect ratio.](docs/figure1.svg)
 
@@ -15,7 +15,7 @@ build the layout tree yourself or have one searched for automatically.
 #### Auto-Layout: Automatically find optimal arrangement and compute cell sizes to fill available space while preserving aspect ratios
 
 ```typ
-#import "@preview/mosaic:0.1.0": *
+#import "@preview/automosaic:0.1.0": *
 
 context display-auto-layout(
   (
@@ -39,7 +39,7 @@ context display-auto-layout(
 A layout consists of alternating nested horizontally and vertically stacked containers, specified by nested arrays. To specify additional parameters, see [`display-content-tree`](#display-content-treeitems-axis-horizontal-gap-05em) below.
 
 ```typ
-#import "@preview/mosaic:0.1.0": *
+#import "@preview/automosaic:0.1.0": *
 
 context display-content-tree(
   (
@@ -112,7 +112,7 @@ rendered area matches its weight (plus a reward for filling the available box), 
 renders the best-scoring tree:
 
 ```typ
-#import "@preview/mosaic:0.1.0": *
+#import "@preview/automosaic:0.1.0": *
 
 #context box(width: 100%, height: 5cm)[
   #display-auto-layout(

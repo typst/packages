@@ -1,12 +1,12 @@
 [package]
-name = "mosaic"
+name = "automosaic"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Uspfe"]
 license = "MIT"
-description = "Aspect-ratio-preserving grid layouts for photo mosaics, with automatic layout search."
+description = "Aspect-ratio-preserving nested tree layouts for photo mosaics, with automatic arrangement search."
 repository = "https://github.com/Uspfe/typst-mosaic"
 compiler = "0.12.0"
-keywords = ["layout", "grid", "photos", "gallery", "aspect-ratio"]
+keywords = ["layout", "grid", "tree", "photos", "gallery", "aspect-ratio"]
 categories = ["layout"]
 exclude = ["/docs/*", "/assets/*", "/test/*"]
