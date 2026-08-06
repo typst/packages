@@ -26,7 +26,6 @@
   conclusion: (en: "Conclusion", fr: "Conclusion", ko: "결론", ja: "結論", zh: "结论"),
 )
 
-
 #let support-array = support-dict.values().map(v => lower(v.en))
 
 
