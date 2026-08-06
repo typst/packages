@@ -8,7 +8,7 @@ To use, simply import the package:
 
 ```typst
 #import "@preview/theoframe:0.3.0": *
-#show: reset
+#show: theoframe-setup
 ```
 
 # Example
@@ -19,15 +19,14 @@ To use, simply import the package:
 ## minimal style
 ```typst
 #import "@preview/theoframe:0.3.0":*
-#show: reset
-// #show: reset.with(theme: (style: "box", color: rgb("#000000")))
-
-#set page(paper:"a4",  margin: 2cm)
+#show: theoframe-setup
+// #show: theoframe-setup.with(theme: (style: "box", color: rgb("#000000")))
+#set page(paper:"a4",  margin: 1cm)
 
 = Preliminaries
 #lorem(20)
 
-#definition(name: [Even Integer], color:rgb("#000000"))[
+#definition(name: [Even Integer])[
   An integer $n$ is called *even* if it is divisible by $2$, i.e., there exists an integer $k$ such that $n = 2k$.
 ]<def:even>
 
@@ -72,6 +71,7 @@ To use, simply import the package:
   $a + b = (2k + 1) + (2m + 1) = 2k + 2m + 2 = 2(k + m + 1)$,
   which is even by @def:even.
 ]<sol:sum-odd>
+
 ```
 
 
@@ -83,8 +83,8 @@ To use, simply import the package:
 
 ```typst
 #import "@preview/theoframe:0.3.0":*
-// #show: reset
-#show: reset.with(theme: (style: "box", color: rgb("#000000")))
+// #show: theoframe-setup
+#show: theoframe-setup.with(theme: (style: "box", color: rgb("#000000")))
 ```
 
 <p align="left">
@@ -96,20 +96,15 @@ To use, simply import the package:
 
 ```typst
 #line(length: 100%)
-
 // #show outline: it => {
-//   show heading: set text(fill: rgb("#000000"))
+//   show heading: set text(fill: rgb("#0077ff"))
 //   it
 // }
-
 #outline(title: "Definitions", target: figure.where(kind: "definition"))
 #outline(title: "Theorems", target: figure.where(kind: "theorem"))
-#outline(title: "Corollaries", target: figure.where(kind: "corollary"))
 
 #line(length: 100%)
-
 #let fig-arr = kind-array.map(it => figure.where(kind: it))
-
 #outline(title: "Theorems-like environment", target: selector.or(..fig-arr))
 ```
 <p align="left">
@@ -131,3 +126,6 @@ To use, simply import the package:
 - Add: Cross-reference support.
 - Fix: Counter not resetting when encountering a level-1 heading (= heading).
 - Root Cause Analysis: In Typst, #import only brings in variable bindings (functions and variables defined with #let) from a module. Meanwhile, #show rules are document-level directives, meaning their scope is strictly confined to the module where they are defined.
+
+## Version: 0.3.0
+
