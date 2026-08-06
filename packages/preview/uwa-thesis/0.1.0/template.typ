@@ -1,11 +1,11 @@
-#import "@preview/wordometer:0.1.4": total-words, word-count
+#import "@preview/wordometer:0.1.5": total-words, word-count
 #let today = { datetime.today().display("[day] [month repr:long], [year]") }
 
-#let title-page(unit_code: "", title: "", authors: (), date: none) = {
+#let title-page(unit-code: "", title: "", authors: (), date: none) = {
   set page(numbering: none)
   set align(center)
 
-  text(size: 18pt, weight: "bold")[#unit_code Engineering Research Project]
+  text(size: 18pt, weight: "bold")[#unit-code Engineering Research Project]
   v(3em)
   text(size: 18pt, weight: "bold")[#title]
   linebreak()
@@ -39,9 +39,9 @@
 }
 
 #let uwa-thesis(
-  unit_code: "",
+  unit-code: "",
   title: "",
-  short_title: "",
+  short-title: "",
   authors: (),
   date: today,
   body,
@@ -54,13 +54,13 @@
     margin: (x: 2.5cm, y: 3cm),
   )
 
-  title-page(unit_code: unit_code, title: title, authors: authors, date: date)
+  title-page(unit-code: unit-code, title: title, authors: authors, date: date)
 
   set page(
     paper: "a4",
     margin: (x: 2.5cm, y: 3cm),
     numbering: "i",
-    header: align(right, short_title),
+    header: align(right, short-title),
   )
 
   outline(title: "Table of Contents", depth: 3)
@@ -74,7 +74,7 @@
     paper: "a4",
     margin: (x: 2.5cm, y: 3cm),
     numbering: "1",
-    header: align(right, short_title),
+    header: align(right, short-title),
   )
   set heading(numbering: "1.1")
   set par(justify: true, leading: 0.65em)

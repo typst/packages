@@ -1,9 +1,9 @@
-#import "template.typ": uwa-thesis
+#import "@preview/uwa-thesis:0.1.0": uwa-thesis
 
 #show: uwa-thesis.with(
-  unit_code: "GENG5512",
+  unit-code: "GENG5512",
   title: "My Long Thesis Title",
-  short_title: "My Thesis",
+  short-title: "My Thesis",
   authors: (
     (
       name: "John Doe",

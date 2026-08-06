@@ -7,12 +7,12 @@ A [Typst](https://typst.app) template for UWA School of Engineering theses/resea
 Import the template and pass your document's metadata to `uwa-thesis.with(...)`, then use `#show:` to apply it to the rest of the document:
 
 ```typ
-#import "template.typ": uwa-thesis
+#import "@preview/uwa-thesis:0.1.0": uwa-thesis
 
 #show: uwa-thesis.with(
-  unit_code: "GENG5512",
+  unit-code: "GENG5512",
   title: "My Long Thesis Title",
-  short_title: "My Thesis",
+  short-title: "My Thesis",
   authors: (
     (
       name: "John Doe",
@@ -37,9 +37,9 @@ Everything written after the `#show:` line is treated as the body of the thesis 
 
 | Parameter    | Type   | Required | Description                                                                 |
 | ------------ | ------ | -------- | ----------------------------------------------------------------------------- |
-| `unit_code`  | string | Yes      | Unit code shown on the title page (e.g. `"GENG5512"`).                        |
+| `unit-code`  | string | Yes      | Unit code shown on the title page (e.g. `"GENG5512"`).                        |
 | `title`      | string | Yes      | Full thesis title, shown on the title page.                                   |
-| `short_title`| string | Yes      | Shortened title used in the page header of the body.                          |
+| `short-title`| string | Yes      | Shortened title used in the page header of the body.                          |
 | `authors`    | array  | Yes      | Array of author dictionaries (see below). Can be empty to omit the section.   |
 | `date`       | string | No       | Defaults to today's date, formatted as `"[day] [month], [year]"`.             |
 
@@ -55,7 +55,7 @@ The template automatically generates, in order:
 
 1. **Title page** — unit code, title, date, word count, authors, and institution, numbered separately (no visible numbering).
 2. **Table of Contents**, **List of Figures**, and **List of Tables** — generated from headings and figures, using lowercase roman numeral page numbers.
-3. **Body content** — everything below the `#show:` line, using arabic page numbers starting at 1, with `short_title` shown in the top-right header.
+3. **Body content** — everything below the `#show:` line, using arabic page numbers starting at 1, with `short-title` shown in the top-right header.
 
 Headings are auto-numbered (e.g. `1`, `1.1`), and the word count (shown on the title page) excludes headings, outlines, tables, and images.
 
