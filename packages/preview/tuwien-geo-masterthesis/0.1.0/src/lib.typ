@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2026 npikall
- */
-
 // TU Wien institutional blue.
 #let tu-blue = rgb("#006699")
 
@@ -196,27 +192,25 @@
 
   [= Erklärung zur Verfassung der Arbeit]
 
-  [Hiermit erkläre ich, dass ich diese Arbeit selbständig verfasst habe, dass
-    ich die verwendeten Quellen und Hilfsmittel vollständig angegeben habe und
-    dass ich die Stellen der Arbeit -- einschließlich Tabellen, Karten und
-    Abbildungen --, die anderen Werken oder dem Internet im Wortlaut oder dem
-    Sinn nach entnommen sind, auf jeden Fall unter Angabe der Quelle als
-    Entlehnung kenntlich gemacht habe. Ich erkläre weiters, dass ich mich
-    generativer KI-Tools lediglich als Hilfsmittel bedient habe. Im Kapitel „AI
-    usage" habe ich alle generativen KI-Tools gelistet, die verwendet wurden,
-    und angegeben, wo, wie und wann sie verwendet wurden.]
+  [Hiermit erkläre ich, dass ich diese Arbeit selbständig verfasst habe, dass ich die
+    verwendeten Quellen und Hilfsmittel vollständig angegeben habe und dass ich die
+    Stellen der Arbeit -- einschließlich Tabellen, Karten und Abbildungen --, die
+    anderen Werken oder dem Internet im Wortlaut oder dem Sinn nach entnommen sind, auf
+    jeden Fall unter Angabe der Quelle als Entlehnung kenntlich gemacht habe. Ich
+    erkläre weiters, dass ich mich generativer KI-Tools lediglich als Hilfsmittel
+    bedient habe. Im Kapitel „AI usage" habe ich alle generativen KI-Tools gelistet, die
+    verwendet wurden, und angegeben, wo, wie und wann sie verwendet wurden.]
 
   [= Declaration of Authorship]
 
-  [I hereby declare that I have authored this thesis independently, that I have
-    fully cited all sources and resources used, and that I have clearly
-    identified as borrowings all parts of the work -- including tables, maps,
-    and figures -- that have been taken from other works or the internet,
-    whether in wording or in substance, in each case indicating the source. I
-    further declare that I have used generative AI tools solely for revising
-    text that I have written myself. In the chapter 'AI usage,' I have listed
-    all generative AI tools used and specified where, how and when they were
-    applied.]
+  [I hereby declare that I have authored this thesis independently, that I have fully
+    cited all sources and resources used, and that I have clearly identified as
+    borrowings all parts of the work -- including tables, maps, and figures -- that have
+    been taken from other works or the internet, whether in wording or in substance, in
+    each case indicating the source. I further declare that I have used generative AI
+    tools solely for revising text that I have written myself. In the chapter 'AI
+    usage,' I have listed all generative AI tools used and specified where, how and when
+    they were applied.]
 
   v(2cm)
 
