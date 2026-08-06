@@ -53,8 +53,10 @@
   which is even by @def:even.
 ]<sol:sum-odd>
 
+#pagebreak()
 
-
+#remark(name:[remark name])[#lorem(20)]
+#note(name:[note name])[#lorem(20)]
 
 #pagebreak()
 
