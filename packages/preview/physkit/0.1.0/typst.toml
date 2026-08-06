@@ -1,0 +1,22 @@
+[package]
+name = "physkit"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nathanael Nardoto Batista"]
+license = "MIT"
+description = "Draw composable, object-oriented physics diagrams."
+keywords = ["physics", "diagrams", "education", "cetz"]
+categories = ["visualization", "components"]
+disciplines = ["physics", "education"]
+repository = "https://github.com/nnardoto/physkit"
+compiler = "0.14.0"
+exclude = [
+  "/.github/",
+  "/docs/",
+  "/examples/",
+  "/tests/",
+  "/scripts/",
+  "/CHANGELOG.md",
+  "/CONTRIBUTING.md",
+  "/PUBLISHING.md",
+]
