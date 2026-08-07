@@ -1,11 +1,11 @@
-#import "@preview/digidraw:0.9.3"
+#import "@preview/digidraw:0.9.3" as dd
 #show raw: set text(font: "Fantasque Sans Mono")
 #set table(stroke: 0.5pt, inset: 1mm)
 #set page(width: auto, height: auto, margin: 1mm)
 
 #show table.cell: set block(breakable: false)
 
-#let swave = wave.with(
+#let swave = dd.wave.with(
   symbol-height: 6mm,
   symbol-width: 7mm,
   tick-format: none,
