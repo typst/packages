@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 
 #import "./utility/utility.typ"
 #import "./utility/defaults.typ": __digidraw-default-config, digidraw-x-pattern
@@ -646,7 +646,7 @@
   tick-overshoot = utility.length-to-float(tick-overshoot, size-ref)
   tick-stroke = if type(tick-stroke) == function { tick-stroke } else { n => tick-stroke }
 
-  stroke = std.stroke(stroke)
+  stroke = utility.fallback-stroke(std.stroke(stroke))
 
   stroke-dashed = utility.merge-strokes(std.stroke(stroke), std.stroke(stroke-dashed))
 
@@ -764,6 +764,7 @@
   /*                               Rendering Part                               */
   /* -------------------------------------------------------------------------- */
   cetz.canvas(length: size-ref, {
+
     import cetz.draw: circle, content, hide, line, merge-path, scale, set-origin, translate, mark, rect
 
     /* ------------------------- 5. Place Origin Element ------------------------ */

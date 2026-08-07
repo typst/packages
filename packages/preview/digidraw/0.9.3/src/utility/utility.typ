@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 #import cetz.draw: *
 
 
@@ -483,7 +483,7 @@
     (
       paint: black,
       thickness: 0.5pt,
-      cap: "butt",
+      cap: "square",
       join: "miter",
       dash: none,
     ) + (
@@ -523,6 +523,33 @@
   )
 }
 
+#let fallback-stroke(stroke) = {
+  (
+    (
+      paint: black,
+      thickness: 0.5pt,
+      cap: "square",
+      join: "miter",
+      dash: none,
+    ) + (
+      if stroke.paint != auto {
+        (paint: stroke.paint)
+      }
+        + if stroke.thickness != auto {
+          (thickness: stroke.thickness)
+        }
+        + if stroke.cap != auto {
+          (cap: stroke.cap)
+        }
+        + if stroke.join != auto {
+          (join: stroke.join)
+        }
+        + if stroke.dash != auto {
+          (dash: stroke.dash)
+        }
+    )
+  )
+}
 
 
 /// <-- width -->

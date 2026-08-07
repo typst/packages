@@ -1,5 +1,5 @@
 #import "@preview/tableau-icons:0.344.0": ti-icon
-#import "../src/exports.typ" as dd
+#import "@preview/digidraw:0.9.3" as dd
 
 #let toml = toml("../typst.toml")
 

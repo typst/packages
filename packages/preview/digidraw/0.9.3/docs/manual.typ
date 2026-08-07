@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 #import "@preview/tableau-icons:0.344.0": ti-icon
 #import "@preview/alertoni:1.0.0" as at
 #import "@preview/tiptoe:0.4.0" as tt
@@ -392,7 +392,7 @@ This looks quite cluttered and is not the actual recommended way to use this fea
 
 ```hexample
 //+#dd.wave(
-//-#wave(symbol-width: 1cm, symbol-height: 1.5cm,wave-gutter: 8mm,
+//-#wave(symbol-width: 1cm, symbol-height: 1.5cm, wave-gutter: 8mm,
   (signal: ((wave: "x2.ud34."),)),
   tick-format: none,
   debug: "symbols"
@@ -403,7 +403,7 @@ This looks quite cluttered and is not the actual recommended way to use this fea
 
 ```hexample
 //+#dd.wave(
-//-#wave(symbol-width: 1cm, symbol-height: 1.5cm,wave-gutter: 8mm,
+//-#wave(symbol-width: 1cm, symbol-height: 1.5cm, wave-gutter: 8mm,
   (signal: ((wave: "x2.ud34."),)),
   tick-format: none,
   debug: "labels"
@@ -421,10 +421,10 @@ This looks quite cluttered and is not the actual recommended way to use this fea
 )
 ```
 
-
+/* UNCOMMENT
 - #raw("\"coordinates\"", lang: "typc") -- shows the vertical coordinates of each wave, which helps when using the #tidylink(size: 1em, <-wave.others>, [`others`]) parameter.
   #callout(type: "important", width: 70%, [Coordinates are given in *`cetz`* units and are relative to #tidylink(size: 1em, <-wave.symbol-width>, [`symbol-width`]). So #box($l_"actual" = l_"relative" dot mono("symbol-width")$, stroke: red + 0.25pt, radius: 2pt, outset: (y: 4pt), inset: (x: 3pt)) can be used to get the absolute lengths from relative coordinates.
-  ])
+  ]) */
 
 ```hexample
 #dd.wave(
@@ -1037,7 +1037,7 @@ To preconfigure a function or set a "Global" configuration, you can use the #myl
 
 
 ```vexample
-#let my-wave = dd.wave.with(stroke: gradient.linear(..color.map.rainbow))
+#let my-wave = dd.wave.with(stroke: gradient.linear(..color.map.rainbow) + 1pt)
 
 #my-wave(
   (signal: (
@@ -1075,6 +1075,7 @@ When a need to reference the @dd:example occurs, `@dd:example` can be used. And 
 #outline(target: figure.where(kind: "timing-diagrams"))
 ```
 ````
+
 #pagebreak()
 #show link: set text(blue)
 #show link: underline.with(offset: 0.15em)
