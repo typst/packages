@@ -1,0 +1,23 @@
+[package]
+name = "longops"
+version = "0.1.0"
+entrypoint = "Operations.typ"
+authors = [ "Akilon <https://github.com/Akilon27>" ]
+license = "MIT"
+description = "Long operations and detailed calculations.                        Opérations posées et calculs détaillés."
+repository = "https://github.com/Akilon27/longops"
+categories = [ "utility", "visualization" ]
+disciplines = [ "mathematics", "education" ]
+keywords = [
+  "addition",
+  "soustraction",
+  "subtraction",
+  "multiplication",
+  "division",
+  "opérations",
+  "operations",
+  "racine",
+  "sqrt"
+]
+exclude = [ "/Exemples/*", "manual-longops.pdf", "manual-longops.typ","manual-longops-en.pdf", "manual-longops-en.typ" ]
+compiler = "0.12.0"
