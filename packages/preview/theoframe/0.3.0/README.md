@@ -23,7 +23,7 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 **Example with custom theme:**
 
 ```typst
-#show: theoframe-setup.with(theme: (style: "box", color: rgb("#0077ff")))
+#show: theoframe-setup.with(theme: (style: "box", color: rgb("#067300")))
 ```
 
 - With `style: "minimal"`, the block title appears inline with the content.
@@ -39,9 +39,10 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ```typst
 #import "@preview/theoframe:0.3.0":*
 #show: theoframe-setup
-// #show: theoframe-setup.with(theme: (style: "box", color: rgb("#0084ff")))
+// #show: theoframe-setup.with(theme: (style: "box", color: rgb("#067300")))
 
 #set page(paper:"a4",  margin: 1cm)
+
 
 = Preliminaries
 #lorem(20)
@@ -103,7 +104,7 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ```typst
 #import "@preview/theoframe:0.3.0":*
 // #show: theoframe-setup
-#show: theoframe-setup.with(theme: (style: "box", color: rgb("#0084ff")))
+#show: theoframe-setup.with(theme: (style: "box", color: rgb("#067300")))
 ```
 
 <p align="left">
@@ -116,7 +117,7 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ```typst
 #line(length: 100%)
 // #show outline: it => {
-//   show heading: set text(fill: rgb("#0077ff"))
+//   show heading: set text(fill: rgb("#067300"))
 //   it
 // }
 #outline(title: "Definitions", target: figure.where(kind: "definition"))
@@ -127,11 +128,23 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 #outline(title: "Theorems-like environment", target: selector.or(..fig-arr))
 ```
 <p align="left">
-  <img src="./assets/example-minimal2.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+  <img src="./assets/example-box2.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
 </p>
 
 
 # Changelog
+
+## Version: 0.3.0
+
+- Add: Global theme configuration via `theoframe-setup`. Users can now set `theme.style` (`"minimal"` or `"box"`) and `theme.color` globally, instead of configuring each environment individually.
+- Added six new environments: `Property`, `Axiom`, `Hypothesis`, `Remark`, `Note`, and `Exercise`.
+- Refactor: Restructured the codebase to separate `thmbox` (highlighted framed blocks) and `thmplain` (plain blocks) templates, improving maintainability and clarity. 
+
+## Version: 0.2.0
+
+- Add: Cross-reference support.
+- Fix: Counter not resetting when encountering a level-1 heading (= heading).
+- Root Cause Analysis: In Typst, #import only brings in variable bindings (functions and variables defined with #let) from a module. Meanwhile, #show rules are document-level directives, meaning their scope is strictly confined to the module where they are defined.
 
 ## Version: 0.1.0
 
@@ -140,14 +153,5 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 - Customizable frame colors per environment.
 - Multi-language support: English, French, Korean, Japanese, and Chinese.
 
-## Version: 0.2.0
 
-- Add: Cross-reference support.
-- Fix: Counter not resetting when encountering a level-1 heading (= heading).
-- Root Cause Analysis: In Typst, #import only brings in variable bindings (functions and variables defined with #let) from a module. Meanwhile, #show rules are document-level directives, meaning their scope is strictly confined to the module where they are defined.
 
-## Version: 0.3.0
-
-- Add: Global theme configuration via `theoframe-setup`. Users can now set `theme.style` (`"minimal"` or `"box"`) and `theme.color` globally, instead of configuring each environment individually.
-- Added six new environments: `Property`, `Axiom`, `Hypothesis`, `Remark`, `Note`, and `Exercise`.
-- Refactor: Restructured the codebase to separate `thmbox` (highlighted framed blocks) and `thmplain` (plain blocks) templates, improving maintainability and clarity. 
