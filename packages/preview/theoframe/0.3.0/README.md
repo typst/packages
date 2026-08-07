@@ -1,11 +1,11 @@
 # theoframe
 
 This package provides theorem-like environments for academic writing in [Typst](https://typst.app/). 
-- Each environment supports cross-referencing.
-- The theorem numbering combines the level 1 heading numbering and the theorem numbering. and theorem numbering resets to `0` when a level-1 heading (`= Heading`) is encountered, and is displayed as a letter starting from `"a"`. 
-- It offers two visual styles via `theme.style`: `"minimal"` (inline header) and `"box"` (highlighted frame with colored border and background). 
-- You can also customize the theme color to change titles, borders, and reference links. 
-- Theorem-like environments are classified into two distinct styles. **Framed blocks** — rendered with a highlighted border and background — include `Definition`, `Property`, `Axiom`, `Postulate`, `Assumption`, `Hypothesis`, `Conjecture`, `Proposition`, `Lemma`, `Theorem`, `Corollary`, `Remark`, and `Note`. **Plain blocks** — rendered without a frame — include `Proof`, `Example`, `Exercise`, `Problem`, `Solution`, and `Conclusion`. All environments support automatic numbering and multi-language localization.
+- Every environment supports cross-referencing via Typst's native reference system.
+- Theorem numbering is composed of the level-1 heading number and a sequential letter (starting from `a`), and resets automatically at each level-1 heading (`= Heading`).
+- Two visual styles are available through `theme.style`: `"minimal"` (inline header) and `"box"` (highlighted frame with colored border and background).
+- The theme color is fully customizable, affecting titles, borders, background, and reference links. 
+- Theorem-like environments are classified into two distinct styles. Framed blocks — rendered with a highlighted border and background — include `Definition`, `Property`, `Axiom`, `Postulate`, `Assumption`, `Hypothesis`, `Conjecture`, `Proposition`, `Lemma`, `Theorem`, `Corollary`, `Remark`, and `Note`. Plain blocks — rendered without a frame — include `Proof`, `Example`, `Exercise`, `Problem`, `Solution`, and `Conclusion`. All environments support automatic numbering and multi-language localization.
 
 ## Basic Usage
 
@@ -20,11 +20,6 @@ To use, simply import the package and add a show rule:
 
 The `#show: theoframe-setup` rule accepts a `theme` argument to customize the appearance of all theorem-like environments:
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `theme.style` | `string` | `"minimal"` | Visual style of blocks. Options: `"minimal"` (inline header) or `"box"` (highlighted frame with colored border and background). |
-| `theme.color` | `color` | `rgb("#000000")` | Base theme color applied to titles, borders, and references. |
-
 **Example with custom theme:**
 
 ```typst
@@ -33,7 +28,7 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 
 - With `style: "minimal"`, the block title appears inline with the content.
 - With `style: "box"`, the block has a colored border and background.
-- The `color` affects all environment titles and cross-reference links.
+- The `color` affects all environment titles, borders, backgrounds and cross-reference links.
 
 # Example
 
