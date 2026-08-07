@@ -5,12 +5,12 @@ A **simple Typst package for creating and managing abbreviations**. While more c
 ## Installation
 
 ### Local use
-To use the library locally, download `lib.typ` and place it in your document's directory (or any location of your choice). Then add this import statement to your document (adjust the path if needed):
+To use the library locally, download `lib.typ` from [Abbrev's GitHub repository](https://github.com/girasole123/Abbrev) and place it in your document's directory or any desired location. Then, add the following import statement to your document, adjusting the path as necessary:
 ```typst
 #import "./lib.typ": *
 ```
 
-### Import from Typst Universe (not yet available)
+### Import from Typst Universe
 To import the library from Typst Universe, add this to your document:
 ```typst
 #import "@preview/abbrev:0.1.0": *
@@ -64,7 +64,7 @@ Generate an abbreviation list anywhere in your document:
 ```
 Output:
 
-<img width="643" height="87" alt="image" src="https://github.com/user-attachments/assets/72386f78-0265-4a9f-b5ac-2d4806cff40b" />
+<img width="643" height="87" alt="Abbreviation list example" src="https://github.com/user-attachments/assets/72386f78-0265-4a9f-b5ac-2d4806cff40b" />
 
 The default title is "List of abbreviations" — customize it as needed. For example, in French: `title: [Liste des abréviations]`.
 
