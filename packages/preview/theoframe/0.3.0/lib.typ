@@ -25,34 +25,25 @@
         width: 100%,
       )[
         #set align(left)
-        #text(weight:600)[#trans-supplement] #fig-number(kind, here()) #h(1em) #name #h(1em) #content]
+        #text(weight: 600)[#trans-supplement] #fig-number(kind, here()) #h(1em) #name #h(1em) #content]
     } else if theoframe-theme.final().style == "box" {
       block(
         width: 100%,
-        // stroke: (left: 0.2pt + computed-color),
-        stroke: none,
+        inset: 1em,
+        radius: (top-left: 2mm, bottom-left: 2mm, top-right: 2mm, bottom-right: 2mm),
+        stroke: (
+          left: (thickness: 2pt , paint: computed-color, join: "bevel"),
+          top: (thickness: 0.1pt , paint: computed-color.transparentize(99%), join: "bevel"),
+          bottom: (thickness: 0.1pt , paint: computed-color.transparentize(99%), join: "bevel"),
+        ),
+        fill: computed-color.lighten(20%).transparentize(90%),
       )[
-        #block(
-          width: 100%,
-          inset: 1em,
-          below: 0em,
-          fill: computed-color.lighten(80%).transparentize(70%),
-        )[
-          #set align(left)
-          #text(weight: 600)[
-            #trans-supplement #context fig-number(kind, here()) #h(1em)
-          ]
-          #text(weight: 500)[#name]
+        #set align(left)
+        #text(weight: 600)[
+          #trans-supplement #fig-number(kind, here()) #h(1em)
         ]
-        #block(
-          width: 100%,
-          inset: 1em,
-          above: 0em,
-          fill: computed-color.lighten(80%).transparentize(90%),
-        )[
-          #set align(left)
-          #content
-        ]
+        #text(weight: 500)[#name] \ 
+        #content
       ]
     } else { panic("Unknown theme style. Available: 'minimal', 'box'") }
   },
@@ -184,7 +175,7 @@
     width: 100%,
   )[
     #align(left)[
-      #text(weight: 600)[ #trans-supplement] #context fig-number(kind, here()) #h(1em) 
+      #text(weight: 600)[ #trans-supplement] #context fig-number(kind, here()) #h(1em)
       #name #h(1em)
       #content
     ]
@@ -264,7 +255,7 @@
   link(
     it.element.location(),
     context [
-      #set text(fill: theoframe-theme.final().color.darken(30%).opacify(100%))
+      #set text(fill: theoframe-theme.final().color.darken(10%).opacify(100%))
       #h(0.2em) #emph(fig-supplement(it.element))  #h(0.2em)
     ],
   )
@@ -284,7 +275,7 @@
 #let theoframe-setup(theme: (style: "minimal", color: rgb("#000000")), doc) = {
   theoframe-theme.update((style: theme.style, color: theme.color))
 
-  set heading(numbering:"1")
+  set heading(numbering: "1")
 
   set par(justify: true)
 
@@ -295,6 +286,8 @@
   show ref: it => refer(it)
 
   show outline.entry: it => outline-entry(it)
+
+  show heading.where(level:1): set text(fill: theme.color.darken(20%))
 
   doc
 }
