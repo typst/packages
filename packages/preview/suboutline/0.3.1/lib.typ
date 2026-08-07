@@ -16,7 +16,7 @@
 
     let previous_headings = query(selector(heading.where(outlined: true)).before(current_location))
     if previous_headings == () {
-      return outline(title: title, target: target, depth: depth, indent: indent)
+      return outline(title: title, target: target, depth: if depth == calc.inf { none } else { depth }, indent: indent)
     }
 
     let current_heading = previous_headings.last()
