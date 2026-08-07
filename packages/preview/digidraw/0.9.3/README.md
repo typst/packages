@@ -72,8 +72,8 @@ Click on the image for the source.
 
 ## Changelog
 
-See [CHANGELOG.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/branch/main/CHANGELOG.md)
+See [CHANGELOG.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/tag/v0.9.3/CHANGELOG.md)
 
 ## ToDo
 
-See [TODO.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/tag/v0.9.2/TODO.md) in the Codeberg repository
+See [TODO.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/tag/v0.9.3/TODO.md) in the Codeberg repository
