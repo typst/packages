@@ -1,6 +1,9 @@
-# 仿《简明世界史》效果中文文科书籍模板（Concise History）
+# A Chinese Humanities Book Template Inspired by A Concise World History-仿《简明世界史》效果中文文科书籍模板（Concise History）
+
 
 本模板为 Typst 设计，专用于排版中文书籍（尤其适合文史哲类著作），内置符合传统出版规范的版面风格，包含自动封面、目录、页眉、脚注、图表题注、着重号等功能。模板提供 A4 和 A5 两种开本预设，所有样式均可通过字典灵活覆盖。
+
+This template is designed for Typst and is tailored for typesetting *Chinese* books (especially suitable for works in literature, history, and philosophy). It incorporates page layouts that follow traditional publishing conventions, and includes built‑in features such as an automatic title page, table of contents, headers, footnotes, figure and table captions, and emphasis marks. The template offers two preset paper sizes, A4 and A5, and all styles can be flexibly overridden via dictionaries.
 
 ## 快速使用
 
@@ -206,16 +209,24 @@ cover: [
 
 5. 依赖包：模板依赖 outrageous、numbly、hydra、i-figured、ornamentalyst 等包。
 
-## 许可
+## 许可 License
 
 - 注意：《简明世界史》出版于 1975 年，首次发表至今已超过50年。作品已进入公有领域。此处仅用来测试模板效果。
 
+- Note: A Concise World History was published in 1975, and more than 50 years have passed since its first publication. The work has entered the public domain. It is used here solely to test the template's effects.
+
 - 模板本身采用 MIT 许可证。
 
-## 贡献
+- The template itself is licensed under the MIT License.
+
+## 贡献 Contributions
 
 欢迎提交 Issue 或 Pull Request。如有改进建议或样式定制需求，请随时联系。
 
-## 感谢
+Issues and pull requests are welcome. If you have suggestions for improvements or need style customisation, please feel free to get in touch.
+
+## 感谢 Acknowledgements
 
 参考了 songting-book 中的部分实现。
+
+Some implementations reference parts of the songting-book project.
