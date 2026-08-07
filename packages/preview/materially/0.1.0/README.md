@@ -17,7 +17,7 @@ A specific version of Google Material Symbols is redistributed with this package
 
 # Installation
 
-The `.ttf` fonts from the [variablefont](https://github.com/google/material-design-icons/tree/master/variablefont) subfolder need to be installed in your OS for this package to work.
+The `.ttf` fonts from the [variablefont](https://github.com/google/material-design-icons/tree/50f0603134ce7b70b2d71b686cc13e8b57ccb74c/variablefont) subfolder need to be installed in your OS for this package to work.
 
 # Usage
 
