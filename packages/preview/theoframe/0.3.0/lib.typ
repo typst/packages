@@ -32,17 +32,16 @@
         inset: 1em,
         radius: (top-left: 2mm, bottom-left: 2mm, top-right: 2mm, bottom-right: 2mm),
         stroke: (
-          left: (thickness: 2pt , paint: computed-color, join: "bevel"),
-          top: (thickness: 0.1pt , paint: computed-color.transparentize(99%), join: "bevel"),
-          bottom: (thickness: 0.1pt , paint: computed-color.transparentize(99%), join: "bevel"),
+          left: (thickness: 2pt, paint: computed-color, join: "bevel"),
+          top: (thickness: 0.1pt, paint: computed-color.transparentize(99%), join: "bevel"),
+          bottom: (thickness: 0.1pt, paint: computed-color.transparentize(99%), join: "bevel"),
         ),
         fill: computed-color.lighten(20%).transparentize(90%),
       )[
         #set align(left)
-        #text(weight: 600)[
-          #trans-supplement #fig-number(kind, here()) #h(1em)
-        ]
-        #text(weight: 500)[#name] \ 
+        #text(weight: 600)[#trans-supplement]
+        #fig-number(kind, here()) #h(1em)
+        #name #linebreak()
         #content
       ]
     } else { panic("Unknown theme style. Available: 'minimal', 'box'") }
@@ -287,7 +286,7 @@
 
   show outline.entry: it => outline-entry(it)
 
-  show heading.where(level:1): set text(fill: theme.color.darken(20%))
+  show heading.where(level: 1): set text(fill: theme.color.darken(20%))
 
   doc
 }
