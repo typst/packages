@@ -22,7 +22,8 @@
     } else if type(filter) == dictionary {
       records = records.filter(r => {
         for (k, v) in filter.pairs() {
-          if field(r, k) != str(v) {
+          let target = if type(v) == content or type(v) == str { v } else { str(v) }
+          if field(r, k) != target {
             return false
           }
         }

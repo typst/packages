@@ -1,4 +1,4 @@
-# Typst Mail Merge (`mailmerge`)
+# Modern Mail Merge (`mdoern-mailmerge`)
 
 A powerful, flexible, and production-ready **Mail Merge** package for Typst. Easily generate personalized letters, certificates, invoices, address labels, conference badges, envelopes, and reports directly from CSV files or inline data structures.
 

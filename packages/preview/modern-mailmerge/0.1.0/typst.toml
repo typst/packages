@@ -1,10 +1,10 @@
 [package]
-name = "mailmerge"
+name = "modern-mailmerge"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Aurghyadip Kundu"]
 license = "MIT"
-description = "A powerful, feature-rich mail merge package. Easily generate personalized letters, certificates, address labels, badges, envelopes, and invoices from CSV data."
+description = "A powerful, feature-rich mail merge package. Easily generate personalized letters, certificates, address labels, badges, and envelopes from CSV data."
 repository = "https://github.com/aurghya-0/typst-mailmerge"
 keywords = ["mail-merge", "csv", "templates", "labels", "certificates", "letters", "reports", "envelopes"]
 compiler = "0.11.0"

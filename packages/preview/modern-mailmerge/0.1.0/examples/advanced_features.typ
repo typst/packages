@@ -1,6 +1,6 @@
 // examples/advanced_features.typ - Advanced Sorting, Filtering, Stats & Custom Data Example
 
-#import "@preview/mailmerge:0.1.0": (
+#import "@preview/modern-mailmerge:0.1.0": (
   mail-merge,
   mail-merge-stats,
   mail-merge-preview,

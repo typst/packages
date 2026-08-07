@@ -1,6 +1,6 @@
 // examples/certificate_merge.typ - Certificate & Diploma Mail Merge Example
 
-#import "@preview/mailmerge:0.1.0": mail-merge, field, fmt-field
+#import "@preview/modern-mailmerge:0.1.0": mail-merge, field, fmt-field
 
 #set page(
   paper: "us-letter",

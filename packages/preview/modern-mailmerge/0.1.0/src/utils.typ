@@ -46,12 +46,24 @@
     let clean-rec = (:)
     for (k, v) in rec.pairs() {
       let key-str = str(k).trim()
-      let clean-v = if v != none { str(v) } else { "" }
-      if trim {
-        clean-v = clean-v.trim()
-      }
-      if clean-v == "" {
+      let clean-v = ""
+      if v == none {
         clean-v = default-value
+      } else if type(v) == content {
+        clean-v = v
+      } else if type(v) == str {
+        clean-v = if trim { v.trim() } else { v }
+        if clean-v == "" {
+          clean-v = default-value
+        }
+      } else {
+        clean-v = str(v)
+        if trim {
+          clean-v = clean-v.trim()
+        }
+        if clean-v == "" {
+          clean-v = default-value
+        }
       }
       clean-rec.insert(key-str, clean-v)
     }
@@ -74,13 +86,27 @@
   let val = default
   let candidate-keys = if type(key) == array { key } else { (key,) }
 
+  let extract-val(raw-v) = {
+    if raw-v == none {
+      none
+    } else if type(raw-v) == content {
+      raw-v
+    } else if type(raw-v) == str {
+      let v = raw-v.trim()
+      if v != "" { v } else { none }
+    } else {
+      let v = str(raw-v).trim()
+      if v != "" { v } else { none }
+    }
+  }
+
   // 1. Direct match check
   for k in candidate-keys {
     let k-str = str(k)
     if k-str in record {
-      let v = str(record.at(k-str)).trim()
-      if v != "" {
-        val = v
+      let res = extract-val(record.at(k-str))
+      if res != none {
+        val = res
         break
       }
     }
@@ -96,9 +122,9 @@
     for k in candidate-keys {
       let nk = normalize-key(k)
       if nk in normalized-map {
-        let v = str(normalized-map.at(nk)).trim()
-        if v != "" {
-          val = v
+        let res = extract-val(normalized-map.at(nk))
+        if res != none {
+          val = res
           break
         }
       }
@@ -113,23 +139,29 @@
     return val
   } else if type(fmt) == function {
     return fmt(val)
-  } else if fmt == "upper" {
-    return upper(val)
-  } else if fmt == "lower" {
-    return lower(val)
-  } else if fmt == "title" {
-    return val.split(" ").map(word => {
-      if word.len() > 0 {
-        upper(word.slice(0, 1)) + lower(word.slice(1))
-      } else {
-        ""
+  } else if type(val) == content {
+    return val
+  } else {
+    let val-str = str(val)
+    if fmt == "upper" {
+      return upper(val-str)
+    } else if fmt == "lower" {
+      return lower(val-str)
+    } else if fmt == "title" {
+      return val-str.split(" ").map(word => {
+        let clusters = word.clusters()
+        if clusters.len() > 0 {
+          upper(clusters.at(0)) + lower(clusters.slice(1).join(""))
+        } else {
+          ""
+        }
+      }).join(" ")
+    } else if fmt == "currency" {
+      if val-str.starts-with("$") {
+        return val-str
       }
-    }).join(" ")
-  } else if fmt == "currency" {
-    if val.starts-with("$") {
-      return val
+      return "$" + val-str
     }
-    return "$" + val
   }
 
   return val
