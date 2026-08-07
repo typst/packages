@@ -40,9 +40,9 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 
 #set page(paper:"a4",  margin: 1cm)
 
-
 = Preliminaries
-#lorem(20)
+
+This section introduces the basic definitions required for the subsequent results. We begin by formally defining even and odd integers, which form the foundation of our discussion on number-theoretic properties.
 
 #definition(name: [Even Integer])[
   An integer $n$ is called *even* if it is divisible by $2$, i.e., there exists an integer $k$ such that $n = 2k$.
@@ -53,7 +53,8 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ]<def:odd>
 
 = Main Results
-#lorem(20)
+
+Having established the basic definitions, we now present the main theoretical results of this note. We start with a fundamental theorem concerning the sum of even integers, followed by a natural corollary.
 
 #theorem(name: [Sum of Two Even Integers])[
   The sum of any two even integers is even.
@@ -74,7 +75,8 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ]
 
 = Additional Examples
-#lorem(20)
+
+To further illustrate the concepts introduced above, we provide a concrete example of even numbers and pose a related problem for the reader to solve.
 
 #example(name: [Concrete Even Numbers])[
   The integers $4$, $10$, and $16$ are even since $4 = 2 times 2$, $10 = 2 times 5$, and $16 = 2 times 8$.
@@ -89,7 +91,6 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
   $a + b = (2k + 1) + (2m + 1) = 2k + 2m + 2 = 2(k + m + 1)$,
   which is even by @def:even.
 ]<sol:sum-odd>
-
 ```
 
 <p align="left">
