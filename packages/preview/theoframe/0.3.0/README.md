@@ -27,7 +27,7 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ```
 
 - With `style: "minimal"`, the block title appears inline with the content.
-- With `style: "box"`, the block has a colored header background and a subtle content background.
+- With `style: "box"`, the block has a colored background.
 - The `color` affects all environment titles and cross-reference links.
 
 # Example
