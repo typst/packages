@@ -73,7 +73,7 @@
 
 #let show-parameter-list(fn, style-args: (:)) = {
   pad(x: 10pt, {
-    set text(font: ("DejaVu Sans Mono"), size: 0.85em, weight: 340)
+    set text(font: ("Fantasque Sans Mono"), size: 0.85em, weight: 340)
     text(fn.name, fill: style-args.colors.at("signature-func-name", default: rgb("#4b69c6")))
     "("
     let inline-args = fn.args.len() < 2

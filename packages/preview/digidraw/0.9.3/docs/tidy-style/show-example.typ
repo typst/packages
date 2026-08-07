@@ -19,7 +19,7 @@
 
   /// How much to rescale the preview. If set to auto, the the preview is scaled to fit the box. 
   /// -> auto | ratio
-  scale-preview: auto,
+  scale-preview: 100%,
 
   /// The code is passed to this function. Use this to customize how the code is shown. 
   /// -> function

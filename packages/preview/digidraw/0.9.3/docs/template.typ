@@ -50,7 +50,7 @@
       align(center, {
         let content = {
           set text(font: "Atkinson Hyperlegible Next")
-          eval(executed-lines.join("\n"), mode: "markup", scope: (dd: exports, wave: wave.with(symbol-width: 1.1cm)))
+          eval(executed-lines.join("\n"), mode: "markup", scope: (dd: dd, wave: wave.with(symbol-width: 1.1cm)))
         }
         content
       }),
@@ -109,7 +109,7 @@
         align(center, {
           let content = {
             set text(font: "Atkinson Hyperlegible Next")
-            eval(executed-lines.join("\n"), mode: "markup", scope: (dd: exports, wave: wave.with(symbol-width: 1.1cm)))
+            eval(executed-lines.join("\n"), mode: "markup", scope: (dd: dd, wave: wave.with(symbol-width: 1.1cm)))
           }
           content
         }),

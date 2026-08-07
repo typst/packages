@@ -44,6 +44,7 @@
 - Renamed `inset-2` to `step2`
 - Split Debugging into four parts: `"labels"`, `"symbols"`, `"steps"` and `"coordinates"` (multiple can be activated)
 - Updated docs to reflect the changes
+- Adapted Examples to new changes
 
 ### Removed
 - Removed `wave-width` parameter, because I currently don't have an idea how to implement this with the new system. Plus, the user should be smart enough on how to limit the widths of a diagram by changing the wave strings.

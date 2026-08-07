@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.4.2"
 #import cetz.draw: *
 
 
@@ -481,6 +481,12 @@
 #let merge-strokes(stroke1, stroke2) = {
   (
     (
+      paint: black,
+      thickness: 0.5pt,
+      cap: "butt",
+      join: "miter",
+      dash: none,
+    ) + (
       if stroke1.paint != auto {
         (paint: stroke1.paint)
       }

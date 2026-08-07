@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.4.2"
 
 #import "./utility/utility.typ"
 #import "./utility/defaults.typ": __digidraw-default-config, digidraw-x-pattern
@@ -572,7 +572,7 @@
   /// #callout(type: "caution", [I'm currently not too happy about the implementation\ and it might change in the future.], width: auto)
   /// 
   /// #example(```
-  ///#import "@preview/cetz:0.5.2"
+  ///#import "@preview/cetz:0.4.2"
   ///
   ///#dd.wave((signal: (
   ///  (wave: "80|2.3x"), (wave: "0d.|.l."),

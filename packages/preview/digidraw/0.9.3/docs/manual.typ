@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.4.2"
 #import "@preview/tableau-icons:0.344.0": ti-icon
 #import "@preview/alertoni:1.0.0" as at
 #import "@preview/tiptoe:0.4.0" as tt
@@ -46,9 +46,7 @@
 }
 
 
-#import "@preview/digidraw:0.9.3"
-
-
+#import "@preview/digidraw:0.9.3" as dd
 
 #import "@preview/chribel:1.2.0": callout
 
@@ -172,7 +170,7 @@
   double: (sym.quote.chevron.double.l, sym.quote.chevron.double.r),
 ))
 
-#show raw: set text(font: "Maple Mono")
+#show raw: set text(font: "Fantasque Sans Mono")
 
 #show heading.where(level: 2): it => {
   show raw: set text(1.15em)
@@ -1106,5 +1104,16 @@ printed version. Or checkout the matrix as a standalone document over at #link("
 #show raw: set text(blue)
 #cmarker.render(read("../CHANGELOG.md"))
 
+#show heading.where(level: 1): set heading(numbering: none)
+
+= Credits
+
+This manual and the other docs use at least one of the fonts below:
+
+- #link("https://www.brailleinstitute.org/freefont/",[Atkinson Hyperlegible Next]) -- Headings
+- #link("https://fonts.google.com/specimen/Buenard",[Buenard]) -- Used in `banner2.typ`
+- #link("https://github.com/alerque/libertinus",[Libertinus Sans]) -- Text
+- #link("https://fontlibrary.org/en/font/fantasque-sans-mono",[Fantasque Sans Mono]) -- Code / Raw
+- #link("https://tabler.io/icons",[Tabler Icons]) -- Iconography in Callouts
 
 #metadata("last-page") <last-page>

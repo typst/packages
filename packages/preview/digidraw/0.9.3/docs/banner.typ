@@ -1,5 +1,5 @@
 #import "@preview/tableau-icons:0.344.0": ti-icon
-#import "../src/wave.typ" as dd
+#import "../src/exports.typ" as dd
 
 #let toml = toml("../typst.toml")
 
@@ -12,9 +12,6 @@
   ),
 )
 
-#let symbol-width = 1.75cm
-#let symbol-height = 1.5cm
-#let inset = 5mm
 
 #set page(
   height: auto,

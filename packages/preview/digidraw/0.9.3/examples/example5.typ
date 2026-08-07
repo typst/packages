@@ -1,9 +1,9 @@
-#import "@preview/digidraw:0.9.3"
+#import "@preview/digidraw:0.9.3" as dd
 
 #set page(width: 14cm, height: auto, margin: 2mm)
 #set align(center)
 
-#digidraw.wave(
+#dd.wave(
   (
     signal: (
       (wave: "12.00..13", name: "Haha fancy ticks!"),

@@ -2,7 +2,6 @@
 <img src="./docs/banner.svg" alt="The logo of Digidraw v0.9.3, which is drawn using timing diagrams. Buses are filled with solid blue and the background is white. The word 'Digidraw' is drawn in a pixel-esque way."/>
 </p>
 
-
 A drawing package to draw digital timing diagrams using the [WaveDrom](https://wavedrom.com/) syntax. Some WaveDrom data are compatible with _Digidraw_ and some are not, but I plan or hope to implement those. Reasonable input/feedback is welcome!
 
 - Read the [Manual](./docs/manual.pdf) on how to use the specifics of this package 
@@ -72,8 +71,9 @@ Click on the image for the source.
 
 ## Changelog
 
-See [CHANGELOG.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/tag/v0.9.3/CHANGELOG.md)
+See [CHANGELOG.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/tag/v0.9.3/main/CHANGELOG.md)
 
 ## ToDo
 
 See [TODO.md](https://codeberg.org/joelvonrotz/typst-digidraw/src/tag/v0.9.3/TODO.md) in the Codeberg repository
+
