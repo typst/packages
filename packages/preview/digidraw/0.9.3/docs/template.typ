@@ -1,6 +1,6 @@
-#import "../src/exports.typ" // <replace-me> YOU SHOULDN'T SEE THIS COMMENT
+#import "@preview/digidraw:0.9.3" as dd
 #import "@preview/tableau-icons:0.344.0": ti-icon
-#import exports: wave
+#import dd: wave
 
 #let myraw(..args) = {
   show raw.where(block: true): block.with(width: 100%, stroke: gray + 0.5pt, inset: 2mm, radius: 1mm)
