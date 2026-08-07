@@ -1,6 +1,6 @@
 # theoframe
 
-A lightweight and easy-to-use [Typst](https://typst.app/) package that provides beautifully styled theorem-like environments for academic writing. It offers two styles of blocks: **highlighted framed** blocks — `Definition`, `Property`, `Axiom`, `Postulate`, `Assumption`, `Hypothesis`, `Conjecture`, `Proposition`, `Lemma`, `Theorem`, `Corollary`, `Remark`, and `Note`; and **plain** blocks — `Proof`, `Example`, `Exercise`, `Problem`, `Solution`, and `Conclusion`. All blocks come with automatic numbering, customizable colors, and multi-language support.
+This package provides theorem-like environments for academic writing in [Typst](https://typst.app/). Each environment supports cross-referencing, and theorem numbering resets to `0` only when a level-1 heading (`= Heading`) is encountered, then increments by `1` and is displayed as a letter starting from `"a"`. It offers two visual styles via `theme.style`: `"minimal"` (inline header) and `"box"` (highlighted framed header with background). You can also customize the theme color to change titles, borders, and reference links. It includes highlighted framed blocks — `Definition`, `Property`, `Axiom`, `Postulate`, `Assumption`, `Hypothesis`, `Conjecture`, `Proposition`, `Lemma`, `Theorem`, `Corollary`, `Remark`, `Note`; and plain blocks — `Proof`, `Example`, `Exercise`, `Problem`, `Solution`, `Conclusion`. All blocks come with automatic numbering and multi-language support.
 
 ## Basic Usage
 
@@ -17,7 +17,7 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
-| `theme.style` | `string` | `"minimal"` | Visual style of blocks. Options: `"minimal"` (inline header) or `"box"` (highlighted framed header with background). |
+| `theme.style` | `string` | `"minimal"` | Visual style of blocks. Options: `"minimal"` (inline header) or `"box"` (highlighted border and transparent background). |
 | `theme.color` | `color` | `rgb("#000000")` | Base theme color applied to titles, borders, and references. |
 
 **Example with custom theme:**
@@ -27,12 +27,10 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 ```
 
 - With `style: "minimal"`, the block title appears inline with the content.
-- With `style: "box"`, the block has a colored background.
+- With `style: "box"`, the block has a colored border and transparent background.
 - The `color` affects all environment titles and cross-reference links.
 
 # Example
-
-**Note on numbering:** The `fig-counter` resets to `0` only when a level-1 heading (`= Heading`) is encountered. Each time a theorem-like environment (e.g., `#definition`, `#theorem`) is called, the counter increments by `1` and is displayed as a letter starting from `"a"`.
 
 
 ## minimal style
@@ -152,6 +150,3 @@ The `#show: theoframe-setup` rule accepts a `theme` argument to customize the ap
 - Auto-numbering counters tied to level-1 headings for organized referencing.
 - Customizable frame colors per environment.
 - Multi-language support: English, French, Korean, Japanese, and Chinese.
-
-
-
