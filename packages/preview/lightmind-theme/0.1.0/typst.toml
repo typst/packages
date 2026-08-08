@@ -1,0 +1,15 @@
+[package]
+name = "lightmind-theme"
+version = "0.1.0"
+entrypoint = "lightmind.typ"
+authors = ["SunMoonTrain"]
+license = "MIT"
+description = "Forest-green theme for Chinese documents with light and dark modes."
+categories = ["report"]
+keywords = ["forest", "green", "chinese", "theme", "markdown", "light", "dark", "wenkai"]
+exclude = ["lightmind-dark.png","lightmind-light.png","test_lightmind_dark.png","test_lightmind_light.png","cover.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
