@@ -1,0 +1,30 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "exp-resume"
+version = "0.0.2"
+entrypoint = "src/lib.typ"
+authors = ["tahzeer <https://github.com/tahzeer>"]
+license = "Unlicense"
+description = "ATS-friendly resume with configurable sections and contact links."
+repository = "https://github.com/tahzeer/exp-resume-template"
+keywords = ["cv", "resume", "ATS"]
+categories = ["cv"]
+exclude = [
+".github",
+	".gitattributes",
+	".gitignore",
+	"docs",
+	"scripts",
+	"tests",
+	"build",
+	"/example-resume.pdf",
+	"/example-resume.png",
+	".typstignore",
+	"Justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
