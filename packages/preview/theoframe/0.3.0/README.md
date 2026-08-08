@@ -94,7 +94,7 @@ To further illustrate the concepts introduced above, we provide a concrete examp
 ```
 
 <p align="left">
-  <img src="./assets/example-minimal1.svg"  alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+  <img src="./assets/example-minimal1.svg" alt="Minimal-style theorem-like environments rendered in Typst, including Definition, Theorem, Proof, Corollary, Example, Problem, and Solution with clean bold headers and auto-numbering.">
 </p>
 
 ## style:"box"
@@ -106,7 +106,7 @@ To further illustrate the concepts introduced above, we provide a concrete examp
 ```
 
 <p align="left">
-  <img src="./assets/example-box1.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+  <img src="./assets/example-box1.svg" alt="Box-style theorem-like environments rendered in Typst with colored frames, featuring Definition, Theorem, Proof, Corollary, Example, Problem, and Solution in a green theme.">
 </p>
 
 
@@ -126,7 +126,7 @@ To further illustrate the concepts introduced above, we provide a concrete examp
 #outline(title: "Theorems-like environment", target: selector.or(..fig-arr))
 ```
 <p align="left">
-  <img src="./assets/example-box2.svg" alt="Example of theorem-like environments including Definition and Theorem with colored headers and borders.">
+  <img src="./assets/example-box2.svg" alt="Typst outline output for theorem-like environments, displaying categorized lists of Definitions, Theorems, and combined theorem-like entries with linked numbering and titles.">
 </p>
 
 
