@@ -126,23 +126,3 @@ To further illustrate the concepts introduced above, we provide a concrete examp
 </p>
 
 
-# Changelog
-
-## Version: 0.3.0
-
-- Add: Global theme configuration via `theoframe-setup`. Users can now set `theme.style` (`"minimal"` or `"box"`) and `theme.color` globally, instead of configuring each environment individually.
-- Added six new environments: `Property`, `Axiom`, `Hypothesis`, `Remark`, `Note`, and `Exercise`.
-- Refactor: Restructured the codebase to separate `thmbox` (highlighted framed blocks) and `thmplain` (plain blocks) templates, improving maintainability and clarity. 
-
-## Version: 0.2.0
-
-- Add: Cross-reference support.
-- Fix: Counter not resetting when encountering a level-1 heading (= heading).
-- Root Cause Analysis: In Typst, #import only brings in variable bindings (functions and variables defined with #let) from a module. Meanwhile, #show rules are document-level directives, meaning their scope is strictly confined to the module where they are defined.
-
-## Version: 0.1.0
-
-- Initial release with thirteen theorem-like environments: `Definition`, `Postulate`, `Assumption`, `Conjecture`, `Proposition`, `Lemma`, `Proof`, `Theorem`, `Corollary`, `Example`, `Problem`, `Solution`, and `Conclusion`.
-- Auto-numbering counters tied to level-1 headings for organized referencing.
-- Customizable frame colors per environment.
-- Multi-language support: English, French, Korean, Japanese, and Chinese.
