@@ -20,15 +20,11 @@ To use, simply import the package and add a show rule:
 
 The `#show: theoframe-setup` rule accepts a `theme` argument to customize the appearance of all theorem-like environments:
 
-**Example with custom theme:**
 
 ```typst
 #show: theoframe-setup.with(theme: (style: "box", color: rgb("#067300")))
 ```
 
-- With `style: "minimal"`, the block title appears inline with the content.
-- With `style: "box"`, the block has a colored border and background.
-- The `color` affects all environment titles, borders, backgrounds and cross-reference links.
 
 # Example
 
