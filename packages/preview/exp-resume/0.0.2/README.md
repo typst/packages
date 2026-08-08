@@ -9,7 +9,7 @@ repository.
 
 ## Sample Resume
 
-![example resume](https://raw.githubusercontent.com/tahzeer/exp-resume-template/main/example-resume.png)
+![example resume](https://raw.githubusercontent.com/tahzeer/exp-resume-template/v0.0.2/example-resume.png)
 
 ## Repository Layout
 
@@ -17,6 +17,7 @@ repository.
 - `template/main.typ` is the John Doe starter copied by `typst init`.
 - `tests/` contains regression documents for the implementation.
 - `docs/architecture.md` explains the Typst package structure and release flow.
+- `docs/manual.pdf` contains the full API reference and usage examples.
 - `typst.toml` defines the package and template entrypoints.
 
 Personal data is intentionally not stored here. A private document can live
