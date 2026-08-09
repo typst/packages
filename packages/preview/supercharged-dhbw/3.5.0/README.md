@@ -2,10 +2,10 @@
 
 Unofficial [Typst](https://typst.app/) template for DHBW students.
 
-You can see an example PDF of how the template looks [here](https://github.com/DannySeidel/typst-dhbw-template/blob/main/examples/example.pdf).
+You can see an example PDF of how the template looks [here](https://github.com/DannySeidel/typst-dhbw-template/blob/d7dde8f4aed258845939a3d0684c27a2587e556a/examples/example.pdf).
 
 To see an example of how you can use this template, check out the `main.typ` file.
-More examples can be found in the [examples directory](https://github.com/DannySeidel/typst-dhbw-template/blob/main/examples) of the GitHub repository.
+More examples can be found in the [examples directory](https://github.com/DannySeidel/typst-dhbw-template/tree/d7dde8f4aed258845939a3d0684c27a2587e556a/examples) of the GitHub repository.
 
 ## Usage
 
@@ -39,7 +39,7 @@ This template uses the following packages:
 
 Insert code snippets using the following syntax:
 
-```typ
+````typ
 #figure(caption: "Codeblock Example", sourcecode[```ts
 const ReactComponent = () => {
   return (
@@ -51,7 +51,7 @@ const ReactComponent = () => {
 
 export default ReactComponent;
 ```])
-```
+````
 
 ## Configuration
 
@@ -61,14 +61,14 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `authors (dictionary*)`: List of authors with the following named arguments (max. 6 authors when in the company or 8 authors when at university):
 
-- name (str*): Name of the author
-- student-id (str*): Student ID of the author
-- course (str*): Course of the author
-- course-of-studies (str*): Course of studies of the author
+- name (str\*): Name of the author
+- student-id (str\*): Student ID of the author
+- course (str\*): Course of the author
+- course-of-studies (str\*): Course of studies of the author
 - company (dictionary): Company of the author (only needed when `at-university` is `false`) with the following named arguments:
-  - name (str*): Name of the company
+  - name (str\*): Name of the company
   - post-code (str): Post code of the company
-  - city (str*): City of the company
+  - city (str\*): City of the company
   - country (str): Country of the company
 
 `abstract (content)`: Content of the abstract, it is recommended that you pass a variable containing the content or a function that returns the content
@@ -89,7 +89,7 @@ This template exports the `supercharged-dhbw` function with the following named 
 
 `confidentiality-marker: (dictionary)`: Configure the confidentially marker (red or green circle) on the title page (using this option reduces the maximum number of authors by 2 to 4 authors when in the company or 6 authors when at university)
 
-- display (bool*): Whether the confidentiality marker should be shown, default is `false`
+- display (bool\*): Whether the confidentiality marker should be shown, default is `false`
 - offset-x (length): Horizontal offset of the confidentiality marker, default is `0pt`
 - offset-y (length): Vertical offset of the confidentiality marker, default is `0pt`
 - size (length): Size of the confidentiality marker, default is `7em`
