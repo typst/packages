@@ -1,0 +1,11 @@
+[package]
+name = "sudo-docs"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+description = "A minimalist, code-centric Typst template for Computer Science students."
+repository = "https://github.com/G0ldenPin/sudo-docs"
+keywords = ["template", "computer-science", "notes", "university"]
+categories = ["report", "education"]
+compiler = "0.11.0" 
