@@ -60,9 +60,12 @@ For a shorter, section-only document, use `iarticle` instead:
 ...
 ```
 
-See `samples/` for fuller examples, including figures, tables,
-citations, and `appendix(..)` - `report-{en,ja}.typ` for `ireport`,
-`article-{en,ja}.typ` for `iarticle`.
+See [`samples/`](samples/) for fuller examples, including figures,
+tables, citations, and `appendix(..)` - `report-{en,ja}.typ` for
+`ireport`, `article-{en,ja}.typ` for `iarticle`. (`samples/` is
+excluded from the published package bundle - see `exclude` in
+`typst.toml` - to keep it small, so it won't be present in a local
+`@preview` install; it's still browsable here and in the repository.)
 
 ## Fonts
 
