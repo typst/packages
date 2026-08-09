@@ -7,5 +7,5 @@ license = "MIT"
 description = "A minimalist, code-centric template for Computer Science students."
 repository = "https://github.com/G0ldenPin/sudodocs"
 keywords = ["template", "computer-science", "notes", "university"]
-categories = ["report", "education"]
+categories = ["template"]
 compiler = "0.11.0" 
