@@ -1,6 +1,6 @@
-#let systemFontSize = 8pt
-#let nameFontSize = 16pt
-#let inputFontSize = 10pt
+#let _system-font-size = 8pt
+#let _name-font-size = 16pt
+#let _input-font-size = 10pt
 
 #let career-page1-rows = 14
 #let career-page2-rows = 5
@@ -9,7 +9,7 @@
 #let career-page2-height = 5cm
 #let qualification-height = 6.6cm
 
-#let addSpace(input) = {
+#let _add-space(input) = {
   box(
     [#pad(left:1cm,[#input])],
   )
@@ -63,10 +63,10 @@
             columns: (1.5cm,4cm,1fr),
             [氏 #h(0.6cm)名],
             [
-              #pad(y: 0.4cm,align(center + horizon,text(nameFontSize,性)))
+              #pad(y: 0.4cm,align(center + horizon,text(_name-font-size,性)))
             ],
             [
-              #pad(y: 0.4cm,align(start + horizon,text(nameFontSize,名)))
+              #pad(y: 0.4cm,align(start + horizon,text(_name-font-size,名)))
             ]
 
           )
@@ -87,7 +87,7 @@
           grid(
           columns: (1.5cm,1fr),
           [生年月日],
-            pad(y: 0.2cm,[#addSpace(text(inputFontSize,[#生年月日 生 #h(0.6cm) (満 #h(0.5em) #年齢 才)]))])
+            pad(y: 0.2cm,[#_add-space(text(_input-font-size,[#生年月日 生 #h(0.6cm) (満 #h(0.5em) #年齢 才)]))])
           )
         )
       ]
@@ -175,9 +175,9 @@
             #if (郵便番号1 == "") {
               [現住所 (〒 #h(20pt) - #h(20pt))]
             } else {
-              [現住所 (〒 #text(tracking: 1pt,systemFontSize,郵便番号1))]
+              [現住所 (〒 #text(tracking: 1pt,_system-font-size,郵便番号1))]
             }
-            #pad(y: 0.2cm ,align(center,text(inputFontSize,住所1)))
+            #pad(y: 0.2cm ,align(center,text(_input-font-size,住所1)))
           ]
         )
       ],
@@ -247,9 +247,9 @@
            #if (郵便番号2 == "") {
               [連絡先 (〒 #h(20pt) - #h(20pt))]
             } else {
-              [連絡先 (〒 #text(tracking: 1pt,systemFontSize,郵便番号2))]
+              [連絡先 (〒 #text(tracking: 1pt,_system-font-size,郵便番号2))]
             }
-            #pad(y: 0.2cm ,align(center,text(inputFontSize,住所2)))
+            #pad(y: 0.2cm ,align(center,text(_input-font-size,住所2)))
           ]
         )
       ],
@@ -273,7 +273,7 @@
 }
 
 #let 学歴(年:"", 月:"",学歴: "") = {
-  set text(inputFontSize)
+  set text(_input-font-size)
   grid(
     columns: (1.5cm,0.8cm,1fr),
     [
@@ -293,7 +293,7 @@
 }
 
 #let 職歴(年:"", 月:"",職歴:"") = {
-  set text(inputFontSize)
+  set text(_input-font-size)
   grid(
     columns: (1.5cm,0.8cm,1fr),
     [
@@ -313,7 +313,7 @@
 }
 
 #let 資格行(年:"", 月:"",資格:"") = {
-  set text(inputFontSize)
+  set text(_input-font-size)
   grid(
     columns: (1.5cm,0.8cm,1fr),
     [
@@ -329,7 +329,7 @@
 }
 
 #let　以上() = {
-  set text(inputFontSize)
+  set text(_input-font-size)
   grid(
     columns: (1.5cm,0.8cm,1fr),
     [],
@@ -440,7 +440,7 @@
       [
         志望の動機、特技、好きな学科、アピールポイントなど
         #linebreak()
-        #set text(inputFontSize)
+        #set text(_input-font-size)
         #children
       ]
     )
@@ -461,7 +461,7 @@
       [
         本人希望記入欄(特に給料・職種・勤務時間・勤務地・その他についての希望があれば記入)
         #linebreak()
-        #set text(inputFontSize)
+        #set text(_input-font-size)
         #children
       ]
     )
@@ -512,7 +512,7 @@
   クレジット: true,
   body,
 ) = {
-  set text(font: ("Noto Serif JP",), size: systemFontSize)
+  set text(font: ("Noto Serif JP",), size: _system-font-size)
   set page(paper: "jis-b5", margin: 1.5cm)
 
   let career-entries = build-career-entries(学歴, 職歴)
