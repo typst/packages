@@ -1,11 +1,10 @@
 [package]
 name = "sudo-docs"
 version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["Your Name <your.email@example.com>"]
-license = "MIT"
 description = "A minimalist, code-centric template for Computer Science students."
+authors = ["Elijah <@G0ldenPin>"]
+license = "MIT"
+entrypoint = "lib.typ"
 repository = "https://github.com/G0ldenPin/sudodocs"
 keywords = ["template", "computer-science", "notes", "university"]
-category = "template"
 compiler = "0.11.0"
