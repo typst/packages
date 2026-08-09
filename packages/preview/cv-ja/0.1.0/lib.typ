@@ -512,7 +512,7 @@
   クレジット: true,
   body,
 ) = {
-  set text(font: ("Noto Serif JP",), size: _system-font-size)
+  set text(size: _system-font-size)
   set page(paper: "jis-b5", margin: 1.5cm)
 
   let career-entries = build-career-entries(学歴, 職歴)

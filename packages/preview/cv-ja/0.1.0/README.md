@@ -64,7 +64,7 @@ typst init @preview/cv-ja:0.1.0 my-resume
 
 ## 日本語フォントについて
 
-このパッケージ自体には日本語フォントを同梱していません。表示が崩れる場合は [Noto Serif JP](https://fonts.google.com/noto/specimen/Noto+Serif+JP) のインストールをお勧めします。
+このパッケージはフォントを指定しないため、システムに入っている日本語フォントがそのまま使われます。表示が崩れる場合は [Noto Serif JP](https://fonts.google.com/noto/specimen/Noto+Serif+JP) などのインストールをお勧めします。特定のフォントを使いたい場合は、`#show: 履歴書.with(...)` の前に `#set text(font: "好きなフォント名")` を書いてください。
 
 ## 参考にした書式
 
