@@ -1562,24 +1562,54 @@
     // its width feeds back into the layout: a page number that grows from
     // 9 to 10 would narrow the text column, reflow the statement, shift the
     // pages and change the number again ("page counter did not converge").
-    // Reserve a width computed from an all-9s number of the same digit
-    // count (padded to 3), which is the widest number of that width and no
-    // longer varies from one layout pass to the next.
+    // Reserve a size computed from an all-9s number of the same digit count
+    // (padded to 3), which is the widest number of that width and no longer
+    // varies from one layout pass to the next.
     let digits = calc.max(3, str(page-num).len())
-    let reserved = measure(render(int("9" * digits))).width
-    box(width: reserved, align(right, link(target, render(page-num))))
+    let size = measure(render(int("9" * digits)))
+    // Returns the size alongside the content: with badge-position "margin"
+    // the caller must reserve the wrap zone with a placeholder of exactly
+    // these dimensions rather than with the reference itself (see
+    // attach-page-ref).
+    (
+      width: size.width,
+      height: size.height,
+      body: box(width: size.width, align(right, link(target, render(page-num)))),
+    )
   }
 }
 
 // Route the page reference to wherever it belongs for the current layout:
 // with badge-position "above" the badge line has room for it on the right;
 // otherwise it has to be wrapped into the top right of the statement itself.
-// Returns the (possibly rewrapped) body and the header slot for exo-box.
+// `ref` is the dict returned by make-page-ref, or none when there is nothing
+// to link to. Returns the (possibly rewrapped) body and the header slot for
+// exo-box.
 #let attach-page-ref(cfg, ref, body) = {
-  if cfg.at("badge-position", default: "margin") == "above" {
-    (body: body, header-right: ref)
+  if ref == none {
+    (body: body, header-right: none)
+  } else if cfg.at("badge-position", default: "margin") == "above" {
+    // Goes in a grid cell, which is laid out, never measured — the reference
+    // itself can be used as is.
+    (body: body, header-right: ref.body)
   } else {
-    (body: qr-attach-body(ref, body, cfg), header-right: none)
+    // wrap-it measures the float to size the wrap zone, and `measure` cannot
+    // resolve the link's label against the real document: it falls back to
+    // "the closest matching element", which differs from one layout pass to
+    // the next, so the measurement — and with it the whole document — never
+    // settles. Reserve the zone with an empty box of the reference's exact
+    // size instead (nothing introspective to resolve, stable by construction)
+    // and draw the reference itself out of flow on top, where it is never
+    // measured. The placeholder is right-aligned by qr-attach-body, so both
+    // land in the same spot.
+    let placeholder = box(width: ref.width, height: ref.height)
+    (
+      body: block(width: 100%, spacing: 0pt, {
+        place(top + right, ref.body)
+        qr-attach-body(placeholder, body, cfg)
+      }),
+      header-right: none,
+    )
   }
 }
 
