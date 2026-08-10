@@ -1,6 +1,12 @@
+# _Typst template for research papers_
+
+_Congratulations! You have downloaded the official template for your thesis (or research paper). This template takes care of all the work involved in the layout, formatting, table of contents, and bibliography, so you can focus 100 % on your content. It is tailored to the requirements of __BBZ Dormagen, the Technical College for Business with a focus on logistics__._
+
+---
+
 # Typst Facharbeitsvorlage - BBZ Dormagen
 
-Herzlichen Glückwunsch, Sie haben die offizielle Vorlage für Ihre Abschlussarbeit (bzw. Facharbeit) heruntergeladen. Diese Vorlage nimmt Ihnen die gesamte Arbeit für das Layout, die Formatierung, das Inhaltsverzeichnis und das Literaturverzeichnis ab, damit Sie sich zu 100 % auf Ihren Inhalt konzentrieren können.
+Herzlichen Glückwunsch, Sie haben die offizielle Vorlage für Ihre Abschlussarbeit (bzw. Facharbeit) heruntergeladen. Diese Vorlage nimmt Ihnen die gesamte Arbeit für das Layout, die Formatierung, das Inhaltsverzeichnis und das Literaturverzeichnis ab, damit Sie sich zu 100 % auf Ihren Inhalt konzentrieren können. Es ist auf die Anforderungen am BBZ Dormagen, Fachschule für Wirtschaft, Schwerpunkt Logistik zugeschnitten.
 
 ## Los geht's (Die ersten 5 Minuten)
 
