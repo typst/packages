@@ -1,11 +1,11 @@
 [package]
-name = "xyzrender"
+name = "xyzrender-rustyp"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Jonathan Di Pietro <https://github.com/jonathandip>"]
 license = "MIT"
 description = "Render XYZ molecular structures as publication-quality SVG graphics."
-repository = "https://github.com/Typsium/xyzrender"
+repository = "https://github.com/Typsium/xyzrender-rustyp"
 keywords = ["chemistry", "molecule", "xyz", "svg", "molecular", "visualization"]
 categories  = ["visualization", "paper"]
 disciplines = ["education", "chemistry", "physics"]
