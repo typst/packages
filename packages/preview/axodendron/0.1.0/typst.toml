@@ -1,0 +1,13 @@
+[package]
+name = "axodendron"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT"
+description = "Analyze and visualize neuronal morphologies from SWC files."
+repository = "https://github.com/rice8y/axodendron"
+keywords = ["neuroscience", "morphology", "swc", "visualization"]
+categories = ["visualization"]
+disciplines = ["biology"]
+compiler = "0.14.0"
+exclude = ["/images", "examples"]
