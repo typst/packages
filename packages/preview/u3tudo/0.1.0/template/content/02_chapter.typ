@@ -4,6 +4,8 @@ This is a placeholder for a second chapter. It could contain the theoretical bac
 
 == A section
 
+Reference relevant literature using Typst's citation syntax, for example @example2024.
+
 Mathematical equations can be included and referenced:
 
 $ E = m c^2 $ <einstein>

@@ -37,15 +37,15 @@
   university: "Technische Universität Dortmund",
   city: "Dortmund",
   degree: "Dr. rer. nat.",
-  first_corrector: "",
-  second_corrector: "",
-  examination_committee_chair: "",
-  phd_representative: "",
-  submission_date: "",
-  defense_date: "",
+  first-corrector: "",
+  second-corrector: "",
+  examination-committee-chair: "",
+  phd-representative: "",
+  submission-date: "",
+  defense-date: "",
   tucolor: false,
-  binding_correction: 12mm,
-  two_sided: false,
+  binding-correction: 12mm,
+  two-sided: false,
   logo: none,
   body,
 ) = {
@@ -59,16 +59,16 @@
   // are placed on the outer side. For single-sided printing, the binding
   // correction is always on the left and the heading / page number are
   // centered.
-  let page-margin = if two_sided {
+  let page-margin = if two-sided {
     (
-      inside: 25mm + binding_correction,
+      inside: 25mm + binding-correction,
       outside: 25mm,
       top: 30mm,
       bottom: 35mm,
     )
   } else {
     (
-      left: 25mm + binding_correction,
+      left: 25mm + binding-correction,
       right: 25mm,
       top: 30mm,
       bottom: 35mm,
@@ -80,7 +80,7 @@
 
   set page(
     paper: "a4",
-    binding: if two_sided { left } else { auto },
+    binding: if two-sided { left } else { auto },
     margin: page-margin,
     header: context {
       let p = here().page()
@@ -96,7 +96,7 @@
         }
         let label = if num == none { ch.body } else { [#num #ch.body] }
         set text(size: 9pt)
-        let h-align = if two_sided { outer-side(p) } else { center }
+        let h-align = if two-sided { outer-side(p) } else { center }
         block(width: 100%)[
           #align(h-align)[#label]
           #v(2pt)
@@ -115,7 +115,7 @@
         str(n)
       }
       set text(fill: accent)
-      let f-align = if two_sided { outer-side(p) } else { center }
+      let f-align = if two-sided { outer-side(p) } else { center }
       align(f-align)[#display]
     },
   )
@@ -236,28 +236,28 @@
     #v(1em)
 
     Gutachter: \
-    #first_corrector \
-    #second_corrector
+    #first-corrector \
+    #second-corrector
 
     #v(1em)
 
     Vorsitzender der Prüfungskommission \
-    #examination_committee_chair
+    #examination-committee-chair
 
     #v(1em)
 
     Vertreter:in der wissenschaftlichen Mitarbeiter*innen \
-    #phd_representative
+    #phd-representative
 
     #v(1em)
 
     Datum des Einreichens der Dissertation \
-    #submission_date
+    #submission-date
 
     #v(1em)
 
     Datum der mündlichen Prüfung \
-    #defense_date
+    #defense-date
   ]
 
   // ── Front matter starts here (Roman numeral pages) ──────────

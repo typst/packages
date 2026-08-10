@@ -34,15 +34,15 @@ Edit `thesis.typ` to set your thesis metadata:
   birthdate: "01.01.1990",
   birthplace: "Hometown",
   date: "August 2025",
-  first_corrector: "Prof. Dr. First Reviewer",
-  second_corrector: "Prof. Dr. Second Reviewer",
-  examination_committee_chair: "Prof. Dr. Committee Chair",
-  phd_representative: "Dr. PhD Representative",
-  submission_date: "1. August 2025",
-  defense_date: "1. October 2025",
+  first-corrector: "Prof. Dr. First Reviewer",
+  second-corrector: "Prof. Dr. Second Reviewer",
+  examination-committee-chair: "Prof. Dr. Committee Chair",
+  phd-representative: "Dr. PhD Representative",
+  submission-date: "1. August 2025",
+  defense-date: "1. October 2025",
   tucolor: true,           // TU green accent color
-  binding_correction: 12mm, // binding offset
-  two_sided: false,         // double-sided printing (binding correction on inner side, running heading and page number on outer side)
+  binding-correction: 12mm, // binding offset
+  two-sided: false,         // double-sided printing (binding correction on inner side, running heading and page number on outer side)
   logo: read("logos/tu-logo.svg", encoding: none),
 )
 ```
@@ -58,6 +58,7 @@ Edit `thesis.typ` to set your thesis metadata:
 // Main matter (Arabic page numbers)
 #mainmatter
 #include "content/01_introduction.typ"
+#include "content/02_chapter.typ"
 
 // Appendix (lettered chapters A, B, C, ...)
 #appendix
@@ -101,7 +102,7 @@ Edit `thesis.typ` to set your thesis metadata:
 - Running headers with current chapter title and header line
 - Optional TU green accent color (`tucolor: true`)
 - Configurable binding correction
-- Optional double-sided printing (`two_sided: true`): binding correction on the inner side, running heading and page number on the outer side
+- Optional double-sided printing (`two-sided: true`): binding correction on the inner side, running heading and page number on the outer side
 - Bibliography support via Typst's built-in `bibliography()`
 - Table of contents (chapters and sections)
 
@@ -118,15 +119,15 @@ Edit `thesis.typ` to set your thesis metadata:
 | `university`               | `"Technische Universität Dortmund"` | University name                      |
 | `city`                     | `"Dortmund"`                    | City for the title page                   |
 | `degree`                   | `"Dr. rer. nat."`               | Academic degree                           |
-| `first_corrector`          | `""`                            | First reviewer (Erstgutachter)            |
-| `second_corrector`         | `""`                            | Second reviewer (Zweitgutachter)          |
-| `examination_committee_chair` | `""`                         | Examination committee chair               |
-| `phd_representative`       | `""`                            | PhD representatives' representative       |
-| `submission_date`          | `""`                            | Date of submission                        |
-| `defense_date`             | `""`                            | Date of oral defense                      |
+| `first-corrector`          | `""`                            | First reviewer (Erstgutachter)            |
+| `second-corrector`         | `""`                            | Second reviewer (Zweitgutachter)          |
+| `examination-committee-chair` | `""`                         | Examination committee chair               |
+| `phd-representative`       | `""`                            | PhD representatives' representative       |
+| `submission-date`          | `""`                            | Date of submission                        |
+| `defense-date`             | `""`                            | Date of oral defense                      |
 | `tucolor`                  | `false`                         | Use TU green accent color                 |
-| `binding_correction`       | `12mm`                          | Binding correction offset                 |
-| `two_sided`                | `false`                         | Double-sided printing (binding correction on inner side, running heading and page number on outer side) |
+| `binding-correction`       | `12mm`                          | Binding correction offset                 |
+| `two-sided`                | `false`                         | Double-sided printing (binding correction on inner side, running heading and page number on outer side) |
 | `logo`                     | `none`                          | Logo image bytes (e.g. `read("logos/tu-logo.svg", encoding: none)`; `none` = no logo)|
 
 ## License

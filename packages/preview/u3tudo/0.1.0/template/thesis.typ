@@ -10,16 +10,16 @@
   university: "Technische Universität Dortmund",
   city: "Dortmund",
   degree: "Dr. rer. nat.",
-  first_corrector: "Prof. Dr. First Reviewer",
-  second_corrector: "Prof. Dr. Second Reviewer",
-  examination_committee_chair: "Prof. Dr. Committee Chair",
-  phd_representative: "Dr. PhD Representative",
-  submission_date: "1. August 2025",
-  defense_date: "1. October 2025",
+  first-corrector: "Prof. Dr. First Reviewer",
+  second-corrector: "Prof. Dr. Second Reviewer",
+  examination-committee-chair: "Prof. Dr. Committee Chair",
+  phd-representative: "Dr. PhD Representative",
+  submission-date: "1. August 2025",
+  defense-date: "1. October 2025",
   tucolor: true,
-  binding_correction: 12mm,
-  two_sided: false,
-  logo: read("logos/tu-logo.svg", encoding: none),
+  binding-correction: 12mm,
+  two-sided: false,
+  logo: none, // read("logos/tu-logo.svg", encoding: none)
 )
 
 // ── Front matter (Roman numeral pages) ─────────────────────────
