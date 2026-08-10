@@ -4,8 +4,7 @@
 
 # xyzrender
 
-**Molecules that look like they belong in a paper — rendered straight
-inside your Typst document, no external tools involved.**
+**Molecules that look like they belong in a paper — rendered straight inside your Typst document, no external tools involved.**
 
 [![MIT License badge](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Typst 0.15 or newer badge](https://img.shields.io/badge/Typst-0.15%2B-239dad.svg)](https://typst.app)
@@ -14,13 +13,9 @@ inside your Typst document, no external tools involved.**
   <img src="gallery/caffeine_default.png" alt="caffeine, default preset" width="300" />
 </p>
 
-Hand it an XYZ or PDB file and get back a depth-cued, publication-quality
-structure. Bonds, bond orders, and aromatic rings are all perceived
-straight from the atomic geometry — no image files to manage, no
-pre-rendering step, nothing to leave your document for.
+Hand it an XYZ or PDB file and get back a depth-cued, publication-quality structure. Bonds, bond orders, and aromatic rings are all perceived straight from the atomic geometry — no image files to manage, no pre-rendering step, nothing to leave your document for.
 
-This is a Typst port of [**xyzrender**](https://github.com/aligfellow/xyzrender)
-by [Ali Goodfellow (@aligfellow)](https://github.com/aligfellow).
+This is a Typst port of [**xyzrender**](https://github.com/aligfellow/xyzrender) by [Ali Goodfellow (@aligfellow)](https://github.com/aligfellow).
 
 ## What you get
 
@@ -34,13 +29,13 @@ Every override key above is documented with a live-rendered example in [`manual.
 ## Installation
 
 ```typst
-#import "@preview/xyzrender:0.1.0": xyzrender
+#import "@preview/xyzrender-rustyp:0.1.0": xyzrender
 ```
 
 ## Quick start
 
 ```typst
-#import "@preview/xyzrender:0.1.0": xyzrender
+#import "@preview/xyzrender-rustyp:0.1.0": xyzrender
 
 // Typst can't resolve file paths from inside a package, so read the file
 // yourself and pass the bytes:
@@ -84,7 +79,7 @@ Aromatic rings render as a solid-outer / dashed-inner pair by default; pass `kek
 ## Usage
 
 ```typst
-xyzrender(source, config, width, height, rotate, frame, background, hy, no_hy, ..overrides)
+#xyzrender(source, config, width, height, rotate, frame, background, hy, no_hy, ..overrides)
 ```
 
 `source` is XYZ or PDB bytes (or an inline string, or — once a `reader` is bound, see below — a bare path). `config` picks a built-in preset name or a `.json` file. Everything else is optional: framing (`width`, `height`, `rotate`, `frame`), hydrogens (`hy`, `no_hy`), `background`, and any recognised override key, merged on top of the preset (`defaults < default.json < preset.json < call-site kwargs`).
