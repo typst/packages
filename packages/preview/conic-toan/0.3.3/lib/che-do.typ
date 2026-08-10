@@ -911,37 +911,157 @@
   if nd != none and hv.at("cau", default: false) { _hv-xao-than(nd, hv.mam) } else { nd }
 }
 
+// ---------- Chỗ trống còn lại của trang & chiều cao trọn một cột ----------
+// Trả về (chỗ còn lại của TRANG HIỆN TẠI, chiều cao MỘT CỘT đầy trang).
+// Phải gọi trong `context` (dùng here().position()).
+#let _cao-vung() = {
+  let ch = page.height
+  if type(ch) != length { return (none, none) }
+  let m = page.margin
+  // ⚠️ `page.margin` trả về lề đã CHUẨN HOÁ thành `relative` (vd `0% + 45.35pt`)
+  // chứ KHÔNG phải `length` như lúc khai — cứ đòi đúng `length` là hỏng hết.
+  let _dai(v) = {
+    if type(v) == length { v }
+    else if type(v) == relative { ch * v.ratio + v.length }
+    else if type(v) == ratio { ch * v }
+    else { none }
+  }
+  let _le(khoa, mac-dinh) = {
+    if type(m) == dictionary { _dai(m.at(khoa, default: m.at("y", default: mac-dinh)))
+    } else if m == auto { 2.5cm } else { _dai(m) }
+  }
+  let lt = _le("top", 1.6cm)
+  let ld = _le("bottom", 2.2cm)
+  if lt == none or ld == none { return (none, none) }
+  let cot = ch - lt - ld
+  if cot <= 0pt { return (none, none) }
+  (calc.max(0pt, ch - here().position().y - ld), cot)
+}
+
+// Thân gõ bằng `#for` / `#include` thường gói TẤT CẢ câu hỏi vào MỘT phần tử
+// (dãy con) ⇒ không có mối nào để chèn #colbreak(). Trải phẳng các dãy con lồng
+// nhau để lấy đúng từng câu; ghép lại thì y hệt thân cũ.
+#let _f-day = ([a] + [b]).func()
+#let _cot-la(c) = {
+  if type(c) == content and c.func() == _f-day and c.has("children") {
+    c.children.map(_cot-la).flatten()
+  } else { (c,) }
+}
+
 // ---------- Tự CÂN BẰNG chiều cao các cột ----------
-// Typst KHÔNG cân bằng `columns`: cột 1 được rót đầy tới HẾT chiều cao trang
-// rồi mới tràn sang cột 2 ⇒ phần câu hỏi ngắn (chưa đầy một trang) nằm gọn
-// trong cột 1, cột 2 để trống — nhìn y như lệnh không chạy.
-// Cách chữa: đo chiều cao thân ở bề rộng MỘT CỘT rồi chèn #colbreak() tại các
-// mốc 1/so, 2/so… của tổng chiều cao. KHÔNG dùng block(height:) cố định (thân
-// cao hơn dự tính là tràn ra ngoài khung).
-// Thân DÀI hơn `tran` (không gọn trong một trang) thì để Typst tự rót như cũ.
-#let _can-cot(nd, so, wcol, tran) = {
+// Typst KHÔNG cân bằng `columns`: cột 1 được rót đầy tới HẾT chiều cao rồi mới
+// tràn sang cột 2 ⇒ thân ngắn (chưa đầy một trang) nằm gọn trong cột 1, cột 2
+// bỏ trắng — nhìn y như lệnh không chạy. Thân DÀI thì bệnh này rơi xuống TRANG
+// CUỐI: cột trái chạy hết trang, cột phải trắng trơn — tốn hẳn nửa tờ giấy.
+//
+// Cách chữa: các trang PHÍA TRƯỚC cứ để Typst rót tự nhiên — rót tự nhiên vốn
+// đã chặt nhất, nó chẻ được cả một câu dài làm đôi, mình tính tay chỉ thua —
+// chỉ chia đều phần nằm trên TRANG CUỐI bằng #colbreak().
+//
+// ⚠️ HAI LỐI ĐÃ THỬ VÀ BỎ, ĐỪNG QUAY LẠI:
+//  1. Xếp tay cho ĐẦY từng cột (kiểu multicol của LaTeX). Mình không chẻ được
+//     một câu làm đôi như Typst nên cột nào cũng hụt một khoảng; bản `loigiai`
+//     của de-mau-da-dang PHÌNH THÊM một trang (11 → 12).
+//  2. Gài `metadata` trước mỗi câu rồi `query` lại số trang cho biết chắc câu
+//     nào rơi xuống trang cuối. Đúng thì có đúng, nhưng mỗi vùng chia cột lại
+//     bắt Typst dựng thêm một lượt; đề có 3 vùng là vượt hạn 5 lượt, hiện
+//     "document did not converge" và dòng "(Đề thi có N trang)" ở đầu đề kẹt
+//     lại số cũ. Đã đối chiếu ảnh từng trang: lối ĐO dưới đây cho bố cục GIỐNG
+//     HỆT lối query trên toàn bộ file thử, nên không đáng đánh đổi.
+//
+// Phép đo sai thì sai theo hướng "đoán trang cuối bắt đầu MUỘN hơn thực tế"
+// (dòng chảy thật còn có khe hở ở chỗ khối không chẻ được), tức cột trái đầy
+// hơn cột phải — vẫn đẹp chán, không bao giờ đội thêm trang.
+//   cao-dau : chỗ trống còn lại của trang hiện tại (thân ngắn nằm gọn ở đây)
+//   cao-cot : chiều cao một cột đầy trang
+#let _can-cot(nd, so, wcol, cao-dau, cao-cot) = {
   if so < 2 or type(nd) != content or not nd.has("children") { return nd }
-  let tong = measure(block(width: wcol, nd)).height
-  if tong <= 0pt or tong >= tran { return nd }
-  let cs = nd.children
-  // Đo TỪNG phần tử (bỏ qua phần tử trắng) — dùng chính tổng của các phép đo
-  // rời này làm mốc chia, nhờ vậy sai số khoảng cách giữa các khối tự triệt
-  // tiêu, không bị lệch dồn về một phía.
+  if type(cao-cot) != length or cao-cot <= 0pt { return nd }
+  // Thân gõ bằng #for gói tất cả vào MỘT phần tử ⇒ phải trải phẳng mới có mối
+  // để chèn #colbreak().
+  let cs = nd.children.map(_cot-la).flatten()
+  if cs.len() < 2 { return nd }
+
+  // ----- đo chiều cao từng câu ở bề rộng MỘT CỘT (phần tử trắng = 0) -----
   let cao = cs.map(c => if _hv-trong(c) { 0pt } else {
     measure(block(width: wcol, c)).height })
   let tong-le = cao.fold(0pt, (a, b) => a + b)
   if tong-le <= 0pt { return nd }
-  let muc = tong-le / so
-  let kq = ()
-  let dang = 0pt
-  let cot = 1
-  for (i, c) in cs.enumerate() {
-    if cot < so and dang >= muc * cot and not _hv-trong(c) {
-      kq.push(colbreak())
-      cot = cot + 1
+  // Các phép đo RỜI không tính khoảng cách giữa hai khối ⇒ tổng của chúng nhỏ
+  // hơn chiều cao thật. Đo thêm cả thân rồi rải phần chênh lệch đều cho mọi câu.
+  let tong-that = measure(block(width: wcol, nd)).height
+  let he-so = if tong-that > tong-le { tong-that / tong-le } else { 1.0 }
+  let cao = cao.map(h => h * he-so)
+  let tong = tong-le * he-so
+
+  let an = 5mm                       // chừa chống tràn
+  let hd = if type(cao-dau) == length and cao-dau > cao-cot * 0.25 {
+    calc.min(cao-dau, cao-cot) } else { cao-cot }
+
+  // Chiều cao cộng dồn TRƯỚC mỗi câu (tich.at(i)); chốt cuối = tổng cả thân.
+  let tich = ()
+  let cong = 0pt
+  for h in cao {
+    tich.push(cong)
+    cong = cong + h
+  }
+  tich.push(cong)
+
+  // ----- câu MỞ ĐẦU trang cuối -----
+  // Trang hiện tại chứa `so` cột cao `hd`, mỗi trang sau `so` cột cao `cao-cot`.
+  let mo = 0
+  if tong > (hd - an) * so {
+    let suc1 = (hd - an) * so
+    let sucn = (cao-cot - an) * so
+    let so-trang-sau = calc.max(0, calc.ceil((tong - suc1) / sucn) - 1)
+    let h0 = suc1 + sucn * so-trang-sau
+    let k = range(cs.len()).position(i => tich.at(i) >= h0)
+    mo = if k == none { 0 } else { k }
+  }
+
+  // ----- chia ĐỀU phần nằm trên trang cuối cho `so` cột -----
+  let du = tich.at(cs.len()) - tich.at(mo)
+  if du <= 0pt { return nd }
+  let muc = du / so
+  // Trang cuối vốn đã gần đầy thì ĐỪNG đụng vào: chia ra chẳng tiết kiệm được
+  // bao nhiêu, mà cột chót chỉ cần phình hơn phép đo một chút là tràn sang
+  // trang mới — mất không một trang giấy. Chỉ can thiệp khi còn trống hẳn 15%.
+  if muc > (cao-cot - an) * 0.85 { return nd }
+
+  // Chỉ được cắt ở ĐẦU một câu THẬT (câu có chiều cao). Trang cuối không đủ
+  // `so` câu thì chia kiểu gì cũng có cột rỗng ⇒ để nguyên.
+  let that = range(mo, cs.len()).filter(i => cao.at(i) > 0pt)
+  if that.len() < so { return nd }
+  // Chọn mối GẦN mốc k·muc nhất — chứ KHÔNG phải mối đầu tiên vượt mốc: trang
+  // cuối thường chỉ còn vài câu, cắt kiểu "vượt mốc mới cắt" là hụt luôn
+  // (ba câu 100/120/228 thì chẳng mối nào vượt 224 ⇒ không cắt được chỗ nào).
+  let moi = that.slice(1)
+  let cat = ()
+  let tu = mo + 1
+  for k in range(1, so) {
+    let dich = tich.at(mo) + muc * k
+    let tot = none
+    let lech = none
+    for i in moi {
+      if i < tu { continue }
+      let d = tich.at(i) - dich
+      let ad = if d < 0pt { -d } else { d }
+      if lech == none or ad < lech { lech = ad; tot = i }
     }
+    if tot != none { cat.push(tot); tu = tot + 1 }
+  }
+  if cat.len() == 0 { return nd }
+  // Cắt xong mà có cột vẫn quá sức chứa thì bỏ, để Typst tự rót.
+  let bien = (mo,) + cat + (cs.len(),)
+  let cao-moi = range(bien.len() - 1).map(k =>
+    tich.at(bien.at(k + 1)) - tich.at(bien.at(k)))
+  if cao-moi.fold(0pt, calc.max) > cao-cot - an { return nd }
+
+  // ----- ghép lại, chèn #colbreak() ở các mối đã chọn -----
+  let kq = ()
+  for (i, c) in cs.enumerate() {
+    if cat.contains(i) { kq.push(colbreak()) }
     kq.push(c)
-    dang = dang + cao.at(i)
   }
   kq.join()
 }
@@ -956,9 +1076,11 @@
     let (nd0, sau) = _tach-thoi-cot(body)
     if nd0 != none {
       let nd = _cot-than(nd0)
+      let (cao-dau, cao-cot) = _cao-vung()
       layout(kich => {
         let wcol = (kich.width - khoang * (so - 1)) / so
-        let than = if can { _can-cot(nd, so, wcol, kich.height * so) } else { nd }
+        let hc = if cao-cot == none { kich.height } else { cao-cot }
+        let than = if can { _can-cot(nd, so, wcol, cao-dau, hc) } else { nd }
         columns(so, gutter: khoang, than)
       })
     }
