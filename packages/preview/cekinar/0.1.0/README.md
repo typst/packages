@@ -256,4 +256,4 @@ Priporočila:
 
 ## Licenca
 
-Obstoječi paketi ali _templati_ kod QR na [Typst Universe](https://typst.app/universe/package/rustycure) imajo celo licence GPL, zato je licenca [`EUPL-1.2`](./LICENCE.md) temu in jeziku primerna. Uporablja jo na primer paket [`ibanator`](https://typst.app/universe/package/ibanator).
+Obstoječi paketi ali _templati_ kod QR na [Typst Universe](https://typst.app/universe/package/rustycure) imajo celo licence GPL, zato je licenca [`EUPL-1.2`](./LICENSE) temu in jeziku primerna. Uporablja jo na primer paket [`ibanator`](https://typst.app/universe/package/ibanator).
