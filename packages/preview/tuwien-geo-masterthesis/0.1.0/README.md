@@ -65,7 +65,9 @@ Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for setup, 
 
 ## Local Installation
 
-Local install is handled by [`gotpm`](https://github.com/npikall/gotpm):
+For development purposes you might want to install the template locally on your machine.
+In this repository the local installation is handled by [`gotpm`](https://github.com/npikall/gotpm).
+You can run the following commands, to test changes you have made to the template.
 
 ```bash
 gotpm install            # install as @local/tuwien-geo-masterthesis:0.1.0
