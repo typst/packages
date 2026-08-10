@@ -2,8 +2,8 @@
 
 Automatic aspect-ratio-preserving nested tree layouts for (mostly photo) mosaics.
 
-![Six items — two photos, three placeholders, and a fixed-height caption strip — auto-laid-out to fill the available box while each keeps its own aspect ratio.](docs/figure1.svg)
-
+![Six items — two photos, three placeholders, and a fixed-height caption strip — auto-laid-out to fill the available box while each keeps its own aspect ratio.](docs/figure1.svg) \
+_(Figure code see [`docs/figure1.typ`](docs/figure1.typ))_
 
 Lays out grids of images (or arbitrary content) that fill an available box while
 preserving every element's aspect ratio and keeping uniform gaps, and lets you either
@@ -12,7 +12,7 @@ build the layout tree yourself or have one searched for automatically.
 ## Usage
 
 
-#### Auto-Layout: Automatically find optimal arrangement and compute cell sizes to fill available space while preserving aspect ratios
+### Auto-Layout: Automatically find optimal arrangement and compute cell sizes to fill available space while preserving aspect ratios
 
 ```typ
 #import "@preview/automosaic:0.1.0": *
@@ -32,9 +32,10 @@ context display-auto-layout(
 )
 ```
 
-![display-auto-layout searches recursive splits for the one whose areas best match given weights.](docs/figure3.svg)
+![display-auto-layout searches recursive splits for the one whose areas best match given weights.](docs/figure3.svg) \
+_(Figure code see [`docs/figure3.typ`](docs/figure3.typ))_
 
-#### Manual-Layout: Manually specify the coarse arrangement and automatically compute the cell sizes
+### Manual-Layout: Manually specify the coarse arrangement and automatically compute the cell sizes
 
 A layout consists of alternating nested horizontally and vertically stacked containers, specified by nested arrays. To specify additional parameters, see [`display-content-tree`](#display-content-treeitems-axis-horizontal-gap-05em) below.
 
@@ -57,17 +58,8 @@ context display-content-tree(
 )
 ```
 
-![A horizontal group's children stack vertically inside it (and vice versa) with a uniform gap at every level.](docs/figure2.svg)
-
-These figures are themselves rendered with `display-auto-layout` (figures 1 and 3) and
-`display-content-tree` (figure 2) — see `docs/figure1.typ`, `docs/figure2.typ`,
-`docs/figure3.typ`, regenerate them with:
-
-```bash
-typst compile --root . docs/figure1.typ docs/figure1.svg --format svg
-typst compile --root . docs/figure2.typ docs/figure2.svg --format svg
-typst compile --root . docs/figure3.typ docs/figure3.svg --format svg
-```
+![A horizontal group's children stack vertically inside it (and vice versa) with a uniform gap at every level.](docs/figure2.svg) \
+_(Figure code see [`docs/figure2.typ`](docs/figure2.typ))_
 
 ## Details
 
@@ -101,8 +93,7 @@ automatically to fill the available space while preserving aspect ratios.
 For finer control than the array shorthand gives you — different gaps per level, or
 assembling a tree piecemeal — build content-dicts directly with `make-content-dict` /
 `add-body-to-content-dict`, then call `resolve-aspect`, `resolve-stretchable`, and
-`fit-content-dict` yourself. See `test/layout.typ` for worked examples of every case
-above, including constant-size and stretchable elements in nested layouts.
+`fit-content-dict` yourself.
 
 ### `display-auto-layout(items, gap: 0.5em, selector: "1", fill-weight: 1.0, max-items: 8)`
 
@@ -134,9 +125,6 @@ renders the best-scoring tree:
 | `selector` | `"1"` | Which ranked tree to render — `"1"` is the best-scoring, `"2"` the second-best, and so on; trailing dots (`"1."`, `"1.."`) step through equal-cost reorderings of the same tree (e.g. mirroring which side the odd-one-out sits on). |
 | `fill-weight` | `1.0` | How strongly page-fill is rewarded relative to matching the given `weight`s. |
 | `max-items` | `8` | Caps the item count, since the number of possible trees grows very fast. |
-
-See `test/auto-layout.typ` for examples of weights, ranking, and stepping through
-symmetric variants.
 
 ## Limitations
 
