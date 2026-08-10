@@ -12,7 +12,7 @@ Pronunciation is _/tsek**i**n/_.
 
 Nekaj primerov je vidnih v [GIF](./upn-qr.gif) oziroma v [PDF](./primeri/primeri.pdf).
 
-Privzeti primer z vsemi možnimi in hkrati privzetimi argumenti se nahaja tudi v [`./upn-qr/upn-qr.typ`](`./upn-qr/upn-qr.typ`):
+Privzeti primer z vsemi možnimi in hkrati privzetimi argumenti se nahaja tudi v [`./upn-qr/upn-qr.typ`](./upn-qr/upn-qr.typ):
 ```typ
 #import "@preview/cekinar:0.1.0": *
 
