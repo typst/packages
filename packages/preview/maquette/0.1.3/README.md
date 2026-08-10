@@ -8,7 +8,7 @@ Maquette is a [Typst](https://typst.app) plugin that renders 3D models directly 
 
 Maquette takes STL, OBJ, and PLY files and turns them into SVG or PNG images at compile time, right inside the Typst pipeline. Point a camera, set up lighting, pick a shading model, and the result lands in your PDF. Change a parameter, recompile, done. This makes it practical to embed technical 3D illustrations in engineering reports, research papers, and documentation without maintaining a separate asset pipeline.
 
-Everything runs as a single WASM plugin (~485 KB), with focus on speed.
+Everything runs as a single WASM plugin (~505 KB), with focus on speed.
 
 **[Try it live in your browser →](https://bernsteining.github.io/maquette/)** — drag to orbit, tweak every setting, and copy the generated Typst code. It runs the exact same WASM as the plugin, fully client-side. Because your browser JIT-compiles the WASM (Typst runs it in an interpreter), the demo is dramatically faster to iterate on — the quickest way to dial in a camera angle and lighting before pasting the code into your document, with no recompile between tweaks.
 
