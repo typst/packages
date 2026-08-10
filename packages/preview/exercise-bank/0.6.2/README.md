@@ -986,7 +986,8 @@ MIT License - see LICENSE file for details.
 - **`badge-position: "above"`** — put the badge alone on a header line and let the statement run the full width underneath, instead of reserving a left badge column on every line. Independent of `badge-style`, so every badge look keeps working; useful in a narrow measure or with enumerated statements.
 
 #### Fixed
-- **Stable layout for `link-style: "page"` references** — `make-page-ref` no longer opens its own `context`. With `badge-position: "margin"` the reference is measured by wrap-it to reserve the wrap zone, and a nested `context` could not resolve against the real document, producing "a measured element did not stabilize" and "query for elements labelled … did not stabilize" errors.
+- **Page-counter convergence for `link-style: "page"` references** — the "Solution p. 30" reference sits in an `auto` grid column, so its width feeds back into the layout: a page number growing from 9 to 10 narrowed the text column, reflowed the statement and changed the number again ("page counter did not converge"). `make-page-ref` now reserves a width computed from an all-9s number of the same digit count, which no longer varies between layout passes.
+- **Measurement stability for `link-style: "page"` references** — `make-page-ref` no longer opens its own `context`. With `badge-position: "margin"` the reference is measured by wrap-it to reserve the wrap zone, and a nested `context` could not resolve against the real document, producing "a measured element did not stabilize" and "query for elements labelled … did not stabilize" errors.
 
 ### [0.6.1] - 2026-07-17
 
