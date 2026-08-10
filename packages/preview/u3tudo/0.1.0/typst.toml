@@ -5,7 +5,7 @@ entrypoint = "lib.typ"
 authors = ["Jannis Guido Speer"]
 license = "MIT"
 description = "PhD theses at TU Dortmund University"
-repository = "https://github.com/jspeer/u3tudo"
+repository = "https://github.com/jannisspeer/u3tudo"
 keywords = ["thesis", "phd", "tu-dortmund", "dissertation"]
 categories = ["thesis"]
 

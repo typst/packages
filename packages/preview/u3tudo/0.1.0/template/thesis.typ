@@ -1,4 +1,4 @@
-#import "../lib.typ": thesis, mainmatter, appendix, backmatter
+#import "@preview/u3tudo:0.1.0": thesis, mainmatter, appendix, backmatter
 
 #show: thesis.with(
   title: "Title of the PhD Thesis",
