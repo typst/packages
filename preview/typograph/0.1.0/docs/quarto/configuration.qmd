@@ -1,0 +1,96 @@
+# Configuration and Scoping
+
+Setting a default once instead of repeating it on every `diagram()` call has
+three different mechanisms in `typograph`, because `#set` — Typst's own
+scoped-default syntax — is reserved for *element* functions, and `diagram`
+isn't one. `#set typ.diagram(..)` is a hard compile error, and no package can
+change that. The three mechanisms cover the same ground `#set` would have:
+
+## 1. `diagram.with(..)` — the idiomatic default
+
+Typst's own partial application, free at runtime:
+
+```typ
+#let diagram = typ.diagram.with(theme: my-theme, scale: 0.8cm, font-size: 9pt)
+```
+
+Bind this once near the top of a document (or a project's shared theme
+file) and call `diagram({ .. })` everywhere after. A `let`-shadowed rebind
+later in the document gives scoped defaults for free, following normal
+Typst scoping — this is the right default for anything the author of the
+document controls directly.
+
+## 2. `#set text(..)` — already works
+
+Node and edge labels are set in `1em` and inherit the surrounding text
+style, so `#set text(size: 9pt)` (or any other text property) affects
+diagram labels exactly as it affects running prose, with no package
+involvement at all.
+
+## 3. `config()` — for call sites you don't control
+
+```typ
+typ.config(
+  body,
+  scale: .., scale-edges: .., font-size: .., grid: .., inset: ..,
+  anchor: .., math-axis: .., baseline: ..,
+  node-styles: .., edge-styles: ..,
+)
+```
+
+`config()` supplies these non-theme defaults to every `diagram()` inside
+`body` that doesn't override the same argument itself. It exists for the one
+case `.with()` can't reach: diagrams inside content you don't directly
+control the call sites of — an `#include`d chapter, or a template applied
+`#show: template.with(..)` over a whole document:
+
+```typ
+#show: typ.config.with(font-size: 9pt, scale: 0.8cm)   // whole document
+```
+
+or scoped to one section:
+
+```typ
+#typ.config(font-size: 7pt)[
+  ... diagrams here are small ...
+]
+```
+
+Scopes **nest and revert**: a nested `config()` overrides its parent for its
+own body, then reverts cleanly once that body ends, and a diagram's own
+explicit argument always wins over any configured default, at any nesting
+depth.
+
+```typ
+#typ.config(font-size: 8pt, scale: 0.6cm)[
+  Small throughout this scope:
+  #diagram({ typ.edge(typ.node(0, 0, label: $alpha$), typ.node(1, 0)) })
+
+  #typ.config(font-size: 13pt, scale: 1cm)[
+    A nested scope overrides it:
+    #diagram({ typ.edge(typ.node(0, 0, label: $alpha$), typ.node(1, 0)) })
+  ]
+
+  ...and reverts afterwards:
+  #diagram({ typ.edge(typ.node(0, 0, label: $alpha$), typ.node(1, 0)) })
+]
+```
+
+`node-styles`/`edge-styles` are the one place `config()` does more than
+plain override: they **merge** with whatever the package/theme already
+contributed rather than replacing it wholesale — `node-styles` merges one
+level by kind, `edge-styles` merges shallowly — and a diagram's own
+`node-styles:`/`edge-styles:` then merges on top of the configured ones, the
+same "later wins, per key" rule as everywhere else in the style system (see
+[Core Concepts](concepts.qmd#style-resolution-the-same-idea-twice)).
+
+`theme` is deliberately not a `config()` option, for the same reason it
+isn't a plain default anywhere else: appearance is always bound explicitly
+with `diagram.with(theme: ..)`, never inherited implicitly from an enclosing
+scope.
+
+Implementation note, for anyone curious why this needed `state` at all when
+`.with()` didn't: `config()` is a stack held in document `state`, so nested
+scopes revert correctly, read during the diagram's own contextual layout
+pass — it doesn't add a separate pass of its own. See
+[Performance Model](dev/performance.qmd) for the renderer's actual passes.

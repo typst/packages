@@ -1,0 +1,95 @@
+# Shape Reference
+
+See [Shape Builders](../shapes.qmd) for the narrative version and the
+rendered gallery.
+
+## Direct builders
+
+| Builder | Behavior |
+|---|---|
+| `typ.shapes.empty` | No shape, no label. |
+| `typ.shapes.bare` | Label only, no outline. |
+| `typ.shapes.circle` | Fitted circle. Rotation-invariant. |
+| `typ.shapes.ellipse` | Independently fitted horizontal/vertical radii. Rejects nonzero `rotate`. |
+| `typ.shapes.stadium` | Maximally rounded fitted rectangle. Rejects nonzero `rotate`. |
+| `typ.shapes.rect` | Fitted rectangle using `style.radius`. Rejects nonzero `rotate`. |
+| `typ.shapes.square` | Square fitted to the larger axis. Rejects nonzero `rotate`. |
+| `typ.shapes.triangle` | Equilateral, directional, label nudge. Honors `flip`. |
+| `typ.shapes.flat-triangle` | Wide, directional. Honors `flip`. |
+| `typ.shapes.trapezoid` | Uses `style.slant`. Honors `flip`. |
+| `typ.shapes.arrow` | Uses `style.tip`. Honors `flip`. |
+| `typ.shapes.diamond` | Independently fitted rhombus. Polygon-based; supports rotation. |
+| `typ.shapes.hexagon` | Regular six-sided, established clearance. Supports rotation. |
+
+`triangle`, `flat-triangle`, `trapezoid`, and `arrow` mirror across the local
+y-axis (`style.flip`) *before* `style.rotate` is applied — see
+[Directional shapes and flip](../shapes.qmd#directional-shapes-and-flip).
+
+## Factories
+
+```typ
+typ.shapes.regular(vertices: 3, rotate: 0deg, clearance: auto)
+```
+`vertices` is an integer ≥ 3. Factory `rotate` is precomputed once; a node's
+own `style.rotate` composes afterward. `clearance: auto` derives breathing
+room from the circumradius/apothem ratio; a positive number overrides it.
+
+```typ
+typ.shapes.polygon(vertices, anchor: auto, rotate: 0deg, clearance: 1, label-offset: (0, 0))
+```
+`vertices` is ≥ 3 unitless numeric point pairs, uniformly scaled to fit
+while preserving aspect ratio. `anchor: auto` uses the template bounding-box
+centre; pass an explicit point when that centre would land outside a
+concave silhouette (the node origin must be strictly inside — wire clipping
+casts a ray from it). `rotate:` rotates the *template* before fitting.
+`clearance:` is a number or `(x, y)` pair. `label-offset:` is a
+template-space vector, scaled/rotated with the polygon. Concave polygons are
+supported; self-intersecting ones are not.
+
+## Custom builder contract
+
+Conceptual signature: `(measured-label, resolved-inset, resolved-style) => outline`.
+
+- `measured-label`: absolute `width`/`height`.
+- `resolved-inset`: absolute `left`/`right`/`top`/`bottom`.
+- `resolved-style`: every merged style value; core geometric fields already
+  scaled to absolute units, unknown custom fields passed through unchanged.
+
+Supported return kinds:
+
+```text
+(kind: "empty")
+(kind: "bare")
+(kind: "circle", radius: <non-negative length>)
+(kind: "ellipse", half-width: <length>, half-height: <length>)
+(kind: "rect", half-width: <length>, half-height: <length>, radius: <length>)
+(kind: "polygon", points: <absolute point array>, label-offset: <absolute pair>)
+```
+
+`circle`/`ellipse`/`rect` may include an optional absolute `label-offset`;
+`polygon` requires it; `empty`/`bare` reject one entirely. The renderer adds
+the standard per-side inset displacement afterward and unions the shifted
+label with the silhouette for diagram bounds.
+
+Helpers: `typ.fit-box(label, pad, style, clear-x: 1, clear-y: 1, square:
+false)` returns a fitted `(width, height)`. `typ.polygon-outline(points,
+label-offset: (0pt, 0pt))` validates absolute-length points and returns a
+complete polygon outline. `typ.rotate-point(point, angle)` is exported for
+custom geometry that needs it directly. `typ.shapes.build-outline(builder,
+measured-label, resolved-inset, style)` is the renderer's own validator,
+useful for testing a builder in isolation (needs a `context` — see
+[Custom shape builders](../shapes.qmd#custom-shape-builders) for a worked
+example).
+
+## Limitations
+
+- Axis-aligned `ellipse`, `stadium`, `rect`, `square`, and `bare` reject
+  nonzero rotation outright; use a polygon or custom builder for rotated
+  geometry.
+- Rectangular outlines support one uniform corner radius, not per-corner
+  radii.
+- Arbitrary polygons must be simple and non-degenerate, with their anchor
+  strictly inside; concave shapes work, self-intersections don't.
+- The custom-builder protocol covers closed circle/ellipse/rectangle/polygon
+  silhouettes plus empty/bare. An open path or a shape with a hole needs a
+  new core outline kind — see [Extending typograph](../dev/extending.qmd).

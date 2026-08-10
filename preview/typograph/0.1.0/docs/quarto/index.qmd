@@ -1,0 +1,105 @@
+# Introduction
+
+`typograph` draws diagrams — nodes, edges, curves, ports, highlights, and
+reusable fragments — with Typst's native graphics. No CeTZ, no LaTeX/TikZ
+dependency. It has no opinion about what a node should look like; a
+document supplies that itself, or through a theme.
+
+## Two packages, on purpose
+
+Most diagramming libraries fuse a drawing engine and a visual language into
+one thing. This project keeps them separate:
+
+- **`typograph`** (this package) is a neutral engine. It knows how to lay
+  out nodes and edges, resolve styles, clip wires to silhouettes, and draw
+  — but it has no built-in notion of what any particular kind of node
+  should look like.
+- **[`typograph-zx`](https://bencichos.github.io/typograph-zx/)** is a companion package built entirely
+  on typograph's public API: ZX-calculus and continuous-variable ZX-calculus
+  notation — spiders, Hadamards, multipliers, Pauli-web highlighting — as a
+  complete, ready-to-use theme.
+
+Nothing from either package is applied unless a document asks for it:
+
+```typ
+#import "@preview/typograph:0.1.0" as typ
+#import "@preview/typograph-zx:0.1.0" as zx
+#let diagram = typ.diagram.with(theme: zx.theme)
+```
+
+Binding a theme is the entire coupling between "drawing engine" and "visual
+language" — `typ.diagram` alone renders a completely neutral diagram, every
+node invisible until you give it a shape. This is why a generic node like
+`box()` or `gate()` ships *inside* typograph rather than in a theme package
+(the engine needs *some* useful default so it's not useless out of the box)
+while remaining fully restylable through the same theme mechanism as
+anything else — see [Theming](theming.qmd) for a gate with a custom outline
+colour.
+
+The [Developer Guide](dev/architecture.qmd) goes into why this split exists
+and what it costs.
+
+## Install and import
+
+From a Typst package installation:
+
+```typ
+#import "@preview/typograph:0.1.0" as typ
+```
+
+Or, working inside this repository, import the source directly:
+
+```typ
+#import "/src/lib.typ" as typ
+```
+
+typograph has no bundled theme of its own to bind — it's directly useful
+with your own `style:` dictionaries, and you can build up a full theme when
+you want one (see [Theming](theming.qmd)). To draw ZX-calculus diagrams
+specifically, add [`typograph-zx`](https://bencichos.github.io/typograph-zx/) and bind its theme:
+
+```typ
+#import "@preview/typograph:0.1.0" as typ
+#import "@preview/typograph-zx:0.1.0" as zx
+#let diagram = typ.diagram.with(theme: zx.theme)
+```
+
+Bind a theme once and reuse that binding throughout the document — this is
+the idiomatic entry point for everything that follows.
+
+## Quick start
+
+Diagram coordinates use the mathematical convention: `x` increases to the
+right and `y` increases upward.
+
+```{.typst filename="quickstart.typ"}
+{{< include img/quickstart.typ >}}
+```
+
+![Quick start diagram](img/quickstart.svg)
+
+An edge automatically contributes the nodes at its endpoints — `edge(a, b)`
+draws `a`, `b`, *and* the wire between them. A node with no edge touching it
+has nothing to contribute it, so it must be emitted as a bare statement:
+
+```typ
+#diagram({
+  let k = typ.node(0, 0, label: $k$, style: (shape: typ.shapes.bare))
+  k
+})
+```
+
+## Where to go next
+
+- [Core Concepts](concepts.qmd) explains how a diagram body collects nodes,
+  edges, and content, and how style resolution works everywhere in the
+  package.
+- [Drawing Nodes](nodes.qmd), [Shape Builders](shapes.qmd), and
+  [Drawing Edges](edges.qmd) cover the building blocks in depth — including
+  every curve control and the waypoint system.
+- [Theming](theming.qmd) walks through writing a complete custom theme file,
+  from an empty palette to a restyled gate.
+- [ZX Theme](https://bencichos.github.io/typograph-zx/) covers `typograph-zx`: its constructors, its
+  bundled appearance, and how to extend it.
+- The [Reference](reference/diagram.qmd) section is the exhaustive,
+  lookup-first version of everything the guide introduces narratively.

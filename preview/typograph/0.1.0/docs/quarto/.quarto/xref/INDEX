@@ -1,0 +1,56 @@
+{
+  "index.qmd": {
+    "index.html": "725de8c7"
+  },
+  "concepts.qmd": {
+    "concepts.html": "ad5a3b50"
+  },
+  "nodes.qmd": {
+    "nodes.html": "4a95f06d"
+  },
+  "shapes.qmd": {
+    "shapes.html": "1a615692"
+  },
+  "edges.qmd": {
+    "edges.html": "b9238d9c"
+  },
+  "theming.qmd": {
+    "theming.html": "eb77ac51"
+  },
+  "configuration.qmd": {
+    "configuration.html": "8ce7780a"
+  },
+  "fragments.qmd": {
+    "fragments.html": "f3b6a92f"
+  },
+  "dev/architecture.qmd": {
+    "architecture.html": "418b0b86"
+  },
+  "dev/performance.qmd": {
+    "performance.html": "f34a0681"
+  },
+  "dev/extending.qmd": {
+    "extending.html": "67ef7669"
+  },
+  "dev/testing.qmd": {
+    "testing.html": "8d8a7b65"
+  },
+  "reference/diagram.qmd": {
+    "diagram.html": "5c154db0"
+  },
+  "reference/nodes.qmd": {
+    "nodes.html": "a34822d3"
+  },
+  "reference/shapes.qmd": {
+    "shapes.html": "5e86ed5d"
+  },
+  "reference/edges.qmd": {
+    "edges.html": "7db6cdbd"
+  },
+  "reference/theme.qmd": {
+    "theme.html": "fee7a4e5"
+  },
+  "reference/content.qmd": {
+    "content.html": "5acc090d"
+  }
+}

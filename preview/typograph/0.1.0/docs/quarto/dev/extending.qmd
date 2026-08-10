@@ -1,0 +1,70 @@
+# Extending typograph
+
+## Where things live
+
+| Concern | Module |
+|---|---|
+| Diagram item tags, vector math, direction parsing | `src/utility.typ` |
+| Coordinate flip, inset resolution, rotation/flip math, outline-radius geometry | `src/geometry.typ` |
+| Style dictionaries: defaults, merging, validation | `src/style.typ` |
+| Shape builders and the custom-builder contract | `src/shape.typ` |
+| Node constructors, `node-type()`, `make-node()` | `src/node.typ` |
+| Edge parsing, curve resolution, clipping, `edge-type()` | `src/edge.typ` |
+| Theme values and validation | `src/theme.typ` |
+| Scoped non-theme defaults (`config()`) | `src/config.typ` |
+| `place()`, `group()` | `src/content.typ` |
+| Orchestration: passes, bounds, final layout | `src/diagram.typ` |
+| Public facade | `src/lib.typ` |
+| The bundled ZX interpretation | `themes/typ.typ` |
+
+## Adding a new theme kind
+
+Almost never requires touching the package at all — see
+[Theming](../theming.qmd#defining-new-node-and-edge-kinds). `node-type()`/
+`edge-type()` plus a `node-presets`/`edge-presets` entry covers the large
+majority of "add a new kind of node/wire" requests.
+
+## Adding a new shape builder
+
+Also doesn't require touching the package, as long as the geometry reduces
+to one of the five outline kinds the renderer already understands (empty,
+bare, circle, ellipse, rectangle, polygon) — see
+[Custom shape builders](../shapes.qmd#custom-shape-builders). Test a new
+builder in isolation with `typ.shapes.build-outline` before wiring it into a
+`node-type()` constructor; it's the same validator the renderer itself calls
+at that boundary, so a builder that passes it will behave correctly inside
+a real diagram too.
+
+## Adding a genuinely new outline primitive
+
+This is the one case that *does* require package changes — an open path, a
+compound shape, or a silhouette with a hole isn't expressible as any
+existing outline kind. It needs, at minimum:
+
+1. A new `kind` value in the outline schema (`shape.typ`), plus its
+   required fields.
+2. `typ.shapes.build-outline` validation for the new kind's fields.
+3. Drawing logic wherever outlines become Typst elements (`diagram.typ`'s
+   node-drawing pass).
+4. Bounds logic — how the new kind's extent folds into the diagram's
+   overall bounds.
+5. Clipping logic — how an edge finds its exit point against the new
+   silhouette (`edge.typ`'s outline-intersection code), including whether
+   an analytic intersection is possible or a sampled search is required
+   (see [Performance Model](performance.qmd)).
+6. A port-projection rule, if the new kind should support gate-style ports.
+
+Each of these is a real, separate piece of work — they don't share an
+abstraction today, because each one answers a different question about the
+same outline (how does it draw, how big is it, where does a ray exit it,
+where do ports sit on it). Before adding a new kind, check whether the
+shape is actually expressible as an existing one first (a "hole" is
+sometimes better modeled as two overlapping nodes than as a true compound
+outline, for instance) — extending the outline schema is a last resort, not
+the first tool to reach for.
+
+## Testing changes
+
+Whatever you change, `bash tests/run.sh` before and after — see
+[Testing](testing.qmd) for what the suite actually checks and how to add a
+new case to it.

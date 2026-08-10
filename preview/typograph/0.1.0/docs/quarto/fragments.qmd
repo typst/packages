@@ -1,0 +1,120 @@
+# Fragments and Equations
+
+## Placing arbitrary content
+
+```typ
+typ.place(x, y, body, align: center + horizon)
+```
+
+Places any Typst content at a diagram coordinate and folds its measured box
+into the diagram's bounds, the same as a node would. Alignment must be
+**physical** — `left`/`center`/`right` and `top`/`horizon`/`bottom` — rather
+than logical `start`/`end`, because diagram coordinates are physical and
+direction-independent; there's no surrounding text direction for `start`/
+`end` to resolve against.
+
+## Reusable fragments with `group()`
+
+A "fragment" is nothing more than a diagram-item array that hasn't been
+handed to `diagram()` yet — which means it's an ordinary Typst value. Define
+one once with a plain `let`, and place it as many times as you like:
+
+```typ
+#let motif = {
+  let c = typ.node(0, 0)
+  let t = typ.node(0, -1)
+  typ.edge(c, t)
+}
+
+#diagram({
+  typ.group(motif)                    // as-is
+  typ.group(dx: 2, scale: 0.6, motif) // moved and shrunk
+})
+```
+
+```typ
+typ.group(dx: 0, dy: 0, scale: 1, rotate: 0deg, pivot: (0, 0), ..items)
+```
+
+`group()` applies one affine transform to a fragment (or several — items can
+be a mix of raw diagram items and nested `group()` calls, since both are
+just item arrays):
+
+- **Translation and scaling** move and resize everything: positions,
+  deferred `rel()` vectors, Bézier controls, `bend:` amounts, gate-port
+  attachment directions, and `from:`/`to:` handle directions and strengths
+  all follow. Scaling additionally changes node shapes, label size, edge
+  strokes, and highlights — a motif built at a comfortable working size
+  still looks proportionally right stamped down smaller.
+- **Rotation** turns positions and edge geometry about `pivot`, but
+  deliberately leaves node graphics, labels, and `place()` content upright,
+  so nothing becomes harder to read just because its container fragment
+  rotated. Give an affected node its own `style: (rotate: -angle)` if its
+  *shape* should visually track the group's rotation — note the sign flip,
+  since `group` angles are the diagram's mathematical convention while a
+  node's own `style.rotate` is Typst's screen convention (see
+  [Shape Builders](shapes.qmd#built-in-builders)).
+
+```typ
+#diagram({
+  typ.group(motif)
+  typ.group(dx: 1.4, motif)   // the same gadget, reused, side by side
+})
+```
+
+For a fragment that should *vary* between placements — different labels,
+different sizes — make it a function instead of a bare value:
+
+```typ
+#let pair(a, b) = typ.edge(
+  (-0.7, 0), typ.node(0, 0, label: a), typ.node(1, 0, label: b), (1.7, 0),
+)
+
+#diagram({
+  typ.group(pair($alpha$, $beta$))
+  typ.group(dy: -1.1, pair($pi/2$, $gamma$))
+})
+```
+
+## Diagrams inside equations
+
+`diagram()` returns a box whose `y = anchor` line (`anchor:` defaults to `0`)
+is aligned to the math axis, so a diagram embedded in an equation lines up
+with the relation symbols and with any other diagram in the same equation —
+even a taller one — regardless of what content sits above or below that main
+wire:
+
+```typ
+#let lhs = diagram(scale: 0.65cm, {
+  typ.edge(typ.node(0, 0, label: $alpha$), typ.node(1, 0))
+})
+#let rhs = diagram(scale: 0.65cm, {
+  typ.edge(typ.node(0, 0), typ.node(1, 0))
+})
+
+$ #lhs = 2 dot lr(( #rhs )) $
+```
+
+Prefix an embedded diagram with `#` inside `$ .. $` — a bare identifier only
+parses correctly if its name has no hyphen, since a hyphen inside math is a
+minus sign (`fuse-lhs` would parse as `fuse - lhs`), so `#` is the form that
+always works regardless of naming. Use `lr(( .. ))` (or any other `lr()`
+delimiter pair) for brackets that should grow to the diagram's height.
+
+If a diagram's main wire isn't at `y = 0`, name the actual line with
+`anchor:` so it — not the diagram's geometric centre — is what aligns to the
+math axis:
+
+```typ
+#let two-wire(a) = diagram(scale: 0.55cm, anchor: a, {
+  typ.edge((0, 0), (1.6, 0))
+  typ.edge((0, 1), (1.6, 1))
+})
+
+$ #two-wire(0) != #two-wire(1) $
+```
+
+`math-axis` (normally `0.25em`) and `baseline` (normally computed, but
+overridable directly) are the two lower-level knobs this alignment is built
+from — see the [Diagram Reference](reference/diagram.qmd) if the computed
+placement ever needs a manual nudge.

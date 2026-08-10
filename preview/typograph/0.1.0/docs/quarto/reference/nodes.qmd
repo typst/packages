@@ -1,0 +1,99 @@
+# Node Reference
+
+See [Drawing Nodes](../nodes.qmd) for the narrative version.
+
+## Generic constructors
+
+```typ
+typ.node(x, y, label: none, name: none, style: (:), kind: "node", base-style: (:))
+```
+Fully general; neutral default is `shapes.empty`.
+
+```typ
+typ.box(x, y, label: none, fill: auto, stroke: auto, inset: auto, radius: auto, name: none, style: (:))
+```
+Generic rectangle; direct appearance arguments layer at the call site.
+
+```typ
+typ.gate(x, y, label, legs: (left: 1, right: 1), size: auto, inset: auto, name: none, style: (:), kind: "gate")
+```
+Labelled, port-capable. `legs` values are non-negative integers; automatic
+minimum size grows with the largest count per axis; `size: (w, h)` overrides
+it. `kind:` selects the theme preset independently of port capability.
+
+```typ
+typ.port(node, side, index: 0)
+```
+`side` is `"left"`/`"right"`/`"top"`/`"bottom"`; `index` may be positional.
+Resolved once the node's measured outline is known; carries its node, so an
+edge through a port alone still draws the gate.
+
+```typ
+typ.node-type(kind, base-style: (:), flippable: false)
+```
+Returns `(x, y, label: none, name: none, style: (:))`, or, with
+`flippable: true`, `(x, y, label: none, flip: auto, name: none, style: (:))`.
+`kind` must be a string. See
+[Directional shapes and flip](../shapes.qmd#directional-shapes-and-flip) for
+when to set `flippable: true`.
+
+```typ
+typ.make-node(kind, x, y, label: none, name: none, style: (:), base-style: (:), size-scale: 1, ..extra)
+```
+Low-level escape hatch `node-type` is built on; extra fields can't replace
+reserved item fields. Prefer `node-type` unless a constructor genuinely
+needs extra metadata `node-type` doesn't expose.
+
+## Style keys
+
+```typ
+typ.node-defaults  // ==
+(
+  shape: typ.shapes.empty,
+  shape-labelled: auto,
+  fill: none,
+  stroke: none,
+  min-width: 0pt,
+  min-height: 0pt,
+  inset: 0pt,
+  radius: 0pt,
+  rotate: 0deg,
+  flip: false,
+  slant: 0.55,
+  tip: 0.32,
+  font-size: auto,
+)
+```
+
+| Key | Contract |
+|---|---|
+| `shape` | Builder function. See [Shape Reference](shapes.qmd). |
+| `shape-labelled` | Alternate builder used only when a label is present, or `auto`. |
+| `fill`, `stroke` | Native Typst paint/stroke values. |
+| `min-width`, `min-height`, `min-size` | `min-size` shorthand expands both axes; an explicit per-axis key wins on its axis within one dictionary regardless of write order; across dictionaries, later always wins on whichever axis it sets. |
+| `inset` | Number/length, or side dictionary (`left`/`right`/`top`/`bottom`/`x`/`y`/`rest`); unknown side keys error. |
+| `radius` | Uniform corner radius for `rect`/`square`: length, percentage, or relative length; clamped to the maximum sensible rounded radius. No per-corner radii. |
+| `rotate` | Angle, Typst screen convention (`+90deg` visually clockwise). Rejected (not ignored) by axis-aligned builders when nonzero. |
+| `flip` | Boolean; mirrors a directional builder across its local y-axis, before `rotate`. |
+| `slant` | Consumed by `trapezoid`. |
+| `tip` | Consumed by `arrow`. |
+| `font-size` | `auto`, or a length overriding this node's label size. |
+
+Node style dictionaries are **open**: unknown keys pass through to a custom
+`shape` builder unchanged, rather than erroring. Compare
+[Edge style keys](edges.qmd#style-keys), which are closed.
+
+## Precedence
+
+```text
+typ.node-defaults
+  -> constructor base-style
+  -> selected theme's preset for node.kind
+  -> diagram(node-styles: (kind: (...)))
+  -> node(style: (...)), and direct box()/gate() arguments
+```
+
+A theme's own node constructor table — like
+[`typograph-zx`'s](https://bencichos.github.io/typograph-zx/) — lives in
+that theme's own reference, not here: this page only covers the generic
+constructors every theme is built from.

@@ -1,0 +1,217 @@
+# Drawing Edges
+
+```typ
+typ.edge(
+  ..waypoints,
+  from: auto, to: auto, bend: 0,
+  highlight: auto, clip: auto,
+  label: none, label-pos: 0.5,
+  stroke: auto, preset: none,
+  style: (:), base-style: (:),
+)
+```
+
+An edge needs at least two waypoints and draws one continuous path through
+all of them. A waypoint can be a node, a `port(...)`, an absolute `(x, y)`
+coordinate, a `ref(name)`, a `rel(dx, dy)` (except in first position), a
+`smooth(waypoint)` guide, or an explicit `line`/`quad`/`cubic` path element.
+More than two waypoints form one path through all of them in order — not a
+separate edge per pair.
+
+## Deferred endpoints
+
+```typ
+typ.rel(dx, dy)
+```
+
+Adds an offset from the *preceding resolved* waypoint. This has to be
+deferred rather than computed immediately, because the preceding waypoint
+might itself not have a known position yet — a port's exact position isn't
+resolved until the node's measured outline is known, so `rel` after a port
+waits for that:
+
+```typ
+typ.edge(typ.port(g, "left"), typ.rel(-1, 0))
+```
+
+```typ
+typ.ref(name)
+```
+
+Looks up a node emitted elsewhere *in the same diagram* by its `name:`.
+`name` must be a string, and a reference points to a node without emitting
+it — the node still needs its own bare statement, exactly as in
+[Core Concepts](concepts.qmd#a-diagram-body-is-just-a-list-of-items):
+
+```typ
+#diagram({
+  typ.node(0, 0, name: "a")
+  typ.node(1, 0, name: "b")
+  typ.edge(typ.ref("a"), typ.ref("b"))
+})
+```
+
+Unknown references and duplicate node names are both errors.
+
+## Curves and control points
+
+Four levels of control, from least to most explicit:
+
+```typ
+typ.edge(a, b, bend: 0.4)
+typ.edge(a, typ.smooth((1, 1)), b)
+typ.edge(a, b, from: right, to: (top, 1.5))
+typ.edge(a, typ.quad((1, 1), b))
+typ.edge(a, typ.cubic((0.3, 1), (1.7, 1), b))
+```
+
+```{.typst filename="curves.typ"}
+{{< include img/curves.typ >}}
+```
+
+![The five curve controls](img/curves.svg)
+
+- **`bend:`** applies a signed perpendicular offset, in diagram units, to
+  each plain segment — the easiest way to separate two wires that would
+  otherwise overlap.
+- **`smooth(waypoint)`** marks an *interior* waypoint as a quadratic Bézier
+  guide rather than an exact corner. Consecutive `smooth()` guides form one
+  tangent-continuous run; a bare waypoint ends that run at its exact
+  coordinate and starts a sharp corner for whatever follows — so one edge
+  can freely mix smooth sections and sharp corners:
+
+  ```typ
+  typ.edge(a, typ.smooth((1, 1)), b, (3, 0), typ.smooth((4, 1)), c)
+  ```
+
+  The first and last waypoints must always stay exact; only interior ones
+  can be wrapped in `smooth()`.
+- **`from:`/`to:`** pull outward handles from the first and last endpoint of
+  a *simple two-waypoint* edge. A direction is an angle,
+  `left`/`right`/`top`/`bottom`, or an explicit `(direction, strength)` pair,
+  and both are read outward from their own endpoint. With clipping enabled
+  (the default), the direction also selects the *exact* boundary anchor —
+  `to: right` lands precisely on an arrow shape's right-hand tip — and the
+  strength is the handle length measured outward from that visible point.
+  With `clip: false`, the corresponding anchor is the node centre instead.
+- **`line(end)`, `quad(control, end)`, `cubic(control-start, control-end,
+  end)`** are explicit path segments with diagram-coordinate control points,
+  for when a guide or a bend isn't precise enough.
+
+`bend:`, `smooth()`, and `from:`/`to:` are alternatives on one edge — mixing
+them is an error. Explicit path elements can't be combined with `smooth()`
+on the same edge either, since both are ways of specifying the same
+curvature.
+
+## Clipping and directed anchors
+
+With `clip: true` (the default), an endpoint on a node is trimmed to that
+node's **true resolved silhouette**, not a bounding-box approximation — this
+works for circle, ellipse, rounded-rectangle, and polygon outlines alike.
+Coordinates and ports already denote exact points and need no trimming.
+
+- An explicit `from:`/`to:` direction constructs its curve directly from the
+  selected boundary anchor (see above).
+- Other curved paths are split at their detected outline intersection,
+  keeping the path outside the node. Straight segments intersect polygon
+  edges analytically — a line that exits and re-enters a concave polygon
+  keeps its first visible section. Bézier crossings use a bounded sampling
+  search with a physical-accuracy refinement pass; the search's detection
+  guarantee doesn't cover an excursion that occurs entirely between two
+  samples.
+- `clip: false` performs no outline work at all and keeps the raw
+  node-centre endpoints. Because nodes are drawn above wires, the hidden
+  centre-to-boundary segment normally isn't visible in the final document —
+  this is mainly useful for debug guides (as in the figure above, where the
+  dotted construction lines use `clip: false` on purpose) or when you want
+  the wire to visually originate from dead centre.
+
+## Highlights
+
+`highlight:` draws two independent, configurable-opacity bands alongside the
+wire, without touching the wire's own `stroke:`. It accepts `none`, one
+colour, an empty array `()` (explicitly clearing a lower-precedence
+highlight), or a two-colour array for independent sides — a single colour
+normalizes to `(colour, colour)`, so a highlighted wire always draws the same
+two bands on opposite sides:
+
+```typ
+#diagram({
+  let a = typ.node(0, 0)
+  let b = typ.node(1, 0)
+  let c = typ.node(2, 0)
+  typ.edge(a, b, highlight: green)
+  typ.edge(b, c, highlight: (green, red))
+})
+```
+
+Highlight bands use butt caps and mitered joins — as does the default wire
+stroke itself — so neither the wire nor its highlight narrows at a sharp or
+oblique waypoint, and both end exactly at the edge's own endpoints. That
+join continuity is local to one multi-waypoint `edge(...)` call; two
+separate `edge()` objects never share join state even if they touch.
+`style.highlight-width`, `-offset`, and `-opacity` tune the bands further —
+see the [Edge Reference](reference/edges.qmd).
+
+## Labels
+
+`label:` places content at `label-pos` (default `0.5`), a true distance
+fraction from `0` to `1` along the *resolved* path — including unequal
+segment lengths and sampled Bézier arc length, not an equal share per
+segment. `style.label-offset` moves it perpendicular to the local wire
+direction; `style.label-size` overrides its type size; `style.label-fill`
+and `style.label-inset` control the knockout rectangle drawn behind it so
+the label stays legible crossing the wire.
+
+## Edge style keys
+
+```typ
+typ.edge-defaults  // ==
+(
+  stroke: stroke(paint: black, thickness: 0.55pt, cap: "butt", join: "miter"),
+  highlight: none, highlight-width: 3pt, highlight-offset: 0pt, highlight-opacity: 100%,
+  label-size: auto, label-offset: 0pt, label-fill: white, label-inset: 1.5pt,
+  clip: true,
+)
+```
+
+Edge styles are **closed**: an unrecognized key is always an error, unlike
+node styles (see [Core Concepts](concepts.qmd#style-resolution-the-same-idea-twice)
+for why). Direct `edge()` arguments like `stroke:`/`highlight:`/`clip:` use
+`auto` to mean "don't override the resolved style" — but `auto` is not
+itself a valid *value* for those two keys inside a `style:` dictionary,
+since a style layer has to fully determine its own contribution.
+
+## Named presets and reusable constructors
+
+Any theme edge preset is selected through the generic `preset:` argument:
+
+```typ
+typ.edge(a, b, preset: "alert")
+```
+
+A theme with named presets — like [`typograph-zx`'s](https://bencichos.github.io/typograph-zx/) — also
+gets direct constructors beside its node constructors, built the same way a
+project defines its own:
+
+```typ
+typ.edge-type(preset, base-style: (:))
+```
+
+`edge-type()` is the edge-side counterpart to
+[`node-type()`](nodes.qmd#reusable-node-types-node-type): `preset` is `none`
+or a string, positional, exactly like `node-type(kind, ..)`'s `kind`; the
+returned constructor forwards every normal `edge()` argument. A default
+preset is still selectable per document through the theme; the factory's
+own `base-style` sits below the named preset and any diagram/call-site
+override in the precedence chain:
+
+```typ
+#let classical = typ.edge-type(none, base-style: (
+  stroke: (paint: gray, dash: "dashed"),
+))
+```
+
+Every exact style key, the full precedence chain, and the complete
+`edge()`/`edge-type()` argument contracts are in the
+[Edge Reference](reference/edges.qmd).

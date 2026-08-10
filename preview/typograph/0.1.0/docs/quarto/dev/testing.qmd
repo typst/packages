@@ -1,0 +1,116 @@
+# Testing
+
+```bash
+bash tests/run.sh
+```
+
+runs everything: unit, API, package, configuration, and smoke tests; straight/
+shape/curve stress fixtures; a checked outline-geometry snapshot;
+documentation-source compilation; a generated-SVG staleness check; and every
+expected-failure (negative) test. It stages a throwaway local package first:
+
+```bash
+mkdir -p "$TEST_TMP/packages/local/cvzx"
+ln -s "$PWD" "$TEST_TMP/packages/local/cvzx/0.2.0"
+export TYPST_PACKAGE_PATH="$TEST_TMP/packages"
+```
+
+a symlink into the checkout itself, so every test compiles against
+`@local/cvzx:0.2.0` exactly as an end user would `#import` it, without
+actually publishing anything. This site's own figure sources
+(`docs/img/*.typ`) instead import `../../src/lib.typ` directly, since they're
+compiled with `--root .` from inside the checkout rather than through the
+staged package — both paths exercise the same code, just through the two
+different ways a document can reach it (see
+[Install and import](../index.qmd#install-and-import)).
+
+## Positive tests: must compile
+
+`tests/unit.typ`, `api-contract.typ`, `theme-contract.typ`,
+`shape-contract.typ`, `config-contract.typ`, `package-contract.typ`,
+`smoke.typ`, `highlight-waypoints.typ`, and the three stress fixtures all
+have to compile cleanly. A contract test is, in effect, "every documented
+usage pattern for this area actually runs" — when a page in this site
+shows a code snippet that isn't already backed by a rendered figure (and
+therefore isn't compiled by the staleness check below), the corresponding
+contract test file is where it's worth confirming the snippet still compiles
+against current source, especially before publishing a documentation change.
+
+## Negative tests: must fail, for the *right* reason
+
+Every file under `tests/negative/` must fail to compile, and `run.sh`
+checks the failure reason too, not just that compilation failed:
+
+```bash
+expected_error() {
+  case "$(basename "$1")" in
+    node-type-bad-flippable.typ) echo "node-type() flippable must be a boolean" ;;
+    edge-unknown-preset.typ) echo "unknown edge preset" ;;
+    # ...
+  esac
+}
+```
+
+A negative test passing because Typst happened to reject the file for some
+*unrelated* reason (a typo, say) would be worse than not having the test at
+all — it would look green while testing nothing. Adding a new validation
+error anywhere in the package should come with a new file here and a new
+case in this function, not just a new `assert()`.
+
+## The outline-geometry snapshot
+
+```bash
+typst eval 'query(raw).map(it => it.text)' --in tests/outline-probe.typ --root . --pretty
+```
+
+compares against a checked-in `tests/outline-probe.expected.json`. This
+catches accidental geometry drift — a shape builder that quietly changed its
+fitted size or label offset — that a compile-succeeds/compile-fails test
+can't see at all, since the file would still compile fine either way.
+
+## Documentation assets: must not be stale
+
+```bash
+for f in docs/img/*.typ; do
+  # compile $f to a temp SVG, compare against the committed sibling .svg
+done
+```
+
+Every `docs/img/*.typ` source (including every figure in this site) must
+still produce the `.svg` file already committed next to it, up to a small
+numeric tolerance (below). This is what keeps a documentation figure from
+silently drifting out of sync with the source shown beside it — regenerate
+with:
+
+```bash
+typst compile --root . --ignore-system-fonts docs/img/<name>.typ docs/img/<name>.svg
+```
+
+whenever you edit a figure source, before running the suite again.
+
+This check has to be reproducible across two different machines — whoever
+regenerates a figure, and CI — and plain rendering doesn't guarantee that on
+its own, in two separate ways this project has actually hit:
+
+- **Font availability.** `--ignore-system-fonts` is not optional. Without
+  it, a figure with enough text to be sensitive to font substitution can
+  render identically on the machine that generated it and still diverge on
+  a CI runner with a different set of system fonts installed (Ubuntu's
+  stock image can ship its own `DejaVu Sans Mono`, for instance, competing
+  with Typst's embedded copy of the same-named font).
+- **Build/architecture jitter.** Even with fonts pinned, a different Typst
+  *build* of the same version — official Linux release binary vs. a
+  locally built one, x86_64 vs. arm64, a different linked libm — is not
+  guaranteed to produce bit-identical glyph or curve coordinates. `tests/
+  compare-svg.py` (used in place of a raw `cmp`) rounds every decimal
+  number in both files to 2 decimal places before comparing, which absorbs
+  that sub-percent jitter while still catching any real content change —
+  a moved node or a different colour shifts coordinates by far more than
+  0.01 units.
+
+Both defenses were added after this exact check passed locally and failed
+in CI, from a figure that had rendered correctly on the machine that wrote
+it.
+
+Adding a brand new figure needs no changes to `run.sh` itself — the check already
+loops over every file matching `docs/img/*.typ`.

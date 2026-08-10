@@ -1,0 +1,81 @@
+# Diagram and Configuration Reference
+
+See [Core Concepts](../concepts.qmd) and
+[Configuration and Scoping](../configuration.qmd) for the narrative version.
+
+## `diagram()`
+
+```typ
+typ.diagram(
+  body,
+  scale: auto,
+  grid: auto,
+  font-size: auto,
+  node-styles: auto,
+  edge-styles: auto,
+  inset: auto,
+  scale-edges: auto,
+  anchor: auto,
+  math-axis: auto,
+  baseline: auto,
+  theme: typ.neutral-theme,
+)
+```
+
+| Argument | Meaning |
+|---|---|
+| `body` | Evaluates to an array of diagram items; `none` is an empty diagram. |
+| `theme` | The explicit, atomic theme value. Never inherited from `config()`. |
+| `scale` | Coordinate unit and overall zoom. A number is a multiple of `1cm`; a length is exact. Node sizes, labels, strokes, and coordinates all follow it. |
+| `scale-edges` | Positive multiplier applied only to coordinate spacing — lengthens wires without enlarging nodes. |
+| `grid` | Boolean; `true` overlays a light integer coordinate grid, useful while authoring. |
+| `font-size` | `auto` or a positive length; sets node/edge label size. A node's `style.font-size` or an edge's `style.label-size` wins over this for that one label. |
+| `node-styles` | Maps kinds to partial node styles, for this diagram only. |
+| `edge-styles` | Partial edge style applied to every edge in this diagram. |
+| `inset` | Diagram margin. A number is diagram units; a length is absolute. A side dictionary (`left`/`right`/`top`/`bottom`/`x`/`y`/`rest`) is accepted; unknown keys error. |
+| `anchor` | Numeric diagram y-coordinate placed on the math axis (normally `0`). |
+| `math-axis` | Length, normally `0.25em`. |
+| `baseline` | `auto`, or a length overriding the computed shift directly. |
+
+Everything left `auto` inherits from the nearest `config()` scope, then the
+built-in defaults. `theme` is not part of that inheritance chain.
+
+### Sizing: zoom vs. wire length vs. margin
+
+- `scale` zooms *everything* — nodes, labels, and stroke widths all scale
+  together, so a diagram shrunk to fit a figure keeps its proportions
+  instead of turning into heavy strokes around tiny nodes.
+- `scale-edges` stretches only the coordinate grid: wires lengthen, nodes
+  and labels stay the same physical size.
+- `inset` is the margin around the whole diagram, in the same
+  number-or-length-or-side-dictionary shape used everywhere else in the
+  package (see [Node style keys](nodes.qmd#style-keys)).
+
+## `config()`
+
+```typ
+typ.config(
+  body,
+  scale: .., scale-edges: .., font-size: .., grid: .., inset: ..,
+  anchor: .., math-axis: .., baseline: ..,
+  node-styles: .., edge-styles: ..,
+)
+```
+
+Accepts exactly the non-theme `diagram()` arguments above. `node-styles`
+merges one level by kind; `edge-styles` merges shallowly; every other key
+replaces outright. Scopes nest and revert; see
+[Configuration and Scoping](../configuration.qmd) for the nesting semantics
+and the two alternative mechanisms (`diagram.with(..)`, `#set text(..)`).
+
+## Exported resolver helpers
+
+`typ.resolve-node-style(kind, presets, ..overrides)` and
+`typ.resolve-edge-style(edge, overrides, presets: (:), defaults: (:))` are the
+pure functions the renderer itself uses to walk the precedence chains
+described in [Core Concepts](../concepts.qmd#style-resolution-the-same-idea-twice).
+They're exposed for tests and advanced integration; an ordinary document
+should let `diagram()` perform resolution internally, so the same resolved
+style is guaranteed to be shared by bounds, drawing, clipping, and ports —
+calling a resolver yourself and *also* letting `diagram()` resolve
+independently risks the two falling out of sync.
