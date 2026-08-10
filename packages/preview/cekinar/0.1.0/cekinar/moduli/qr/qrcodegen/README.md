@@ -30,7 +30,7 @@ Notable changes made in the Zig port:
 Other principles:
 * Single-file
 * Single-purpose:
-	* As a plugin in the [UPN QR Typst package](https://example.com)
+	* As a plugin in the [UPN QR Typst package](https://typst.app/universe/package/cekinar)
 	* See specification
 
 Specification:
