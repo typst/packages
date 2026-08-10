@@ -31,6 +31,25 @@
 #let _chuan-hs(hs) = lower(hs).replace("-", "").replace("_", "")
 #let _la-sach(hs) = _chuan-hs(hs) != "beamer"   // khác beamer = bản in A4
 
+// ----- KÍCH THƯỚC THÂN SLIDE 16:9 -----
+// Rút thành hằng số để `slide()` và bộ TỰ NGẮT MÀN (che-do.typ) dùng CHUNG
+// một bộ số — đổi lề ở đây là chỗ đo cũng đổi theo, không lệch nhau.
+// `presentation-16-9` của Typst = 297mm × 167,06mm.
+#let _kho-slide = (rong: 841.89pt, cao: 473.55pt)
+#let _le-slide = (
+  tren: 73pt,        // chừa thanh tiêu đề slide
+  tren-tron: 26pt,   // slide không có tiêu đề
+  duoi: 34pt,        // chừa thanh điều hướng
+  ngang: 28pt,
+  du: 8pt,           // hụt an toàn khi đo (đo bao giờ cũng có sai số)
+)
+// Vùng chữ thật sự của một slide — dùng để biết lời giải có tràn trang không.
+#let _vung-than(co-tieu-de: true) = (
+  rong: _kho-slide.rong - 2 * _le-slide.ngang,
+  cao: _kho-slide.cao - _le-slide.duoi - _le-slide.du
+    - (if co-tieu-de { _le-slide.tren } else { _le-slide.tren-tron }),
+)
+
 // ----- GIÃN DÒNG (khoảng cách giữa các dòng) -----
 // `nen`   : leading NỀN của hồ sơ đang dùng (bai-giang/de-toan ghi vào);
 // `he-so` : HỆ SỐ NHÂN do người dùng đặt — 1.0 = mốc mặc định,
@@ -649,8 +668,8 @@
   for k in range(1, so-buoc + 1) {
     set page(
       margin: (
-        top: if tieu-de != none { 73pt } else { 26pt },
-        bottom: 34pt, x: 0pt,
+        top: if tieu-de != none { _le-slide.tren } else { _le-slide.tren-tron },
+        bottom: _le-slide.duoi, x: 0pt,
       ),
       header-ascent: 12pt,
       footer-descent: 12pt,
@@ -728,7 +747,7 @@
         muc: _muc-ht.get(), so: _dem-slide.get().first(),
       ))<bg-nav>])
     }
-    pad(x: 28pt, {
+    pad(x: _le-slide.ngang, {
       set par(leading: _gl, spacing: _gs)
       body
     })

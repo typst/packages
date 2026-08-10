@@ -1008,6 +1008,31 @@ Bước 1 chiếu đề cho học sinh làm, bấm một cái → phương án �
 ]
 ```
 
+### Lời giải dài — `#sang-man` và tự ngắt màn
+
+Trong `loi-giai:` của 8 dạng câu hỏi, đặt `#sang-man` trên **một dòng riêng**
+để đẩy phần sau đó sang một slide mới mang nhãn "Hướng dẫn giải (tiếp)".
+Nhớ dấu `\` ở **cuối dòng chữ ngay trước** dấu này. Bản in A4 bỏ qua nó.
+
+```typst
+loi-giai: [
+  a) Hàm số đồng biến trên $(0; 2)$. \
+  Cực đại tại $x = 2$. \
+  #sang-man \
+  b) Xét $f'(x) = 0 <=> x = 1$.
+],
+```
+
+Quên chèn mà lời giải vẫn cao hơn thân slide thì thư viện **tự đo và tự
+ngắt**: dòng nào làm tràn sẽ được đẩy sang màn "(tiếp)". Nhờ vậy đề bài không
+còn bị in lại xen giữa các trang lời giải — mỗi bước hoạt hình vốn in slide
+lại từ đầu, nên một slide tràn trang sẽ đẻ ra trang "đề" lặp. Đề dài tới mức
+không dòng lời giải nào lọt thì slide đầu chỉ hiện đề.
+
+```typst
+#tu-ngat-man(false)
+```
+
 ## 9. Thanh điều hướng & mục lục
 
 - **Đầu trang mỗi slide** (beamer): dải màu đậm phía trên thanh tiêu đề luôn

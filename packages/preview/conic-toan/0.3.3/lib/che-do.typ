@@ -17,7 +17,7 @@
 //    hd = hoạt động, lt = luyện tập, vdtt = vận dụng thực tế;
 //    tên cũ mc/tf/sa và dòng tao-cau-hoi cũ vẫn dùng được)
 // =====================================================================
-#import "slide.typ": slide, muc, bai-giang, lo, vi-du, loi-giai, _ho-so, _la-sach, _buoc-ht, gian-dong, _gd, _dat-gian, _he-so-gian, _gian-ht, _bd-cau, cao-that, _cao-that, _chong-net, voi-cao-that
+#import "slide.typ": slide, muc, bai-giang, lo, vi-du, loi-giai, _ho-so, _la-sach, _buoc-ht, gian-dong, _gd, _dat-gian, _he-so-gian, _gian-ht, _bd-cau, cao-that, _cao-that, _chong-net, voi-cao-that, _vung-than
 #import "cau-hoi.typ": cau-mc, cau-tf, cau-sa, cau-tl, cau-hd, cau-lt, cau-vdtt, bat-dap-an, tat-dap-an, voi-hinh, True, Dung, _la-y
 
 // Gộp tham số kiểu mới / kiểu cũ: ưu tiên giá trị kiểu mới nếu được đặt.
@@ -237,24 +237,78 @@
   if d.has("children") { d.children.any(c => _co-sang-man(c)) } else { false }
 }
 
+#let _khoang-trang = [ ].func()
+
+// Dòng "rỗng" — chỉ gồm khoảng trắng / dấu ngắt / metadata (không in ra gì).
+#let _dong-trong(d) = {
+  if d == none { return true }
+  if type(d) != content { return false }
+  let f = d.func()
+  if f == _khoang-trang or f == linebreak or f == parbreak or f == metadata {
+    return true
+  }
+  if f == text { return d.text.trim() == "" }
+  if d.has("children") { return d.children.all(c => _dong-trong(c)) }
+  false
+}
+
+// Cắt MỘT dòng tại dấu #sang-man đầu tiên -> (trước, sau, có-cắt-được).
+// ⚠️ Lỗi cũ (09/08/2026): `tach-man` coi CẢ DÒNG chứa dấu là dấu ngắt rồi
+// VỨT ĐI. Người soạn viết `... hết ý.` xuống dòng rồi `#sang-man \` (không có
+// dấu \ ở cuối dòng chữ) thì cả câu chữ đó BIẾN MẤT khỏi trình chiếu. Nay cắt
+// đôi tại dấu, giữ nguyên phần chữ hai bên.
+// Chỉ cắt ở lớp con TRỰC TIẾP để không bóc mất lớp bọc (strong, emph...);
+// dấu nằm sâu hơn thì trả `false` và dòng được giữ nguyên (dấu vô hình, chỉ
+// mất tác dụng ngắt màn) — thà không ngắt còn hơn mất chữ.
+#let _cat-sang-man(d) = {
+  if type(d) != content { return (d, none, false) }
+  if d.func() == metadata {
+    return if d.value == "bg-sang-man" { (none, none, true) } else { (d, none, false) }
+  }
+  if not d.has("children") { return (d, none, false) }
+  let truoc = ()
+  let sau = ()
+  let co = false
+  for c in d.children {
+    if co { sau.push(c) }
+    else if (type(c) == content and c.func() == metadata
+             and c.value == "bg-sang-man") { co = true }
+    else { truoc.push(c) }
+  }
+  if not co { (d, none, false) } else { (truoc.join(), sau.join(), true) }
+}
+
 // Tách lời giải thành các màn; mỗi màn là một mảng dòng.
 #let tach-man(nd) = {
   let man = ()
   let ht = ()
   for d in tach-dong(nd) {
-    if _co-sang-man(d) {
-      if ht.len() > 0 { man.push(ht) }
-      ht = ()
-    } else { ht.push(d) }
+    let con = d
+    let dau = true   // lần lặp đầu: `con` còn là NGUYÊN dòng ban đầu
+    while con != none {
+      let (truoc, sau, co) = _cat-sang-man(con)
+      // mảnh cắt ra chỉ toàn khoảng trắng thì bỏ; dòng nguyên thì giữ y như cũ
+      if (dau and not co) or not _dong-trong(truoc) { ht.push(truoc) }
+      if not co { con = none } else {
+        if ht.len() > 0 { man.push(ht) }
+        ht = ()
+        con = sau
+      }
+      dau = false
+    }
   }
   if ht.len() > 0 { man.push(ht) }
   if man.len() == 0 { ((),) } else { man }
 }
 
-// Ghép lại thành một khối (dùng cho bản A4) — bỏ các dấu #sang-man.
+// Ghép lại thành một khối (dùng cho bản A4) — bỏ các dấu #sang-man nhưng
+// GIỮ nguyên chữ nằm cùng dòng với dấu (đi chung một đường với tach-man).
 #let _ghep(nd) = {
   if nd == none { return none }
-  tach-dong(nd).filter(d => not _co-sang-man(d)).join(linebreak())
+  let dong = ()
+  for mk in tach-man(nd) { dong += mk }
+  if dong.len() == 0 { return none }
+  dong.join(linebreak())
 }
 
 // ---------- Lời giải hiện dần từng dòng (dùng trong slide) ----------
@@ -264,10 +318,13 @@
 //   `auto` (mặc định) = 0.95em × hệ số giãn dòng hiện hành.
 // gian-dong: HỆ SỐ giãn dòng riêng cho khung này (auto = lấy hệ số toàn tài
 //   liệu do #bai-giang/#de-toan/#gian-dong đặt).
-#let giai-buoc(nd, tu: 2, nhan: [Hướng dẫn giải. ], gian: auto, gian-dong: auto) = {
+// do: true -> dựng SẴN mọi bước (không qua #lo) để ĐO chiều cao lúc cuối bài;
+//   dùng cho bộ tự ngắt màn, không phải để hiển thị.
+#let giai-buoc(nd, tu: 2, nhan: [Hướng dẫn giải. ], gian: auto, gian-dong: auto,
+  do: false) = {
   let dong = tach-dong(nd)
   if dong.len() == 0 { return }
-  lo(tu, block(
+  let khung = block(
     width: 100%, inset: (left: 11pt, top: 5pt, bottom: 5pt),
     stroke: (left: 2.5pt + _luc), above: 10pt,
     context {
@@ -277,10 +334,12 @@
       align(center, text(fill: _luc, weight: "bold", size: 0.84em, nhan))
       dong.at(0)
       for i in range(1, dong.len()) {
-        lo(tu + i, block(above: g, dong.at(i)))
+        let b = block(above: g, dong.at(i))
+        if do { b } else { lo(tu + i, b) }
       }
     },
-  ))
+  )
+  if do { khung } else { lo(tu, khung) }
 }
 
 // ---------- Ghi đè giãn dòng cho MỘT câu ----------
@@ -458,10 +517,14 @@
 // Trong lời giải, mỗi dấu \ là một bước xuất hiện (chỉ tác dụng ở beamer).
 // tieu-de: tiêu đề slide của câu (chỉ dùng ở beamer).
 // Các slide "(tiếp)" cho những màn lời giải sau màn đầu.
-#let _man-tiep(man, tieu-de, nhan: [Hướng dẫn giải (tiếp). ], gd: auto) = {
-  for mk in man.slice(1) {
+// nhan-dau: nhãn của màn ĐẦU TIÊN khi màn 0 rỗng (đề dài quá nên lời giải bị
+//   đẩy hết sang đây) — lúc đó chưa có gì để "tiếp", ghi nhãn thường.
+#let _man-tiep(man, tieu-de, nhan: [Hướng dẫn giải (tiếp). ],
+  nhan-dau: [Hướng dẫn giải. ], gd: auto) = {
+  for (i, mk) in man.slice(1).enumerate() {
+    let nh = if i == 0 and man.at(0).len() == 0 { nhan-dau } else { nhan }
     slide(tieu-de: tieu-de, so-buoc: calc.max(1, mk.len()))[
-      #_voi-gian(gd, giai-buoc(mk, tu: 1, nhan: nhan, gian-dong: gd))
+      #_voi-gian(gd, giai-buoc(mk, tu: 1, nhan: nh, gian-dong: gd))
     ]
   }
 }
@@ -479,9 +542,49 @@
 // fig-giai-pos/fig-giai-width — bố cục 2 cột như hình kèm đề; ở beamer
 // hình hiện từ bước đầu tiên của lời giải, các màn #sang-man sau muốn có
 // hình thì chèn trực tiếp trong nội dung màn đó.
-#let _giai-kem-hinh(nd, hg, vi-tri, be-rong) = voi-hinh(
-  nd, if hg == none { none } else { lo(2, hg) }, vi-tri: vi-tri, be-rong: be-rong,
+#let _giai-kem-hinh(nd, hg, vi-tri, be-rong, do: false) = voi-hinh(
+  nd,
+  if hg == none { none } else if do { hg } else { lo(2, hg) },
+  vi-tri: vi-tri, be-rong: be-rong,
 )
+
+// ---------- TỰ NGẮT MÀN KHI LỜI GIẢI TRÀN TRANG (chỉ beamer) ----------
+// Bệnh cũ: lời giải cao hơn thân slide thì Typst đẩy phần thừa sang TRANG SAU,
+// mà mỗi bước hoạt hình lại in slide LẠI TỪ ĐẦU ⇒ bấm chuyển bước thì thấy
+// xen kẽ "đề bài + mấy dòng đầu" — "phần tràn" — "đề bài + mấy dòng đầu" …
+// tức ĐỀ BÀI HIỆN LẶP LẠI giữa lời giải. Nay đo trước: dòng nào làm tràn thì
+// tự đẩy sang một màn "(tiếp)" y như đặt #sang-man bằng tay.
+// Tắt (giữ nếp cũ) cho cả tài liệu: #tu-ngat-man(false).
+#let _tu-man = state("bg-tu-man", true)
+#let tu-ngat-man(bat) = _tu-man.update(bat)
+
+// Cắt một màn thành nhiều màn vừa trang. `dung(dòng, có-đề)` dựng thử nội dung
+// slide (đã hiện hết mọi bước) để đo. Tìm nhị phân số dòng lớn nhất còn vừa.
+#let _cat-vua(dong, co-de, dung, vung) = {
+  if dong.len() == 0 { return (dong,) }
+  let vua(n) = measure(block(width: vung.rong, dung(dong.slice(0, n), co-de))).height <= vung.cao
+  if vua(dong.len()) { return (dong,) }
+  // Đề bài dài, chiếm gần hết slide: slide đầu CHỈ hiện đề, lời giải sang màn
+  // "(tiếp)" — thà một slide đề trơn còn hơn đề bị in lại giữa lời giải.
+  if co-de and not vua(1) { return ((),) + _cat-vua(dong, false, dung, vung) }
+  let a = 1              // màn tiếp luôn giữ ít nhất 1 dòng ⇒ chắc chắn tiến
+  let b = dong.len()     // đã biết là KHÔNG vừa
+  while b - a > 1 {
+    let m = int((a + b) / 2)
+    if vua(m) { a = m } else { b = m }
+  }
+  (dong.slice(0, a),) + _cat-vua(dong.slice(a), false, dung, vung)
+}
+
+#let _cat-man-vua(man, dung) = {
+  if not _tu-man.get() { return man }
+  let vung = _vung-than()
+  let kq = ()
+  for (i, mk) in man.enumerate() {
+    if mk.len() == 0 { kq.push(mk) } else { kq += _cat-vua(mk, i == 0, dung, vung) }
+  }
+  kq
+}
 
 #let vd(noi-dung, loi-giai: none, loigiai: none, diem: none, hinh: none, fig: none,
   fig-giai: none, hinh-giai: none, fig-giai-pos: "right", fig-giai-width: auto,
@@ -499,14 +602,26 @@
       }
     })
   } else {
-    let man = tach-man(loi-giai)
-    slide(tieu-de: tieu-de, so-buoc: 1 + calc.max(1, man.at(0).len()))[
+    let dung(dg, co-de) = if co-de {
+      _voi-gian(gd, [
+        #vi-du(voi-hinh(noi-dung, hinh))
+        #_giai-kem-hinh(giai-buoc(dg, nhan: [Lời giải. ], gian-dong: gd, do: true), hg, fig-giai-pos, fig-giai-width, do: true)
+      ])
+    } else {
+      _voi-gian(gd, giai-buoc(dg, tu: 1, nhan: [Lời giải (tiếp). ],
+        gian-dong: gd, do: true))
+    }
+    let man = _cat-man-vua(tach-man(loi-giai), dung)
+    // màn đầu rỗng (đề dài, lời giải đã bị đẩy hết sang màn "(tiếp)") thì
+    // slide này chỉ cần MỘT bước — đừng in lại y hệt lần nữa.
+    slide(tieu-de: tieu-de, so-buoc: if man.at(0).len() > 0 { 1 + man.at(0).len() }
+      else if man.len() > 1 { 1 } else { 2 })[
       #_voi-gian(gd, [
         #vi-du(voi-hinh(noi-dung, hinh))
         #_giai-kem-hinh(giai-buoc(man.at(0), nhan: [Lời giải. ], gian-dong: gd), hg, fig-giai-pos, fig-giai-width)
       ])
     ]
-    _man-tiep(man, tieu-de, nhan: [Lời giải (tiếp). ], gd: gd)
+    _man-tiep(man, tieu-de, nhan: [Lời giải (tiếp). ], nhan-dau: [Lời giải. ], gd: gd)
   }
 }
 
@@ -556,7 +671,16 @@
   if _la-sach(_ho-so.get()) {
     _voi-gian(gd, goi(loi-giai: _ghep(lg)))
   } else {
-    let man = tach-man(lg)
+    let dung(dg, co-de) = if co-de {
+      _voi-gian(gd, [
+        #goi(lo-da: 1)
+        #_giai-kem-hinh(giai-buoc(dg, gian-dong: gd, do: true), hg, fig-giai-pos, fig-giai-width, do: true)
+      ])
+    } else {
+      _voi-gian(gd, giai-buoc(dg, tu: 1, nhan: [Hướng dẫn giải (tiếp). ],
+        gian-dong: gd, do: true))
+    }
+    let man = _cat-man-vua(tach-man(lg), dung)
     let buoc-da = 2 + man.at(0).len()
     slide(tieu-de: tieu-de, so-buoc: buoc-da)[
       #_voi-gian(gd, [
@@ -607,7 +731,16 @@
   if _la-sach(_ho-so.get()) {
     _voi-gian(gd, goi(loi-giai: _ghep(lg)))
   } else {
-    let man = tach-man(lg)
+    let dung(dg, co-de) = if co-de {
+      _voi-gian(gd, [
+        #goi(lo-da: 1)
+        #_giai-kem-hinh(giai-buoc(dg, gian-dong: gd, do: true), hg, fig-giai-pos, fig-giai-width, do: true)
+      ])
+    } else {
+      _voi-gian(gd, giai-buoc(dg, tu: 1, nhan: [Hướng dẫn giải (tiếp). ],
+        gian-dong: gd, do: true))
+    }
+    let man = _cat-man-vua(tach-man(lg), dung)
     let buoc-da = 2 + man.at(0).len()
     slide(tieu-de: tieu-de, so-buoc: buoc-da)[
       #_voi-gian(gd, [
@@ -652,7 +785,16 @@
   if _la-sach(_ho-so.get()) {
     _voi-gian(gd, goi(loi-giai: _ghep(lg)))
   } else {
-    let man = tach-man(lg)
+    let dung(dg, co-de) = if co-de {
+      _voi-gian(gd, [
+        #goi(lo-da: 1)
+        #_giai-kem-hinh(giai-buoc(dg, gian-dong: gd, do: true), hg, fig-giai-pos, fig-giai-width, do: true)
+      ])
+    } else {
+      _voi-gian(gd, giai-buoc(dg, tu: 1, nhan: [Hướng dẫn giải (tiếp). ],
+        gian-dong: gd, do: true))
+    }
+    let man = _cat-man-vua(tach-man(lg), dung)
     let buoc-da = 2 + man.at(0).len()
     slide(tieu-de: tieu-de, so-buoc: buoc-da)[
       #_voi-gian(gd, [
@@ -672,8 +814,20 @@
       cho-trong: cho-trong, hinh: hinh,
       hinh-giai: hg, fig-giai-pos: hg-pos, fig-giai-width: hg-width))
   } else {
-    let man = tach-man(loi-giai)
-    slide(tieu-de: tieu-de, so-buoc: 1 + calc.max(1, man.at(0).len()))[
+    let dung(dg, co-de) = if co-de {
+      _voi-gian(gd, [
+        #ham-cau(cau, diem: diem, hinh: hinh)
+        #_giai-kem-hinh(giai-buoc(dg, gian-dong: gd, do: true), hg, hg-pos, hg-width, do: true)
+      ])
+    } else {
+      _voi-gian(gd, giai-buoc(dg, tu: 1, nhan: [Hướng dẫn giải (tiếp). ],
+        gian-dong: gd, do: true))
+    }
+    let man = _cat-man-vua(tach-man(loi-giai), dung)
+    // màn đầu rỗng (đề dài, lời giải đã bị đẩy hết sang màn "(tiếp)") thì
+    // slide này chỉ cần MỘT bước — đừng in lại y hệt lần nữa.
+    slide(tieu-de: tieu-de, so-buoc: if man.at(0).len() > 0 { 1 + man.at(0).len() }
+      else if man.len() > 1 { 1 } else { 2 })[
       #_voi-gian(gd, [
         #ham-cau(cau, diem: diem, hinh: hinh)
         #_giai-kem-hinh(giai-buoc(man.at(0), gian-dong: gd), hg, hg-pos, hg-width)
