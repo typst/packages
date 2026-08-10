@@ -93,7 +93,7 @@
 // 全局主题状态：由 lightmind(dark-mode: ...) 自动更新，
 // kbd / task / mark / frontmatter 等辅助函数通过 context 自动跟随，
 // 无需逐处传 dark-mode 参数。
-#let theme-state = state("lightmind-theme", "light")
+#let theme-state = state("fernmind", "light")
 
 // 按暗色开关取调色板
 #let palette-colors(dark-mode: false) = if dark-mode {
