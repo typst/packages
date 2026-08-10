@@ -8,7 +8,6 @@ description = "PhD theses at TU Dortmund University"
 repository = "https://github.com/jspeer/u3tudo"
 keywords = ["thesis", "phd", "tu-dortmund", "dissertation"]
 categories = ["thesis"]
-minimum-typst-version = "0.15.0"
 
 [template]
 path = "template"
