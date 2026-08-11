@@ -15,7 +15,7 @@
   <summary>See the source code</summary>
   
 ```typ
-#import "@preview/mastermind:0.1.0": *
+#import "@preview/mastermind:0.1.1": *
 
 #set page(width: auto, height: auto)
 
@@ -87,7 +87,7 @@
   <summary>See the source code</summary>
   
 ```typ
-#import "@preview/mastermind:0.1.0": *
+#import "@preview/mastermind:0.1.1": *
 
 #set page(width: auto, height: auto)
 
