@@ -40,9 +40,7 @@ right, `y` increases upward.
 })
 ```
 
-<p align="center">
-    <img alt"Render output showing a diagram with two nodes labelled A and B respectively, connected by an edge" src="img/quickstart.svg">
-<p/>
+![Render output showing a diagram with two nodes labelled A and B respectively, connected by an edge](img/quickstart.svg)
 
 An edge automatically contributes the nodes at its endpoints. See the
 [full documentation](https://bencichos.github.io/typograph/) for the
