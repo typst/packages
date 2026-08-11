@@ -96,29 +96,77 @@
   }
 }
 
+/// Render an STL model to an image (PNG raster by default, `format: "svg"` for vector).
+///
+/// 🔗 *Dial in the camera, lighting and materials visually in the live web demo, then
+/// copy the generated code:* https://bernsteining.github.io/maquette/
+///
+/// - stl-data (bytes): STL file contents — read with `encoding: none` (binary STL).
+/// - ..args (arguments): render config, as named arguments or a single dictionary
+///   (camera, lights, material, shading, post-processing, …).
+/// -> content
 #let render-stl(stl-data, ..args) = {
   _render(stl-data, maquette-plugin.render_stl_png, maquette-plugin.render_stl, args)
 }
 
+/// Render a Wavefront OBJ model to an image (PNG raster by default, `format: "svg"` for vector).
+///
+/// 🔗 *Dial in the camera, lighting and materials visually in the live web demo, then
+/// copy the generated code:* https://bernsteining.github.io/maquette/
+///
+/// - obj-data (bytes, str): OBJ file contents (reading with `encoding: none` is recommended).
+/// - ..args (arguments): render config, as named arguments or a single dictionary
+///   (camera, lights, material, shading, post-processing, …).
+/// -> content
 #let render-obj(obj-data, ..args) = {
   let data = bytes(obj-data)
   _render(data, maquette-plugin.render_obj_png, maquette-plugin.render_obj, args)
 }
 
+/// Render a PLY model or point cloud to an image (PNG raster by default, `format: "svg"` for vector).
+///
+/// 🔗 *Dial in the camera, lighting and materials visually in the live web demo, then
+/// copy the generated code:* https://bernsteining.github.io/maquette/
+///
+/// - ply-data (bytes): PLY file contents — read with `encoding: none`.
+/// - ..args (arguments): render config, as named arguments or a single dictionary
+///   (camera, lights, material, point-cloud reconstruction, …).
+/// -> content
 #let render-ply(ply-data, ..args) = {
   _render(ply-data, maquette-plugin.render_ply_png, maquette-plugin.render_ply, args)
 }
 
+/// STL model metadata (triangles, vertices, bounding box, resolved camera) as a dictionary.
+///
+/// 🔗 *Explore models interactively in the live web demo:* https://bernsteining.github.io/maquette/
+///
+/// - stl-data (bytes): STL file contents — read with `encoding: none`.
+/// - ..args (arguments): optional config affecting the resolved camera/projection.
+/// -> dictionary
 #let get-stl-info(stl-data, ..args) = {
   let a = _parse-args(args)
   json(maquette-plugin.get_stl_info(stl-data, a.cfg))
 }
 
+/// OBJ model metadata (triangles, vertices, bounding box, groups, resolved camera) as a dictionary.
+///
+/// 🔗 *Explore models interactively in the live web demo:* https://bernsteining.github.io/maquette/
+///
+/// - obj-data (bytes, str): OBJ file contents.
+/// - ..args (arguments): optional config affecting the resolved camera/projection.
+/// -> dictionary
 #let get-obj-info(obj-data, ..args) = {
   let a = _parse-args(args)
   json(maquette-plugin.get_obj_info(bytes(obj-data), a.cfg))
 }
 
+/// PLY model metadata (triangles, vertices, bounding box, resolved camera) as a dictionary.
+///
+/// 🔗 *Explore models interactively in the live web demo:* https://bernsteining.github.io/maquette/
+///
+/// - ply-data (bytes): PLY file contents — read with `encoding: none`.
+/// - ..args (arguments): optional config affecting the resolved camera/projection.
+/// -> dictionary
 #let get-ply-info(ply-data, ..args) = {
   let a = _parse-args(args)
   json(maquette-plugin.get_ply_info(ply-data, a.cfg))
