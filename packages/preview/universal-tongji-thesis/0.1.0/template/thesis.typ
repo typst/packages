@@ -1,4 +1,4 @@
-#import "../src/lib.typ": documentclass, indent, no-indent, word-count-cjk, total-words, bilingual-figure
+#import "@preview/universal-tongji-thesis:0.1.0": documentclass, indent, no-indent, word-count-cjk, total-words, bilingual-figure
 
 #let (
   // 布局函数
