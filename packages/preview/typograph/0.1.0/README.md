@@ -41,7 +41,7 @@ right, `y` increases upward.
 ```
 
 <p align="center">
-    <img src="img/quickstart.svg">
+    <img alt"Render output showing a diagram with two nodes labelled A and B respectivelly connected by an edge" src="img/quickstart.svg">
 <p/>
 
 An edge automatically contributes the nodes at its endpoints. See the
