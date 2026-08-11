@@ -1,6 +1,3 @@
-# $Z\cdot e^{ro}$
-
-_Precise scientific number and unit formatting for Typst._
 
 [![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMc-Zen%2Fzero%2Fv0.7.0%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/zero)
 [![Test Status](https://github.com/Mc-Zen/zero/actions/workflows/run_tests.yml/badge.svg)](https://github.com/Mc-Zen/zero/actions/workflows/run_tests.yml)
@@ -26,18 +23,19 @@ Proper number formatting is essential for clear and readable scientific document
 - [**Unit and quantity formatting**](#units-and-quantities)
 - Plug-and-play number [**alignment in tables**](#table-alignment)
 - Symmetric and asymmetric [**uncertainties**](#specifying-uncertainties)
-- Quick scientific notation, e.g., `"2e4"` becomes $2\times10^4$
+- Quick scientific notation, e.g., `"2e4"` becomes 2×10²
 - [**Rounding**](#rounding) in various modes
-- Digit [**grouping**](#grouping), e.g., $`299\,792\,458`$ instead of $299792458$
+- Digit [**grouping**](#grouping), e.g., 299 792 458 instead of 299792458
 - [**Accessibility**](#accessibility) through auto-generated alt descriptions for numbers and units
 
-A number in scientific notation consists of three parts: the _mantissa_, an optional _uncertainty_, and an optional _power_ (exponent). The following figure illustrates the anatomy of a formatted number:
+
+A number in scientific notation consists of three parts: the _mantissa_, an optional _uncertainty_, and an optional _power_ (exponent). Additionally, the number can be followed by a unit. This figure illustrates the anatomy of a formatted quantity:
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/a78ff9a4-eb90-44b4-9168-37d100452363">
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/feb578b1-9c8b-43e6-a825-fe0f57fd2d9b">
-    <img alt="Anatomy of a formatted number" src="https://github.com/user-attachments/assets/a78ff9a4-eb90-44b4-9168-37d100452363">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/5c5572a6-f163-4581-863a-e73335e2b373">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/2ac4f172-4564-4c50-abe7-90889379f80e">
+    <img alt="Anatomy of a formatted number" src="https://github.com/user-attachments/assets/5c5572a6-f163-4581-863a-e73335e2b373">
   </picture>
 </p>
 
@@ -132,13 +130,13 @@ Zero's core is the `num()` function, which provides flexible number formatting. 
   - `(fixed: n)` : The exponent is fixed to the given integer. 
 - `decimal-separator: str = "."` : Specifies the marker that is used for separating integer and decimal part.
 - `product: content = sym.times` : Specifies the multiplication symbol used for scientific notation. 
-- `tight: bool = false` : If true, tight spacing is applied between operands (applies to $\times$ and $\pm$). 
+- `tight: bool = false` : If true, tight spacing is applied between operands (applies to × and ±). 
 - `breakable: bool | dict` : Whether numbers and quantities can be broken across paragraph lines. Setting this to `true`/`false` entirely enables/disables breaking. For more fine-grained control, a dictionary with the keys `uncertainty`, `power`, and `unit` (all booleans) can be passed for specifying whether breaks are allowed after the ± symbol, the × symbol, or before the unit, respectively. 
 - `math: bool = true` : If set to `false`, the parts of the number won't be wrapped in a `math.equation`. This makes it possible to use `num()` with non-math fonts.
-- `omit-unity-mantissa: bool = false` : Determines whether a mantissa of 1 is omitted in scientific notation, e.g., $10^4$ instead of $1\cdot 10^4$. 
+- `omit-unity-mantissa: bool = false` : Determines whether a mantissa of 1 is omitted in scientific notation, e.g., 10⁴ instead of 1·10⁴. 
 - `omit-zero-exponent: bool = false` : Determines whether a power with an exponent of 0 is omitted.  
-- `positive-sign: bool = false` : If set to `true`, positive coefficients are shown with a $+$ sign. 
-- `positive-sign-exponent: bool = false` : If set to `true`, positive exponents are shown with a $+$ sign. 
+- `positive-sign: bool = false` : If set to `true`, positive coefficients are shown with a + sign. 
+- `positive-sign-exponent: bool = false` : If set to `true`, positive exponents are shown with a + sign. 
 - `trim-zeros: bool = false` : If set to `true`, trailing zeros are trimmed from the fractional part of the number. By default, they are kept in order to preserve the given input precision but especially for `float` input and automatic exponents, such as scientific notation, it can be useful to trim any trailing zeros. [Rounding](#rounding) is applied after trimming.
 - `base: int | content = 10` : The base used for scientific power notation. 
 - `uncertainty-mode: str = "separate"` : Selects one of the modes `"separate"`, `"compact"`, or `"compact-separator"` for displaying uncertainties. The different behaviors are shown below:
@@ -251,13 +249,13 @@ In the second case, there is no guarantee that value and uncertainty have the sa
 
 There are two ways of specifying uncertainties:
 - Applying an uncertainty to the least significant digits using parentheses, e.g., `2.3(4)`,
-- Denoting an absolute uncertainty, e.g., `2.3+-0.4` becomes $2.3\pm0.4$. 
+- Denoting an absolute uncertainty, e.g., `2.3+-0.4` becomes 2.3±0.4. 
 
 Zero supports both and can convert between these two, so that you can pick the displayed style (configured via `uncertainty-mode`, see above) independently of the input style. 
 
 How do uncertainties interplay with exponents? The uncertainty needs to come first, and the exponent applies to both the mantissa and the uncertainty, e.g., `num("1.23+-.04e2")` becomes
 
-$$ (1.23\pm0.04)\times 10^2. $$
+ (1.23±0.04)×10².
 
 Note that the mantissa is now put in parentheses to disambiguate the application of the power. 
 
@@ -364,6 +362,8 @@ Zero not only aligns numbers at the decimal point but also at the uncertainty an
     <img alt="Advanced number alignment in tables" src="https://github.com/user-attachments/assets/f91004fe-d7ca-4db8-81a1-b65236c72cac">
   </picture>
 </p>
+
+
 ---
 
 ## Units and Quantities
