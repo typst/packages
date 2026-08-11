@@ -1,0 +1,29 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "nabcv"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Resul"]
+license = "MIT"
+description = "A Typst template package for not-a-boring CV"
+repository = "https://github.com/xrsl/nabcv"
+keywords = ["cv", "resume", "cover-letter", "curriculum-vitae", "two-column", "letter"]
+categories = ["cv"]
+disciplines = []
+compiler = "0.14.0"
+exclude = [
+  ".github",
+  ".bumpversion.toml",
+  "schema",
+  "justfile",
+  "cspell.toml",
+  ".pre-commit-config.yaml",
+  "CLAUDE.md",
+  "thumbnail-all.png",
+]
+
+[template]
+path = "template"
+entrypoint = "cv.typ"
+thumbnail = "thumbnail.png"

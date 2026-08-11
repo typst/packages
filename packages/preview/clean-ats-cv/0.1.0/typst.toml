@@ -1,0 +1,11 @@
+[package]
+name = "clean-ats-cv"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nicolai Schmid <https://github.com/NicolaiSchmid>"]
+license = "MIT"
+description = "Clean, ATS-friendly CV layout with customizable colors and social icons."
+repository = "https://github.com/NicolaiSchmid/clean-ats-cv"
+keywords = ["cv", "resume", "curriculum-vitae", "ats", "job-application"]
+categories = ["cv"]
+compiler = "0.11.0"

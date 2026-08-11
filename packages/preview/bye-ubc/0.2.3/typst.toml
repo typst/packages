@@ -1,0 +1,22 @@
+[package]
+name = "bye-ubc"
+version = "0.2.3"
+entrypoint = "lib.typ"
+authors = ["Daniel Duque <@DJDuque>"]
+license = "MIT"
+description = "A template for theses at the University of British Columbia"
+repository = "https://github.com/DJDuque/bye-ubc"
+keywords = [
+    "University of British Columbia",
+    "UBC",
+    "thesis",
+    "dissertation",
+    "template",
+]
+categories = ["thesis"]
+compiler = "0.13.1"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

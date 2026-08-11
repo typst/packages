@@ -1,0 +1,20 @@
+[package]
+name = "sheetstorm"
+version = "0.1.0"
+compiler = "0.13.1"
+entrypoint = "src/lib.typ"
+
+authors = [ "Rasmus Buurman <rasmus@rbuurman.de>" ]
+
+repository = "https://github.com/rabuu/sheetstorm"
+license = "MIT"
+
+description = "A template for university exercise sheets."
+
+categories = ["layout", "report"]
+keywords = ["handin", "assignment"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

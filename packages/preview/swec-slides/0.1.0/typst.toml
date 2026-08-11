@@ -1,0 +1,17 @@
+[package]
+name = "swec-slides"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Felix 'Gronner' Bräunling <gronner@mailbox.org>"]
+license = "MIT"
+description = "A typst template for SoftWare Engineering Camp (SWEC) presentations"
+repository = "https://github.com/Gronner/swec-slide-template"
+keywords = ["polylux", "template", "slides", "presentation"]
+categories = ["presentation"]
+compiler = "0.14.0"
+exclude = ["*/.pdf"]
+
+[template]
+path = "template"
+entrypoint = "slides.typ"
+thumbnail = "thumbnail.png"

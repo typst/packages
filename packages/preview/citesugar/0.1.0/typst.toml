@@ -1,0 +1,10 @@
+[package]
+name = "citesugar"
+version = "0.1.0"
+entrypoint = "citesugar.typ"
+authors = ["Arkady Shaldov"]
+license = "MIT"
+description = "More ways to cite, and with shorter syntax."
+repository = "https://github.com/retroflexivity/typst-citesugar"
+categories = ["model"]
+keywords = ["cite", "citations", "bibliography"]

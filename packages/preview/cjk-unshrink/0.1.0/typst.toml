@@ -1,0 +1,11 @@
+[package]
+
+name = "cjk-unshrink"
+version = "0.1.0"
+entrypoint = "cjk-unshrink.typ"
+authors = ["@Neruthes"]
+license = "MIT"
+description = "Unshrink full-width punctuation marks."
+repository = "https://github.com/neruthes/typstpkg-cjk-unshrink"
+keywords = ["CJK", "Punctuation", "Layout"]
+categories = ["utility"]

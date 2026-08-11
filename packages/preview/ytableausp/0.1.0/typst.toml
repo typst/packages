@@ -1,0 +1,9 @@
+[package]
+name = "ytableausp"
+version = "0.1.0"
+entrypoint = "ytableausp.typ"
+exclude = ["images"]
+authors = ["Riley"]
+license = "MIT"
+repository = "https://github.com/Riley719/ytableausp"
+description = "You can make Young Tableaux."

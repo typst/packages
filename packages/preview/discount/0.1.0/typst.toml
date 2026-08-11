@@ -1,0 +1,10 @@
+[package]
+name = "discount"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["fgolke"]
+license = "LGPL-3.0-only"
+description = "Create hasssle-free subcounters of heading."
+repository = "https://codeberg.org/fgolke/typst-discount"
+categories = ["utility"]
+compiler = "0.14.2"

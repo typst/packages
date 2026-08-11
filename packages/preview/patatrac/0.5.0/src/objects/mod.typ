@@ -1,0 +1,12 @@
+#import "object.typ": *
+#import "arrow.typ": *   
+#import "circle.typ": * 
+#import "incline.typ": * 
+#import "point.typ": *   
+#import "polygon.typ": * 
+#import "rect.typ": *    
+#import "rope.typ": *    
+#import "spring.typ": *
+#import "terrain.typ": *
+#import "trajectory.typ": *
+#import "axes.typ": *

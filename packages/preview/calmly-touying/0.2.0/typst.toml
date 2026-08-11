@@ -1,0 +1,23 @@
+[package]
+name = "calmly-touying"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Yichen Han"]
+license = "MIT"
+description = "A calm, modern presentation theme for Touying with Moloch-inspired design."
+repository = "https://github.com/YHan228/calmly-touying"
+keywords = ["presentation", "slides", "theme", "touying", "academic"]
+categories = ["presentation", "layout"]
+disciplines = ["computer-science", "mathematics", "engineering"]
+compiler = "0.12.0"
+exclude = [
+  "examples",
+  "*.pdf",
+  ".gitignore",
+  ".claude",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

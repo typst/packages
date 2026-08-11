@@ -1,0 +1,11 @@
+[package]
+name = "kino"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Augustin Albert"]
+license = "MIT"
+description = "A proof of concept package for creating animations."
+repository = "https://github.com/aualbert/kino"
+keywords = ["animation", "video", "slide", "slides", "lecture", "manim", "beamer", "ffmpeg", "talk"]
+categories = ["presentation", "scripting", "fun"]
+exclude = [ "docs", "examples"]

@@ -1,0 +1,11 @@
+[package]
+name = "ab-annotate"
+version = "0.1.0"
+entrypoint = "ab-annotate.typ"
+authors = ["Cameron Wimpy <cwimpy@astate.edu>"]
+license = "MIT"
+description = "Annotated bibliographies that render abstracts and user annotations beneath each citation entry."
+repository = "https://github.com/cwimpy/ab-annotate"
+keywords = ["bibliography", "annotated-bibliography", "citation", "biblatex"]
+categories = ["scripting"]
+compiler = "0.13.0"

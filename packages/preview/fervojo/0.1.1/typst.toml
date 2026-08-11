@@ -1,0 +1,17 @@
+[package]
+name = "fervojo"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Leiser Fernández Gallo"]
+license = "MIT"
+description = "railroad for typst, powered by wasm"
+
+repository = "https://github.com/leiserfg/fervojo"
+keywords = [
+    "wasm",
+    "rust",
+    "railroad",
+    "diagram",
+    "draw",
+]
+exclude = ["examples"]

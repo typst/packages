@@ -1,0 +1,20 @@
+[package]
+name = "sheetstorm"
+version = "0.4.0"
+compiler = "0.13.1"
+entrypoint = "src/lib.typ"
+authors = [
+	"Rasmus Buurman <https://github.com/rabuu>",
+	"Leander Herter <https://github.com/leanderhert>",
+]
+repository = "https://github.com/rabuu/sheetstorm"
+license = "MIT"
+description = "A template for assignment sheets."
+categories = ["layout", "report"]
+keywords = ["handin", "hand-in", "university", "homework"]
+exclude = ["/examples/*", "/docs/*"]
+
+[template]
+path = "template"
+entrypoint = "assignment.typ"
+thumbnail = "thumbnail.png"

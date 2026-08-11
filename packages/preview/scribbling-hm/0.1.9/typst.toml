@@ -1,0 +1,19 @@
+[package]
+name = "scribbling-hm"
+version = "0.1.9"
+entrypoint = "lib.typ"
+authors = ["stefanie <@fine-seat>"]
+license = "MIT"
+description = "Unofficial thesis template for Munich University of Applied Sciences (Hochschule München)"
+repository = "https://github.com/fine-seat/hm-typst-template"
+keywords = ["HM", "München", "Munich", "Hochschule München", "Hochschule München für Angewandte Wissenschaften", "Munich University of Applied Sciences", "thesis", "bachelor's thesis", "master's thesis"]
+categories = ["thesis"]
+disciplines = ["computer-science"]
+exclude = [".devcontainer/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+
+thumbnail = "main.png"
+

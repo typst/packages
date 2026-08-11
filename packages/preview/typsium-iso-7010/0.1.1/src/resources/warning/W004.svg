@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="523.59998"
+   width="599.75"
+   version="1.1"
+   id="svg15"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs15" />
+  <path
+     d="M 597.575,499.6 313.775,8 c -2.9,-5 -8.2,-8 -13.9,-8 -5.7,0 -11,3.1 -13.9,8 L 2.175,499.6 c -2.9,5 -2.9,11.1 0,16 2.9,5 8.2,8 13.9,8 h 567.6 c 5.7,0 11,-3.1 13.9,-8 2.9,-5 2.9,-11.1 0,-16 z"
+     id="path1"
+     style="fill:#2b2b2c;fill-opacity:1" />
+  <path
+     d="m 43.975,491.52526 256,-441.488933 256,441.488933 z"
+     fill="#f9a900"
+     id="path2"
+     style="stroke-width:0.997955" />
+  <g
+     stroke="#2b2b2c"
+     stroke-linecap="square"
+     stroke-width="0.885827"
+     transform="translate(685.74337,32.949456)"
+     id="g15">
+    <g
+       id="g4">
+      <path
+         d="m -392.22946,208.2478 h 8.93219 v 225.88577 h -8.93219 z"
+         id="path3"
+         style="fill:#2b2b2c;fill-opacity:1" />
+      <path
+         d="m -462.147,135.91931 h 8.93219 v 147.93304 h -8.93219 z"
+         transform="rotate(-14.999995)"
+         id="path4"
+         style="fill:#2b2b2c;fill-opacity:1" />
+    </g>
+    <g
+       transform="rotate(-30.000012,-387.76356,321.19036)"
+       id="g6">
+      <path
+         d="m -392.22946,208.2478 h 8.93219 v 225.88577 h -8.93219 z"
+         id="path5"
+         style="fill:#2b2b2c;fill-opacity:1" />
+      <path
+         d="m -462.147,135.91931 h 8.93219 v 147.93304 h -8.93219 z"
+         transform="rotate(-14.999995)"
+         id="path6"
+         style="fill:#2b2b2c;fill-opacity:1" />
+    </g>
+    <g
+       transform="rotate(-59.999988,-387.76346,321.1907)"
+       id="g8">
+      <path
+         d="m -392.22946,208.2478 h 8.93219 v 225.88577 h -8.93219 z"
+         id="path7"
+         style="fill:#2b2b2c;fill-opacity:1" />
+      <path
+         d="m -462.147,135.91931 h 8.93219 v 147.93304 h -8.93219 z"
+         transform="rotate(-14.999995)"
+         id="path8"
+         style="fill:#2b2b2c;fill-opacity:1" />
+    </g>
+    <path
+       d="m -325.65689,-500.70599 h 8.93219 v 302.24036 h -8.93219 z"
+       transform="rotate(-90)"
+       id="path9"
+       style="fill:#2b2b2c;fill-opacity:1" />
+    <path
+       d="m -214.3521,-531.64728 h 8.93219 v 147.93307 h -8.93219 z"
+       transform="rotate(-104.99999)"
+       id="path10"
+       style="fill:#2b2b2c;fill-opacity:1" />
+    <g
+       transform="matrix(-0.5,-0.866026,0.866026,-0.5,-859.8043,145.9731)"
+       id="g12">
+      <path
+         d="m -392.22946,208.2478 h 8.93219 v 225.88577 h -8.93219 z"
+         id="path11"
+         style="fill:#2b2b2c;fill-opacity:1" />
+      <path
+         d="m -462.147,135.91931 h 8.93219 v 147.93304 h -8.93219 z"
+         transform="rotate(-14.999995)"
+         id="path12"
+         style="fill:#2b2b2c;fill-opacity:1" />
+    </g>
+    <g
+       transform="matrix(-0.866026,-0.500001,0.500001,-0.866026,-884.1717,405.4684)"
+       id="g14">
+      <path
+         d="m -392.22946,208.2478 h 8.93219 v 225.88577 h -8.93219 z"
+         id="path13"
+         style="fill:#2b2b2c;fill-opacity:1" />
+      <path
+         d="m -462.147,135.91931 h 8.93219 v 147.93304 h -8.93219 z"
+         transform="rotate(-14.999995)"
+         id="path14"
+         style="fill:#2b2b2c;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

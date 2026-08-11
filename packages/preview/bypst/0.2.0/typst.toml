@@ -1,0 +1,55 @@
+[package]
+name = "bypst"
+version = "0.2.0"
+entrypoint = "bypst.typ"
+authors = ["Lukas Burk <burk@leibniz-bips.de>"]
+license = "MIT"
+description = "Create BIPS-branded academic presentations with Touying."
+repository = "https://github.com/bips-hb/bips-typst"
+keywords = [
+  "presentation",
+  "slides",
+  "academic",
+  "beamer",
+  "BIPS",
+  "Leibniz Institute for Prevention Research and Epidemiology",
+]
+categories = ["presentation"]
+compiler = "0.12.0"
+exclude = [
+  "gallery/",
+  "tests/",
+  "debug/",
+  "*.pdf",
+  "justfile",
+  "CLAUDE.md",
+  ".github/",
+  "bips-logo.png",
+]
+
+[tool.tyler]
+srcdir = "."
+ignore = [
+  "dist{,/**}",
+  ".git{,/**,/**/.*}",
+  ".github{,/**}",
+  ".claude{,/**}",
+  ".DS_Store",
+  ".gitignore",
+  ".fonts{,/**}",
+  "_site{,/**}",
+  "debug{,/**}",
+  "gallery{,/**}",
+  "tests{,/**,/**/.*}",
+  "*.pdf",
+  "justfile",
+  "CLAUDE.md",
+  "CLAUDE.local.md",
+  "TODO.md",
+  "bips-logo.png",
+]
+
+[template]
+path = "template"
+entrypoint = "basic.typ"
+thumbnail = "thumbnail.png"

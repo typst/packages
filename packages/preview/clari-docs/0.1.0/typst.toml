@@ -1,0 +1,16 @@
+[package]
+name = "clari-docs"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.13.0"
+authors = ["Joe02exe"]
+license = "MIT-0"
+description = "Comprehensive and highly-customizable presentations."
+keywords = ["slides", "presentation", "template", "academic", "beamer"]
+categories = ["presentation", "layout", "components"]
+exclude = [".github", "example.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

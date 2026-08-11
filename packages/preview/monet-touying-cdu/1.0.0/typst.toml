@@ -1,0 +1,10 @@
+[package]
+name = "monet-touying-cdu"
+version = "1.0.0"
+authors = ["TPPPP<https://github.com/TPPPP72>"]
+license = "MIT"
+description = "Monet touying slide theme for CDU, unofficial."
+repository = "https://github.com/TPPPP72/monet-touying-cdu"
+entrypoint = "src/theme.typ"
+keywords = ["touying", "slide", "presentation", "cdu", "university"]
+categories = ["presentation"]

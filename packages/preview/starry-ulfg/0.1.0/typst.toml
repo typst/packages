@@ -1,0 +1,16 @@
+[package]
+name = "starry-ulfg"
+version = "0.1.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/Sydiepus/starry-ulfg"
+authors = ["Charbel Assaad <@Sydiepus>"]
+license = "MIT-0"
+description = "Unofficial ULFG thesis and reports."
+keywords = ["Lebanese University Faculty of Engineering", "ULFG", "FYP"]
+categories = ["report"]
+disciplines = ["engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"

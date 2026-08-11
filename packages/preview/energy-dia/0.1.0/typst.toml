@@ -1,0 +1,12 @@
+[package]
+name = "energy-dia"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["pawawa <https://github.com/pawawa-pururun>"]
+license = "GPL-3.0-or-later"
+description = "Create atomic, molecular, and band structure energy diagrams."
+exclude = ["*.pdf", "/img/*", "/demo/*"]
+repository = "https://github.com/pawawa-pururun/energy-dia"
+categories = ["visualization"]
+disciplines = ["chemistry", "physics"]
+keywords = ["chemistry", "physics", "diagrams", "energy", "orbital", "atomic", "molecular", "band-structure", "cetz"]

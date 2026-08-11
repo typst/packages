@@ -1,0 +1,15 @@
+[package]
+name = "cv-soft-and-hard"
+version = "0.1.0"
+authors = ["Jonas Pleyer<jonas.sci@pleyer.org>"]
+license = "MIT"
+description = "Clean CV Template"
+entrypoint = "lib.typ"
+repository = "https://github.com/jonaspleyer/cv-soft-and-hard"
+categories = ["cv"]
+exclude = [ "examples/*" ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "examples/main-1.png"

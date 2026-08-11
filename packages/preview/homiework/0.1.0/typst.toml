@@ -1,0 +1,16 @@
+[package]
+name = "homiework"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tobias Follett <@tcfollett>"]
+license = "MIT"
+description = "Homework template for university students"
+repository = "https://github.com/tcfollett/homework-template" 
+keywords = ["assignment", "homework", "problem-set", "course", "university"]
+categories = ["components"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

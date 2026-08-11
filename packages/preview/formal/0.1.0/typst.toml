@@ -1,0 +1,17 @@
+[package]
+name = "formal"
+version = "0.1.0"
+entrypoint = "src/formal.typ"
+authors = ["Vsevolod Shegolev <https://github.com/vsheg>"]
+license = "MIT"
+description = "Elegant documents for academic and professional use."
+repository = "https://github.com/vsheg/formal"
+compiler = "0.13.0"
+exclude = ["tests", "docs", "Makefile"]
+categories = ["layout", "utility"]
+keywords = ["cv", "poster", "document", "academic"]
+
+[template]
+path = "template"
+entrypoint = "formal-cv.typ"
+thumbnail = "docs/formal-cv.png"

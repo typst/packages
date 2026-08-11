@@ -1,0 +1,14 @@
+[package]
+name = "unofficial-cityu-phd-thesis"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Lucas-Wye"]
+license = "MIT"
+description = "Typst template for PhD thesis of City University of Hong Kong"
+repository = "https://github.com/Lucas-Wye/typst-CityUHK-thesis"
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "cityu_thesis.typ"
+thumbnail = "t_01.png"

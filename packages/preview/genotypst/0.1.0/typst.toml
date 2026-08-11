@@ -1,0 +1,11 @@
+[package]
+name = "genotypst"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Antonio Camargo <https://github.com/apcamargo>"]
+license = "MIT"
+description = "genotypst: A bioinformatics package for bioinformatics data analysis and visualization."
+repository = "https://github.com/apcamargo/genotypst"
+keywords = ["bioinformatics", "fasta", "alignment", "protein", "dna", "phylogeny"]
+categories = ["visualization", "utility"]
+exclude = ["/docs/", "/plugins/"]

@@ -1,0 +1,13 @@
+[package]
+name = "lingotree"
+version = "1.0.0"
+repository = "https://github.com/KenyC/typst-lingotree"
+entrypoint = "lib.typ"
+authors = ["Keny C <https://github.com/KenyC>"]
+license = "MIT"
+description = "Draws linguistic syntactic trees."
+keywords = ["tree", "syntax", "linguistic tree", "syntactic tree"]
+categories = ["visualization", "utility"]
+disciplines = ["linguistics"]
+exclude = ["manual.typ", "manual.pdf", "gallery/*", "Makefile"]
+

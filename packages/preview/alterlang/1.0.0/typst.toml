@@ -1,0 +1,15 @@
+[package]
+name = "alterlang"
+version = "1.0.0"
+entrypoint = "src/main.typ"
+authors = ["Rodrigo Alcántara (RodAlc24)"]
+license = "MIT"
+description = "Translate math operators"
+repository = "https://github.com/RodAlc24/typst-alterlang"
+categories = ["utility", "languages"]
+keywords = [
+  "translate",
+  "translation",
+  "operators",
+  "math",
+]

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="11.403807mm"
+   height="6.5293875mm"
+   viewBox="0 0 11.403807 6.5293875"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="6.2819511"
+     inkscape:cx="43.378243"
+     inkscape:cy="14.008387"
+     inkscape:window-width="1920"
+     inkscape:window-height="1020"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-99.182919,-145.25624)">
+    <g
+       id="g13785"
+       transform="matrix(-0.26458333,0,0,-0.26458333,198.24821,455.4585)"
+       style="display:inline;enable-background:new">
+      <rect
+         rx="0.2"
+         style="fill:#ffffff;fill-opacity:0.576471;stroke:#3f3f3f;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="332.319"
+         y="1148.74"
+         i:knockout="Off"
+         width="41.101002"
+         height="22.677999"
+         id="rect4444" />
+      <line
+         style="fill:none;stroke:#3f3f3f;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         i:knockout="Off"
+         x1="339.40601"
+         y1="1160.08"
+         x2="366.33499"
+         y2="1160.08"
+         id="line4446" />
+      <line
+         style="fill:none;stroke:#3f3f3f;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         i:knockout="Off"
+         x1="344.20801"
+         y1="1168.584"
+         x2="344.20801"
+         y2="1151.576"
+         id="line4448" />
+      <polygon
+         transform="translate(331.944,1148.365)"
+         style="fill:#3f3f3f;fill-opacity:1;stroke:#3f3f3f;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         i:knockout="Off"
+         points="11.713,11.803 26.594,3.211 26.594,20.395 "
+         id="polygon4450" />
+    </g>
+  </g>
+</svg>

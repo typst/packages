@@ -1,0 +1,20 @@
+[package]
+name="minimal-unilim-thesis"
+version="0.1.1"
+entrypoint="lib.typ"
+authors=["kawiluca"]
+license="MIT"
+description="Minimal example for a thesis at University of Limoges"
+repository="https://github.com/kawiluca/packages-unilim-thesis"
+keywords=["university","limoges","thesis"]
+categories=["report", "thesis"]
+disciplines = ["education"]
+exclude = [
+    "thumbnail.png",
+    ".gitignore"
+]
+
+[template]
+path="init-material"
+entrypoint="main.typ"
+thumbnail = "thumbnail.png"

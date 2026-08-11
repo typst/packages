@@ -1,0 +1,12 @@
+[package]
+name = "pixel-family"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["GiggleLiu <@GiggleLiu>"]
+license = "MIT"
+description = "Inline pixel art characters for Typst — drop them into text like emoji"
+repository = "https://github.com/GiggleLiu/pixel-family"
+keywords = ["cetz", "pixel", "character", "avatar", "inline"]
+categories = ["components"]
+compiler = "0.13.1"
+exclude = ["images/*", "manual.*", "Makefile", "CLAUDE.md", ".github/*"]

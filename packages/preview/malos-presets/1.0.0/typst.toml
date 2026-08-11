@@ -1,0 +1,16 @@
+[package]
+name = "malos-presets"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Malo <@MDLC01>"]
+license = "MIT"
+description = "A set of bare-bones presets."
+repository = "https://github.com/MDLC01/malos-presets"
+keywords = ["presets", "light"]
+categories = ["utility"]
+compiler = "0.14.2"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,16 @@
+[package]
+name = "hitec"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Brian Li"]
+license = "MIT"
+description = "A template designed for documentation in high-technology companies. Also a Typst adaptation of the LaTeX `hitec` package."
+repository = "https://github.com/ShabbyGayBar/hitec"
+keywords = ["technology", "report"]
+categories = ["book", "report"]
+exclude = ["documentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

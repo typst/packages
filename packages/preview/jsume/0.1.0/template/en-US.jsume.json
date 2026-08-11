@@ -1,0 +1,140 @@
+{
+  "$schema": "https://unpkg.com/@jsume/schemas/dist/draft-2020-12.json",
+  "basics": {
+    "name": "John Doe",
+    "label": "Software Engineer",
+    "image": "https://example.com/profile.jpg",
+    "email": "john@example.com",
+    "phone": "(912) 555-4321",
+    "url": "https://johndoe.com",
+    "summary": "I am John Doe, a software engineer with 5 years of experience in web development...",
+    "location": {
+      "city": "New York",
+      "country": "United States"
+    },
+    "profiles": [
+      {
+        "network": "X/Twitter",
+        "username": "john",
+        "url": "https://x.com/john"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "The Company",
+      "location": "Remote",
+      "position": "Software Engineer",
+      "website": "https://company.com",
+      "startDate": {
+        "year": 2023,
+        "month": 1
+      },
+      "endDate": false,
+      "summary": "Here is the summary of my work...",
+      "highlights": [
+        "Highlight 1",
+        "Highlight 2"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project",
+      "website": "https://project.com",
+      "githubUrl": "https://github.com/johndoe/reponame",
+      "startDate": {
+        "year": 2023,
+        "month": 1
+      },
+      "endDate": false,
+      "summary": "Here is the summary of my project...",
+      "highlights": [
+        "Highlight 1",
+        "Highlight 2"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "name": "The World Wide Web",
+      "releaseDate": {
+        "year": 2023,
+        "month": 1
+      },
+      "publisher": "IEEE, Computer Magazine",
+      "summary": "Discussion of the World Wide Web, HTTP, HTML.",
+      "url": "https://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html"
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Example",
+      "location": "Online",
+      "major": "Computer Science",
+      "degree": "Bachelor of Science",
+      "gpa": 3.8,
+      "startDate": {
+        "year": 2023,
+        "month": 1
+      },
+      "endDate": {
+        "year": 2023,
+        "month": 1
+      },
+      "activities": [
+        "Activity 1",
+        "Activity 2"
+      ],
+      "courses": [
+        "Course 1",
+        "Course 2"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certified Kubernetes Administrator",
+      "issueDate": {
+        "year": 2023,
+        "month": 1
+      },
+      "expDate": false,
+      "issuer": "CNCF",
+      "url": "https://www.youracclaim.com/badges/xxxx"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Employee of the month",
+      "date": {
+        "year": 2023,
+        "month": 1,
+        "day": 1
+      },
+      "awarder": "Tech Company Inc.",
+      "summary": "Awarded for outstanding performance and dedication to the team.",
+      "description": "I play a key role in the team and help the team achieve its goals..."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Frontend",
+      "keywords": [
+        "JavaScript",
+        "React",
+        "Vue"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "Chinese",
+      "fluency": "Native"
+    }
+  ]
+}

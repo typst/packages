@@ -1,0 +1,16 @@
+[package]
+name = "benplate"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ben Dierks"]
+license = "MIT"
+description = "A flexible template for final theses, term papers and similar documents"
+keywords = ["thesis"]
+categories = ["paper", "thesis", "report"]
+repository = "https://github.com/Nasenbaer39/benplate"
+compiler = "0.13.1"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

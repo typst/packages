@@ -1,0 +1,14 @@
+[package]
+name = "h-brs-thesis-unofficial"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Julian Meser <@geisterzeit>"]
+license = "MIT"
+description = "Unofficial thesis template for Hochschule Bonn-Rhein-Sieg"
+keywords = ["thesis", "template", "university", "h-brs", "Hochschule", "Bonn", "Rhein", "Sieg"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

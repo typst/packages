@@ -1,0 +1,7 @@
+*.pdf
+.DS_Store
+TEST/
+*/venv/
+*/.venv/
+utils/scripts/*.yaml
+utils/scripts/*.json

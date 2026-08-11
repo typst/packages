@@ -1,0 +1,15 @@
+[global]
+    author = ""
+    institution = ""
+    footer = ""
+    header = ""
+    ending = ""
+    lang = "en"
+
+[example]
+    institution = "School of Artificial Intelligence"
+    author = "ivaquero"
+    footer = "Clayton University"
+    header = ""
+    ending = "Thanks for Your Attention"
+    lang = "en"

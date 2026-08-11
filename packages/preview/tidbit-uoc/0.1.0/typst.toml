@@ -1,0 +1,14 @@
+[package]
+name = "tidbit-uoc"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Daniel Ramos Acosta <https://github.com/DanielRamosAcosta>"]
+license = "MIT"
+description = "Academic reports at the UOC with APA styling."
+categories = ["paper", "report"]
+keywords = ["uoc", "cataluña", "paper", "report", "academic", "apa", "styling"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

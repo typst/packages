@@ -1,0 +1,11 @@
+[package]
+name = "simple-todo"
+version = "0.1.0"
+entrypoint = "todo.typ"
+authors = ["rumpelsepp"]
+license = "EUPL-1.2"
+description = "A simple TODO package providing TODO inline tags and a list of TODOs."
+repository = "https://codeberg.org/rumpelsepp/typst-packages"
+keywords = ["todo"]
+categories = ["utility"]
+exclude = []

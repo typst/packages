@@ -1,0 +1,18 @@
+[package]
+name = "lacy-ubc-math-project"
+version = "0.2.0"
+compiler = "0.13.0"
+entrypoint = "src/lib.typ"
+authors = ["Lacewing <@lace-wing>"]
+license = "MIT"
+description = "A UBC MATH 100/101 group project template."
+repository = "https://github.com/lace-wing/lacy-ubc-math-project"
+keywords = ["University of British Columbia", "UBC", "math", "project"]
+categories = ["office", "layout", "components"]
+disciplines = ["education", "mathematics"]
+exclude = ["test"]
+
+[template]
+path = "template"
+entrypoint = "project-1.typ"
+thumbnail = "thumbnail.png"

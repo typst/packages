@@ -1,0 +1,13 @@
+[package]
+name = "lemming"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["fgolke"]
+license = "LGPL-3.0-only"
+description = "Math environments working similar to native elements."
+repository = "https://codeberg.org/fgolke/typst-lemming"
+categories = ["components", "paper", "thesis", ]
+disciplines = ["mathematics", "physics", "computer-science", "philosophy", ]
+keywords = ["theorem", "definition", "lemma", "environment", "proof", "elembic", "maths", ]
+compiler = "0.14.0"
+exclude = ["/gallery/*"]

@@ -1,0 +1,10 @@
+[package]
+name = "varioref"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Elessar <tanguy+typst@ortolo.eu>"]
+license = "Apache-2.0"
+description = "Cross-references that include page number when needed"
+repository = "https://git.ortolo.eu/typst-varioref.git/"
+keywords = ["reference", "ref", "varioref", "vref", "page"]
+categories = ["model"]

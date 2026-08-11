@@ -1,0 +1,17 @@
+[package]
+name = "tonguetoquill-usaf-memo"
+version = "0.0.1"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+repository = "https://github.com/SnpM/tonguetoquill-usaf-memo"
+authors = ["Nibs"]
+license = "MIT"
+description = "Typeset memos that are fully compliant with AFH 33-337 'The Tongue and Quill'."
+keywords = ["USAF", "Air Force", "memorandum", "memo", "military", "AFH 33-337", "official", "correspondence", "formatting"]
+categories = ["office", "report"]
+disciplines = ["politics", "law", "business", "engineering", "education"]
+
+[template]
+path = "template"
+entrypoint = "usaf-template.typ"
+thumbnail = "template/assets/thumbnail.png"

@@ -1,0 +1,7 @@
+[package]
+name = "burik"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Gabin Calmet"]
+license = "MIT"
+description = "Visualization of 3x3 Rubik's Cube Algorithms for easier tutorials edition"

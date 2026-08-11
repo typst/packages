@@ -1,0 +1,7 @@
+[package]
+name = "asian-power"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Yeonji Gong"]
+license = "MIT"
+description = "Force CJK characters to be emphasized."

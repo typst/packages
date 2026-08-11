@@ -1,0 +1,17 @@
+[package]
+name = "hadronic-rirekisho"
+version = "0.1.0"
+entrypoint = "rirekisho.typ"
+authors = ["yoshphys <@yoshphys>"]
+license = "MIT-0"
+description = "A template for a traditional Japanese rirekisho (履歴書) resume"
+repository = "https://github.com/yoshphys/typst-hadronic-rirekisho"
+keywords = ["resume", "cv", "japanese", "rirekisho", "履歴書"]
+categories = ["cv"]
+compiler = "0.11.0"
+exclude = ["/example"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

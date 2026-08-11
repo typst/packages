@@ -1,0 +1,17 @@
+[default]
+    author = ""
+    institution = ""
+    series = ""
+    footer = ""
+    header = ""
+    ending = ""
+    lang = "en"
+
+[example]
+    footer = "Clayton University"
+    header = ""
+    lang = "en"
+    author = "ivaquero"
+    series = "Typst Slides Tutorial"
+    institution = "School of Artificial Intelligence"
+    ending = "Thanks for Your Attention"

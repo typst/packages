@@ -1,0 +1,17 @@
+[package]
+name = "modern-tongji-thesis"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["TJ-CSCCG <https://github.com/TJ-CSCCG>"]
+license = "MIT"
+description = "同济大学本科生毕业论文 Typst 模板 | Tongji University Undergraduate Thesis Typst Template"
+repository = "https://github.com/TJ-CSCCG/modern-tongji-thesis"
+keywords = ["Tongji University", "thesis", "undergraduate"]
+categories = ["thesis"]
+exclude = ["scripts", "fonts/download-fonts.sh"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

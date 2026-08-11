@@ -1,0 +1,5 @@
+slug = "container-with-most-water"
+title = "Container With Most Water"
+difficulty = "medium"
+labels = ["array", "two-pointers", "greedy"]
+custom-display = true

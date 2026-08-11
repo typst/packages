@@ -1,0 +1,17 @@
+[package]
+name = "shit-journal" 
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Axuan"]
+license = "MIT"
+
+description = "Write your articles for the SHIT journal." 
+repository = "https://github.com/QzxTaqtaq/shit-typst-template"
+exclude = ["fonts/*", ".gitignore", ".gitattributes"]
+
+categories = ["paper"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,15 @@
+[package]
+name = "bookly"
+version = "2.1.0"
+authors = ["Mathieu Aucejo"]
+license = "MIT"
+description = "Book template for Typst"
+entrypoint = "src/bookly.typ"
+categories = ["book", "model"]
+repository = "https://github.com/maucejo/bookly"
+exclude = ["docs/manual.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"

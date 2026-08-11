@@ -1,0 +1,22 @@
+[package]
+name = "hannes-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Johannes Knoll"]
+description = "An academic template, designed for final reports, Bachelor theses, and Master theses."
+repository = "https://codeberg.org/hannesknoll/hannes-thesis"
+keywords = [
+    "thesis",
+    "report",
+    "paper",
+]
+categories = ["thesis"]
+disciplines = ["education"]
+compiler = "0.14.0"
+license = "MIT-0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+

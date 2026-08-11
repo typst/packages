@@ -1,0 +1,18 @@
+[package]
+name = "classy-tudelft-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["@Vector04"]
+license = "MIT-0"
+description = "A classy thesis report in TU Delft style."
+compiler = "0.13.1"
+repository = "https://github.com/Vector04/tudelft-thesis-template"
+keywords = ["TU Delft", "Delft University of Technology", "Bachelor Thesis", "Master Thesis"]
+categories = ["thesis", "report"]
+exclude = ["docs/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "docs/thumbnail.png"
+

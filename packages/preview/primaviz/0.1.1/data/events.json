@@ -1,0 +1,73 @@
+{
+  "conference": "TechCon 2024",
+  "location": "San Francisco, CA",
+  "dates": "March 15-17, 2024",
+  "attendance": {
+    "days": ["Day 1", "Day 2", "Day 3"],
+    "registered": [1250, 1180, 980],
+    "actual": [1120, 1050, 890],
+    "virtual": [340, 420, 510]
+  },
+  "sessions_by_track": {
+    "labels": ["AI/ML", "Cloud", "Security", "DevOps", "Frontend", "Data"],
+    "values": [18, 15, 12, 10, 14, 11]
+  },
+  "attendee_satisfaction": {
+    "labels": ["Very Satisfied", "Satisfied", "Neutral", "Dissatisfied", "Very Dissatisfied"],
+    "values": [42, 35, 15, 6, 2]
+  },
+  "speaker_ratings": {
+    "categories": ["Content", "Delivery", "Engagement", "Visuals", "Q&A"],
+    "speakers": [
+      {
+        "name": "Dr. Sarah Chen",
+        "topic": "Future of AI",
+        "values": [9.2, 8.8, 9.5, 8.5, 9.0]
+      },
+      {
+        "name": "Mike Rodriguez",
+        "topic": "Cloud Architecture",
+        "values": [8.5, 9.0, 8.2, 9.2, 8.8]
+      },
+      {
+        "name": "Emma Thompson",
+        "topic": "Zero Trust Security",
+        "values": [9.0, 8.5, 8.8, 8.0, 9.2]
+      }
+    ]
+  },
+  "budget_breakdown": {
+    "labels": ["Venue", "Catering", "Speakers", "Marketing", "Tech/AV", "Staff", "Misc"],
+    "values": [85000, 45000, 62000, 28000, 35000, 22000, 13000]
+  },
+  "ticket_sales_timeline": {
+    "weeks": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"],
+    "early_bird": [120, 180, 150, 95, 40, 15, 0, 0],
+    "regular": [0, 0, 45, 85, 120, 145, 110, 80],
+    "vip": [15, 25, 30, 22, 18, 12, 8, 5]
+  },
+  "session_attendance": {
+    "timeslots": ["9AM", "10AM", "11AM", "1PM", "2PM", "3PM", "4PM"],
+    "main_hall": [450, 520, 480, 380, 420, 350, 280],
+    "room_a": [120, 145, 130, 110, 125, 115, 95],
+    "room_b": [85, 95, 110, 75, 88, 82, 65],
+    "workshop": [45, 50, 48, 42, 55, 50, 40]
+  },
+  "networking_events": {
+    "events": ["Opening Reception", "Tech Mixer", "Women in Tech", "Startup Pitch", "Closing Party"],
+    "attendance": [680, 420, 185, 310, 590],
+    "rating": [4.2, 4.5, 4.8, 4.3, 4.6]
+  },
+  "sponsor_tiers": {
+    "labels": ["Platinum", "Gold", "Silver", "Bronze", "Community"],
+    "count": [3, 8, 15, 22, 12],
+    "revenue": [150000, 160000, 112500, 66000, 12000]
+  },
+  "year_over_year": {
+    "years": ["2020", "2021", "2022", "2023", "2024"],
+    "attendees": [1850, 450, 920, 1580, 2350],
+    "sessions": [45, 32, 52, 68, 80],
+    "sponsors": [28, 15, 35, 48, 60],
+    "satisfaction": [4.1, 4.3, 4.2, 4.4, 4.5]
+  }
+}

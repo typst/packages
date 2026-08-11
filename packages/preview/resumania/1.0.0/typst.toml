@@ -1,0 +1,16 @@
+[package]
+name = "resumania"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Casey Walker <@kcmw3e>"]
+license = "MIT"
+description = "Procedural resume building."
+repository = "https://github.com/kcmw3e/resumania"
+keywords = ["cv", "resume"]
+categories = ["cv"]
+exclude = ["docs", "tests"]
+
+[template]
+path = "template/"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

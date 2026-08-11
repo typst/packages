@@ -1,0 +1,18 @@
+[package]
+name = "elegant-polimi-thesis"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Vittorio Robecchi <https://github.com/VictuarVi>"]
+repository = "https://github.com/VictuarVi/PoliMi-PhD-Thesis"
+license = "GPL-3.0-or-later"
+description = "Unofficial theses and summaries templates for the Polytechnic University of Milan."
+keywords = ["polimi", "politecnico di milano", "thesis"]
+categories = ["thesis", "paper"]
+disciplines = ["engineering", "mathematics", "physics"]
+compiler = "0.13.0"
+exclude = ["*.sh", "*.pdf", "thumbnails/*.typ"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/classical-master.png"

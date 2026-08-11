@@ -1,0 +1,30 @@
+name: Test Examples
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-compile:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Typst
+      uses: typst-community/setup-typst@v4
+
+    - name: Compile repro.typ
+      run: typst compile --root . tests/repro.typ
+
+    - name: Compile custom_theme.typ
+      run: typst compile --root . tests/custom_theme.typ
+
+    - name: Compile incident.typ
+      run: typst compile --root . tests/incident.typ
+
+    - name: Compile long.typ
+      run: typst compile --root . tests/long.typ

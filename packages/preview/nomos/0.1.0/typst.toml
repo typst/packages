@@ -1,0 +1,20 @@
+[package]
+name = "nomos"
+version = "0.1.0"
+entrypoint = "nomos.typ"
+authors = ["Enzo Iglesis"]
+license = "MIT"
+repository = "https://github.com/eiglss/nomos"
+description = "A nomenclature package for managing symbol descriptions, values, units, and domains of definition."
+keywords = ["nomenclature", "glossary", "variables", "units", "symbols"]
+categories = ["text"]
+disciplines = [
+    "business",
+    "chemistry",
+    "computer-science",
+    "economics",
+    "engineering",
+    "mathematics",
+    "physics",
+]
+exclude = ["examples"]

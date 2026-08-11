@@ -1,0 +1,17 @@
+[package]
+name = "simple-soc-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ian Tung <@tzyian>"]
+license = "MIT-0"
+description = "Final Year Project report for NUS Computing (unofficial)."
+repository = "https://github.com/tzyian/simple-soc-report"
+keywords = ["template", "report", "NUS", "SoC", "FYP", "computing"]
+disciplines = ["computer-science", "engineering"]
+categories = ["thesis", "report"]
+exclude = ["/sample/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

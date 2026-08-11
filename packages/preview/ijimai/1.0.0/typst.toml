@@ -1,0 +1,19 @@
+[package]
+name = "ijimai"
+version = "1.0.0"
+entrypoint = "ijimai.typ"
+authors = ["Alberto Corbi (UNIR)", "Andrey Voynov (BMSTU)"]
+license = "MIT"
+description = "Template for writing articles for the International Journal of Interactive Multimedia and Artificial Intelligence (IJIMAI)"
+repository = "https://github.com/pammacdotnet/IJIMAI"
+categories = ["paper"]
+exclude = ["tests"]
+compiler = "0.13.1"
+
+[template]
+path = "template"
+entrypoint = "paper.typ"
+thumbnail = "tests/template/ref/1.png"
+
+[tool.tytanic.default]
+ppi = 100

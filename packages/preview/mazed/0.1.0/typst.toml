@@ -1,0 +1,8 @@
+[package]
+name = "mazed"
+version = "0.1.0"
+entrypoint = "mazed.typ"
+authors = ["Piotr Beling"]
+license = "MIT"
+description = "Maze generator."
+repository = "https://github.com/beling/mazed"

@@ -1,0 +1,23 @@
+[package]
+name = "magnificent-misq"
+version = "0.1.0"
+entrypoint = "misq.typ"
+authors = ["Ryan Schuetzler <ryan.schuetzler@byu.edu>"]
+license = "MIT"
+description = "A Typst template for MIS Quarterly manuscript submissions"
+keywords = [
+  "MISQ",
+  "MIS Quarterly",
+  "academic",
+  "management information systems",
+  "APA",
+  "IS research"
+]
+categories = ["paper"]
+disciplines = ["computer-science"]
+exclude = ["template/main.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

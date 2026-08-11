@@ -1,0 +1,15 @@
+[package]
+name = "ribbony"
+version = "0.1.0"
+entrypoint = "src/ribbony.typ"
+authors = ["@solstice23"]
+license = "MIT"
+description = "Create Sankey and Chord (ribbon-like) diagrams."
+repository = "https://github.com/solstice23/typst-ribbony"
+keywords = ["sankey", "chord", "diagram", "visualization", "ribbon"]
+categories = ["visualization"]
+exclude = [
+	"docs",
+	"gallery",
+	"test"
+]

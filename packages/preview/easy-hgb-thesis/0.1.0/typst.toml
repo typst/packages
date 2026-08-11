@@ -1,0 +1,17 @@
+[package]
+name = "easy-hgb-thesis"
+description = "Opinionated bachelor's, master's thesis or protocols for the FH Upper Austria, especially campus Hagenberg."
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+authors = ["Tim Peko <timerertim@gmail.com> @TimerErTim"]
+repository = "https://github.com/TimerErTim/hagenberg-thesis-typst"
+license = "MIT-0"
+categories = ["thesis", "report"]
+keywords = ["Hagenberg", "FH Upper Austria", "thesis", "template"]
+exclude = ["thumbnail-flat.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

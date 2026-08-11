@@ -1,0 +1,15 @@
+[package]
+name = "modern-innopolis-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ahmed Nouralla <a.nouralla@innopolis.ru>"]
+license = "MIT"
+description = "Thesis template for Innopolis University"
+repository = "https://github.com/sh3b0/innopolis-thesis"
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering", "business", "mathematics"]
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

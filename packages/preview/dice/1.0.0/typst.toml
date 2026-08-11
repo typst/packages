@@ -1,0 +1,8 @@
+[package]
+name = "dice"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Yang Yang <@Yourouchour>"]
+license = "MIT"
+description = "A versatile random number toolkit for Typst."
+keywords = ["random"]
