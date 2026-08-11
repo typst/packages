@@ -4,7 +4,7 @@ A [Télécom Paris](https://en.wikipedia.org/wiki/T%C3%A9l%C3%A9com_Paris) theme
 
 Based on [gh-minimal-slides](https://github.com/xingjian-zhang/gh-minimal-slides) by Jimmy Zhang.
 
-![Preview](preview.png)
+![Preview](thumbnail.png)
 <sub>Cover page. In-depth example available [here](example.pdf) ([source](example.typ)).</sub>
 
 ## Features
