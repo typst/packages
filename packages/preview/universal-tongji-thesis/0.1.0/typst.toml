@@ -15,8 +15,7 @@ exclude = [
     "tests",
     ".typstignore",
     "Justfile",
-    ".gitignore",
-    "thumbnail.png",
+    ".gitignore"
 ]
 compiler = "0.14.0"
 
