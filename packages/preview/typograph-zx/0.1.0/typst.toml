@@ -9,5 +9,5 @@ repository = "https://github.com/BenCichos/typograph-zx"
 keywords = ["zx-calculus", "quantum-computing", "diagram", "physics", "cv-zx"]
 categories = ["visualization"]
 disciplines = ["physics"]
-compiler = "0.15.0"
+compiler = "0.15.1"
 exclude = ["img/*" , ".gitignore"]
