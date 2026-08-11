@@ -7,8 +7,7 @@
 // ============================================================
 
 #import "@preview/touying:0.7.3": *
-// #import "@preview/telepresentation:0.1.0" as tp
-#import "./lib.typ" as tp
+#import "@preview/telepresentation:0.1.0" as tp
 #show: tp.register.with(
   theme:   "light",   // try "dark"
   accent:  "telecom",    // try "purple", "green", "pink", "orange", "mono"
