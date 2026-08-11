@@ -40,6 +40,10 @@ right, `y` increases upward.
 })
 ```
 
+<p align="center">
+    <img src="img/quickstart.svg">
+<p/>
+
 An edge automatically contributes the nodes at its endpoints. See the
 [full documentation](https://bencichos.github.io/typograph/) for the
 complete guide: drawing nodes and edges, shape builders, curve controls and

@@ -9,4 +9,4 @@ repository = "https://github.com/BenCichos/typograph"
 keywords = ["diagram", "graph", "node", "edge", "drawing"]
 categories = ["visualization"]
 compiler = "0.15.1"
-exclude = [".github", ".gitignore", "/*.pdf"]
+exclude = [".github", ".gitignore", "/*.pdf", "img/*"]
