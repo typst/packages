@@ -42,7 +42,7 @@ from typograph directly.
 ```
 
 <p align="center">
-    <img alt="Render output showing a diagram with a z node labelled alpha and a phaseless x node, connected by an edge" src="docs/img/zx-quickstart.svg">
+    <img alt="Render output showing a diagram with a z node labelled alpha and a phaseless x node, connected by an edge" src="img/zx-quickstart.svg">
 <p/>
 
 See the [full documentation](https://bencichos.github.io/typograph-zx/)
