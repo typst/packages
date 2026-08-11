@@ -8,3 +8,4 @@ description = "Create and manage abbreviations in your documents."
 repository = "https://github.com/girasole123/Abbrev"
 keywords = ["abbreviations", "acronyms", "glossary", "list"]
 categories = ["text", "model"]
+exclude = ["example.typ"]
