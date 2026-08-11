@@ -1,5 +1,3 @@
-Markdown
-
 # Introduction
 Welcome to **sudo_docs**, a minimalist, cs-centric Typst template designed for Computer Science students who also happen to like having clean, colorful notes. 
 
@@ -8,11 +6,10 @@ This document demonstrates the visual style and capabilities of the template. Th
 *(Note: If you are compiling locally, ensure these fonts are installed on your system. They are available by default on the Typst web app).*
 
 ## How to use this template
-If you downloaded the file locally, simply import it at the top of your `.typ` file:
+If you are using the Typst Universe, you can import the template directly from the Typst Universe package registry:
 
 ```typst
-// Use * to import the project function, img, and the custom cards
-#import "sudodocs.typ": *
+#import "@preview/sudo-docs:0.1.0": *
 
 #show: project.with(
   title: "My Project",

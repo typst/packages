@@ -8,3 +8,8 @@ entrypoint = "lib.typ"
 repository = "https://github.com/G0ldenPin/sudodocs"
 keywords = ["template", "computer-science", "notes", "university"]
 compiler = "0.11.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
