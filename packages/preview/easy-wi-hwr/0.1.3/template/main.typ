@@ -24,11 +24,11 @@
   name:     "Max Mustermann",
   matrikel: "12345678",
   // Mit digitaler Unterschrift (optional):
-  // signature: image("images/signature_example.svg"),
+  // signature: image("images/signature_placeholder.svg"),
 
   // Alternativ als dict (gleicher Effekt):
   // authors: (name: "Max Mustermann", matrikel: "12345678"),
-  // authors: (name: "Max Mustermann", matrikel: "12345678", signature: image("images/signature_example.svg")),
+  // authors: (name: "Max Mustermann", matrikel: "12345678", signature: image("images/signature_placeholder.svg")),
 
   // Gruppenarbeit — Array (ersetzt name:/matrikel: hier drüber):
   // authors: (

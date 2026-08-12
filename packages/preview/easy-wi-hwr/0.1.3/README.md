@@ -499,7 +499,7 @@ Das Bild erscheint dann automatisch im Unterschriftsfeld der Ehrenwörtlichen Er
 Du kannst Mermaid-Diagramme direkt in Typst einbetten — ohne externe Tools. Das Package `mmdr` rendert Mermaid-Syntax nativ im Dokument:
 
 ```typst
-#import "@preview/mmdr:0.2.1": mermaid
+#import "@preview/mmdr:0.2.2": mermaid
 
 #figure(
   mermaid("graph TD

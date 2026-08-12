@@ -498,7 +498,7 @@ The image then appears automatically in the signature field of the statutory dec
 You can embed Mermaid diagrams directly in Typst — no external tools needed. The `mmdr` package renders Mermaid syntax natively in your document:
 
 ```typst
-#import "@preview/mmdr:0.2.1": mermaid
+#import "@preview/mmdr:0.2.2": mermaid
 
 #figure(
   mermaid("graph TD
@@ -685,16 +685,16 @@ If you're working on the template itself (not as a user), you need to switch the
 
 In `template/main.typ`:
 ```typst
-// Comment out this line:
-// #import "@preview/easy-wi-hwr:0.1.3": hwr, abk, gls, glspl, quelle, blockquote
 // Activate this line:
-#import "../lib.typ": hwr, abk, gls, glspl, quelle, blockquote
+#import "@preview/easy-wi-hwr:0.1.3": hwr, abk, gls, glspl, quelle, blockquote
+// Comment out this line:
+// #import "../lib.typ": hwr, abk, gls, glspl, quelle, blockquote
 ```
 
 In `template/kapitel/01_einleitung.typ` (and all other chapter files that use `abk`):
 ```typst
-// #import "@preview/easy-wi-hwr:0.1.3": abk
-#import "../../lib.typ": abk
+#import "@preview/easy-wi-hwr:0.1.3": abk
+// #import "../../lib.typ": abk
 ```
 
 **Step 2: Compile**
