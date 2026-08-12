@@ -11,87 +11,81 @@
 
 #let _add-space(input) = {
   box(
-    [#pad(left:1cm,[#input])],
+    [#pad(left: 1cm, [#input])],
   )
 }
 
-#let 私(性読み: "",名読み: "", 性: "",名: "",生年月日: "",年齢: 0) = {
+#let 私(姓読み: "", 名読み: "", 姓: "", 名: "", 生年月日: "", 年齢: 0) = {
   stack(
     place(
       top + right,
       dy: -10pt,
-      datetime.today().display(
-        "[year]年[month]月[day]日現在",
-      )
+      datetime
+        .today()
+        .display(
+          "[year]年[month]月[day]日現在",
+        ),
     ),
     rect(
       stroke: (
         bottom: none,
         top: 1.5pt,
         left: 1.5pt,
-        right: 1.5pt
+        right: 1.5pt,
       ),
       height: auto,
       width: 100%,
       [
         #grid(
-          columns: (1.5cm,4cm,1fr),
-          [ふりがな],
-          [#align(center,性読み)],
-          [#align(start,名読み)]
+          columns: (1.5cm, 4cm, 1fr),
+          [ふりがな], [#align(center, 姓読み)], [#align(start, 名読み)],
         )
-      ]
+      ],
     ),
     line(
       length: 100%,
       stroke: (
-        dash:"dashed",
-      )
+        dash: "dashed",
+      ),
     ),
     rect(
       stroke: (
         bottom: 0.5pt,
         top: none,
         left: 1.5pt,
-        right: 1.5pt
+        right: 1.5pt,
       ),
       height: auto,
       width: 100%,
       [
-        #align(top,
-          grid(
-            columns: (1.5cm,4cm,1fr),
-            [氏 #h(0.6cm)名],
-            [
-              #pad(y: 0.4cm,align(center + horizon,text(_name-font-size,性)))
-            ],
-            [
-              #pad(y: 0.4cm,align(start + horizon,text(_name-font-size,名)))
-            ]
-
-          )
-        )
-      ]
+        #align(top, grid(
+          columns: (1.5cm, 4cm, 1fr),
+          [氏 #h(0.6cm)名],
+          [
+            #pad(y: 0.4cm, align(center + horizon, text(_name-font-size, 姓)))
+          ],
+          [
+            #pad(y: 0.4cm, align(start + horizon, text(_name-font-size, 名)))
+          ],
+        ))
+      ],
     ),
     rect(
       stroke: (
         bottom: 0.5pt,
         top: none,
         left: 1.5pt,
-        right: 1.5pt
+        right: 1.5pt,
       ),
       height: auto,
       width: 100%,
       [
-        #align(start + top,
-          grid(
-          columns: (1.5cm,1fr),
-          [生年月日],
-            pad(y: 0.2cm,[#_add-space(text(_input-font-size,[#生年月日 生 #h(0.6cm) (満 #h(0.5em) #年齢 才)]))])
-          )
-        )
-      ]
-    )
+        #align(start + top, grid(
+          columns: (1.5cm, 1fr),
+          [生年月日], pad(y: 0.2cm, [#_add-space(text(_input-font-size, [#生年月日 生 #h(0.6cm) (満 #h(0.5em) #年齢 才)]))]),
+        ))
+      ],
+    ),
   )
 }
 
@@ -102,31 +96,42 @@
     left: 0.4cm,
     box(
       stroke: (
-        dash:"dashed",
+        dash: "dashed",
       ),
       height: 4cm,
       width: 3cm,
       [
-        #if (写真 == ""){
+        #if (写真 == "") {
           align(
             center + horizon,
             [
               写真を貼る位置\
               (縦 40mm, 横 30mm)
-            ]
+            ],
           )
         } else {
           image(写真, width: 3cm, height: 4cm)
         }
-      ]
-    )
+      ],
+    ),
   )
 }
 
-#let アドレス(住所ふりがな1: "", 住所1: "",住所ふりがな2: "", 住所2: "",郵便番号1: "",郵便番号2: "", 電話番号1:"",Email1:"",電話番号2:"",Email2:"") = {
+#let アドレス(
+  住所ふりがな1: "",
+  住所1: "",
+  住所ふりがな2: "",
+  住所2: "",
+  郵便番号1: "",
+  郵便番号2: "",
+  電話番号1: "",
+  Email1: "",
+  電話番号2: "",
+  Email2: "",
+) = {
   stack(
     grid(
-      columns: (5fr,2fr),
+      columns: (5fr, 2fr),
       [
         #stack(
           rect(
@@ -134,16 +139,16 @@
               bottom: none,
               top: none,
               left: 1.5pt,
-              right: 0.5pt
-            ),[
+              right: 0.5pt,
+            ),
+            [
               #grid(
-                columns: (1.5cm,1fr),
-                [ふりがな],
-                [#align(center,住所ふりがな1)]
+                columns: (1.5cm, 1fr),
+                [ふりがな], [#align(center, 住所ふりがな1)],
               )
-            ]
+            ],
           ),
-          line(stroke: (dash:"dashed"), length: 100%)
+          line(stroke: (dash: "dashed"), length: 100%),
         )
       ],
       [
@@ -153,15 +158,16 @@
             bottom: 0.5pt,
             top: 1.5pt,
             left: none,
-            right: 1.5pt
-          ),[
-          電話 #h(10pt) #電話番号1
-          ]
+            right: 1.5pt,
+          ),
+          [
+            電話 #h(10pt) #電話番号1
+          ],
         )
-      ]
+      ],
     ),
     grid(
-      columns: (5fr,2fr),
+      columns: (5fr, 2fr),
       [
         #rect(
           width: 100%,
@@ -170,15 +176,16 @@
             bottom: 0.5pt,
             top: none,
             left: 1.5pt,
-            right: 0.5pt
-          ),[
+            right: 0.5pt,
+          ),
+          [
             #if (郵便番号1 == "") {
               [現住所 (〒 #h(20pt) - #h(20pt))]
             } else {
-              [現住所 (〒 #text(tracking: 1pt,_system-font-size,郵便番号1))]
+              [現住所 (〒 #text(tracking: 1pt, _system-font-size, 郵便番号1))]
             }
-            #pad(y: 0.2cm ,align(center,text(_input-font-size,住所1)))
-          ]
+            #pad(y: 0.2cm, align(center, text(_input-font-size, 住所1)))
+          ],
         )
       ],
       [
@@ -189,16 +196,17 @@
             bottom: 0.5pt,
             top: none,
             left: none,
-            right: 1.5pt
-          ),[
+            right: 1.5pt,
+          ),
+          [
             E-mail
-            #pad(y: 0.3cm ,align(center,Email1))
-          ]
+            #pad(y: 0.3cm, align(center, Email1))
+          ],
         )
-      ]
+      ],
     ),
     grid(
-      columns: (5fr,2fr),
+      columns: (5fr, 2fr),
       [
         #stack(
           rect(
@@ -206,16 +214,16 @@
               bottom: none,
               top: none,
               left: 1.5pt,
-              right: 0.5pt
-            ),[
+              right: 0.5pt,
+            ),
+            [
               #grid(
-                columns: (1.5cm,1fr),
-                [ふりがな],
-                [#align(center,住所ふりがな2)]
+                columns: (1.5cm, 1fr),
+                [ふりがな], [#align(center, 住所ふりがな2)],
               )
-            ]
+            ],
           ),
-          line(stroke: (dash:"dashed"), length: 100%)
+          line(stroke: (dash: "dashed"), length: 100%),
         )
       ],
       [
@@ -225,15 +233,16 @@
             bottom: 0.5pt,
             top: none,
             left: none,
-            right: 1.5pt
-          ),[
-          電話 #h(10pt) #電話番号2
-          ]
+            right: 1.5pt,
+          ),
+          [
+            電話 #h(10pt) #電話番号2
+          ],
         )
-      ]
+      ],
     ),
     grid(
-      columns: (5fr,2fr),
+      columns: (5fr, 2fr),
       [
         #rect(
           width: 100%,
@@ -242,15 +251,16 @@
             bottom: 1.5pt,
             top: none,
             left: 1.5pt,
-            right: 0.5pt
-          ),[
-           #if (郵便番号2 == "") {
+            right: 0.5pt,
+          ),
+          [
+            #if (郵便番号2 == "") {
               [連絡先 (〒 #h(20pt) - #h(20pt))]
             } else {
-              [連絡先 (〒 #text(tracking: 1pt,_system-font-size,郵便番号2))]
+              [連絡先 (〒 #text(tracking: 1pt, _system-font-size, 郵便番号2))]
             }
-            #pad(y: 0.2cm ,align(center,text(_input-font-size,住所2)))
-          ]
+            #pad(y: 0.2cm, align(center, text(_input-font-size, 住所2)))
+          ],
         )
       ],
       [
@@ -261,82 +271,83 @@
             bottom: 1.5pt,
             top: none,
             left: none,
-            right: 1.5pt
-          ),[
+            right: 1.5pt,
+          ),
+          [
             E-mail
-            #pad(y: 0.3cm ,align(center,Email2))
-          ]
+            #pad(y: 0.3cm, align(center, Email2))
+          ],
         )
-      ]
-    )
+      ],
+    ),
   )
 }
 
-#let 学歴(年:"", 月:"",学歴: "") = {
+#let 学歴(年: "", 月: "", 学歴: "") = {
   set text(_input-font-size)
   grid(
-    columns: (1.5cm,0.8cm,1fr),
+    columns: (1.5cm, 0.8cm, 1fr),
     [
-      #align(center,年)
+      #align(center, 年)
     ],
     [
-      #align(center,月)
+      #align(center, 月)
     ],
     [
       #if (年 == "" and 月 == "" and 学歴 == "") {
-        align(center,[学歴])
+        align(center, [学歴])
       } else {
-        align(start + horizon,[#h(5pt)#学歴])
+        align(start + horizon, [#h(5pt)#学歴])
       }
-    ]
+    ],
   )
 }
 
-#let 職歴(年:"", 月:"",職歴:"") = {
+#let 職歴(年: "", 月: "", 職歴: "") = {
   set text(_input-font-size)
   grid(
-    columns: (1.5cm,0.8cm,1fr),
+    columns: (1.5cm, 0.8cm, 1fr),
     [
-      #align(center,年)
+      #align(center, 年)
     ],
     [
-      #align(center,月)
+      #align(center, 月)
     ],
     [
       #if (年 == "" and 月 == "" and 職歴 == "") {
-        align(center,[職歴])
+        align(center, [職歴])
       } else {
-        align(start + horizon,[#h(5pt)#職歴])
+        align(start + horizon, [#h(5pt)#職歴])
       }
-    ]
+    ],
   )
 }
 
-#let 資格行(年:"", 月:"",資格:"") = {
+#let 資格行(年: "", 月: "", 資格: "") = {
   set text(_input-font-size)
   grid(
-    columns: (1.5cm,0.8cm,1fr),
+    columns: (1.5cm, 0.8cm, 1fr),
     [
-      #align(center,年)
+      #align(center, 年)
     ],
     [
-      #align(center,月)
+      #align(center, 月)
     ],
     [
-      #align(start + horizon,[#h(5pt)#資格])
-    ]
+      #align(start + horizon, [#h(5pt)#資格])
+    ],
   )
 }
 
-#let　以上() = {
+#let 以上() = {
   set text(_input-font-size)
   grid(
-    columns: (1.5cm,0.8cm,1fr),
+    columns: (1.5cm, 0.8cm, 1fr),
     [],
     [],
     [
-      #align(end + horizon,[以上#h(2cm)])
-    ]
+      #align(end + horizon, [以上#h(2cm)])
+    ],
   )
 }
 
@@ -348,26 +359,26 @@
         bottom: 1.5pt,
         top: 1.5pt,
         left: 1.5pt,
-        right: 1.5pt
+        right: 1.5pt,
       ),
       height: heightLength,
       width: 100%,
       [
         #grid(
-          columns: (1.5cm,0.8cm,1fr),
+          columns: (1.5cm, 0.8cm, 1fr),
           [
             #rect(
               stroke: (
                 bottom: none,
                 top: none,
                 left: none,
-                right: 0.5pt
+                right: 0.5pt,
               ),
               height: 100%,
               width: 100%,
               [
-                #align(center,[年])
-              ]
+                #align(center, [年])
+              ],
             )
           ],
           [
@@ -376,13 +387,13 @@
                 bottom: none,
                 top: none,
                 left: none,
-                right: 0.5pt
+                right: 0.5pt,
               ),
               height: 100%,
               width: 100%,
               [
-                #align(center,[月])
-              ]
+                #align(center, [月])
+              ],
             )
           ],
           [
@@ -395,15 +406,14 @@
                 left: none,
                 right: none,
               ),
-              align(center,[
+              align(center, [
                 #if (mode == "学歴・職歴") {
                   [学歴・職歴(各別にまとめて書く)]
                 } else if (mode == "資格") {
                   [免許・資格]
-                }]
-              )
+                }]),
             )
-          ]
+          ],
         )
         #place(
           start + top,
@@ -411,17 +421,17 @@
           [
             #let n = 0
             #while n < columns {
-              [#pad(y: 0.26cm,line(stroke: 0.5pt, length: 100%))]
+              [#pad(y: 0.26cm, line(stroke: 0.5pt, length: 100%))]
               n = n + 1
             }
-          ]
+          ],
         )
         #place(
           top + left,
           dy: 0.9cm,
-        children
+          children,
         )
-      ]
+      ],
     ),
   )
 }
@@ -433,7 +443,7 @@
         bottom: 1.5pt,
         top: 1.5pt,
         left: 1.5pt,
-        right: 1.5pt
+        right: 1.5pt,
       ),
       height: 5cm,
       width: 100%,
@@ -442,8 +452,8 @@
         #linebreak()
         #set text(_input-font-size)
         #children
-      ]
-    )
+      ],
+    ),
   )
 }
 
@@ -454,7 +464,7 @@
         bottom: 1.5pt,
         top: 1.5pt,
         left: 1.5pt,
-        right: 1.5pt
+        right: 1.5pt,
       ),
       height: 5cm,
       width: 100%,
@@ -463,8 +473,8 @@
         #linebreak()
         #set text(_input-font-size)
         #children
-      ]
-    )
+      ],
+    ),
   )
 }
 
@@ -495,9 +505,9 @@
 }
 
 #let 履歴書(
-  性読み: "",
+  姓読み: "",
   名読み: "",
-  性: "",
+  姓: "",
   名: "",
   生年月日: "",
   年齢: 0,
@@ -526,46 +536,42 @@
   [
     = #title
 
-    #move(dy: -1cm,
-      stack(
-        align(bottom,
-          grid(
-            columns: (5fr, 2fr),
-            私(
-              性読み: 性読み,
-              名読み: 名読み,
-              性: 性,
-              名: 名,
-              生年月日: 生年月日,
-              年齢: 年齢,
-            ),
-            証明写真(写真: 写真),
-          ),
+    #move(dy: -1cm, stack(
+      align(bottom, grid(
+        columns: (5fr, 2fr),
+        私(
+          姓読み: 姓読み,
+          名読み: 名読み,
+          姓: 姓,
+          名: 名,
+          生年月日: 生年月日,
+          年齢: 年齢,
         ),
-        アドレス(
-          住所ふりがな1: dict-get(現住所, "ふりがな"),
-          住所1: dict-get(現住所, "住所"),
-          郵便番号1: dict-get(現住所, "郵便番号"),
-          電話番号1: dict-get(現住所, "電話"),
-          Email1: dict-get(現住所, "email"),
-          住所ふりがな2: dict-get(連絡先, "ふりがな"),
-          住所2: dict-get(連絡先, "住所"),
-          郵便番号2: dict-get(連絡先, "郵便番号"),
-          電話番号2: dict-get(連絡先, "電話"),
-          Email2: dict-get(連絡先, "email"),
-        ),
-        linebreak(),
-        経歴(
-          mode: "学歴・職歴",
-          columns: career-page1-rows,
-          heightLength: career-page1-height,
-          grid(
-            gutter: 0.61cm,
-            ..career-page1,
-          ),
+        証明写真(写真: 写真),
+      )),
+      アドレス(
+        住所ふりがな1: dict-get(現住所, "ふりがな"),
+        住所1: dict-get(現住所, "住所"),
+        郵便番号1: dict-get(現住所, "郵便番号"),
+        電話番号1: dict-get(現住所, "電話"),
+        Email1: dict-get(現住所, "email"),
+        住所ふりがな2: dict-get(連絡先, "ふりがな"),
+        住所2: dict-get(連絡先, "住所"),
+        郵便番号2: dict-get(連絡先, "郵便番号"),
+        電話番号2: dict-get(連絡先, "電話"),
+        Email2: dict-get(連絡先, "email"),
+      ),
+      linebreak(),
+      経歴(
+        mode: "学歴・職歴",
+        columns: career-page1-rows,
+        heightLength: career-page1-height,
+        grid(
+          gutter: 0.61cm,
+          ..career-page1,
         ),
       ),
-    )
+    ))
 
     #pagebreak()
 

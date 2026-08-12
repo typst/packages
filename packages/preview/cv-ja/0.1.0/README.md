@@ -18,9 +18,9 @@ typst init @preview/cv-ja:0.1.0 my-resume
 #import "@preview/cv-ja:0.1.0": 履歴書
 
 #show: 履歴書.with(
-  性読み: "りれきしょ",
+  姓読み: "りれきしょ",
   名読み: "たろう",
-  性: "履歴書",
+  姓: "履歴書",
   名: "太郎",
   生年月日: "平成xx年xx月xx日",
   年齢: 99,
