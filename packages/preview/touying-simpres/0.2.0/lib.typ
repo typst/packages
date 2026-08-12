@@ -1,8 +1,8 @@
 
 /// "Simpres" theme by thy0s
 /// Inspired by and partially taken from:
-/// - https://github.com/touying-typ/touying/blob/main/themes/university.typ
-/// - https://github.com/touying-typ/touying/blob/main/themes/metropolis.typ
+/// - https://github.com/touying-typ/touying/blob/f9833db352bb1031e1a35a2210427cec15e4e997/themes/university.typ
+/// - https://github.com/touying-typ/touying/blob/f9833db352bb1031e1a35a2210427cec15e4e997/themes/metropolis.typ
 /// - https://github.com/JoshuaLampert/clean-math-presentation
 
 #import "@preview/touying:0.7.4": *
