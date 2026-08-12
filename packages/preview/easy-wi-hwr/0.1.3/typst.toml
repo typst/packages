@@ -10,7 +10,7 @@ description = "Paper template for HWR Berlin (Wirtschaftsinformatik)."
 categories = ["thesis"]
 keywords = ["thesis", "university", "hwr", "berlin", "wirtschaftsinformatik"]
 disciplines = ["computer-science"]
-exclude = ["reference-templates", "hwr-richtlinien", ".claude", "requirements", "scripts", ".github", "test-*"]
+exclude = ["reference-templates", "hwr-richtlinien", ".claude", "requirements", "scripts", ".github", "test-*", "template/images/signature_example.svg"]
 
 [template]
 path = "template"

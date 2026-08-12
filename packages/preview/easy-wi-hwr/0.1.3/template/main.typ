@@ -8,10 +8,9 @@
 // Schreibe keinen Text und kein zweites #show: davor — sonst wird
 // die Formatierung nicht korrekt angewendet.
 
-// Für Nutzer (nach typst init @preview/easy-wi-hwr:0.1.3):
-// #import "@preview/easy-wi-hwr:0.1.3": hwr, abk, gls, glspl
 // Für lokale Entwicklung:
-#import "../lib.typ": hwr, abk, gls, glspl
+// #import "../lib.typ": hwr, abk, gls, glspl
+#import "@preview/easy-wi-hwr:0.1.3": hwr, abk, gls, glspl
 
 #show: hwr.with(
   // === PFLICHTFELDER ===

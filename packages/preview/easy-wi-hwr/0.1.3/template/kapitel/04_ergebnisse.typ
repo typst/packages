@@ -1,7 +1,7 @@
 // kapitel/04_ergebnisse.typ
-// #import "@preview/easy-wi-hwr:0.1.3": abk, quelle
 // Für lokale Entwicklung:
-#import "../../lib.typ": abk, quelle
+// #import "../../lib.typ": abk, quelle
+#import "@preview/easy-wi-hwr:0.1.3": abk, quelle
 
 = Ergebnisse
 

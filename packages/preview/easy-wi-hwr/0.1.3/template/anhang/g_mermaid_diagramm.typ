@@ -1,9 +1,9 @@
 // anhang/g_mermaid_diagramm.typ — Beispiel: Mermaid-Diagramm im Anhang
 // Nutzt das mmdr-Package um Mermaid-Syntax direkt in Typst zu rendern.
-// Voraussetzung: #import "@preview/mmdr:0.2.1": mermaid (einmalig oben in der Datei)
+// Voraussetzung: #import "@preview/mmdr:0.2.2": mermaid (einmalig oben in der Datei)
 // Details: https://typst.app/universe/package/mmdr
 
-#import "@preview/mmdr:0.2.1": mermaid
+#import "@preview/mmdr:0.2.2": mermaid
 
 #figure(
   mermaid("graph TD
