@@ -141,7 +141,7 @@ Das erstellt sofort einen fertigen Projektordner mit einer vorausgefüllten `mai
 
 Das Script stellt dir alle Fragen und erstellt eine vollständig ausgefüllte `main.typ` mit deinen Daten.
 
-> **Hinweis:** Lies das Script kurz durch, bevor du es ausführst: [scripts/init.sh](https://github.com/lultoni/easy-wi-hwr/blob/main/scripts/init.sh)
+> **Hinweis:** Lies das Script kurz durch, bevor du es ausführst: [scripts/init.sh](https://github.com/lultoni/easy-wi-hwr/blob/e484c29af964a92ae6f6a68a06806a6e6dff1580/scripts/init.sh)
 
 **Direkt ausführen (macOS/Linux):**
 ```bash
@@ -686,16 +686,16 @@ Wenn du am Template selbst arbeitest (nicht als Nutzer), musst du die Imports um
 
 In `template/main.typ`:
 ```typst
-// Diese Zeile auskommentieren:
-// #import "@preview/easy-wi-hwr:0.1.3": hwr, abk, gls, glspl, quelle, blockquote
 // Diese Zeile aktivieren:
-#import "../lib.typ": hwr, abk, gls, glspl, quelle, blockquote
+#import "@preview/easy-wi-hwr:0.1.3": hwr, abk, gls, glspl, quelle, blockquote
+// Diese Zeile auskommentieren:
+// #import "../lib.typ": hwr, abk, gls, glspl, quelle, blockquote
 ```
 
 In `template/kapitel/01_einleitung.typ` (und allen anderen Kapitel-Dateien die `abk` nutzen):
 ```typst
-// #import "@preview/easy-wi-hwr:0.1.3": abk
-#import "../../lib.typ": abk
+#import "@preview/easy-wi-hwr:0.1.3": abk
+// #import "../../lib.typ": abk
 ```
 
 **Schritt 2: Kompilieren**
