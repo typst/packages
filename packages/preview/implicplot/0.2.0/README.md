@@ -22,7 +22,7 @@ Two entry points answer two different questions:
   could decide. Stroke them, fill them, or hand them to your plotting package.
 
 ```typst
-#import "@preview/implicplot:0.1.0": plot, contour, rows
+#import "@preview/implicplot:0.2.0": plot, contour, rows
 
 // 64 bytes, row-major from the top: an 8x8 raster of x < 0.
 #let pixels = plot("x < 0", size: (8, 8), x: (-1, 1), y: (-1, 1))
