@@ -1,0 +1,134 @@
+[days.format.wide]
+1 = "Mantaxtsees"
+2 = "Denstaxtsees"
+3 = "Wunstaxtsees"
+4 = "Dondertaxtsees"
+5 = "Fraitaxtsees"
+6 = "Satertaxtsees"
+7 = "Sontaxtsees"
+
+[days.format.abbreviated]
+1 = "Ma"
+2 = "De"
+3 = "Wu"
+4 = "Do"
+5 = "Fr"
+7 = "Son"
+
+[days.format.narrow]
+2 = "E"
+4 = "D"
+6 = "A"
+
+[days.stand-alone.wide]
+1 = "Mantaxtsees"
+2 = "Denstaxtsees"
+3 = "Wunstaxtsees"
+4 = "Dondertaxtsees"
+5 = "Fraitaxtsees"
+6 = "Satertaxtsees"
+7 = "Sontaxtsees"
+
+[days.stand-alone.abbreviated]
+1 = "Ma"
+2 = "De"
+3 = "Wu"
+4 = "Do"
+5 = "Fr"
+7 = "Son"
+
+[days.stand-alone.narrow]
+2 = "E"
+4 = "D"
+6 = "A"
+
+[months.format.wide]
+1 = "ǃKhanni"
+2 = "ǃKhanǀgôab"
+3 = "ǀKhuuǁkhâb"
+4 = "ǃHôaǂkhaib"
+5 = "ǃKhaitsâb"
+6 = "Gamaǀaeb"
+7 = "ǂKhoesaob"
+8 = "Aoǁkhuumûǁkhâb"
+9 = "Taraǀkhuumûǁkhâb"
+10 = "ǂNûǁnâiseb"
+11 = "ǀHooǂgaeb"
+12 = "Hôasoreǁkhâb"
+
+[months.format.abbreviated]
+1 = "Jan"
+2 = "Feb"
+3 = "Mar"
+4 = "Apr"
+5 = "May"
+6 = "Jun"
+7 = "Jul"
+8 = "Aug"
+9 = "Sep"
+10 = "Oct"
+11 = "Nov"
+12 = "Dec"
+
+[months.format.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "A"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[months.stand-alone.wide]
+1 = "ǃKhanni"
+2 = "ǃKhanǀgôab"
+3 = "ǀKhuuǁkhâb"
+4 = "ǃHôaǂkhaib"
+5 = "ǃKhaitsâb"
+6 = "Gamaǀaeb"
+7 = "ǂKhoesaob"
+8 = "Aoǁkhuumûǁkhâb"
+9 = "Taraǀkhuumûǁkhâb"
+10 = "ǂNûǁnâiseb"
+11 = "ǀHooǂgaeb"
+12 = "Hôasoreǁkhâb"
+
+[months.stand-alone.abbreviated]
+1 = "Jan"
+2 = "Feb"
+3 = "Mar"
+4 = "Apr"
+5 = "May"
+6 = "Jun"
+7 = "Jul"
+8 = "Aug"
+9 = "Sep"
+10 = "Oct"
+11 = "Nov"
+12 = "Dec"
+
+[months.stand-alone.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "A"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[patterns]
+full = "EEEE, d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "dd/MM/y"
+

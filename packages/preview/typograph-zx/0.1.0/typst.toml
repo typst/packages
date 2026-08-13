@@ -1,0 +1,13 @@
+[package]
+name = "typograph-zx"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Benjamin Cichos <https://github.com/BenCichos>"]
+license = "MIT"
+description = "Add ZX-calculus and continuous-variable ZX-calculus notation to typograph."
+repository = "https://github.com/BenCichos/typograph-zx"
+keywords = ["zx-calculus", "quantum-computing", "diagram", "physics", "cv-zx"]
+categories = ["visualization"]
+disciplines = ["physics"]
+compiler = "0.15.1"
+exclude = ["img/*" , ".gitignore"]

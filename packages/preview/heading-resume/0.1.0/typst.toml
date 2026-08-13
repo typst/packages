@@ -1,0 +1,14 @@
+[package]
+name = "heading-resume"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ezra Cerpac <@EzraCerpac>"]
+license = "MIT-0"
+description = "Editorial resume with a crisp two-column layout."
+keywords = ["resume", "cv", "curriculum vitae", "career"]
+categories = ["cv"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
