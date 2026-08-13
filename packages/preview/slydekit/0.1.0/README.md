@@ -2,7 +2,7 @@
 
 [![Generic badge](https://img.shields.io/badge/Version-0.1.0-cornflowerblue.svg)](https://github.com/maucejo/slidekit/releases/tag/0.1.0)
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/slydekit/blob/a1f47a7bf38311d8b8fe77e826f6cb54396fa630/LICENSE)
-[![Stable](https://img.shields.io/badge/docs-stable-mediumpurple)](https://maucejo.github.io/slydekit/)
+[![Stable documentation](https://img.shields.io/badge/docs-stable-mediumpurple)](https://maucejo.github.io/slydekit/)
 
 Slydekit is a Typst presentation framework designed to make slide creation simple and flexible. Its theme system, inspired by Bookly, makes it straightforward to design and integrate new themes.
 
