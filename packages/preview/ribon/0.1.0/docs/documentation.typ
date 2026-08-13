@@ -1,6 +1,6 @@
 #import "@preview/mantys:1.0.2": *
 #import "@preview/codly:1.3.0"
-#import "../lib.typ" as ribon
+#import "@preview/ribon:0.1.0": *
 
 #let infos = toml("../typst.toml")
 
@@ -75,8 +75,6 @@
   breakable: true,
   codly.local(number-format: none, breakable: true, ..args, body),
 )
-
-#import ribon: *
 
 #let note(title, body, color: rgb("#315eaa")) = {
   if color == rgb("#8a5a00") {
