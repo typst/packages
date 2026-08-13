@@ -1,0 +1,16 @@
+[package]
+name = "remetente"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Antonio Camargo <https://github.com/apcamargo>"]
+license = "MIT"
+description = "A professional letter template with a colored header band"
+repository = "https://github.com/apcamargo/remetente"
+keywords = ["letter", "correspondence", "mail", "business"]
+categories = ["office"]
+disciplines = ["business", "communication"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
