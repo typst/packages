@@ -107,7 +107,7 @@
     show figure.caption.where(position: top): note.with(
       alignment: "top",
       counter: none,
-      shift: "avoid",
+      shift: false,
       keep-order: true,
     )
     it
