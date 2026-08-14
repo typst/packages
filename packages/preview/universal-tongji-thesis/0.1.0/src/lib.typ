@@ -39,6 +39,7 @@
   bibliography: none, // 原来的参考文献函数
   fonts: (:), // 字体，应传入「宋体」、「黑体」、「楷体」、「仿宋」、「等宽」
   info: (:),
+  logo: image("assets/logo/name.jpg"),
 ) = {
   // 开发用，用 sys input 覆盖 doctype 以方便编译多种类型的文档
   if "doctype" in sys.inputs {
@@ -118,6 +119,7 @@
           nl-cover: nl-cover,
           anonymous: anonymous,
           twoside: twoside,
+          logo: logo,
           ..args,
           fonts: fonts + args.named().at("fonts", default: (:)),
           info: info + args.named().at("info", default: (:)),

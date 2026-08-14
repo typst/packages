@@ -44,6 +44,7 @@
   ),
   datetime-display: datetime-display,
   datetime-en-display: datetime-en-display,
+  logo: image("../assets/logo/name.jpg"),
 ) = {
   show:zh-format
 
@@ -58,7 +59,9 @@
     v(2.59cm)
   } else {
     // 封面图标
-    image("../assets/logo/name.jpg", height: 2.59cm, width: 10.01cm, fit: "contain")
+    // image("../assets/logo/name.jpg", height: 2.59cm, width: 10.01cm, fit: "contain")
+    set image(width: 10.01cm, height: 2.59cm, fit: "contain")
+    logo
   }
   text(size: zh(2), font: 字体.隶书)[
     #v(10pt)

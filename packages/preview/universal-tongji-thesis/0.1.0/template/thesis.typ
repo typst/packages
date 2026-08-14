@@ -43,6 +43,7 @@
   ),
   // 参考文献源
   bibliography: bibliography.with("ref.bib"),
+  logo: image("images/logo-placeholder.jpg"),
 )
 
 
