@@ -19,4 +19,5 @@ exclude = [
   "manual-helpers.typ",
   "manual.pdf",
   "references.yml",
+  "thumbnail.png",
 ]
