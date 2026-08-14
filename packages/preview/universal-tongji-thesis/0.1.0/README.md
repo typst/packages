@@ -2,6 +2,8 @@
 
 适用于同济大学学位论文的Typst模板
 
+[中文](./README.md) [English](./README_en.md)
+
 > [!WARNING]
 > 本模板正处于积极开发阶段，存在一些格式问题，适合尝鲜Typst特性
 >
