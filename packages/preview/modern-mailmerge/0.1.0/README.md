@@ -36,7 +36,7 @@ Explore our complete **[GitHub Wiki](https://github.com/aurghya-0/typst-mailmerg
 ### 1. Simple Letter Merge
 
 ```typst
-#import "@preview/mailmerge:0.1.0": mail-merge, field, fmt-field, join-fields, if-field
+#import "@preview/modern-mailmerge:0.1.0": mail-merge, field, fmt-field, join-fields, if-field
 
 #mail-merge(
   csv("data/clients.csv", row-type: dictionary),
@@ -76,7 +76,7 @@ Explore our complete **[GitHub Wiki](https://github.com/aurghya-0/typst-mailmerg
 ### 2. Address Labels & Badge Sheet
 
 ```typst
-#import "@preview/mailmerge:0.1.0": mail-merge-labels, presets, field, fmt-field, join-fields
+#import "@preview/modern-mailmerge:0.1.0": mail-merge-labels, presets, field, fmt-field, join-fields
 
 // Render 3x10 Avery 5160 Address Sticker Sheet with cut guidelines
 #mail-merge-labels(
