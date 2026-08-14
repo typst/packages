@@ -1,0 +1,81 @@
+tupper2001:
+  type: article
+  title: Reliable Two-Dimensional Graphing Methods for Mathematical Formulae with Two Free Variables
+  author: Tupper, Jeff
+  date: 2001
+  page-range: 77-86
+  serial-number:
+    doi: 10.1145/383259.383267
+  parent:
+    type: proceedings
+    title: Proceedings of the 28th Annual Conference on Computer Graphics and Interactive Techniques (SIGGRAPH '01)
+    publisher: ACM
+
+snyder1992:
+  type: article
+  title: Interval Analysis for Computer Graphics
+  author: Snyder, John M.
+  date: 1992
+  page-range: 121-130
+  serial-number:
+    doi: 10.1145/142920.134024
+  parent:
+    type: periodical
+    title: ACM SIGGRAPH Computer Graphics
+    volume: 26
+    issue: 2
+
+plantinga-vegter2004:
+  type: article
+  title: Isotopic Approximation of Implicit Curves and Surfaces
+  author:
+    - Plantinga, Simon
+    - Vegter, Gert
+  date: 2004
+  page-range: 245-254
+  serial-number:
+    doi: 10.1145/1057432.1057465
+  parent:
+    type: proceedings
+    title: Proceedings of the 2004 Eurographics/ACM SIGGRAPH Symposium on Geometry Processing (SGP '04)
+    publisher: ACM
+
+lin-yap2011:
+  type: article
+  title: "Adaptive Isotopic Approximation of Nonsingular Curves: the Parameterizability and Nonlocal Isotopy Approach"
+  author:
+    - Lin, Long
+    - Yap, Chee
+  date: 2011
+  page-range: 760-795
+  serial-number:
+    doi: 10.1007/s00454-011-9345-9
+  parent:
+    type: periodical
+    title: Discrete & Computational Geometry
+    volume: 45
+    issue: 4
+
+ieee1788:
+  type: report
+  title: IEEE Standard for Interval Arithmetic
+  author: IEEE
+  date: 2015
+  serial-number:
+    doi: 10.1109/IEEESTD.2015.7140721
+    serial: IEEE Std 1788-2015
+  publisher: IEEE
+
+richardson1968:
+  type: article
+  title: Some Undecidable Problems Involving Elementary Functions of a Real Variable
+  author: Richardson, Daniel
+  date: 1968
+  page-range: 514-520
+  serial-number:
+    doi: 10.2307/2271358
+  parent:
+    type: periodical
+    title: The Journal of Symbolic Logic
+    volume: 33
+    issue: 4
