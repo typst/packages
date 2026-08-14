@@ -1,0 +1,13 @@
+[package]
+name = "mosaic"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Vincent Arel-Bundock <@vincentarelbundock>"]
+license = "MIT"
+description = "Build slide decks with themes, layouts, and components."
+repository = "https://github.com/vincentarelbundock/mosaic"
+homepage = "https://vincentarelbundock.github.io/mosaic"
+keywords = ["presentation", "slides", "deck", "theme", "beamer", "incremental"]
+categories = ["presentation", "layout", "components"]
+compiler = "0.15.0"
+exclude = ["/docs/"]
