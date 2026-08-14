@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="356.39999"
+   height="313.13696"
+   viewBox="0 0 356.39999 313.13696"
+   id="svg27"
+   sodipodi:docname="slydekit-mini.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview27"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.28726213"
+     inkscape:cx="1298.4656"
+     inkscape:cy="603.97798"
+     inkscape:window-width="1728"
+     inkscape:window-height="1056"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg27" />
+  <defs
+     id="defs11">
+    <!-- Dégradé de fond -->
+    <linearGradient
+       id="bgGrad"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="1">
+      <stop
+         offset="0%"
+         stop-color="#18222d"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#0f172a"
+         id="stop2" />
+    </linearGradient>
+    <!-- Dégradé Carte Arrière -->
+    <linearGradient
+       id="slideBackGrad"
+       x1="0"
+       y1="0"
+       x2="212.97887"
+       y2="212.97887"
+       gradientTransform="scale(1.2677314,0.78881064)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#38bdf8"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#0284c7"
+         id="stop4" />
+    </linearGradient>
+    <!-- Dégradé Carte Milieu -->
+    <linearGradient
+       id="slideMidGrad"
+       x1="-0.79056942"
+       y1="-1.2649111"
+       x2="214.24431"
+       y2="213.76997"
+       gradientTransform="scale(1.2649111,0.79056942)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#334155"
+         id="stop5" />
+      <stop
+         offset="100%"
+         stop-color="#1e293b"
+         id="stop6" />
+    </linearGradient>
+    <!-- Dégradé Carte Avant & Accents -->
+    <linearGradient
+       id="slideFrontGrad"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="1">
+      <stop
+         offset="0%"
+         stop-color="#eb811b"
+         id="stop7" />
+      <stop
+         offset="100%"
+         stop-color="#d97706"
+         id="stop8" />
+    </linearGradient>
+    <!-- Ombre portée compatible Inkscape (SVG 1.1) -->
+    <filter
+       id="dropShadow"
+       x="-0.11252682"
+       y="-0.10529228"
+       width="1.2262485"
+       height="1.3737876">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="10"
+         id="feGaussianBlur8" />
+      <feOffset
+         dx="0"
+         dy="10"
+         result="offsetblur"
+         id="feOffset8" />
+      <feFlood
+         flood-color="#000000"
+         flood-opacity="0.45"
+         id="feFlood8" />
+      <feComposite
+         in2="offsetblur"
+         operator="in"
+         id="feComposite8" />
+      <feMerge
+         id="feMerge9">
+        <feMergeNode
+           id="feMergeNode8" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode9" />
+      </feMerge>
+    </filter>
+    <!-- Lueur Orange compatible Inkscape (SVG 1.1) -->
+    <filter
+       id="glowOrange"
+       x="-0.071111111"
+       y="-0.11428571"
+       width="1.1422222"
+       height="1.2761905">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="8"
+         id="feGaussianBlur9" />
+      <feOffset
+         dx="0"
+         dy="8"
+         result="offsetblur"
+         id="feOffset9" />
+      <feFlood
+         flood-color="#eb811b"
+         flood-opacity="0.35"
+         id="feFlood9" />
+      <feComposite
+         in2="offsetblur"
+         operator="in"
+         id="feComposite9" />
+      <feMerge
+         id="feMerge11">
+        <feMergeNode
+           id="feMergeNode10" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11" />
+      </feMerge>
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#slideFrontGrad"
+       id="linearGradient27"
+       x1="5.6920998"
+       y1="56.920998"
+       x2="27.828043"
+       y2="79.056942"
+       gradientTransform="scale(3.1622777,0.31622777)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#slideFrontGrad"
+       id="linearGradient28"
+       x1="174"
+       y1="78"
+       x2="218"
+       y2="122"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <!-- Fond arrondi du logo -->
+  <!-- Groupe de l'Icône -->
+  <g
+     filter="url(#dropShadow)"
+     transform="translate(-77.799999,-86.06306)"
+     id="g25">
+    <!-- 1. Diapositive Arrière (-10 degrés) -->
+    <g
+       transform="rotate(-10,938.4534,-541.51816)"
+       id="g12">
+      <rect
+         width="270"
+         height="168"
+         rx="14"
+         fill="url(#slideBackGrad)"
+         opacity="0.75"
+         id="rect12"
+         x="0"
+         y="0"
+         style="fill:url(#slideBackGrad)" />
+    </g>
+    <!-- 2. Diapositive Milieu (-4 degrés) -->
+    <g
+       transform="rotate(-4,2300.2646,-1573.9933)"
+       id="g16">
+      <rect
+         width="270"
+         height="168"
+         rx="14"
+         fill="url(#slideMidGrad)"
+         stroke="#475569"
+         stroke-width="2"
+         id="rect13"
+         x="0"
+         y="0"
+         style="fill:url(#slideMidGrad)" />
+      <rect
+         x="22"
+         y="26"
+         width="110"
+         height="9"
+         rx="4.5"
+         fill="#f8fafc"
+         opacity="0.8"
+         id="rect14" />
+      <rect
+         x="22"
+         y="46"
+         width="160"
+         height="7"
+         rx="3.5"
+         fill="#94a3b8"
+         opacity="0.5"
+         id="rect15" />
+      <rect
+         x="22"
+         y="60"
+         width="125"
+         height="7"
+         rx="3.5"
+         fill="#94a3b8"
+         opacity="0.5"
+         id="rect16" />
+    </g>
+    <!-- 3. Diapositive Principale (Face) -->
+    <g
+       transform="translate(121,170)"
+       filter="url(#glowOrange)"
+       id="g24">
+      <rect
+         width="270"
+         height="168"
+         rx="14"
+         fill="#ffffff"
+         id="rect17"
+         x="0"
+         y="0" />
+      <!-- Header de la slide -->
+      <path
+         d="M 0,14 C 0,6.27 6.27,0 14,0 h 242 c 7.73,0 14,6.27 14,14 V 38 H 0 Z"
+         fill="#f8fafc"
+         id="path17" />
+      <line
+         x1="0"
+         y1="38"
+         x2="270"
+         y2="38"
+         stroke="#e2e8f0"
+         stroke-width="1.5"
+         id="line17" />
+      <rect
+         x="18"
+         y="18"
+         width="70"
+         height="7"
+         rx="3.5"
+         fill="url(#slideFrontGrad)"
+         id="rect18"
+         style="fill:url(#linearGradient27)" />
+      <circle
+         cx="238"
+         cy="19"
+         r="3.5"
+         fill="#cbd5e1"
+         id="circle18" />
+      <circle
+         cx="249"
+         cy="19"
+         r="3.5"
+         fill="#cbd5e1"
+         id="circle19" />
+      <!-- Contenu : Colonnes + Bouton Play -->
+      <rect
+         x="18"
+         y="54"
+         width="112"
+         height="92"
+         rx="9"
+         fill="#f1f5f9"
+         id="rect19" />
+      <rect
+         x="30"
+         y="70"
+         width="85"
+         height="7"
+         rx="3.5"
+         fill="#0f172a"
+         id="rect20" />
+      <rect
+         x="30"
+         y="84"
+         width="65"
+         height="5"
+         rx="2.5"
+         fill="#64748b"
+         id="rect21" />
+      <rect
+         x="30"
+         y="95"
+         width="75"
+         height="5"
+         rx="2.5"
+         fill="#64748b"
+         id="rect22" />
+      <rect
+         x="30"
+         y="106"
+         width="50"
+         height="5"
+         rx="2.5"
+         fill="#64748b"
+         id="rect23" />
+      <rect
+         x="140"
+         y="54"
+         width="112"
+         height="92"
+         rx="9"
+         fill="#fff7ed"
+         id="rect24" />
+      <circle
+         cx="196"
+         cy="100"
+         r="22"
+         fill="url(#slideFrontGrad)"
+         id="circle24"
+         style="fill:url(#linearGradient28)" />
+      <path
+         d="m 190,90 16,10 -16,10 z"
+         fill="#ffffff"
+         id="path24" />
+    </g>
+  </g>
+  <!-- Groupe Typographie : slydekit -->
+</svg>

@@ -1,0 +1,11 @@
+[package]
+name = "typed-physics"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Geronimo Castano"]
+license = "MIT"
+description = "Declare mechanics and DC circuit systems and derive consistent physics diagrams and mechanics solutions."
+repository = "https://github.com/GeronimoCastano/typed-physics"
+keywords = ["physics", "mechanics", "circuits", "free-body-diagram", "education"]
+categories = ["visualization"]
+exclude = ["assets/readme/*.png"]
