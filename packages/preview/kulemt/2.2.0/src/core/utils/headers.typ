@@ -3,7 +3,7 @@
 // This is the only external dependency in the whole project. Typst downloads
 // it automatically on first compile, so the first run needs a network
 // connection; after that it is cached.
-#import "@preview/hydra:0.6.2": hydra
+#import "@preview/hydra:0.6.3": hydra
 
 // needs context
 // heading generation, depends on if the page is even or odd
