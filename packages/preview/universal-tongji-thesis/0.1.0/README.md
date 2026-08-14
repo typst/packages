@@ -89,6 +89,9 @@ typst compile thesis.typ
 
 - 学校对参考文献格式的要求与标准的 `GB/T 7714-2015 numeric` 格式存在差异。
 
+## 其他
+- [学校logo](https://photo.tongji.edu.cn/xb/xbxx.htm?type=3&id=64db13b627fa8cfa8c8eb30e0)
+
 ## 致谢
 
 - 感谢 [modern-ecnu-thesis](https://github.com/jtchen2k/modern-ecnu-thesis) 为本模板的一些特性提供实现思路。

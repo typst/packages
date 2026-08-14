@@ -89,6 +89,11 @@ Although the font and size settings in this Typst template match the original Wo
 
 - The university's requirements for reference formatting differ from the standard `GB/T 7714-2015 numeric` format.
 
+## Other
+- [University logo](https://photo.tongji.edu.cn/xb/xbxx.htm?type=3&id=64db13b627fa8cfa8c8eb30e0)
+
+
 ## Acknowledgments
 
 - Thanks to [modern-ecnu-thesis](https://github.com/jtchen2k/modern-ecnu-thesis) for providing implementation ideas for some features of this template.
+
