@@ -11,7 +11,7 @@ downloaded — just Typst's own `curve`.
 
 ![what scrawl draws](examples/gallery.png)
 
-**[The full showcase](examples/showcase.pdf)** — 18 figures: line charts, bar
+**[The full showcase](examples/showcase.png)** — 18 figures: line charts, bar
 graphs, pie charts, Venn diagrams, stick figures, linked diagrams, hatching,
 roughness levels — each one *beside the code that made it*. The code shown is
 the code that ran: the page evaluates the same source it prints, so the two
