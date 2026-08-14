@@ -3,11 +3,7 @@
 
 #let outline-entry(it) = {
   set par(first-line-indent: 0em) if states.par-indent.get()
-  if states.tufte.get() {
-    wideblock(side: "both")[#it]
-  } else {
-    it
-  }
+  it
 }
 
 // Table of contents
