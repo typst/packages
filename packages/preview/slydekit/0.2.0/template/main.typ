@@ -1,5 +1,4 @@
-// #import "@preview/slydekit:0.2.0": *
-#import "../src/slydekit.typ": *
+#import "@preview/slydekit:0.2.0": *
 #import "@preview/cetz:0.5.2"
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
