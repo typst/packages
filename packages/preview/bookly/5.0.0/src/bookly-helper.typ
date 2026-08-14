@@ -1,6 +1,5 @@
-#import "@preview/subpar:0.2.2"
-#import "@preview/suboutline:0.3.0": *
 #import "bookly-defaults.typ": *
+#import "bookly-deps.typ": *
 
 // Reset counters
 #let reset-counters = context {
