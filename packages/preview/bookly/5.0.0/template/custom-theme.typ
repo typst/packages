@@ -1,6 +1,6 @@
 #import "@preview/bookly:5.0.0": *
 #import "@preview/marginalia:0.3.1": *
-#import "@preview/suboutline:0.3.0": *
+#import "@preview/suboutline:0.3.1": *
 
 #let custom-theme(colors: default-colors, it) = {
   // Headings
