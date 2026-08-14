@@ -12,11 +12,11 @@ continuity to lean on.
 
 Two entry points answer two different questions:
 
-* `plot` — *which pixels may the relation touch?* Returns one byte per pixel,
+- `plot` — _which pixels may the relation touch?_ Returns one byte per pixel,
   computed by adaptive subdivision with interval arithmetic (Tupper's reliable
   graphing): coverage errs outward, never inward, and inequalities fill
   regions. Not an image — the document decides what to draw.
-* `contour` — *where is the curve?* Returns polylines whose topology is
+- `contour` — _where is the curve?_ Returns polylines whose topology is
   guaranteed (Plantinga & Vegter's subdivision with Lin & Yap's stopping
   rule), plus a count of cells around singularities where no subdivision
   could decide. Stroke them, fill them, or hand them to your plotting package.
@@ -43,6 +43,6 @@ Multiplication is never implicit. A relation that does not parse fails at the
 call site with a caret under the offending character.
 
 The computation runs in a WebAssembly plugin written in Zig; nothing but the
-relation text and the view crosses the boundary. The full manual, with
+relation text and the view crosses the boundary. The full [manual](https://github.com/uwni/implicplot/blob/v0.2.0/typst/manual.pdf), with
 rendered examples, poles-and-asymptotes behaviour and the API reference, lives
 in the [repository](https://github.com/uwni/implicplot).
