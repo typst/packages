@@ -4,10 +4,6 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/slydekit/blob/3d8822d02c6384c3440c546acb51226927207227/LICENSE)
 [![Stable documentation](https://img.shields.io/badge/docs-stable-mediumpurple)](https://maucejo.github.io/slydekit/)
 
-<p align="center">
-<img src="./src/resources/images/slydekit-full.svg" alt="drawing" width="200"/>
-</p>
-
 <p align=center>
 <b><em>Simple yet powerful slides</em></b>
 </p>
