@@ -6,12 +6,12 @@ drawn with [CeTZ](https://github.com/cetz-package/cetz). Square grid, ruled pape
 line/dot every N steps — the classic look of engineering/milimetrado paper.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/13Stokes31/meshpad/main/gallery/g1.png" width="47%" alt="Square grid with major lines every 2 steps">
-  <img src="https://raw.githubusercontent.com/13Stokes31/meshpad/main/gallery/g2.png" width="47%" alt="Dot grid with major dots every 2 steps">
+  <img src="https://raw.githubusercontent.com/13Stokes31/meshpad/v0.1.0/gallery/g1.png" width="47%" alt="Square grid with major lines every 2 steps">
+  <img src="https://raw.githubusercontent.com/13Stokes31/meshpad/v0.1.0/gallery/g2.png" width="47%" alt="Dot grid with major dots every 2 steps">
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/13Stokes31/meshpad/main/gallery/g3.png" width="47%" alt="Ruled paper, horizontal lines only">
-  <img src="https://raw.githubusercontent.com/13Stokes31/meshpad/main/gallery/g4.png" width="47%" alt="Custom background and line colors">
+  <img src="https://raw.githubusercontent.com/13Stokes31/meshpad/v0.1.0/gallery/g3.png" width="47%" alt="Ruled paper, horizontal lines only">
+  <img src="https://raw.githubusercontent.com/13Stokes31/meshpad/v0.1.0/gallery/g4.png" width="47%" alt="Custom background and line colors">
 </p>
 
 ## Usage
@@ -67,7 +67,7 @@ in this example.
 
 ## Known limitations
 
-See [`ROADMAP.md`](https://github.com/13Stokes31/meshpad/blob/main/ROADMAP.md) for
+See [`ROADMAP.md`](https://github.com/13Stokes31/meshpad/blob/v0.1.0/ROADMAP.md) for
 the current limits and the improvements on the list.
 
 ## License
