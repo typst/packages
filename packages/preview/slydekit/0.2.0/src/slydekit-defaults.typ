@@ -2,9 +2,9 @@
 #let sk-states = (
   app-slide-number: counter("appendix"),
   appendix: state("appendix", false),
-  colors: state("colors"),
+  colors: state("colors", (:)),
   current-slide-title: state("current-slide-title", []),
-  fonts: state("fonts"),
+  fonts: state("fonts", (:)),
   handout: state("handout", false),
   is-footcite: state("is-footcite", false),
   logo: state("logo"),
