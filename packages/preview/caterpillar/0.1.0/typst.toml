@@ -8,4 +8,4 @@ description = "Parse content to create your own syntactic rules."
 repository = "https://github.com/retroflexivity/typst-caterpillar"
 categories = ["model", "scripting", "fun"]
 keywords = ["parser", "parsing", "syntax", "sugar", "markup", "markdown"]
-exclude = ["documentation.pdf"]
+exclude = ["documentation.pdf", "assets"]
