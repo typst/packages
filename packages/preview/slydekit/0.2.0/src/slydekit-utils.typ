@@ -264,11 +264,10 @@
   }
 }
 
-#let set-text(lang: "en", body) = context {
-  let sk-fonts = sk-states.fonts.get()
-  set text(font: sk-fonts.at("body", default: default-fonts.body), size: sk-fonts.at("size", default: default-fonts.size), lang: lang, region: lang)
-  show math.equation: set text(font: sk-fonts.at("math", default: default-fonts.math), size: sk-fonts.at("size", default: default-fonts.size))
-  show raw: set text(font: sk-fonts.at("raw", default: default-fonts.raw), size: sk-fonts.at("size", default: default-fonts.size))
+#let set-text(lang: "en", fonts: (:), body) = {
+  set text(font: fonts.at("body", default: default-fonts.body), size: fonts.at("size", default: default-fonts.size), lang: lang, region: lang)
+  show math.equation: set text(font: fonts.at("math", default: default-fonts.math), size: fonts.at("size", default: default-fonts.size))
+  show raw: set text(font: fonts.at("raw", default: default-fonts.raw), size: fonts.at("size", default: default-fonts.size))
 
   body
 }

@@ -26,28 +26,14 @@
   raw: "Fantasque Sans Mono",
 )
 
-#let chalkboard-theme(body, colors: none, fonts: none) = context{
-  let colors-theme = if colors != none {
-     chalkboard-colors + colors
-  } else {
-    chalkboard-colors
-  }
-  sk-states.colors.update(colors-theme)
-
-  let fonts-theme = if fonts != none {
-     chalkboard-fonts + fonts
-  } else {
-    chalkboard-fonts
-  }
-  sk-states.fonts.update(fonts-theme)
-
+#let chalkboard-theme(body) = context{
   set text(fill: rgb("#f2f1ea"))
 
   // Page setup
   let chalkboard-margin = if sk-states.navigation-style.get() == "minislide" {
     (top: 3.25cm)
   }
-  set page(fill: colors-theme.background, margin: margins + chalkboard-margin)
+  set page(fill: sk-states.colors.get().background, margin: margins + chalkboard-margin)
 
   // Heading styles
   set heading(numbering: (..nums) => {
@@ -76,7 +62,7 @@
         height: 2pt,
         width: 100%,
         spacing: 0pt,
-        section-progress-bar(colors-theme.primary, colors-theme.secondary)
+        section-progress-bar(sk-states.colors.get().primary, sk-states.colors.get().secondary)
       ),
     )
   }
@@ -85,14 +71,14 @@
     let header-title = [#h(1em)*#sk-states.current-slide-title.get()*]
     full-width(fill: none, align(horizon, text(size: 1.2em, fill: sk-states.colors.get().primary)[#header-title]))
 
-    full-width(place(dy: 2em, line(length: 100%, stroke: 0.05em + colors-theme.header)))
+    full-width(place(dy: 2em, line(length: 100%, stroke: 0.05em + sk-states.colors.get().header)))
   } else if sk-states.navigation-style.get() == "minislide" {
     let mini-content = [
       #let pad-lr = 3.5%
       #pad(left: pad-lr, right: pad-lr, top: 0.5em)[#mini-slides()]
-      #place(dy: 0.5em, line(length: 100%, stroke: 0.05em + colors-theme.header))
+      #place(dy: 0.5em, line(length: 100%, stroke: 0.05em + sk-states.colors.get().header))
 
-      #place(dx: 3.5%, dy: 1.25em)[#text(size: 1.25em, weight: "bold", fill: colors-theme.header, sk-states.current-slide-title.get())]
+      #place(dx: 3.5%, dy: 1.25em)[#text(size: 1.25em, weight: "bold", fill: sk-states.colors.get().header, sk-states.current-slide-title.get())]
     ]
     full-width(mini-content)
   }
@@ -112,7 +98,7 @@
           columns: (1fr,)*2,
           align: (left + horizon, right),
           [#place(dy: -1em, sk-states.logo.get())],
-          [#text(size: 0.9em, fill: colors-theme.footer)[*#prefix#current-page*]]
+          [#text(size: 0.9em, fill: sk-states.colors.get().footer)[*#prefix#current-page*]]
         )
       ]
       #full-width(footer-content)
@@ -126,26 +112,27 @@
   )
 
   // Lists and enumerations
-  set list(marker: ([#text(size: 0.9em, fill:colors-theme.primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.square.filled]]))
+  set list(marker: ([#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.square.filled]]))
 
-  set enum(numbering: n => text(fill:colors-theme.primary)[#n.])
+  set enum(numbering: n => context text(fill:sk-states.colors.get().primary)[#n.])
 
   // Tables
   show table.cell.where(y: 0): set text(weight: "bold")
+  let table-primary = sk-states.colors.get().primary
   set table(
     stroke: (_, y) => (
-      top: if y <= 1 {1.75pt + colors-theme.primary} else {0pt},
-      bottom: 1.75pt + colors-theme.primary
+      top: if y <= 1 {1.75pt + table-primary} else {0pt},
+      bottom: 1.75pt + table-primary
     ),
     inset: 0.5em
   )
 
   // References
-  show ref: set text(fill: colors-theme.primary)
+  show ref: set text(fill: sk-states.colors.get().primary)
   show ref: it => show-ref(it)
 
   // Links
-  show link: set text(fill: colors-theme.primary)
+  show link: set text(fill: sk-states.colors.get().primary)
 
   body
 }
@@ -246,4 +233,4 @@
   )
 }
 
-#let chalkboard = (theme: chalkboard-theme, title: chalkboard-title, toc: chalkboard-toc, focus-slide: chalkboard-focus-slide, link-box: chalkboard-link-box, boxeq: chalkboard-boxeq, custom-box: chalkboard-custom-box)
+#let chalkboard = (theme: chalkboard-theme, title: chalkboard-title, toc: chalkboard-toc, focus-slide: chalkboard-focus-slide, link-box: chalkboard-link-box, boxeq: chalkboard-boxeq, custom-box: chalkboard-custom-box, colors: chalkboard-colors, fonts: chalkboard-fonts)

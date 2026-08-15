@@ -33,8 +33,20 @@
   let sk-lang = if default-language.contains(lang) {lang} else {"en"}
 
   // Theme
+  // let sk-theme = simple + theme
+  // show: sk-theme.theme.with(colors: colors, fonts: fonts)
   let sk-theme = simple + theme
-  show: sk-theme.theme.with(colors: colors, fonts: fonts)
+
+  let sk-colors = if sk-theme.colors == none {
+    none
+  } else {
+    sk-theme.colors + (if colors == none { (:) } else { colors })
+  }
+  let sk-fonts = default-fonts + sk-theme.fonts + (if fonts == none { (:) } else { fonts })
+
+  sk-states.colors.update(sk-colors)
+  sk-states.fonts.update(sk-fonts)
+  show: sk-theme.theme
 
   // Rules common to all themes
 
@@ -83,7 +95,7 @@
   show selector(<hide-toc>): set heading(outlined: false)
 
   // Fonts
-  show: set-text.with(lang: sk-lang)
+  show: set-text.with(lang: sk-lang, fonts: sk-fonts)
 
   body
 }

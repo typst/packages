@@ -18,26 +18,12 @@
   raw: "Cascadia Code",
 )
 
-#let fancy-theme(body, colors: none, fonts: none) = context {
-  let colors-theme = if colors != none {
-     fancy-colors + colors
-  } else {
-    fancy-colors
-  }
-  sk-states.colors.update(colors-theme)
-
-  let fonts-theme = if fonts != none {
-     fancy-fonts + fonts
-  } else {
-    fancy-fonts
-  }
-  sk-states.fonts.update(fonts-theme)
-
+#let fancy-theme(body) = context {
   // Page setup
   let fancy-margin = if sk-states.navigation-style.get() == "minislide" {
     (top: 3.25cm)
   }
-  set page(fill: colors-theme.background, margin: margins + fancy-margin)
+  set page(fill: sk-states.colors.get().background, margin: margins + fancy-margin)
 
   // Heading styles
   set heading(numbering: (..nums) => {
@@ -66,7 +52,7 @@
         height: 2pt,
         width: 100%,
         spacing: 0pt,
-        section-progress-bar(colors-theme.primary, colors-theme.secondary)
+        section-progress-bar(sk-states.colors.get().primary, sk-states.colors.get().secondary)
       ),
     )
   }
@@ -74,15 +60,18 @@
   // Header and footer
   let header = context if sk-states.navigation-style.get() == "topbar" {
     let header-title = [#h(1em)*#sk-states.current-slide-title.get()*]
-    full-width(fill: colors-theme.header, align(horizon, text(size: 1.2em, fill: white)[#header-title]))
+    full-width(fill: sk-states.colors.get().header, align(horizon, text(size: 1.2em, fill: white)[#header-title]))
   } else if sk-states.navigation-style.get() == "minislide" {
     let mini-content = [
       #let pad-lr = 3.5%
-      #place(top, dy: -0.75em)[#cell(fill: gradient.linear(sk-states.colors.get().background.darken(10%), sk-states.colors.get().background, dir: ttb))
-      #line(length: 100%, stroke: 0.05em + colors-theme.header)
-      ]
+      #if sk-states.colors.get().background != none {
+        place(top, dy: -0.75em)[
+          #cell(fill: gradient.linear(sk-states.colors.get().background.darken(10%), sk-states.colors.get().background, dir: ttb))
+        ]
+      }
       #pad(left: pad-lr, right: pad-lr, top: 0.5em)[#mini-slides()]
-      #place(dx: 3.5%, dy: 1.25em)[#text(size: 1.25em, weight: "bold", fill: colors-theme.header, sk-states.current-slide-title.get())]
+      #place(dy: 0.5em, line(length: 100%, stroke: 0.05em + sk-states.colors.get().header))
+      #place(dx: 3.5%, dy: 1.25em)[#text(size: 1.25em, weight: "bold", fill: sk-states.colors.get().header, sk-states.current-slide-title.get())]
     ]
     full-width(mini-content)
   }
@@ -109,22 +98,22 @@
               #move(dx: -1.75em, sk-states.logo.get())
             ],
             [
-              #text(fill:colors-theme.footer, strong(sk-states.pres-info.get().short-title))
+              #text(fill:sk-states.colors.get().footer, strong(sk-states.pres-info.get().short-title))
             ],
             [
-              #set text(fill:colors-theme.footer, weight: "bold")
+              #set text(fill:sk-states.colors.get().footer, weight: "bold")
               #show: move.with(dx: 0.75em)
               #if sk-states.appendix.get() {
-                context box(stroke: 1.75pt + colors-theme.footer, radius: 5pt, inset: -0.5em,outset: 1em)[A | #sk-states.app-slide-number.get().first() / #sk-states.slide-number.final().first()]
+                context box(stroke: 1.75pt + sk-states.colors.get().footer, radius: 5pt, inset: -0.5em,outset: 1em)[A | #sk-states.app-slide-number.get().first() / #sk-states.slide-number.final().first()]
               } else {
-                context box(stroke: 1.75pt + colors-theme.footer, radius: 5pt, inset: -0.5em,outset: 1em)[#sk-states.slide-number.get().first() / #sk-states.slide-number.final().first()]
+                context box(stroke: 1.75pt + sk-states.colors.get().footer, radius: 5pt, inset: -0.5em,outset: 1em)[#sk-states.slide-number.get().first() / #sk-states.slide-number.final().first()]
               }
             ]
           )}
         )
       }
       #move(dy: 0.35em,footer-content)
-      #full-width(anchor: bottom, slide-progress-bar(colors-theme.primary, colors-theme.secondary, height: 2.5pt))
+      #full-width(anchor: bottom, slide-progress-bar(sk-states.colors.get().primary, sk-states.colors.get().secondary, height: 2.5pt))
     ]
   }
 
@@ -134,29 +123,31 @@
   )
 
   // Lists and enumerations
-  set list(marker: ([#text(size: 0.9em, fill:colors-theme.primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.square.filled]]))
+  set list(marker: ([#text(size: 0.9em, fill: sk-states.colors.get().primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.square.filled]]))
 
-  set enum(numbering: n => text(fill:colors-theme.primary)[#n.])
+  set enum(numbering: n => context text(fill:sk-states.colors.get().primary)[#n.])
 
   // Tables
   show table.cell.where(y: 0): set text(weight: "bold", fill: white)
+  let table-primary = sk-states.colors.get().primary
+  let table-secondary = sk-states.colors.get().secondary
   set table(
-    fill: (_, y) => if y == 0 {colors-theme.primary} ,
-    stroke: (_, y) => if y == 0 {(bottom: 0pt)} else {(bottom: 01pt + colors-theme.secondary)},
+    fill: (_, y) => if y == 0 {table-primary} ,
+    stroke: (_, y) => if y == 0 {(bottom: 0pt)} else {(bottom: 01pt + table-secondary)},
     inset: 0.5em
   )
   show table: it => block(
-    stroke: 1pt + colors-theme.primary,
+    stroke: 1pt + sk-states.colors.get().primary,
     radius: 0.75em,
     clip: true
   )[#it]
 
   // Reference
-  show ref: set text(fill: colors-theme.primary)
+  show ref: set text(fill: sk-states.colors.get().primary)
   show ref: it => show-ref(it)
 
   // Links
-  show link: set text(fill: colors-theme.primary)
+  show link: set text(fill: sk-states.colors.get().primary)
 
   body
 }
@@ -263,4 +254,4 @@
   )[#body]
 }
 
-#let fancy = (theme: fancy-theme, title: fancy-title, toc: fancy-toc, focus-slide: fancy-focus-slide, link-box: fancy-link-box, boxeq: fancy-boxeq, custom-box: fancy-custom-box)
+#let fancy = (theme: fancy-theme, title: fancy-title, toc: fancy-toc, focus-slide: fancy-focus-slide, link-box: fancy-link-box, boxeq: fancy-boxeq, custom-box: fancy-custom-box, colors: fancy-colors, fonts: fancy-fonts)

@@ -17,26 +17,12 @@
   raw: "Fira Code",
 )
 
-#let simple-theme(body, colors: none, fonts: none) = context {
-  let colors-theme = if colors != none {
-     simple-colors + colors
-  } else {
-    simple-colors
-  }
-  sk-states.colors.update(colors-theme)
-
-  let fonts-theme = if fonts != none {
-     simple-fonts + fonts
-  } else {
-    simple-fonts
-  }
-  sk-states.fonts.update(fonts-theme)
-
+#let simple-theme(body) = context {
   // Page setup
   let simple-margin = if sk-states.navigation-style.get() == "minislide" {
     (top: 3.25cm)
   }
-  set page(fill: colors-theme.background, margin: margins + simple-margin)
+  set page(fill: sk-states.colors.get().background, margin: margins + simple-margin)
 
   // Heading styles
   set heading(numbering: (..nums) => {
@@ -62,7 +48,7 @@
     set page(header: header, footer: none)
     set align(horizon)
 
-    progressive-outline(it, colors-theme.primary, colors-theme.secondary.lighten(60%))
+    progressive-outline(it, sk-states.colors.get().primary, sk-states.colors.get().secondary.lighten(60%))
   }
 
   let header = context if sk-states.navigation-style.get() == "topbar" {
@@ -72,9 +58,9 @@
     let mini-content = [
       #let pad-lr = 3.5%
       #pad(left: pad-lr, right: pad-lr, top: 0.5em)[#mini-slides()]
-      #place(dy: 0.5em, line(length: 100%, stroke: 0.05em + colors-theme.primary))
+      #place(dy: 0.5em, line(length: 100%, stroke: 0.05em + sk-states.colors.get().primary))
 
-      #place(dx: 3.5%, dy: 1.25em)[#text(size: 1.25em, weight: "bold", fill: colors-theme.header, sk-states.current-slide-title.get())]
+      #place(dx: 3.5%, dy: 1.25em)[#text(size: 1.25em, weight: "bold", fill: sk-states.colors.get().header, sk-states.current-slide-title.get())]
     ]
     full-width(mini-content)
   }
@@ -94,7 +80,7 @@
           columns: (1fr,)*2,
           align: (left + horizon, right),
           [#place(dy: -1em, sk-states.logo.get())],
-          [#text(size: 0.8em, fill: colors-theme.footer)[#prefix#current-page]]
+          [#text(size: 0.8em, fill: sk-states.colors.get().footer)[#prefix#current-page]]
         )
       ]
       #full-width(footer-content)
@@ -107,25 +93,26 @@
   )
 
   // Lists and enumerations
-  set list(marker: ([#text(size: 0.9em, fill:colors-theme.primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.square.filled]]))
+  set list(marker: ([#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.square.filled]]))
 
-  set enum(numbering: n => text(fill:colors-theme.primary)[#n.])
+  set enum(numbering: n => context text(fill:sk-states.colors.get().primary)[#n.])
 
   // Tables
   show table.cell.where(y: 0): set text(weight: "bold")
+  let table-primary = sk-states.colors.get().primary
   set table(
     stroke: (_, y) => (
-      top: if y <= 1 {1.75pt + colors-theme.primary} else {0pt},
-      bottom: 1.75pt + colors-theme.primary
+      top: if y <= 1 {1.75pt + table-primary} else {0pt},
+      bottom: 1.75pt + table-primary
     ),
     inset: 0.5em
   )
 
   // References
-  show ref: set text(fill: colors-theme.primary)
+  show ref: set text(fill: sk-states.colors.get().primary)
 
   // Links
-  show link: set text(fill: colors-theme.primary)
+  show link: set text(fill: sk-states.colors.get().primary)
 
   body
 }
@@ -228,4 +215,4 @@
   )
 }
 
-#let simple = (theme: simple-theme, title: simple-title, toc: simple-toc, focus-slide: simple-focus-slide, link-box: simple-link-box, boxeq: simple-boxeq, custom-box: simple-custom-box)
+#let simple = (theme: simple-theme, title: simple-title, toc: simple-toc, focus-slide: simple-focus-slide, link-box: simple-link-box, boxeq: simple-boxeq, custom-box: simple-custom-box, colors: simple-colors, fonts: simple-fonts)

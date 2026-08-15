@@ -19,25 +19,11 @@
 )
 
 #let cambfurt-theme(body, colors: none, fonts: none) = context{
-  let colors-theme = if colors != none {
-     cambfurt-colors + colors
-  } else {
-    cambfurt-colors
-  }
-  sk-states.colors.update(colors-theme)
-
-  let fonts-theme = if fonts != none {
-     cambfurt-fonts + fonts
-  } else {
-    cambfurt-fonts
-  }
-  sk-states.fonts.update(fonts-theme)
-
   // Page setup
   let cambfurt-margin = if sk-states.navigation-style.get() == "minislide" {
     (top: 3.25cm)
   }
-  set page(fill: colors-theme.background, margin: margins + cambfurt-margin)
+  set page(fill: sk-states.colors.get().background, margin: margins + cambfurt-margin)
 
   // Heading styles
   set heading(numbering: (..nums) => {
@@ -68,7 +54,7 @@
     set page(header: header, footer: none, margin: margins)
     set align(horizon)
 
-    progressive-outline(it, colors-theme.primary, colors-theme.secondary.lighten(60%))
+    progressive-outline(it, sk-states.colors.get().primary, sk-states.colors.get().secondary.lighten(60%))
   }
 
   let header = context if sk-states.navigation-style.get() == "topbar" {
@@ -89,7 +75,7 @@
       #place(top, dy: -0.75em)[#cell(fill: sk-states.colors.get().secondary.lighten(60%))
       ]
       #pad(left: pad-lr, right: pad-lr, top: 0.5em)[#mini-slides()]
-      #place(dx: 3.5%, dy: 1em)[#box(width: 100%, outset: (left: 2em, right: 1em, rest: 0.5em), fill: sk-states.colors.get().secondary.lighten(45%), text(size: 1.25em, weight: "bold", fill: colors-theme.header, sk-states.current-slide-title.get()))]
+      #place(dx: 3.5%, dy: 1em)[#box(width: 100%, outset: (left: 2em, right: 1em, rest: 0.5em), fill: sk-states.colors.get().secondary.lighten(45%), text(size: 1.25em, weight: "bold", fill: sk-states.colors.get().header, sk-states.current-slide-title.get()))]
     ]
     full-width(mini-content)
   }
@@ -130,7 +116,7 @@
           columns: (1fr,)*2,
           align: (left + horizon, right),
           [#place(dy: -1em, sk-states.logo.get())],
-          [#text(size: 0.8em, fill: colors-theme.footer)[*#prefix#current-page*]]
+          [#text(size: 0.8em, fill: sk-states.colors.get().footer)[*#prefix#current-page*]]
         )
       }
       #move(dy: dy, full-width(footer-content))
@@ -143,26 +129,27 @@
   )
 
   // Lists and enumerations
-  set list(marker: ([#text(size: 0.9em, fill:colors-theme.primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.square.filled]]))
+  set list(marker: ([#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:sk-states.colors.get().primary)[#sym.square.filled]]))
 
-  set enum(numbering: n => text(fill:colors-theme.primary)[#n.])
+  set enum(numbering: n => context text(fill:sk-states.colors.get().primary)[#n.])
 
   // Tables
   show table.cell.where(y: 0): set text(weight: "bold")
+  let table-primary = sk-states.colors.get().primary
   set table(
     stroke: (_, y) => (
-      top: if y <= 1 {1.75pt + colors-theme.primary} else {0pt},
-      bottom: 1.75pt + colors-theme.primary
+      top: if y <= 1 {1.75pt + table-primary} else {0pt},
+      bottom: 1.75pt + table-primary
     ),
     inset: 0.5em
   )
 
   // References
-  show ref: set text(fill: colors-theme.primary)
+  show ref: set text(fill: sk-states.colors.get().primary)
   show ref: it => show-ref(it)
 
   // Links
-  show link: set text(fill: colors-theme.primary)
+  show link: set text(fill: sk-states.colors.get().primary)
 
   body
 }
@@ -276,4 +263,4 @@
   )[#body]
 }
 
-#let cambfurt = (theme: cambfurt-theme, title: cambfurt-title, toc: cambfurt-toc, focus-slide: cambfurt-focus-slide, link-box: cambfurt-link-box, boxeq: cambfurt-boxeq, custom-box: cambfurt-custom-box)
+#let cambfurt = (theme: cambfurt-theme, title: cambfurt-title, toc: cambfurt-toc, focus-slide: cambfurt-focus-slide, link-box: cambfurt-link-box, boxeq: cambfurt-boxeq, custom-box: cambfurt-custom-box, colors: cambfurt-colors, fonts: cambfurt-fonts)

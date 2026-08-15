@@ -1,9 +1,9 @@
 #import "slydekit-defaults.typ": *
-#import "themes/metropolis.typ": *
-#import "themes/fancy.typ": *
-#import "themes/simple.typ": *
-#import "themes/cambfurt.typ": *
-#import "themes/chalkboard.typ": *
+#import "themes/metropolis.typ": metropolis
+#import "themes/fancy.typ": fancy
+#import "themes/simple.typ": simple
+#import "themes/cambfurt.typ": cambfurt
+#import "themes/chalkboard.typ": chalkboard, chalkboard-colors-variant
 
 // Title slide
 #let title-slide = context sk-states.theme.get().title
