@@ -1,0 +1,11 @@
+[package]
+name = "caterpillar"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Arkady Shaldov"]
+license = "MIT"
+description = "Parse content to create your own syntactic rules."
+repository = "https://github.com/retroflexivity/typst-caterpillar"
+categories = ["model", "scripting", "fun"]
+keywords = ["parser", "parsing", "syntax", "sugar", "markup", "markdown"]
+exclude = ["documentation.pdf"]
