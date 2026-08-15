@@ -10,7 +10,7 @@ That's the blank this package fills in.
 [Usage](#usage) | [Status](#status) | [LICENSE](#license)
 
 ## Usage
-![bookmark-styles](example.png)
+![bookmark styles](example.png)
 
 ```typ
 #import "@preview/bookmark-kabob:0.1.0": *
