@@ -13,8 +13,8 @@
   institution: "Institution",
   contact: none,
   theme: simple,
-  fonts: none,
-  colors: none,
+  fonts: (:),
+  colors: (:),
   lang: "en",
   aspect-ratio: "16-9",
   navigation-style: "topbar",
@@ -33,16 +33,9 @@
   let sk-lang = if default-language.contains(lang) {lang} else {"en"}
 
   // Theme
-  // let sk-theme = simple + theme
-  // show: sk-theme.theme.with(colors: colors, fonts: fonts)
   let sk-theme = simple + theme
-
-  let sk-colors = if sk-theme.colors == none {
-    none
-  } else {
-    sk-theme.colors + (if colors == none { (:) } else { colors })
-  }
-  let sk-fonts = default-fonts + sk-theme.fonts + (if fonts == none { (:) } else { fonts })
+  let sk-colors =  sk-theme.colors + colors
+  let sk-fonts = default-fonts + sk-theme.fonts + fonts
 
   sk-states.colors.update(sk-colors)
   sk-states.fonts.update(sk-fonts)
