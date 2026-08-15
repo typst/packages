@@ -1,0 +1,12 @@
+[package]
+name = "bookmark-kabob"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["HackYardo <https://github.com/hackyardo>"]
+license = "Apache-2.0"
+description = "Bold and italic heading styles in PDF readers' bookmarks."
+repository = "https://github.com/hackyardo/bookmark-kabob"
+keywords = ["viewer", "outline", "toc"]
+categories = ["utility", "book"]
+compiler = "0.6.0"
+exclude = ["example.png"]
