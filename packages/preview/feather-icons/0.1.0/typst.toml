@@ -1,0 +1,30 @@
+[package]
+name = "feather-icons"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Balder W. Holst"]
+license = "MIT"
+description = "Open source vector icons."
+repository = "https://github.com/BalderHolst/typst-feather-icons"
+keywords = ["icons", "vector", "feather"]
+categories = ["visualization"]
+disciplines = ["design"]
+exclude = [
+    "feather-icons/*/*.js",
+    "feather-icons/*/__tests__/",
+    "feather-icons/*/*.html",
+    "feather-icons/*/*.sh",
+    "feather-icons/bin/",
+    "feather-icons/.*",
+    "feather-icons/package-lock.json",
+    "*.py",
+    "*.pdf",
+    "*.mdx",
+    ".git",
+    ".github",
+    "docs/",
+    "example.svg",
+]
+
+[tool.install]
+namespace = "local"
