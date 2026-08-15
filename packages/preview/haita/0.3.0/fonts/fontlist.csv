@@ -1,0 +1,23 @@
+style,weight,family-name,source
+normal,100,Lato,Lato/Lato-Hairline.woff2
+italic,100,Lato,Lato/Lato-HairlineItalic.woff2
+normal,200,Lato,Lato/Lato-Thin.woff2
+italic,200,Lato,Lato/Lato-ThinItalic.woff2
+normal,300,Lato,Lato/Lato-Light.woff2
+italic,300,Lato,Lato/Lato-LightItalic.woff2
+normal,400,Lato,Lato/Lato-Regular.woff2
+italic,400,Lato,Lato/Lato-Italic.woff2
+normal,500,Lato,Lato/Lato-Medium.woff2
+italic,500,Lato,Lato/Lato-MediumItalic.woff2
+normal,600,Lato,Lato/Lato-Semibold.woff2
+italic,600,Lato,Lato/Lato-SemiboldItalic.woff2
+normal,700,Lato,Lato/Lato-Bold.woff2
+italic,700,Lato,Lato/Lato-BoldItalic.woff2
+normal,800,Lato,Lato/Lato-Heavy.woff2
+italic,800,Lato,Lato/Lato-HeavyItalic.woff2
+normal,900,Lato,Lato/Lato-Black.woff2
+italic,900,Lato,Lato/Lato-BlackItalic.woff2
+normal,400,Lete Sans Math,LeteSansMath/LeteSansMath.woff2
+normal,700,Lete Sans Math,LeteSansMath/LeteSansMath-Bold.woff2
+normal,100 700,Roboto Mono,RobotoMono/RobotoMono-VariableFont_wght.woff2
+italic,100 700,Roboto Mono,RobotoMono/RobotoMono-Italic-VariableFont_wght.woff2

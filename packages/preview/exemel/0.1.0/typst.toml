@@ -1,0 +1,11 @@
+[package]
+name = "exemel"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jeremy Gao <@wensimehrp>"]
+license = "Apache-2.0"
+description = "Encode Typst values to XML and make Atom feeds"
+repository = "https://github.com/wensimehrp/exemel"
+keywords = ["xml", "atom", "html"]
+categories = ["integration", "utility", "scripting"]
+compiler = "0.13.0"

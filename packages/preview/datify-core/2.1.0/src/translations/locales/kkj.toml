@@ -1,0 +1,112 @@
+[days.format.wide]
+1 = "lundi"
+2 = "mardi"
+3 = "mɛrkɛrɛdi"
+4 = "yedi"
+5 = "vaŋdɛrɛdi"
+6 = "mɔnɔ sɔndi"
+7 = "sɔndi"
+
+[days.format.abbreviated]
+1 = "lundi"
+2 = "mardi"
+3 = "mɛrkɛrɛdi"
+4 = "yedi"
+5 = "vaŋdɛrɛdi"
+6 = "mɔnɔ sɔndi"
+7 = "sɔndi"
+
+[days.format.narrow]
+1 = "lu"
+2 = "ma"
+3 = "mɛ"
+4 = "ye"
+5 = "va"
+6 = "ms"
+7 = "so"
+
+[days.stand-alone.wide]
+1 = "lundi"
+2 = "mardi"
+3 = "mɛrkɛrɛdi"
+4 = "yedi"
+5 = "vaŋdɛrɛdi"
+6 = "mɔnɔ sɔndi"
+7 = "sɔndi"
+
+[days.stand-alone.abbreviated]
+1 = "lundi"
+2 = "mardi"
+3 = "mɛrkɛrɛdi"
+4 = "yedi"
+5 = "vaŋdɛrɛdi"
+6 = "mɔnɔ sɔndi"
+7 = "sɔndi"
+
+[days.stand-alone.narrow]
+1 = "lu"
+2 = "ma"
+3 = "mɛ"
+4 = "ye"
+5 = "va"
+6 = "ms"
+7 = "so"
+
+[months.format.wide]
+1 = "pamba"
+2 = "wanja"
+3 = "mbiyɔ mɛndoŋgɔ"
+4 = "Nyɔlɔmbɔŋgɔ"
+5 = "Mɔnɔ ŋgbanja"
+6 = "Nyaŋgwɛ ŋgbanja"
+7 = "kuŋgwɛ"
+8 = "fɛ"
+9 = "njapi"
+10 = "nyukul"
+12 = "ɓulɓusɛ"
+
+[months.format.abbreviated]
+1 = "pamba"
+2 = "wanja"
+3 = "mbiyɔ mɛndoŋgɔ"
+4 = "Nyɔlɔmbɔŋgɔ"
+5 = "Mɔnɔ ŋgbanja"
+6 = "Nyaŋgwɛ ŋgbanja"
+7 = "kuŋgwɛ"
+8 = "fɛ"
+9 = "njapi"
+10 = "nyukul"
+12 = "ɓulɓusɛ"
+
+[months.stand-alone.wide]
+1 = "pamba"
+2 = "wanja"
+3 = "mbiyɔ mɛndoŋgɔ"
+4 = "Nyɔlɔmbɔŋgɔ"
+5 = "Mɔnɔ ŋgbanja"
+6 = "Nyaŋgwɛ ŋgbanja"
+7 = "kuŋgwɛ"
+8 = "fɛ"
+9 = "njapi"
+10 = "nyukul"
+12 = "ɓulɓusɛ"
+
+[months.stand-alone.abbreviated]
+1 = "pamba"
+2 = "wanja"
+3 = "mbiyɔ mɛndoŋgɔ"
+4 = "Nyɔlɔmbɔŋgɔ"
+5 = "Mɔnɔ ŋgbanja"
+6 = "Nyaŋgwɛ ŋgbanja"
+7 = "kuŋgwɛ"
+8 = "fɛ"
+9 = "njapi"
+10 = "nyukul"
+12 = "ɓulɓusɛ"
+
+[patterns]
+full = "EEEE dd MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "dd/MM y"
+
