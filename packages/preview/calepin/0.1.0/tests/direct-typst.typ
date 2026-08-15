@@ -1,4 +1,4 @@
-#import "../lib.typ" as calepin
+#import "@preview/calepin:0.1.0" as calepin
 #show: calepin.document
 
 #calepin.setup(echo: true)
