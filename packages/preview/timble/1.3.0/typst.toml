@@ -11,6 +11,6 @@ categories = ["visualization", "utility"]
 exclude = ["example"]
 
 [template]
-path = "example"
-entrypoint = "example.typ"
-thumbnail = "example/example.png"
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "template.png"
