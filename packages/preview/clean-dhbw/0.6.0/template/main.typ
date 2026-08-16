@@ -1,5 +1,4 @@
-//#import "@preview/clean-dhbw:0.5.0": *
-#import "../../clean-dhbw-typst-template/lib.typ": *
+#import "@preview/clean-dhbw:0.6.0": *
 #import "glossary.typ": glossary-entries
 
 #show: clean-dhbw.with(
