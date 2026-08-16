@@ -1,0 +1,16 @@
+{
+  "name": "modern-tongji-thesis",
+  "version": "0.2.0",
+  "description": "Typst template for Tongji University undergraduate thesis",
+  "author": "TJ-CSCCG",
+  "email": "TJ_CSCCG@163.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TJ-CSCCG/modern-tongji-thesis"
+  },
+  "contributors": [
+    "FeO3 (original author)",
+    "RizhongLin"
+  ],
+  "license": "MIT"
+}

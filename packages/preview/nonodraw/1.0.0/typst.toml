@@ -1,0 +1,11 @@
+[package]
+name = "nonodraw"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Daniel Ayala"]
+license = "MIT-0"
+description = "Functions for rendering nonogram puzzles in a customizable manner."
+repository = "https://github.com/dayala1/nonodraw"
+categories = ["fun"]
+exclude = [".git", ".gitignore", "examples"]
+keywords = ["nonogram", "puzzle"]

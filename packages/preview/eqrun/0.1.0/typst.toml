@@ -1,0 +1,11 @@
+[package]
+name = "eqrun"
+version = "0.1.0"
+keywords = ["equation", "runner", "evaluation"]
+categories = ["scripting", "visualization", "utility"]
+entrypoint = "lib.typ"
+authors = ["<@snlxnet>"]
+repository = "https://github.com/snlxnet/eqrun"
+license = "MIT"
+description = "Evaluate equations, use the results in further equations."
+exclude = ["*.svg", "example.typ"]

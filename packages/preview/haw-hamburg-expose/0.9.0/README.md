@@ -1,0 +1,37 @@
+# HAW Hamburg Typst Template
+
+This is an **`unofficial`** template for writing an exposé (thesis proposal) in the `HAW Hamburg` Faculty of `Computer Science and Digital Society` style using [Typst](https://github.com/typst/typst).
+
+## Usage
+
+To use this package just add the following code to your [Typst](https://github.com/typst/typst) document:
+
+```typst
+#import "@preview/haw-hamburg:0.9.0": expose
+
+#show: expose.with(
+  language: "en",
+  title: "Example title",
+  keywords: ("Keyword", "Important", "Super"),
+  author: "Example author",
+  faculty: "Computer Science and Digital Society",
+  supervisors: ("Prof. Dr. Example", "Prof. Dr. Example"),
+  submission-date: datetime(year: 1948, month: 12, day: 10),
+)
+```
+
+## How to Compile
+
+This project contains an example setup that splits individual chapters into different files.\
+This can cause problems when using references etc.\
+These problems can be avoided by following these steps:
+
+- Make sure to always compile your `main.typ` file which includes all of your chapters for references to work correctly.
+- **CLI**:
+  - Install [Typst](https://github.com/typst/typst) on your system.
+  - Open the terminal and run: `typst compile main.typ`.
+- **VSCode**:
+  - Install the [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) extension.
+  - Make sure to start the `PDF` or `Live Preview` only from within your `main.typ` file.
+  - References and the language server in general only work correctly when the `Live Preview` of the `main.typ` file is running in the background.
+  - If problems occur it usually helps to close the preview and restart it from your `main.typ` file.

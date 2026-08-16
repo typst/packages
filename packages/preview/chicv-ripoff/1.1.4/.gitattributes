@@ -1,0 +1,16 @@
+# Auto-detect text files and normalize to LF
+* text=auto eol=lf
+
+# Scripts — executable
+scripts/* text eol=lf
+
+# Binary files — don't attempt line-ending conversion
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.otf binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.ico binary

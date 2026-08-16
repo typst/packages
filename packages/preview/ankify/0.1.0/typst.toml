@@ -1,0 +1,11 @@
+[package]
+name = "ankify"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["N. V. Lang <@nvlang>"]
+license = "MIT"
+description = "Generate and sync Anki flashcards from your Typst documents."
+repository = "https://github.com/nvlang/ankify"
+keywords = ["anki", "flashcards"]
+categories = ["integration", "scripting", "utility"]
+compiler = "0.14.0"

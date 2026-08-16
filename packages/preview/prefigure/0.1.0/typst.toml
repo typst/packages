@@ -1,0 +1,11 @@
+[package]
+name = "prefigure"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["PreFigure contributors"]
+license = "GPL-3.0-or-later"
+description = "Author and render PreFigure mathematical diagrams"
+repository = "https://github.com/davidaustinm/prefigure"
+keywords = ["diagram", "math", "plot", "svg", "prefigure"]
+categories = ["visualization"]
+exclude = ["wasm-interface", "tests", "examples", "dist", "DEVELOPER_NOTES.md", "make_dist.sh"]

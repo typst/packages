@@ -1,0 +1,20 @@
+[package]
+name = "unofficial-stu-bachelor-thesis"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = [
+  "Weixin Huang <weixinhuang@stu.edu.cn>",
+  "Yaoheng He(Luke) <@awa2333>",
+]
+license = "Apache-2.0"
+description = "汕头大学本科生毕业论文模板。Undergraduate's thesis at the Shantou University(STU)."
+repository = "https://github.com/weixinhum2023/shantou-university-thesis-typst-template"
+keywords = ["thesis", "stu", "shantou-university", "chinese", "academic"]
+categories = ["thesis"]
+compiler = "0.14.0"
+exclude = ["images"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

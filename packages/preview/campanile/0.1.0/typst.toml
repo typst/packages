@@ -1,0 +1,15 @@
+[package]
+name = "campanile"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Joshua You <@buggy213>"]
+license = "MIT-0"
+description = "Master's thesis and PhD dissertation at UC Berkeley (Unofficial)"
+keywords = ["ucbthesis", "Berkeley"]
+categories = ["thesis"]
+repository = "https://github.com/buggy213/campanile"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,30 @@
+[package]
+name = "codepoint"
+version = "0.2.1"
+entrypoint = "lib.typ"
+authors = [
+  "Clarissa Milligan <https://github.com/ClarissaMilligan>",
+  "Reese Hatfield <https://github.com/ReeseHatfield>",
+]
+license = "MIT"
+description = "Utilities for creating programming labs and exams"
+repository = "https://github.com/oseda-dev/codepoint"
+categories = ["text", "components", "layout"]
+keywords = [
+  "exam",
+  "programming",
+  "computer science",
+  "worksheet",
+  "quiz",
+  "education",
+]
+disciplines = ["computer-science"]
+exclude = [
+  "examples",
+  "create-local-package.sh",
+  ".git",
+  ".gitignore",
+  "BreakingChanges.md",
+  "manual",
+  "img"
+]

@@ -1,0 +1,74 @@
+#:schema https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/metadata.toml.schema.json
+
+# Profile: Chinese. Demonstrates the explicit-typography pattern — every
+# locale-specific decision is made in this file, with no hidden `language`
+# triggers in the package. See profile_en/metadata.toml for field docs.
+header_quote = "具有丰富经验的数据分析师，随时可入职"
+cv_footer = "简历"
+letter_footer = "申请信"
+
+[layout]
+    awesome_color = "skyblue"
+    before_section_skip = "1pt"
+    before_entry_skip = "1pt"
+    before_entry_description_skip = "1pt"
+    paper_size = "a4"
+    # Wider date column accommodates Chinese month/year strings.
+    date_width = "4.7cm"
+
+    [layout.fonts]
+        # Mixed Source Sans 3 + Heiti SC. Typst's codepoint-level fallback
+        # picks Heiti SC for CJK characters and Source Sans 3 for Latin.
+        regular_fonts = ["Source Sans 3", "Heiti SC"]
+        header_font = "Heiti SC"
+
+    [layout.header]
+        header_align = "left"
+        display_profile_photo = true
+        profile_photo_radius = "50%"
+        info_font_size = "10pt"
+
+    [layout.entry]
+        display_entry_society_first = true
+        display_logo = true
+
+    [layout.section]
+        # CJK convention: section title rendered in accent color as a whole,
+        # not split into "first N letters + rest" — splitting Chinese
+        # characters by codepoint count is rarely meaningful.
+        title_highlight = "full"
+
+    [layout.footer]
+        display_page_counter = false
+        display_footer = true
+
+
+[inject]
+    injected_keywords_list = ["数据分析师", "GCP", "Python", "SQL", "Tableau"]
+
+[personal]
+    first_name = "John"
+    last_name = "Doe"
+    # display_name overrides the Latin "first (light) + last (bold)" split
+    # with a single CJK string in the first-name light style.
+    display_name = "王道尔"
+
+    [personal.info]
+        github = "yunanwg"
+        phone = "+86 138 0000 0000"
+        email = "john.doe@me.org"
+        linkedin = "johndoe"
+        gitlab = "yunanwg"
+        homepage = "johndoe.dev"
+        orcid = "0000-0000-0000-0000"
+        location = "上海"
+
+        [personal.info.custom-degree]
+            awesomeIcon = "graduation-cap"
+            text = "数据科学博士"
+            link = "https://www.example.com"
+
+        [personal.info.custom-cert]
+            awesomeIcon = "certificate"
+            text = "AWS Certified"
+            link = "https://aws.amazon.com/certification/"
