@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="164.33298mm"
+   height="13.889979mm"
+   viewBox="0 0 164.33298 13.889979"
+   version="1.1"
+   id="svg1603"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="footer.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1605"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0998546"
+     inkscape:cx="382.77787"
+     inkscape:cy="-25.003305"
+     inkscape:window-width="1920"
+     inkscape:window-height="1200"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs1600">
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect2368"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect2360"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1264">
+      <rect
+         style="fill:#fafdfd;stroke-width:4.7811;stroke-dasharray:4.7811, 4.7811"
+         id="rect1266"
+         width="620.68402"
+         height="112.87408"
+         x="32.401554"
+         y="154.05742" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2241">
+      <rect
+         style="fill:#fafdfd;stroke:#000000;stroke-width:9.97897;stroke-dasharray:9.97897, 9.97897;stroke-opacity:1"
+         id="rect2243"
+         width="694.23529"
+         height="68.438515"
+         x="12.277269"
+         y="135.99803" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2269">
+      <rect
+         style="fill:#fafdfd;stroke:#000000;stroke-width:4.7811;stroke-dasharray:4.7811, 4.7811;stroke-opacity:1"
+         id="rect2271"
+         width="676.71405"
+         height="36.783016"
+         x="10.900028"
+         y="192.2365" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2356">
+      <rect
+         style="display:none;fill:#fafdfd;stroke-width:4.7811;stroke-dasharray:4.7811, 4.7811"
+         id="rect2358"
+         width="25.675428"
+         height="3.1916723"
+         x="627.55286"
+         y="199.89635"
+         d="m 627.55286,199.89635 h 25.67542 v 3.19167 h -25.67542 z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2364">
+      <rect
+         style="display:none;fill:#fafdfd;stroke-width:4.7811;stroke-dasharray:4.7811, 4.7811"
+         id="rect2366"
+         width="25.675428"
+         height="3.1916723"
+         x="32.127254"
+         y="200.30196"
+         d="m 32.127254,200.30196 h 25.675429 v 3.19167 H 32.127254 Z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2501">
+      <rect
+         style="fill:#fafdfd;stroke:#000000;stroke-width:1.73988;stroke-dasharray:1.73988, 1.73988;stroke-opacity:1"
+         id="rect2503"
+         width="619.76489"
+         height="12.408196"
+         x="32.127254"
+         y="191.08543" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-22.787119,-141.38491)">
+    <path
+       d="m 30.534142,147.02476 c -1.554976,0.55562 -1.58488,2.5929 -0.05981,3.30728 1.166232,0.52916 2.272659,0.50271 3.827634,-0.13229 1.285845,-0.50271 1.345653,-0.50271 2.541788,-0.0529 l 1.226039,0.47625 1.465266,-0.87313 1.465267,-0.87312 h 63.544694 c 47.24736,0 63.69422,0.0794 64.17269,0.29104 0.35883,0.18521 1.01671,0.58208 1.46526,0.92604 l 0.83729,0.58209 1.22605,-0.52917 1.22603,-0.52917 1.52507,0.58209 c 2.54179,0.97895 4.69484,0.29104 4.69484,-1.48166 0,-1.93146 -2.81092,-2.61938 -3.4688,-0.84667 -0.14951,0.42334 -0.03,0.71438 0.47846,1.05833 0.35884,0.26458 0.77749,0.47625 0.8971,0.47625 0.47845,0 1.19614,-0.8202 1.19614,-1.34937 0,-0.29104 0.11961,-0.44979 0.29903,-0.37042 0.53826,0.29105 0.32893,1.66687 -0.32893,2.06374 -0.95692,0.60855 -2.75112,0 -5.68166,-1.85207 -1.40545,-0.87312 -1.52507,-0.89958 -2.45207,-0.58208 -0.50835,0.18521 -1.13633,0.44979 -1.37556,0.60854 -0.29903,0.21167 -19.01855,0.3175 -64.14277,0.37042 l -63.724122,0.0794 -2.003525,-0.71437 -2.003528,-0.71438 -1.136328,0.79375 c -3.109953,2.14312 -5.681645,2.80457 -6.369422,1.64041 -0.358841,-0.58209 -0.17942,-1.82562 0.269131,-1.82562 0.149516,0 0.209323,0.23813 0.119612,0.50271 -0.209323,0.74082 1.136329,1.48166 1.973624,1.08478 0.837294,-0.37041 0.807392,-1.4552 -0.02991,-1.9579 -0.747586,-0.47625 -0.747586,-0.47625 -1.674591,-0.15875 z m 8.761692,1.03187 c 0.209324,0.3175 -1.883913,1.61395 -2.601594,1.61395 -0.897102,0 -0.598068,-0.47625 0.747584,-1.16416 1.40546,-0.76729 1.58488,-0.79375 1.85401,-0.44979 z m 132.561726,0.47625 c 1.31575,0.76728 1.58487,1.1377 0.74758,1.1377 -0.71767,0 -3.10995,-1.32291 -2.93053,-1.61395 0.29904,-0.39687 0.86721,-0.26458 2.18295,0.47625 z"
+       id="path10892"
+       style="fill:#e18c00;fill-opacity:0.20392157;stroke:#e18c00;stroke-width:0.281281;stroke-opacity:0.20452726" />
+  </g>
+</svg>
