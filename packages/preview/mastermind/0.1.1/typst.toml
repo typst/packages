@@ -8,5 +8,5 @@ description = "Draw UML class diagrams."
 keywords = ["class diagrams", "uml diagrams"]
 categories = ["visualization", "scripting"]
 disciplines = ["engineering", "computer-science"]
-exclude = ["docs/*", "*.pdf", "*.sh"]
+exclude = ["docs/*", "thumbnails/*", "*.pdf", "*.sh"]
 compiler = "0.13.0"
