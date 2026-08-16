@@ -1,10 +1,12 @@
 #import "@preview/bookly:5.0.0": *
 #import "@preview/marginalia:0.3.1": *
-#import "@preview/suboutline:0.3.1": *
+#import "@preview/suboutline:0.3.0": *
 
 #let custom-theme(colors: default-colors, it) = {
   // Headings
   show heading.where(level: 1): it => {
+    set par(first-line-indent: 0em) if states.par-indent.get()
+
     if not states.open-right.get() {
       pagebreak(weak: true)
     }
@@ -34,12 +36,14 @@
   }
 
   show heading.where(level: 2): it => {
+    set par(first-line-indent: 0em) if states.par-indent.get()
     block(above: 2em, below: 1.25em)[
       #it
     ]
   }
 
   show heading.where(level: 3): it => {
+    set par(first-line-indent: 0em) if states.par-indent.get()
     block(above: 1.25em, below: 1.25em)[
       #it
     ]
@@ -85,8 +89,9 @@
 
   // Page style
   let page-header = context {
+    set par(first-line-indent: 0em) if states.par-indent.get()
     show linebreak: none
-    show: wideblock.with(side: "both")
+    // show: wideblock.with(side: "both")
     if calc.odd(here().page()) {
       align(left, hydra(2, display: (_, it) => [
       #let head = none
@@ -96,7 +101,7 @@
         head = it.body
       }
       #head
-      #place(dx: 0%, dy: 52%)[#line(length: 100%, stroke: 0.75pt)]
+      #place(dx: 0%, dy: 20%)[#line(length: 100%, stroke: 0.75pt)]
     ]))
     } else {
       align(left, hydra(1, display: (_, it) => [
@@ -105,7 +110,7 @@
         head = it.body
       }
       #head
-      #place(dx: 0%, dy: 50%)[#line(length: 100%, stroke: 0.75pt)]
+      #place(dx: 0%, dy: 20%)[#line(length: 100%, stroke: 0.75pt)]
     ]))
     }
   }
@@ -122,7 +127,7 @@
   }
 
   set page(
-    paper: paper-size,
+    paper: states.paper-size.get(),
     header: page-header,
     footer: page-footer
   )
