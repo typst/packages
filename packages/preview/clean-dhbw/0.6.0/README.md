@@ -2,7 +2,7 @@
 
 A (modernized) [Typst](https://typst.app/) template for DHBW documents like Bachelor theses, "Studienarbeiten", project documentation etc. It is the official Typst template for Computer Science at DHBW Karlsruhe.
 
-You can see an example of how the template looks in this [PDF file](https://github.com/roland-KA/clean-dhbw-typst-template/blob/main/template/main.pdf).
+You can see an example of how the template looks in this [PDF file](template/main.pdf).
 
 ## Introduction and Motivation
 
@@ -147,7 +147,7 @@ CAVEAT: The template hasn't been adapted nor tested for more than two authors (b
 
 For each argument the expected type of the value is given in parentheses. All arguments marked with `*` are required.
 
-Have a look at the example file [`main.typ`](https://github.com/roland-KA/clean-dhbw-typst-template/blob/main/template/main.typ) whithin the [`template`](https://github.com/roland-KA/clean-dhbw-typst-template/tree/main/template) directory on how to use the `clean-dhbw`-function with a typical subset of these parameters.
+Have a look at the example file [`main.typ`](template/main.typ) whithin the `template`-directory on how to use the `clean-dhbw`-function with a typical subset of these parameters.
 
 ### A typical configuration for a Bachelor Thesis
 
