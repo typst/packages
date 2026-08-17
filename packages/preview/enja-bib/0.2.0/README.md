@@ -4,7 +4,7 @@
 A package for handling BibTeX that includes both English and Japanese.
 Licensed under MIT.
 
-![](figure/fig1.png)
+![Example bibliography containing Japanese and English references](figure/fig1.png)
 
 <details><summary>コード</summary>
 
@@ -101,25 +101,25 @@ Licensed under MIT.
 
 > 現在すぐに使用可能なスタイル一覧
 > - `bib-setting-plain`：bibtexの`jplain`を再現したスタイル
->   ![](figure/fig2_plain.png)
+>   ![Example bibliography in the jplain-compatible style](figure/fig2_plain.png)
 > - `bib-setting-junsrt`：標準日本語スタイル `junsrt`（引用順）
->   ![](figure/fig2_junsrt.png)
+>   ![Example bibliography in the junsrt style](figure/fig2_junsrt.png)
 > - `bib-setting-jabbrv`：標準日本語スタイル `jabbrv`（欧文著者名を省略）
->   ![](figure/fig2_jabbrv.png)
+>   ![Example bibliography in the jabbrv style](figure/fig2_jabbrv.png)
 > - `bib-setting-jalpha`：標準日本語スタイル `jalpha`（著者・年ラベル）
->   ![](figure/fig2_jalpha.png)
+>   ![Example bibliography in the jalpha style](figure/fig2_jalpha.png)
 > - `bib-setting-jname`：標準日本語スタイル `jname`（著者名ラベル）
->   ![](figure/fig2_jname.png)
+>   ![Example bibliography in the jname style](figure/fig2_jname.png)
 > - `bib-setting-jipsj`：情報処理学会欧文論文誌スタイル `jipsj`
->  ![](figure/fig2_jipsj.png)
+>   ![Example bibliography in the jipsj style](figure/fig2_jipsj.png)
 > - `bib-setting-jorsj`：日本オペレーションズ・リサーチ学会論文誌スタイル `jorsj`
-> ![](figure/fig2_jorsj.png)
+>   ![Example bibliography in the jorsj style](figure/fig2_jorsj.png)
 > - `bib-setting-jsme`：日本機械学会の引用を再現したスタイル
-> ![](figure/fig2_jsme.png)
+>   ![Example bibliography in the Japan Society of Mechanical Engineers style](figure/fig2_jsme.png)
 > - `bib-setting-tieice`：電子情報通信学会論文誌スタイル `tieice`
-> ![](figure/fig2_tieice.png)
+>   ![Example bibliography in the tieice style](figure/fig2_tieice.png)
 > - `bib-setting-tipsj`：情報処理学会論文誌スタイル `tipsj`
-> ![](figure/fig2_tipsj.png)
+>   ![Example bibliography in the tipsj style](figure/fig2_tipsj.png)
 
 ## それぞれの関数の使い方
 
