@@ -2,7 +2,7 @@
 
 A (modernized) [Typst](https://typst.app/) template for DHBW documents like Bachelor theses, "Studienarbeiten", project documentation etc. It is the official Typst template for Computer Science at DHBW Karlsruhe.
 
-You can see an example of how the template looks in this [PDF file](template/main.pdf).
+You can see an example of how the template looks in this [PDF file]([template/main.pdf](https://github.com/roland-KA/clean-dhbw-typst-template/blob/V0.6.0/template/main.pdf)).
 
 ## Introduction and Motivation
 
