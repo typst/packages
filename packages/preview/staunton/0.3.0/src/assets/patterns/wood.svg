@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+  <!-- Variant B: dark grain lines PLUS lighter tan streaks interleaved, so the
+       grain modulates both darker AND lighter around the middle-brown base
+       (richer, more like real timber). Two layers off the same stretched noise;
+       the light layer's spikes sit between the dark ones. -->
+  <filter id="dark" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05 0.006" numOctaves="2" seed="4" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="
+      0    0    0    0 0.24
+      0    0    0    0 0.14
+      0    0    0    0 0.06
+      0.34 0.33 0.33 0 0"/>
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="0 0 0 0.1 0.75 0.1 0 0.1 0.75 0.1 0 0.1 0.75 0.1 0 0.1 0.75 0.1 0 0 0"/>
+    </feComponentTransfer>
+  </filter>
+  <filter id="light" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05 0.006" numOctaves="2" seed="4" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="
+      0    0    0    0 0.82
+      0    0    0    0 0.66
+      0    0    0    0 0.45
+      0.34 0.33 0.33 0 0"/>
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="0 0 0 0 0 0 0.4 0 0 0 0.4 0 0 0 0.4 0 0 0 0.4 0 0"/>
+    </feComponentTransfer>
+  </filter>
+  <rect width="200" height="200" filter="url(#dark)"/>
+  <rect width="200" height="200" filter="url(#light)"/>
+</svg>

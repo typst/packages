@@ -1,0 +1,12 @@
+[package]
+name = "ribon"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "GPL-2.0-only"
+description = "RNA secondary-structure visualization and analysis."
+repository = "https://github.com/rice8y/ribon"
+keywords = ["RNA", "secondary-structure", "bioinformatics", "visualization"]
+categories = ["visualization"]
+compiler = "0.14.0"
+exclude = ["/examples", "/docs"]

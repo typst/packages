@@ -1,0 +1,32 @@
+[package]
+name = "aimesymb"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+authors = ["AprilGrimoire <@AprilGrimoire>"]
+license = "MIT"
+description = "Use AMSa and AMSb designs in mixed-font math equations."
+repository = "https://github.com/AprilGrimoire/aimesymb"
+categories = ["components", "text", "utility"]
+disciplines = ["mathematics"]
+keywords = [
+  "aimesymb",
+  "ams",
+  "amssymb",
+  "amsfonts",
+  "computer-modern",
+  "fonts",
+  "math",
+  "opentype",
+  "symbols",
+]
+exclude = [
+  "/.*",
+  "/build/",
+  "/examples/",
+  "/fonts/*.otf",
+  "/Makefile",
+  "/scripts/",
+  "/tests/",
+  "/vendor/",
+]
