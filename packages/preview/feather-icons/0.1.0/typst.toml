@@ -9,22 +9,7 @@ repository = "https://github.com/BalderHolst/typst-feather-icons"
 keywords = ["icons", "vector", "feather"]
 categories = ["visualization"]
 disciplines = ["design"]
-exclude = [
-    "feather-icons/*/*.js",
-    "feather-icons/*/__tests__/",
-    "feather-icons/*/*.html",
-    "feather-icons/*/*.sh",
-    "feather-icons/bin/",
-    "feather-icons/.*",
-    "feather-icons/package-lock.json",
-    "*.py",
-    "*.pdf",
-    "*.mdx",
-    ".git",
-    ".github",
-    "docs/",
-    "example.svg",
-]
+exclude = []
 
 [tool.install]
 namespace = "local"

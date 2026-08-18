@@ -1,20 +1,20 @@
-#let _TAGS = json("feather-icons/src/tags.json")
-#let _ICON_DIR = "./feather-icons/icons/"
-#let _MANIFEST = json("feather-icons/package.json")
+#import "feather-icons-data.typ" as data
 
-#let version = _MANIFEST.version
+/// Version of the icons (not the package)
+/// -> str
+#let icons-version = data.icons-version
 
-#let _name_to_path(name) = {
-  _ICON_DIR + name + ".svg"
-}
+/// URL of the feather icons repository where the SVG source code is contained
+/// -> str
+#let icons-repository = data.icons-repository
 
 #let _variant(f) = {
-  _TAGS
-    .keys()
-    .map(name => {
-      (name, f(_name_to_path(name)))
-    })
-    .to-dict()
+  data.strokes
+    .pairs()
+    .map(it => {
+        let (name, strokes) = it
+        (name, f(data.header + strokes + data.footer))
+    }).to-dict()
 }
 
 // Convert an icon set to an inline icon set
@@ -57,7 +57,7 @@
 /// ```
 ///
 ///-> dictionary[str, image]
-#let icons = _variant(image)
+#let icons = _variant(it => image(bytes(it)))
 
 /// Icons for use inside text
 ///
@@ -77,7 +77,7 @@
 /// ````
 ///
 /// -> dictionary[str, str]
-#let svg-icons = _variant(read)
+#let svg-icons = _variant(it => it)
 
 /// Create an icon set with additional options
 ///
@@ -105,8 +105,7 @@
   /// The fill between strokes in the icon -> str | color | none
   fill: none,
 ) = {
-  _variant(path => {
-    let svg = read(path)
+  _variant(svg => {
     let svg = _set-svg-variable(
       svg,
       stroke: stroke,
