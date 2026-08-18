@@ -1,6 +1,6 @@
 #import "@preview/glossarium:0.5.10": *
-#import "@preview/datify:1.0.1": *
-#import "@preview/zebraw:0.6.1": *
+#import "@preview/datify:1.3.0": *
+#import "@preview/zebraw:0.6.3": *
 
 #let hm-color = rgb("#fb5454")
 
