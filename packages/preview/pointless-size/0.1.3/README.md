@@ -2,7 +2,7 @@
 
 [![Typst Universe](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Fpointless-size&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=universe&labelColor=white&color=%23239DAE)](https://typst.app/universe/package/pointless-size)
 [![GitHub Repo stars](https://img.shields.io/github/stars/YDX-2147483647/typst-pointless-size?style=flat&logo=github)](https://github.com/YDX-2147483647/typst-pointless-size)
-[![Changelog](https://img.shields.io/badge/changelog-gray?logo=github)](https://github.com/YDX-2147483647/typst-pointless-size/blob/main/CHANGELOG.md)
+[![Changelog](https://img.shields.io/badge/changelog-gray?logo=github)](https://github.com/YDX-2147483647/typst-pointless-size/blob/v0.1.3/CHANGELOG.md)
 
 中文字号的号数制及字体度量单位。
 Chinese size system (hào-system) and type-related measurements units.
@@ -27,8 +27,8 @@ Chinese size system (hào-system) and type-related measurements units.
 #zh("小五")
 ```
 
-[![转换表 Conversion table](https://ydx-2147483647.github.io/typst-pointless-size/assets/conversion-table.svg)](https://github.com/YDX-2147483647/typst-pointless-size/blob/main/docs/conversion-table.typ)
-[![倍数关系 Multiples](https://ydx-2147483647.github.io/typst-pointless-size/assets/multiples.svg)](https://github.com/YDX-2147483647/typst-pointless-size/blob/main/docs/multiples.typ)
+[![转换表 Conversion table](https://ydx-2147483647.github.io/typst-pointless-size/assets/conversion-table.svg)](https://github.com/YDX-2147483647/typst-pointless-size/blob/v0.1.3/docs/conversion-table.typ)
+[![倍数关系 Multiples](https://ydx-2147483647.github.io/typst-pointless-size/assets/multiples.svg)](https://github.com/YDX-2147483647/typst-pointless-size/blob/v0.1.3/docs/multiples.typ)
 
 ## 覆盖定义 Override
 
@@ -46,7 +46,7 @@ Chinese size systems were not standardized. By default, this package is consiste
 #assert.eq(zh(7), 5.25pt)
 ```
 
-[docs-ref]: https://github.com/YDX-2147483647/typst-pointless-size/blob/main/docs/ref.md
+[docs-ref]: https://github.com/YDX-2147483647/typst-pointless-size/blob/v0.1.3/docs/ref.md
 
 ## 参考资料 References
 
