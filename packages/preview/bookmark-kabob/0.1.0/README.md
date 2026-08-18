@@ -34,10 +34,14 @@ That's the blank this package fills in.
 
 ## Status
 - Tricky math forms used, only English Sans and Greek Serif letters usable.
-- Sort of slow? Try `typst compile example.typ --ignore-system-fonts`
+  - Bold looks best among **bold,** _italic,_ **_bold-italic._**
 - Would my device, system, font, run the package?
   - Sure for all! It is because no `text(font:"Font")` in the source code.
   - If your device have 0 font, the Typst CLI embedded fonts are enough to run.
+- Sort of slow?
+  - It's a known [issue](https://github.com/typst/typst/issues/8561) of Typst.
+  - Try `typst c a.typ --ignore-system-fonts --font-path path/of/fontsDir/`
+  - Where are the options? `typst -h && typst c -h`
 
 <details>
   <summary>FAQ</summary>
