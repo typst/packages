@@ -189,7 +189,7 @@ typst init @preview/scripst:1.1.2 project_name
 
 ## 🆕 特性展示
 
-该部分的具体使用方法请参见 [Scripst 文档](./docs/builds/article.pdf)。
+该部分的具体使用方法请参见 [Scripst 文档源码](./docs/article.typ)。
 
 ### `countblock`模块
 
@@ -278,7 +278,7 @@ $
   <img src="./previews/article-2.png" alt="Article Page 2" width="30%" />
 </p>
 
-[Article 示例](./docs/builds/article.pdf)
+[Article 示例源码](./docs/article.typ)
 
 ### book 文档
 
@@ -287,7 +287,7 @@ $
   <img src="./previews/book-2.png" alt="Book Page 2" width="30%" />
 </p>
   
-[Book 示例](./docs/builds/book.pdf)
+[Book 示例源码](./docs/book.typ)
 
 ### report 文档
 
@@ -296,7 +296,7 @@ $
   <img src="./previews/report-2.png" alt="Report Page 2" width="30%" />
 </p>
 
-[Report 示例](./docs/builds/report.pdf)
+[Report 示例源码](./docs/report.typ)
 
 ## 📜 贡献
 
@@ -317,6 +317,13 @@ $
 ## 📝 许可证协议
 
 本项目使用 MIT 许可证协议。
+
+`docs/pic/pic.jpg` 和 `docs/locale/pic/pic.jpg` 中的《原神》图片仅用作文档示例，
+并依照授权方的[公开规则](https://www.hoyolab.com/article/143107)限于个人、非商业用途。
+在中国大陆地区，授权方为上海米哈游网络科技股份有限公司；在中国大陆以外地区，
+授权方为 Cognosphere Pte. Ltd.。`docs/pic/pic.jpg` 的图片版权标识为 © miHoYo，
+`docs/locale/pic/pic.jpg` 的图片版权标识为 © COGNOSPHERE。
+这两张图片不适用于本项目的 MIT 许可证。
 
 ## 📥 离线使用
 

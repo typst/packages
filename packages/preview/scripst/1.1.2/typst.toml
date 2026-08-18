@@ -10,7 +10,7 @@ repository = "https://github.com/An-314/scripst"
 categories = ["layout", "report", "components"]
 keywords = ["scripst", "template", "article", "report", "book"]
 compiler = "0.14.0"
-exclude = ["/docs/*", "/previews/*", "makefile"]
+exclude = ["/docs/*", "/previews/*"]
 
 [template]
 path = "template"

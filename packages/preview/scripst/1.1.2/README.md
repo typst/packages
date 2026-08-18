@@ -182,7 +182,7 @@ typst init @preview/scripst:1.1.2 project_name
 
 ## 🆕 Feature Demonstration
 
-The specific use of this section is described in [Scripst Documentation](./docs/builds/article.pdf).
+The specific use of this section is described in the [Scripst documentation source](./docs/article.typ).
 
 ### `countblock` Module
 
@@ -275,7 +275,7 @@ So when you think the layout between paragraphs is not pretty enough, try using 
   <img src="./previews/article-en-2.png" alt="Article Page 2" width="30%" />
 </p>
 
-[Article Demo](./docs/locale/builds/article-en.pdf)
+[Article demo source](./docs/locale/article-en.typ)
 
 ### Book
 
@@ -284,7 +284,7 @@ So when you think the layout between paragraphs is not pretty enough, try using 
   <img src="./previews/book-2.png" alt="Book Page 2" width="30%" />
 </p>
 
-[Book Demo](./docs/builds/book.pdf) *(Only in Simplified Chinese)*
+[Book demo source](./docs/book.typ) *(Only in Simplified Chinese)*
 
 
 ### Report
@@ -295,7 +295,7 @@ So when you think the layout between paragraphs is not pretty enough, try using 
   <img src="./previews/report-2.png" alt="Report Page 2" width="30%" />
 </p>
 
-[Report Demo](./docs/builds/report.pdf) *(Only in Simplified Chinese)*
+[Report demo source](./docs/report.typ) *(Only in Simplified Chinese)*
 
 ## 📜 Contributing
 
@@ -315,6 +315,15 @@ For certain content, Scripst uses the following Typst packages:
 ## 📝 License
 
 This project is licensed under the MIT License.
+
+The Genshin Impact images in `docs/pic/pic.jpg` and
+`docs/locale/pic/pic.jpg` are used only as documentation examples for
+personal, non-commercial purposes, in accordance with the licensor's
+[published rules](https://www.hoyolab.com/article/143107). In Mainland China,
+the licensor is miHoYo Co., Ltd.; outside Mainland China, it is Cognosphere
+Pte. Ltd. The image in `docs/pic/pic.jpg` is copyright © miHoYo, and the image
+in `docs/locale/pic/pic.jpg` is copyright © COGNOSPHERE. These images are not
+covered by this project's MIT License.
 
 ## 📥 Offline Usage
 
