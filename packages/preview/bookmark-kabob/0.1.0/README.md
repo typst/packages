@@ -35,6 +35,13 @@ That's the blank this package fills in.
 ## Status
 - Tricky math forms used, only English Sans and Greek Serif letters usable.
 - Sort of slow? Try `typst compile example.typ --ignore-system-fonts`
+- Would my device, system, font, run the package?
+  - Sure for all! It is because no `text(font:"Font")` in the source code.
+  - If your device have 0 font, the Typst CLI embedded fonts are enough to run.
+
+<details>
+  <summary>FAQ</summary>
+
 - Why "str" rather than \[content\]?
   - Strings don't disturb external functions or show rules.
 - Why `= _*Some Heading*_` won't be bold-italic in bookmarks (e.g. Document outline of PDF.js)?
@@ -42,15 +49,21 @@ That's the blank this package fills in.
 - Why `#show: bobak`?
   - Outline and heading, as well as bookmark, be changed by `kabob()`, bobak takes them back home.
 - Why styles instead of hierarchies?
-  - In the same one logical level, there will be no hierarchies.
-- Would my device, system, font, run the package?
-  - Sure for all! It is because no `text(font:"Font")` in the source code.
-  - If your device have 0 font, the Typst CLI embedded fonts are enough to run.
-- How about [PDF Accessibility (PA)?](https://pdfa.org/accessibility/)
+  - In the same one logical level, there will be no hierarchy.
+
+</details>
+
+<details>
+  <summary>PDF Accessibility (PA)</summary>
+
   1. PA is for the blind to listen and for LLM AI to train, not for everyone.
   2. All contents of a PDF, such as cover, preface, ToC, heading, par, are independent to the package by the show rule `bobak`.
   3. A bookmark is not a content but a flexible interactive feature. Just like one can rename Demo.pdf as Demo.pdg, Demo.pde or Pdf.demo, bookmarks are not a serious part of PA.
   4. I search out **0** PA law or iso on bookmark styles, no matter which PDF version (1.7, 2.0, U/A-1,2). If there are, show me please.
+
+</details>
+
+---
 
 | Test | Typst | Trace |
 | ---: | :---: | :--- |
