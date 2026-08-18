@@ -1,0 +1,3 @@
+plugin/target/
+*.pdf
+!xkcd.pdf
