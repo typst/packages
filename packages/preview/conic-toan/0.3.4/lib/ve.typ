@@ -48,6 +48,17 @@
 // Bọc hàm vẽ f(ctx, ...) thành hàm gọi được KHÔNG CẦN ctx: nếu đối số đầu là
 // ctx thì gọi thẳng (lối cũ), không thì tự lấy ctx của khung hình đang vẽ.
 // Dùng ở baigiang.typ để bọc đồng loạt các hàm vẽ (xem cuối file đó).
+//
+// ⚠ NGĂN XẾP RỖNG — KHÔNG ĐƯỢC panic (xem CLAUDE.md, mục "CTX NGẦM TRONG
+// MEASURE"). Nội dung nằm trong `measure(...)` KHÔNG được dựng vào tài liệu nên
+// mọi `state.update` bên trong nó vô hiệu: `_ctx-ht.get()` trả về giá trị CUỐI
+// tài liệu = () ⇒ trước đây panic, làm beamer chết ở phép đo tự ngắt màn
+// (_cat-man-vua) và ở `cot: auto` của cau-mc. Nay:
+//   · trong measure ⇒ BỎ QUA, không vẽ gì. Phép đo KHÔNG đổi vì #hinh là `box`
+//     có width/height CỐ ĐỊNH, nét vẽ bên trong đều `place` (không chiếm chỗ);
+//     bản in thật thì ngăn xếp đầy đủ nên vẫn vẽ đúng như cũ.
+//   · thật sự quên #hinh(...) ⇒ ghi DẤU ĐỎ (dùng `place` nên không phá bố cục)
+//     thay cho panic — đủ để thấy mà không giết cả lần biên dịch.
 #let _voi-ctx(f) = (..a) => {
   let p = a.pos()
   if p.len() > 0 and type(p.at(0)) == dictionary and "sx" in p.at(0) {
@@ -55,10 +66,11 @@
   } else {
     context {
       let ds = _ctx-ht.get()
-      if ds.len() == 0 {
-        panic("Hàm vẽ cần khung hình: đặt lệnh trong thân #hinh(...) hoặc trong them: ctx => ..., hoặc truyền ctx như lối cũ.")
+      if ds.len() > 0 {
+        f(ds.last(), ..a)
+      } else {
+        place(text(fill: red, size: 7pt)[⚠ lệnh vẽ đặt NGOÀI khung hình])
       }
-      f(ds.last(), ..a)
     }
   }
 }
