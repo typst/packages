@@ -118,9 +118,14 @@
         let B2 = toa-nguoc(ctx, (pb.at(0) - wb.pt(), pb.at(1)))
         mui-ten(ctx, A2, B2, mau: mau-canh, day: day-canh, kich: 6pt)
         if c.xs != none {
+          // Nhánh đi XUỐNG (nút con thấp hơn nút cha) đặt nhãn phía DƯỚI cạnh
+          // cho cân đối và khỏi chen vào chỗ rẽ; nhánh đi lên/ngang giữ phía
+          // trên như cũ. Chữ vẫn quay theo cạnh (đọc xuôi).
+          let xuong = c.B.at(1) < c.A.at(1)
           nhan(
             ctx, trung-diem(A2, B2), c.xs,
-            huong: "above", cach: 3pt, quay: goc-truc(ctx, A2, B2),
+            huong: if xuong { "below" } else { "above" },
+            cach: 3pt, quay: goc-truc(ctx, A2, B2),
           )
         }
       }
