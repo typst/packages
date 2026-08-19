@@ -69,7 +69,7 @@ Scripst
 
 ## ⚙️ Numbering powered by Ratchet
 
-Scripst 1.1.2 is powered by [Ratchet 0.0.3](https://github.com/An-314/ratchet), a focused numbering package created by the same author. Ratchet provides a single, consistent engine for equations, figures, tables, raw blocks, and custom `figure(kind: ...)` families—including every Scripst `countblock`.
+Scripst 1.1.2 is powered by [Ratchet 0.0.4](https://github.com/An-314/ratchet), a focused numbering package created by the same author. Ratchet provides a single, consistent engine for equations, figures, tables, raw blocks, and custom `figure(kind: ...)` families—including every Scripst `countblock`.
 
 With Ratchet, Scripst can:
 

@@ -853,7 +853,7 @@ Currently, Scripst provides the following settings:
 
 == Unified numbering powered by Ratchet <ratchet>
 
-Scripst 1.1.2 uses #link("https://github.com/An-314/ratchet")[Ratchet 0.0.3] as its unified numbering engine. Ratchet manages numbering, heading-level resets, and cross-references for equations, figures, tables, raw blocks, and custom `figure(kind: ...)` families. Every Scripst countblock is built on the same mechanism.
+Scripst 1.1.2 uses #link("https://github.com/An-314/ratchet")[Ratchet 0.0.4] as its unified numbering engine. Ratchet manages numbering, heading-level resets, and cross-references for equations, figures, tables, raw blocks, and custom `figure(kind: ...)` families. Every Scripst countblock is built on the same mechanism.
 
 This integration keeps displayed numbers, references, and outline entries on one configuration. Each counter family can independently use depth `1`, `2`, or `3`, and new countblocks no longer require handwritten registration or heading-reset rules.
 

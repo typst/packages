@@ -1,5 +1,5 @@
 #import "configs.typ": *
-#import "@preview/ratchet:0.0.3": figure-number
+#import "@preview/ratchet:0.0.4": figure-number
 
 #let add-countblock(cb, name, info, color, counter-name: none, depth: none) = {
   if depth != none and not (depth in (1, 2, 3)) {

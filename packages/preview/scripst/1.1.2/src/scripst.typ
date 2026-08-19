@@ -3,7 +3,7 @@
 #import "components.typ": *
 #import "template.typ": *
 #import "countblock.typ": *
-#import "@preview/ratchet:0.0.3": ratchet
+#import "@preview/ratchet:0.0.4": ratchet
 
 #let scripst(
   template: "article",

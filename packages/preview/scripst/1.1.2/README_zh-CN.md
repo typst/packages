@@ -67,7 +67,7 @@ Scripst
 
 ## ⚙️ Ratchet 驱动的统一编号
 
-Scripst 1.1.2 使用同一作者开发的 [Ratchet 0.0.3](https://github.com/An-314/ratchet) 作为统一编号引擎。公式、图片、表格、代码块以及自定义 `figure(kind: ...)` 计数器族——包括所有 Scripst `countblock`——都由 Ratchet 统一管理。
+Scripst 1.1.2 使用同一作者开发的 [Ratchet 0.0.4](https://github.com/An-314/ratchet) 作为统一编号引擎。公式、图片、表格、代码块以及自定义 `figure(kind: ...)` 计数器族——包括所有 Scripst `countblock`——都由 Ratchet 统一管理。
 
 Ratchet 为 Scripst 带来了：
 
