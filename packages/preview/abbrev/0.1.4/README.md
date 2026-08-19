@@ -67,7 +67,7 @@ Output:
 The default title is "List of abbreviations" — customize it as needed. For example, in French: `title: [Liste des abréviations]`.
 
 ### Customizing the abbreviation outline
-When no abbreviations are used in the document, the outline displays `[No abbreviations used.]` by default. You can customize this message with the `empty` parameter (which accept a content).
+When no abbreviations are used in the document, the outline displays `[No abbreviations used.]` by default. You can customize this message with the parameter `empty` (which accept a content).
 
 ```typst
 #abbreviation-outline(
