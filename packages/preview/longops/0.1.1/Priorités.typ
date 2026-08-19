@@ -1,6 +1,4 @@
-#set text(lang:"fre")
-#set page(margin:1.5cm)
-#import "prepa-prio.typ":* 
+#import "/prepa-prio.typ":* 
 
 // ---------------------------------------------------------
 // FONCTION PRINCIPALE : ETAPES-CALCUL
