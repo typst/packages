@@ -52,7 +52,6 @@
 // - false  : Never displays appendix sections.
 #let mini-slides(
   fill: none,
-  // alpha: 50%,
   display-subsection: true,
   section-numbering: false,
   linebreaks: true,
@@ -139,7 +138,8 @@
             none
           }
 
-          link(section.location(), [#num #section.body])
+          let title = [#num #section.body]
+          link(section.location(), if is-current-sec { strong(title) } else { title })
         }
 
         if display-subsection and slides.len() > 0 {
