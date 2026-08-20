@@ -7,6 +7,11 @@
 
 That's the blank this package fills in.
 
+## Disclaimer of Bookmarks' Accessibility
+
+The package uses math bold and italics, which is an [accessibility bad practice in social media.](https://adrianroselli.com/2025/03/dont-use-fake-bold-or-italic-in-social-media.html) A lot of assistive technology (AT) handle them poorly. Depending on the fonts the reader has on their system, the rendering may also be sub-optimal. Be sure to know the potential AT risk before to import the package.
+
+## Table of Contents
 [Usage](#usage) | [Status](#status) | [LICENSE](#license)
 
 ## Usage
@@ -36,12 +41,14 @@ That's the blank this package fills in.
 - Tricky math forms used, only English Sans and Greek Serif letters usable.
   - Bold looks best among **bold,** _italic,_ **_bold-italic._**
 - Would my device, system, font, run the package?
-  - Sure for all! It is because no `text(font:"Font")` in the source code.
-  - If your device have 0 font, the Typst CLI embedded fonts are enough to run.
+  - **bookmark:** Math forms are generally available at Android, Linux, Mac, Windows.
+  - **contents:** No `text(font:"Font")` in source code, just pick the fonts you favor.
 - Sort of slow?
   - It's a known [issue](https://github.com/typst/typst/issues/8561) of Typst.
   - Try `typst c a.typ --ignore-system-fonts --font-path path/of/fontsDir/`
   - Where are the options? `typst -h && typst c -h`
+
+In Typst repo, there is a [bookmark issue.](https://github.com/typst/typst/issues/8762)
 
 <details>
   <summary>FAQ</summary>
@@ -54,16 +61,6 @@ That's the blank this package fills in.
   - Outline and heading, as well as bookmark, be changed by `kabob()`, bobak takes them back home.
 - Why styles instead of hierarchies?
   - In the same one logical level, there will be no hierarchy.
-
-</details>
-
-<details>
-  <summary>PDF Accessibility (PA)</summary>
-
-  1. PA is for the blind to listen and for LLM AI to train, not for everyone.
-  2. All contents of a PDF, such as cover, preface, ToC, heading, par, are independent to the package by the show rule `bobak`.
-  3. A bookmark is not a content but a flexible interactive feature. Just like one can rename Demo.pdf as Demo.pdg, Demo.pde or Pdf.demo, bookmarks are not a serious part of PA.
-  4. I search out **0** PA law or iso on bookmark styles, no matter which PDF version (1.7, 2.0, U/A-1,2). If there are, show me please.
 
 </details>
 
