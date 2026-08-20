@@ -9,7 +9,7 @@ repository = "https://github.com/BalderHolst/typst-feather-icons"
 keywords = ["icons", "vector", "feather"]
 categories = ["visualization"]
 disciplines = ["design"]
-exclude = []
+exclude = ["example.svg", "docs.pdf"]
 
 [tool.install]
 namespace = "local"
