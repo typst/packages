@@ -9,7 +9,7 @@ the *Diploma Regulations* approved by the College I Council on 27 January 2026.
 ### Quick start
 
 ```bash
-typst init @preview/ukw-bipg-thesis:0.1.0 my-thesis
+typst init @preview/ukw-bipg-unofficial-thesis:0.1.0 my-thesis
 cd my-thesis
 typst watch main.typ
 ```
