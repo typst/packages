@@ -27,7 +27,7 @@
   ],
 
   // ——— Bibliografia ———
-  bibliography-file: "bibliografia.bib",
+  bibliography-file: "template/bibliografia.bib",
   bibliography-style: "apa",
 
   // ——— Spisy pomocnicze ———
