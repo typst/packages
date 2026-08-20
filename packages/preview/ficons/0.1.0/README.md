@@ -7,7 +7,7 @@ API Documentation and more examples can be found in the [documentation PDF](http
 ## Example
 
 ```typst
-#import "@preview/feather-icons:0.1.0": icons, inline-icons, make-icons
+#import "@preview/ficons:0.1.0": icons, inline-icons, make-icons
 
 Icon images are accessed with the exposed `icons` variable:
 #stack(dir: ltr, spacing: 7pt, icons.phone, icons.user, icons.github, icons.map-pin)
@@ -33,5 +33,5 @@ You can use the included installer to install this package locally on Linux.
 After installation it will be available with:
 
 ```typst
-#import "@preview/feather-icons:0.1.0"
+#import "@local/ficons:0.1.0"
 ```

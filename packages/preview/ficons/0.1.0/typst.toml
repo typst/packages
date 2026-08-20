@@ -1,5 +1,5 @@
 [package]
-name = "feather-icons"
+name = "ficons"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Balder W. Holst"]
