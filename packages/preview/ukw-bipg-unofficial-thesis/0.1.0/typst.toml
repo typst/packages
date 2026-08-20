@@ -12,6 +12,7 @@ keywords = [
     "university",
     "polish",
 ]
+categories = ["computer-science"]
 compiler = "0.13.0"
 exclude = ["example.pdf"]
 
