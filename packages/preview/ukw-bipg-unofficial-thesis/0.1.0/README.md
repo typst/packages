@@ -1,4 +1,4 @@
-# unofficial-ukw-thesis
+# ukw-bipg-unofficial-thesis
 
 ## English
 
