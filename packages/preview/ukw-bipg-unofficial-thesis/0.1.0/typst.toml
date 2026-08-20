@@ -19,5 +19,6 @@ exclude = ["example.pdf"]
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "example.png"
 
 [tool]
