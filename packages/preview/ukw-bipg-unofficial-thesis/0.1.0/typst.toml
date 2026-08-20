@@ -14,7 +14,6 @@ keywords = [
 ]
 categories = ["thesis", "layout"]
 compiler = "0.13.0"
-exclude = ["example.pdf"]
 
 [template]
 path = "template"
