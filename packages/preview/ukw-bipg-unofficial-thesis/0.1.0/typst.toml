@@ -14,6 +14,7 @@ keywords = [
 ]
 categories = ["thesis", "layout"]
 compiler = "0.13.0"
+exclude = ["example.png"]
 
 [template]
 path = "template"
