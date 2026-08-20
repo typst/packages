@@ -1,4 +1,4 @@
-#import "@preview/zero:0.6.1": num, set-group, set-num, set-round, ztable
+#import "@preview/zero:0.7.0": num, set-group, set-num, set-round, ztable
 
 // ---------------------------------------------------------
 // OUTILS ARITHMÉTIQUES POUR LES FRACTIONS
