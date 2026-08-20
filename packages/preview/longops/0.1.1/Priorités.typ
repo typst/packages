@@ -1,4 +1,6 @@
-#import "/prepa-prio.typ":* 
+#set text(lang:"fre")
+#set page(margin:1.5cm)
+#import "prepa-prio.typ":* 
 
 // ---------------------------------------------------------
 // FONCTION PRINCIPALE : ETAPES-CALCUL
@@ -188,6 +190,8 @@
 #let detail(
   // Le calcul comme avant -> str
   expr-str,
+  // mode "fr" ou "en" pour le séparateur décimal -> str
+  mode: "fr", 
   // mode vertical ou non -> boolean
   vertical:false,
   // Si ajout d'un arrondi à la fin ou non -> boolean
@@ -341,10 +345,25 @@
     
   }
 
-  // Génération du bloc d'équation final sans conflit de délimiteurs
-  box(
-    math.equation(block: true, eval(final-math-str, mode: "math", scope: (deco: deco))),
-    // after: space
-  )+h(space)
-}
+  set-round(precision:digits, mode:"places", pad: false)
+  show regex("\d+(\.\d+)?"): x => math.class("normal", num(x))
+  show math.equation: it => {
+    show regex("\d+(\.\d+)?"): x => math.class("normal", num(x))
+    show regex("[A-Z]"): math.upright
+    it
+  }
 
+  // Génération du bloc d'équation final sans conflit de délimiteurs
+  if mode == "fr" {
+    box({
+      show math.frac: math.display
+      set-num(decimal-separator: "," + h(0pt))
+      math.equation(block: true, eval(final-math-str, mode: "math", scope: (deco: deco)))
+    }, outset: 0pt)
+  } else {
+    box({
+      set-num(decimal-separator: "." + h(0pt))
+      math.equation(block: true, eval(final-math-str, mode: "math", scope: (deco: deco)))
+    }, outset: 0pt)
+  } + h(space)
+}
