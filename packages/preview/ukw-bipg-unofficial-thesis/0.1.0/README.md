@@ -58,7 +58,7 @@ Szablon Typst pracy licencjackiej i magisterskiej dla kierunku **Badanie i Proje
 ### Szybki start
 
 ```bash
-typst init @preview/ukw-bipg-thesis:0.1.0 moja-praca
+typst init @preview/ukw-bipg-unofficial-thesis:0.1.0 moja-praca
 cd moja-praca
 typst watch main.typ
 ```
