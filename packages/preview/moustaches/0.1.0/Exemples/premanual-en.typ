@@ -16,10 +16,10 @@
 
 /// Computes the greatest common divisor (GCD) of a list of numbers.
 /// ```example
-/// #PGCD(1000, 1200, 1400, 1600, 1800, 2000)
+/// #pgcd(1000, 1200, 1400, 1600, 1800, 2000)
 /// ```
 /// -> int
-#let PGCD(
+#let pgcd(
   /// List of numbers -> array
   ..a
 ) = {}
@@ -103,9 +103,9 @@
 ///   uaire: 10,
 ///   s: .5,
 ///   // textsize: .5em,
-///   Donnee: [Salaire (en €)],
-///   Effectifs: [Salariés],
-///   Mediane: true,
+///   nom-donnee: [Salaire (en €)],
+///   nom-effectifs: [Salariés],
+///   mediane: true,
 ///   quartiles: true,
 ///   pos-rect: (0,5),
 /// )`,dir:ttb)
@@ -125,20 +125,20 @@
   /// Whether to display a grid -> boolean
   grille:true,
   /// Grid spacing -> int | float
-  PasGrille:1,
+  pas-grille:1,
   /// Label for the legend or y-axis, if applicable -> content
-  Donnee:[Values],
+  nom-donnee:[Values],
   /// Label for the x-axis -> content
-  Effectifs:[Frequencies],
+  nom-effectifs:[Frequencies],
   /// Extra margin on the left, right, and bottom.
   /// Either a single integer or a triple -> int | array
   add:(-1, 1, 1),
   /// Whether to display a y-axis when all classes have the same width -> boolean
   lecture:true,
   /// Whether to display frequencies above the rectangles -> boolean
-  DonneesSup:true,
+  donnees-sup:true,
   /// Rectangle colors, or a single color (e.g. `white` for printing) -> auto | color | array
-  ListeCouleurs:auto,
+  liste-couleurs:auto,
   /// Position of the legend rectangle relative to the upper-left corner
   /// of the smallest rectangle -> array
   pos-rect:(0, 2),
@@ -147,17 +147,17 @@
   /// Rectangle transparency. Use `100%` if `ListeCouleurs: white` -> ratio
   transparence:30%,
   /// Displays cumulative frequencies -> boolean
-  ECC:false,
+  ecc:false,
   /// Displays the median -> boolean
-  Mediane:false,
+  mediane:false,
   /// Displays the quartiles -> boolean
   quartiles:false,
   /// Number of decimal places for rounded values -> int
-  décimales:2,
+  decimales:2,
   /// Position of the Q1 label relative to the x-axis -> array
   posq1:(0,-1.5),
   /// Position of the median label relative to the x-axis -> array
-  posMediane:(0,-1.5),
+  posmediane:(0,-1.5),
   /// Position of the Q3 label relative to the x-axis -> array
   posq3:(1,-1.5),
   /// Stroke used to draw the median -> length | stroke
@@ -255,12 +255,12 @@
   inset:5pt,
   /// Label for the upper-left table cell
   /// (and some charts) -> content
-  Nom-donnee:[],
+  nom-donnee:[],
   /// Label for the frequency row
   /// (and some charts) -> content
-  Nom-effectifs:[Frequencies],
+  nom-effectifs:[Frequencies],
   /// Number of decimal places for rounded values -> int
-  décimales:0,
+  decimales:0,
   /// Relative frequencies:
   /// `true` for percentages,
   /// `"f"` for fractions,
@@ -275,7 +275,7 @@
   /// Display sector angles (`"v"` for an empty row) -> boolean | str
   angle:false,
   /// Display cumulative frequencies (`"v"` for an empty row) -> boolean | str
-  ECC:false,
+  ecc:false,
   /// Class boundaries for continuous data:
   /// length = `effectifs.len() + 1` -> array
   classes:(),
@@ -313,7 +313,7 @@
   histo:(),
   /// Display cumulative relative frequencies
   /// (`"v"` for an empty row) -> boolean | str
-  FCC:false,
+  fcc:false,
   /// Multiple series for grouped bar charts
   /// or multiple box plots -> array
   multi:(),
@@ -322,5 +322,5 @@
   /// If `true`, replaces colors with tiling patterns -> boolean
   print:false,
   /// Colors used in the charts -> auto | color | array
-  ListeCouleurs:auto,
+  liste-couleurs:auto,
 ) = {}

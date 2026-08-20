@@ -29,7 +29,7 @@ Install moustaches by cloning it or importing like this:
 </div>
 
 ```typ
-#import "@preview/moustaches:0.1.0": stat
+#import "@preview/moustaches:0.1.0": stat, viridis
 
 #stat(
   valeurs: ("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"),
@@ -37,7 +37,7 @@ Install moustaches by cloning it or importing like this:
   totaux: false,
   angle: "s",
   frequences: false,
-  ListeCouleurs: std.color.map.viridis,
+  liste-couleurs: viridis,
   diagramme: "hbar semicirc",
   circ:(couleurs:auto)
 )
@@ -51,7 +51,7 @@ Install moustaches by cloning it or importing like this:
   angle: true,
   diagramme: "bar box",
   cbar: (width: .2),
-  ECC: false, cases-vide: (4,19), colonnes-vide: (3,)
+  ecc: false, cases-vide: (4,19), colonnes-vide: (3,)
 )
 
 #stat(

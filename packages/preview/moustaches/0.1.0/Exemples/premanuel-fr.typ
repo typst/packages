@@ -14,10 +14,10 @@
 
 /// Calcule le PGCD d'une liste de nombres 
 ///```example
-/// #PGCD(1000, 1200, 1400, 1600, 1800, 2000)
+/// #pgcd(1000, 1200, 1400, 1600, 1800, 2000)
 ///``` 
 ///-> int
-#let PGCD(
+#let pgcd(
   /// Liste de nombres -> array
   ..a
 ) = {}
@@ -87,9 +87,9 @@
 ///   uaire: 10,
 ///   s: .5,
 ///   // textsize: .5em,
-///   Donnee: [Salaire (en €)],
-///   Effectifs: [Salariés],
-///   Mediane: true,
+///   nom-donnee: [Salaire (en €)],
+///   nom-effectifs: [Salariés],
+///   mediane: true,
 ///   quartiles: true,
 ///   pos-rect: (0,5),
 /// )`,dir:ttb)
@@ -109,37 +109,37 @@
   /// Affichage ou non d'un quadrillage -> boolean
   grille: true,
   /// Pas du quadrillage -> int | float
-  PasGrille:1,
+  pas-grille:1,
   /// Nom pour la légende ou l'axe des ordonnées le cas échéant -> content
-  Donnee: [Valeurs],
+  nom-donnee: [Valeurs],
   /// Nom pour l'axe des abscisses -> content
-  Effectifs: [effectifs],
+  nom-effectifs: [effectifs],
   /// Combien "ajouter" à gauche, droite et au dessous, soit un triplet, soit un entier unique -> int | array
   add: (-1, 1, 1),
   /// Pour avoir ou non un axe des ordonnées lorsque les classes ont la même amplitude -> boolean
   lecture: true,
   /// Affichage ou non des effectifs au dessus des rectangles -> boolean
-  DonneesSup: true,
+  donnees-sup: true,
   /// Liste des couleurs des rectangles ou une unique couleur white pour l'impression par ex -> auto | color | array
-  ListeCouleurs: auto,
+  liste-couleurs: auto,
   /// Position du rectangle de légende par rapport au coin hg du plus petit rectangle -> array
   pos-rect: (0, 2),
   /// Si true, remplace les couleurs par des tilings -> boolean
   print:false,
-  /// Transparence des rectangles : mettre à 100% si ListeCouleurs: white -> ratio
+  /// Transparence des rectangles : mettre à 100% si liste-couleurs: white -> ratio
   transparence:30%,
   /// Affichage des effectifs cumulés croissants -> boolean
-  ECC:false,
+  ecc:false,
   /// Affichage ou non de la médiane -> boolean
-  Mediane:false,
+  mediane:false,
   /// Afficha ou non des quartiles -> boolean
   quartiles:false,
   /// Nombre de décimales des arrondis -> int
-  décimales:2,
+  decimales:2,
   /// Position de la valeur de q1 par rapport à l'axe des abscisses (0,-1.5) par défaut -> array
   posq1:(0,-1.5),
   /// Position de la valeur de la médiane par rapport à l'axe des abscisses (0,-1.5) par défaut -> array
-  posMediane:(0,-1.5),
+  posmediane:(0,-1.5),
   /// Position de la valeur de q3 par rapport à l'axe des abscisses (1,-1.5) par défaut -> array
   posq3:(1,-1.5),
   /// Trait pour représenter la médiane 2pt par défaut -> length | stroke
@@ -172,7 +172,7 @@
   deciles:true,
 ) = {}
 
-/// Fait l'étude statistique et présente les résultats, soit sous forme de tableau avec possibilité d'afficher les `effectifs`, `fréquences` ("f" pour fractions, "d" pour décimales, "t" pour les trois, true ou autre pour %), `angles` pour les diagrammes (semi)-circulaires, `ECC`, `FCC`, `classes` (automatiques si `bins` > 0) et leurs `centres`, et les `diagrammes` : si "hbar" ou "bar" ou "circ" ou "semicirc" ou "box" ou "bande" ou "histo" ou une combinaison dans `diagramme` avec des paramétrages : `ListeCouleurs` (petroff10 par défaut) ... Si `multi` != (), possibilité d'afficher un diagramme en barres (h ou v) ou des boites à moustaches avec une option `print` pour avoir des tilings 
+/// Fait l'étude statistique et présente les résultats, soit sous forme de tableau avec possibilité d'afficher les `effectifs`, `fréquences` ("f" pour fractions, "d" pour décimales, "t" pour les trois, true ou autre pour %), `angles` pour les diagrammes (semi)-circulaires, `ecc`, `fcc`, `classes` (automatiques si `bins` > 0) et leurs `centres`, et les `diagrammes` : si "hbar" ou "bar" ou "circ" ou "semicirc" ou "box" ou "bande" ou "histo" ou une combinaison dans `diagramme` avec des paramétrages : `liste-couleurs` (petroff10 par défaut) ... Si `multi` != (), possibilité d'afficher un diagramme en barres (h ou v) ou des boites à moustaches avec une option `print` pour avoir des tilings 
 ///```example
 /// #stat(
 ///   classes: (150, 160, 170, 200),
@@ -203,11 +203,11 @@
   /// Inset du tableau -> length
   inset: 5pt,
   /// Nom des données pour la case hg du tableau (et certains graphiques) -> content
-  Nom-donnee: [],
+  nom-donnee: [],
   /// Nom des effectifs pour la ligne concernée (et certains graphiques) -> content
-  Nom-effectifs: [Effectifs],
+  nom-effectifs: [Effectifs],
   /// Nombre de décimales des arrondis -> int
-  décimales: 0,
+  decimales: 0,
   /// false/true pour %, "f" pour fraction, "d" pour décimaux, "t" pour tout ou "v" pour une ligne vide -> boolean | str
   frequences: true,
   /// Toutes les valeurs une à une pour un sondage -> array
@@ -217,7 +217,7 @@
   /// false/true ou "v" pour une ligne vide -> boolean | str
   angle: false,
   /// false/true ou "v" pour une ligne vide -> boolean | str
-  ECC: false,
+  ecc: false,
   /// Bornes des classes dans le cas d'un caractère continu, longueur = longueur (+1) -> array
   classes: (),
   /// Dans le cas d'un sondage, si bins > 0, alors bins classes sont formées automatiquement -> int
@@ -247,7 +247,7 @@
   /// paramètres à passer à la fonction histogramme -> array
   histo:(),
   /// false/true ou "v" pour une ligne vide -> boolean | str
-  FCC:false,
+  fcc:false,
   /// si multi != (), possibilité d'afficher un diagramme en barres (h ou v) ou des boites à moustaches -> array
   multi:(),
   /// Labels des différentes séries dans le cas de `multi` -> array
@@ -255,5 +255,5 @@
   /// false/true pour l'affichage de tilings à la place des couleurs dans les graphiques -> boolean
   print:false,
   /// Liste des couleurs pour les graphiques -> auto | color | array
-  ListeCouleurs:auto,
+  liste-couleurs:auto,
 ) = {}

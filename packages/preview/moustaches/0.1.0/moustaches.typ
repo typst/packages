@@ -60,10 +60,10 @@
 
 // Calcule le PGCD d'une liste de nombres 
 //```example
-// #PGCD(1000, 1200, 1400, 1600, 1800, 2000)
+// #pgcd(1000, 1200, 1400, 1600, 1800, 2000)
 //``` 
 //-> int
-#let PGCD(
+#let pgcd(
   // Liste de nombres -> array
   ..a
 ) = {
@@ -197,7 +197,7 @@
 
 ==== Vrais histogrammes
 
-// `histogramme(classes: (),  effectifs:(),  px: 1,  uaire: 1,  s: 1,   grille: true,  PasGrille:1,  Donnee: [Valeurs],  Effectifs: [effectifs],  add: (-1, 1, 1),  lecture: true,  DonneesSup: true,  ListeCouleurs: auto,  pos-rect: (0, 2),  print:false,  transparence:30%,  ECC:false,  Mediane:false,  quartiles:false,  décimales:2,  posq1:(0,-1.5),  posMediane:(0,-1.5),  posq3:(1,-1.5),  stroke-mediane:2pt,  stroke-quartiles:1.5pt,  textsize:1em,)`
+// `histogramme(classes: (),  effectifs:(),  px: 1,  uaire: 1,  s: 1,   grille: true,  pas-grille:1,  Donnee: [Valeurs],  Effectifs: [effectifs],  add: (-1, 1, 1),  lecture: true,  donnees-sup: true,  liste-couleurs: auto,  pos-rect: (0, 2),  print:false,  transparence:30%,  ECC:false,  Mediane:false,  quartiles:false,  decimales:2,  posq1:(0,-1.5),  posMediane:(0,-1.5),  posq3:(1,-1.5),  stroke-mediane:2pt,  stroke-quartiles:1.5pt,  textsize:1em,)`
 
 // Dessine un VRAI histogramme : les classes n'ont pas forcément la même amplitude et ce sont les aires qui sont proportionnelles 
 ///
@@ -230,37 +230,37 @@
   // Affichage ou non d'un quadrillage -> boolean
   grille: true,
   // Pas du quadrillage -> int | float
-  PasGrille:1,
+  pas-grille:1,
   // Nom pour la légende ou l'axe des ordonnées le cas échéant -> content
-  Donnee: [Valeurs],
+  nom-donnee: [Valeurs],
   // Nom pour l'axe des abscisses -> content
-  Effectifs: [effectifs],
+  nom-effectifs: [effectifs],
   // Combien "ajouter" à gauche, droite et au dessous, soit un triplet, soit un entier unique -> int | array
   add: (-1, 1, 1),
   // Pour avoir ou non un axe des ordonnées lorsque les classes ont la même amplitude -> boolean
   lecture: true,
   // Affichage ou non des effectifs au dessus des rectangles -> boolean
-  DonneesSup: true,
+  donnees-sup: true,
   // Liste des couleurs des rectangles ou une unique couleur white pour l'impression par ex -> auto | color | array
-  ListeCouleurs: auto,
+  liste-couleurs: auto,
   // Position du rectangle de légende par rapport au coin hg du plus petit rectangle -> array
   pos-rect: (0, 2),
   // Si true, remplace les couleurs par des tilings -> boolean
   print:false,
-  // Transparence des rectangles : mettre à 100% si ListeCouleurs: white -> ratio
+  // Transparence des rectangles : mettre à 100% si liste-couleurs: white -> ratio
   transparence:30%,
   // Affichage des effectifs cumulés croissants -> boolean
-  ECC:false,
+  ecc:false,
   // Affichage ou non de la médiane -> boolean
-  Mediane:false,
+  mediane:false,
   // Afficha ou non des quartiles -> boolean
   quartiles:false,
   // Nombre de décimales des arrondis -> int
-  décimales:2,
+  decimales:2,
   // Position de la valeur de q1 par rapport à l'axe des abscisses (0,-1.5) par défaut -> array
   posq1:(0,-1.5),
   // Position de la valeur de la médiane par rapport à l'axe des abscisses (0,-1.5) par défaut -> array
-  posMediane:(0,-1.5),
+  posmediane:(0,-1.5),
   // Position de la valeur de q3 par rapport à l'axe des abscisses (1,-1.5) par défaut -> array
   posq3:(1,-1.5),
   // Trait pour représenter la médiane 2pt par défaut -> length | stroke
@@ -271,51 +271,51 @@
   textsize:1em,
 ) = box(cetz.canvas({
   import cetz.draw: *
-  let ListeCouleurs = if print {hachures} else if type(ListeCouleurs) == color {(ListeCouleurs,)*effectifs.len()} else if ListeCouleurs != auto {ListeCouleurs} else {petroff10}
+  let liste-couleurs = if print {hachures} else if type(liste-couleurs) == color {(liste-couleurs,)*effectifs.len()} else if liste-couleurs != auto {liste-couleurs} else {petroff10}
   let add = if type(add) == int { (-add, add, add) } else { add }
   let ecarts = for i in range(classes.len() - 1) {
     (classes.at(i + 1) - classes.at(i),)
   }
 
-  let ecc = {
+  let ECC = {
     for i in range(effectifs.len()) { (effectifs.slice(0, i + 1).sum(),) }
   }
 
   let effectif-total = effectifs.sum()
 
-  let mediane = if ecc != none {
-    let milieu = ecc.position(x => x > calc.quo(effectif-total, 2))
+  let Mediane = if ECC != none {
+    let milieu = ECC.position(x => x > calc.quo(effectif-total, 2))
      (milieu, calc.round(classes.at(milieu)
-          + (effectif-total / 2 - ecc.at(milieu - 1))
+          + (effectif-total / 2 - ECC.at(milieu - 1))
             / effectifs.at(milieu)
-            * (classes.at(milieu + 1) - classes.at(milieu)),digits:décimales)
+            * (classes.at(milieu + 1) - classes.at(milieu)),digits:decimales)
           )
   }
 
-  let q1 = if ecc != none {
-    let pos = ecc.position(x => x >= effectif-total / 4)
+  let q1 = if ECC != none {
+    let pos = ECC.position(x => x >= effectif-total / 4)
     
       (pos,
         calc.round(classes.at(pos)
-          + (effectif-total / 4 - if pos != 0 { ecc.at(pos - 1) } else { 0 })
+          + (effectif-total / 4 - if pos != 0 { ECC.at(pos - 1) } else { 0 })
             / effectifs.at(pos)
-            * (classes.at(pos + 1) - classes.at(pos)),digits:décimales)
+            * (classes.at(pos + 1) - classes.at(pos)),digits:decimales)
       )
   }
 
-  let q3 = if ecc != none {
-    let pos = ecc.position(x => x >= 3 * effectif-total / 4)
+  let q3 = if ECC != none {
+    let pos = ECC.position(x => x >= 3 * effectif-total / 4)
       (pos,
         calc.round(classes.at(pos)
           + (
-            3 * effectif-total / 4 - if pos != 0 { ecc.at(pos - 1) } else { 0 }
+            3 * effectif-total / 4 - if pos != 0 { ECC.at(pos - 1) } else { 0 }
           )
             / effectifs.at(pos)
-            * (classes.at(pos + 1) - classes.at(pos)),digits:décimales)
+            * (classes.at(pos + 1) - classes.at(pos)),digits:decimales)
       )
   }
 
-  let effectifs = if ECC {ecc} else {effectifs}
+  let effectifs = if ecc {ECC} else {effectifs}
 
   let test = for i in ecarts { (i == ecarts.at(0),) }
 
@@ -336,7 +336,7 @@
     grid(
       (add.at(0), 0),
       (rectx.last() + add.at(1), k + add.at(2)),
-      stroke: gray + .6pt,step:PasGrille,
+      stroke: gray + .6pt,step:pas-grille,
     )
   }
 
@@ -345,14 +345,14 @@
     end: ">>",
     fill: black,
   ))
-  content((), Donnee, anchor: "north-west", padding: .1,wrap:text.with(textsize))
+  content((), nom-donnee, anchor: "north-west", padding: .1,wrap:text.with(textsize))
 
   if py != none and lecture {
     line((add.at(0), 0), (add.at(0), k + add.at(2)), mark: (
       end: ">>",
       fill: black,
     ))
-    content((), Effectifs, anchor: "south", padding: .1,wrap:text.with(textsize))
+    content((), nom-effectifs, anchor: "south", padding: .1,wrap:text.with(textsize))
 
     for i in range(int(k) + add.at(2)) {
       line((-.1 + add.at(0), i), (+add.at(0), i))
@@ -364,16 +364,16 @@
       (rel: (1, 1)),
       fill: gray.transparentize(transparence),
     )
-    content((), [$uaire$ #Effectifs], anchor: "north-west", padding: .1*s,wrap:text.with(textsize))
+    content((), [$uaire$ #nom-effectifs], anchor: "north-west", padding: .1*s,wrap:text.with(textsize))
   }
 
   for i in range(effectifs.len()) {
     rect(
       (rectx.at(i), 0),
       (rectx.at(i + 1), recty.at(i)),
-      fill: if type(ListeCouleurs.at(i)) == color {ListeCouleurs.at(i).transparentize(transparence)} else {ListeCouleurs.at(i)},
+      fill: if type(liste-couleurs.at(i)) == color {liste-couleurs.at(i).transparentize(transparence)} else {liste-couleurs.at(i)},
     )
-    if DonneesSup {
+    if donnees-sup {
       content(
         ((rectx.at(i) + rectx.at(i + 1)) / 2, recty.at(i) ),
         $effectifs.at(#i)$, anchor:"south", padding: .1,wrap:text.with(textsize),
@@ -385,12 +385,12 @@
     content((rectx.at(i), 0), $classes.at(#i)$, anchor: "north", padding: .1,wrap:text.with(textsize))
   }
 
-  if Mediane {
-    line(((mediane.at(1)- classes.at(0)) / px,recty.at(mediane.at(0))),((mediane.at(1) - classes.at(0)) / px,0),stroke:stroke-mediane)
-    content((rel:posMediane),$ "Me" approx mediane.at(#1) $,wrap:text.with(textsize))
-    if py != none and lecture and ECC {
-      line((add.at(0),effectif-total/2/py),((mediane.at(1) - classes.at(0)) / px,effectif-total/2/py),stroke:(dash:"dashed"))
-      line((rectx.at(mediane.at(0)),recty.at(mediane.at(0)-1)),         (rectx.at(mediane.at(0)+1),recty.at(mediane.at(0))), stroke:(dash:"dashed"))
+  if mediane {
+    line(((Mediane.at(1)- classes.at(0)) / px,recty.at(Mediane.at(0))),((Mediane.at(1) - classes.at(0)) / px,0),stroke:stroke-mediane)
+    content((rel:posmediane),$ "Me" approx Mediane.at(#1) $,wrap:text.with(textsize))
+    if py != none and lecture and ecc {
+      line((add.at(0),effectif-total/2/py),((Mediane.at(1) - classes.at(0)) / px,effectif-total/2/py),stroke:(dash:"dashed"))
+      line((rectx.at(Mediane.at(0)),recty.at(Mediane.at(0)-1)),         (rectx.at(Mediane.at(0)+1),recty.at(Mediane.at(0))), stroke:(dash:"dashed"))
     }
   }
 
@@ -624,9 +624,9 @@
 // #pagebreak()
 === Fonction stat : tableaux + diagrammes
 
-// `stat(valeurs: (), effectifs: (),  qualitatif: true,  totaux: false,   tableau: true,  couleur-tableau: luma(85%),  inset: 5pt,  Nom-donnee: [],  Nom-effectifs: [Effectifs],  décimales: 0,  frequences: true,  sondage: (),  vide: false,  angle: false,  ECC: false,  classes: (),  bins:0,  crochets:false,  centre: true,  colonnes-vide: (),  cases-vide: (),  diagramme: "",  bar: (),  lqbar:(),  moustaches:(),  lqbox:(),  circ:(:), bande:(),  histo:(),  FCC:false,  multi:(),  labels:(),  print:false,  ListeCouleurs:auto,)`
+// `stat(valeurs: (), effectifs: (),  qualitatif: true,  totaux: false,   tableau: true,  couleur-tableau: luma(85%),  inset: 5pt,  nom-donnee: [],  nom-effectifs: [Effectifs],  decimales: 0,  frequences: true,  sondage: (),  vide: false,  angle: false,  ecc: false,  classes: (),  bins:0,  crochets:false,  centre: true,  colonnes-vide: (),  cases-vide: (),  diagramme: "",  bar: (),  lqbar:(),  moustaches:(),  lqbox:(),  circ:(:), bande:(),  histo:(),  FCC:false,  multi:(),  labels:(),  print:false,  liste-couleurs:auto,)`
 
-// Fait l'étude statistique et présente les résultats, soit sous forme de tableau avec possibilité d'afficher les `effectifs`, `fréquences` ("f" pour fractions, "d" pour décimales, "t" pour les trois, true ou autre pour %), `angles` pour les diagrammes (semi)-circulaires, `ECC`, `FCC`, `classes` (automatiques si `bins` > 0) et leurs `centres`, et les `diagrammes` : si "hbar" ou "bar" ou "circ" ou "semicirc" ou "box" ou "bande" ou "histo" ou une combinaison dans `diagramme` avec des paramétrages : `ListeCouleurs` (petroff10 par défaut) ... Si `multi` != (), possibilité d'afficher un diagramme en barres (h ou v) ou des boites à moustaches avec une option `print` pour avoir des tilings 
+// Fait l'étude statistique et présente les résultats, soit sous forme de tableau avec possibilité d'afficher les `effectifs`, `fréquences` ("f" pour fractions, "d" pour décimales, "t" pour les trois, true ou autre pour %), `angles` pour les diagrammes (semi)-circulaires, `ecc`, `FCC`, `classes` (automatiques si `bins` > 0) et leurs `centres`, et les `diagrammes` : si "hbar" ou "bar" ou "circ" ou "semicirc" ou "box" ou "bande" ou "histo" ou une combinaison dans `diagramme` avec des paramétrages : `liste-couleurs` (petroff10 par défaut) ... Si `multi` != (), possibilité d'afficher un diagramme en barres (h ou v) ou des boites à moustaches avec une option `print` pour avoir des tilings 
 ///```example
 // #stat(
 //   classes: (150, 160, 170, 200),
@@ -657,11 +657,11 @@
   // Inset du tableau -> length
   inset: 5pt,
   // Nom des données pour la case hg du tableau (et certains graphiques) -> content
-  Nom-donnee: [],
+  nom-donnee: [],
   // Nom des effectifs pour la ligne concernée (et certains graphiques) -> content
-  Nom-effectifs: [Effectifs],
+  nom-effectifs: [Effectifs],
   // Nombre de décimales des arrondis -> int
-  décimales: 0,
+  decimales: 0,
   // false/true pour %, "f" pour fraction, "d" pour décimaux, "t" pour tout ou "v" pour une ligne vide -> boolean | str
   frequences: true,
   // Toutes les valeurs une à une pour un sondage -> array
@@ -671,7 +671,7 @@
   // false/true ou "v" pour une ligne vide -> boolean | str
   angle: false,
   // false/true ou "v" pour une ligne vide -> boolean | str
-  ECC: false,
+  ecc: false,
   // Bornes des classes dans le cas d'un caractère continu, longueur = longueur (+1) -> array
   classes: (),
   // Dans le cas d'un sondage, si bins > 0, alors bins classes sont formées automatiquement -> int
@@ -701,7 +701,7 @@
   // paramètres à passer à la fonction histogramme -> array
   histo:(),
   // false/true ou "v" pour une ligne vide -> boolean | str
-  FCC:false,
+  fcc:false,
   // si multi != (), possibilité d'afficher un diagramme en barres (h ou v) ou des boites à moustaches -> array
   multi:(),
   // Labels des différentes séries dans le cas de `multi` -> array
@@ -709,7 +709,7 @@
   // false/true pour l'affichage de tilings à la place des couleurs dans les graphiques -> boolean
   print:false,
   // Liste des couleurs pour les graphiques -> auto | color | array
-  ListeCouleurs:auto,
+  liste-couleurs:auto,
 ) = {
   let tableau = if multi != () {false} else {tableau}
 
@@ -734,7 +734,7 @@
     (sondage.dedup().sorted().map(str), for i in sondage.dedup().sorted() { (sondage.filter(x => x == i).len(),) },)
   } else {(valeurs,effectifs)}
 
-  let ListeCouleurs = if print {hachures} else if type(ListeCouleurs) == color {(ListeCouleurs,)*effectifs.len()} else if ListeCouleurs != auto {ListeCouleurs} else {petroff10}
+  let liste-couleurs = if print {hachures} else if type(liste-couleurs) == color {(liste-couleurs,)*effectifs.len()} else if liste-couleurs != auto {liste-couleurs} else {petroff10}
 
   show math.lt.eq: math.lt.eq.slant
   show regex("\d+(\.\d+)?"): it => it.text.replace(".", ",")
@@ -777,15 +777,15 @@
   }
 
   let first = (
-    (Nom-donnee,)
+    (nom-donnee,)
       + if qualitatif { valeurs } else { valeurs.map(x => $ #x $) }
       + if totaux { ([Total],) }
   )
   let Effectifs = if vide {
-    ([#Nom-effectifs],) + ([],) * valeurs.len() + if totaux { ([],) }
+    ([#nom-effectifs],) + ([],) * valeurs.len() + if totaux { ([],) }
   } else {
     (
-      ([#Nom-effectifs],)
+      ([#nom-effectifs],)
         + effectifs.map(x => $ #x $)
         + if totaux { ($ effectifs.sum() $,) }
     )
@@ -794,7 +794,7 @@
   let freq = (
     ([Fréquences (en %)],)
       + effectifs.map(x => {
-        $ #calc.round(x / effectifs.sum() * 100, digits: décimales) $
+        $ #calc.round(x / effectifs.sum() * 100, digits: decimales) $
       })
       + if totaux { ($ 100 $,) }
   )
@@ -806,7 +806,7 @@
   let freqdeci = (
     ([Fréquences],)
       + effectifs.map(x => {
-        $ #calc.round(x / effectifs.sum(), digits: décimales + 2) $
+        $ #calc.round(x / effectifs.sum(), digits: decimales + 2) $
       })
       + if totaux { ($ 1 $,) }
   )
@@ -814,7 +814,7 @@
     ([Fréquences],)
       + effectifs.map(x => {
         $
-          #x / effectifs.sum() #if calc.round(x / effectifs.sum(), digits: 6) == calc.round(x / effectifs.sum(), digits: 2) { $=$ } else { $approx$ } #calc.round(x / effectifs.sum(), digits: décimales + 2) #if calc.round(x / effectifs.sum(), digits: 6) == calc.round(x / effectifs.sum(), digits: 2) { $=$ } else { $approx$ } #calc.round(x / effectifs.sum() * 100, digits: décimales) thin %
+          #x / effectifs.sum() #if calc.round(x / effectifs.sum(), digits: 6) == calc.round(x / effectifs.sum(), digits: 2) { $=$ } else { $approx$ } #calc.round(x / effectifs.sum(), digits: decimales + 2) #if calc.round(x / effectifs.sum(), digits: 6) == calc.round(x / effectifs.sum(), digits: 2) { $=$ } else { $approx$ } #calc.round(x / effectifs.sum() * 100, digits: decimales) thin %
         $
       })
       + if totaux { ($ 1 $,) }
@@ -833,7 +833,7 @@
     (
       ([Angles (en °)],)
         + effectifs.map(x => {
-          $ #calc.round(x / effectifs.sum() * 180, digits: décimales) $
+          $ #calc.round(x / effectifs.sum() * 180, digits: decimales) $
         })
         + if totaux { ($ 180 $,) }
     )
@@ -841,19 +841,19 @@
     (
       ([Angles (en °)],)
         + effectifs.map(x => {
-          $ #calc.round(x / effectifs.sum() * 360, digits: décimales) $
+          $ #calc.round(x / effectifs.sum() * 360, digits: decimales) $
         })
         + if totaux { ($ 360 $,) }
     )
   }
 
-  let effcc = if ECC == "v" or vide or ECC == false {} else {
+  let effcc = if ecc == "v" or vide or ecc == false {} else {
     for i in range(effectifs.len()) { (effectifs.slice(0, i + 1).sum(),) }
   }
   
-  let ecc = if ECC == "v" or vide {
+  let ECC = if ecc == "v" or vide {
     ([E.C.C.],) + ([],) * valeurs.len() + if totaux { ([],) }
-  } else if ECC == false or ECC == () or ECC == none {} else {
+  } else if ecc == false or ecc == () or ecc == none {} else {
     (
       ([E.C.C.],)
         + effcc.map(x => $ #x $)
@@ -861,13 +861,13 @@
     )
   }
 
-  let freqcc = if FCC == "v" or vide or FCC == false {} else {
-    for i in range(effectifs.len()) { (calc.round(effectifs.slice(0, i + 1).sum()/effectifs.sum(),digits: décimales +2),) }
+  let freqcc = if fcc == "v" or vide or fcc == false {} else {
+    for i in range(effectifs.len()) { (calc.round(effectifs.slice(0, i + 1).sum()/effectifs.sum(),digits: decimales +2),) }
   }
 
-  let fcc = if FCC == "v" or vide {
+  let FCC = if fcc == "v" or vide {
     ([F.C.C.],) + ([],) * valeurs.len() + if totaux { ([],) }
-  } else if FCC == false or FCC == () or FCC == none {} else {
+  } else if fcc == false or fcc == () or fcc == none {} else {
     (
       ([F.C.C.],)
         + freqcc.map(x => $ #x $)
@@ -881,8 +881,8 @@
         + if Effectifs != none { (Effectifs,) }
         + if fréq != none { (fréq,) }
         + if angles != none { (angles,) }
-        + if ecc != none { (ecc,) }
-        + if fcc != none { (fcc,) }
+        + if ECC != none { (ECC,) }
+        + if FCC != none { (FCC,) }
     )
   }
   if colonnes-vide != () {
@@ -938,7 +938,7 @@
           size: (6,4),
           mode:if multi == () {"basic"} else {"clustered"},
           labels:if multi != () {labels},
-          bar-style: cetz.palette.new(colors: ListeCouleurs),
+          bar-style: cetz.palette.new(colors: liste-couleurs),
           // bar-width:if multi == () {.25} else {auto},
           ..cbar
         )
@@ -963,7 +963,7 @@
           size: (7,4),
           mode:if multi == () {"basic"} else {"clustered"},
           labels:if multi != () {labels},
-          bar-style: cetz.palette.new(colors: ListeCouleurs),
+          bar-style: cetz.palette.new(colors: liste-couleurs),
           ..cbar
         )
       })
@@ -991,20 +991,20 @@
       valeurs:valeurs,   
       effectifs: effectifs,
       semi: if "semi" in diagramme {true} else {false},
-      couleurs:ListeCouleurs,
+      couleurs:liste-couleurs,
       ..circ
   )   
   }
 
   if "bande" in diagramme {if not qualitatif {valeurs= valeurs.map(str); circ = (..circ, legende:"",)}
     h(1fr)
-    bandes(valeurs:valeurs, effectifs:effectifs, couleurs:ListeCouleurs, ..bande)
+    bandes(valeurs:valeurs, effectifs:effectifs, couleurs:liste-couleurs, ..bande)
     h(1fr)
   }
 
   if "histo" in diagramme and classes != () {
     h(1fr)
-    histogramme(classes:classes, effectifs:effectifs,px: PGCD(..classes)/2,uaire: PGCD(..effectifs),s:.5,ListeCouleurs:ListeCouleurs,..histo,)
+    histogramme(classes:classes, effectifs:effectifs,px: pgcd(..classes)/2,uaire: pgcd(..effectifs),s:.5,liste-couleurs:liste-couleurs,..histo,)
   }
 
   if diagramme != "" { h(1fr) }
