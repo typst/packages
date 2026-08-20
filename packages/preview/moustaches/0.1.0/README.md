@@ -25,7 +25,7 @@ Install moustaches by cloning it or importing like this:
 ```
 
 <div align="center">
-  <img alt="exemples de la fonction caracteristiques" src="Exemples/Caractéristiques.svg" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt; box-sizing: border-box; background: white">
+  <img alt="exemples de la fonction caracteristiques" src="Exemples/Caracteristiques.svg" style="max-width: 100%; padding: 10px 10px; box-shadow: 1pt 1pt 10pt 0pt #AAAAAA; border-radius: 4pt; box-sizing: border-box; background: white">
 </div>
 
 ```typ
