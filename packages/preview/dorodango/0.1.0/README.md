@@ -87,6 +87,6 @@ The shapes below share the same size and radius. The final shape preserves its r
   />
   <img
     src="assets/smoothing-comparison-light.svg"
-    alt="Three squircles of the same size and corner radius. The first, with 0% smoothing, looks like an ordinary rounded rectangle. The second, with 100% smoothing, has its corner radius reduced so the smoothed corner still fits. The third, with 100% smoothing and preserve-smoothing enabled, keeps the full corner radius and looks visibly compressed at the corners."
+    alt="Three squircles of the same size and corner radius. The first, with 0% smoothing, looks like an ordinary rounded rectangle. The second, with 100% smoothing, has its radius reduced so the smoothed corner fits. The third adds preserve-smoothing, keeping the full radius and looking visibly compressed at the corners."
   />
 </picture>

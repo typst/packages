@@ -5,7 +5,8 @@ entrypoint = "src/lib.typ"
 authors = ["Antonio Camargo <antoniop.camargo@gmail.com>"]
 license = "MIT"
 description = "dorodango: a Typst package for drawing squircles."
-categories = ["shapes", "squircle"]
+categories = ["components"]
+keywords = ["squircle", "shape"]
 exclude = ["docs", "tests"]
 
 [tool.tytanic]
