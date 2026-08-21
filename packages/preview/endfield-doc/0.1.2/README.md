@@ -2,13 +2,13 @@ A Typst document template styled after [*Arknights: Endfield*](https://endfield.
 
 ## Preview
 
-![cover](img/cover.png)
+![cover page layout and metadata style](img/cover.png)
 
 <table>
   <tr>
-    <td><img src="img/page_3.png"></td>
-    <td><img src="img/page_4.png"></td>
-    <td><img src="img/page_5.png"></td>
+    <td><img src="img/page_3.png" alt="shows how general text is rendered, including Latin and CJK"></td>
+    <td><img src="img/page_4.png" alt="special format testing, includes code blocks and other elements"></td>
+    <td><img src="img/page_5.png" alt="format testing, includes tables, figures and block quotes"></td>
   </tr>
 </table>
 
