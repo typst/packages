@@ -1,6 +1,6 @@
-//#import "@preview/abbrev:0.1.6": *
+#import "@preview/abbrev:0.1.6": *
 // or locally:
-#import "./lib.typ": *
+// #import "./lib.typ": *
 
 = Exemple of use
 #define-abbreviations((
