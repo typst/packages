@@ -1,0 +1,16 @@
+[package]
+name = "dorodango"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Antonio Camargo <antoniop.camargo@gmail.com>"]
+description = "dorodango: a Typst package for drawing squircles."
+categories = ["shapes", "squircle"]
+exclude = ["docs", "tests"]
+
+[tool.tytanic]
+tests = "tests"
+
+[tool.tytanic.default]
+ppi = 144.0
+max-delta = 1
+max-deviations = 0
