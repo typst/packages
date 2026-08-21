@@ -111,15 +111,15 @@ You can also customize how your abbreviation definitions are displayed using the
 
 Here is an example using the parameters listed below:
 ```typst
-#define-abbreviations((
-  "ABBA": "a Swedish pop music group formed by Agnetha, Björn, Benny Anni-Frid",
-))
 #abbreviation-outline(
   title: [Abbreviations],
   separator: [:],
   fill: line(length: 100%, start: (0%, 0.65em)),
   gutter: 1em,
 )
+#define-abbreviations((
+  "ABBA": "a Swedish pop music group formed by Agnetha, Björn, Benny Anni-Frid",
+))
 = Some title
 I like #abbr("ABBA"). Do you?
 ```
