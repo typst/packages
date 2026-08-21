@@ -43,7 +43,10 @@ In a Typst document, import the `dorodango` package:
     media="(prefers-color-scheme: dark)"
     srcset="assets/rectangle-vs-squircle-dark.svg"
   />
-  <img src="assets/rectangle-vs-squircle-light.svg" alt="" />
+  <img
+    src="assets/rectangle-vs-squircle-light.svg"
+    alt="Side-by-side comparison of a rounded rectangle and a squircle with the same size and corner radius. The rectangle's top-left corner has an abrupt transition from straight edge to circular arc, while the squircle's corner curves smoothly into the edges."
+  />
 </picture>
 
 ## Customize squircle corners
@@ -82,5 +85,8 @@ The shapes below share the same size and radius. The final shape preserves its r
     media="(prefers-color-scheme: dark)"
     srcset="assets/smoothing-comparison-dark.svg"
   />
-  <img src="assets/smoothing-comparison-light.svg" alt="" />
+  <img
+    src="assets/smoothing-comparison-light.svg"
+    alt="Three squircles of the same size and corner radius. The first, with 0% smoothing, looks like an ordinary rounded rectangle. The second, with 100% smoothing, has its corner radius reduced so the smoothed corner still fits. The third, with 100% smoothing and preserve-smoothing enabled, keeps the full corner radius and looks visibly compressed at the corners."
+  />
 </picture>
