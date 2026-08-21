@@ -17,7 +17,7 @@ To use the library locally, download `lib.typ` and place it in your document's d
 
 ### Step 1: Define abbreviations
 
-Start by defining all your abbreviations in a dictionary with the `#define-abbreviations()` function. You can call this function multiple times to add new abbreviations, passing a dictionary each time. The definition must be situated before the use of the abbreviation. Each abbreviation must be defined earlier in the document's source code than the point where it is used. Here is an example with two calls:
+Start by defining all your abbreviations in a dictionary with the `#define-abbreviations()` function. You can call this function multiple times to add new abbreviations, passing a dictionary each time. Each abbreviation must be defined earlier in the document's source code than the point where it is used. Here is an example with two calls:
 
 ```typst
 #define-abbreviations((
