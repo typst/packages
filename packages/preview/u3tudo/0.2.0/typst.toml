@@ -1,0 +1,16 @@
+[package]
+name = "u3tudo"
+version = "0.2.0"
+compiler = "0.15.1"
+entrypoint = "lib.typ"
+authors = ["Jannis Guido Speer"]
+license = "MIT"
+description = "PhD theses at TU Dortmund University"
+repository = "https://github.com/jannisspeer/u3tudo"
+keywords = ["thesis", "phd", "tu-dortmund", "dissertation"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
