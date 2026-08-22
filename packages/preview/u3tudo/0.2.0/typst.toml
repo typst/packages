@@ -1,7 +1,7 @@
 [package]
 name = "u3tudo"
 version = "0.2.0"
-compiler = "0.15.1"
+compiler = "0.15.0"
 entrypoint = "lib.typ"
 authors = ["Jannis Guido Speer"]
 license = "MIT"
