@@ -4,9 +4,9 @@ Arbres de probabilités **n×p**, croissant de **gauche à droite** (sens de lec
 
 ![Version](https://img.shields.io/badge/version-0.1.2-blue)
 ![Licence](https://img.shields.io/badge/licence-MIT-green)
-[![Manuel](https://img.shields.io/badge/manuel-PDF-blueviolet)](docs/manual.pdf)
+[![PDF manual for probability-tree](https://img.shields.io/badge/manuel-PDF-blueviolet)](https://github.com/mmaunier/probability-tree/blob/main/docs/manual.pdf)
 
-![Arbre exemple](assets/example-tree.svg)
+![Example tree](https://raw.githubusercontent.com/mmaunier/probability-tree/main/assets/example-tree.svg)
 
 ## Fonctionnalités
 
@@ -34,9 +34,6 @@ Arbres de probabilités **n×p**, croissant de **gauche à droite** (sens de lec
 - [Auteurs](#auteurs)
 
 ## Installation
-
-> [!NOTE]
-> **Pas encore publié sur le Typst Universe (`@preview`).** L'import `@preview` ci-dessous ne fonctionnera qu'une fois le paquet publié. En attendant, installe le paquet localement et utilise l'import `@local`, ou récupère les fichiers depuis le [dépôt GitHub](https://github.com/mmaunier/probability-tree).
 
 ```typ
 #import "@preview/probability-tree:0.1.2": proba-tree, sn, sp

@@ -2,11 +2,11 @@
 
 Probability trees **n×p**, growing **left-to-right** (the standard reading direction for probability trees). This module is built on [CeTZ](https://typst.app/universe/package/cetz) (`@preview/cetz:0.5.2`).
 
-![Version](https://img.shields.io/badge/version-0.1.2-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-[![Manuel](https://img.shields.io/badge/manuel-PDF-blueviolet)](docs/manual.pdf)
+![Version badge: 0.1.2](https://img.shields.io/badge/version-0.1.2-blue)
+![License badge: MIT](https://img.shields.io/badge/license-MIT-green)
+[![PDF manual for probability-tree](https://img.shields.io/badge/manuel-PDF-blueviolet)](https://github.com/mmaunier/probability-tree/blob/main/docs/manual.pdf)
 
-![Example tree](assets/example-tree.svg)
+![Example tree](https://raw.githubusercontent.com/mmaunier/probability-tree/main/assets/example-tree.svg)
 
 ## Features
 
@@ -35,8 +35,6 @@ Probability trees **n×p**, growing **left-to-right** (the standard reading dire
 
 ## Installation
 
-> [!NOTE]
-> **Not yet published on the Typst Universe (`@preview`).** The `@preview` import below will only work once the package is published. Until then, install the package locally and use the `@local` import, or grab the files from the [GitHub repository](https://github.com/mmaunier/probability-tree).
 
 ```typ
 #import "@preview/probability-tree:0.1.2": proba-tree, sn, sp
