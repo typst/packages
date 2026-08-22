@@ -4,6 +4,7 @@ Arbres de probabilités **n×p**, croissant de **gauche à droite** (sens de lec
 
 ![Version](https://img.shields.io/badge/version-0.1.2-blue)
 ![Licence](https://img.shields.io/badge/licence-MIT-green)
+[![Manuel](https://img.shields.io/badge/manuel-PDF-blueviolet)](docs/manual.pdf)
 
 ![Arbre exemple](assets/example-tree.svg)
 

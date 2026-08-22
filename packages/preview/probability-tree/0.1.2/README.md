@@ -4,6 +4,7 @@ Probability trees **n×p**, growing **left-to-right** (the standard reading dire
 
 ![Version](https://img.shields.io/badge/version-0.1.2-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
+[![Manuel](https://img.shields.io/badge/manuel-PDF-blueviolet)](docs/manual.pdf)
 
 ![Example tree](assets/example-tree.svg)
 
