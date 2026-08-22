@@ -4,9 +4,9 @@ Probability trees **n×p**, growing **left-to-right** (the standard reading dire
 
 ![Version badge: 0.1.2](https://img.shields.io/badge/version-0.1.2-blue)
 ![License badge: MIT](https://img.shields.io/badge/license-MIT-green)
-[![PDF manual for probability-tree](https://img.shields.io/badge/manuel-PDF-blueviolet)](https://github.com/mmaunier/probability-tree/blob/main/docs/manual.pdf)
+[![PDF manual for probability-tree](https://img.shields.io/badge/manuel-PDF-blueviolet)](https://github.com/mmaunier/probability-tree/blob/v0.1.2/docs/manual.pdf)
 
-![Example tree](https://raw.githubusercontent.com/mmaunier/probability-tree/main/assets/example-tree.svg)
+![Example tree](https://raw.githubusercontent.com/mmaunier/probability-tree/v0.1.2/assets/example-tree.svg)
 
 ## Features
 

@@ -4,9 +4,9 @@ Arbres de probabilités **n×p**, croissant de **gauche à droite** (sens de lec
 
 ![Version](https://img.shields.io/badge/version-0.1.2-blue)
 ![Licence](https://img.shields.io/badge/licence-MIT-green)
-[![PDF manual for probability-tree](https://img.shields.io/badge/manuel-PDF-blueviolet)](https://github.com/mmaunier/probability-tree/blob/main/docs/manual.pdf)
+[![PDF manual for probability-tree](https://img.shields.io/badge/manuel-PDF-blueviolet)](https://github.com/mmaunier/probability-tree/blob/v0.1.2/docs/manual.pdf)
 
-![Example tree](https://raw.githubusercontent.com/mmaunier/probability-tree/main/assets/example-tree.svg)
+![Example tree](https://raw.githubusercontent.com/mmaunier/probability-tree/v0.1.2/assets/example-tree.svg)
 
 ## Fonctionnalités
 
