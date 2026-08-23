@@ -1,0 +1,10 @@
+[package]
+name = "lambdabe"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["iuy1 <https://github.com/iuy1>"]
+license = "MIT"
+description = "Parse and visualize lambda calculus expressions."
+repository = "https://github.com/iuy1/lambda"
+exclude = ["examples/*", "assets/*"]
+categories = ["fun"]

@@ -1,0 +1,13 @@
+[package]
+name = "beautitled"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Nathan Scheinmann"]
+license = "MIT"
+description = "Sleek print-friendly heading styles for chapters, sections, parts, and tables of contents"
+repository = "https://github.com/nathan-ed/typst-package-beautitled"
+keywords = ["headings", "titles", "chapters", "sections", "styling", "themes", "toc", "outline", "education", "textbook"]
+categories = ["components", "layout"]
+disciplines = ["mathematics", "education"]
+compiler = "0.14.0"
+exclude = ["docs/*", "gallery", "*.pdf"]

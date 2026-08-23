@@ -1,0 +1,19 @@
+[package]
+name = "structured-mse-thesis"
+version = "0.1.0"
+entrypoint = "structured-mse-thesis.typ"
+authors = ["Loïc Fontaine"]
+license = "MIT"
+description = "Master’s thesis for HES-SO MSE"
+repository = "https://github.com/loicfontaine/mse-master-thesis-typst"
+categories = ["thesis", "report"]
+keywords = ["thesis", "master", "bachelor", "MSE", "university", "HES-SO"]
+compiler = "0.13.0"
+exclude = [
+    "*.pdf",
+]
+
+[template]
+path = "example"
+entrypoint = "thesis.typ"
+thumbnail = "preview.png"

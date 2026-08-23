@@ -1,0 +1,17 @@
+[package]
+name = "supercharged-hm"
+version = "1.1.0"
+entrypoint = "lib.typ"
+authors = ["Felix Schladt <https://github.com/FelixSchladt>"]
+license = "AGPL-3.0-or-later"
+description = "Unofficial Template for Munich University of Applied Sciences (HM)"
+repository = "https://github.com/FelixSchladt/supercharged-hm"
+keywords = ["HM", "hm", "thesis", "Modularbeit", "Hochschule", "München", "Munich"]
+categories = ["paper", "thesis", "report"]
+compiler = "0.14.0"
+exclude = ["examples/**", "CHANGELOG.md", ".git/**"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

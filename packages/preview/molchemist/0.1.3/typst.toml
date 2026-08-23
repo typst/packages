@@ -1,0 +1,11 @@
+[package]
+name = "molchemist"
+version = "0.1.3"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT AND BSD-3-Clause AND Apache-2.0 AND (Apache-2.0 WITH LLVM-exception)"
+description = "Render chemical structures from Molfile, SDF, and SMILES data."
+compiler = "0.14.0"
+repository = "https://github.com/rice8y/molchemist"
+keywords = ["chemistry", "molecule", "sdf", "molfile", "cetz", "wasm", "science", "alchemist"]
+exclude = ["/images"]

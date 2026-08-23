@@ -11,11 +11,12 @@ use std::path::Path;
 use std::path::PathBuf;
 use std::sync::LazyLock;
 
-use anyhow::{bail, Context};
+use anyhow::{Context, bail};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
 use semver::Version;
 use spdx::LicenseId;
+use typst_syntax::VirtualPath;
 use typst_syntax::package::{PackageInfo, PackageManifest, UnknownFields};
 use unicode_ident::{is_xid_continue, is_xid_start};
 
@@ -252,8 +253,13 @@ fn process_package(
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&manifest.package, &buf, namespace_dir).context("failed to write archive")?;
 
-    if let Some(template) = &manifest.template {
-        let original_path = path.join(template.thumbnail.as_str());
+    if let Some(template) = &manifest.template
+        && let Some(thumbnail) = &template.thumbnail
+    {
+        let original_path = VirtualPath::new(thumbnail.as_str())
+            .context("thumbnail path")?
+            .realize(path)
+            .context("thumbnail path")?;
         let thumb_dir = namespace_dir.join(THUMBS_DIR);
         let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
         let thumb_sender = thumb_sender.clone();
@@ -368,7 +374,10 @@ fn parse_manifest(
         }
     }
 
-    let entrypoint = path.join(manifest.package.entrypoint.as_str());
+    let entrypoint = VirtualPath::new(&manifest.package.entrypoint)
+        .context("package entrypoint")?
+        .realize(path)
+        .context("package entrypoint")?;
     validate_typst_file(&entrypoint, "package entrypoint")?;
 
     if let Some(template) = &manifest.template {
@@ -378,9 +387,19 @@ fn parse_manifest(
             bail!("template packages must have at least one category");
         }
 
-        let entrypoint = path
-            .join(template.path.as_str())
-            .join(template.entrypoint.as_str());
+        // First resolve the template entrypoint relative to the template directory.
+        let entrypoint = VirtualPath::new(&template.entrypoint)
+            .context("template entrypoint")?
+            .realize(template.path.as_str().as_ref())
+            .context("template entrypoint")?;
+        let entrypoint = entrypoint
+            .to_str()
+            .expect("the template `path` and `entrypoint` are valid UTF-8");
+        // Then realize the path relative to the package directory.
+        let entrypoint = VirtualPath::new(entrypoint)
+            .context("template entrypoint")?
+            .realize(path)
+            .context("template entrypoint")?;
         validate_typst_file(&entrypoint, "template entrypoint")?;
     }
 
@@ -409,13 +428,24 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
     }
 
     // Always ignore the thumbnail.
-    if let Some(template) = &manifest.template {
-        overrides.add(&format!("!{}", template.thumbnail))?;
+    if let Some(template) = &manifest.template
+        && let Some(thumbnail) = &template.thumbnail
+    {
+        overrides.add(&format!("!{thumbnail}"))?;
     }
 
     for entry in ignore::WalkBuilder::new(dir_path)
         .overrides(overrides.build()?)
         .sort_by_file_name(|a, b| a.cmp(b))
+        // Disable non-local ignore features
+        .parents(false)
+        .require_git(false)
+        .git_global(false)
+        .git_exclude(false)
+        // Keep local ignore features for now.
+        .git_ignore(true)
+        .ignore(true)
+        .hidden(true)
         .build()
     {
         let entry = entry?;

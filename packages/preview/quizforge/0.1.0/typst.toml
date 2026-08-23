@@ -1,0 +1,18 @@
+[package]
+name = "quizforge"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nipun Batra <nipun.batra@iitgn.ac.in>"]
+license = "MIT"
+description = "Randomized exam sets from one source: shuffle question and MCQ option order per set deterministically, with auto-generated answer keys and machine-readable grading metadata"
+repository = "https://github.com/nipunbatra/quizforge"
+keywords = ["exam", "quiz", "test", "randomization", "mcq", "assessment", "teaching", "answer-key"]
+categories = ["components", "utility"]
+disciplines = ["education"]
+compiler = "0.14.0"
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,15 @@
+[en]
+supervisors = "Supervisors"
+acknowledgments = "Acknowledgments"
+abstract = "Abstract"
+table-of-contents = "Table of Contents"
+list-of-figures = "List of Figures"
+list-of-tables = "List of Tables"
+
+[fr]
+supervisors = "Encadrants"
+acknowledgments = "Remerciements"
+abstract = "Résumé"
+table-of-contents = "Sommaire"
+list-of-figures = "Liste des figures"
+list-of-tables = "Liste des tableaux"
