@@ -13,4 +13,4 @@ repository = "https://git.iiens.net/meslin2024/ntnu-report-template-iik3100"
 [template]
 path = "template_source"
 entrypoint = "main.typ"
-thumbnail = ""
+thumbnail = "thumbnail.png"
