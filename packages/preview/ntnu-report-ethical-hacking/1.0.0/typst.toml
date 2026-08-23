@@ -1,0 +1,16 @@
+[package]
+name = "ntnu-report-ethical-hacking"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = [ "Thomas MESLIN" ]
+license = "MIT"
+description = "A Typst template for the task report for Ethical Hacking at NTNU."
+keywords = [ "ntnu", "IIK3100", "report", "ethical hacking" ]
+categories = [ "report" ]
+disciplines = [ "computer-science" ]
+repository = "https://git.iiens.net/meslin2024/ntnu-report-template-iik3100"
+
+[template]
+path = "template_source"
+entrypoint = "main.typ"
+thumbnail = ""
