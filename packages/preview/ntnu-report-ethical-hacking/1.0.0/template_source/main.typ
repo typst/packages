@@ -1,4 +1,4 @@
-#import "@local/ntnu-report-ethical-hacking:1.0.0"
+#import "@preview/ntnu-report-ethical-hacking:1.0.0"
 
 // Task Report — Typst version
 // Converted from Sample-Task-Report.docx
