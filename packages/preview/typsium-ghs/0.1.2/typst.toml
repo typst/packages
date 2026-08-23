@@ -9,7 +9,7 @@ authors = [
     "Ants Aare Alamaa <@Ants-Aare>",
     "Joshua Bohr <@joshuabohr>",
 ]
-description = "Display and format Hazard & Precautionary statements and GHS pictograms in Typst."
+description = "Display and format Hazard & Precautionary statements and GHS pictograms."
 categories = [ "layout", "text", "paper" ]
 disciplines = [ "education", "chemistry" ]
 keywords = ["chemistry", "chemical", "hazard", "precaution", "h and p", "statement", "hp", "ghs", "icon", "pictogram"]

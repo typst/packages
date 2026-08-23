@@ -51,7 +51,7 @@ You can also add parameters when needed:
 
 Use the `#ghs(<number>)` command to display a GHS pictogram, to get more information about each pictogram use `#ghs-info`
 ```typst
-#import "@preview/typsium-ghs:0.1.0": *
+#import "@preview/typsium-ghs:0.1.2": *
 #grid(
   columns: 9,
   ..range(1,10).map(x=> ghs(x))
