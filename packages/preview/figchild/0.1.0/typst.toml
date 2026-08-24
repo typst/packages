@@ -7,7 +7,7 @@ authors = [
   "FERGOUS Abdelhak <@fergousA>",
 ]
 license = "LPPL-1.3c"
-description = "A faithful Typst port of the LaTeX figchild package: 561 colourful figures for children's activities, rendered with CeTZ (exact) or Scrawl (hand-drawn)."
+description = "A faithful port of the LaTeX figchild package: 561 colourful figures for children's activities, rendered with CeTZ (exact) or Scrawl (hand-drawn)."
 repository = "https://github.com/fergousA/figchild"
 keywords = [
   "figures",
