@@ -1,0 +1,12 @@
+[package]
+name = "visual-cetz"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "CC-BY-4.0"
+description = "Show a CeTZ snippet and its output side by side, from one source."
+repository = "https://github.com/fergousA/visual-cetz"
+keywords = ["cetz", "documentation", "example", "showcase", "tutorial"]
+categories = ["utility", "components"]
+compiler = "0.13.0"
+exclude = ["/guide", "*.pdf", ".DS_Store"]
