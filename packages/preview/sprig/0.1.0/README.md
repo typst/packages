@@ -57,7 +57,7 @@ A mind map is a tree; the ideas in it rarely are.
   branch(title: [Évaporation], icon: [▲], children: (
     branch(title: [soleil], children: (branch[énergie],)),
   ))[..],
-  ..)
+  )
 ```
 
 `link` draws the association without breaking the hierarchy — dashed, over
