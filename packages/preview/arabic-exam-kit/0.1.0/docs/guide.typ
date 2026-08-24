@@ -1,5 +1,5 @@
 // Arabic Exam Kit — Guide débutant Typst
-#import "../src/lib.typ": *
+#import "@preview/arabic-exam-kit:0.1.0": *
 
 #set page(paper: "a4", margin: (x: 1.6cm, y: 1.45cm), numbering: "1 / 1")
 #set text(font: "Amiri", lang: "fr", dir: ltr, size: 11.5pt, fill: rgb("#17212A"))
