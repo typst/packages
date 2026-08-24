@@ -9,7 +9,7 @@ keywords = ["gost", "eskd", "engineering", "technical-documentation"]
 disciplines = ["engineering"]
 categories = ["layout", "model", "text"]
 authors = ["runasexe <eskd-drafting@runas.name>"]
-repository = "https://github.com/mcatc-faag/eskd-drafting"
+repository = "https://github.com/runasexe/eskd-drafting"
 exclude = [
   "tests/",
   "examples/",
