@@ -4,6 +4,8 @@ Port of <https://tex.stackexchange.com/a/445690> (Frunobulax, CC BY-SA 4.0)
 to **Typst 0.15.1** + **CeTZ 0.5.2**, with the PGF `sketch` decoration
 reimplemented as a **Rust WASM plugin**.
 
+![gallery.png](gallery.png)
+
 ```
 xkcd.typ          the document (4 figures)
 xkcd-lib.typ      Typst side: path flattening + plugin binding
