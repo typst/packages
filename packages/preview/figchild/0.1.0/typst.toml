@@ -18,7 +18,7 @@ keywords = [
   "cetz",
   "scrawl",
 ]
-categories = ["graphics", "fun", "worksheet"]
+categories = ["fun"]
 compiler = "0.13.0"
 exclude = [
   "/verify",
