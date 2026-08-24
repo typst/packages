@@ -4,7 +4,7 @@ Probability trees **n×p**, growing **left-to-right** (the standard reading dire
 
 ![Version badge:0.1.3](https://img.shields.io/badge/version-0.1.3-blue)
 ![Licence badge: MIT](https://img.shields.io/badge/licence-MIT-green)
-[![GitHub](https://img.shields.io/badge/GitHub-r%C3%A9f%C3%A9rentiel-blue)](https://github.com/mmaunier/probabilitree)
+[![GitHub repository](https://img.shields.io/badge/GitHub-r%C3%A9f%C3%A9rentiel-blue)](https://github.com/mmaunier/probabilitree)
 
 ## Features
 
