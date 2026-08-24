@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/arabic-exam-kit:0.1.0": *
 
 #set page(paper: "a4", margin: 1.8cm)
 #set text(font: "Amiri", lang: "ar", size: 12pt)
