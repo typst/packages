@@ -21,4 +21,6 @@ compiler = "0.13.0"
 exclude = [
   "/tools",
   "/verify",
+  "*.pdf",
+  "*.png"
 ]
