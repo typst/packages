@@ -54,7 +54,7 @@ To use this package you can simply import in your typst document:
 // Your drawing code here
 ```
 
-It is recommended to start from the various [example](examples) files.
+It is recommended to start from the various [example](https://github.com/digiefel/mesa/tree/v0.4.0/examples) files.
 Also see the [usage manual](manual.md) for the complete API reference.
 
 > DISCLAIMER: >80% of Typst code and 100% of Rust code was LLM-written, guided by me at a high level. I'm not fluent in Rust and I couldn't have justified writing this package otherwise. Since this is only a visualization tool, I felt that vibe coding it could be justified. Nonetheless, I have been using it for my own projects and have been happy with the results.
