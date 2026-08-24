@@ -4,7 +4,7 @@
 // ctz-euclide as explicitly requested.
 
 #import "../vendor/scrawl/lib.typ": scrawl, rounded-rect-pts
-#import "@preview/ctz-euclide:0.2.0": *
+#import "@preview/ctz-euclide:0.3.0": *
 
 #let exam-palette = (
   red: rgb("#FF4C38"),
