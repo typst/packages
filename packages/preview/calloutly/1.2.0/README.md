@@ -57,8 +57,7 @@ The quickest setup is `calloutly`, which turns on callout styling and code-block
 
 Note this is simply a wrapper for `callout-style` and `code-block-style`; use them individually if you want to fine-tune the settings.
 
-> [!NOTE]
-> To show code blocks, you must apply the show rule.
+To show code blocks, you must apply the show rule.
 
 To set the style for all callouts in the document, you can use the `callout-style` with a show rule at the beginning of your document:
 
