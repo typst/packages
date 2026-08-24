@@ -1,5 +1,5 @@
 // Arabic Exam Kit — الدليل العربي للمبتدئ
-#import "@universe/arabic-exam-kit:0.1.0": *
+#import "@preview/arabic-exam-kit:0.1.0": *
 
 #set page(paper: "a4", margin: (x: 1.55cm, y: 1.4cm), numbering: "1 / 1")
 #set text(font: "Amiri", lang: "ar", dir: rtl, size: 12pt, fill: rgb("#17212A"))
