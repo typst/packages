@@ -4,6 +4,6 @@ version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["FERGOUS Abdelhak <@fergousA>"]
 license = "MIT"
-description = "Reusable Arabic mathematics exam layouts, diagrams, effects and rough variants for Typst."
+description = "Reusable Arabic mathematics exam layouts, diagrams, effects and rough variants."
 compiler = "0.15.1"
 keywords = ["arabic", "exam", "education", "mathematics", "rough", "worksheet"]
