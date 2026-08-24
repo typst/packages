@@ -48,7 +48,6 @@ features—yet it still offers various options for fine-tuning.
   import "@preview/nexus-tools:0.3.0": default, storage
   import "util.typ" as util: defaults, custom-divider
   import "syntax.typ" as syntax-init
-  import "cmd.typ": original
   
   let default = default.with(not custom-styling)
   let flavor = get-flavor(catppuccin-flavor)
@@ -178,7 +177,7 @@ features—yet it still offers various options for fine-tuning.
   )
   show divider: custom-divider.with(color: sub-text)
   show footnote: set line(stroke: 1pt + sub-text)
-  show original.figure.caption: set text(size: 1em - 2pt)
+  show std.figure.caption: set text(size: 1em - 2pt)
   show footnote.entry: set text(size: font-size - 2pt)
   show heading.where(numbering: none): set align(center)
   show math.equation.where(block: true): set math.equation(numbering: "(1)")

@@ -1,8 +1,7 @@
-/// = Additional commands
-
-#let original = (figure: figure, align: align)
-
 /**
+= Additional commands
+
+
 == Figure
 :figure:
 Adds the option to insert the figure source.
@@ -17,14 +16,14 @@ Adds the option to insert the figure source.
   body /// <- content
     /// Figure content. |
 ) = context {
-  set original.figure.caption(position: top)
+  set std.figure.caption(position: top)
   
-  show block: set original.align(align)
+  show block: set std.align(align)
   
   block({
-    set original.align(center)
+    set std.align(center)
     
-    (original.figure)(..args, body)
+    std.figure(..args, body)
     
     v(-par.leading)
     text(source, size: 1em - 2pt)
@@ -43,8 +42,6 @@ Inserts inline text boxes.
   body /// <- content | string
     /// Text to be boxed. |
 ) = context {
-  import "@preview/catppuccin:1.1.0": get-flavor
-  
   let stroke = stroke
   
   if stroke == auto {
