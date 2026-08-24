@@ -16,7 +16,7 @@ keywords = [
   "lengths",
   "labels",
 ]
-categories = ["graphics", "visualization", "fun", "worksheet", "education"]
+categories = ["graphics", "visualization", "education"]
 compiler = "0.13.0"
 exclude = [
   "/tools",
