@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["FERGOUS Abdelhak <@fergousA>"]
 license = "MIT"
-description = "Draw the Spiral of Theodorus (the Pythagorean snail): N right triangles with an exact a·√n labelling system — starting-leg length a, every hypotenuse labelled with its exact value (values, formulas √n, or a custom function), labels rotated parallel to their rays, optional new-leg labels pushed outside, gradients, direction, modes, right-angle marks and more. Pure Typst, no dependencies."
+description = "Draw the Spiral of Theodorus (the Pythagorean snail): N right triangles with an exact a·√n labelling system — starting-leg length a, every hypotenuse labelled with its exact value (values, formulas √n, or a custom function), labels rotated parallel to their rays, optional new-leg labels pushed outside, gradients, direction, modes, right-angle marks and more. No dependencies."
 keywords = [
   "spiral",
   "theodorus",
