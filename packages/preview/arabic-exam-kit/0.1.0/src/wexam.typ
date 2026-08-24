@@ -3,7 +3,7 @@
 // by the user. All decoration is vector-based and can switch to Scrawl rough.
 
 #import "../vendor/scrawl/lib.typ": scrawl, rounded-rect-pts, circle-pts
-#import "@preview/ctz-euclide:0.2.0": *
+#import "@preview/ctz-euclide:0.3.0": *
 
 #let wexam-palette = (
   blue: rgb("#00A3F3"),
