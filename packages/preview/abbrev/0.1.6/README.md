@@ -125,7 +125,8 @@ I like #abbr("ABBA"). Do you?
 ```
 Output:
 
-<img width="612" height="112" alt="Example with a different separator and filler" src="https://github.com/user-attachments/assets/16c075de-096a-4429-b60a-529d321237a6" />
+<img width="609" height="115" alt="Example with a different separator and filler" src="https://github.com/user-attachments/assets/fd149cbd-f048-43b7-9c2e-3e41c5a55855" />
+
 
 #### Customizing the heading
 
