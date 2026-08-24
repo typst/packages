@@ -1,20 +1,20 @@
-#import "@preview/classcraft:0.1.0": setup-classuml
+#import "@preview/sourcecraft:0.1.0": setup-sourceuml
 
 #set page(paper: "a4")
 
-#show: setup-classuml
+#show: setup-sourceuml
 
 
 = Teste Gramática: Java
 
 ````typ
 
-#import "@preview/classcraft:0.1.0": setup-classuml
+#import "@preview/sourcecraft:0.1.0": setup-sourceuml
 
-#show: setup-classuml
+#show: setup-sourceuml
 
 
-```class-diagram-java
+```source-diagram-java
 class Departamento{
   private String nome;
   private String codigo;
@@ -42,7 +42,7 @@ class Produto{
 ```
 ````
 
-```class-diagram-java
+```source-diagram-java
 class Departamento{
   private String nome;
   private String codigo;

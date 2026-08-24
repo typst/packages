@@ -1,10 +1,10 @@
-# ClassCraft
+# SourceCraft
 
 Generate UML class diagrams directly in Typst from Java or C# source code, built on top of the CeTZ engine with pluggable grammars.
 
 ## Overview
 
-**classcraft** is a Typst package that automatically generates UML class diagrams. The package:
+**SourceCraft** is a Typst package that automatically generates UML class diagrams. The package:
 
 - **Infers relationships** (inheritance, implementation, association, aggregation, composition) by reading the actual source code.
 - **Renders** the class box with attributes, methods and stereotypes (`«interface»`, `«enum»`, `«abstract»`).
@@ -16,24 +16,24 @@ Generate UML class diagrams directly in Typst from Java or C# source code, built
 Add the package to your Typst project:
 
 ```typst
-#import "@preview/classcraft:0.1.0": setup-classuml, class-diagram
+#import "@preview/sourcecraft:0.1.0": setup-sourceuml, source-diagram
 ```
 
 ## Usage
 
 ### 1. Via code fences (show-rule)
 
-Enable the code-fence interceptor with `setup-classuml`:
+Enable the code-fence interceptor with `setup-sourceuml`:
 
 ```typst
-#import "@preview/classcraft:0.1.0": setup-classuml
-#show: setup-classuml
+#import "@preview/sourcecraft:0.1.0": setup-sourceuml
+#show: setup-sourceuml
 ```
 
 Then use code blocks with the corresponding language:
 
 ````typst
-```class-diagram-java
+```source-diagram-java
 class Produto {
   private String nome;
   private double preco;
@@ -42,14 +42,14 @@ class Produto {
 ```
 ````
 
-### 2. Via the `class-diagram` function
+### 2. Via the `source-diagram` function
 
 Use the function directly to control parameters per diagram:
 
 ```typst
-#import "@preview/classcraft:0.1.0": class-diagram
+#import "@preview/sourcecraft:0.1.0": source-diagram
 
-#class-diagram(
+#source-diagram(
   "class Foo { private Bar bar; }",
   grammar: "java",
   max-height: 8cm
@@ -65,7 +65,7 @@ Use the function directly to control parameters per diagram:
 You can read `.java` or `.cs` files directly with Typst's `read()` function, keeping the diagram in sync with your real code.
 
 ```typst
-#import "@preview/classcraft:0.1.0": class-diagram
+#import "@preview/sourcecraft:0.1.0": source-diagram
 
 #let src = (
   read("src/model/Animal.java"),
@@ -74,7 +74,7 @@ You can read `.java` or `.cs` files directly with Typst's `read()` function, kee
   read("src/model/Alimentavel.java"),
 ).join("\n\n")
 
-#class-diagram(src, grammar: "java")
+#source-diagram(src, grammar: "java")
 ```
 
 #### Example with Simplified Import
@@ -95,7 +95,7 @@ You can interleave `@Layout` annotations without modifying the source files:
   read("src/model/Gato.java"),
 ).join("\n\n")
 
-#class-diagram(src, grammar: "java", max-height: 15cm)
+#source-diagram(src, grammar: "java", max-height: 15cm)
 ```
 
 ![Diagrama com Layout Customizado](gallery/example_layout.png)
@@ -106,7 +106,7 @@ You can interleave `@Layout` annotations without modifying the source files:
 - **Maximum height (`max-height`)**: Limits the diagram height to avoid page breaks.
 
 ```typst
-#class-diagram(src, grammar: "java", max-height: 12cm)
+#source-diagram(src, grammar: "java", max-height: 12cm)
 ```
 
 ## Positioning with `@Layout`

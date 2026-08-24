@@ -1,8 +1,8 @@
 // =============================================================================
-// classcraft — Manual
+// sourcecraft — Manual
 // =============================================================================
 
-#import "@preview/classcraft:0.1.0": class-diagram, setup-classuml
+#import "@preview/sourcecraft:0.1.0": source-diagram, setup-sourceuml
 
 #set page(paper: "a4", margin: (x: 2cm, y: 2.5cm))
 #set text(font: "Segoe UI", size: 11pt)
@@ -24,14 +24,14 @@
   }
 }
 
-// NÃO aplicar setup-classuml globalmente no manual para que os exemplos de
-// código não sejam renderizados como diagramas. Use #class-diagram() onde
+// NÃO aplicar setup-sourceuml globalmente no manual para que os exemplos de
+// código não sejam renderizados como diagramas. Use #source-diagram() onde
 // quiser exibir um diagrama de verdade.
 
 // Capa
 #align(center)[
   #v(6em)
-  #text(size: 28pt, weight: "bold")[classcraft]
+  #text(size: 28pt, weight: "bold")[sourcecraft]
   #v(0.6em)
   #text(size: 14pt, fill: luma(60))[
     Geração de Diagramas de Classe UML a partir de código-fonte
@@ -49,7 +49,7 @@
 // ===========================================================================
 = Visão Geral
 
-*classcraft* é um pacote Typst que gera diagramas de classe UML diretamente
+*sourcecraft* é um pacote Typst que gera diagramas de classe UML diretamente
 de código-fonte Java ou C\#, sem necessidade de notação PlantUML ou DDL
 específica. O pacote:
 
@@ -67,7 +67,7 @@ específica. O pacote:
 
 
 ```typst
-#import "@preview/classcraft:0.1.0": setup-classuml, class-diagram
+#import "@preview/sourcecraft:0.1.0": setup-sourceuml, source-diagram
 ```
 
 // ===========================================================================
@@ -75,20 +75,20 @@ específica. O pacote:
 
 == Via code fences (show-rule)
 
-Ative o interceptador de code fences com `setup-classuml` e use blocos de
-código com a linguagem correta. *Importante: não inclua `\#show: setup-classuml`
+Ative o interceptador de code fences com `setup-sourceuml` e use blocos de
+código com a linguagem correta. *Importante: não inclua `\#show: setup-sourceuml`
 em documentos onde você quer mostrar exemplos de código sem renderizá-los —
 prefira a função direta nesses casos.*
 
 ```typst
-#import "@preview/classcraft:0.1.0": setup-classuml
-#show: setup-classuml
+#import "@preview/sourcecraft:0.1.0": setup-sourceuml
+#show: setup-sourceuml
 ```
 
 Em seguida, use blocos de código com a linguagem correspondente:
 
 ````typst
-```class-diagram-java
+```source-diagram-java
 class Produto {
   private String nome;
   private double preco;
@@ -105,19 +105,19 @@ As linguagens suportadas são:
   inset: 8pt,
   fill: (_, row) => if row == 0 { luma(230) } else { white },
   [*Fence language*], [*Gramática*],
-  [`class-diagram-java`], [Código-fonte Java],
-  [`class-diagram-csharp`], [Código-fonte C\#],
+  [`source-diagram-java`], [Código-fonte Java],
+  [`source-diagram-csharp`], [Código-fonte C\#],
 )
 
 
-== Via função `class-diagram`
+== Via função `source-diagram`
 
 Use a função diretamente para controlar parâmetros por diagrama:
 
 ```typst
-#import "@preview/classcraft:0.1.0": class-diagram
+#import "@preview/sourcecraft:0.1.0": source-diagram
 
-#class-diagram(
+#source-diagram(
   "class Foo { private Bar bar; }",
   grammar: "java",
 )
@@ -140,7 +140,7 @@ Parâmetros disponíveis:
 
 === Exemplo renderizado
 
-#class-diagram(
+#source-diagram(
   "class Produto {
   private String nome;
   private double preco;
@@ -163,7 +163,7 @@ Em vez de colar código dentro do documento Typst, leia os arquivos `.java`
 ou `.cs` diretamente com `read()`:
 
 ```typst
-#import "@preview/classcraft:0.1.0": class-diagram
+#import "@preview/sourcecraft:0.1.0": source-diagram
 
 #let src = (
   read("../tests/java/Alimentavel.java"),
@@ -172,7 +172,7 @@ ou `.cs` diretamente com `read()`:
   read("../tests/java/Cachorro.java"),
 ).join("\n\n")
 
-#class-diagram(src, grammar: "java", max-height: 8cm)
+#source-diagram(src, grammar: "java", max-height: 8cm)
 ```
 
 Você pode intercalar strings literais com `read()` para injetar anotações
@@ -187,7 +187,7 @@ Você pode intercalar strings literais com `read()` para injetar anotações
   read("../tests/java/Cachorro.java"),
 ).join("\n\n")
 
-#class-diagram(src, grammar: "java", max-height: 8cm)
+#source-diagram(src, grammar: "java", max-height: 8cm)
 ```
 #let src = (
   "@Layout(level=1, order=0)",
@@ -197,7 +197,7 @@ Você pode intercalar strings literais com `read()` para injetar anotações
   read("../tests/java/Cachorro.java"),
 ).join("\n\n")
 
-#class-diagram(src, grammar: "java", max-height: 8cm)
+#source-diagram(src, grammar: "java", max-height: 8cm)
 
 // ===========================================================================
 = Controle de Tamanho do Diagrama
@@ -208,7 +208,7 @@ Por padrão (`fit: true`), o diagrama é reduzido proporcionalmente para nunca
 ultrapassar a largura disponível da página. Para desativar:
 
 ```typst
-#class-diagram(src, grammar: "java", fit: false)
+#source-diagram(src, grammar: "java", fit: false)
 ```
 
 == Altura máxima (`max-height`)
@@ -220,16 +220,16 @@ a proporção original:
 
 ```typst
 // Diagrama nunca ocupa mais de 15 cm de altura
-#class-diagram(src, grammar: "java", max-height: 15cm)
+#source-diagram(src, grammar: "java", max-height: 15cm)
 
 // Combinando largura e altura
-#class-diagram(src, grammar: "java", fit: true, max-height: 12cm)
+#source-diagram(src, grammar: "java", fit: true, max-height: 12cm)
 ```
 
-Se definido via `setup-classuml`, aplica-se a todos os diagramas do documento:
+Se definido via `setup-sourceuml`, aplica-se a todos os diagramas do documento:
 
 ```typst
-#show: setup-classuml.with(max-height: 18cm)
+#show: setup-sourceuml.with(max-height: 18cm)
 ```
 
 // ===========================================================================
@@ -336,9 +336,9 @@ enum Porte {
   GRANDE
 }
 ```
-#show: setup-classuml
+#show: setup-sourceuml
 
-```class-diagram-java
+```source-diagram-java
 enum Porte {
   PEQUENO,
   MEDIO,
@@ -405,8 +405,8 @@ Construtores da IR disponíveis:
 == Passo 3 — Registrar o code fence em `lib.typ`
 
 ```typst
-// dentro de setup-classuml em src/lib.typ
-show raw.where(lang: "class-diagram-kotlin"): it => {
+// dentro de setup-sourceuml em src/lib.typ
+show raw.where(lang: "source-diagram-kotlin"): it => {
   _render-diagram(it.text, grammar: "kotlin", ...)
 }
 ```
@@ -414,14 +414,14 @@ show raw.where(lang: "class-diagram-kotlin"): it => {
 A partir deste ponto:
 
 ````typst
-```class-diagram-kotlin
+```source-diagram-kotlin
 data class Produto(val nome: String)
 ```
 ````
 
 Ou com a função:
 ```typst
-#class-diagram(src, grammar: "kotlin")
+#source-diagram(src, grammar: "kotlin")
 ```
 
 === Utilitários disponíveis
@@ -434,7 +434,9 @@ putils.is-primitive-type("Produto")   // → false
 putils.extract-between(str, "(", ")") // extrai conteúdo entre delimitadores
 ```
 
-=== Cuidado: mutação em closures (Typst Gotcha)
+==== Armadilha do Typst: closures não mutam escopo externo
+
+> *Apenas para autores de gramáticas.*
 
 Em Typst, *closures não conseguem mutar variáveis do escopo externo*. Faça
 todos os `push` para `relations`, `classes` etc. *inline no loop principal*,

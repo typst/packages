@@ -1,5 +1,5 @@
 // =============================================================================
-// classcraft — Class Box Renderer
+// sourcecraft — Class Box Renderer
 // =============================================================================
 // Builds Typst content blocks for UML class boxes and places them in CeTZ.
 

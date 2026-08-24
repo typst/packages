@@ -1,5 +1,5 @@
 // =============================================================================
-// classcraft — General Utilities
+// sourcecraft — General Utilities
 // =============================================================================
 
 /// Sanitize a class name for use as a CeTZ anchor name.

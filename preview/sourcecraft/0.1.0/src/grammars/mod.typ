@@ -1,5 +1,5 @@
 // =============================================================================
-// classcraft — Grammar Registry
+// sourcecraft — Grammar Registry
 // =============================================================================
 // Central registry of available grammars.
 // Each grammar must export a `parse(source) -> IR` function.

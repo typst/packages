@@ -1,14 +1,15 @@
-#import "@preview/classcraft:0.1.0": setup-classuml
+//#import "@preview/sourcecraft:0.1.0": setup-sourceuml
+#import "../src/lib.typ": setup-sourceuml
 
 #set page(paper: "a4", flipped: true)
 //#set page(width: auto)
 //#set page(width: 10cm)
-#show: setup-classuml
+#show: setup-sourceuml
 
 
 = Teste Gramática: Csharp
 
-```class-diagram-csharp
+```source-diagram-csharp
 
 public enum Porte
 {

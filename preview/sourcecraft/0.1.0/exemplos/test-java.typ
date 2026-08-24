@@ -1,4 +1,5 @@
-#import "@preview/classcraft:0.1.0": class-diagram, setup-classuml
+//#import "@preview/sourcecraft:0.1.0": source-diagram, setup-sourceuml
+#import "../src/lib.typ": source-diagram, setup-sourceuml
 #set page(paper: "a4", flipped: true)
 //#set page(width: auto)
 //#set page(width: 10cm)
@@ -21,9 +22,9 @@
   read("java/Brinquedo.java"),
 ).join("\n\n")
 
-#class-diagram(src, grammar: "java", max-height: 15cm)
+#source-diagram(src, grammar: "java", max-height: 15cm)
 
 
-#show: setup-classuml
+#show: setup-sourceuml
 
-#raw(src, block: true, lang: "class-diagram-java")
+#raw(src, block: true, lang: "source-diagram-java")

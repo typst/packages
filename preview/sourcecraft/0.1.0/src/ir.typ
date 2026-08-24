@@ -1,5 +1,5 @@
 // =============================================================================
-// classcraft — Intermediate Representation (IR)
+// sourcecraft — Intermediate Representation (IR)
 // =============================================================================
 // All grammar parsers produce this IR. The renderer consumes it.
 // This decouples parsing from rendering completely.

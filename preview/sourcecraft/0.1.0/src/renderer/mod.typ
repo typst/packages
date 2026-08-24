@@ -1,5 +1,5 @@
 // =============================================================================
-// classcraft — Renderer Orchestrator
+// sourcecraft — Renderer Orchestrator
 // =============================================================================
 // Takes an IR and produces a CeTZ canvas with the class diagram.
 

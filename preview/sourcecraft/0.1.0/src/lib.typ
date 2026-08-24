@@ -1,7 +1,7 @@
 // =============================================================================
-// classcraft — Main Entry Point
+// sourcecraft — Main Entry Point
 // =============================================================================
-// Public API for the classcraft package.
+// Public API for the sourcecraft package.
 // Provides both show-rule based (code fences) and function-based APIs.
 
 #import "deps.typ": cetz
@@ -84,28 +84,28 @@
 ///
 /// Usage:
 /// ```typst
-/// #import "src/lib.typ": setup-classuml
-/// #show: setup-classuml.with(max-height: 18cm)
+/// #import "src/lib.typ": setup-sourceuml
+/// #show: setup-sourceuml.with(max-height: 18cm)
 /// ```
 ///
 /// Then use code fences:
 /// ````
-/// ```class-diagram-java
+/// ```source-diagram-java
 /// class Foo { ... }
 /// ```
 /// ````
-#let setup-classuml(
+#let setup-sourceuml(
   theme:      auto,
   spacing:    (x: 4.0, y: 3.5),
   fit:        true,
   max-height: none,
   doc,
 ) = {
-  show raw.where(lang: "class-diagram-java"): it => {
+  show raw.where(lang: "source-diagram-java"): it => {
     _render-diagram(it.text, grammar: "java", theme: theme, spacing: spacing,
       fit: fit, max-height: max-height)
   }
-  show raw.where(lang: "class-diagram-csharp"): it => {
+  show raw.where(lang: "source-diagram-csharp"): it => {
     _render-diagram(it.text, grammar: "csharp", theme: theme, spacing: spacing,
       fit: fit, max-height: max-height)
   }
@@ -124,7 +124,7 @@
 /// - spacing (dict): (x, y) spacing between classes
 /// - fit (bool): scale to page width (default: true)
 /// - max-height (length or none): maximum allowed height; scales down if exceeded
-#let class-diagram(
+#let source-diagram(
   source,
   grammar:    "java",
   theme:      auto,
