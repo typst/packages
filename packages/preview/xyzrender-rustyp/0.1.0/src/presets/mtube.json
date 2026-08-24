@@ -1,0 +1,29 @@
+{
+  "canvas_size": 800,
+  "atom_scale": 0.0,
+  "atom_stroke_width": 0.0,
+  "bond_width": 50.0,
+  "hue_shift_factor": 0.05,
+  "light_shift_factor": 0.08,
+  "saturation_shift_factor": 0.05,
+  "bond_orders": false,
+  "gradient": false,
+  "bond_color_by_element": true,
+  "bond_gradient": false,
+  "bond_outline_color": "#000000",
+  "bond_outline_width": 5.0,
+  "fog": false,
+  "background": "white",
+  "regions": {
+    "M": {
+      "gradient": true,
+      "atom_scale": 4.0,
+      "atom_stroke_width": 5.0
+    }
+  },
+  "nci_element": true,
+  "nci_width": 1.5,
+  "ts_element": false,
+  "ts_width": 1.8,
+  "ts_dash": [0.5, 3]
+}

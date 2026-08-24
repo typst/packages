@@ -1,0 +1,13 @@
+[package]
+name = "intl-math"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jesús Manuel González Meneses"]
+license = "MIT"
+description = "Math operators that print in the document's language: you write sin(x) and it typesets sen(x) in Spanish, sin(x) in English. New languages can be added without forking."
+repository = "https://github.com/13Stokes31/intl-math"
+keywords = ["math", "i18n", "l10n", "operators", "notation"]
+categories = ["languages", "text"]
+disciplines = ["mathematics", "education"]
+compiler = "0.14.0"
+exclude = ["tests", "justfile", "ROADMAP.md", "TESTING.md", ".gitignore"]

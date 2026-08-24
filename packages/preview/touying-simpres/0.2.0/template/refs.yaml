@@ -1,0 +1,22 @@
+tanenbaum-2021:
+  type: Book
+  title: "Computer Networks"
+  author:
+    - Tanenbaum, Andrew
+    - Wetherall, David
+    - Feamster, Nick
+  date: 2021
+  publisher: "Pearson Education"
+  location: "Harlow"
+
+dodag-figure:
+  type: Web
+  title: "Destination Oriented Directed Acyclic Graph (DODAG) rooted at router S"
+  author: 
+    - Baccelli, Emmanuel
+  url:
+      value: https://www.researchgate.net/figure/Destination-Oriented-Directed-Acyclic-Graph-DODAG-rooted-at-router-S_fig2_236883834
+      date: 2025-05-23
+  date: 2011-09
+
+ 
