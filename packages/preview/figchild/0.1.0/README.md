@@ -6,6 +6,8 @@ Children's Activities*, Fernando de Souza Bastos, UFV, v3.1.2) : **561
 colourful line drawings** (animals, vehicles, food, letters, numbers, …)
 for teachers who create activities for children.
 
+![example.png](example.png)
+
 Two rendering backends:
 
 - **CeTZ** — exact reproduction of the original TikZ drawings
