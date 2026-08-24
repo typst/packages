@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+  <!-- Monochrome: overlay carries shading, theme carries color. -->
+  <defs>
+    <filter id="warp" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.005 0.004" numOctaves="2" seed="10" result="raw"/>
+      <feColorMatrix in="raw" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 1" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="tone" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.055 0.006" numOctaves="2" seed="64" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .34 .33 .33 0 0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.05 0.12 0.17 0.12 0.05 0"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="200" height="200" filter="url(#tone)"/>
+  <g filter="url(#warp)" fill="none" transform="translate(2.4,0)">
+    <path d="M97,-10 C97,39 132,75 132,100 C132,127 97,157 97,210" stroke="#ffffff" stroke-width="2.51" stroke-opacity="0.243"/>
+    <path d="M88,-10 C88,47 120,80 120,100 C120,125 88,155 88,210" stroke="#ffffff" stroke-width="1.07" stroke-opacity="0.162"/>
+    <path d="M78,-10 C78,35 105,77 105,100 C105,128 78,166 78,210" stroke="#ffffff" stroke-width="2.48" stroke-opacity="0.172"/>
+    <path d="M74,-10 C74,46 98,78 98,100 C98,129 74,158 74,210" stroke="#ffffff" stroke-width="1.54" stroke-opacity="0.149"/>
+    <path d="M141,-10 C137,50 145,153 139,210" stroke="#ffffff" stroke-width="2.48" stroke-opacity="0.215"/>
+    <path d="M3,-10 C4,48 3,141 1,210" stroke="#ffffff" stroke-width="2.23" stroke-opacity="0.243"/>
+    <path d="M83,-10 C78,56 88,141 81,210" stroke="#ffffff" stroke-width="2.10" stroke-opacity="0.265"/>
+    <path d="M178,-10 C181,54 180,141 180,210" stroke="#ffffff" stroke-width="1.64" stroke-opacity="0.273"/>
+    <path d="M168,-10 C164,56 168,153 168,210" stroke="#ffffff" stroke-width="1.91" stroke-opacity="0.241"/>
+    <path d="M29,-10 C34,58 25,145 28,210" stroke="#ffffff" stroke-width="1.31" stroke-opacity="0.278"/>
+    <path d="M48,-10 C51,54 47,140 46,210" stroke="#ffffff" stroke-width="1.35" stroke-opacity="0.182"/>
+    <path d="M146,-10 C150,49 144,148 144,210" stroke="#ffffff" stroke-width="1.61" stroke-opacity="0.223"/>
+    <path d="M169,-10 C168,57 167,148 166,210" stroke="#ffffff" stroke-width="2.04" stroke-opacity="0.157"/>
+    <path d="M191,-10 C194,59 191,148 189,210" stroke="#ffffff" stroke-width="1.46" stroke-opacity="0.242"/>
+    <path d="M3,-10 C7,59 -3,152 1,210" stroke="#ffffff" stroke-width="1.26" stroke-opacity="0.160"/>
+    <path d="M152,-10 C148,52 146,152 151,210" stroke="#ffffff" stroke-width="1.01" stroke-opacity="0.257"/>
+  </g>
+  <g filter="url(#warp)" fill="none">
+    <path d="M97,-10 C97,39 132,75 132,100 C132,127 97,157 97,210" stroke="#000000" stroke-width="2.79" stroke-opacity="0.442"/>
+    <path d="M88,-10 C88,47 120,80 120,100 C120,125 88,155 88,210" stroke="#000000" stroke-width="1.19" stroke-opacity="0.294"/>
+    <path d="M78,-10 C78,35 105,77 105,100 C105,128 78,166 78,210" stroke="#000000" stroke-width="2.75" stroke-opacity="0.313"/>
+    <path d="M74,-10 C74,46 98,78 98,100 C98,129 74,158 74,210" stroke="#000000" stroke-width="1.71" stroke-opacity="0.271"/>
+    <path d="M141,-10 C137,50 145,153 139,210" stroke="#000000" stroke-width="2.75" stroke-opacity="0.390"/>
+    <path d="M3,-10 C4,48 3,141 1,210" stroke="#000000" stroke-width="2.48" stroke-opacity="0.442"/>
+    <path d="M83,-10 C78,56 88,141 81,210" stroke="#000000" stroke-width="2.33" stroke-opacity="0.482"/>
+    <path d="M178,-10 C181,54 180,141 180,210" stroke="#000000" stroke-width="1.82" stroke-opacity="0.496"/>
+    <path d="M168,-10 C164,56 168,153 168,210" stroke="#000000" stroke-width="2.12" stroke-opacity="0.439"/>
+    <path d="M29,-10 C34,58 25,145 28,210" stroke="#000000" stroke-width="1.46" stroke-opacity="0.506"/>
+    <path d="M48,-10 C51,54 47,140 46,210" stroke="#000000" stroke-width="1.50" stroke-opacity="0.330"/>
+    <path d="M146,-10 C150,49 144,148 144,210" stroke="#000000" stroke-width="1.79" stroke-opacity="0.406"/>
+    <path d="M169,-10 C168,57 167,148 166,210" stroke="#000000" stroke-width="2.27" stroke-opacity="0.285"/>
+    <path d="M191,-10 C194,59 191,148 189,210" stroke="#000000" stroke-width="1.62" stroke-opacity="0.440"/>
+    <path d="M3,-10 C7,59 -3,152 1,210" stroke="#000000" stroke-width="1.40" stroke-opacity="0.291"/>
+    <path d="M152,-10 C148,52 146,152 151,210" stroke="#000000" stroke-width="1.13" stroke-opacity="0.468"/>
+  </g>
+</svg>
