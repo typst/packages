@@ -1,5 +1,5 @@
 // Arabic Exam Kit — visual component gallery
-#import "@universe/arabic-exam-kit": *
+#import "@preview/arabic-exam-kit:0.1.0": *
 
 #set page(paper: "a4", margin: 1.3cm, numbering: "1 / 1")
 #set text(font: "Amiri", lang: "ar", size: 11pt)
