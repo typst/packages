@@ -1,0 +1,17 @@
+[package]
+name = "faboxyst"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Coloured, titled boxes for Typst — a tcolorbox-style toolkit."
+compiler = "0.15.0"
+categories = ["components", "layout"]
+disciplines = ["education", "computer-science", "mathematics"]
+keywords = ["tcolorbox", "boxes", "frames", "callout", "rtl", "arabic", "fabox"]
+exclude = [
+  "/pages/*",
+  "/manual.pdf",
+  "/examples/*.pdf",
+  "/thumbnail.typ",
+]
