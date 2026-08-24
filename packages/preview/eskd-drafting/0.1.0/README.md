@@ -20,8 +20,7 @@ Documentation: [Русская версия (Russian)](README.ru.md) | [Full Eng
 
 `eskd-drafting` provides standard drawing borders, official title blocks (Forms 1, 2, 2a, 2b), binding margin inventory stamps, rotated document codes (Box 26), custom font injection, and automatic layout management.
 
-> [!NOTE]
-> `eskd-drafting` is dedicated strictly to page geometry, margins, drawing frames, title blocks, and inventory margin stamps. The package does not enforce formatting on inner body text, headings, or scientific reports (GOST 7.32).
+> **NOTE**: `eskd-drafting` is dedicated strictly to page geometry, margins, drawing frames, title blocks, and inventory margin stamps. The package does not enforce formatting on inner body text, headings, or scientific reports (GOST 7.32).
 
 ---
 
@@ -84,8 +83,7 @@ typst init @preview/eskd-drafting:0.1.0 my-eskd-document
 Продолжение документа...
 ```
 
-> [!TIP]
-> In compliance with GOST 2.304-81, `eskd-drafting` defaults to upright text and avoids synthetic/geometric slanting (which distorts stroke width $d$ and bounding boxes). To use authentic 75° lettering, inject a true GOST font file and set `font-italic: true`.
+> **TIP**: In compliance with GOST 2.304-81, `eskd-drafting` defaults to upright text and avoids synthetic/geometric slanting (which distorts stroke width $d$ and bounding boxes). To use authentic 75° lettering, inject a true GOST font file and set `font-italic: true`.
 
 ---
 

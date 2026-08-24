@@ -31,8 +31,7 @@ The library implements the following official state and interstate standards:
 - GOST 2.103-2013 «Stages of design and document literas»
 - GOST 2.501-2013 «Rules for accounting and storage»
 
-> [!NOTE]
-> `eskd-drafting` is dedicated strictly to page geometry, margins, drawing frames, title blocks, and inventory margin stamps. The package does not enforce styling on inner body content, scientific reports (GOST 7.32), or bibliographic references (GOST R 7.0.5).
+> **NOTE**: `eskd-drafting` is dedicated strictly to page geometry, margins, drawing frames, title blocks, and inventory margin stamps. The package does not enforce styling on inner body content, scientific reports (GOST 7.32), or bibliographic references (GOST R 7.0.5).
 
 ---
 
