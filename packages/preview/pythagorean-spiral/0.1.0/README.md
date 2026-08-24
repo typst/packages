@@ -46,6 +46,8 @@ measurable, works anywhere a box does.
 | `padding` | `7mm` | Space around the drawing |
 | `background` | `none` | Canvas background colour |
 
+
+See [manual.pdf](manual.pdf)
 ## Examples
 
 ```typst
