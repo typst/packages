@@ -1,12 +1,10 @@
-# probability-tree
+# probabilitree
 
-Probability trees **n×p**, growing **left-to-right** (the standard reading direction for probability trees). This module is built on [CeTZ](https://typst.app/universe/package/cetz) (`@preview/cetz:0.5.2`).
+Probability trees **n×p**, growing **left-to-right** (the standard reading direction for probability trees). This module is built on [CeTZ](https://typst.app/universe/package/cetz) (`@preview/cetz:0.5.2`). The sources are available on [GitHub](https://github.com/mmaunier/probabilitree).
 
-![Version badge: 0.1.2](https://img.shields.io/badge/version-0.1.2-blue)
-![License badge: MIT](https://img.shields.io/badge/license-MIT-green)
-[![PDF manual for probability-tree](https://img.shields.io/badge/manuel-PDF-blueviolet)](https://github.com/mmaunier/probability-tree/blob/v0.1.2/docs/manual.pdf)
-
-![Example tree](https://raw.githubusercontent.com/mmaunier/probability-tree/v0.1.2/assets/example-tree.svg)
+![Version badge:0.1.3](https://img.shields.io/badge/version-0.1.3-blue)
+![Licence badge: MIT](https://img.shields.io/badge/licence-MIT-green)
+[![GitHub](https://img.shields.io/badge/GitHub-r%C3%A9f%C3%A9rentiel-blue)](https://github.com/mmaunier/probabilitree)
 
 ## Features
 
@@ -17,12 +15,14 @@ Probability trees **n×p**, growing **left-to-right** (the standard reading dire
 - In `on` mode, the edge is cut under the label, with transparency preserved.
 - Improved error messages for malformed tree data.
 - Exact node positions exposed for precise custom labels or annotations (`extra` callback).
+- Quick list-based syntax (`proba-tree-short`) to write the tree with Typst lists instead of nested tuples.
 
 ## Table of contents
 
 - [Installation](#installation)
 - [Quick start](#quick-start)
 - [Data structure](#data-structure)
+- [Quick tree syntax (`proba-tree-short`)](#quick-tree-syntax-proba-tree-short)
 - [API](#api)
 - [Node positions (`extra`)](#node-positions-extra)
 - [Text styles](#text-styles)
@@ -35,24 +35,23 @@ Probability trees **n×p**, growing **left-to-right** (the standard reading dire
 
 ## Installation
 
-
 ```typ
-#import "@preview/probability-tree:0.1.2": proba-tree, sn, sp
+#import "@preview/probabilitree:0.1.3": proba-tree, sn, sp, proba-tree-short
 ```
 
 If the package is installed locally:
 
 ```typ
-#import "@local/probability-tree:0.1.2": proba-tree, sn, sp
+#import "@local/probabilitree:0.1.3": proba-tree, sn, sp, proba-tree-short
 ```
 
 ## Quick start
 
 ```typ
 #proba-tree(data: (
-  [$Omega$],
-  (sn($A$, style: (fill: green)), $p$, ([$B$], $q$), ([$overline(B)$], $1-q$)),
-  ([$overline(A)$], $1-p$, ([$B$], $q$), ([$overline(B)$], $1-q$)),
+  $Omega$,
+  (sn($A$, style: (fill: green)), $p$, ($B$, $q$), ($overline(B)$, $1-q$)),
+  ($overline(A)$, $1-p$, ($B$, $q$), ($overline(B)$, $1-q$)),
 ))
 ```
 
@@ -64,14 +63,49 @@ Each node is an array `(label, proba, ..children)`:
 - `proba`: probability shown on the branch (e.g. `$p$`, `$1-p$`) or a local setting `sp(...)`.
 - `..children`: zero or more child nodes, with the same structure.
 
-The root has no probability: `[$Omega$]` is just the label.
+The root has no probability: `$Omega$` is just the label.
 
 ```typ
 #proba-tree(data: (
-  [$Omega$],
-  (sn($A$, style: (fill: green)), sp($p$, style: (fill: red, weight: "bold")), ([$B$], $q$)),
-  ([$overline(A)$], $1-p$, ([$B$], $q$)),
+  $Omega$,
+  (sn($A$, style: (fill: green)), sp($p$, style: (fill: red, weight: "bold")), ($B$, $q$)),
+  ($overline(A)$, $1-p$, ($B$, $q$)),
 ))
+```
+
+## Quick tree syntax (`proba-tree-short`)
+
+Writing nested tuples can get verbose. `proba-tree-short` lets you write the same tree with Typst lists — `-` for a node, `+` for the probability of the branch leading to it, alternating and nested:
+
+```typ
+#proba-tree-short[
+  - $Omega$
+    + $p$
+    - $A$
+      + $q$
+      - $B$
+      + $1-q$
+      - $overline(B)$
+    + $1-p$
+    - $overline(A)$
+      + $q$
+      - $B$
+      + $1-q$
+      - $overline(B)$
+]
+```
+
+All the `proba-tree` options (`h`, `v`, `proba-position`, `node-style`, `extra`, …) remain available — only the construction of `data` changes. Per-node fine styles (`sn` / `sp`) are not expressible in this syntax: use `proba-tree` directly if you need them.
+
+`proba-tree-short-data` returns the `data` array alone, so you can reuse it in `proba-tree`:
+
+```typ
+#let data = proba-tree-short-data[
+  - $Omega$
+    + $p$
+    - $A$
+]
+#proba-tree(data: data)
 ```
 
 ## API
@@ -93,6 +127,18 @@ The root has no probability: `[$Omega$]` is just the label.
 | `data` | `array` | default Ω tree | The tree to draw. |
 | `extra` | `function` | `none` | Callback `(pos, draw) => ...` drawn in the same canvas, receiving the exact position of every node. |
 
+### `proba-tree-short(..options, markup)` — quick list-based syntax
+
+Writes a tree with Typst lists instead of nested tuples (`-` for a node, `+` for the probability of the branch leading to it, alternating and nested). All the `proba-tree` options are forwarded; only `data` is built from the markup.
+
+```typ
+#proba-tree-short[
+  - $Omega$
+    + $p$
+    - $A$
+]
+```
+
 ### `sp(content, ...)` — local probability settings
 
 Returns a dictionary usable as a probability in `data`. Any omitted parameter falls back to the global settings.
@@ -107,9 +153,9 @@ Returns a dictionary usable as a probability in `data`. Any omitted parameter fa
 
 ```typ
 #proba-tree(data: (
-  [$Omega$],
-  ([$A$], sp($p$, style: (fill: red, weight: "bold")), ([$B$], $q$)),
-  ([$overline(A)$], $1-p$),
+  $Omega$,
+  ($A$, sp($p$, style: (fill: red, weight: "bold")), ($B$, $q$)),
+  ($overline(A)$, $1-p$),
 ))
 ```
 
@@ -122,9 +168,9 @@ Returns a dictionary usable as a probability in `data`. Any omitted parameter fa
 
 ```typ
 #proba-tree(data: (
-  [$Omega$],
-  (sn($A$, style: (fill: green, weight: "bold")), $p$, ([$B$], $q$)),
-  ([$overline(A)$], $1-p$),
+  $Omega$,
+  (sn($A$, style: (fill: green, weight: "bold")), $p$, ($B$, $q$)),
+  ($overline(A)$, $1-p$),
 ))
 ```
 
@@ -135,7 +181,7 @@ Returns a dictionary usable as a probability in `data`. Any omitted parameter fa
 ```typ
 #proba-tree(
   data: (
-    [$Omega$],
+    $Omega$,
     ($F$, $$, ($F$, $$, ($F$, $$), ($P$, $$)), ($P$, $$, ($F$, $$), ($P$, $$))),
     ($P$, $$, ($F$, $$, ($F$, $$), ($P$, $$)), ($P$, $$, ($F$, $$), ($P$, $$))),
   ),
@@ -170,9 +216,9 @@ Accepted keys:
   proba-style: (fill: blue),
   node-style: (size: 11pt, fill: blue),
   data: (
-    [$Omega$],
-    ([$A$], $p$, ([$B$], sp($q$, style: (highlight: yellow)))),
-    ([$overline(A)$], $1-p$),
+    $Omega$,
+    ($A$, $p$, ($B$, sp($q$, style: (highlight: yellow)))),
+    ($overline(A)$, $1-p$),
   ),
 )
 ```

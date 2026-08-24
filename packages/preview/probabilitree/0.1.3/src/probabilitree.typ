@@ -135,7 +135,7 @@
       position: if slot.position == auto { default-position } else { slot.position },
       distance: if slot.distance == auto { default-distance } else { slot.distance },
       sloped: if slot.sloped == auto { default-sloped } else { slot.sloped },
-      style: slot.style, // brut, sera mergé une seule fois dans draw-edge
+      style: slot.style, // raw, merged only once in draw-edge
     )
   } else {
     (
@@ -143,7 +143,7 @@
       position: default-position,
       distance: default-distance,
       sloped: default-sloped,
-      style: none, // aucun style local -> merge-style gérera le none proprement
+      style: none, // no local style -> merge-style handles the none case properly
     )
   }
 }
@@ -172,7 +172,7 @@
   default-style,
   default-node-style,
   reverse-children,
-  path: "root", // <- nouveau paramètre
+  path: "root", // <- new parameter
   level: 0,
 ) = {
   let label-info = normalize-node(node.at(0), default-node-style)
@@ -196,7 +196,7 @@
     proba: proba-info,
     style: label-info.style,
     path: path,
-    level: level + 1, // 1-indexé, racine = niveau 1
+    level: level + 1, // 1-indexed, root = level 1
   )
 
   let ordered-children = if reverse-children {
@@ -205,7 +205,7 @@
     raw-children
   }
   
-  // enumerate() pour avoir l'index i et construire le chemin
+  // enumerate() to get the index i and build the path
   let converted-children = ordered-children
     .enumerate()
     .map(((i, e)) => convert-node(
@@ -607,3 +607,150 @@
     }
   })
 }
+// ---------- proba-tree-short: markup parser -> nested array ----------
+
+#let is-node-item(el) = type(el) == content and el.func() == list.item
+#let is-proba-item(el) = type(el) == content and el.func() == enum.item
+#let is-filler(el) = repr(el.func()) in ("space", "parbreak")
+
+// Joins an array of contents into a single one, without needlessly wrapping
+// a single-element array into a sequence.
+#let join-content(items) = {
+  if items.len() == 1 {
+    items.at(0)
+  } else {
+    items.fold([], (acc, el) => acc + el)
+  }
+}
+
+// Flattens a sequence into its direct children (other contents become
+// a single-element array).
+#let flatten(body) = {
+  if body == none {
+    ()
+  } else if repr(body.func()) == "sequence" {
+    body.fields().children
+  } else {
+    (body,)
+  }
+}
+
+// "Useful" children of an item body: without the spaces/paragraph breaks
+// inserted automatically by Typst between the lines of the list.
+#let useful-children(body) = flatten(body).filter(el => not is-filler(el))
+
+// Groups the "useful" children into (label, [(proba, node-item), ...])
+#let split-label-and-pairs(children) = {
+  let idx = none
+  for (i, el) in children.enumerate() {
+    if is-node-item(el) or is-proba-item(el) {
+      idx = i
+      break
+    }
+  }
+  if idx == none {
+    (join-content(children), ())
+  } else {
+    let label = join-content(children.slice(0, idx))
+    (label, children.slice(idx))
+  }
+}
+
+#let extract-pairs(items) = {
+  let pairs = ()
+  let i = 0
+  while i < items.len() {
+    let proba-item = items.at(i)
+    assert(
+      is-proba-item(proba-item),
+      message: "proba-tree-short: expected a probability (+ marker) at position "
+        + str(i) + ", found a node (-) -- check the + / - alternation.",
+    )
+    assert(
+      i + 1 < items.len() and is-node-item(items.at(i + 1)),
+      message: "proba-tree-short: the probability (+) at position " + str(i)
+        + " must be immediately followed by a node (-).",
+    )
+    let node-item = items.at(i + 1)
+    let proba-kids = useful-children(proba-item.body)
+    let proba-content = join-content(proba-kids)
+    pairs.push((proba-content, node-item))
+    i += 2
+  }
+  pairs
+}
+
+// Recursively builds (label, ..children) where each child is
+// (child-label, proba, ..grandchildren) -- exactly the format expected
+// by `proba-tree(data: ...)`.
+#let build-node(item) = {
+  let (label, rest) = split-label-and-pairs(useful-children(item.body))
+  let children = extract-pairs(rest).map(((proba, child-item)) => {
+    let node = build-node(child-item)
+    (node.at(0), proba, ..node.slice(1))
+  })
+  (label, ..children)
+}
+
+/// Converts a tree written with Typst lists (- for a node, + for a
+/// probability, alternating and nested) into a `data` array usable by
+/// `proba-tree`.
+///
+/// ```example
+/// #proba-tree-short-data[
+///   - $Omega$
+///     + $p$
+///     - $A$
+///       + $q$
+///       - $B$
+///       + $1-q$
+///       - $overline(B)$
+///     + $1-p$
+///     - $overline(A)$
+/// ]
+/// ```
+#let proba-tree-short-data(markup) = {
+  let top = useful-children(markup)
+  assert(
+    top.len() == 1 and is-node-item(top.at(0)),
+    message: "proba-tree-short: the markup must contain a single root node (-)",
+  )
+  build-node(top.at(0))
+}
+
+/// Draws a probability tree written with the Typst list syntax
+/// (`-` for a node, `+` for the probability of the edge leading to it)
+/// instead of the nested tuples `(label, proba, ..children)`.
+///
+/// All the `proba-tree` options remain available (`h`, `v`,
+/// `proba-position`, `node-style`, `extra`, etc.) -- only the construction
+/// of `data` changes. Per-node fine styles (`sp`/`sn`) are not expressible
+/// in this syntax: use `proba-tree` directly if you need them on a
+/// particular node.
+///
+/// ```example
+/// #proba-tree-short[
+///   - $Omega$
+///     + $p$
+///     - $A$
+///       + $q$
+///       - $B$
+///       + $1-q$
+///       - $overline(B)$
+///     + $1-p$
+///     - $overline(A)$
+///       + $q$
+///       - $B$
+///       + $1-q$
+///       - $overline(B)$
+/// ]
+/// ```
+///
+/// -> content
+#let proba-tree-short(
+  /// All the `proba-tree` options (h, v, proba-position, node-style, extra, ...).
+  ..options,
+
+  /// The tree written as nested Typst lists (last argument, positional).
+  markup,
+) = proba-tree(data: proba-tree-short-data(markup), ..options)

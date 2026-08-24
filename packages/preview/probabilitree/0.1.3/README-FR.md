@@ -1,12 +1,11 @@
-# probability-tree
+# probabilitree
 
-Arbres de probabilités **n×p**, croissant de **gauche à droite** (sens de lecture standard pour les arbres de probabilités). Ce module s'appuie sur [CeTZ](https://typst.app/universe/package/cetz) (`@preview/cetz:0.5.2`).
+Arbres de probabilités **n×p**, croissant de **gauche à droite** (sens de lecture standard pour les arbres de probabilités). Ce module s'appuie sur [CeTZ](https://typst.app/universe/package/cetz) (`@preview/cetz:0.5.2`). Les sources sont disponibles sur [GitHub](https://github.com/mmaunier/probabilitree).
 
-![Version](https://img.shields.io/badge/version-0.1.2-blue)
-![Licence](https://img.shields.io/badge/licence-MIT-green)
-[![PDF manual for probability-tree](https://img.shields.io/badge/manuel-PDF-blueviolet)](https://github.com/mmaunier/probability-tree/blob/v0.1.2/docs/manual.pdf)
+![Version badge:0.1.3](https://img.shields.io/badge/version-0.1.3-blue)
+![Licence badge: MIT](https://img.shields.io/badge/licence-MIT-green)
+[![GitHub](https://img.shields.io/badge/GitHub-r%C3%A9f%C3%A9rentiel-blue)](https://github.com/mmaunier/probabilitree)
 
-![Example tree](https://raw.githubusercontent.com/mmaunier/probability-tree/v0.1.2/assets/example-tree.svg)
 
 ## Fonctionnalités
 
@@ -17,12 +16,14 @@ Arbres de probabilités **n×p**, croissant de **gauche à droite** (sens de lec
 - En mode `on`, le trait est découpé sous l'étiquette, avec transparence préservée.
 - Messages d'erreur améliorés pour les données d'arbre mal formées.
 - Positions exactes des nœuds exposées pour des étiquettes ou annotations personnalisées précises (callback `extra`).
+- Syntaxe alternative basée sur les listes (`proba-tree-short`) pour écrire l'arbre avec des listes Typst plutôt que des tuples imbriqués.
 
 ## Sommaire
 
 - [Installation](#installation)
 - [Démarrage rapide](#démarrage-rapide)
 - [Structure de `data`](#structure-de-data)
+- [Syntaxe rapide (`proba-tree-short`)](#syntaxe-rapide-proba-tree-short)
 - [API](#api)
 - [Positions des nœuds (`extra`)](#positions-des-nœuds-extra)
 - [Styles de texte](#styles-de-texte)
@@ -36,22 +37,22 @@ Arbres de probabilités **n×p**, croissant de **gauche à droite** (sens de lec
 ## Installation
 
 ```typ
-#import "@preview/probability-tree:0.1.2": proba-tree, sn, sp
+#import "@preview/probabilitree:0.1.3": proba-tree, sn, sp, proba-tree-short
 ```
 
 Si le paquet est installé localement :
 
 ```typ
-#import "@local/probability-tree:0.1.2": proba-tree, sn, sp
+#import "@local/probabilitree:0.1.3": proba-tree, sn, sp, proba-tree-short
 ```
 
 ## Démarrage rapide
 
 ```typ
 #proba-tree(data: (
-  [$Omega$],
-  (sn($A$, style: (fill: green)), $p$, ([$B$], $q$), ([$overline(B)$], $1-q$)),
-  ([$overline(A)$], $1-p$, ([$B$], $q$), ([$overline(B)$], $1-q$)),
+  $Omega$,
+  (sn($A$, style: (fill: green)), $p$, ($B$, $q$), ($overline(B)$, $1-q$)),
+  ($overline(A)$, $1-p$, ($B$, $q$), ($overline(B)$, $1-q$)),
 ))
 ```
 
@@ -63,14 +64,49 @@ Chaque nœud est un tableau `(label, proba, ..children)` :
 - `proba` : probabilité affichée sur la branche (ex. `$p$`, `$1-p$`) ou réglage local `sp(...)`.
 - `..children` : zéro ou plusieurs sous-nœuds, de structure identique.
 
-La racine n'a pas de probabilité : `[$Omega$]` est simplement le label.
+La racine n'a pas de probabilité : `$Omega$` est simplement le label.
 
 ```typ
 #proba-tree(data: (
-  [$Omega$],
-  (sn($A$, style: (fill: green)), sp($p$, style: (fill: red, weight: "bold")), ([$B$], $q$)),
-  ([$overline(A)$], $1-p$, ([$B$], $q$)),
+  $Omega$,
+  (sn($A$, style: (fill: green)), sp($p$, style: (fill: red, weight: "bold")), ($B$, $q$)),
+  ($overline(A)$, $1-p$, ($B$, $q$)),
 ))
+```
+
+## Syntaxe rapide (`proba-tree-short`)
+
+Écrire des tuples imbriqués peut devenir verbeux. `proba-tree-short` permet d'écrire le même arbre avec des listes Typst — `-` pour un nœud, `+` pour la probabilité de la branche qui y mène, alternés et imbriqués :
+
+```typ
+#proba-tree-short[
+  - $Omega$
+    + $p$
+    - $A$
+      + $q$
+      - $B$
+      + $1-q$
+      - $overline(B)$
+    + $1-p$
+    - $overline(A)$
+      + $q$
+      - $B$
+      + $1-q$
+      - $overline(B)$
+]
+```
+
+Toutes les options de `proba-tree` (`h`, `v`, `proba-position`, `node-style`, `extra`, …) restent disponibles — seule la construction de `data` change. Les styles fins par nœud (`sn` / `sp`) ne sont pas exprimables dans cette syntaxe : utilise `proba-tree` directement si tu en as besoin.
+
+`proba-tree-short-data` renvoie le tableau `data` seul, réutilisable dans `proba-tree` :
+
+```typ
+#let data = proba-tree-short-data[
+  - $Omega$
+    + $p$
+    - $A$
+]
+#proba-tree(data: data)
 ```
 
 ## API
@@ -92,6 +128,18 @@ La racine n'a pas de probabilité : `[$Omega$]` est simplement le label.
 | `data` | `array` | arbre Ω par défaut | L'arbre à dessiner. |
 | `extra` | `function` | `none` | Callback `(pos, draw) => ...` dessiné dans le même canvas, recevant la position exacte de chaque nœud. |
 
+### `proba-tree-short(..options, markup)` — syntaxe rapide basée sur les listes
+
+Écrit un arbre avec des listes Typst au lieu de tuples imbriqués (`-` pour un nœud, `+` pour la probabilité de la branche qui y mène, alternés et imbriqués). Toutes les options de `proba-tree` sont transmises ; seul `data` est construit à partir du markup.
+
+```typ
+#proba-tree-short[
+  - $Omega$
+    + $p$
+    - $A$
+]
+```
+
 ### `sp(content, ...)` — réglage local d'une probabilité
 
 Retourne un dictionnaire utilisable comme probabilité dans `data`. Tout paramètre omis retombe sur les réglages globaux.
@@ -106,9 +154,9 @@ Retourne un dictionnaire utilisable comme probabilité dans `data`. Tout paramè
 
 ```typ
 #proba-tree(data: (
-  [$Omega$],
-  ([$A$], sp($p$, style: (fill: red, weight: "bold")), ([$B$], $q$)),
-  ([$overline(A)$], $1-p$),
+  $Omega$,
+  ($A$, sp($p$, style: (fill: red, weight: "bold")), ($B$, $q$)),
+  ($overline(A)$, $1-p$),
 ))
 ```
 
@@ -121,9 +169,9 @@ Retourne un dictionnaire utilisable comme probabilité dans `data`. Tout paramè
 
 ```typ
 #proba-tree(data: (
-  [$Omega$],
-  (sn($A$, style: (fill: green, weight: "bold")), $p$, ([$B$], $q$)),
-  ([$overline(A)$], $1-p$),
+  $Omega$,
+  (sn($A$, style: (fill: green, weight: "bold")), $p$, ($B$, $q$)),
+  ($overline(A)$, $1-p$),
 ))
 ```
 
@@ -134,7 +182,7 @@ Retourne un dictionnaire utilisable comme probabilité dans `data`. Tout paramè
 ```typ
 #proba-tree(
   data: (
-    [$Omega$],
+    $Omega$,
     ($F$, $$, ($F$, $$, ($F$, $$), ($P$, $$)), ($P$, $$, ($F$, $$), ($P$, $$))),
     ($P$, $$, ($F$, $$, ($F$, $$), ($P$, $$)), ($P$, $$, ($F$, $$), ($P$, $$))),
   ),
@@ -169,9 +217,9 @@ Clés acceptées :
   proba-style: (fill: blue),
   node-style: (size: 11pt, fill: blue),
   data: (
-    [$Omega$],
-    ([$A$], $p$, ([$B$], sp($q$, style: (highlight: yellow)))),
-    ([$overline(A)$], $1-p$),
+    $Omega$,
+    ($A$, $p$, ($B$, sp($q$, style: (highlight: yellow)))),
+    ($overline(A)$, $1-p$),
   ),
 )
 ```
