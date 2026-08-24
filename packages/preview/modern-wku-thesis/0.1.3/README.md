@@ -2,7 +2,7 @@
 
 A Typst template for graduate thesis at Wenzhou-Kean University (WKU) College of Science, Mathematics and Technology.
 
-![Thumbnail](thumbnail.png)
+![Preview of the first page of a thesis built with this template](thumbnail.png)
 
 ## Usage
 
@@ -56,7 +56,7 @@ The function also accepts a single, positional argument for the body of the thes
 ## Example
 
 ```typ
-#import "@preview/modern-wku-thesis:0.1.2": graduate-thesis
+#import "@preview/modern-wku-thesis:0.1.3": graduate-thesis
 
 #show: graduate-thesis.with(
   title: [Automatic Visualization of Traceability Information],
