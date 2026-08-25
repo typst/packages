@@ -1,6 +1,6 @@
 [package]
 name = "sapians-slides"
-version = "0.3.2" # x-release-please-version
+version = "1.0.0" # x-release-please-version
 entrypoint = "lib.typ"
 authors = ["SAPIANS <@wbendinelli>"]
 license = "MIT-0"

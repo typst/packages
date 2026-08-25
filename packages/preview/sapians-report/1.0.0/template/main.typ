@@ -1,4 +1,4 @@
-#import "@preview/sapians-report:0.3.2": * // x-release-please-version
+#import "@preview/sapians-report:1.0.0": * // x-release-please-version
 
 #show: sapians-report.with(
   title: "Report Title",

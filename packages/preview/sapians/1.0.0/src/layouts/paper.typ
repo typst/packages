@@ -12,7 +12,7 @@
 /// example; see the usage snippet below.
 ///
 /// ```typ
-/// #import "@local/sapians:0.3.2": * // x-release-please-version
+/// #import "@local/sapians:1.0.0": * // x-release-please-version
 ///
 /// #show: sapians-article.with(
 ///   title: "A Fixed Paper Title",

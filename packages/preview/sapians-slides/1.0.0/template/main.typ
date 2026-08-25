@@ -1,4 +1,4 @@
-#import "@preview/sapians-slides:0.3.2": * // x-release-please-version
+#import "@preview/sapians-slides:1.0.0": * // x-release-please-version
 
 #show: sapians-slides.with(
   title: "Presentation Title",

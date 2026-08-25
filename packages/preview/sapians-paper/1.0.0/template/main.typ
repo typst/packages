@@ -1,4 +1,4 @@
-#import "@preview/sapians-paper:0.3.2": * // x-release-please-version
+#import "@preview/sapians-paper:1.0.0": * // x-release-please-version
 
 #show: sapians-article.with(
   title: "Paper Title: A Clear Statement of the Contribution",

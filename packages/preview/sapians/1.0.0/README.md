@@ -8,7 +8,7 @@ and Urban Institute publication standards.
 ## Quick start
 
 ```typst
-#import "@preview/sapians:0.3.2": * // x-release-please-version
+#import "@preview/sapians:1.0.0": * // x-release-please-version
 
 #show: sapians-slides.with(
   title: "Machine Intelligence",
