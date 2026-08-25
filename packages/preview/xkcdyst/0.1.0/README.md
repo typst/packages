@@ -4,6 +4,8 @@ Port of <https://tex.stackexchange.com/a/445690> (Frunobulax, CC BY-SA 4.0)
 to **Typst 0.15.1** + **CeTZ 0.5.2**, with the PGF `sketch` decoration
 reimplemented as a **Rust WASM plugin**.
 
+![example.png](example.png)
+
 ```
 xkcd.typ          the document (4 figures)
 xkcd-lib.typ      Typst side: path flattening + plugin binding
@@ -15,6 +17,8 @@ build.sh          cargo build + typst compile
 
 Build: `./build.sh` — or just `typst compile xkcd.typ --font-path fonts`
 using the committed `sketch.wasm`.
+
+![gallery.png](gallery.png)
 
 ## Why WASM here
 
