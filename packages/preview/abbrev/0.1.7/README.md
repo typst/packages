@@ -7,7 +7,7 @@ A **simple Typst package for creating and managing abbreviations**. While more c
 ### Import from Typst Universe
 To import the library from Typst Universe, add this to your document:
 ```typst
-#import "@preview/abbrev:0.1.6": *
+#import "@preview/abbrev:0.1.7": *
 ```
 
 ### Local use
@@ -17,7 +17,7 @@ To use the library locally, download `lib.typ` and place it in your document's d
 
 ### Step 1: Define abbreviations
 
-Start by defining all your abbreviations in a dictionary with the `#define-abbreviations()` function. You can call this function multiple times to add new abbreviations, passing a dictionary each time. The definition must be situated before the use of the abbreviation. Each abbreviation must be defined earlier in the document's source code than the point where it is used. Here is an example with two calls:
+Start by defining all your abbreviations in a dictionary with the `#define-abbreviations()` function. You can call this function multiple times to add new abbreviations, passing a dictionary each time. Each abbreviation must be defined earlier in the document's source code than the point where it is used. Here is an example with two calls:
 
 ```typst
 #define-abbreviations((
@@ -111,21 +111,21 @@ You can also customize how your abbreviation definitions are displayed using the
 
 Here is an example using the parameters listed below:
 ```typst
-#define-abbreviations((
-  "ABBA": "a Swedish pop music group formed by Agnetha, Björn, Benny Anni-Frid",
-))
 #abbreviation-outline(
   title: [Abbreviations],
   separator: [:],
   fill: line(length: 100%, start: (0%, 0.65em)),
   gutter: 1em,
 )
+#define-abbreviations((
+  "ABBA": "a Swedish pop music group formed by Agnetha, Björn, Benny Anni-Frid",
+))
 = Some title
 I like #abbr("ABBA"). Do you?
 ```
 Output:
 
-<img width="612" height="112" alt="Example with a different separator and filler" src="https://github.com/user-attachments/assets/16c075de-096a-4429-b60a-529d321237a6" />
+<img width="609" height="115" alt="Example with a different separator and filler" src="https://github.com/user-attachments/assets/fd149cbd-f048-43b7-9c2e-3e41c5a55855" />
 
 #### Customizing the heading
 
@@ -141,7 +141,7 @@ Parameter  | Default |	Purpose
 
 See `example.typ` in the [Abbrev GitHub repository](https://github.com/girasole123/Abbrev) for a complete, working example. To view the compiled output, choose one of the following:
 
-- Compile with the package: Run `typst compile example.typ` and ensure the import statement is `#import "@preview/abbrev:0.1.6": *`.
+- Compile with the package: Run `typst compile example.typ` and ensure the import statement is `#import "@preview/abbrev:0.1.7": *`.
 - Compile locally: Run `typst compile example.typ` after placing `lib.typ` in the same directory as `example.typ` and updating the import statement to import `lib.typ`.
 - Use GitHub Actions: Select the latest passed workflow run and download the `pdf-output` artifact (a ZIP file containing the PDF).
 
