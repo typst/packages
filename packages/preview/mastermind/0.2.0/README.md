@@ -146,7 +146,7 @@
   <summary>See the source code</summary>
   
 ```typ
-#import "@local/mastermind:0.2.0": *
+#import "@preview/mastermind:0.2.0": *
 
 #set page(width: auto, height: auto)
 
