@@ -1,0 +1,17 @@
+[package]
+name = "sapians"
+version = "0.3.2" # x-release-please-version
+entrypoint = "lib.typ"
+authors = ["SAPIANS <@wbendinelli>"]
+license = "MIT"
+description = "Token-driven design system for slides, papers, and reports."
+repository = "https://github.com/wbendinelli/sapians-design"
+keywords = ["presentation", "slides", "scientific", "report", "design-system"]
+categories = ["layout", "presentation"]
+compiler = "0.15.0"
+exclude = ["tests"]
+
+# System fonts stay off by default in tytanic; tests get Inter/JetBrains Mono
+# via --font-path (see the Justfile), keeping reference images reproducible.
+[tool.tytanic]
+default.ppi = 72

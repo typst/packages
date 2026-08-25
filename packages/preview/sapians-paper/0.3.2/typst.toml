@@ -1,0 +1,16 @@
+[package]
+name = "sapians-paper"
+version = "0.3.2" # x-release-please-version
+entrypoint = "lib.typ"
+authors = ["SAPIANS <@wbendinelli>"]
+license = "MIT-0"
+description = "Two-column scientific paper in the SAPIANS style."
+repository = "https://github.com/wbendinelli/sapians-design"
+keywords = ["paper", "article", "scientific", "design-system"]
+categories = ["paper"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

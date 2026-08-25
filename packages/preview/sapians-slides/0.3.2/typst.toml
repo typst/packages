@@ -1,0 +1,17 @@
+[package]
+name = "sapians-slides"
+version = "0.3.2" # x-release-please-version
+entrypoint = "lib.typ"
+authors = ["SAPIANS <@wbendinelli>"]
+license = "MIT-0"
+description = "Slide deck in the SAPIANS design system."
+repository = "https://github.com/wbendinelli/sapians-design"
+keywords = ["presentation", "slides", "deck", "design-system"]
+categories = ["presentation"]
+compiler = "0.15.0"
+exclude = ["preview_contact_sheet.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
