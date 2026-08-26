@@ -16,7 +16,7 @@ keywords = [
   "lengths",
   "labels",
 ]
-categories = ["education"]
+categories = ["visualization"]
 compiler = "0.13.0"
 exclude = [
   "/tools",
