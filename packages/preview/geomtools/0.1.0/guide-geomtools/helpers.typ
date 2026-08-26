@@ -2,7 +2,7 @@
 //  Boîte à outils géométrique pour le guide geomtools.
 //  Toutes les longueurs sont en centimètres, y vers le haut.
 // ---------------------------------------------------------------------------
-#import "../lib.typ": *
+#import "@preview/geomtools:0.1.0": *
 
 #let blue = rgb("#1864AB")
 #let green = rgb("#2F9E44")
