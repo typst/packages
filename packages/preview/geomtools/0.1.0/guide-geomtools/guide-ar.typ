@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/geomtools:0.1.0": *
 #import "helpers.typ": *
 
 #set page(
