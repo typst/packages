@@ -74,3 +74,8 @@ obligation. See [LICENSE](LICENSE).
 `src/` is derived from
 [modern-se-kul-thesis](https://typst.app/universe/package/modern-se-kul-thesis/)
 by Benjamin Eeckhout, used under the MIT license.
+
+The KU Leuven logos in `src/assets/` are the intellectual property of KU
+Leuven and are not covered by the licenses above. They are redistributed
+here with the written approval of the university's marketing and
+communications department.
