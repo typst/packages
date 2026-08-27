@@ -35,7 +35,7 @@ Usage:
 
 Front page:
 
-![Image of an example front page of this template](https://raw.githubusercontent.com/AugustinWinther/structured-uib/refs/heads/main/thumbnail.png)
+![Image of an example front page of this template](./thumbnail.png)
 
 
 ## Licenses
