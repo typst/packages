@@ -85,7 +85,7 @@ To start writing, run:
 
 ## License
 
-This template is licensed under the **CC BY-SA 4.0** license, see [LICENSE](./LICENSE).
+This template is licensed under the **GPL 3.0 or later** license, see [LICENSE](./LICENSE).
 
 ## Third-party materials
 
