@@ -1,4 +1,4 @@
-#import "@local/ftn77-thesis:0.1.0": style as default
+#import "@preview/ftn77-thesis:0.1.0": style as default
 
 // Override your styles here. You can start from default style or scratch.
 // The base style is applied to all content besides forms and cover, main is applied
