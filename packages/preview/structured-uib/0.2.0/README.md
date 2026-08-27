@@ -9,7 +9,7 @@ The first part of the package name is arbitrary, such that it follows the naming
 Usage:
 ```typ
 // IMPORTS
-#import "@preview/structured-uib:0.2.0: *
+#import "@preview/structured-uib:0.2.0": *
 
 // TEMPLATE SETTINGS
 #show: report.with(
@@ -35,7 +35,7 @@ Usage:
 
 Front page:
 
-![thumbnail](https://github.com/AugustinWinther/structured-uib/assets/30674646/a93718d8-362d-453b-8047-3c3c4388d442)
+![Image of an example front page of this template](https://raw.githubusercontent.com/AugustinWinther/structured-uib/refs/heads/main/thumbnail.png)
 
 
 ## Licenses
