@@ -252,6 +252,8 @@ Pass a ready-to-render image as `profile.photo`. The default 16 x 20 mm portrait
 uses a formal 4:5 crop, square corners, and the same hairline border as the rest
 of the document:
 
+[![Academic CV with an optional profile photo](screenshots/cv-photo-harmonious.png)](screenshots/cv-photo-harmonious.png)
+
 ```typst
 #let profile = (
   name: [Dr. Maya Chen],
