@@ -3,7 +3,7 @@
 A Typst template for writing Bachelor's/Master's theses at the Faculty of technical sciences, University of Novi Sad.
 
 **⚠️ Disclaimer**
-: This is not an offical template, but rather what I developed for my personal thesis which follows uni guidelines.
+: This is not an official template, but rather what I developed for my personal thesis which follows uni guidelines.
 
 ## Overview
 
@@ -75,7 +75,7 @@ Below is a minimal example of how to use the template:
 
 Reccommended way to get started is to use the provided [starter files](./template/) to initialize the project, which can be done with:
 
-```sh
+```bash
 $ typst init @preview/ftn77-thesis:0.1.0
 Successfully created new project from @preview/ftn77-thesis:0.1.0 🎉
 To start writing, run:
@@ -85,7 +85,7 @@ To start writing, run:
 
 ## License
 
-This template is licensed under the **CC BY-NC-SA 4.0** license, see [LICENSE](./LICENSE).
+This template is licensed under the **CC BY-SA 4.0** license, see [LICENSE](./LICENSE).
 
 ## Third-party materials
 
