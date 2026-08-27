@@ -64,11 +64,11 @@ Below is a minimal example of how to use the template:
 ```typ
 #import "@preview/ftn77-thesis:0.1.0": appendices, thesis
 
-#show thesis.with() // specify args with metadata
+#show: thesis.with() // specify args with metadata
 
 // write your main content here
 
-#show appendices
+#show: appendices
 
 // write your appendices here
 ```
