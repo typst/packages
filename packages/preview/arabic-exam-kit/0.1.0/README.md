@@ -43,50 +43,26 @@ La documentation détaillée et imprimable est disponible dans :
 
 ## Installation
 
-### Option A — tester depuis ce dossier
-
-Dans un fichier placé dans `examples/` ou à côté de ce package :
+Il suffit d'ajouter la ligne suivante au début de votre fichier
 
 ```typ
-#import "../src/lib.typ": *
+#import "@preview/arabic-exam-kit:0.1.0": *
 ```
 
 C’est la méthode la plus simple pendant l’apprentissage : aucun réglage Typst
 n’est nécessaire.
 
-### Option B — installation locale comme un vrai package
-
-Copiez ce dossier dans le répertoire local de Typst :
-
-```sh
-mkdir -p ~/.local/share/typst/packages/local/arabic-exam-kit
-cp -R arabic-exam-kit \
-  ~/.local/share/typst/packages/local/arabic-exam-kit/0.1.0
-```
-
-Puis, dans n’importe quel document Typst :
-
-```typ
-#import "@local/arabic-exam-kit:0.1.0": *
-```
-
-Sous Windows, le dossier local est généralement situé dans
-`%APPDATA%/typst/packages/local/`. Si votre système utilise `XDG_DATA_HOME`,
-remplacez `~/.local/share` par `$XDG_DATA_HOME`.
-
 ### Police arabe
 
-Le package fournit **Amiri** dans `assets/fonts/`. Pour obtenir le rendu arabe
-des exemples, compilez avec :
-
-```sh
-typst compile --font-path assets/fonts examples/01-minimal-wexam.typ
-```
-
+Le package utilise la police **Amiri** téléchargeable depuis ![https://fonts.google.com/specimen/Amiri](https://fonts.google.com/specimen/Amiri). 
 Dans le document, activez la police :
 
 ```typ
 #set text(font: "Amiri", lang: "ar")
+```
+Vous pouvez utiliser d'autres polices si vous le souhaitez. il suffit de remplacer 'Amiri' par le nom de votre police. Par exemple, pour utliser ![Estedad](https://fonts.google.com/selection?query=estedad) : 
+```typ
+#set text(font: "Estedad", lang: "ar")
 ```
 
 ---
@@ -96,7 +72,7 @@ Dans le document, activez la police :
 Copiez ce fichier minimal :
 
 ```typ
-#import "@local/arabic-exam-kit:0.1.0": *
+#import "@preview/arabic-exam-kit:0.1.0": *
 
 #set page(paper: "a4", margin: 1cm)
 #set text(font: "Amiri", lang: "ar", size: 12pt)
@@ -141,7 +117,7 @@ vectoriel et le design se redimensionne pour A4, A5, Letter ou un format
 personnalisé.
 
 ```typ
-#import "@local/arabic-exam-kit:0.1.0": *
+#import "@preview/arabic-exam-kit:0.1.0": *
 
 #set page(paper: "a4", margin: 0pt)
 #set text(font: "Amiri", lang: "ar")
@@ -314,7 +290,7 @@ Pour masquer le numéro, omettez l’argument :
 
 ## Figures géométriques
 
-Le package télécharge automatiquement `@preview/ctz-euclide:0.2.0` au premier
+Le package télécharge automatiquement `@preview/ctz-euclide:0.3.0` au premier
 build qui utilise une figure.
 
 ```typ
@@ -369,11 +345,12 @@ pas des images PDF ou PNG.
 
 ### « unknown font family: Amiri »
 
-Ajoutez le chemin vers les polices :
+Installez la police 'Amiri' ou bien ajoutez le chemin vers les polices :
 
 ```sh
-typst compile --font-path assets/fonts mon-fichier.typ
+typst compile --font-path chemin/vers/les/polices mon-fichier.typ
 ```
+Ou bien utilisez une autre police de votre choix (disponible dans votre système). 
 
 ### Les nombres `ن2` s’inversent
 
