@@ -3,7 +3,7 @@
 // The page furniture is Scrawl-based; the geometry diagram is drawn through
 // ctz-euclide as explicitly requested.
 
-#import "../vendor/scrawl/lib.typ": scrawl, rounded-rect-pts
+#import "@preview/scrawl:0.1.0": scrawl, rounded-rect-pts
 #import "@preview/ctz-euclide:0.3.0": *
 
 #let exam-palette = (
