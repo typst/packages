@@ -66,9 +66,7 @@ API reference.
 
 Use `box(p)` for both axes or `box(p.x, y)` for one relative axis. Offsets
 use numeric diagram units; port positions follow measured gate geometry.
-The same syntax works with both themes' node constructors. See
-[relative positioning](docs/quarto/nodes.qmd#relative-positioning) for named
-references, dependency chains, and groups.
+The same syntax works with both themes' node constructors.
 
 ## Testing
 
@@ -78,12 +76,7 @@ bash tests/run.sh
 
 Runs the unit/API/contract/negative test suite, deterministic geometry and
 layout checks, Python helper tests, an outline-geometry snapshot, and a
-documentation-figure staleness check. The six issues from the August 2026
-review now have passing regression coverage; see
-[review fixes](docs/quarto/dev/known-issues.qmd). See
-[Testing](https://bencichos.github.io/typograph/dev/testing.html) for what
-each part covers.
-
+documentation-figure staleness check. 
 ## License
 
 MIT — see [LICENSE](LICENSE).
