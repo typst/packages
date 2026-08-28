@@ -52,7 +52,7 @@ typst compile template/main.typ
 - Lease terms configuration (rent, deposit, duration, cost allocation, etc.)
 - Party A and Party B information management
 - House handover checklist attachment
-- Radio buttons, checkboxes, form elements, etc.
+- Radio buttons, checkboxes, etc.
 
 ## Known Issues
 
