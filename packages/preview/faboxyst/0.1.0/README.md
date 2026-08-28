@@ -5,7 +5,7 @@ Coloured, titled boxes for **Typst 0.15.x**, in the spirit of LaTeX’s
 ![thumbnail.png](thumbnail.png)
 
 ```typst
-#import "faboxyst/lib.typ": *
+#import "@preview/faboxyst:0.1.0": *
 #show: faboxyst.with(theme: themes.notebook)
 
 #fabox(title: [Note])[A titled box.]
@@ -16,36 +16,6 @@ Coloured, titled boxes for **Typst 0.15.x**, in the spirit of LaTeX’s
 `#show: faboxyst.with(…)` is a **theme show rule**, not a document
 class: it does not set the page.
 
-## Install
-
-Unzip next to your document so the folder is called `faboxyst/`:
-
-```
-your-project/
-  doc.typ
-  faboxyst/
-    lib.typ
-    typst.toml
-    …
-```
-
-```bash
-typst compile doc.typ --root .
-```
-
-From inside the package folder (manual and examples):
-
-```bash
-typst compile manual.typ --root .
-typst compile examples/quickstart.typ examples/quickstart.pdf --root .
-```
-
-Needs `@preview/cetz:0.5.2` (Typst downloads it on first compile).
-`assets/sketch.wasm` ships prebuilt. **No fonts are bundled** — Typst
-uses the faces installed on the system (DejaVu, etc.). Optional extras
-if you have them: xkcd Script, Bevan, Comic Neue, Tajawal, Lalezar.
-
-Social-network posts live in the separate package **socialyst**.
 
 ## What is in the box
 
