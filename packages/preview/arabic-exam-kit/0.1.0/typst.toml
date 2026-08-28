@@ -7,3 +7,6 @@ license = "MIT"
 description = "Reusable Arabic mathematics exam layouts, diagrams, effects and rough variants."
 compiler = "0.15.1"
 keywords = ["arabic", "exam", "education", "mathematics", "rough", "worksheet"]
+exclude = [
+      "/examples"
+]
