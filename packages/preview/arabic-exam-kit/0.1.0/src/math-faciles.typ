@@ -3,7 +3,7 @@
 // Built on fergousA/scrawl. Geometry is resolved from each box's own measured
 // width/height: it is not tied to A4, A5 or any other paper size.
 
-#import "../vendor/scrawl/lib.typ": scrawl, rounded-rect-pts, circle-pts, arc-pts
+#import "@preview/scrawl:0.1.0": scrawl, rounded-rect-pts, circle-pts, arc-pts
 
 // Public palette, inspired by the supplied card.
 #let palette = (
