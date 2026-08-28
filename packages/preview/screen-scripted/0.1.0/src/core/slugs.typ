@@ -45,7 +45,6 @@
   }
 
   [
-    // TODO: Make this configurable?
     #v(2pt)
     #sl
   ]
