@@ -1,0 +1,25 @@
+[package]
+name = "urban-housing-lease-contract"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["xialugui"]
+license = "MIT"
+description = "城镇房屋租赁合同。Urban Housing Lease Contract."
+repository = "https://github.com/xialugui/urban-housing-lease-contract"
+keywords = ["housing lease", "房屋租赁", "contract", "合同"]
+categories = ["text"]
+exclude = [
+    ".github",
+    "docs",
+    "scripts",
+    "tests",
+    ".typstignore",
+    "Justfile",
+    ".gitignore",
+]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
