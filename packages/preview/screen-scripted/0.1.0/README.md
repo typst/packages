@@ -1,8 +1,6 @@
 screen-scripted
 ===============
 
-![Rendered screenplay page demonstrating dialogue and scene formatting](img/preview.png)
-
 <!--toc:start-->
 - [screen-scripted](#screen-scripted)
   - [Fonts](#fonts)
@@ -27,6 +25,108 @@ screen-scripted
 Format TV and film screenplay drafts with helpers for scene headings, dialogue, montages, and transitions. The main feature is automatic dialogue continuation across page breaks: split dialogue receives a `(MORE)` marker before the break and a repeated character cue with `(CONT'D)` on the following page.
 
 The formatting is based primarily on the Academy of Motion Picture Arts and Sciences' [screenplay formatting sample](https://www.oscars.org/sites/oscars/files/scriptsample.pdf) and StudioBinder's [screenplay formatting guide](https://www.studiobinder.com/blog/how-to-write-a-screenplay/).
+
+
+```typ
+#import "@preview/screen-scripted:0.1.0": *
+
+/*
+  Season 5, episode 10 of "Family Guy"
+
+  Certain copyrighted materials appear in this work
+  without permission from the copyright holder and is
+  used under a good-faith claim of fair use
+*/
+#show: scripted.with(
+  title: "Stuck Behind Robert Loggia",
+  authors: "Seth Macfarlane",
+  date: datetime(month: 8, day: 20, year: 2026),
+  version: "0.0.1",
+  info: [
+    probablysethsemail\@domain.com \
+    (555) 555-5555
+  ],
+  config: (
+    /*
+      Enable/disable input checking for some package functions
+      Example: Sluglines should only expect "INT" or "EXT" 
+    */
+    check-strict: true,
+    /*
+      Control the slugline formatting
+    */
+    bold-slugs: true,
+    /*
+      Set to "false" for manual dialogue continuation.
+    */
+    dialogue-cont: true,
+    /*
+      Some templates use "--" whereas others use "-". Choose
+      whichever version you prefer
+    */
+    slug-dashes: "single",  // "single" | "double"
+    /*
+      Customize the continued-dialogue marker if needed
+    */
+    cont-str: "CONT'D",
+  )
+)
+
+/*
+  The "character" function prepares variables ready to be
+  reused throughout the document, which is ideal for placeholder
+  names, or names that may change later.
+*/
+#let (char1, char1-fl) = character("Peter", "Griffin")
+#let (char2, char2-fl, char2-full) = character("Lois", "Patrice", "Griffin")
+#let (char3, char3-fl) = character("Chris", "Griffin")
+#let (char4, char4-fl) = character("Robert", "Loggia")
+#let (char5) = character("Meg")
+
+#slugline[int][living room][day]
+
+#char1, #char2, and #char3 sit on the family sofa. Meg quickly enters.
+
+#dialogue[#char5][
+  Mom? Dad? I decided I want a big party this year with all my friends. And maybe a band. Is that cool?
+]
+
+#dual-dialogue(
+  dialogue[#char1][
+    (mumbling) \
+    Yeah, sure\... 
+  ],
+  dialogue[#char2][
+    (mumbling) \
+    Yeah, sure\... Why not? 
+  ]
+)
+
+#dialogue[#char5][
+  (excited) \
+  Oh thanks guys, you're the best! 
+]
+
+Meg runs away in excitement.
+
+// Below is not rendered in the sample image and is used
+// to highlight additional features
+ 
+/*
+  There's also helpful shorthands that can be optionally used
+*/
+#d[#char1][  // dialogue
+  Ugh\...
+]
+
+#sl[e][griffin house][d]  // slugline with EXT and DAY shorthands
+#t[cut to]  // transition
+#sl[i][kitchen][d]  // slugline with INT and DAY shorthands
+
+Stewie prepares mail to be sent out while Brian reads the newspaper.
+```
+
+![Rendered screenplay page demonstrating dialogue and scene formatting](img/preview.png)
 
 ## Fonts
 
