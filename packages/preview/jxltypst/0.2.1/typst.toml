@@ -1,0 +1,12 @@
+[package]
+name = "jxltypst"
+version = "0.2.1"
+compiler = "0.15.0"
+entrypoint = "lib.typ"
+authors = ["frabera"]
+license = "MIT"
+description = "JPEG XL (JXL) decoder for Typst."
+keywords = ["JPEG XL", "image", "jxl", "plugin", "typst", "wasm"]
+repository = "https://github.com/frabera/jxltypst"
+categories = ["visualization"]
+exclude = ["/docs"]
