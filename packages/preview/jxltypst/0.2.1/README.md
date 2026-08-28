@@ -4,9 +4,6 @@ A [Typst](https://typst.app/) WASM plugin for loading [JPEG XL](https://jpeg.org
 
 jxltypst uses [jxl-rs](https://github.com/libjxl/jxl-rs) to decode JPEG XL images and [wasm-minimal-protocol](https://github.com/astrale-sharp/wasm-minimal-protocol) to expose the decoder to Typst.
 
-> [!NOTE]
-> jxltypst is currently a proof of concept and may have limitations compared to the image formats natively supported by Typst.
-
 ## Usage
 
 Import `image-jxl` from the jxltypst package:
