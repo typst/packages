@@ -1,0 +1,17 @@
+[package]
+name = "ftn77-thesis"
+version = "0.1.0"
+compiler = "0.15.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/cetkovicaleksa/ftn77-thesis"
+authors = ["Алекса Ћетковић <cetkovic.sv77.2022@uns.ac.rs>"]
+license = "GPL-3.0-or-later"
+description = "Unofficial Bachelor's/Master's thesis on Faculty of Technical Sciences (FTN), University of Novi Sad."
+keywords = ["ftn", "фтн", "diplomski rad", "дипломски рад", "master rad", "мастер рад"]
+categories = ["thesis"]
+exclude = ["thesis.pdf"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
