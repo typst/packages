@@ -1,0 +1,12 @@
+[package]
+name = "typograph"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Benjamin Cichos <https://github.com/BenCichos>"]
+license = "MIT"
+description = "Draw unopinionated diagrams: nodes, edges, curves, ports."
+repository = "https://github.com/BenCichos/typograph"
+keywords = ["diagram", "graph", "node", "edge", "drawing"]
+categories = ["visualization"]
+compiler = "0.15.1"
+exclude = ["docs", ".github", "tests", ".gitignore", "/0.2.0", "/*.pdf", "img"]
