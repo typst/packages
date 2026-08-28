@@ -3,7 +3,7 @@
 // All dimensions are derived from the measured component/page and support a
 // normal or hand-drawn Scrawl variant.
 
-#import "../vendor/scrawl/lib.typ": scrawl, rounded-rect-pts
+#import "@preview/scrawl:0.1.0": scrawl, rounded-rect-pts
 
 #let sexam-palette = (
   ink: rgb("#101010"),
