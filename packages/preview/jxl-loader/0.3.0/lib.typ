@@ -1,4 +1,4 @@
-#let _plugin = plugin("jxltypst_opt.wasm")
+#let _plugin = plugin("jxl_loader_opt.wasm")
 
 // CREDIT: grayness https://typst.app/universe/package/grayness/
 /// Internal function to accept bytes and paths on Typst 0.15 or later
@@ -21,7 +21,7 @@
 ///
 ///  _Example:_
 /// ```example
-/// #import "@preview/jxltypst:0.2.1": image-jxl
+/// #import "@preview/jxl-loader:0.3.0": image-jxl
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-grayscale(arturo)
 /// ```

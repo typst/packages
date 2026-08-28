@@ -1,15 +1,15 @@
-# jxltypst
+# jxl-loader for Typst
 
-A [Typst](https://typst.app/) WASM plugin for loading [JPEG XL](https://jpeg.org/jpegxl/) images in Typst documents.
+`jxl-loader` is a [Typst](https://typst.app/) WASM plugin for loading [JPEG XL](https://jpeg.org/jpegxl/) images in Typst documents.
 
-jxltypst uses [jxl-rs](https://github.com/libjxl/jxl-rs) to decode JPEG XL images and [wasm-minimal-protocol](https://github.com/astrale-sharp/wasm-minimal-protocol) to expose the decoder to Typst.
+jxl-loader uses [jxl-rs](https://github.com/libjxl/jxl-rs) to decode JPEG XL images and [wasm-minimal-protocol](https://github.com/astrale-sharp/wasm-minimal-protocol) to expose the decoder to Typst.
 
 ## Usage
 
-Import `image-jxl` from the jxltypst package:
+Import `image-jxl` from the jxl-loader package:
 
 ```typst
-#import "@preview/jxltypst:0.2.1": image-jxl
+#import "@preview/jxl-loader:0.3.0": image-jxl
 ```
 
 `image-jxl()` is a wrapper to the native [`image()`](https://typst.app/docs/reference/visualize/image/) function in Typst. It accepts the same arguments (i.e., `width`, `alt`, `fit`, etc.).
@@ -19,7 +19,7 @@ Import `image-jxl` from the jxltypst package:
 With Typst 0.15.0 or later, you can pass a `path` directly to `image-jxl`:
 
 ```typst
-#import "@preview/jxltypst:0.2.1": image-jxl
+#import "@preview/jxl-loader:0.3.0": image-jxl
 
 #image-jxl(path("path/to/image.jxl"))
 ```
@@ -29,7 +29,7 @@ With Typst 0.15.0 or later, you can pass a `path` directly to `image-jxl`:
 You can also read the image as binary data and pass it to `image-jxl`:
 
 ```typst
-#import "@preview/jxltypst:0.2.1": image-jxl
+#import "@preview/jxl-loader:0.3.0": image-jxl
 
 #let image-data = read("path/to/image.jxl", encoding: none)
 
@@ -67,21 +67,21 @@ cargo build --release --target wasm32-unknown-unknown
 The resulting WASM binary will be located at:
 
 ```text
-target/wasm32-unknown-unknown/release/jxltypst.wasm
+target/wasm32-unknown-unknown/release/jxl_loader.wasm
 ```
 
 ### Optimizing the WASM binary
 
-jxltypst can be optimized with [`wasm-opt`](https://github.com/WebAssembly/binaryen) from [Binaryen](https://github.com/WebAssembly/binaryen):
+jxl-loader can be optimized with [`wasm-opt`](https://github.com/WebAssembly/binaryen) from [Binaryen](https://github.com/WebAssembly/binaryen):
 
 ```sh
 wasm-opt \
-  ./target/wasm32-unknown-unknown/release/jxltypst.wasm \
+  ./target/wasm32-unknown-unknown/release/jxl_loader.wasm \
   --enable-simd \
   --enable-bulk-memory \
   --all-features \
   -O4 \
-  -o typst/jxltypst_opt.wasm
+  -o typst/jxl_loader_opt.wasm
 ```
 
 ### Using `just`
@@ -94,7 +94,7 @@ just makeopt
 
 ## How It Works
 
-jxltypst runs the JPEG XL decoder as a WebAssembly plugin inside Typst.
+jxl-loader runs the JPEG XL decoder as a WebAssembly plugin inside Typst.
 
 The plugin receives JPEG XL image data, decodes it using `jxl-rs`, and returns the decoded image data to Typst.
 
