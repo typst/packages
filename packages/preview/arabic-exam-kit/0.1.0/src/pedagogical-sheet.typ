@@ -1,7 +1,7 @@
 // Reproduction of an Arabic mathematics lesson sheet.
 // Typst 0.15.1 · CeTZ 0.5.2 · local checkout of fergousA/scrawl.
 #import "@preview/cetz:0.5.2": canvas, draw
-#import "../vendor/scrawl/lib.typ": scrawl, rounded-rect-pts, rect-pts, circle-pts
+#import "@preview/scrawl:0.1.0": scrawl, rounded-rect-pts, rect-pts, circle-pts
 
 #let navy = rgb("#003B78")
 #let navy-soft = rgb("#0B4A88")
