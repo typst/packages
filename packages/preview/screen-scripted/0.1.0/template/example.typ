@@ -21,7 +21,7 @@
       Enable/disable input checking for some package functions
       Example: Sluglines should only expect "INT" or "EXT" 
     */
-    check-strict: false,
+    check-strict: true,
     /*
       Control the slugline formatting
     */

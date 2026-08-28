@@ -1,7 +1,7 @@
 #let sp_config = state("scripted/config", (:))
 
 #let default_config() = (
-  check-strict: false,
+  check-strict: true,
   bold-slugs: true,
   dialogue-cont: true,  // Set to "false" for manual dialogue continuation
   slug-dashes: "double",  // "single" | "double"

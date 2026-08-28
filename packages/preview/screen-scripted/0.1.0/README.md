@@ -164,7 +164,7 @@ Creates reusable variants of a character name. It accepts one to three name stri
 
 ### `check-strict`
 
-When `true`, functions such as [`slugline`](#slugline) reject unconventional values. The default is `false`.
+When `true`, functions such as [`slugline`](#slugline) reject unconventional values. The default is `true`.
 
 ### `bold-slugs`
 
@@ -197,7 +197,7 @@ Sets the text used for continued dialogue cues. The default is `"CONT'D"`.
     (555) 555-5555
   ],
   config: (
-    check-strict: false,
+    check-strict: true,
     bold-slugs: true,
     dialogue-cont: true,
     slug-dashes: "single",
