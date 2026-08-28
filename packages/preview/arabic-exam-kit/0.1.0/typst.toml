@@ -8,5 +8,6 @@ description = "Reusable Arabic mathematics exam layouts, diagrams, effects and r
 compiler = "0.15.1"
 keywords = ["arabic", "exam", "education", "mathematics", "rough", "worksheet"]
 exclude = [
-      "/examples"
+      "/examples", 
+      "/docs"
 ]
