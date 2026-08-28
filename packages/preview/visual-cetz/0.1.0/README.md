@@ -92,10 +92,6 @@ The guide is excluded from the downloaded bundle — it is 1.8 MB of PDF
 against 8 kB of code — but stays browsable here on Universe.
 
 ## Licence
-
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — reuse freely,
-including commercially, with attribution. The **code examples** in the
-guide are additionally released into the public domain (CC0), so you can
-paste them into your own documents with no attribution at all. 
+MIT
 
 FERGOUS Abdelhak
