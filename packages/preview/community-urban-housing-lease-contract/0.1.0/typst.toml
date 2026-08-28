@@ -1,11 +1,11 @@
 [package]
-name = "urban-housing-lease-contract"
+name = "community-urban-housing-lease-contract"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["xialugui"]
 license = "MIT"
 description = "城镇房屋租赁合同。Urban Housing Lease Contract."
-repository = "https://github.com/xialugui/urban-housing-lease-contract"
+repository = "https://github.com/xialugui/community-urban-housing-lease-contract"
 keywords = ["housing lease", "房屋租赁", "contract", "合同"]
 categories = ["text"]
 exclude = [

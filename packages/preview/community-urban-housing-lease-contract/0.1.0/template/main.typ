@@ -1,4 +1,4 @@
-#import "@preview/urban-housing-lease-contract:0.1.0": *
+#import "@preview/community-urban-housing-lease-contract:0.1.0": *
 #show: config.with(
   //合同标题
   title: "城镇房屋租赁合同",
