@@ -9,9 +9,6 @@ jxltypst uses [jxl-rs](https://github.com/libjxl/jxl-rs) to decode JPEG XL image
 
 ## Usage
 
-> [!NOTE]
-> jxltypst is not yet available in Typst Universe. Install it locally (download and install or import the `typst` folder.)
-
 Import `image-jxl` from the jxltypst package:
 
 ```typst
