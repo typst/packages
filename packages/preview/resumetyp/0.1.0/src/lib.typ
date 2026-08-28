@@ -1,0 +1,1 @@
+#import "resumetyp.typ":  resume, contact-info, summary, skillset, experience, project, education, certification, print-contact, print-summary, print-skills, print-experience, print-projects, print-education, print-certifications
