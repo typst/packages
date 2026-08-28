@@ -2,7 +2,7 @@
 // Arabic exercise-card primitives inspired by the numbered worksheet supplied
 // by the user. Every physical value is derived from the measured card.
 
-#import "../vendor/scrawl/lib.typ": scrawl, circle-pts, rounded-rect-pts
+#import "@preview/scrawl:0.1.0": scrawl, circle-pts, rounded-rect-pts
 
 #let ex-palette = (
   one: rgb("#8CCFC6"),
