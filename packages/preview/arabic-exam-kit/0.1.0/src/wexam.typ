@@ -2,7 +2,7 @@
 // A Typst recreation of the decorative Arabic `sexam` / Wexam model supplied
 // by the user. All decoration is vector-based and can switch to Scrawl rough.
 
-#import "../vendor/scrawl/lib.typ": scrawl, rounded-rect-pts, circle-pts
+#import "@preview/scrawl:0.1.0": scrawl, rounded-rect-pts, circle-pts
 #import "@preview/ctz-euclide:0.3.0": *
 
 #let wexam-palette = (
