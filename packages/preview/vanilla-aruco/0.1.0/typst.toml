@@ -1,0 +1,28 @@
+[package]
+name = "vanilla-aruco"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Enter-tainer <@Enter-tainer>"]
+license = "MIT"
+description = "Generate compact vector ArUco markers."
+homepage = "https://github.com/Enter-tainer/vanilla-aruco"
+repository = "https://github.com/Enter-tainer/vanilla-aruco"
+keywords = ["aruco", "marker", "barcode", "wasm", "rust"]
+categories = ["visualization", "integration"]
+disciplines = ["computer-science", "engineering"]
+compiler = "0.13.0"
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "xtask",
+  "tests",
+  "examples",
+  ".typstignore",
+  ".gitignore",
+  "Cargo.toml",
+  "Cargo.lock",
+  "about.toml",
+  "src",
+  "target",
+]
