@@ -1,4 +1,4 @@
-#import "../lib.typ": aruco
+#import "@preview/vanilla-aruco:0.1.0": aruco
 
 #set page(margin: 2cm)
 
