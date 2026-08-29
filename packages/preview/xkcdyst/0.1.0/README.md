@@ -20,6 +20,9 @@ using the committed `sketch.wasm`.
 
 ![gallery.png](gallery.png)
 
+
+![User guide](USER-GUIDE.md)
+
 ## Why WASM here
 
 The `penciline` port needed one Bézier per path segment — fine in Typst
