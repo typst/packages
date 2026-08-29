@@ -1,4 +1,4 @@
-# xkcd-style TikZ → Typst + Rust/WASM
+8# xkcd-style TikZ → Typst + Rust/WASM
 
 Port of <https://tex.stackexchange.com/a/445690> (Frunobulax, CC BY-SA 4.0)
 to **Typst 0.15.1** + **CeTZ 0.5.2**, with the PGF `sketch` decoration
@@ -21,7 +21,7 @@ using the committed `sketch.wasm`.
 ![gallery.png](gallery.png)
 
 
-![User guide](USER-GUIDE.md)
+More details in the ![User guide](USER-GUIDE.md)
 
 ## Why WASM here
 
