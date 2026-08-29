@@ -15,7 +15,7 @@ optimization, while the public Typst API stays deliberately small:
 #aruco(42, dictionary: "DICT_6X6_250", size: 4cm, rotation: 90)
 ```
 
-![A black-and-white vanilla-aruco showcase](https://raw.githubusercontent.com/Enter-tainer/vanilla-aruco/main/examples/showcase.svg)
+![A black-and-white vanilla-aruco showcase](examples/showcase.svg)
 
 ## Features
 

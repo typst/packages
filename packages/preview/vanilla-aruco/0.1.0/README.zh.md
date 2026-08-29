@@ -13,7 +13,7 @@
 #aruco(42, dictionary: "DICT_6X6_250", size: 4cm, rotation: 90)
 ```
 
-![vanilla-aruco 黑白展示](https://raw.githubusercontent.com/Enter-tainer/vanilla-aruco/main/examples/showcase.svg)
+![vanilla-aruco 黑白展示](examples/showcase.svg)
 
 ## 特性
 
