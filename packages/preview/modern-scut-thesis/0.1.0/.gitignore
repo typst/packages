@@ -1,0 +1,6 @@
+/local/
+
+/out/
+*.pdf
+
+.typst/
