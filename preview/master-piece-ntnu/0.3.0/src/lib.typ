@@ -11,11 +11,12 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
 
-#import "@preview/equate:0.3.2": equate
+#import "@preview/equate:0.3.3": equate
 
 #let master-piece-ntnu(
   // Primary document language; either "en" or "no"
   primary-lang: "en",
+
   // Language-specific title, subtitle, abstract, and keywords.
   // Grouped by language, with only values for "en" and "no" being mandatory.
   // Localized abstract/keywords headings may be omitted only for "en" and "no".
@@ -35,6 +36,7 @@
       keywords: ("Ctrl+C", "Ctrl+V", "Imposter Syndrome"),
     ),
   ),
+
   // Ordered author information; only first and last names fields are mandatory
   authors: (
     (
@@ -50,6 +52,7 @@
       last-names: "Doe",
     ),
   ),
+
   // Ordered supervisor information; "external-org" replaces userid/faculty/dept
   supervisors: (
     (
@@ -67,6 +70,7 @@
       external-org: "Selskap AS",
     ),
   ),
+
   // Degree as part of which the thesis is conducted; all fields are mandatory.
   // Kind is the degree title conferred as listed in the third dropdown above.
   // Level is either "project", "bachelor", "master" or "phd"
@@ -76,40 +80,55 @@
     kind: "Master of Unapplied Sciences",
     level: "master",
   ),
+
   // Faculty that the thesis is part of
   faculty: "Faculty of Turning It Off and On Again",
+
   // Department that the thesis is part of
   department: "Department of Loyal Supervision",
+
   // Information about the cover page for the thesis
   cover: (
     // Whether to generate a cover page at all. Note that for the official submission,
     // NTNU will automatically generate a cover page, so this should probably be disabled
     // before submitting.
     enable: true,
+
     // Colour of rectangle to be used on the front cover.
     // Should either be none, or a "color" element.
     color: rgb("#8DA7CF"),
   ),
+
+  // Logo
+  logo: none,
+
   // Different margins for alternating pages. Adds extra margins to the inside-side of
   // each page, which helps keep all text legible when binding the thesis like a book,
   // but can look weird when presented as a PDF on a screen.
   alternating-margins: true,
+
   // Acknowledgements body
   acknowledgements: {
     par(lorem(100))
     par(lorem(150))
   },
+
   // Additional front-matter sections, each with keys "heading" and "body".
   // For example, ((heading: "Acronyms and Abbreviations", body: glossary),)
   extra-preambles: (),
+
   // Document date; hardcode for determinism/reproducibility
   doc-date: datetime.today(),
+
   // Document city (where it's being signed/authored/submitted)
   doc-city: "Trondheim",
+
   // Extra keywords, embedded in document metadata but not listed in text
   doc-extra-keywords: ("master thesis",),
+
   // Miscellaneous settings affecting the document's appearance
   style: (:),
+
   // Document body
   body,
 ) = context {
@@ -178,7 +197,7 @@
     enable: z.boolean(),
     color: z.color(),
   )))
-  // assert-arg-type("cover-image", cover-image, z.content(optional: true))
+  assert-arg-type("logo", logo, z.any(optional: true))
   assert-arg-type(
     "acknowledgements",
     acknowledgements,

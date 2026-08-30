@@ -9,7 +9,7 @@
 
 #let bar-stroke(bar-color) = bar-color.lighten(40%)
 
-#let logo = image("../assets/NTNU_logo_liggende_med_visjon.svg", width: 45mm)
+#let ntnu-logo-replacement = [NTNU | Kunnskap for en bedre verden]
 
 #let front-cover(
   title: "Example Title in Primary Language",
@@ -23,6 +23,7 @@
   date: datetime.today(),
   lang: "en",
   cover-color: rgb("#8DA7CF"),
+  logo: none,
   style,
 ) = {
   set page(margin: (left: left-margin, right: 30mm, top: 40mm, bottom: 25mm))
@@ -130,11 +131,14 @@
   v(1fr)
   if logo != none {
     logo
+  } else {
+    ntnu-logo-replacement
   }
 }
 
 #let back-cover(
   year: 2026,
+  logo: none,
   cover-color: rgb("#8DA7CF"),
   style,
 ) = {
@@ -194,6 +198,9 @@
 
   v(1fr)
 
-  // Logo
-  logo
+  if logo != none {
+    logo
+  } else {
+    ntnu-logo-replacement
+  }
 }

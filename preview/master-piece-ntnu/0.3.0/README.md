@@ -32,6 +32,8 @@ others:
   Chapter title in the page header;
 - Uses [headcount](https://typst.app/universe/package/headcount) to make figure,
   table, and listing numbers dependent on Chapter number;
+- Uses [codly](https://typst.app/universe/package/codly) to format `raw` blocks.
+- Uses [equate](https://typst.app/universe/package/equate) to add support for sub-equation numbering.
 - Includes built-in selective inclusion of indices: an index for figures,
   tables, and listings is automatically added if needed and omitted if not; and
 - Provides a simple interface and tuning options.
@@ -81,7 +83,9 @@ available:
 - `supervisors`: Information about who is supervising the degree project
 - `degree`: Degree within the scope of which this project is being conducted
 - `faculty`: NTNU faculty hosting the project
+- `department`: NTNU department hosting the project
 - `cover`: Information about the cover page, like whether to generate it at all and the color it should display
+- `logo`: Logo to display on the cover- and title-pages. 
 - `alternating-margins`: Whether to enable alternating margins (opposite of mirrored margins)
 - `acknowledgements`: Body of acknowledgements section
 - `extra-preambles`: Additional, arbitrary front-matter sections, if needed
@@ -92,6 +96,17 @@ available:
 
 Exact syntax and semantics for each option are shown in the starter `thesis.typ`
 main file provided by this template.
+
+## Logo
+This template does not include the official NTNU logo. There are usually copyright restrictions on university assets, but if you are authorized to use the logo for your thesis, include the image file in your own project directory and pass it to the template as content:
+
+```typst
+#master-piece-ntnu(
+  ...
+  logo: image("assets/ntnu-logo.png", width: 45mm),
+)
+```
+
 
 ## Future Work
 

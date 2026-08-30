@@ -1,5 +1,7 @@
 #import "./utils.typ": join-names, maybe-sans-serif, months-no, t, thesis-type-keys
 
+#let ntnu-logo-replacement = [NTNU | Kunnskap for en bedre verden]
+
 #let title-page(
   title: "Example Title in Primary Language",
   subtitle: "Example Subtitle in Primary Language",
@@ -11,7 +13,7 @@
   level: "master",
   date: datetime.today(),
   lang: "en",
-  logo: image("../assets/NTNU_logo_liggende_med_visjon.svg", width: 45mm),
+  logo: none,
   style,
 ) = {
   set page(margin: (top: 30mm, bottom: 30mm, inside: 35mm, outside: 25mm))
@@ -77,11 +79,10 @@
 
   v(2.5em)
 
-  // --- NTNU Logo ---
   if logo != none {
     logo
   } else {
-    image("../assets/ntnu_logo.svg", width: 44mm)
+    ntnu-logo-replacement
   }
 }
 
