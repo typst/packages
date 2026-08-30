@@ -1,4 +1,3 @@
-#import "@preview/icu-datetime:0.2.1" as icu
 #import "settings.typ": *
 #import "states.typ": *
 
