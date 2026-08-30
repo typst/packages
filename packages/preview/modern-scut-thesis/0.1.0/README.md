@@ -81,7 +81,7 @@ typst compile --input profile=blind --input blind=single thesis.typ thesis-blind
 
 ## 目录结构
 
-```
+```text
 .
 ├── typst.toml            # 包配置
 ├── lib.typ               # 主入口，导出 documentclass()
