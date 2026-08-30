@@ -412,7 +412,7 @@ Typst Web App 用户在首页 `Start from template` 中选择 `modern-scut-thesi
       #align(center, text(font: 辅助字体, size: 字号.五号)[(a) 左：typst 图形])
     ],
     [
-      #align(center, box(width: 100%, height: 100pt, image("images/example.svg", height: 100%)))
+      #align(center, box(width: 100%, height: 100pt, image("images/demo-figure.svg", height: 100%)))
       #align(center, text(font: 辅助字体, size: 字号.五号)[(b) 中：SVG 图片])
     ],
     [
