@@ -42,7 +42,7 @@
   international: international, // 留学生学位论文
   equivalent: equivalent, // 同等学力申请学位
   info, // 论文信息
-  bibliography: bibliography.with("ref.bib", style: "GB-T-7714—2015（顺序编码，双语，姓名不大写，无URL、DOI）.csl"),
+  bibliography: bibliography.with("ref.bib"),
 )
 
 // 全局页面设置
@@ -512,7 +512,7 @@ Typst 的公式语法与 LaTeX 不同，例如分式写作 `frac(a, b)` 而非 `
 
 == 参考文献
 
-本模板的参考文献按“条目数据与著录样式分离”的思路组织：条目统一维护在项目根目录的 `ref.bib`（BibTeX 格式）中，著录格式则由 `documentclass` 的 `bibliography` 参数指定的 CSL 文件统一控制，当前使用 GB/T 7714—2015 顺序编码双语变体，取自 Zotero 中文社区样式库@zotero-chinese-styles。需要更换样式时（例如要求显示 URL、DOI），只需替换该 CSL 文件，正文与条目文件均不必改动。
+本模板的参考文献按“条目数据与著录样式分离”的思路组织：条目统一维护在项目根目录的 `ref.bib`（BibTeX 格式）中，著录格式由模板包内置的 CSL 文件统一控制，当前使用 GB/T 7714—2015 顺序编码双语变体，取自 Zotero 中文社区样式库@zotero-chinese-styles，随包分发、不占用项目目录。需要更换样式时（例如要求显示 URL、DOI），在项目里放入自己的 CSL 文件，并在文献表调用前加一行 `#set bibliography(style: "你的样式.csl")` 即可覆盖，正文与条目文件均不必改动。
 
 .bib 条目一般不必手工编写：Zotero 等文献管理软件可选中条目导出 BibTeX，配合 Better BibTeX 插件还能固定引用键；中国知网、万方、Google Scholar 等学术网站的论文页面也提供“导出”或“引用”入口，可直接获取 BibTeX 记录，粘贴进 `ref.bib` 即可使用。`ref.bib` 中附有几条英文示例：IEEE 会议论文 @akkaynak2018revised @akkaynak2019seathru、arXiv 预印本 @wolf2025diffusion @chib2023recent，以及作者超过三人的期刊论文 @mitchell2022review。
 

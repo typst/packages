@@ -30,7 +30,7 @@ Typst 是可用于出版的可编程标记语言，拥有变量、函数与包�
 
 也可以用命令行初始化：
 
-```shell
+```sh
 typst init @preview/modern-scut-thesis:0.1.0 my-thesis
 cd my-thesis
 typst compile thesis.typ
@@ -50,20 +50,24 @@ typst compile thesis.typ
 
 ### 构建变体
 
-除最终版外，仓库还提供 `scripts/build.sh`（Linux/macOS）与 `scripts/build.ps1`（Windows），支持以下场景。
+构建参数由项目根目录 `build.typ` 解析命令行输入（`--input`），不传参数即最终版。常用变体：
 
-| 场景 | 说明 |
-|------|------|
-| `final` | 最终版（默认） |
-| `blind single` / `blind double` | 单盲/双盲盲审版，隐藏作者与导师信息 |
-| `for-check` | 查重版，只抽取正文与参考文献部分 |
-| `for-print` | 印刷版，自动补充空白背面页 |
-
-构建参数由项目根目录 `build.typ` 解析命令行输入（`--input`）。通过 `typst init` 创建的项目不含 `scripts/` 目录，直接使用 `--input` 命令即可，例如编译单盲版：
-
-```shell
+```sh
+# 盲审版：single 单盲 / double 双盲（缺省 double），隐藏作者与导师信息
 typst compile --input profile=blind --input blind=single thesis.typ thesis-blind-single.pdf
+
+# 印刷版：自动为封面等前置页补充空白背面页
+typst compile --input profile=for-print thesis.typ thesis-for-print.pdf
+
+# 查重版：查询正文页范围后抽取，并关闭 PDF 标签以兼容查重系统
+start=$(typst eval --in thesis.typ \
+  'query(<mainmatter-start>).first().location().page()')
+end=$(( $(typst eval --in thesis.typ \
+  'query(<backmatter-start>).first().location().page()') - 1 ))
+typst compile --no-pdf-tags --pages "$start-$end" thesis.typ thesis-for-check.pdf
 ```
+
+[源码仓库](https://github.com/snow-trap/modern-scut-thesis)的 `scripts/` 目录另提供这些命令的封装脚本。支持 Windows 和 Linux/MacOS。请注意，互联网上的脚本可能损坏您的电脑，即使你信任我，也请检查脚本内容后再执行！
 
 ## 特性
 
@@ -77,7 +81,7 @@ typst compile --input profile=blind --input blind=single thesis.typ thesis-blind
 - **算法伪代码**：`algorithm-figure()` 自动编号（基于 `algorithmic`）
 - **代码块**：行号与语法高亮（基于 `zebraw`）
 - **实验数据管理**：实验常量集中在 `data.typ` 定义，正文以变量引用，修改一处全文自动更新
-- **参考文献**：BibTeX 条目与 GB/T 7714—2015 CSL 样式分离，更换样式只需替换 CSL 文件；中文条目显示“等”、英文条目自动显示“et al.”
+- **参考文献**：BibTeX 条目与 GB/T 7714—2015 CSL 样式分离，样式随包分发且可一行覆盖；中文条目显示“等”、英文条目自动显示“et al.”
 
 ## 目录结构
 
@@ -96,7 +100,8 @@ typst compile --input profile=blind --input blind=single thesis.typ thesis-blind
 ├── layouts/              # 布局（doc/preface/mainmatter/appendix）
 ├── pages/                # 独立页面（封面、声明页、摘要、目录等）
 ├── utils/                # 辅助函数（字体字号、编号、定理环境等）
-└── scripts/              # 构建脚本（build.sh / build.ps1）
+├── GB-T-7714—2015（….csl # 默认参考文献样式（包内引用，不复制进用户项目）
+└── scripts/              # 构建脚本（build.sh / build.ps1，仅仓库提供）
 ```
 
 - `utils` 目录：不渲染出页面的辅助函数
@@ -142,5 +147,5 @@ Typst 的公式语法与 LaTeX 不同，直接粘贴 LaTeX 源码无法编译。
 
 本模板的代码与文档基于 MIT License 开源（见 [LICENSE](LICENSE) 文件）。以下文件不适用 MIT 许可，其权利归各自权利人所有：
 
-- `template/GB-T-7714—2015（顺序编码，双语，姓名不大写，无URL、DOI）.csl`：取自 [Zotero 中文社区样式库](https://zotero-chinese.com/styles/)，以 [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) 许可发布，版权归原作者（牛耕田等）所有，文件头部附有许可声明。
+- `GB-T-7714—2015（顺序编码，双语，姓名不大写，无URL、DOI）.csl`：取自 [Zotero 中文社区样式库](https://zotero-chinese.com/styles/)，以 [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) 许可发布，版权归原作者（牛耕田等）所有，文件头部附有许可声明。
 - 校徽与校名图片（`assets/scut-logo.jpg`、`template/images/scut_logo.jpg`）：版权归华南理工大学所有，官方版本见学校官网「[学校标识](https://www.scut.edu.cn/new/9017/list.htm)」页面。本模板仅为学位论文排版目的附带上述图片，不授予任何其他使用权利。

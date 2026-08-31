@@ -14,6 +14,10 @@
   set text(fallback: fallback, lang: lang)
   set page(margin: margin)
 
+
+  // 用户可在 thesis.typ 的文献表调用前 set bibliography(style: ...) 覆盖
+  set bibliography(style: "../GB-T-7714—2015（顺序编码，双语，姓名不大写，无URL、DOI）.csl")
+
   let metadata = if blind == "double" { (:) } else { (author: info.author) }
   set document(
     title: (("",)+ info.title).sum(),
