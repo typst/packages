@@ -40,12 +40,12 @@
 
       html.script(src: "https://unpkg.com/mathjax@4/startup.js", defer: true)
 
-      html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate@0.3.2/icon_font/iconfont.css")
+      html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/icon_font/iconfont.css")
 
-      html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate@0.3.2/styles/style.css")
+      html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/styles/style.css")
       // html.link(rel: "stylesheet", href: "./styles/style.css")
 
-      html.script(src: "https://unpkg.com/@hexiongwu1995/itemplate@0.3.2/scripts/script.js", defer: true)
+      html.script(src: "https://unpkg.com/@hexiongwu1995/itemplate/scripts/script.js", defer: true)
       // html.script(src: "./scripts/script.js", defer: true)
     })
     html.body({

@@ -31,7 +31,7 @@ This package automatically adds an HTML template when exporting Typst documents 
 ))[]
 #html.script(
   type: "module",
-  src: "https://unpkg.com/@hexiongwu1995/itemplate@0.3.2/examples/itemplate/three-orbital-cube.js",
+  src: "https://unpkg.com/@hexiongwu1995/itemplate/examples/itemplate/three-orbital-cube.js",
 )
 
 ```
