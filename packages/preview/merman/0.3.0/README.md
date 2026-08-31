@@ -365,7 +365,10 @@ cargo run --locked -p xtask -- typst-package-smoke --profile publish --skip-wasm
 
 Each smoke run owns an independent temporary directory under `target/typst-package-smoke/`. Positive fixtures preserve their nested output paths, and `tests/compile-fail/` fixtures must fail with the diagnostic declared by their adjacent `.error.txt` file. Successful runs remove their artifacts by default; pass `--keep-artifacts` to retain the run directory for inspection.
 
-The built package contains `merman_typst_plugin.manifest.json`, which is the verified artifact-recipe provenance, and `merman_package.manifest.json`, which binds that artifact to the exact frozen wrapper and legal-material tree. Packaging stages only snapshot bytes, verifies the complete file shape and contents, then rechecks live source identity immediately before atomically replacing the version directory.
+The build verifies artifact-recipe provenance from its private build directory, then stages only the
+runtime wrapper, WASM, examples, and legal materials. The transaction snapshots source bytes,
+verifies the complete file shape and contents, and rechecks live source identity immediately before
+atomically replacing the version directory; build receipts are not included in the published package.
 
 The sole package profile, `publish`, enables SVG rendering, analysis, the complete Mermaid language catalog, and the Cytoscape and ELK layout backends. There are no alternate bridge-only or SVG-only package profiles. ASCII, PNG, JPEG, and PDF are not compiled because this wrapper exposes no operation for those outputs. Maintainer experiments use direct Cargo features and do not create another package identity or release recipe.
 
