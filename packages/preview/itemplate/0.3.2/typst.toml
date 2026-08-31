@@ -1,8 +1,8 @@
 [package]
-name = "iTemplate"
-version = "0.3.0"
-entrypoint = "iTemplate.typ"
-exclude = ["images/*", ]
+name = "itemplate"
+version = "0.3.2"
+entrypoint = "itemplate.typ"
+exclude = ["assets/*", ]
 authors = ["HeXiongwu"]
 license = "MIT"
 description = "A html template developed by an amateur, use with caution."
