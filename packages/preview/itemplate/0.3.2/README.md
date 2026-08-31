@@ -5,6 +5,7 @@ This package automatically adds an HTML template when exporting Typst documents 
 # Usage
 
 ```typst
+// document.typ
 #import "@preview/itemplate: 0.3.2": *
 #show: contents => itemplate(title: "itemplate", contents)
 
@@ -34,5 +35,22 @@ This package automatically adds an HTML template when exporting Typst documents 
 )
 
 ```
+# Compilation
+
+- use tinymist to convert the document to HTML in VS Code.
+
+- or compile the document.typ to HTML in the command line:
+
+```powershell
+cd path/to/your/document.typ
+typst compile document.typ --format html
+```
+- or watch document.typ and auto-compile it to HTML in the command line:
+
+```powershell
+cd path/to/your/document.typ
+typst watch document.typ --format html
+```
+
 
 <img src="./assets/example.png" alt="output of the above code" width="900" />
