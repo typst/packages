@@ -1,0 +1,100 @@
+{
+  "id": "5227739",
+  "name": "iTemplate",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "929900",
+      "name": "toggle-on",
+      "font_class": "toggleon",
+      "unicode": "e85c",
+      "unicode_decimal": 59484
+    },
+    {
+      "icon_id": "5700826",
+      "name": "theme",
+      "font_class": "theme",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "7736439",
+      "name": "toggle-off",
+      "font_class": "toggle-off",
+      "unicode": "e925",
+      "unicode_decimal": 59685
+    },
+    {
+      "icon_id": "18442512",
+      "name": "menu",
+      "font_class": "menu3",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "5428364",
+      "name": "database",
+      "font_class": "database",
+      "unicode": "e6bc",
+      "unicode_decimal": 59068
+    },
+    {
+      "icon_id": "544893",
+      "name": "paintbrush",
+      "font_class": "paintbrush",
+      "unicode": "e8b4",
+      "unicode_decimal": 59572
+    },
+    {
+      "icon_id": "7617119",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "15617283",
+      "name": "expand-all",
+      "font_class": "expand-all",
+      "unicode": "e8be",
+      "unicode_decimal": 59582
+    },
+    {
+      "icon_id": "15838512",
+      "name": "print",
+      "font_class": "print",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "18531433",
+      "name": "arrow",
+      "font_class": "arrow2",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "34453216",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e858",
+      "unicode_decimal": 59480
+    },
+    {
+      "icon_id": "44370734",
+      "name": "Numbering",
+      "font_class": "Numbering",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "46741188",
+      "name": "Aside",
+      "font_class": "Aside",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    }
+  ]
+}

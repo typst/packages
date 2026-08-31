@@ -41,24 +41,25 @@
       html.script(src: "https://unpkg.com/mathjax@4/startup.js", defer: true)
 
       html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/icon_font/iconfont.css")
+      // html.link(rel: "stylesheet", href: "./assets/icon_font/iconfont.css")
 
       html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/styles/style.css")
-      // html.link(rel: "stylesheet", href: "./styles/style.css")
+      // html.link(rel: "stylesheet", href: "./assets/styles/style.css")
 
       html.script(src: "https://unpkg.com/@hexiongwu1995/itemplate/scripts/script.js", defer: true)
-      // html.script(src: "./scripts/script.js", defer: true)
+      // html.script(src: "./assets/scripts/script.js", defer: true)
     })
     html.body({
       html.div(class: ("container",), {
         html.aside({
-          html.span(class: ("aside-title-large-screen",), "目录")
+          html.span(class: ("aside-title-large-screen",), "Table of Contents")
           html.span(class: ("aside-title-small-screen",), title)
           html.div(class: ("function-panel",), {
             html.span(class: ("iconfont", "icon-Numbering"), {
-              html.span(class: "numbering-text")[标题序号]
+              html.span(class: "numbering-text")[Numbering Titles]
             })
             html.span(class: ("iconfont", "icon-expand-all"), {
-              html.span(class: "expand-all-text")[展开目录]
+              html.span(class: "expand-all-text")[Expand All]
             })
           })
           html.nav({

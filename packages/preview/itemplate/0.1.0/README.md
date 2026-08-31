@@ -6,35 +6,41 @@ This package automatically adds an HTML template when exporting Typst documents 
 
 ```typst
 // document.typ
-#import "@preview/itemplate: 0.3.2": *
+#import "@preview/itemplate: 0.1.0": *
 #show: contents => itemplate(title: "itemplate", contents)
 
 = #lorem(3)
 
-#lorem(10)
+#lorem(20)
 
 == #lorem(3)
 
-#lorem(10)
+#lorem(20)
 
 = #lorem(3)
 
-#lorem(10)
+#lorem(20)
 
 == #lorem(3)
 
-#lorem(10)
+#lorem(20)
 
 #html.elem("div", attrs: (
   style: "background: white; margin-top: 50px; width: 100%; height: 30vh",
   id: "three-orbital-cube",
 ))[]
+
 #html.script(
   type: "module",
   src: "https://unpkg.com/@hexiongwu1995/itemplate/examples/itemplate/three-orbital-cube.js",
 )
 
+// #html.script(
+//   type: "module",
+//   src: "./assets/three-js/three-orbital-cube.js",
+// )
 ```
+
 # Compilation
 
 - use tinymist to convert the document to HTML in VS Code.
@@ -53,4 +59,9 @@ typst watch document.typ --format html
 ```
 
 
-<img src="./assets/example.png" alt="output of the above code" width="900" />
+<img src="./assets/images/example.png" alt="output of the above code" width="900" />
+
+
+# source file
+
+All source files are in the `assets` directory.
