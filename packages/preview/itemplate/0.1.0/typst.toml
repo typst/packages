@@ -1,0 +1,12 @@
+[package]
+name = "itemplate"
+version = "0.1.0"
+entrypoint = "itemplate.typ"
+exclude = ["assets/*", "example.typ", "example.html"]
+authors = ["HeXiongwu"]
+license = "MIT"
+description = "A html template developed by an amateur, use with caution."
+repository = "https://github.com/hexiongwu1995/iTemplate"
+keywords = ["html", "template"]
+categories = ["components", "model", "utility"]
+compiler = "0.15.0"
