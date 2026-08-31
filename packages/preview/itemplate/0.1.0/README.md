@@ -64,4 +64,4 @@ typst watch document.typ --format html
 
 # source file
 
-All source files associated with this project, except for the iconfont files, are placed in the `assets` directory to ensure this package always maintains a consistent appearance and functionality.
+All source files associated with this project, except for the iconfont files, are placed in the `assets` directory to ensure this package always maintains a consistent appearance and functionality. The iconfont files can only be accessed from the npm package `@hexiongwu1995/itemplate` because typst does not support uploading font files.

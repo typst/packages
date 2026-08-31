@@ -41,7 +41,6 @@
       html.script(src: "https://unpkg.com/mathjax@4/startup.js", defer: true)
 
       html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/icon_font/iconfont.css")
-      // html.link(rel: "stylesheet", href: "./assets/icon_font/iconfont.css")
 
       html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/styles/style.css")
       // html.link(rel: "stylesheet", href: "./assets/styles/style.css")
