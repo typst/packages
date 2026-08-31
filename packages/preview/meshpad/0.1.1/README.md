@@ -17,7 +17,7 @@ line/dot every N steps — the classic look of engineering/milimetrado paper.
 ## Usage
 
 ```typ
-#import "@preview/meshpad:0.1.0": grid-paper
+#import "@preview/meshpad:0.1.1": grid-paper
 
 #grid-paper(size: (6, 4), kind: "square", step: 0.5, major-every: 2)
 ```
