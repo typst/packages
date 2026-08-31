@@ -8,5 +8,5 @@ license = "MIT"
 description = "A html template developed by an amateur, use with caution."
 repository = "https://github.com/hexiongwu1995/iTemplate"
 keywords = ["html", "template"]
-categories = ["html", "layout"]
+categories = ["components", "model", "utility"]
 compiler = "0.15.0"
