@@ -60,7 +60,7 @@ Dans le document, activez la police :
 ```typ
 #set text(font: "Amiri", lang: "ar")
 ```
-Vous pouvez utiliser d'autres polices si vous le souhaitez. il suffit de remplacer 'Amiri' par le nom de votre police. Par exemple, pour utliser [Estedad](https://fonts.google.com/selection?query=estedad) : 
+Vous pouvez utiliser d'autres polices si vous le souhaitez. il suffit de remplacer 'Amiri' par le nom de votre police. Par exemple, pour utliser [Estedad](https://fonts.google.com/specimen/Estedad) : 
 ```typ
 #set text(font: "Estedad", lang: "ar")
 ```
