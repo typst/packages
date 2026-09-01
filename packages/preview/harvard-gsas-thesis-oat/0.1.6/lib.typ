@@ -1,5 +1,11 @@
 #let school-color = rgb(165, 28, 48)
 
+// The nesting level of a heading, as seen from a `supplement` function. Which
+// field is available there depends on how the heading was written: markup
+// headings carry `depth`, `#heading(level: n)` carries `level`, and a plain
+// `#heading()` carries neither and is a chapter.
+#let heading-depth(it) = it.at("depth", default: it.at("level", default: 1))
+
 // A Contents entry for a front-matter page that carries no heading of its own.
 // The heading is queried by the outline but renders nothing, so the page keeps
 // its existing layout.
@@ -63,7 +69,7 @@
     it
   }
   set heading(supplement: it => {
-    if it.depth == 1 {
+    if heading-depth(it) == 1 {
       "Chapter"
     } else {
       "Section"
@@ -209,12 +215,14 @@
   counter(heading).update(0)
   set heading(numbering: "A.1")
   set heading(supplement: it => {
-    if it.depth == 1 {
+    if heading-depth(it) == 1 {
       "Appendix"
     } else {
       "Section"
     }
   })
+  // As in the main matter, an unnumbered level-1 heading -- an "Appendices"
+  // divider, say -- gets the opening without a letter.
   show heading.where(
     level: 1,
     outlined: true,
@@ -223,7 +231,14 @@
     #set text(20pt, weight: "regular")
     #pagebreak()
     #v(25%)
-    #text(100pt, school-color, counter(heading).display("A"))\
+    #{
+      if it.numbering == none {
+        hide(text(100pt, "0"))
+      } else {
+        text(100pt, school-color, counter(heading).display("A"))
+      }
+      linebreak()
+    }
     #text(24.88pt, it.body)
     #v(4em)
   ]

@@ -8,7 +8,7 @@ Follow formatting guidelines from https://gsas.harvard.edu/resource/dissertation
 ## 0.1.6
 - Front matter pages (title page, copyright, abstract, table of contents) are now listed in the table of contents
 - Preliminary pages use lowercase Roman numerals everywhere, including in the table of contents
-- Unnumbered chapters, such as the one `#bibliography()` creates, no longer repeat the previous chapter number
+- Unnumbered chapters, such as the one `#bibliography()` creates or an "Appendices" divider, no longer repeat the previous chapter number or letter, and no longer break the `Chapter`/`Section` supplement
 - `appendix()` numbers appendix chapters `A`, `B`, `C`, ..., with sections, figures, tables and equations following the letter; they are referenced as "Appendix A"
 - Example expanded with a second chapter, citations and a bibliography, a code listing, and a second appendix
 
