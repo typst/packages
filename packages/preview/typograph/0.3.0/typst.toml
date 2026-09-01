@@ -8,5 +8,5 @@ description = "Draw unopinionated diagrams: nodes, edges, curves, ports."
 repository = "https://github.com/BenCichos/typograph"
 keywords = ["diagram", "graph", "node", "edge", "drawing"]
 categories = ["visualization"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 exclude = ["docs", ".github", "tests", ".gitignore", "/0.2.0", "/*.pdf", "img"]
