@@ -44,14 +44,15 @@ Some features of the template:
 - uni forms (`assignment`, `kwd` and `conflict`)
     - These forms were custom written in Typst to match offical docx forms
     - By default auto scale to fit page, but custom style can set explicit sizing if needed
-    - filled from arguments passed to `thesis` function (its signature is not the cleanest so check out [metadata.typ](./template/metadata.typ))
+    - Filled from arguments passed to `thesis` function (its signature is not the cleanest so check out [metadata.typ](./template/metadata.typ))
+    - Included an AcroForm pdf with all forms so the professor can fill the metadata easily ([forms.pdf](./template/forms.pdf))
 - automatic counts for the physical description in the kwd form (just ensure custom figure kinds are set if used)
 - automatic page breaks for major sections (headings 1), with alignment to right page when `duplex` is used
 - custom serbian cryl translations for the bibliography using the ieee style guide (used by default with the `bibliography` exported by the template)
 - outlines for common figure types
     - "slika", "listing", "tabela" - auto recognized from `image`, `raw` and `table` figure kinds
     - "график" - custom kind, must be set when placing a figure
-    - other figure kinds can be outlined by passing `outlines` to `thesis`
+    - Other figure kinds can be outlined by passing `outlines` to `thesis`
 - idiomatic page/figure numbering
     - Front-matter pages numbered with roman numerals, main starts at 1
     - Chapters numbered 1.1 while appendices А.1 (following serbian azbuka enumeration)
