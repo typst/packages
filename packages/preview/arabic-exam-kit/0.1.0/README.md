@@ -54,7 +54,7 @@ n’est nécessaire.
 
 ### Police arabe
 
-Le package utilise la police **Amiri** téléchargeable depuis ![https://fonts.google.com/specimen/Amiri](https://fonts.google.com/specimen/Amiri). 
+Le package utilise la police **Amiri** téléchargeable depuis [https://fonts.google.com/specimen/Amiri](https://fonts.google.com/specimen/Amiri). 
 Dans le document, activez la police :
 
 ```typ
