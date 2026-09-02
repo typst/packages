@@ -90,7 +90,7 @@ The above example demonstrates several features of Algol:
 
 ## User-Side Features
 
-The philosophy of Algol is to be unopiniated but customizable.
+The philosophy of Algol is to be unopinionated but customizable.
 Hence, the keep its API flexible, Algol does not directly provide the following features.
 However, as we later show, these features can be easily implemented on the user side.
 
