@@ -67,17 +67,17 @@ This example demonstrates the three main features of Algol.
 | `box-stroke`                     | `stroke`                 | `.5pt + black` | Stroke of the outer box                                                                 |
 | `box-inset`                      | `length` \| `dictionary` | `.4em`         | [Inset](https://typst.app/docs/reference/layout/box/#parameters-inset) of the outer box |
 | `indent-length`                  | `length`                 | `1.5em`        | Indentation length of the algorithm                                                     |
-| `line-spacing`                   | `length`                 | `.6em`         | Spacing between the lines of the algorithm                                              |
+| `line-spacing`                   | `length`                 | `.6em`         | Vertical spacing between the lines of the algorithm                                     |
 | `line-numbering`                 | `str` \| `function`      | `"1"`          | [Numbering](https://typst.app/docs/reference/model/numbering/) of the line numbers      |
 | `line-number-fmt`                | `function`               | see below      | Takes the line-number string produced by `line-numbering` and returns formatted content |
-| `line-number-spacing`            | `length`                 | `1.5em`        | Vertical spacing between the line numbers and the lines of the algorithm                |
+| `line-number-spacing`            | `length`                 | `1.5em`        | Horizontal spacing between the line numbers and the lines of the algorithm              |
 | `guide-stroke`                   | `stroke`                 | `.5pt + black` | Stroke of the vertical guides and hooks                                                 |
 | `hook-length`                    | `length`                 | `.4em`         | Length of the hooks at the bottom left of finished code blocks                          |
 | `guide-left-offset`              | `length`                 | `.5em`         | Offset of the vertical guides at the left of code blocks (\*)                           |
 | `guide-top-offset`               | `length`                 | `.4em`         | Offset of the vertical guides at the top of code blocks (\*)                            |
 | `finished-guide-bottom-offset`   | `length`                 | `.1em`         | Offset of the vertical guides at the bottom of finished code blocks (\*)                |
 | `unfinished-guide-bottom-offset` | `length`                 | `.4em`         | Offset of the vertical guides at the bottom of unfinished code blocks (\*)              |
-| `finished-block-bottom-spacing`  | `length`                 | `.3em`         | Spacing at the bottom of finished code blocks (impacts the line layout)                 |
+| `finished-block-bottom-spacing`  | `length`                 | `.3em`         | Vertical spacing at the bottom of finished code blocks (impacts the line layout)        |
 
 (\*) The "guide offset" parameters do not impact the layout of the lines of the algorithm.
 
