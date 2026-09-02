@@ -7,7 +7,7 @@ authors = ["Timothé Albouy"]
 license = "MIT"
 description = "Unopinionated and customizable algorithmic typesetting package."
 repository = "https://github.com/TimotheAlbouy/algol"
-exclude = [ "/gallery/*", "/examples/*", "TODO.md" ]
+exclude = [ "/gallery/*", "/examples/*", "TODO.md", ".gitignore" ]
 keywords = [
   "algorithm", "algorithmic", "algorithms", "code",
   "pseudocode", "pseudo", "pseudo code", "program",
