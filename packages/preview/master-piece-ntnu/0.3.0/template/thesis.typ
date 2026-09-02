@@ -1,5 +1,4 @@
-// #import "@preview/master-piece-ntnu:0.3.0": master-piece-ntnu, setup-appendices
-#import "/src/lib.typ": master-piece-ntnu, setup-appendices
+#import "@preview/master-piece-ntnu:0.3.0": master-piece-ntnu, setup-appendices
 
 // The template is extensible and plays well with other dependencies;
 // For example, a table of acronyms can be generated using glossarium
