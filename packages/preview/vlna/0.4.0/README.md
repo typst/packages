@@ -187,11 +187,11 @@ Every match becomes a `#box`, so the package cannot be free — but it only
 pays for what the document needs. Measured on a 501-page Czech document with
 all rule groups firing (typst 0.15.0, 25 interleaved runs per version, each
 compile pinned to the same 8 cores). Harness, chart and the raw dataset are
-in [`examples/benchmark`](https://github.com/iamanro/typst-vlna/tree/v0.4.0/examples/benchmark):
+in [`examples/benchmark`](https://github.com/iamanro/typst-vlna/tree/44d206654cded561dfbeaa7f40feefe12466974e/examples/benchmark):
 
 ![Compile time p95 per version on a 501-page document: bare 2.84 s, v0.1.1
 8.14 s, v0.2.0 5.10 s, v0.3.0 12.98 s, v0.4.0 8.79 s; with one raw block
-v0.3.0 22.47 s and v0.4.0 20.47 s](https://raw.githubusercontent.com/iamanro/typst-vlna/v0.4.0/examples/benchmark/p95.png)
+v0.3.0 22.47 s and v0.4.0 20.47 s](https://raw.githubusercontent.com/iamanro/typst-vlna/44d206654cded561dfbeaa7f40feefe12466974e/examples/benchmark/p95.png)
 
 | | p95 | p50 | vs. bare document |
 |---|---:|---:|---:|
