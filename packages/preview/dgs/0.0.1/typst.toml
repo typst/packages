@@ -9,4 +9,4 @@ repository = "https://github.com/Xyndra/typst_dgs"
 keywords = ["geometry", "math", "graph", "equation", "plot"]
 categories = ["visualization"]
 compiler = "0.15.0"
-exclude = ["demo.typ"]
+exclude = ["examples/*", "crates/*", "target/*", "build.sh", "Cargo.toml", "Cargo.lock", ".gitignore"]
