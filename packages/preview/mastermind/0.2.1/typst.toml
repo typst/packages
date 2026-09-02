@@ -1,0 +1,12 @@
+[package]
+name = "mastermind"
+version = "0.2.1"
+entrypoint = "src/lib.typ"
+authors = ["Manuel Zani <https://github.com/manu3053>"]
+license = "GPL-3.0-or-later"
+description = "Draw UML class diagrams."
+keywords = ["class diagrams", "uml diagrams"]
+categories = ["visualization", "scripting"]
+disciplines = ["engineering", "computer-science"]
+exclude = ["docs/*", "thumbnails/*", "*.pdf", "*.sh"]
+compiler = "0.13.0"
