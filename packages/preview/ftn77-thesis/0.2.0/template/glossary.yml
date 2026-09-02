@@ -1,0 +1,17 @@
+json:
+  short: JSON
+  long: JavaScript Object Notation
+  group: abbr # possible values abbr/term
+
+html:
+  short: "HTML"
+  long: "HyperText Markup Language"
+  description:
+    Описни језик специјално намењен опису веб страница. Помоћу њега се једноставно могу одвојити
+    елементи као што су наслови, параграфи, цитати и слично.
+  # include in both when no group
+
+dependency:
+  short: зависност
+  description: Компонента, библиотека или други ресурс од којег програм или његов дио зависи ради свог функционисања
+  group: term

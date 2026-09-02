@@ -1,0 +1,12 @@
+[package]
+name = "meshpad"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Jesús Manuel González Meneses"]
+license = "MIT"
+description = "Configurable grid backgrounds for printable worksheets: square, ruled and dot grids, with darker major lines every N steps, with CeTZ."
+repository = "https://github.com/13Stokes31/meshpad"
+keywords = ["grid", "graph-paper", "worksheet", "education"]
+categories = ["visualization"]
+compiler = "0.14.0"
+exclude = ["tests", "gallery", "ROADMAP.md", "TESTING.md", ".gitignore"]
