@@ -1,0 +1,30 @@
+[package]
+name = "kinetic-kit"
+version = "0.1.1"
+entrypoint = "lib.typ"
+
+authors = ["Nick Le Large <@ll-nick>"]
+license = "MIT-0"
+description = "Doctoral thesis published through KIT Scientific Publishing"
+
+repository = "https://github.com/ll-nick/kinetic-kit"
+keywords = [
+  "dissertation",
+  "doctoral",
+  "master",
+  "bachelor",
+  "thesis",
+  "karlsruhe",
+  "kit",
+  "karlsruhe institute of technology",
+  "ksp",
+]
+categories = ["thesis"]
+disciplines = ["engineering", "computer-science"]
+compiler = "0.15.0"
+exclude = ["/docs/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail/thumbnail.png"
