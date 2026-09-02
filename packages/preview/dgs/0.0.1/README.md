@@ -29,6 +29,8 @@ A GeoGebra-like dynamic geometry plugin for Typst, powered by a WASM rendering e
 )
 ```
 
+![DGS Example](assets/readme.png)
+
 ## Development
 
 ### Prerequisites
