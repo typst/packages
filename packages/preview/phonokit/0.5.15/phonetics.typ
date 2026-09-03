@@ -624,7 +624,7 @@
     vowel: [voyelle],
     aspiration: [aspiration],
     prevoicing: [prévoisement],
-    vot-abbr: [DES],
+    vot-abbr: [DEV],
   ),
   "pt": (
     closure: [oclusão],
