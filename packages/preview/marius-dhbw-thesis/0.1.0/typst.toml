@@ -8,7 +8,7 @@ description = "A configurable template for academic theses at DHBW."
 repository = "https://github.com/mariusschermann/marius-dhbw-thesis"
 keywords = ["thesis", "academic", "dhbw", "german"]
 categories = ["report"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 
 [template]
 path = "template"
