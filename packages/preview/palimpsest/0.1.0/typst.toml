@@ -1,0 +1,12 @@
+[package]
+name = "palimpsest"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["David Hajage <dhajage@gmail.com>"]
+description = "Manuscript revision and reviewer response letters, generated from a single annotated source."
+license = "MIT"
+keywords = ["revision", "peer review", "rebuttal", "manuscript", "response letter"]
+compiler = "0.15.0"
+categories = ["academic"]
+repository = "https://github.com/eusebe/typst-palimpsest"
+exclude = ["tests", "mockup", "CLAUDE.md", "palimpsest-specification.md", "*.pdf", "**/*.pdf", "**/*.png", ".gitignore", ".DS_Store"]
