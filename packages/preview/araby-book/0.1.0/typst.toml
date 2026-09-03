@@ -5,7 +5,7 @@ entrypoint = "lib.typ"
 authors = ["Abdelaziz Islam Galal <abdelaziz.islam.galal@gmail.com>"]
 license = "BSD-3-Clause AND 0BSD"
 description = "A minimalist template for typesetting Arabic books."
-categories = ["books"]
+categories = ["book", "languages", "layout"]
 repository = "https://github.com/Abdelaziz-Islam-Galal/araby-book"
 
 [template]

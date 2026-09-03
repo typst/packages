@@ -38,14 +38,14 @@
   v(0.25em)
 }
 
-#let inline_verse(body, ref: none, color: rgb("#8b0000")) = {
+#let inline-verse(body, ref: none, color: rgb("#8b0000")) = {
   text(fill: color, weight: "medium", size: 0.95em)[« #body »]
   if ref != none [
     #text(size: 0.7em, fill: gray.darken(40%))[-- #ref --]
   ]
 }
 
-#let inline_quotation(body, ref: none) = {
+#let inline-quotation(body, ref: none) = {
   text(style: "italic", weight: "medium", size: 0.95em)[« #body »]
   if ref != none [
     #text(size: 0.7em, fill: gray.darken(40%))[-- #ref --]

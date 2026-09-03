@@ -17,7 +17,7 @@ of the box.
 - Styled level-1 ("فصل") and level-2 headings.
 - Colored footnotes with a matching entry style.
 - Helpers for classical Arabic poetry pairs (`poetry`) and Quranic /
-  decorative verse callouts (`verse`, `inline_verse`).
+  decorative verse callouts (`verse`, `inline-verse`).
 
 ## Usage
 
@@ -69,9 +69,9 @@ Typst Universe.
   one line, separated by a centered `***`.
 - `verse(body, ref: none, color: rgb("#8b0000"))` - renders a centered,
   boxed verse or quotation with an optional attribution.
-- `inline_verse(body, ref: none, color: rgb("#8b0000"))` - renders a short
+- `inline-verse(body, ref: none, color: rgb("#8b0000"))` - renders a short
   quotation inline within a paragraph, with an optional attribution.
-- `inline_quotation(body, ref: none)` - renders a short quotation inline within a
+- `inline-quotation(body, ref: none)` - renders a short quotation inline within a
   paragraph, in italic style, with an optional attribution.
 
 See [`template/main.typ`](template/main.typ) for a complete working example.

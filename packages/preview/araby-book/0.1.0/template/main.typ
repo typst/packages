@@ -3,7 +3,7 @@
 // attribution required. lib.typ, which this file imports, remains
 // BSD-3-Clause — see LICENSE and LICENSE-0BSD in the package root.
 
-#import "@preview/araby-book:0.1.0": book, inline_quotation, inline_verse, poetry, verse
+#import "@preview/araby-book:0.1.0": book, inline-quotation, inline-verse, poetry, verse
 
 #show: book.with(
   title: "في ظلال الكلمات",
@@ -50,13 +50,14 @@
   ref: [سورة طه: 114],
 )
 
-ويمكن استخدام `inline_verse` لإدراج آية قرآنية أو نص مبرز قصير داخل السياق، مثل قوله:
-#inline_verse([وَقُل رَّبِّ زِدْنِي عِلْمًا], ref: [سورة طه: 114])
+
+ويمكن استخدام `inline-verse` لإدراج آية قرآنية أو نص مبرز قصير داخل السياق، مثل قوله:
+#inline-verse([وَقُل رَّبِّ زِدْنِي عِلْمًا], ref: [سورة طه: 114])
 ضمن فقرة عادية دون قطع تسلسل النص.\
 
-أما `inline_quotation` فتُستخدم لإدراج اقتباس عام، بخط مائل بدلاً
+أما `inline-quotation` فتُستخدم لإدراج اقتباس عام، بخط مائل بدلاً
 من اللون المميز، كما في قول الجاحظ:
-#inline_quotation([الكتاب هو الصاحب الذي لا يخونك], ref: [الجاحظ])
+#inline-quotation([الكتاب هو الصاحب الذي لا يخونك], ref: [الجاحظ])
 داخل السياق. \
 
 المصادر اختيارية ويمكن حذفها إذا لم تكن هناك حاجة لذكرها.
