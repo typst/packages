@@ -7,6 +7,6 @@ description = "Manuscript revision and reviewer response letters, generated from
 license = "MIT"
 keywords = ["revision", "peer review", "rebuttal", "manuscript", "response letter"]
 compiler = "0.15.0"
-categories = ["academic"]
+categories = ["office", "utility"]
 repository = "https://github.com/eusebe/typst-palimpsest"
 exclude = ["tests", "mockup", "CLAUDE.md", "palimpsest-specification.md", "*.pdf", "**/*.pdf", "**/*.png", ".gitignore", ".DS_Store"]

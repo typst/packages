@@ -80,7 +80,7 @@ main.typ          the pilot (a handful of lines)
 #import "@preview/palimpsest:0.1.0": *
 
 #show: revisions.with(
-  template: my-journal-template.with(title: [...], authors: (...)),
+  template: my-journal-template.with(title: [...], authors: ("...",)),
   exchanges: include "responses.typ",
 )
 
