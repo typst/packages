@@ -4,10 +4,11 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Marius Schermann"]
 license = "MIT"
-description = "A configurable Typst template for academic theses at DHBW."
+description = "A configurable template for academic theses at DHBW."
 repository = "https://github.com/mariusschermann/marius-dhbw-thesis"
 keywords = ["thesis", "academic", "dhbw", "german"]
 categories = ["report"]
+compiler = "0.15.1"
 
 [template]
 path = "template"
