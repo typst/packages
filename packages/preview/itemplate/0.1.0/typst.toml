@@ -2,7 +2,7 @@
 name = "itemplate"
 version = "0.1.0"
 entrypoint = "itemplate.typ"
-exclude = ["assets/*"]
+exclude = ["assets/example.png"]
 authors = ["HeXiongwu"]
 license = "MIT"
 description = "A html template developed by an amateur, use with caution."
