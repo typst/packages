@@ -156,7 +156,7 @@ The following example puts all of the above together.
 
 #let my-algol(it) = {
   show regex("\\b(if|then|else|return)\\b"): it => text(blue, strong(it))
-  algol(it, stroke: 0pt)
+  algol(it)
 }
 
 #let lcomment(c) = [$triangle.small.r$ _ #c _]          // left-aligned comment
