@@ -43,10 +43,8 @@
       html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/icon_font/iconfont.css")
 
       html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/styles/style.css")
-      // html.link(rel: "stylesheet", href: "./assets/styles/style.css")
 
       html.script(src: "https://unpkg.com/@hexiongwu1995/itemplate/scripts/script.js", defer: true)
-      // html.script(src: "./assets/scripts/script.js", defer: true)
     })
     html.body({
       html.div(class: ("container",), {

@@ -1,12 +1,12 @@
 # itemplate
 
-This package restructures the default exported HTML file to provide a more complex structure for subsequent CSS styling and JS manipulation. The exported HTML uses online CSS and JS resources from an npm package named `@hexiongwu1995/itemplate`. An importMap for Three.js has also been added to provide potential 3D visualization features.
+This package restructures the default exported HTML file to provide a more complex skeleton for subsequent CSS styling and JS manipulation. The exported HTML uses online CSS and JS resources from an npm package named `@hexiongwu1995/itemplate`. An importMap for Three.js has also been added to provide potential 3D visualization features.
 
 # Usage
 
 ```typst
 // document.typ
-#import "@preview/itemplate: 0.1.0": *
+#import "@preview/itemplate:0.1.0":*
 #show: contents => itemplate(title: "itemplate", contents)
 
 = #lorem(3)
@@ -34,11 +34,6 @@ This package restructures the default exported HTML file to provide a more compl
   type: "module",
   src: "https://unpkg.com/@hexiongwu1995/itemplate/examples/itemplate/three-orbital-cube.js",
 )
-
-// #html.script(
-//   type: "module",
-//   src: "./assets/three-js/three-orbital-cube.js",
-// )
 ```
 
 # Compilation
@@ -59,9 +54,9 @@ typst watch document.typ --format html
 ```
 
 
-<img src="./assets/images/example.png" alt="output of the above code" width="900" />
+<img src="./assets/example.png" alt="output of the above code" width="900" />
 
 
 # source file
 
-All source files associated with this project, except for the iconfont files, are placed in the `assets` directory to ensure this package always maintains a consistent appearance and functionality. The iconfont files can only be accessed from the npm package `@hexiongwu1995/itemplate` because typst does not support uploading font files.
+All source files associated with this project can be accessed from the npm package `@hexiongwu1995/itemplate`.
