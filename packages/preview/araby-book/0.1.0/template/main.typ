@@ -1,3 +1,8 @@
+// This scaffold file is licensed under the BSD Zero Clause License (0BSD):
+// use, modify, and distribute it freely as part of your own book, with no
+// attribution required. lib.typ, which this file imports, remains
+// BSD-3-Clause — see LICENSE and LICENSE-0BSD in the package root.
+
 #import "@preview/araby-book:0.1.0": book, inline_quotation, inline_verse, poetry, verse
 
 #show: book.with(

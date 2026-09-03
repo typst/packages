@@ -74,8 +74,13 @@ Typst Universe.
 - `inline_quotation(body, ref: none)` - renders a short quotation inline within a
   paragraph, in italic style, with an optional attribution.
 
-See [`main.typ`](main.typ) for a complete working example.
+See [`template/main.typ`](template/main.typ) for a complete working example.
 
 ## License
 
-This template is licensed under the [BSD 3-Clause License](LICENSE).
+`lib.typ` is licensed under the [BSD 3-Clause License](LICENSE).
+
+The `template/` scaffold (`main.typ`, copied into your project by
+`typst init`) is licensed under the [BSD Zero Clause License](LICENSE-0BSD)
+instead, so you can freely use, modify, and distribute your own book —
+written starting from that file — without any attribution requirement.

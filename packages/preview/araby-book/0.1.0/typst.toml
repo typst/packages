@@ -3,12 +3,12 @@ name = "araby-book"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Abdelaziz Islam Galal <abdelaziz.islam.galal@gmail.com>"]
-license = "BSD-3-Clause"
-description = "Typesetting Arabic books."
+license = "BSD-3-Clause AND 0BSD"
+description = "A minimalist template for typesetting Arabic books."
 categories = ["books"]
 repository = "https://github.com/Abdelaziz-Islam-Galal/araby-book"
 
 [template]
-path = "."
+path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
