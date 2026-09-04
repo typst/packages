@@ -1,5 +1,7 @@
 # starchy-junia
 
+> Report template following JUNIA engineering school's writing charter, built with [Typst](https://typst.app). Three variants (full folder-structure model, single-file `junia-light`, unopinionated `junia-expert`), bilingual FR/EN, auto-numbered figures and equations. Documentation below is in French, the template's primary audience.
+
 Modèle de rapport conforme à la charte de l'écrit de JUNIA, réalisé avec [Typst](https://typst.app).
 
 > **Nouveau sur Typst ?** Typst est un logiciel de mise en page à base de texte — comme LaTeX, mais plus simple. Vous rédigez du texte, le modèle s'occupe de la mise en forme. Pas besoin de connaître Typst pour utiliser ce modèle : il suffit de remplir `squelette.typ` et d'écrire dans les fichiers `02-fiches/`.
