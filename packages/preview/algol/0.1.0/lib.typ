@@ -1,0 +1,1 @@
+#import "algol.typ": algol, enable-line-refs, no-next-line-nb

@@ -1,0 +1,17 @@
+
+[package]
+name = "algol"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Timothé Albouy"]
+license = "MIT"
+description = "Unopinionated and customizable algorithmic typesetting package."
+repository = "https://github.com/TimotheAlbouy/algol"
+exclude = [ "/gallery/*", "/examples/*", "TODO.md", ".gitignore" ]
+keywords = [
+  "algorithm", "algorithmic", "algorithms", "code",
+  "pseudocode", "pseudo", "pseudo code", "program",
+]
+categories = ["components"]
+disciplines = ["computer-science", "mathematics"]
+compiler = "0.15.1"
