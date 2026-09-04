@@ -57,7 +57,7 @@
   #set align(center)
   #text(size: 1.5em, strong[CTyp 使用手册])
   
-  #emph[版本: 0.3.1]
+  #emph[版本: 0.3.2]
 ]
 
 CTyp 是一个用于提供 Typst 中文排版支持的包。
