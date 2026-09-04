@@ -169,11 +169,14 @@
   // \documentclass[review] turns on lineno at \scriptsize. A `set` inside an
   // `if` block would only apply within that block, so the switch lives in the
   // argument. The reference prints them at x=54.6 on both odd and even pages.
+  // The callback deliberately uses no `context`: a per-line introspection of
+  // the page counter keeps a long document from converging ("layout did not
+  // converge within 5 attempts"). The title block below opts out of the
+  // numbers instead; body lines on page 1 are numbered, which acmart's
+  // ruler does not do (see README).
   set par.line(
     numbering: if review {
-      n => context if counter(page).get().first() > 1 {
-        text(size: _scriptsize, font: _serif, fill: rgb(255, 0, 0), str(n))
-      }
+      n => text(size: _scriptsize, font: _serif, fill: rgb(255, 0, 0), str(n))
     } else { none },
     number-align: left,
     number-margin: left,
@@ -282,6 +285,9 @@
   // --- Title block ---------------------------------------------------------
   // LaTeX puts the first baseline \topskip below the text-block top, so the
   // title's larger face starts 3.4pt higher than a 10pt body line would.
+  // acmart's review ruler is absent from page 1; the topmatter is excluded
+  // from the line numbers here.
+  set par.line(numbering: none)
   v(-3.4pt)
   block(width: 100%, {
     set par(justify: false, first-line-indent: 0pt, leading: _lead(17pt, _LARGE))
@@ -417,7 +423,12 @@
   // reference, while a body that starts with plain text gets the bigskip.
   v(11.6pt, weak: true)
 
-  body
+  {
+    set par.line(numbering: if review {
+      n => text(size: _scriptsize, font: _serif, fill: rgb(255, 0, 0), str(n))
+    } else { none })
+    body
+  }
 
   if acknowledgements != none {
     heading(numbering: none, outlined: false)[Acknowledgments]

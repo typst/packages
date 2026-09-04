@@ -60,7 +60,7 @@ head and 14pt headsep come out of the top margin.
 | First body line | 106.93 | 106.86 |
 | Title | 103.57 | 103.44 |
 | Running foot | 670.35 | 670.37 |
-| Line numbers (`review`) | x 54.6, pure red, none on p.1 | x 54.6, pure red, none on p.1 |
+| Line numbers (`review`) | x 54.6, pure red, none on p.1 | x 54.6, pure red, none on the p.1 title block |
 | Running-head separator | 7.97 each side of the bullet | 7.97 |
 | First-page footnote block | flush at the text edge | flush |
 
@@ -218,9 +218,12 @@ Stated plainly, because this is a reimplementation and not the class itself:
   image, to keep the package free of binary assets.
 - **Line numbers.** acmart's `review` option draws a fixed ruler in the margin,
   numbering 12pt slots regardless of where text actually falls; Typst numbers
-  real lines. Color (pure red), size, left alignment, margin position,
-  restart on every page and absence from page 1 all match; the numbers
-  themselves correspond to lines rather than slots.
+  real lines. Color (pure red), size, left alignment, margin position and
+  restart on every page match; the numbers correspond to lines rather than
+  slots. acmart shows no ruler on page 1; here the title block carries no
+  numbers but body lines that start on page 1 do. Hiding them would need a
+  per-line `context` lookup of the page counter, which keeps documents of a
+  few dozen pages from converging.
 - **Author grouping.** acmart can put several authors sharing an affiliation on
   one byline row; here every author gets a line of their own, which is what jair.cls's
   `\@mkauthors@i` does for the journal formats anyway.
