@@ -7,4 +7,4 @@ license = "MIT"
 description = "A package for drawing squircles with tunable corner smoothing"
 categories = ["components"]
 keywords = ["squircle", "superellipse", "clothoid", "shape"]
-exclude = ["docs", "tests"]
+exclude = ["assets", "docs", "tests"]
