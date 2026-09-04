@@ -1,5 +1,9 @@
 # Marius DHBW Thesis
 
+A configurable template for academic theses at Baden-Wuerttemberg Cooperative State University (DHBW). It provides a customizable title page, front matter, page numbering, bibliography formatting, optional sections, and citation helpers.
+
+> This package is an independent project and is not an official template of Baden-Wuerttemberg Cooperative State University.
+
 Eine konfigurierbare Typst-Vorlage für wissenschaftliche Arbeiten an der Dualen Hochschule Baden-Württemberg.
 
 Die Vorlage stellt unter anderem folgende Bestandteile bereit:
