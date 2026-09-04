@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" default-locale="de-DE">
+  <info>
+    <title>Facharbeit (Fußnoten + Fett)</title>
+    <id>http://www.zotero.org/styles/facharbeit</id>
+    <author><name>Typst Vorlage</name></author>
+    <category citation-format="note"/>
+    <updated>2024-01-01T12:00:00+00:00</updated>
+  </info>
+
+  <!-- Makro für das Literaturverzeichnis: Autor fett -->
+  <macro name="author-bib">
+    <names variable="author">
+      <name name-as-sort-order="all" sort-separator=", " delimiter="; " font-weight="bold"/>
+      <label form="short" prefix=" (" suffix=")"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text variable="title" font-weight="bold"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <!-- Makro für die Fußnote: Autor normal -->
+  <macro name="author-note">
+    <names variable="author">
+      <name form="short" delimiter=" / "/>
+      <substitute>
+        <names variable="editor"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" font-style="italic"/>
+  </macro>
+
+  <macro name="publisher">
+    <group delimiter=", ">
+      <text variable="publisher-place"/>
+      <text variable="publisher"/>
+    </group>
+  </macro>
+
+  <macro name="date">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="locators">
+    <group prefix=", " delimiter=" ">
+      <label variable="locator" form="short"/>
+      <text variable="locator"/>
+    </group>
+  </macro>
+
+  <!-- Fußnoten-Format (Zitat) -->
+  <citation>
+    <layout delimiter="; " suffix=".">
+      <group delimiter=", ">
+        <text macro="author-note"/>
+        <text macro="title"/>
+        <text macro="date"/>
+      </group>
+      <text macro="locators"/>
+    </layout>
+  </citation>
+
+  <!-- Literaturverzeichnis-Format -->
+  <bibliography hanging-indent="true">
+    <sort>
+      <key macro="author-bib"/>
+      <key variable="title"/>
+    </sort>
+    <layout suffix=".">
+      <group delimiter=": ">
+        <text macro="author-bib"/>
+        <group delimiter=", ">
+          <text macro="title"/>
+          <text macro="publisher"/>
+          <text macro="date"/>
+        </group>
+      </group>
+    </layout>
+  </bibliography>
+</style>
