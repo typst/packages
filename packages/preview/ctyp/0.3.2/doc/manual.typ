@@ -3,7 +3,7 @@
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.10": *
 #codly(languages: codly-languages)
-#import "@preview/theorion:0.5.0": cosmos
+#import "@preview/theorion:0.6.0": cosmos
 #import cosmos.default: *
 #import "@preview/marge:0.1.0": sidenote
 
