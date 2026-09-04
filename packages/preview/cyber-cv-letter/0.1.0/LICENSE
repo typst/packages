@@ -1,0 +1,22 @@
+Copyright (C) 2026 gw0 <gw.2026@ena.one>.
+
+Licensed under AGPL-3.0-or-later (https://www.gnu.org/licenses/agpl-3.0).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+---
+
+Bundled font files under fonts/ keep their upstream license notices (see the
+LICENSE.txt in each directory) and are not relicensed. Fonts under
+fonts/IBM-Plex-Mono/, fonts/IBM-Plex-Sans/, and fonts/SourceSansPro/ are
+distributed under the SIL Open Font License 1.1. Fonts under fonts/Roboto/ are
+distributed under the Apache License 2.0. Embedding any of these fonts in
+generated PDFs carries no restriction.
