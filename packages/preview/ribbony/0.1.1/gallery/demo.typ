@@ -1,4 +1,4 @@
-#import "../src/ribbony.typ": *
+#import "@preview/ribbony:0.1.1": *
 
 #set align(center)
 #set page(width: 20cm, height: 36.5cm, margin: (x: 0.5cm, y: 0.5cm))
