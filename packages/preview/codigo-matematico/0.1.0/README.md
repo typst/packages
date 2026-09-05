@@ -4,7 +4,7 @@ Mathematical notes with PDF and web (HTML) output from the same source.
 Includes numbered definitions, axioms, theorems, propositions, lemmas,
 corollaries, examples, exercises, problems, and proofs. Environment labels
 are currently in Spanish, independently of the document's `lang` setting.
-Requires Typst **0.15.1 or later**.
+Requires Typst **0.15.0 or later**.
 
 ## Start a document
 
