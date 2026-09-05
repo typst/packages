@@ -1,0 +1,19 @@
+[package]
+name = "sanity"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Gustavo Rodrigues <https://github.com/techgustavo>"]
+license = "MIT"
+description = "Find unreferenced figures, uncited sources and lost labels."
+repository = "https://github.com/techgustavo/sanity"
+categories = ["utility", "model", "scripting"]
+keywords = ["lint", "manuscript", "references", "bibliography", "preflight", "checker", "refcheck"]
+compiler = "0.14.0"
+exclude = [
+  "examples",
+  "tests",
+  "bin",
+  "docs",
+  ".github",
+  ".gitignore"
+]
