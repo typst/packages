@@ -12,8 +12,8 @@ Read [manual](docs/manual.pdf) for documentation and examples.
 
 ## Demo
 
-Demo code is available in [gallery/demo.typ](https://github.com/solstice23/typst-ribbony/blob/main/gallery/demo.typ).
+Demo code is available in [gallery/demo.typ](gallery/demo.typ).
 
-![demo](gallery/demo.png)
+![Demo of Sankey and Chord diagrams created by the library](gallery/demo.png)
 
 Demo data source can be found in the [manual](docs/manual.pdf).

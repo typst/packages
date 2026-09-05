@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.4.2"
+#import "@preview/cetz:0.5.2"
 
 #import "./data-processing.typ": assign-layers, merge-duplicated-edges
 #import "./ribbon-stylizer.typ": edge-overriding-styles
