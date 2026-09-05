@@ -1,0 +1,17 @@
+[package]
+name = "codigo-matematico"
+version = "0.1.0"
+authors = ["Carlos E. Tafur Egido"]
+license = "MIT AND MIT-0"
+description = "Mathematical notes with PDF and web output."
+entrypoint = "src/template.typ"
+compiler = "0.15.1"
+keywords = ["mathematics", "notes", "theorems", "proofs", "html", "Spanish"]
+categories = ["report", "book"]
+disciplines = ["mathematics", "education"]
+exclude = ["/tests/", "/scripts/", "/dist/", "/.git/", "/.gemini/", "/.session.vim", "/.gitignore", "/todo.md", "/PUBLISHING.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
