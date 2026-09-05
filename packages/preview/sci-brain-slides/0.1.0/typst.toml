@@ -1,0 +1,17 @@
+[package]
+name = "sci-brain-slides"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["GiggleLiu <@GiggleLiu>", "sci-brain contributors"]
+license = "MIT"
+description = "Scientific talks with coordinated themes and layouts."
+repository = "https://github.com/GiggleLiu/sci-brain-slides"
+keywords = ["science", "slides", "touying", "research", "sci-brain"]
+categories = ["presentation", "components"]
+compiler = "0.14.0"
+exclude = ["/previews/", "/tests/", "/.github/", "/.gitignore", "/.gitattributes", "/REVIEW.md", "/gallery.typ", "/docs/*.pdf", "/docs/*.png", "/CHANGELOG.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
