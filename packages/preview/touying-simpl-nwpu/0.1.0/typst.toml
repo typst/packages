@@ -1,0 +1,15 @@
+[package]
+name = "touying-simpl-nwpu"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ramana"]
+license = "MIT"
+description = "西北工业大学 Touying 幻灯片主题 (Touying Slide Theme for NWPU)"
+repository = "https://github.com/RamanaVais/touying-simpl-nwpu"
+keywords = ["touying", "slide", "nwpu", "npu"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
