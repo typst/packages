@@ -18,7 +18,7 @@
 //      alternative Touying show-rules may recolor strong text.
 
 #import "scale.typ": sizes as default-sizes
-#import "@preview/touying:0.6.1": utils
+#import "@preview/touying:0.7.4": utils
 #import "palettes/brand.typ": on-color
 
 // Running pacing counter, shared across all gadget dicts in this document.

@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.7.4": *
 #import "../scale.typ": sizes as default-sizes
 
 // Body pages share a fixed header and footer, independent of content height.

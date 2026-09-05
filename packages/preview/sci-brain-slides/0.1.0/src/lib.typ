@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.7.4": *
 #import "themes/base.typ": slide, section-slide as new-section-slide
 
 #import "palettes/academic.typ" as _pal-academic

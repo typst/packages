@@ -9,17 +9,17 @@
 // ≥ 2.5 units apart. Edges are undirected by default; pass
 // `mark: (end: "straight")` for an arrow.
 //
-//   #import "@preview/cetz:0.4.2": canvas
+//   #import "@preview/cetz:0.5.2": canvas
 //   #import "@preview/sci-brain-slides:0.1.0": cetz-gadgets as make
 //   #let D = make(palette)
 //   #canvas(length: 1cm, {
-//     import "@preview/cetz:0.4.2": draw
+//     import "@preview/cetz:0.5.2": draw
 //     D.tensor((0,0), "A", [$A$])
 //     D.tensor((3,0), "B", [$B$])
 //     D.edge("A", "B")
 //   })
 
-#import "@preview/cetz:0.4.2": draw
+#import "@preview/cetz:0.5.2": draw
 
 #let make(pal) = (
   // Tensor-network node: small filled circle + label at its centre.

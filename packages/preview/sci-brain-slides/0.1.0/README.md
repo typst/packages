@@ -12,7 +12,7 @@ tables, and conclusions. Extracted from the
 
 ## Get started
 
-Install Typst 0.13.1 or newer and [DejaVu Sans](https://dejavu-fonts.github.io/).
+Install Typst 0.14.0 or newer and [DejaVu Sans](https://dejavu-fonts.github.io/).
 On Debian or Ubuntu, the font is in `fonts-dejavu-core`. Math and monospace fonts
 are bundled with Typst.
 
@@ -127,9 +127,9 @@ git diff --check
 The checks initialize a fresh project, compile every theme, verify the starter
 at three text sizes, and exercise invalid inputs, custom colors, local images,
 long titles, reveal timing, and optional diagrams. Generated PDFs go into
-`previews/`. CI runs the same checks on Typst 0.13.1 and 0.15.1.
+`previews/`. CI runs the same checks on Typst 0.14.0 and 0.15.1.
 
-Core slides use Touying 0.6.1. Optional diagram helpers load CeTZ 0.4.2;
+Core slides use Touying 0.7.4. Optional diagram helpers load CeTZ 0.5.2;
 annotation helpers load pinit 0.2.2. All dependency versions are pinned.
 
 See the [changelog](CHANGELOG.md) for releases. Bug reports should include a

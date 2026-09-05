@@ -219,7 +219,7 @@ Then the evidence.
 
 = Diagrams
 
-#import "@preview/cetz:0.4.2": canvas
+#import "@preview/cetz:0.5.2": canvas
 #let (tensor, automaton-state, edge, flowbox) = cetz-gadgets(pal)
 
 == Tensor network / structure before detail

@@ -8,7 +8,7 @@ description = "Scientific talks with coordinated themes and layouts."
 repository = "https://github.com/GiggleLiu/sci-brain-slides"
 keywords = ["science", "slides", "touying", "research", "sci-brain"]
 categories = ["presentation", "components"]
-compiler = "0.13.1"
+compiler = "0.14.0"
 exclude = ["/previews/", "/tests/", "/.github/", "/.gitignore", "/.gitattributes", "/REVIEW.md", "/gallery.typ", "/docs/*.pdf", "/docs/*.png", "/CHANGELOG.md"]
 
 [template]

@@ -148,7 +148,7 @@ and closes with one takeaway in `focus-slide`. `key_links(..pairs)` takes `(labe
 ## Optional diagrams and annotations
 
 ```typst
-#import "@preview/cetz:0.4.2": canvas
+#import "@preview/cetz:0.5.2": canvas
 #let (tensor, automaton-state, edge, flowbox) = cetz-gadgets(pal)
 #canvas(length: 1cm, {
   tensor((0, 0), "a", [$A$])
