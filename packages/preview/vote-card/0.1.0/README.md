@@ -11,7 +11,7 @@ Un package Typst permettant d'afficher des résultats de vote sous forme de cart
 ### Utilisation
 
 ```typst
-#import @preview/vote-card:0.1.0: vote-card
+#import "@preview/vote-card:0.1.0": vote-card
 
 // En français par défaut
 #vote-card(numero: 1, pour: 45, contre: 30, abstention: 5, connexions: 82)
@@ -38,7 +38,7 @@ A Typst package to display beautiful voting results as a card, featuring dynamic
 ### Usage
 
 ```typst
-#import "lib.typ": vote-card
+#import "@preview/vote-card:0.1.0": vote-card
 
 // Default (French)
 #vote-card(numero: 1, pour: 45, contre: 30, abstention: 5, connexions: 82)
