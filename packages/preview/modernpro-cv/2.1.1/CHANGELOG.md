@@ -1,9 +1,11 @@
 # Changelog
 
-## [2.1.1] - 2026-09-04
+## [2.1.1] - 2026-09-06
 
 ### Fixed
 
+- Corrected body leading and list spacing in every density preset so wrapped
+  lines and adjacent list items keep a consistent visual rhythm.
 - Made entry and section separators weak so their spacing collapses to one
   rhythm token, keeping every section transition consistent.
 

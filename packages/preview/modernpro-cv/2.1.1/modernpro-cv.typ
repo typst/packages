@@ -5,7 +5,7 @@
 // Author:  Academic Template Collective
 // License: MIT
 // Version: 2.1.1
-// Date:    2026-09-04
+// Date:    2026-09-06
 // Email:   maintainers@example.invalid
 ///////////////////////////////
 
@@ -46,8 +46,8 @@
   header-row-gap: 3pt,
   header-rule-gap: 7pt,
   header-content-gap: 12pt,
-  body-leading: 0.8em,
-  list-spacing: 0.4em,
+  body-leading: 0.55em,
+  list-spacing: 0.78em,
   rule-stroke: 0.4pt,
   section-tracking: 0.08em,
 )
@@ -64,8 +64,8 @@
     header-row-gap: 1.8pt,
     header-rule-gap: 4.8pt,
     header-content-gap: 7pt,
-    body-leading: 0.58em,
-    list-spacing: 0.2em,
+    body-leading: 0.42em,
+    list-spacing: 0.48em,
   )
 } else if preset == "relaxed" or preset == "spacious" {
   (
@@ -77,8 +77,8 @@
     header-row-gap: 3.6pt,
     header-rule-gap: 8pt,
     header-content-gap: 14pt,
-    body-leading: 0.95em,
-    list-spacing: 0.55em,
+    body-leading: 0.68em,
+    list-spacing: 0.95em,
   )
 } else {
   (
