@@ -4,4 +4,4 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Aurelien Saudemont"]
 license = "MIT"
-description = "Un composant Typst pour afficher des résultats de vote avec des barres de progression."
+description = "Un composant pour afficher des résultats de vote avec des barres de progression."
