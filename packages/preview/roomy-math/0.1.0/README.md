@@ -12,9 +12,6 @@ with `display(...)`, e.g. `$ display(frac(a,b)) $`. This does enlarge
 the expression, but the surrounding line height does **not** grow enough
 to match it — the enlarged expression ends up overlapping the lines of
 text above and below it.
-git add .
-git commit -m "Add roomy-math:0.1.0"
-git push
 
 ### Importing
 
@@ -36,7 +33,7 @@ definite integral, correcting for the discrepancy using derivatives evaluated
 only at the endpoints: #room($ sum_(i=a)^b f(i) = integral_a^b f(x) dif x + frac(f(a)+f(b), 2) + sum_(k=1)^m frac(B_(2k), (2k)!) (f^((2k-1))(b) - f^((2k-1))(a)) + R_m $) where $B_(2k)$ denotes the Bernoulli numbers and $R_m$ is a remainder term that can be bounded whenever the $(2m+1)$-th derivative of $f$ is controlled on the interval $[a,b]$. This identity underlies many classical asymptotic expansions, including Stirling's approximation for the factorial function.
 ```
 
-![Example](examples/comparison.png)
+![Comparison showing a math expression overlapping surrounding text when using display alone, versus rendering cleanly with room](examples/comparison.png)
 
 ## How it works
 
