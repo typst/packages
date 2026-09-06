@@ -1,0 +1,11 @@
+[package]
+name = "sprig"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak"]
+license = "MIT"
+description = "Mind maps, flower maps and fixed-grid maps drawn with pure Typst curves. Colour, print and poster themes; full RTL support with mirrored layout and configurable body alignment; no dependencies."
+keywords = ["mindmap", "mind-map", "flower", "blossom", "diagram", "rtl", "arabic", "french", "education", "poster"]
+compiler = "0.15.0"
+categories = ["visualization"]
+exclude = ["examples/*.pdf", "gallery/guide.pdf"]
