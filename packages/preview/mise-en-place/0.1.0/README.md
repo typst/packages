@@ -4,7 +4,7 @@
 
 A [Typst](https://typst.app/) package for creating cooking recipe diagrams based on the recipes found in [Cooking For Engineers](https://www.cookingforengineers.com/).
 
-See [`example.typ`](https://github.com/jan-Kulpas/mise-en-place/blob/main/example.typ) for an easy to digest example (and also my favorite recipe).
+See [`example.typ`](./example.typ) for an easy to digest example (and also my favorite recipe).
 
 ## Usage
 
