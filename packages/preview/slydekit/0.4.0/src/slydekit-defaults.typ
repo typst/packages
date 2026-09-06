@@ -1,5 +1,6 @@
 // States
 #let sk-states = (
+  activate-parser: state("activate-parser", true),
   app-slide-number: counter("appendix"),
   appendix: state("appendix", false),
   colors: state("colors", (:)),
@@ -65,3 +66,6 @@
 )
 
 #let default-language = ("en", "de", "fr",  "es", "it", "pt", "zh")
+
+// Reset both alignment axes explicitly before building the header/footer: align(horizon, ...) below only overrides the vertical axis, so without this the horizontal axis stays whatever a previous slide's body last set (e.g. #set align(center)), leaking into this header's/footer's layout.
+#let reset-align = {set align(start + top)}

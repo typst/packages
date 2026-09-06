@@ -56,9 +56,11 @@
   sk-states.appendix.update(true)
   counter(heading).update(0)
 
-  // body
-  slide-parser(slide-level: sk-states.slide-level.get(), body)
-
+  if sk-states.activate-parser.get() {
+    slide-parser(slide-level: sk-states.slide-level.get(), body)
+  } else {
+    body
+  }
 }
 
 // Hide new section slide

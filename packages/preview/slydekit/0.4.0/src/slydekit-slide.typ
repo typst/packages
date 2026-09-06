@@ -1,7 +1,6 @@
 #import "slydekit-defaults.typ": *
 #import "slydekit-animation.typ": split-at-pause, split-at-meanwhile, analyze-max-step
 
-
 // Slides
 #let slide(..args, steps: none, label: none) = {
   // Extraction and analysis of the positional arguments: title and body. If no title is provided, the first argument is the body. If two arguments are provided, the first is the title and the second is the body.
@@ -115,7 +114,6 @@
         }
       }
     }
-
   }
 }
 

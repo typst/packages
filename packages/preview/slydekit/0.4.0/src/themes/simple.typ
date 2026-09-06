@@ -30,6 +30,8 @@
 
   // Heading styles
   show heading.where(level: slide-level - 1): it => {
+    reset-align
+
     let header-content = {
       let dy = if sk-states.navigation-style.get() == "topbar" { 0em } else { -0.2em }
       [#move(dx: 1em, dy: dy)[*#sk-states.localization.get().toc*]]
@@ -41,12 +43,13 @@
     let header = full-width(fill: none, align(horizon, text(size: 1.2*sk-states.fonts.get().size, fill: sk-states.colors.get().primary)[#header-content]))
 
     set page(header: header, footer: none)
-    set align(horizon)
+    set align(start + horizon)
 
     progressive-outline(it, sk-states.colors.get().secondary.lighten(60%), slide-level: slide-level)
   }
 
   let header = context {
+    reset-align
     set text(size: sk-states.fonts.get().size)
     if sk-states.navigation-style.get() == "topbar" {
       let header-title = [#h(1em)*#slide-subtitle()*]
@@ -64,6 +67,7 @@
   }
 
   let footer = context {
+    reset-align
     set text(size: sk-states.fonts.get().size)
     let current-page = if sk-states.appendix.get() {
       sk-states.app-slide-number.get().first()
