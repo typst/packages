@@ -1,0 +1,10 @@
+[package]
+name = "roomy-math"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Koha <khongchiuchepbai@gmail.com>"]
+license = "MIT"
+description = "A Typst package that fixes line overflow when math expressions are sized as display while written inline."
+repository = "https://github.com/5mKh04/roomy-math"
+keywords = ["math", "inline", "display", "equation", "typography"]
+compiler = "0.15.1"
