@@ -49,7 +49,7 @@ For each problem, initiate the template and add tasks.
 #task Beschreibe alle Regeln, die du gefunden hast.
 ```
 
-![Example](assets/example.png)
+![Image of the code above rendered](assets/example.png)
 
 ## Details
 
