@@ -8,3 +8,4 @@ description = "Vorlage für Klausuraufgaben der Deutschen Linguistikolympiade (D
 repository = "https://github.com/Ikaluk/dol-theme"
 disciplines = ["linguistics"]
 keywords = ["linguistics", "olympiad", "DOL", "Deutsche Linguistikolympiade"]
+exclude = ["docs.*", "assets/example.png"]
