@@ -1,4 +1,4 @@
-#import "@preview/procedure-checklist:0.1.0": *
+#import "@preview/check-six:0.1.0": *
 
 #show: checklist.with(
   title: "Cessna 152 Checklist",

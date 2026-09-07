@@ -1,16 +1,16 @@
-# procedure-checklist
+# check-six
 
 A simple, dotted-leader checklist layout for aircraft (or other) procedure
 checklists, built for Typst. Optimized for A4 and A5 paper, with optional
 two-column layout, checkboxes, numbered steps, and highlighted
 warning/caution boxes.
 
-<img src="https://github.com/Dottellini/procedure-checklist/blob/main/thumbnail.png?raw=true" alt="Example image of the Template" style="width:50%; height:auto;">
+<img src="https://github.com/Dottellini/check-six/blob/main/thumbnail.png?raw=true" alt="Example image of the Template" style="width:50%; height:auto;">
 
 ## Usage
 
 ```typ
-#import "@preview/procedure-checklist:0.1.0": *
+#import "@preview/check-six:0.1.0": *
 
 #show: checklist.with(
   title: "Cessna 152 Checklist",
@@ -33,7 +33,7 @@ warning/caution boxes.
 ]
 ```
 
-Run `typst init @preview/procedure-checklist` to start a new project from
+Run `typst init @preview/check-six` to start a new project from
 the bundled template.
 
 ## Reference
