@@ -59,7 +59,7 @@
   body
 }
 
-#let pageSetup(body) = {
+#let page-setup(body) = {
   set page(paper: "a4", margin: (left: 3cm, right: 3cm, top: 2cm, bottom: 2cm))
   base-style(body)
 }

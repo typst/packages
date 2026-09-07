@@ -35,7 +35,7 @@ Just the base styling, no cover page:
 
 ```typst
 #import "@preview/sdust:0.1.0": *
-#show: pageSetup
+#show: page-setup
 ```
 
 See the comment block at the bottom of `lib.typ` for a copy-paste starter
@@ -55,7 +55,7 @@ Windows: `%APPDATA%\typst\packages\local`. Then import `@local/sdust:0.1.0`.)
 
 | Function | Description |
 |---|---|
-| `pageSetup` | Base styling, no cover page |
+| `page-setup` | Base styling, no cover page |
 | `thesis` | Bachelor's / Master's thesis title page |
 | `note` | Lecture notes |
 | `exercise` | Exercise sheets |
