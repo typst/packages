@@ -1,6 +1,6 @@
 [package]
 name = "exm"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "lib/lib.typ"
 repository = "https://github.com/data-8/exm"
 authors = ["Tim Xie <xie@berkeley.edu>"]
