@@ -85,7 +85,7 @@
   guide-stroke: .5pt + black,
   hook-length: .4em,
   guide-left-offset: .5em,
-  guide-top-offset: .4em,
+  guide-top-offset: .3em,
   finished-guide-bottom-offset: .1em,
   unfinished-guide-bottom-offset: .4em,
   finished-block-bottom-spacing: .3em,
