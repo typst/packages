@@ -5,24 +5,17 @@ sane base styling for coursework at the University of Southern Denmark:
 `thesis`, `note`, `exercise`, `assignment`, `project`, `submission`, `exam`,
 and `chi`.
 
-Every cover page uses the SDU layout, SDU red accent, A4, and defaults to
+Every cover page uses a custom SDU layout, SDU red accent, A4, and defaults to
 "University of Southern Denmark".
-
-**The SDU logo is not bundled.** It's a controlled brand asset
-(`grafiskcenter@sdu.dk`), so no logo is drawn unless you pass one:
 
 ```typst
 #show: thesis.with(
-  logo: image("sdu-logo.png", width: 12em),   // download from SDUnet
+  logo: image("sdu-logo.png", width: 12em),   // download from SDUs webpage
   ...
 )
 ```
 
 Pass `logo: none` (the default) for no logo at all.
-
-Plotting, trees, pseudocode and node graphs live in
-[utilst](https://github.com/simo899t/utilst). Personal math notation lives
-in [tempst](https://github.com/simo899t/tempst), which builds on both.
 
 ## Usage
 
@@ -83,15 +76,3 @@ Also exported: `base-style`, `bib`,
 `theorem`, `definition`, `example`, `proof`, `corollary`, `block` (the `QED`
 tombstone too), plus the exercise cards `question` / `answer` — coloured
 titled cards, e.g. `#theorem(title: "Theorem 1")[...]`.
-
-## Plotting, code styling, and other helpers
-
-`plot2d` / `plot3d` / `formula`, `tree`, `pseudo`, `graph`, `tex`, and the
-`code-style` / `simple-code` code-block styling (codly) live in
-[utilst](https://github.com/simo899t/utilst). Add fancy code blocks to an
-sdust document with:
-
-```typst
-#import "@preview/utilst:0.1.0": code-style
-#show: code-style
-```

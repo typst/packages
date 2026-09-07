@@ -228,34 +228,48 @@
   align(center,
     stack(
       spacing: 0pt,
-      if logo != none { stack(v(0.4cm), logo, v(1.6cm)) } else { v(1.2cm) },
-      text(size: 13pt, fill: rgb("#555555"))[#university],
-      if department != none {
-        stack(v(0.4em), text(size: 11pt, fill: rgb("#777777"))[#department])
-      },
+      if logo != none { stack(v(1.4cm), scale(220%)[#logo], v(2.6cm)) } else { v(1.2cm) },
+      text(size: 17pt, fill: rgb("#555555"))[#smallcaps[#university]],
+    
       v(0.6em),
       line(length: 60%, stroke: 0.5pt + sdu-red),
       v(2.5cm),
-      text(size: 9.5pt, fill: sdu-red, tracking: 2.5pt, weight: "bold")[
-        #if programme != none { upper(programme) } else [THESIS]
+      text(size: 12.5pt, fill: sdu-red, tracking: 2.5pt, weight: "bold")[
+        #if programme != none { upper(programme) } else [#smallcaps[THESIS]]
       ],
-      v(1.2em),
-      text(size: 28pt, weight: "bold")[#title],
+      v(2.4em),
+      text(size: 30pt, weight: "bold")[#title],
       if subtitle != none {
-        stack(v(1.2em), text(size: 15pt, fill: rgb("#444444"), style: "italic")[#subtitle])
+        stack(v(2em), text(size: 15pt, fill: rgb("#444444"), style: "italic")[#smallcaps[subtitle]])
       },
       v(1em),
       line(length: 40%, stroke: 0.5pt + rgb("#aaaaaa")),
-      v(1fr),
-      text(size: 12pt)[#_fmt-authors(author)],
+      v(10em),
       if supervisor != none {
-        stack(v(0.5em), text(size: 10pt, fill: rgb("#666666"))[
-          Supervisor#if type(supervisor) == array and supervisor.len() > 1 [s]: #_fmt-authors(supervisor)
-        ])
+        stack(
+          v(2.5em),
+          text(size: 16pt, fill: rgb("#0b0b0b"))[
+            *Author*#if type(author) == array and author.len() > 1 [*s*]: \
+            #_fmt-authors(author)
+          ],
+        )
       },
-      v(0.4em),
-      text(size: 11pt, fill: rgb("#888888"))[#date],
+
+      if supervisor != none {
+        stack(
+          v(2.5em),
+          text(size: 12pt, fill: rgb("#666666"))[
+            *Supervisor*#if type(supervisor) == array and supervisor.len() > 1 [*s*]: \
+            #_fmt-authors(supervisor)
+          ],
+        )
+      },
       v(1cm),
+      if department != none {
+        stack(v(0.4em), text(size: 14pt, fill: rgb("#777777"))[#smallcaps[#department]])
+      },
+      v(6em),
+      text(size: 12pt, fill: rgb("#888888"))[#date],
     )
   )
   pagebreak()
