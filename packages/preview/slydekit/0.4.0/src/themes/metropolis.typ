@@ -30,7 +30,7 @@
 
   // Heading styles
   show heading.where(level: slide-level - 1): it => {
-    reset-align
+    set align(start + top)
     set strong(delta: 0)
     set page(header: none, footer: none, margin: default-margins)
 
@@ -53,7 +53,7 @@
   }
 
   let header = context {
-    reset-align
+    set align(start + top)
     set text(size: sk-states.fonts.get().size)
     if sk-states.navigation-style.get() == "topbar" {
       let header-title = [#h(1em)*#slide-subtitle()*]
@@ -71,7 +71,7 @@
   }
 
   let footer = context {
-    reset-align
+    set align(start + top)
     set text(size: sk-states.fonts.get().size)
     let current-page = if sk-states.appendix.get() {
       sk-states.app-slide-number.get().first()
