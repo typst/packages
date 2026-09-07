@@ -1,0 +1,10 @@
+[package]
+name = "dol-theme"
+version = "0.1.0"
+entrypoint = "dol-theme.typ"
+authors = ["Merlin Jonathan Fischer"]
+license = "MIT"
+description = "Vorlage für Klausuraufgaben der Deutschen Linguistikolympiade (DOL)."
+repository = "https://github.com/Ikaluk/dol-theme"
+disciplines = ["linguistics"]
+keywords = ["linguistics", "olympiad", "DOL", "Deutsche Linguistikolympiade"]
