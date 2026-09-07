@@ -74,7 +74,7 @@ This example demonstrates the three main features of Algol.
 | `guide-stroke`                   | `stroke`                 | `.5pt + black` | Stroke of the vertical guides and hooks                                                 |
 | `hook-length`                    | `length`                 | `.4em`         | Length of the hooks at the bottom left of finished code blocks                          |
 | `guide-left-offset`              | `length`                 | `.5em`         | Offset of the vertical guides at the left of code blocks (\*)                           |
-| `guide-top-offset`               | `length`                 | `.4em`         | Offset of the vertical guides at the top of code blocks (\*)                            |
+| `guide-top-offset`               | `length`                 | `.3em`         | Offset of the vertical guides at the top of code blocks (\*)                            |
 | `finished-guide-bottom-offset`   | `length`                 | `.1em`         | Offset of the vertical guides at the bottom of finished code blocks (\*)                |
 | `unfinished-guide-bottom-offset` | `length`                 | `.4em`         | Offset of the vertical guides at the bottom of unfinished code blocks (\*)              |
 | `finished-block-bottom-spacing`  | `length`                 | `.3em`         | Vertical spacing at the bottom of finished code blocks (impacts the line layout)        |
