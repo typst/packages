@@ -1,0 +1,22 @@
+{
+  "atom_scale": 0.90,
+  "atom_stroke_width": 6,
+  "atom_stroke_color": "atom",
+  "atom_wash": 0.78,
+  "atoms_above_bonds": true,
+  "bond_width": 8,
+  "bond_color": "#27a8ad",
+  "bond_orders": false,
+  "gradient": false,
+  "fog": false,
+  "bond_color_by_element": false,
+  "bond_gradient": false,
+  "colors": {
+    "C": "#202124",
+    "H": "#a7a7a7",
+    "N": "#4f6fd8",
+    "O": "#c458a5",
+    "S": "#d89b18",
+    "P": "#976a1c"
+  }
+}

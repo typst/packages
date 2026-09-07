@@ -1,0 +1,16 @@
+[package]
+name = "slydekit"
+version = "0.2.0"
+entrypoint = "src/slydekit.typ"
+authors = ["Mathieu Aucejo"]
+license = "MIT"
+categories = ["presentation"]
+description = "A package to easily create presentation slides"
+repository = "https://github.com/maucejo/slydekit"
+keywords = ["presentation", "slides"]
+exclude = ["docs"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"

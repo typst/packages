@@ -1,0 +1,44 @@
+[package]
+name = "faithful-acmart"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Fabian Zaiser <fzaiser@mit.edu>"]
+license = "MIT AND MIT-0"
+description = "Every ACM paper format, matching LaTeX acmart."
+repository = "https://github.com/fzaiser/faithful-acmart"
+keywords = [
+    "acmart",
+    "ACM",
+    "Association for Computing Machinery",
+    "LaTeX",
+    "sigconf",
+    "acmsmall",
+]
+categories = ["paper"]
+disciplines = ["computer-science"]
+# Minimum compiler: `std` and `set par.line(...)` were both introduced in Typst 0.12.0.
+# (PDF accessibility tags are emitted only on 0.14+; visual output is correct from 0.12.)
+compiler = "0.12.0"
+# Files kept in the development repo but omitted from the published Universe bundle:
+# the LaTeX sources / validation harness / bundled dev fonts, contributor docs, and the
+# ACM JDS logo (ACM's trademark — the acmcp format takes a user-supplied `acmcp-logo:`).
+exclude = [
+    "/acmart",
+    "/fonts",
+    "/tests",
+    "/tools",
+    "/tmp",
+    "/.gitignore",
+    "/CLAUDE.md",
+    "/CONTRIBUTING.md",
+    "/DESIGN.md",
+    "/PUBLISHING.md",
+    "/TODO.md",
+    "/src/README.md",
+    "/src/assets/acm-jdslogo.png",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

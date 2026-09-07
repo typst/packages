@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="380"
+   viewBox="0 0 190 190"
+   width="380"
+   version="1.1"
+   id="svg3"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <path
+     d="M 0,0 H 190 V 190 H 0 Z"
+     fill="#237f52"
+     id="path2" />
+  <path
+     d="M 123.53,31.65 V 95.07 L 70.14,41.68 41.86,69.96 94.89,122.99 H 31.47 l 35,35 h 92.05 V 66.64 l -35,-35 z"
+     fill="#ecece7"
+     id="path3" />
+</svg>

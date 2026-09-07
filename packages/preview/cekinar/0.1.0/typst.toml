@@ -1,0 +1,21 @@
+[package]
+name = "cekinar"
+version = "0.1.0"
+entrypoint = "./cekinar/cekinar.typ"
+authors = ["hpcfzl <https://codeberg.org/hpcfzl>"]
+license = "EUPL-1.2"
+description = "Slovenian UPN QR payment slips for completing payment orders."
+# homepage = ""
+repository = "https://codeberg.org/hpcfzl/cekinar"
+keywords = ["UPN QR", "univerzalni plačilni nalog", "položnica", "e-račun", "obrazec", "slovenia"]
+categories = ["integration", "layout", "office"]
+disciplines = ["accounting", "business", "economics", "finance"]
+compiler = "0.15.0"
+exclude = ["./primeri/", "./cekinar/moduli/qr/qrcodegen/", "./upn-qr.gif"] # *
+
+[template]
+path = "./upn-qr/"
+entrypoint = "./upn-qr.typ"
+thumbnail = "./upn-qr.png"
+
+# * "The thumbnail will automatically be excluded from the package files and must not be referenced anywhere in the package."

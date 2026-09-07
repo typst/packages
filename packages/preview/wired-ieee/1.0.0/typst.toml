@@ -1,0 +1,16 @@
+[package]
+name = "wired-ieee"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Hugo Coto Flórez <hugo.coto@outlook.com>"]
+license = "MIT"
+description = "A multilanguage template for writing academic papers in the IEEE style."
+repository = "https://github.com/hugoocoto/wired-ieee"
+keywords = ["ieee", "article", "paper", "science"]
+categories = ["report", "paper"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

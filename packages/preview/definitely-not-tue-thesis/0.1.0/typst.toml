@@ -1,0 +1,15 @@
+[package]
+name = "definitely-not-tue-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"        # library imported via @preview/definitely-not-tue-thesis
+authors = ["Ali Kaan Sun <asunnetcoglu@gmail.com>"]
+license = "MIT-0"             # permissive/no-attribution is required for templates
+description = "An unofficial, community-built thesis template in the TU/e house style"
+repository = "https://github.com/alikaansun/TUe_typst_thesis_template"
+keywords = ["thesis", "Eindhoven University of Technology", "TUe", "TU/e", "unofficial"]
+categories = ["thesis"]
+
+[template]
+path = "template"             # folder copied to the user's project on `typst init`
+entrypoint = "main.typ"       # the file the user starts editing
+thumbnail = "thumbnail.png"   # a rendered preview of the first page

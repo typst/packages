@@ -1,0 +1,136 @@
+[days.format.wide]
+1 = "mánadagur"
+2 = "týsdagur"
+3 = "mikudagur"
+4 = "hósdagur"
+5 = "fríggjadagur"
+6 = "leygardagur"
+7 = "sunnudagur"
+
+[days.format.abbreviated]
+1 = "mán."
+2 = "týs."
+3 = "mik."
+4 = "hós."
+5 = "frí."
+6 = "ley."
+7 = "sun."
+
+[days.format.narrow]
+3 = "M"
+4 = "H"
+6 = "L"
+
+[days.stand-alone.wide]
+1 = "mánadagur"
+2 = "týsdagur"
+3 = "mikudagur"
+4 = "hósdagur"
+5 = "fríggjadagur"
+6 = "leygardagur"
+7 = "sunnudagur"
+
+[days.stand-alone.abbreviated]
+1 = "mán"
+2 = "týs"
+3 = "mik"
+4 = "hós"
+5 = "frí"
+6 = "ley"
+7 = "sun"
+
+[days.stand-alone.narrow]
+3 = "M"
+4 = "H"
+6 = "L"
+
+[months.format.wide]
+1 = "januar"
+2 = "februar"
+3 = "mars"
+4 = "apríl"
+5 = "mai"
+6 = "juni"
+7 = "juli"
+8 = "august"
+9 = "september"
+10 = "oktober"
+11 = "november"
+12 = "desember"
+
+[months.format.abbreviated]
+1 = "jan."
+2 = "feb."
+3 = "mar."
+4 = "apr."
+5 = "mai"
+6 = "jun."
+7 = "jul."
+8 = "aug."
+9 = "sep."
+10 = "okt."
+11 = "nov."
+12 = "des."
+
+[months.format.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "A"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[months.stand-alone.wide]
+1 = "januar"
+2 = "februar"
+3 = "mars"
+4 = "apríl"
+5 = "mai"
+6 = "juni"
+7 = "juli"
+8 = "august"
+9 = "september"
+10 = "oktober"
+11 = "november"
+12 = "desember"
+
+[months.stand-alone.abbreviated]
+1 = "jan"
+2 = "feb"
+3 = "mar"
+4 = "apr"
+5 = "mai"
+6 = "jun"
+7 = "jul"
+8 = "aug"
+9 = "sep"
+10 = "okt"
+11 = "nov"
+12 = "des"
+
+[months.stand-alone.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "A"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[patterns]
+full = "EEEE, d. MMMM y"
+long = "d. MMMM y"
+medium = "dd.MM.y"
+short = "dd.MM.yy"
+
