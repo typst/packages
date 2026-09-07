@@ -41,7 +41,6 @@
 
   // Heading styles
   show heading.where(level: slide-level - 1): it => {
-    set align(start + top)
     set strong(delta: 0)
     set page(header: none, footer: none, margin: default-margins)
 
@@ -64,7 +63,6 @@
   }
 
   let header = context {
-    set align(start + top)
     set text(size: sk-states.fonts.get().size)
     if sk-states.navigation-style.get() == "topbar" {
       let header-title = [#h(1em)*#slide-subtitle()*]
@@ -84,7 +82,6 @@
   }
 
   let footer = context {
-    set align(start + top)
     set text(size: sk-states.fonts.get().size)
     let current-page = if sk-states.appendix.get() {
       sk-states.app-slide-number.get().first()
@@ -108,8 +105,8 @@
   }
 
   set page(
-    header: header,
-    footer: footer,
+    header: sealed-content(header),
+    footer: sealed-content(footer),
     background: image("../resources/images/chalkboard.png", ),
   )
 
@@ -196,7 +193,7 @@
   }
   let header = full-width(fill: none, align(horizon, text(size: header-size, fill: sk-states.colors.get().primary)[#header-content]))
 
-  set page(header: header, footer: none)
+  set page(header: sealed-content(header), footer: none)
 
   toc(fill: (entry: white), slide-level: sk-states.slide-level.get())
 }

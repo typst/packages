@@ -1,6 +1,12 @@
 #import "slydekit-defaults.typ": *
 #import "slydekit-slide.typ": slide-parser
 
+#let sealed-content(content) = context {
+  set align(start + top)
+  content
+}
+
+
 #let formatted-number(at: none, force: false, level: none) = context {
   let resolve(item) = if at != none { item.at(at) } else { item.get() }
   let loc = if at != none { at } else { here() }

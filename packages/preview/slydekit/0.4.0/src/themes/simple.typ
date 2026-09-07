@@ -30,8 +30,7 @@
 
   // Heading styles
   show heading.where(level: slide-level - 1): it => {
-    set align(start + top)
-
+    // Reset both alignment axes explicitly before building this header: align(horizon, ...) below only overrides the vertical axis, so without this the horizontal axis stays whatever a previous slide's body last set (e.g. #set align(center)), leaking into this header's layout.
     let header-content = {
       let dy = if sk-states.navigation-style.get() == "topbar" { 0em } else { -0.2em }
       [#move(dx: 1em, dy: dy)[*#sk-states.localization.get().toc*]]
@@ -42,14 +41,14 @@
     }
     let header = full-width(fill: none, align(horizon, text(size: 1.2*sk-states.fonts.get().size, fill: sk-states.colors.get().primary)[#header-content]))
 
-    set page(header: header, footer: none)
+    set page(header: sealed-content(header), footer: none)
     set align(start + horizon)
 
     progressive-outline(it, sk-states.colors.get().secondary.lighten(60%), slide-level: slide-level)
   }
 
   let header = context {
-    set align(start + top)
+    // Reset both alignment axes explicitly: without this, a leaked #set align(...) from a slide's body would affect this header's layout (see the same fix on the structural-heading header above).
     set text(size: sk-states.fonts.get().size)
     if sk-states.navigation-style.get() == "topbar" {
       let header-title = [#h(1em)*#slide-subtitle()*]
@@ -67,7 +66,7 @@
   }
 
   let footer = context {
-    set align(start + top)
+    // Reset both alignment axes explicitly: same reasoning as the header above.
     set text(size: sk-states.fonts.get().size)
     let current-page = if sk-states.appendix.get() {
       sk-states.app-slide-number.get().first()
@@ -91,8 +90,8 @@
   }
 
   set page(
-    header: header,
-    footer: footer
+    header: sealed-content(header),
+    footer: sealed-content(footer)
   )
 
   // Lists and enumerations
@@ -179,7 +178,7 @@
   }
   let header = full-width(fill: none, align(horizon, text(size: header-size, fill: sk-states.colors.get().primary)[#header-content]))
 
-  set page(header: header, footer: none)
+  set page(header: sealed-content(header), footer: none)
 
   toc(slide-level: sk-states.slide-level.get())
 }
