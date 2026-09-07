@@ -31,7 +31,7 @@
 
   // Heading styles
   show heading.where(level: slide-level - 1): it => {
-    reset-align
+    set align(start + top)
     let header-content = if sk-states.navigation-style.get() == "topbar" {
       let topbar = grid(
         columns: (1fr, 1fr),
@@ -53,7 +53,7 @@
   }
 
   let header = context {
-    reset-align
+    set align(start + top)
     set text(size: sk-states.fonts.get().size)
     if sk-states.navigation-style.get() == "topbar" {
       let sections = query(heading.where(level: slide-level - 1).before(here()))
@@ -80,7 +80,7 @@
   }
 
   let footer = context {
-    reset-align
+    set align(start + top)
     set text(size: sk-states.fonts.get().size)
     let current-page = if sk-states.appendix.get() {
       sk-states.app-slide-number.get().first()
