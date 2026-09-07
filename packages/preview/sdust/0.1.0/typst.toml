@@ -1,0 +1,14 @@
+[package]
+name = "sdust"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Simon Holm (@simo899t)"]
+license = "MIT"
+description = "SDU-branded document frontpages for Typst (thesis, report, exercise, assignment, project, exam) plus theorem-style cards."
+repository = "https://github.com/simo899t/sdust"
+homepage = "https://github.com/simo899t/sdust"
+keywords = ["template", "sdu", "thesis", "academic", "university"]
+categories = ["report", "thesis"]
+disciplines = ["education", "computer-science", "mathematics"]
+compiler = "0.13.0"
+exclude = ["test.typ", "tests/**", "assets/**", ".claude/**", ".vscode/**", ".DS_Store", "CHANGELOG.md"]
