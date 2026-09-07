@@ -59,7 +59,7 @@ For further details, namely
 - compilation of problem sets
 - PDF modes designed for exams and publication
 
-please refer to the [documentation](https://github.com/Ikaluk/dol-theme/blob/main/docs.pdf).
+please refer to the [documentation](docs.pdf).
 
 ## Licence
 
