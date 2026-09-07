@@ -5,7 +5,7 @@ checklists, built for Typst. Optimized for A4 and A5 paper, with optional
 two-column layout, checkboxes, numbered steps, and highlighted
 warning/caution boxes.
 
-<img src="https://github.com/Dottellini/check-six/blob/main/thumbnail.png?raw=true" alt="Example image of the Template" style="width:50%; height:auto;">
+<img src="./thumbnail.png" alt="Example image of the Template" style="width:50%; height:auto;">
 
 ## Usage
 
