@@ -11,7 +11,6 @@ Every cover page uses a custom SDU layout, SDU red accent, A4, and defaults to
 ```typst
 #show: thesis.with(
   logo: image("sdu-logo.png", width: 12em),   // download from SDUs webpage
-  ...
 )
 ```
 
