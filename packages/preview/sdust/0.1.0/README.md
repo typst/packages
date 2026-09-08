@@ -107,6 +107,20 @@ The title argument is optional (`#theorem[...]` defaults to "Theorem").
 The cards use fixed light fills and are meant for print / PDF; they do not
 adapt to a dark editor preview.
 
+## Boxing an equation
+
+`boxed` frames a key result. A block equation is centred like a normal
+display equation; anything else is framed inline. Optional `fill:`,
+`stroke:`, `inset:`, `radius:`.
+
+```typst
+#boxed($ e^(i pi) + 1 = 0 $)
+
+the bound #boxed($O(n log n)$) is tight
+
+#boxed(fill: rgb("#fff8e1"), $ sum_(k=1)^n k = (n(n+1)) / 2 $)
+```
+
 ## Also exported
 
 `base-style`, `bib` (Chicago author–date bibliography), `word-count` /

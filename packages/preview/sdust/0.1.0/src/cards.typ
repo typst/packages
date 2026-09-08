@@ -5,6 +5,26 @@
 // end-of-proof tombstone symbol — add it yourself where you want it.
 #let QED = h(1fr) + box(width: 0.6em, height: 0.6em, stroke: 0.8pt + black)
 
+// Frame an equation (or any content) to highlight a key result. A block
+// equation is centred like a normal display equation; anything else is
+// framed inline.
+//   #boxed($ E = m c^2 $)             // display, centred
+//   the bound #boxed($O(n log n)$)    // inline
+#let boxed(
+  body,
+  stroke: 0.6pt + black,
+  fill: none,
+  inset: (x: 8pt, y: 6pt),
+  radius: 2pt,
+) = {
+  let framed = box(stroke: stroke, fill: fill, inset: inset, radius: radius, body)
+  if type(body) == content and body.func() == math.equation and body.at("block", default: false) {
+    block(width: 100%, align(center, framed))
+  } else {
+    framed
+  }
+}
+
 // Internal base for the titled cards below: coloured header bar + tinted body.
 #let _titled-card(
   title: none,
