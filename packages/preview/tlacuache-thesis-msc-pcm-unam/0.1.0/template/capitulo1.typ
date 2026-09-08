@@ -1,5 +1,5 @@
-
 #import "./utils.typ": *
+
 = Mi primer capítulo
 
 Sunt sunt id nostrud occaecat id sunt laborum consequat esse fugiat duis exercitation.
@@ -25,9 +25,6 @@ elit laborum in adipisicing exercitation quis velit.
 
   Veniam exercitation ut do consequat aliqua. Dolore id officia ipsum dolore voluptate ex ex id qui incididunt veniam excepteur ipsum minim. Lorem velit sit aute voluptate enim excepteur culpa adipisicing mollit Lorem laboris deserunt non. Do adipisicing eiusmod reprehenderit. Aute non labore nostrud ea incididunt sit do laborum non nostrud esse ipsum. Aliquip ullamco sunt irure cillum magna. Ea Lorem consequat eiusmod consectetur duis do deserunt. Irure qui in laborum ut voluptate voluptate consectetur exercitation irure minim elit non.
 
-  Eiusmod occaecat sit @ieee754 veniam pariatur ullamco enim do ad ipsum. Duis veniam qui voluptate deserunt fugiat eiusmod do deserunt proident exercitation et proident ipsum duis. Consectetur ipsum cillum ea velit culpa. Ad eu eu cupidatat ut ipsum sint irure non. Magna excepteur dolor aute nostrud irure minim. Anim id do sit.
-
-  Non ut @pan2022overview Lorem dolore occaecat eiusmod pariatur. Exercitation Lorem sint est minim nostrud. Ut eu laborum anim excepteur mollit et reprehenderit velit proident. Aliqua cupidatat cillum cillum pariatur do ea irure velit laborum enim aliqua dolore. Ex sunt mollit enim enim anim cillum aute dolor est ea. Consectetur aliqua Lorem nisi magna proident eu dolore occaecat fugiat sit. Nulla id dolor do. Pariatur consectetur tempor incididunt labore consectetur culpa ex.
 ]
 
 
