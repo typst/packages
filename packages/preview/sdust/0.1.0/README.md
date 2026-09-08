@@ -1,81 +1,101 @@
 # sdust
 
-SDU-branded document frontpages for Typst — ready-to-use title pages plus
-sane base styling for coursework at the University of Southern Denmark:
-`thesis`, `note`, `exercise`, `assignment`, `project`, `submission`, and
-`exam`.
+Ready-to-use, SDU-branded document frontpages for coursework at the
+University of Southern Denmark (Syddansk Universitet) — a title page and
+sane base styling for every kind of hand-in, so you can start writing
+instead of rebuilding the institutional layout.
 
-For ACM papers (e.g. CHI), use
-[`faithful-acmart`](https://typst.app/universe/package/faithful-acmart)
-(`format: "manuscript"` for review, `format: "sigconf"` for camera-ready)
-— sdust does not try to reproduce the ACM class.
+![Lecture notes, exercise, and assignment cover pages produced by sdust](https://raw.githubusercontent.com/simo899t/sdust/master/preview.png)
 
-Every cover page uses a custom SDU layout, SDU red accent, A4, and defaults to
-"University of Southern Denmark".
-
-```typst
-#show: thesis.with(
-  logo: image("sdu-logo.png", width: 12em),   // download from SDUs webpage
-)
-```
-
-Pass `logo: none` (the default) for no logo at all.
-
-## Usage
+## Quick start
 
 ```typst
 #import "@preview/sdust:0.1.0": *
 
 #show: note.with(
-  title:  "Lecture Notes",
-  course: "DM000 — Course Name",
+  title:  "Analysis & Topology",
+  course: "MM537 — Metric Spaces",
   author: "Firstname Lastname",
-  date:   "2026-09-07",
+  date:   "Autumn 2026",
 )
 
-= First Section
+= Open and closed sets
+Your content here.
 ```
 
-Just the base styling, no cover page:
+Every template renders an A4 cover page in the SDU layout with the SDU red
+accent, sets up 1.5 line spacing, numbered headings and a centred
+`current/total` page number, and (optionally) an outline.
+
+Want the styling without a cover page? Use `page-setup`:
 
 ```typst
 #import "@preview/sdust:0.1.0": *
 #show: page-setup
+
+= First Section
 ```
 
-See the comment block at the bottom of `lib.typ` for a copy-paste starter
-for every template.
+## The SDU logo
 
-## Local development
+The SDU logo is a controlled brand asset (`grafiskcenter@sdu.dk`) and is
+**not bundled**. No logo is drawn unless you pass one; download it from
+SDUnet and hand it in:
 
-```bash
-git clone https://github.com/simo899t/sdust
-ln -s "$PWD/sdust" "$(typst --version >/dev/null 2>&1; echo ~/.local/share/typst)/packages/local/sdust/0.1.0"
+```typst
+#show: thesis.with(
+  logo: image("sdu-logo.png", width: 12em),
+  // ...
+)
 ```
 
-(macOS registry: `~/Library/Application Support/typst/packages/local`;
-Windows: `%APPDATA%\typst\packages\local`. Then import `@local/sdust:0.1.0`.)
+`logo: none` (the default) omits it entirely.
 
 ## Templates
 
-| Function | Description |
-|---|---|
-| `page-setup` | Base styling, no cover page |
-| `thesis` | Bachelor's / Master's thesis title page |
-| `note` | Lecture notes |
-| `exercise` | Exercise sheets |
-| `assignment` | Assignments |
-| `project` | Group/solo project reports |
-| `submission` | Lightweight hand-in (title card only, no TOC) |
-| `exam` | Exam submissions |
+| Function     | For                                             |
+| ------------ | ----------------------------------------------- |
+| `page-setup` | Base styling only, no cover page                |
+| `thesis`     | Bachelor's / Master's thesis title page         |
+| `note`       | Lecture notes                                   |
+| `exercise`   | Exercise sheets                                 |
+| `assignment` | Assignments                                     |
+| `project`    | Group / solo project reports                    |
+| `submission` | Lightweight hand-in — title card only, no TOC   |
+| `exam`       | Exam submissions                                |
 
-Also exported: `base-style`, `bib`,
-`word-count` / `total-words`, the branding constants `sdu-red` and
-`sdu-university`, and the Faculty of Science department names
-`imada`, `bmb`, `biology`, `fkf` (pass one as `department:` on `thesis`).
+Common named arguments: `title`, `subtitle`, `author` (string or array),
+`supervisor`, `course`, `date`, `logo`, `outline`, `outline-depth`.
+`thesis` also takes `department:` and `programme:`; `project` takes
+`group:`, `abstract:` and `keywords:`; `exam` takes `duration:`,
+`student-number:` and more.
 
 ## Theorem-style cards
 
-`theorem`, `definition`, `example`, `proof`, `corollary`, `block` (the `QED`
-tombstone too), plus the exercise cards `question` / `answer` — coloured
-titled cards, e.g. `#theorem(title: "Theorem 1")[...]`.
+Coloured titled cards for notes and exercises:
+
+```typst
+#theorem(title: "Theorem 1.1")[
+  Every bounded monotone sequence converges.
+]
+```
+
+`theorem`, `definition`, `example`, `proof`, `corollary`, `block` (with the
+`QED` tombstone), and the exercise pair `question` / `answer`.
+
+## Also exported
+
+`base-style`, `bib` (Chicago author–date bibliography), `word-count` /
+`total-words`, the branding constants `sdu-red` and `sdu-university`, and
+the Faculty of Science department names `imada`, `bmb`, `biology`, `fkf`
+(pass one as `department:` on `thesis`).
+
+## ACM / CHI papers
+
+sdust does not reproduce the ACM class. For an ACM paper — including CHI
+(`format: "manuscript"` for review, `format: "sigconf"` for camera-ready) —
+use [`faithful-acmart`](https://typst.app/universe/package/faithful-acmart).
+
+## License
+
+MIT — see [`LICENSE`](LICENSE).
