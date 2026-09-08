@@ -1,0 +1,24 @@
+[package]
+name = "diprint"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["wylited"]
+license = "MIT"
+description = "arXiv-style papers that compile to HTML and PDF."
+homepage = "https://sr.ht/~wyli/diprint"
+repository = "https://git.sr.ht/~wyli/diprint"
+keywords = ["arXiv", "paper", "preprint", "article", "HTML", "PDF"]
+categories = ["paper"]
+disciplines = ["computer-science", "engineering", "mathematics", "physics"]
+compiler = "0.15.0"
+exclude = [
+  "scripts",
+  "examples",
+  "Justfile",
+  "ref",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

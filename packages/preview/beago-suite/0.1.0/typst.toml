@@ -1,0 +1,16 @@
+[package]
+name = "beago-suite"
+version = "0.1.0"
+compiler = "0.14.2"
+entrypoint = "src/beago.typ"
+authors = ["Aaron P. Murniadi <aaronmurniadi@gmail.com>"]
+repository = "https://github.com/aaronmurniadi/beago-suite"
+license = "MIT"
+keywords = ["suite", "minimal", "template", "pack"]
+description = "Minimal templates for quick drafts and structured articles"
+categories = ["layout", "paper"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

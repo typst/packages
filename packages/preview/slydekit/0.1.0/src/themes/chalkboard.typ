@@ -1,0 +1,249 @@
+#import "../slydekit-defaults.typ": *
+#import "../slydekit-utils.typ": *
+#import "../slydekit-outline.typ": *
+
+#let chalkboard-colors = (
+  primary: rgb("#8fd3ff"),
+  secondary: rgb("#a9aaa3"),
+  focus: none,
+  background: none,
+  header: rgb("#8fd3ff"),
+  footer: rgb("#8fd3ff"),
+)
+
+#let chalkboard-colors-variant = (
+  primary: rgb("#e57373"),
+  secondary: rgb("#a9aaa3"),
+  focus: none,
+  background: none,
+  header: rgb("#e57373"),
+  footer: rgb("#e57373"),
+)
+
+#let chalkboard-fonts = (
+  body: "Pennstander",
+  math: "Pennstander Math",
+  raw: "Fantasque Sans Mono",
+)
+
+#let chalkboard-theme(body) = context{
+  let colors-theme = if sk-states.colors.get() != none {
+     chalkboard-colors + sk-states.colors.get()
+  } else {
+    chalkboard-colors
+  }
+  sk-states.colors.update(colors-theme)
+
+  let fonts-theme = if sk-states.fonts.get() != none {
+     chalkboard-fonts + sk-states.fonts.get()
+  } else {
+    chalkboard-fonts
+  }
+  sk-states.fonts.update(fonts-theme)
+
+  set text(fill: rgb("#f2f1ea"))
+
+  // Page setup
+  let chalkboard-margin = if sk-states.navigation-style.get() == "minislide" {
+    (top: 3.25cm)
+  }
+  set page(fill: colors-theme.background, margin: margins + chalkboard-margin)
+
+  // Heading styles
+  set heading(numbering: (..nums) => {
+    if sk-states.appendix.get() {
+      numbering("A.1.", ..nums)
+    } else {
+      numbering("1.1.", ..nums)
+    }
+  })
+
+  // Heading styles
+  show heading.where(level: 1): it => {
+    set strong(delta: 0)
+    set page(header: none, footer: none, margin: margins)
+
+    set align(horizon)
+    show: pad.with(10%)
+    set text(size: 1.3em)
+    v(-0.7em)
+
+    stack(
+      dir: ttb,
+      spacing: 0.5em,
+      [*#it.body*],
+      block(
+        height: 2pt,
+        width: 100%,
+        spacing: 0pt,
+        section-progress-bar(colors-theme.primary, colors-theme.secondary)
+      ),
+    )
+  }
+
+  let header = context if sk-states.navigation-style.get() == "topbar" {
+    let header-title = [#h(1em)*#sk-states.current-slide-title.get()*]
+    full-width(fill: none, align(horizon, text(size: 1.2em, fill: sk-states.colors.get().primary)[#header-title]))
+
+    full-width(place(dy: 2em, line(length: 100%, stroke: 0.05em + colors-theme.header)))
+  } else if sk-states.navigation-style.get() == "minislide" {
+    let mini-content = [
+      #let pad-lr = 3.5%
+      #pad(left: pad-lr, right: pad-lr, top: 0.5em)[#mini-slides()]
+      #place(dy: 0.5em, line(length: 100%, stroke: 0.05em + colors-theme.header))
+
+      #place(dx: 3.5%, dy: 1.25em)[#text(size: 1.25em, weight: "bold", fill: colors-theme.header, sk-states.current-slide-title.get())]
+    ]
+    full-width(mini-content)
+  }
+
+  let footer = context {
+    let current-page = if sk-states.appendix.get() {
+      sk-states.app-slide-number.get().first()
+    } else {
+      sk-states.slide-number.get().first()
+    }
+    let prefix = if sk-states.appendix.get() { "A." } else { "" }
+    [
+      #let footer-content = [
+        #let pad-lr = 3.5%
+        #show: pad.with(left: pad-lr, right: pad-lr, top: 0.5em)
+        #grid(
+          columns: (1fr,)*2,
+          align: (left + horizon, right),
+          [#place(dy: -1em, sk-states.logo.get())],
+          [#text(size: 0.9em, fill: colors-theme.footer)[*#prefix#current-page*]]
+        )
+      ]
+      #full-width(footer-content)
+    ]
+  }
+
+  set page(
+    header: header,
+    footer: footer,
+    background: image("../resources/images/chalkboard.png", ),
+  )
+
+  // Lists and enumerations
+  set list(marker: ([#text(size: 0.9em, fill:colors-theme.primary)[#sym.circle.filled]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.triangle.filled.small.r]], [#text(size: 0.9em, fill:colors-theme.primary)[#sym.square.filled]]))
+
+  set enum(numbering: n => text(fill:colors-theme.primary)[#n.])
+
+  // Tables
+  show table.cell.where(y: 0): set text(weight: "bold")
+  set table(
+    stroke: (_, y) => (
+      top: if y <= 1 {1.75pt + colors-theme.primary} else {0pt},
+      bottom: 1.75pt + colors-theme.primary
+    ),
+    inset: 0.5em
+  )
+
+  // References
+  show ref: set text(fill: colors-theme.primary)
+  show ref: it => show-ref(it)
+
+  // Links
+  show link: set text(fill: colors-theme.primary)
+
+  body
+}
+
+// Title page
+#let chalkboard-title = context {
+  let chalkboard-margin = if sk-states.navigation-style.get() == "minislide" {
+    (top: 2cm)
+  }
+  set page(header: none, footer: none, margin: margins + chalkboard-margin)
+
+  let title-info = sk-states.pres-info.get()
+
+  if title-info.logo != none {
+    place(top, row-img(title-info.logo))
+  }
+
+  if title-info.title != none {
+    smallcaps(text(size: 1.5em, fill: sk-states.colors.get().primary)[*#title-info.title*])
+  }
+
+  if title-info.subtitle != none {
+    linebreak()
+    text(size: 1em, title-info.subtitle)
+  }
+
+
+  place(bottom)[
+    #set text(size: 0.85em)
+
+    #if title-info.author != none {
+      block(spacing: 1em, text(fill: sk-states.colors.get().primary)[#title-info.author])
+    }
+
+    #if title-info.date != none {
+      block(spacing: 1em, title-info.date)
+    }
+
+    #set text(size: 0.8em)
+    #if title-info.institution != none {
+      block(spacing: 1em, title-info.institution)
+    }
+
+    #if title-info.contact != none {
+      block(spacing: 1em, title-info.contact)
+    }
+  ]
+}
+
+#let chalkboard-toc = context {
+  let header-content = {
+    let dy = if sk-states.navigation-style.get() == "topbar" { 0em } else { 0.5em }
+    [
+      #move(dx: 1em, dy: -dy)[*#sk-states.localization.get().toc*]
+      #place(dy: 0.5em - dy, line(length: 100%, stroke: 0.05em + sk-states.colors.get().header))
+    ]
+  }
+  let header = full-width(fill: none, align(horizon, text(size: 1.2em, fill: sk-states.colors.get().primary)[#header-content]))
+
+  set page(header: header, footer: none)
+
+  toc
+}
+
+#let chalkboard-focus-slide(body) = context {
+  set page(header:none, footer: none, fill: sk-states.colors.get().focus)
+  set align(center + horizon)
+  text(size: 2em, fill: white)[*#body*]
+}
+
+#let chalkboard-link-box(location, name) = {
+  block(fill: sk-states.colors.get().primary.darken(20%), radius: 1em, inset: 0.5em)[
+    #set text(size: 0.8em, weight: "bold")
+    #show link: set text(fill: rgb("#f2f1ea"))
+    #link(location, name)
+  ]
+}
+
+#let chalkboard-boxeq(body) = context{
+  set align(center)
+  box(
+    stroke: 1.75pt + sk-states.colors.get().primary,
+    radius: 5pt,
+    inset: 0.5em,
+  )[#body]
+}
+
+#let chalkboard-custom-box(title: none, icon: "info", color: rgb(29, 144, 208), body) = {
+  set text(size: 0.8em, fill: color)
+  let box-title = move(dy: -0.5em)[#box-title(color-svg("resources/images/icons/" + icon + ".svg", color, width: 1em), text(fill: color)[*#title*])]
+
+  let box-content = block(breakable: true, box(fill: color.lighten(85%), stroke: 1pt + color, width: 100%, inset: (top: 1em, bottom: 1em, rest: 0.5em), radius: 0.5em)[#body])
+
+  stack(
+    dir: btt,
+    box-content,
+    box-title,
+  )
+}
+
+#let chalkboard = (theme: chalkboard-theme, title: chalkboard-title, toc: chalkboard-toc, focus-slide: chalkboard-focus-slide, link-box: chalkboard-link-box, boxeq: chalkboard-boxeq, box: chalkboard-custom-box)

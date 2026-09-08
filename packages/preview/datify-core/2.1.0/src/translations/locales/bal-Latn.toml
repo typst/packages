@@ -1,0 +1,116 @@
+[days.format.wide]
+1 = "Doshambeh"
+2 = "Sayshambeh"
+3 = "Chárshambeh"
+4 = "Panchshambeh"
+5 = "Jomah"
+6 = "Shambeh"
+7 = "Yakshambeh"
+
+[days.format.abbreviated]
+1 = "Do"
+2 = "Say"
+3 = "Chá"
+4 = "Pan"
+5 = "Jom"
+6 = "Sha"
+7 = "Yak"
+
+[days.format.narrow]
+1 = "D"
+2 = "S"
+3 = "Ch"
+4 = "P"
+5 = "J"
+6 = "Sh"
+7 = "Y"
+
+[days.stand-alone.wide]
+1 = "Doshambeh"
+2 = "Sayshambeh"
+3 = "Chárshambeh"
+4 = "Panchshambeh"
+5 = "Jomah"
+6 = "Shambeh"
+7 = "Yakshambeh"
+
+[days.stand-alone.abbreviated]
+1 = "Do"
+2 = "Say"
+3 = "Chá"
+4 = "Pan"
+5 = "Jom"
+6 = "Sha"
+7 = "Yak"
+
+[days.stand-alone.narrow]
+1 = "D"
+2 = "S"
+3 = "Ch"
+4 = "P"
+5 = "J"
+6 = "Sh"
+7 = "Y"
+
+[months.format.wide]
+1 = "Janwari"
+2 = "Parwari"
+3 = "Márch"
+4 = "Aprél"
+5 = "Mai"
+6 = "Jun"
+7 = "Jólái"
+8 = "Agast"
+9 = "Satambar"
+10 = "Aktubar"
+11 = "Nawambar"
+12 = "Dasambar"
+
+[months.format.abbreviated]
+1 = "Jan"
+2 = "Par"
+3 = "Már"
+4 = "Apr"
+5 = "Mai"
+6 = "Jun"
+7 = "Jól"
+8 = "Aga"
+9 = "Sat"
+10 = "Akt"
+11 = "Naw"
+12 = "Das"
+
+[months.stand-alone.wide]
+1 = "Janwari"
+2 = "Parwari"
+3 = "Márch"
+4 = "Aprél"
+5 = "Mai"
+6 = "Jun"
+7 = "Jólái"
+8 = "Agast"
+9 = "Satambar"
+10 = "Aktubar"
+11 = "Nawambar"
+12 = "Dasambar"
+
+[months.stand-alone.abbreviated]
+1 = "Jan"
+2 = "Par"
+3 = "Már"
+4 = "Apr"
+5 = "Mai"
+6 = "Jun"
+7 = "Jól"
+8 = "Aga"
+9 = "Sat"
+10 = "Akt"
+11 = "Naw"
+12 = "Das"
+
+[patterns]
+full = "dd,MM,y"
+long = "d MMMM, y"
+medium = "d MMM, y"
+short = "d/M/yy"
+

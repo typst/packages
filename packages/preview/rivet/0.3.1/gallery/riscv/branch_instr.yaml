@@ -1,0 +1,34 @@
+structures:
+  main:
+    bits: 32
+    ranges:
+      31-25:
+        name: imm
+      24-20:
+        name: rs2
+      19-15:
+        name: rs1
+      14-12:
+        name: funct3
+        description: function modifier
+        values:
+          000: if equal
+          001: if not equal
+          100: if less
+          101: if greater or equal
+      11-7:
+        name: imm
+      6:
+        name: 1
+      5:
+        name: 1
+      4:
+        name: 0
+      3:
+        name: 0
+      2:
+        name: 0
+      1:
+        name: 1
+      0:
+        name: 1

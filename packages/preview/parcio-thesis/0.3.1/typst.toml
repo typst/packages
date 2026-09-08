@@ -1,0 +1,17 @@
+[package]
+name = "parcio-thesis"
+version = "0.3.1"
+entrypoint = "src/parcio.typ"
+authors = ["Kevin Kulot <@xkevio>", "ParCIO"]
+license = "0BSD"
+description = "A simple thesis template for the ParCIO working group at OvGU Magdeburg."
+repository = "https://github.com/parcio/templates"
+categories = ["thesis", "report"]
+keywords = ["thesis", "master", "bachelor", "university", "OvGU", "Magdeburg", "Otto von Guericke Universität"]
+compiler = "0.15.0"
+exclude = ["thumbnails"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnails/p-01.png"

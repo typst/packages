@@ -1,0 +1,17 @@
+[package]
+name = "epsi-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Luís Cunha"]
+license = "MIT"
+description = "Master's and doctoral thesis at the University of Minho (UMinho)."
+repository = "https://github.com/luiscunha13/epsi-thesis"
+keywords = ["thesis", "university", "minho", "uminho", "epsi", "template", "portuguese"]
+categories = ["thesis"]
+disciplines = ["psychology", "education"]
+exclude = ["**.pdf", "test.typ", "original/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

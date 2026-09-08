@@ -1,0 +1,23 @@
+[package]
+name = "unofficial-ouc-bachelor-thesis"
+version = "0.3.0"
+entrypoint = "template.typ"
+authors = ["hongjr03"]
+license = "MIT"
+description = "Unofficial Bachelor thesis for Ocean University of China (OUC)."
+repository = "https://github.com/hongjr03/ouc-bachelor-thesis"
+keywords = ["thesis", "template", "ouc", "ocean-university-of-china"]
+categories = ["thesis"]
+compiler = "0.14.0"
+exclude = [
+    ".git/**",
+    ".gitignore",
+    "examples/**",
+    "assets/qrcode_1777349536775.jpg",
+    "scripts/**"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,12 @@
+[package]
+name = "callisto"
+version = "0.3.0"
+entrypoint = "callisto.typ"
+authors = ["Jeremie Knuesel <@sijow>"]
+license = "MIT"
+description = "Read Jupyter notebooks and execute code blocks"
+repository = "https://github.com/sijow/callisto"
+keywords = ["jupyter", "notebook", "import", "execute"]
+categories = ["integration", "utility"]
+exclude = ["/tests/", "/docs/"]
+compiler = "0.15.0"

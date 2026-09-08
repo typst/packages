@@ -1,0 +1,8 @@
+{ "signal" : [
+  { "name": "clk",         "wave": "P|.p.p|.55", "data": ["","_hello_"]},
+  { "name": "clk",         "wave": "p|.p.p|.2z"},
+  { "name": "Data",        "wave": "..345x|=.x", "data": ["head", "body", "tail", "data"] },
+  { "name": "Request",     "wave": "0.1..0|1.0" },
+  {},
+  { "name": "Acknowledge", "wave": "1.....|01." }
+]}

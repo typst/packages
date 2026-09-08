@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+  <!-- Light-marble companion (per-square), toned DOWN: only a slight, soft grey
+       veining so light squares stay quiet and don't draw the eye. Faint grey
+       cloud + low soft grey veins (peak 0.4). Theme light color is the stone. -->
+  <filter id="cd" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.006 0.008" numOctaves="3" seed="21" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="
+      0    0    0    0 0.6
+      0    0    0    0 0.6
+      0    0    0    0 0.61
+      -0.35 -0.35 -0.35 0 0.5"/>
+  </filter>
+  <filter id="vn" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.016" numOctaves="3" seed="8" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="
+      0    0    0    0 0.5
+      0    0    0    0 0.5
+      0    0    0    0 0.52
+      0.34 0.33 0.33 0 0"/>
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="0 0 0 0 0 0 0 0.1 0.28 0.4 0.4 0.4 0.28 0.1 0 0 0 0 0 0 0"/>
+    </feComponentTransfer>
+  </filter>
+  <rect width="200" height="200" filter="url(#cd)"/>
+  <rect width="200" height="200" filter="url(#vn)"/>
+</svg>

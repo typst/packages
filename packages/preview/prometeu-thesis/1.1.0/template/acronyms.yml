@@ -1,0 +1,15 @@
+- key: gcd
+  short: GCD
+  long: Greatest Common Divisor
+
+- key: lcm
+  short: LCM
+  long: Least Common Multiple
+
+- key: pdr
+  short: PDR
+  long: Preliminary Dissertation Report
+
+- key: soa
+  short: SOA
+  long: State of the Art

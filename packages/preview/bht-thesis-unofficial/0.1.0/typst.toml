@@ -1,0 +1,39 @@
+[package]
+name = "bht-thesis-unofficial"
+version = "0.1.0"
+entrypoint = "template/lib.typ"
+authors = [
+    "Timon Trettin <https://github.com/timontrettin>",
+    "Korbinian Hutter <https://github.com/korbinianhutter>",
+    "Felix Hoffmann <https://github.com/felixhoffmnn>",
+    "Robert Richter <https://github.com/judgeNotFound>",
+]
+license = "MIT"
+disciplines = [
+    "computer-science",
+    "engineering",
+    "mathematics",
+    "business",
+]
+description = "An unofficial thesis template for Bachelor's and Master's theses at Berliner Hochschule für Technik (BHT)."
+repository = "https://github.com/timontrettin/bht-thesis-template-typst"
+keywords = [
+    "BHT",
+    "BHT Berlin",
+    "Berliner Hochschule für Technik",
+    "Berlin University of Applied Sciences and Technology",
+    "Bachelor's thesis",
+    "Master's thesis",
+    "Bachelorarbeit",
+    "Masterarbeit",
+    "Abschlussarbeit",
+    "thesis",
+]
+categories = ["thesis"]
+compiler = "0.14.0"
+exclude = ["example.pdf"]
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

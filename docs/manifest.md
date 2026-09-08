@@ -116,10 +116,9 @@ for languages that are not generally written using the Latin alphabet.
 A good package description is simple, easily understandable and succinct. Here
 are some rules to follow to write great descriptions:
 
-- Keep it short. Try to maximize the content to length ratio and weigh your words
-  thoughtfully. Ideally, it should be 40 to 60 characters long.
-
-- Terminate your description with a full stop.
+- Keep it short. Try to maximize the content to length ratio and weigh your
+  words thoughtfully. Ideally, it should be one sentence of about 40 to 60
+  characters length.
 
 - Avoid the word "Typst", which is redundant unless your package or template
   actually has to do with Typst itself or its ecosystem (like in the case of

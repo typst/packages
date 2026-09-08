@@ -1,0 +1,19 @@
+[package]
+name = "sprig"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Draw mind maps with a polygonal hub, one side per branch."
+repository = "https://github.com/fergousA/sprig"
+keywords = ["mind map", "concept map", "brainstorm", "diagram", "rtl"]
+categories = ["visualization"]
+# `curve` est apparu en 0.13 ; le `path` de 0.12 a une autre signature. Un
+# utilisateur en 0.12 aurait une erreur obscure au lieu d'un refus net.
+compiler = "0.13.0"
+exclude = [
+	".DS_Store",
+	"/gallery",
+	"/examples",
+	"*.pdf",
+]

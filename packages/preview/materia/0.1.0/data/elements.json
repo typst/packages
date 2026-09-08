@@ -1,0 +1,674 @@
+{
+ "Ac": {
+  "color": "#70ABFA",
+  "color-vesta": "#70ABFA",
+  "r-atom": 1.95,
+  "r-cov": 2.15,
+  "r-vdw": 2.47
+ },
+ "Ag": {
+  "color": "#C0C0C0",
+  "color-vesta": "#C0C0C0",
+  "r-atom": 1.6,
+  "r-cov": 1.45,
+  "r-vdw": 2.11
+ },
+ "Al": {
+  "color": "#BFA6A6",
+  "color-vesta": "#81B2D6",
+  "r-atom": 1.25,
+  "r-cov": 1.21,
+  "r-vdw": 1.84
+ },
+ "Am": {
+  "color": "#545CF2",
+  "color-vesta": "#545CF2",
+  "r-atom": 1.75,
+  "r-cov": 1.8,
+  "r-vdw": 2.44
+ },
+ "Ar": {
+  "color": "#80D1E3",
+  "color-vesta": "#CFFEC4",
+  "r-atom": 0.71,
+  "r-cov": 1.06,
+  "r-vdw": 1.88
+ },
+ "As": {
+  "color": "#BD80E3",
+  "color-vesta": "#74D057",
+  "r-atom": 1.15,
+  "r-cov": 1.19,
+  "r-vdw": 1.85
+ },
+ "At": {
+  "color": "#754F45",
+  "color-vesta": "#754F45",
+  "r-atom": 1.5,
+  "r-cov": 1.5,
+  "r-vdw": 2.02
+ },
+ "Au": {
+  "color": "#FFD123",
+  "color-vesta": "#FFD123",
+  "r-atom": 1.35,
+  "r-cov": 1.36,
+  "r-vdw": 2.14
+ },
+ "B": {
+  "color": "#FFB5B5",
+  "color-vesta": "#1FA20F",
+  "r-atom": 0.85,
+  "r-cov": 0.84,
+  "r-vdw": 1.92
+ },
+ "Ba": {
+  "color": "#00C900",
+  "color-vesta": "#00C900",
+  "r-atom": 2.15,
+  "r-cov": 2.15,
+  "r-vdw": 2.68
+ },
+ "Be": {
+  "color": "#C2FF00",
+  "color-vesta": "#5ED77B",
+  "r-atom": 1.05,
+  "r-cov": 0.96,
+  "r-vdw": 1.53
+ },
+ "Bi": {
+  "color": "#9E4FB5",
+  "color-vesta": "#9E4FB5",
+  "r-atom": 1.6,
+  "r-cov": 1.48,
+  "r-vdw": 2.07
+ },
+ "Br": {
+  "color": "#A62929",
+  "color-vesta": "#7E3102",
+  "r-atom": 1.15,
+  "r-cov": 1.2,
+  "r-vdw": 1.85
+ },
+ "C": {
+  "color": "#909090",
+  "color-vesta": "#4C4C4C",
+  "r-atom": 0.7,
+  "r-cov": 0.73,
+  "r-vdw": 1.7
+ },
+ "Ca": {
+  "color": "#3DFF00",
+  "color-vesta": "#5A96BD",
+  "r-atom": 1.8,
+  "r-cov": 1.76,
+  "r-vdw": 2.31
+ },
+ "Cd": {
+  "color": "#FFD98F",
+  "color-vesta": "#FFD98F",
+  "r-atom": 1.55,
+  "r-cov": 1.44,
+  "r-vdw": 2.18
+ },
+ "Ce": {
+  "color": "#FFFFC7",
+  "color-vesta": "#FFFFC7",
+  "r-atom": 1.85,
+  "r-cov": 2.04,
+  "r-vdw": 2.42
+ },
+ "Cl": {
+  "color": "#1FF01F",
+  "color-vesta": "#31FC02",
+  "r-atom": 1.0,
+  "r-cov": 1.02,
+  "r-vdw": 1.75
+ },
+ "Cm": {
+  "color": "#785CE3",
+  "color-vesta": "#785CE3",
+  "r-atom": 1.69,
+  "r-cov": 1.69,
+  "r-vdw": 2.45
+ },
+ "Co": {
+  "color": "#F090A0",
+  "color-vesta": "#0000AF",
+  "r-atom": 1.35,
+  "r-cov": 1.38,
+  "r-vdw": 2.0
+ },
+ "Cr": {
+  "color": "#8A99C7",
+  "color-vesta": "#00009E",
+  "r-atom": 1.4,
+  "r-cov": 1.39,
+  "r-vdw": 2.06
+ },
+ "Cs": {
+  "color": "#57178F",
+  "color-vesta": "#57178F",
+  "r-atom": 2.6,
+  "r-cov": 2.44,
+  "r-vdw": 3.43
+ },
+ "Cu": {
+  "color": "#C88033",
+  "color-vesta": "#2247DC",
+  "r-atom": 1.35,
+  "r-cov": 1.32,
+  "r-vdw": 1.96
+ },
+ "Dy": {
+  "color": "#1FFFC7",
+  "color-vesta": "#1FFFC7",
+  "r-atom": 1.75,
+  "r-cov": 1.92,
+  "r-vdw": 2.31
+ },
+ "Er": {
+  "color": "#00E675",
+  "color-vesta": "#00E675",
+  "r-atom": 1.75,
+  "r-cov": 1.89,
+  "r-vdw": 2.29
+ },
+ "Eu": {
+  "color": "#61FFC7",
+  "color-vesta": "#61FFC7",
+  "r-atom": 1.85,
+  "r-cov": 1.98,
+  "r-vdw": 2.35
+ },
+ "F": {
+  "color": "#90E050",
+  "color-vesta": "#B0B9E6",
+  "r-atom": 0.5,
+  "r-cov": 0.57,
+  "r-vdw": 1.47
+ },
+ "Fe": {
+  "color": "#E06633",
+  "color-vesta": "#B57100",
+  "r-atom": 1.4,
+  "r-cov": 1.42,
+  "r-vdw": 2.04
+ },
+ "Fr": {
+  "color": "#420066",
+  "color-vesta": "#420066",
+  "r-atom": 2.6,
+  "r-cov": 2.6,
+  "r-vdw": 3.48
+ },
+ "Ga": {
+  "color": "#C28F8F",
+  "color-vesta": "#9EE373",
+  "r-atom": 1.3,
+  "r-cov": 1.22,
+  "r-vdw": 1.87
+ },
+ "Gd": {
+  "color": "#45FFC7",
+  "color-vesta": "#45FFC7",
+  "r-atom": 1.8,
+  "r-cov": 1.96,
+  "r-vdw": 2.34
+ },
+ "Ge": {
+  "color": "#668F8F",
+  "color-vesta": "#7E6EA6",
+  "r-atom": 1.25,
+  "r-cov": 1.2,
+  "r-vdw": 2.11
+ },
+ "H": {
+  "color": "#FFFFFF",
+  "color-vesta": "#FFCCCC",
+  "r-atom": 0.25,
+  "r-cov": 0.31,
+  "r-vdw": 1.1
+ },
+ "He": {
+  "color": "#D9FFFF",
+  "color-vesta": "#FCE8CE",
+  "r-atom": 0.28,
+  "r-cov": 0.28,
+  "r-vdw": 1.4
+ },
+ "Hf": {
+  "color": "#4DC2FF",
+  "color-vesta": "#4DC2FF",
+  "r-atom": 1.55,
+  "r-cov": 1.75,
+  "r-vdw": 2.23
+ },
+ "Hg": {
+  "color": "#B8B8D0",
+  "color-vesta": "#B8B8D0",
+  "r-atom": 1.5,
+  "r-cov": 1.32,
+  "r-vdw": 2.23
+ },
+ "Ho": {
+  "color": "#00FF9C",
+  "color-vesta": "#00FF9C",
+  "r-atom": 1.75,
+  "r-cov": 1.92,
+  "r-vdw": 2.3
+ },
+ "I": {
+  "color": "#940094",
+  "color-vesta": "#940094",
+  "r-atom": 1.4,
+  "r-cov": 1.39,
+  "r-vdw": 1.98
+ },
+ "In": {
+  "color": "#A67573",
+  "color-vesta": "#A67573",
+  "r-atom": 1.55,
+  "r-cov": 1.42,
+  "r-vdw": 1.93
+ },
+ "Ir": {
+  "color": "#175487",
+  "color-vesta": "#175487",
+  "r-atom": 1.35,
+  "r-cov": 1.41,
+  "r-vdw": 2.13
+ },
+ "K": {
+  "color": "#8F40D4",
+  "color-vesta": "#A121F6",
+  "r-atom": 2.2,
+  "r-cov": 2.03,
+  "r-vdw": 2.75
+ },
+ "Kr": {
+  "color": "#5CB8D1",
+  "color-vesta": "#FAC1F3",
+  "r-atom": 1.16,
+  "r-cov": 1.16,
+  "r-vdw": 2.02
+ },
+ "La": {
+  "color": "#70D4FF",
+  "color-vesta": "#5AC449",
+  "r-atom": 1.95,
+  "r-cov": 2.07,
+  "r-vdw": 2.43
+ },
+ "Li": {
+  "color": "#CC80FF",
+  "color-vesta": "#86DF73",
+  "r-atom": 1.45,
+  "r-cov": 1.28,
+  "r-vdw": 1.82
+ },
+ "Lu": {
+  "color": "#00AB24",
+  "color-vesta": "#00AB24",
+  "r-atom": 1.75,
+  "r-cov": 1.87,
+  "r-vdw": 2.24
+ },
+ "Mg": {
+  "color": "#8AFF00",
+  "color-vesta": "#FB7B15",
+  "r-atom": 1.5,
+  "r-cov": 1.41,
+  "r-vdw": 1.73
+ },
+ "Mn": {
+  "color": "#9C7AC7",
+  "color-vesta": "#A7089D",
+  "r-atom": 1.4,
+  "r-cov": 1.5,
+  "r-vdw": 2.05
+ },
+ "Mo": {
+  "color": "#54B5B5",
+  "color-vesta": "#54B5B5",
+  "r-atom": 1.45,
+  "r-cov": 1.54,
+  "r-vdw": 2.17
+ },
+ "N": {
+  "color": "#3050F8",
+  "color-vesta": "#B0B9E6",
+  "r-atom": 0.65,
+  "r-cov": 0.71,
+  "r-vdw": 1.55
+ },
+ "Na": {
+  "color": "#AB5CF2",
+  "color-vesta": "#F9DC3C",
+  "r-atom": 1.8,
+  "r-cov": 1.66,
+  "r-vdw": 2.27
+ },
+ "Nb": {
+  "color": "#73C2C9",
+  "color-vesta": "#73C2C9",
+  "r-atom": 1.45,
+  "r-cov": 1.64,
+  "r-vdw": 2.18
+ },
+ "Nd": {
+  "color": "#C7FFC7",
+  "color-vesta": "#C7FFC7",
+  "r-atom": 1.85,
+  "r-cov": 2.01,
+  "r-vdw": 2.39
+ },
+ "Ne": {
+  "color": "#B3E3F5",
+  "color-vesta": "#FE37B5",
+  "r-atom": 0.58,
+  "r-cov": 0.58,
+  "r-vdw": 1.54
+ },
+ "Ni": {
+  "color": "#50D050",
+  "color-vesta": "#B7BBBD",
+  "r-atom": 1.35,
+  "r-cov": 1.24,
+  "r-vdw": 1.97
+ },
+ "Np": {
+  "color": "#0080FF",
+  "color-vesta": "#0080FF",
+  "r-atom": 1.75,
+  "r-cov": 1.9,
+  "r-vdw": 2.39
+ },
+ "O": {
+  "color": "#FF0D0D",
+  "color-vesta": "#FE0300",
+  "r-atom": 0.6,
+  "r-cov": 0.66,
+  "r-vdw": 1.52
+ },
+ "Os": {
+  "color": "#266696",
+  "color-vesta": "#266696",
+  "r-atom": 1.3,
+  "r-cov": 1.44,
+  "r-vdw": 2.16
+ },
+ "P": {
+  "color": "#FF8000",
+  "color-vesta": "#C09CC2",
+  "r-atom": 1.0,
+  "r-cov": 1.07,
+  "r-vdw": 1.8
+ },
+ "Pa": {
+  "color": "#00A1FF",
+  "color-vesta": "#00A1FF",
+  "r-atom": 1.8,
+  "r-cov": 2.0,
+  "r-vdw": 2.43
+ },
+ "Pb": {
+  "color": "#575961",
+  "color-vesta": "#575961",
+  "r-atom": 1.8,
+  "r-cov": 1.46,
+  "r-vdw": 2.02
+ },
+ "Pd": {
+  "color": "#006985",
+  "color-vesta": "#006985",
+  "r-atom": 1.4,
+  "r-cov": 1.39,
+  "r-vdw": 2.1
+ },
+ "Pm": {
+  "color": "#A3FFC7",
+  "color-vesta": "#A3FFC7",
+  "r-atom": 1.85,
+  "r-cov": 1.99,
+  "r-vdw": 2.38
+ },
+ "Po": {
+  "color": "#AB5C00",
+  "color-vesta": "#AB5C00",
+  "r-atom": 1.9,
+  "r-cov": 1.4,
+  "r-vdw": 1.97
+ },
+ "Pr": {
+  "color": "#D9FFC7",
+  "color-vesta": "#D9FFC7",
+  "r-atom": 1.85,
+  "r-cov": 2.03,
+  "r-vdw": 2.4
+ },
+ "Pt": {
+  "color": "#D0D0E0",
+  "color-vesta": "#D0D0E0",
+  "r-atom": 1.35,
+  "r-cov": 1.36,
+  "r-vdw": 2.13
+ },
+ "Pu": {
+  "color": "#006BFF",
+  "color-vesta": "#006BFF",
+  "r-atom": 1.75,
+  "r-cov": 1.87,
+  "r-vdw": 2.43
+ },
+ "Ra": {
+  "color": "#007D00",
+  "color-vesta": "#007D00",
+  "r-atom": 2.15,
+  "r-cov": 2.21,
+  "r-vdw": 2.83
+ },
+ "Rb": {
+  "color": "#702EB0",
+  "color-vesta": "#702EB0",
+  "r-atom": 2.35,
+  "r-cov": 2.2,
+  "r-vdw": 3.03
+ },
+ "Re": {
+  "color": "#267DAB",
+  "color-vesta": "#267DAB",
+  "r-atom": 1.35,
+  "r-cov": 1.51,
+  "r-vdw": 2.16
+ },
+ "Rh": {
+  "color": "#0A7D8C",
+  "color-vesta": "#0A7D8C",
+  "r-atom": 1.35,
+  "r-cov": 1.42,
+  "r-vdw": 2.1
+ },
+ "Rn": {
+  "color": "#428296",
+  "color-vesta": "#428296",
+  "r-atom": 1.5,
+  "r-cov": 1.5,
+  "r-vdw": 2.2
+ },
+ "Ru": {
+  "color": "#248F8F",
+  "color-vesta": "#248F8F",
+  "r-atom": 1.3,
+  "r-cov": 1.46,
+  "r-vdw": 2.13
+ },
+ "S": {
+  "color": "#FFFF30",
+  "color-vesta": "#FFFA00",
+  "r-atom": 1.0,
+  "r-cov": 1.05,
+  "r-vdw": 1.8
+ },
+ "Sb": {
+  "color": "#9E63B5",
+  "color-vesta": "#9E63B5",
+  "r-atom": 1.45,
+  "r-cov": 1.39,
+  "r-vdw": 2.06
+ },
+ "Sc": {
+  "color": "#E6E6E6",
+  "color-vesta": "#B563AB",
+  "r-atom": 1.6,
+  "r-cov": 1.7,
+  "r-vdw": 2.15
+ },
+ "Se": {
+  "color": "#FFA100",
+  "color-vesta": "#9AEF0F",
+  "r-atom": 1.15,
+  "r-cov": 1.2,
+  "r-vdw": 1.9
+ },
+ "Si": {
+  "color": "#F0C8A0",
+  "color-vesta": "#1B3BFA",
+  "r-atom": 1.1,
+  "r-cov": 1.11,
+  "r-vdw": 2.1
+ },
+ "Sm": {
+  "color": "#8FFFC7",
+  "color-vesta": "#8FFFC7",
+  "r-atom": 1.85,
+  "r-cov": 1.98,
+  "r-vdw": 2.36
+ },
+ "Sn": {
+  "color": "#668080",
+  "color-vesta": "#9A8EB9",
+  "r-atom": 1.45,
+  "r-cov": 1.39,
+  "r-vdw": 2.17
+ },
+ "Sr": {
+  "color": "#00FF00",
+  "color-vesta": "#00FF00",
+  "r-atom": 2.0,
+  "r-cov": 1.95,
+  "r-vdw": 2.49
+ },
+ "Ta": {
+  "color": "#4DA6FF",
+  "color-vesta": "#4DA6FF",
+  "r-atom": 1.45,
+  "r-cov": 1.7,
+  "r-vdw": 2.22
+ },
+ "Tb": {
+  "color": "#30FFC7",
+  "color-vesta": "#30FFC7",
+  "r-atom": 1.75,
+  "r-cov": 1.94,
+  "r-vdw": 2.33
+ },
+ "Tc": {
+  "color": "#3B9E9E",
+  "color-vesta": "#3B9E9E",
+  "r-atom": 1.35,
+  "r-cov": 1.47,
+  "r-vdw": 2.16
+ },
+ "Te": {
+  "color": "#D47A00",
+  "color-vesta": "#D47A00",
+  "r-atom": 1.4,
+  "r-cov": 1.38,
+  "r-vdw": 2.06
+ },
+ "Th": {
+  "color": "#00BAFF",
+  "color-vesta": "#00BAFF",
+  "r-atom": 1.8,
+  "r-cov": 2.06,
+  "r-vdw": 2.45
+ },
+ "Ti": {
+  "color": "#BFC2C7",
+  "color-vesta": "#78CAFF",
+  "r-atom": 1.4,
+  "r-cov": 1.6,
+  "r-vdw": 2.11
+ },
+ "Tl": {
+  "color": "#A6544D",
+  "color-vesta": "#A6544D",
+  "r-atom": 1.9,
+  "r-cov": 1.45,
+  "r-vdw": 1.96
+ },
+ "Tm": {
+  "color": "#00D452",
+  "color-vesta": "#00D452",
+  "r-atom": 1.75,
+  "r-cov": 1.9,
+  "r-vdw": 2.27
+ },
+ "U": {
+  "color": "#008FFF",
+  "color-vesta": "#008FFF",
+  "r-atom": 1.75,
+  "r-cov": 1.96,
+  "r-vdw": 2.41
+ },
+ "V": {
+  "color": "#A6A6AB",
+  "color-vesta": "#E51900",
+  "r-atom": 1.35,
+  "r-cov": 1.53,
+  "r-vdw": 2.07
+ },
+ "W": {
+  "color": "#2194D6",
+  "color-vesta": "#2194D6",
+  "r-atom": 1.35,
+  "r-cov": 1.62,
+  "r-vdw": 2.18
+ },
+ "Xe": {
+  "color": "#429EB0",
+  "color-vesta": "#429EB0",
+  "r-atom": 1.4,
+  "r-cov": 1.4,
+  "r-vdw": 2.16
+ },
+ "Y": {
+  "color": "#94FFFF",
+  "color-vesta": "#94FFFF",
+  "r-atom": 1.8,
+  "r-cov": 1.9,
+  "r-vdw": 2.32
+ },
+ "Yb": {
+  "color": "#00BF38",
+  "color-vesta": "#00BF38",
+  "r-atom": 1.75,
+  "r-cov": 1.87,
+  "r-vdw": 2.26
+ },
+ "Zn": {
+  "color": "#7D80B0",
+  "color-vesta": "#8F8F81",
+  "r-atom": 1.35,
+  "r-cov": 1.22,
+  "r-vdw": 2.01
+ },
+ "Zr": {
+  "color": "#94E0E0",
+  "color-vesta": "#00FF00",
+  "r-atom": 1.55,
+  "r-cov": 1.75,
+  "r-vdw": 2.23
+ }
+}

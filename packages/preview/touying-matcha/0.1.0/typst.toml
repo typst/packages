@@ -1,0 +1,17 @@
+[package]
+name = "touying-matcha"
+version = "0.1.0"
+entrypoint = "template/lib.typ"
+authors = ["songwupei"]
+license = "MIT"
+description = "A fresh matcha-green theme for the Touying presentation framework, featuring clean headers, slide counters, and focus slides."
+repository = "https://codeberg.org/songwupei/touying-matcha"
+keywords = ["touying", "matcha", "presentation", "theme", "green", "slide"]
+categories = ["presentation"]
+compiler = "0.13.1"
+exclude = ["example.pdf", ".gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

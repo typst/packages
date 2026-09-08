@@ -1,0 +1,34 @@
+[package]
+name = "magic-isprs"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+    "Alexandre Bry",
+]
+license = "MIT-0"
+description = "Paper for the International Society for Photogrammetry and Remote Sensing (ISPRS)."
+repository = "https://github.com/alexandre-bry/ISPRS-Typst-Template"
+keywords = [
+    "template",
+    "isprs",
+    "paper",
+]
+categories = [
+    "paper",
+]
+disciplines = [
+    "computer-science",
+    "engineering",
+    "geography",
+    "geology",
+    "physics",
+]
+exclude = [
+    "pdf",
+    "template/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
