@@ -72,18 +72,40 @@ Common named arguments: `title`, `subtitle`, `author` (string or array),
 
 ## Theorem-style cards
 
-Coloured titled cards for notes and exercises:
+Coloured titled cards for notes and exercises — `theorem`, `definition`,
+`example`, `proof` and `corollary`, plus the exercise pair
+`question` / `answer`:
 
 ```typst
-#theorem(title: "Theorem 1.1")[
-  Every bounded monotone sequence converges.
+#theorem(title: "Theorem 1.1 (Cheeger)")[
+  For a $d$-regular graph, $lambda_2 / 2 <= h(G) <= sqrt(2 lambda_2)$.
+]
+
+#definition(title: "Definition 1.2 (Spectral gap)")[
+  The _spectral gap_ of $G$ is $gamma = lambda_2 - lambda_1$.
+]
+
+#example(title: "Example 1.3")[
+  The complete graph $K_n$ has $lambda_2 = n$, so $gamma = n$.
+]
+
+#proof[
+  Expand the Rayleigh quotient over the space orthogonal to $bold(1)$.
+]  // ends with a QED tombstone
+
+#question(title: "Exercise 4")[
+  Show that a tree on $n$ vertices has exactly $n - 1$ edges.
+]
+#answer[
+  Induction on $n$. Removing a leaf gives a tree on $n - 1$ vertices
+  with, by hypothesis, $n - 2$ edges.
 ]
 ```
 
-`theorem`, `definition`, `example`, `proof`, `corollary`, `block` (with the
-`QED` tombstone), and the exercise pair `question` / `answer`.
-
 ![theorem, definition, example, proof and question/answer blocks](https://raw.githubusercontent.com/simo899t/sdust/master/cards.png)
+
+The title argument is optional (`#theorem[...]` defaults to "Theorem"),
+and `block` gives the plain `QED`-terminated card.
 
 ## Also exported
 
