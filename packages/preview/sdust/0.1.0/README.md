@@ -2,8 +2,13 @@
 
 SDU-branded document frontpages for Typst — ready-to-use title pages plus
 sane base styling for coursework at the University of Southern Denmark:
-`thesis`, `note`, `exercise`, `assignment`, `project`, `submission`, `exam`,
-and `chi`.
+`thesis`, `note`, `exercise`, `assignment`, `project`, `submission`, and
+`exam`.
+
+For ACM papers (e.g. CHI), use
+[`faithful-acmart`](https://typst.app/universe/package/faithful-acmart)
+(`format: "manuscript"` for review, `format: "sigconf"` for camera-ready)
+— sdust does not try to reproduce the ACM class.
 
 Every cover page uses a custom SDU layout, SDU red accent, A4, and defaults to
 "University of Southern Denmark".
@@ -63,7 +68,6 @@ Windows: `%APPDATA%\typst\packages\local`. Then import `@local/sdust:0.1.0`.)
 | `project` | Group/solo project reports |
 | `submission` | Lightweight hand-in (title card only, no TOC) |
 | `exam` | Exam submissions |
-| `chi` | ACM CHI paper format |
 
 Also exported: `base-style`, `bib`,
 `word-count` / `total-words`, the branding constants `sdu-red` and
