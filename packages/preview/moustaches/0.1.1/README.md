@@ -4,7 +4,7 @@ Package for french statistics (using french definitions of quartiles or interpol
 
 The new release also brings proportionality tables (tables of nodes with each cell associated with a fletcher label for better positioning of edges and equal-sized columns and heights) and equation solving, both with the math-grid function, and two functions help-en and help-fr may be used to get help about a function or a parameter (ex: #help-fr("lin-up") or #help-en("col-op(flip)")). The manuals and the help functions are made with help from tidy.
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.txt)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![User Manual](https://img.shields.io/badge/manual-fr.pdf-teal)][french manual]
 [![User Manual](https://img.shields.io/badge/manual-en.pdf-purple)][english manual]
 
