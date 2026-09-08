@@ -10,4 +10,4 @@ keywords = ["template", "sdu", "thesis", "academic", "university"]
 categories = ["report", "thesis"]
 disciplines = ["education", "computer-science", "mathematics"]
 compiler = "0.13.0"
-exclude = ["test.typ", "tests/**", "assets/**", ".claude/**", ".vscode/**", ".DS_Store", "CHANGELOG.md"]
+exclude = ["test.typ", "tests/**", "assets/**", ".claude/**", ".vscode/**", ".DS_Store", "CHANGELOG.md", "examples.typ"]

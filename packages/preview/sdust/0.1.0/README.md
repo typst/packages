@@ -3,7 +3,7 @@
 Ready-to-use, SDU-branded document frontpages for coursework at the
 University of Southern Denmark (Syddansk Universitet), a title page and page setup for every kind of hand-in.
 
-![Lecture notes, exercise, and assignment cover pages produced by sdust](preview.png)
+![Thesis, lecture-note, exercise and assignment cover pages produced by sdust](preview.png)
 
 ## Quick start
 
