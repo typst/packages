@@ -6,12 +6,12 @@
   titulo: [Foundations for a general theory of functions of a variable complex quantity],
   autor: [Bernhard Riemmnn],
   asesor: [Carl Frederich Gauss],
-  generoAsesor: "director",
+  genero-asesor: "director",
   lugar: [Gottinga, Alemania],
   agno: [1851],
-  bibliography: bibliography("references.bib"),
+  bibliografia: bibliography("references.bib"),
   agradecimientos: include "agradecimientos.typ",
-  abstract: include "abstract.typ",
+  resumen: include "abstract.typ",
 )
 #include "capitulo1.typ"
 #include "capitulo2.typ"
