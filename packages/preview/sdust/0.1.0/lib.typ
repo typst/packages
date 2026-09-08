@@ -557,6 +557,9 @@
   ..args,
 ) = {
   let body = args.pos().at(0, default: [])
+  // Apply base styling up front so the `set page` inside base-style
+  // doesn't force a page break between the title card and the body.
+  show: base-style
   set page(paper: "a4", margin: (left: 3cm, right: 3cm, top: 3cm, bottom: 3cm))
   align(center,
     stack(
@@ -592,7 +595,7 @@
       v(1cm),
     )
   )
-  base-style(body)
+  body
 }
 
 // ── exam ─────────────────────────────────────────────
