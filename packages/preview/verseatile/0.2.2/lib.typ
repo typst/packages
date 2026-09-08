@@ -21,7 +21,7 @@
   #let poem-options(indents: (:), poemtitle: (:)) = {
     let indents = (base: 1em, verse: 1em, stanza: 0pt, ..indents)
     base-indent.update(indents.base); verse-indent.update(indents.verse); stanza-indent.update(indents.stanza)
-    let poemtitle = (clearance: 20em/11, always-align: true, ..poemtitle)
+    let poemtitle = (clearance: 20em/11, always-align: false, ..poemtitle)
     v-after-poemtitle.update(poemtitle.clearance); always-align-poemtitle.update(poemtitle.always-align)}
 
   // Verse numbers
