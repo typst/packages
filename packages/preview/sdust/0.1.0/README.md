@@ -102,8 +102,7 @@ Coloured titled cards for notes and exercises — `theorem`, `definition`,
 
 ![theorem, definition, example, proof and question/answer blocks](cards.png)
 
-The title argument is optional (`#theorem[...]` defaults to "Theorem"). `#QED` is exported as a standalone
-end-of-proof tombstone — add it yourself where you want it.
+The title argument is optional (`#theorem[...]` defaults to "Theorem").
 
 The cards use fixed light fills and are meant for print / PDF; they do not
 adapt to a dark editor preview.

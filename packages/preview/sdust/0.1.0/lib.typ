@@ -1,8 +1,8 @@
-// sdust — SDU-branded document frontpages for Typst.
+// sdust, SDU-branded document assets for Typst.
 //
-// Templates: thesis, note, exercise, assignment, project, submission, exam.
+// templates: thesis, note, exercise, assignment, project, submission, exam.
 // Each takes inputs like `title`, `author` and `supervisor` and builds a
-// cover page, an optional outline, then sane base styling.
+// cover page, an optional outline, then basic base styling.
 //
 // Also: `page-setup` (base styling, no cover), the titled cards
 // (theorem / definition / example / proof / corollary / block) and the
