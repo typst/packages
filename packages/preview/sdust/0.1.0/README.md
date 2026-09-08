@@ -1,9 +1,7 @@
 # sdust
 
 Ready-to-use, SDU-branded document frontpages for coursework at the
-University of Southern Denmark (Syddansk Universitet) — a title page and
-sane base styling for every kind of hand-in, so you can start writing
-instead of rebuilding the institutional layout.
+University of Southern Denmark (Syddansk Universitet), a title page and page setup for every kind of hand-in.
 
 ![Lecture notes, exercise, and assignment cover pages produced by sdust](https://raw.githubusercontent.com/simo899t/sdust/master/preview.png)
 
@@ -36,11 +34,11 @@ Want the styling without a cover page? Use `page-setup`:
 = First Section
 ```
 
-## The SDU logo
+## The logo
 
-The SDU logo is a controlled brand asset (`grafiskcenter@sdu.dk`) and is
-**not bundled**. No logo is drawn unless you pass one; download it from
-SDUnet and hand it in:
+The SDU logo is a controlled brand asset and is therefore
+**not bundled**. No logo is drawn unless you pass one, one can download it from
+SDUs own website:
 
 ```typst
 #show: thesis.with(
@@ -70,10 +68,10 @@ Common named arguments: `title`, `subtitle`, `author` (string or array),
 `group:`, `abstract:` and `keywords:`; `exam` takes `duration:`,
 `student-number:` and more.
 
-## Theorem-style cards
+## Page cards
 
 Coloured titled cards for notes and exercises — `theorem`, `definition`,
-`example`, `proof` and `corollary`, plus the exercise pair
+`example`, `proof` and `corollary`, plus exercise pair
 `question` / `answer`:
 
 ```typst
@@ -90,8 +88,8 @@ Coloured titled cards for notes and exercises — `theorem`, `definition`,
 ]
 
 #proof[
-  Expand the Rayleigh quotient over the space orthogonal to $bold(1)$.
-]  // ends with a QED tombstone
+  Expand the Rayleigh quotient over the space orthogonal to $bold(1)$. #QED
+]
 
 #question(title: "Exercise 4")[
   Show that a tree on $n$ vertices has exactly $n - 1$ edges.
@@ -105,7 +103,8 @@ Coloured titled cards for notes and exercises — `theorem`, `definition`,
 ![theorem, definition, example, proof and question/answer blocks](https://raw.githubusercontent.com/simo899t/sdust/master/cards.png)
 
 The title argument is optional (`#theorem[...]` defaults to "Theorem"),
-and `block` gives the plain `QED`-terminated card.
+and `block` gives a plain grey card. `QED` is exported as a standalone
+end-of-proof tombstone — add it yourself where you want it.
 
 ## Also exported
 
@@ -116,7 +115,7 @@ the Faculty of Science department names `imada`, `bmb`, `biology`, `fkf`
 
 ## ACM / CHI papers
 
-sdust does not reproduce the ACM class. For an ACM paper — including CHI
+sdust does not reproduce the ACM class. For an ACM paper,including CHI
 (`format: "manuscript"` for review, `format: "sigconf"` for camera-ready) —
 use [`faithful-acmart`](https://typst.app/universe/package/faithful-acmart).
 
