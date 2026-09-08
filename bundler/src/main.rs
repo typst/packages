@@ -253,9 +253,10 @@ fn process_package(
     validate_archive(&buf).context("failed to validate archive")?;
     write_archive(&manifest.package, &buf, namespace_dir).context("failed to write archive")?;
 
-    if let Some(template) = &manifest.template
-        && let Some(thumbnail) = &template.thumbnail
-    {
+    if let Some(template) = &manifest.template {
+        let Some(thumbnail) = &template.thumbnail else {
+            bail!("thumbnails are required for templates");
+        };
         let original_path = VirtualPath::new(thumbnail.as_str())
             .context("thumbnail path")?
             .realize(path)
