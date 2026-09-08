@@ -3,7 +3,7 @@
 Ready-to-use, SDU-branded document frontpages for coursework at the
 University of Southern Denmark (Syddansk Universitet), a title page and page setup for every kind of hand-in.
 
-![Lecture notes, exercise, and assignment cover pages produced by sdust](https://raw.githubusercontent.com/simo899t/sdust/master/preview.png)
+![Lecture notes, exercise, and assignment cover pages produced by sdust](preview.png)
 
 ## Quick start
 
@@ -100,10 +100,9 @@ Coloured titled cards for notes and exercises — `theorem`, `definition`,
 ]
 ```
 
-![theorem, definition, example, proof and question/answer blocks](https://raw.githubusercontent.com/simo899t/sdust/master/cards.png)
+![theorem, definition, example, proof and question/answer blocks](cards.png)
 
-The title argument is optional (`#theorem[...]` defaults to "Theorem"),
-and `block` gives a plain grey card. `QED` is exported as a standalone
+The title argument is optional (`#theorem[...]` defaults to "Theorem"). `#QED` is exported as a standalone
 end-of-proof tombstone — add it yourself where you want it.
 
 ## Also exported

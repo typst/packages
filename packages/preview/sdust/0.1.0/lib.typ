@@ -162,7 +162,7 @@
   content,
 )
 
-// white/neutral proof — same shape as example, plain color,
+// white/neutral proof — same shape as example, plain color, ends with QED,
 // e.g. #proof[By induction on $n$. ...]
 #let proof(title: "Proof", width: 100%, content) = _titled-card(
   title: title, width: width,
@@ -298,7 +298,7 @@
       v(1.2cm),
       line(length: 100%, stroke: 3pt + sdu-red),
       v(1.2em),
-      text(size: 9.5pt, fill: sdu-red, tracking: 2.5pt, weight: "bold")[LECTURE NOTES],
+      text(size: 9.5pt, fill: sdu-red, tracking: 2.5pt, weight: "bold")[LECTURE NOTE],
       v(2.5cm),
       text(size: 30pt, weight: "bold")[#title],
       if subtitle != none {
@@ -346,7 +346,7 @@
       v(1.2cm),
       line(length: 100%, stroke: 3pt + sdu-red),
       v(1.2em),
-      text(size: 9.5pt, fill: sdu-red, tracking: 2.5pt, weight: "bold")[EXERCISES],
+      text(size: 9.5pt, fill: sdu-red, tracking: 2.5pt, weight: "bold")[EXERCISE],
       v(2.5cm),
       text(size: 30pt, weight: "bold")[#title],
       v(1.3em),
@@ -391,7 +391,7 @@
       v(1.2cm),
       line(length: 100%, stroke: 3pt + sdu-red),
       v(1.2em),
-      text(size: 9.5pt, fill: sdu-red, tracking: 2.5pt, weight: "bold")[ASSIGNMENTS],
+      text(size: 9.5pt, fill: sdu-red, tracking: 2.5pt, weight: "bold")[ASSIGNMENT],
       v(2.5cm),
       text(size: 30pt, weight: "bold")[#title],
       v(1.3em),
@@ -557,9 +557,6 @@
   ..args,
 ) = {
   let body = args.pos().at(0, default: [])
-  // Apply base styling up front so the `set page` inside base-style
-  // doesn't force a page break between the title card and the body.
-  show: base-style
   set page(paper: "a4", margin: (left: 3cm, right: 3cm, top: 3cm, bottom: 3cm))
   align(center,
     stack(
@@ -595,7 +592,7 @@
       v(1cm),
     )
   )
-  body
+  base-style(body)
 }
 
 // ── exam ─────────────────────────────────────────────
@@ -719,6 +716,94 @@
   base-style(body)
 }
 
+// ── chi — ACM CHI paper ──────────────────────────────
+#let chi(
+  title: default-title,
+  authors: (),
+  abstract: [],
+  keywords: (),
+  ccs: none,
+  date: default-date,
+  outline: false,
+  ..args,
+) = {
+  let body = args.pos().at(0, default: [])
+  set page(paper: "us-letter", margin: (x: 1.9cm, y: 2.3cm))
+  set text(size: 9.5pt)
+
+  v(0.5cm)
+  align(center, text(size: 18pt, weight: "bold")[#title])
+  v(1.5em)
+
+  let authors-arr = if type(authors) == str {
+    ((name: authors),)
+  } else if authors.len() > 0 and type(authors.at(0)) == str {
+    authors.map(n => (name: n))
+  } else {
+    authors
+  }
+  if authors-arr.len() > 0 {
+    let render-author(a) = align(center, stack(
+      spacing: 0.3em,
+      text(weight: "bold", size: 10.5pt)[#a.at("name", default: "")],
+      if a.at("institution", default: "") != "" { text(size: 9pt)[#a.at("institution", default: "")] },
+      if a.at("city", default: "") != "" or "country" in a {
+        text(size: 9pt)[#a.at("city", default: "")#if "country" in a [, #a.country]]
+      },
+      if a.at("email", default: "") != "" {
+        text(size: 9pt, fill: rgb("#0055aa"))[#a.at("email", default: "")]
+      },
+    ))
+
+    let n = authors-arr.len()
+    let row-starts = range(0, n, step: 3)
+    for i in row-starts {
+      let row = authors-arr.slice(i, calc.min(i + 3, n))
+      align(center,
+        box(width: (100% * row.len() / 3),
+          grid(columns: (1fr,) * row.len(), column-gutter: 2em,
+            ..row.map(render-author))
+        )
+      )
+      if i + 3 < n { v(1.5em) }
+    }
+
+    v(1.8em)
+    align(center, text(size: 9pt, fill: rgb("#888888"))[#date])
+    v(1em)
+  }
+
+  let has-meta = abstract != [] or keywords != () or ccs != none
+  if has-meta {
+    line(length: 100%, stroke: 0.5pt + rgb("#888888"))
+    v(1em)
+    columns(2, gutter: 1.5em, [
+      #if abstract != [] {
+        text(weight: "bold", size: 8.5pt, tracking: 0.8pt)[ABSTRACT]
+        v(0.4em)
+        abstract
+      }
+      #if ccs != none {
+        v(0.8em)
+        text(weight: "bold", size: 8.5pt, tracking: 0.8pt)[CCS CONCEPTS]
+        v(0.4em)
+        ccs
+      }
+      #if keywords != () {
+        v(0.8em)
+        text(weight: "bold", size: 8.5pt, tracking: 0.8pt)[KEYWORDS]
+        v(0.4em)
+        keywords.join("; ")
+      }
+    ])
+  }
+
+  line(length: 100%, stroke: 0.5pt + rgb("#888888"))
+  v(1em)
+  if outline { pagebreak(); std.outline(); pagebreak() }
+  base-style(body)
+}
+
 /*
 ===================================================
 TEMPLATES — copy the block you need into a new file
@@ -833,9 +918,19 @@ Content goes here.
 = Introduction
 Content goes here.
 
-── ACM / CHI PAPER ──
-For an ACM paper (e.g. CHI: `format: "manuscript"` for review,
-`format: "sigconf"` for camera-ready) use faithful-acmart instead:
-https://typst.app/universe/package/faithful-acmart
+── CHI PAPER ──
+#import "@preview/sdust:0.1.0": *
+#show: chi.with(
+  title: "Paper Title",
+  authors: (
+    (name: "Firstname Lastname", institution: "University", city: "City", country: "County", email: "mail@mail.com"),
+  ),
+  abstract: [Your abstract text here.],
+  keywords: ("keyword one", "keyword two"),
+  date:     "date",
+)
+
+= Introduction
+Content goes here.
 
 */
