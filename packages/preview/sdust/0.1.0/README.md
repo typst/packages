@@ -61,7 +61,7 @@ SDUnet and hand it in:
 | `exercise`   | Exercise sheets                                 |
 | `assignment` | Assignments                                     |
 | `project`    | Group / solo project reports                    |
-| `submission` | Lightweight hand-in — title card only, no TOC   |
+| `submission` | Lightweight hand-in title card                  |
 | `exam`       | Exam submissions                                |
 
 Common named arguments: `title`, `subtitle`, `author` (string or array),
@@ -82,6 +82,8 @@ Coloured titled cards for notes and exercises:
 
 `theorem`, `definition`, `example`, `proof`, `corollary`, `block` (with the
 `QED` tombstone), and the exercise pair `question` / `answer`.
+
+![theorem, definition, example, proof and question/answer blocks](https://raw.githubusercontent.com/simo899t/sdust/master/cards.png)
 
 ## Also exported
 
