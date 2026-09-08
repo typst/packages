@@ -105,6 +105,9 @@ Coloured titled cards for notes and exercises — `theorem`, `definition`,
 The title argument is optional (`#theorem[...]` defaults to "Theorem"). `#QED` is exported as a standalone
 end-of-proof tombstone — add it yourself where you want it.
 
+The cards use fixed light fills and are meant for print / PDF; they do not
+adapt to a dark editor preview.
+
 ## Also exported
 
 `base-style`, `bib` (Chicago author–date bibliography), `word-count` /
@@ -114,7 +117,7 @@ the Faculty of Science department names `imada`, `bmb`, `biology`, `fkf`
 
 ## ACM / CHI papers
 
-sdust does not reproduce the ACM class. For an ACM paper,including CHI
+sdust does not reproduce the ACM class. For an ACM paper, including CHI
 (`format: "manuscript"` for review, `format: "sigconf"` for camera-ready) —
 use [`faithful-acmart`](https://typst.app/universe/package/faithful-acmart).
 
