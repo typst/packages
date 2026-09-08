@@ -79,7 +79,7 @@
       #autor])
 
     #v(62pt)
-    #text(12pt, font: "Arial", upper(generoAsesor))\
+    #text(12pt, font: "Arial", upper(genero-asesor))\
     #text(blue, 12pt, font: "Arial", [#asesor \ #asesorAD])\
 
     #v(44pt)
