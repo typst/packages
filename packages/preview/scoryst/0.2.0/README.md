@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/bernsteining/scoryst/v0.2.0/test/logo.svg)
+![a treble clef and two notes as a logo](https://raw.githubusercontent.com/bernsteining/scoryst/v0.2.0/test/logo.svg)
 
 # Scoryst - Music Engraving Plugin for Typst
 
