@@ -9,7 +9,6 @@ Inspired by KOMA-Script, **satz** provides a unified configuration system (`defa
 ```typst
 #import "@preview/satz:0.1.1": report
 #show: report.with(config: (
-  page: (margin: (left: 3cm)),
   typography: (font: "Libertinus Serif"),
   lof: (compact: true), // List of Figures shows only "Figure 1 .... 5"
 ))
@@ -36,11 +35,13 @@ Inspired by KOMA-Script, **satz** provides a unified configuration system (`defa
 | **letter** | `brief(absender, empfaenger, datum, betreff, lang:, body)` | DIN 5008 conform letter with fold/punch marks. Supports `lang: "de"` / `"en"` for localized labels. Structured recipient fields: `name`, `zusatz`, `strasse`, `plz_ort`, `land`. |
 | **invoice** | `rechnung(absender, empfaenger, datum, posten, qr:, qr-betrag:, qr-verwendungszweck:, body)` | German invoice adapted from the letter template. Optional EPC QR code (GiroCode) — banking apps auto-fill transfer details. |
 | **journal** | `journal-entry(..)`, `journal-index(..)` | Research diary with entries, keywords, and auto-generated monthly index |
-| **report** | `report(body, config: (:))` | Scientific articles, protocols, thesis (article mode, BCOR, TOC planned) |
+| **report** | `report(body, config: (:))` | Scientific articles, protocols, thesis — numbered headings, auto TOC/LoF/LoT, two-sided layout, bibliography |
 | **dfg-proposal** | `dfg-proposal(...)` | DFG form 53.01 (Sachbeihilfe) in German and English — **work in progress** |
 | **legal-complaint** | `klageschrift(...)` | Formal complaint for submission to German courts (ZPO) — Rubrum, Streitwert, Anlagen |
 | **gastspielvertrag** | `gastspielvertrag(...)` | Guest performance contract (§1–8, transport, buy-out, 3 doc modes) |
 | **cover** | `cover-page(...)` | Composable cover page with logos/body/footer slots |
+
+Stable: letter, invoice, journal, report, cover. Experimental: dfg-proposal, article mode.
 
 ### Letter — Internationalization
 
@@ -74,7 +75,7 @@ gastspielvertrag/    ← gastspielvertrag — guest performance contract
 
 ## Configuration
 
-All templates share the same `config` system:
+Override only what you need — everything else keeps its default:
 
 ```typst
 #show: report.with(config: (
@@ -84,7 +85,7 @@ All templates share the same `config` system:
 ))
 ```
 
-Nested dictionaries are deep-merged. See `defaults.typ` for all keys.
+Available sections (see `defaults.typ` for every key): `page`, `typography`, `headings`, `decorative`, `page-footer`, `links`, `tables`, `captions`, `toc`, `lof`, `lot`, `bibliography`, `colors`.
 
 For long captions use `satz-figure` — long text under the figure, short title in the List of Figures (or `short-caption: []` for compact):
 
@@ -96,7 +97,3 @@ For long captions use `satz-figure` — long text under the figure, short title 
 ## License
 
 MIT
-
-## Status
-
-`0.1.1` — letters, invoices, journal, report, cover, LoF/LoT ready. API stable for these templates; DFG/article still WIP and may change.
