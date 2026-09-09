@@ -52,8 +52,8 @@ typst watch examples/rapport-projet/rapport-projet-fr.typ
 
 La documentation détaillée est disponible sur le dépôt GitHub du projet :
 
-- [⚙️ **Référence des Paramètres de Configuration**](https://github.com/leonpwd/ece-reports/blob/v0.1.0/docs/parametres.md) : options communes, spécifiques `tp` et `projet`, styles de polices commutables (`font-presets`), auteurs structurés, mode filigrane `draft`.
-- [🛠️ **Utilitaires & Composants d'Ingénierie**](https://github.com/leonpwd/ece-reports/blob/v0.1.0/docs/composants.md) : questions `#t()` / `#e()`, encarts `#callout`, tableaux BOM `#table-composants`, brochage `#table-brochage`, glossaires, figures intelligentes et gestionnaire d'annexes `#show: annexes`.
+- [⚙️ **Référence des Paramètres de Configuration**](https://github.com/leonpwd/ece-reports/blob/v0.1.0/docs/parametres.md) : options communes, spécifiques `tp` et `projet`, encadrant/tuteur (`supervisor`), styles de polices commutables (`font-presets`), auteurs structurés, mode filigrane `draft`.
+- [🛠️ **Utilitaires & Composants d'Ingénierie**](https://github.com/leonpwd/ece-reports/blob/v0.1.0/docs/composants.md) : questions `#t()` / `#e()`, encarts `#callout`, tableaux au style ECE (`#table`, `#table-double-entree`), figures intelligentes et gestionnaire d'annexes `#show: annexes`.
 - [📂 **Exemples prêts à l'emploi**](https://github.com/leonpwd/ece-reports/tree/v0.1.0/examples) : rapports complets en français et en anglais avec bibliographie BibTeX.
 
 ---

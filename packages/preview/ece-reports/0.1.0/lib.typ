@@ -89,89 +89,125 @@
 
 #let note-cadre = callout // Alias de compatibilité
 
-#let table-termes(header-term: "Terme", header-def: "Définition", ..rows) = [
-  #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
-  #table(
-    columns: (1.5fr, 3.5fr),
-    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
-    inset: 8pt,
-    table.header(
-      [#text(weight: "bold")[#header-term]],
-      [#text(weight: "bold")[#header-def]],
-    ),
-    ..rows
-  )
-]
+#let table-ece(headers: (), ..args) = {
+  let header-row = if headers != () {
+    (table.header(..headers.map(h => if type(h) == str { text(weight: "bold")[#h] } else { h })),)
+  } else {
+    ()
+  }
+  table(..header-row, ..args)
+}
+#let ece-table = table-ece
+#let tableau-ece = table-ece
 
-#let table-acronymes(header-acr: "Acronyme", header-mean: "Signification", header-exp: "Explication", ..rows) = [
-  #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
-  #table(
-    columns: (1fr, 1.8fr, 2.7fr),
-    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
-    inset: 8pt,
-    table.header(
-      [#text(weight: "bold")[#header-acr]],
-      [#text(weight: "bold")[#header-mean]],
-      [#text(weight: "bold")[#header-exp]],
-    ),
-    ..rows
-  )
-]
+#let table-double-entree(
+  columns: auto,
+  headers: (),
+  align: auto,
+  inset: 7pt,
+  ..cells
+) = {
+  let cols = if type(columns) == int {
+    (1fr,) * columns
+  } else if columns == auto {
+    if headers != () and type(headers) == array {
+      (1.4fr,) + (1fr,) * (headers.len() - 1)
+    } else {
+      auto
+    }
+  } else if type(columns) == array {
+    columns.map(c => if type(c) in (int, float) { c * 1fr } else { c })
+  } else {
+    columns
+  }
 
-#let table-composants(
-  header-ref: "Réf.",
-  header-comp: "Désignation",
-  header-val: "Valeur / Boîtier",
-  header-qty: "Qté",
-  header-note: "Remarques",
-  ..rows
-) = [
-  #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
-  #table(
-    columns: (1fr, 2.2fr, 2fr, 0.8fr, 2fr),
-    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
-    inset: 7pt,
-    align: (col, row) => if col == 0 or col == 3 { center + horizon } else { left + horizon },
-    table.header(
-      [#text(weight: "bold")[#header-ref]],
-      [#text(weight: "bold")[#header-comp]],
-      [#text(weight: "bold")[#header-val]],
-      [#text(weight: "bold")[#header-qty]],
-      [#text(weight: "bold")[#header-note]],
-    ),
-    ..rows
-  )
-]
-#let table-bom = table-composants
+  let header-row = if headers != () {
+    (table.header(..headers.map(h => if type(h) == str { text(weight: "bold")[#h] } else { h })),)
+  } else {
+    ()
+  }
 
-#let table-brochage(
-  header-pin: "Broche",
-  header-sig: "Signal",
-  header-mode: "Mode I/O",
-  header-desc: "Description",
-  ..rows
-) = [
-  #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
-  #table(
-    columns: (1.2fr, 1.5fr, 1.3fr, 3fr),
-    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
-    inset: 7pt,
-    align: (col, row) => if col in (0, 1, 2) { center + horizon } else { left + horizon },
-    table.header(
-      [#text(weight: "bold")[#header-pin]],
-      [#text(weight: "bold")[#header-sig]],
-      [#text(weight: "bold")[#header-mode]],
-      [#text(weight: "bold")[#header-desc]],
-    ),
-    ..rows
+  let default-align = (col, row) => if col == 0 { left + horizon } else { center + horizon }
+
+  let stroke-fn = (x, y) => {
+    let base = 0.5pt + rgb("#DDDDDD")
+    let b = if y == 0 { 1.5pt + ece } else { base }
+    let r = if x == 0 { 1.5pt + ece } else { base }
+    (top: base, left: base, bottom: b, right: r)
+  }
+
+  let fill-fn = (col, row) => {
+    if row == 0 or col == 0 {
+      rgb("#EBF5F5")
+    } else if calc.even(row) {
+      rgb("#FAFAFA")
+    } else {
+      none
+    }
+  }
+
+  show table.cell.where(x: 0): set text(weight: "bold")
+
+  table(
+    columns: cols,
+    stroke: stroke-fn,
+    fill: fill-fn,
+    inset: inset,
+    align: if align != auto { align } else { default-align },
+    ..header-row,
+    ..cells
   )
-]
-#let table-pinout = table-brochage
+}
+#let tableau-double-entree = table-double-entree
+#let table-2entrees = table-double-entree
+#let tableau-2entrees = table-double-entree
+#let table-matrice = table-double-entree
+#let tableau-matrice = table-double-entree
+
+#let table-2col(
+  headers: (),
+  ratio: (1fr, 2fr),
+  align: auto,
+  inset: 7pt,
+  columns: auto,
+  ..cells
+) = {
+  let cols = if columns != auto {
+    columns
+  } else if type(ratio) == array {
+    ratio.map(r => if type(r) in (int, float) { r * 1fr } else { r })
+  } else if ratio == "equal" or ratio == "50/50" {
+    (1fr, 1fr)
+  } else {
+    (1fr, 2fr)
+  }
+  let header-row = if headers != () {
+    (table.header(..headers.map(h => if type(h) == str { text(weight: "bold")[#h] } else { h })),)
+  } else {
+    ()
+  }
+  let args = (:)
+  if align != auto { args.insert("align", align) }
+  table(
+    columns: cols,
+    inset: inset,
+    ..args,
+    ..header-row,
+    ..cells
+  )
+}
+#let tableau-2col = table-2col
+#let table-double-colonne = table-2col
+#let tableau-double-colonne = table-2col
+
 
 #let annexes(body, lang: "fr", title-prefix: auto) = {
   pagebreak()
   counter(heading).update(0)
   counter(math.equation).update(0)
+  counter(figure.where(kind: image)).update(0)
+  counter(figure.where(kind: table)).update(0)
+  counter(figure.where(kind: raw)).update(0)
   let prefix = if title-prefix != auto {
     title-prefix
   } else if lang == "en" {
@@ -192,6 +228,18 @@
     let letter = numbering("A", calc.max(1, h_count))
     "(" + letter + "." + str(nums.pos().first()) + ")"
   })
+  set figure(numbering: (..nums) => context {
+    let h_count = counter(heading).get().first()
+    let letter = numbering("A", calc.max(1, h_count))
+    letter + "." + str(nums.pos().first())
+  })
+  show heading.where(level: 1): it => {
+    it
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+    counter(math.equation).update(0)
+  }
   body
 }
 #let appendix = annexes
@@ -199,16 +247,51 @@
 // =============================================================================
 // RACCOURCIS & NOTATIONS D'INGÉNIERIE SCIENTIFIQUE
 // =============================================================================
+// Résistances & Impédances
 #let ohm = $Omega$
 #let kohm = $k Omega$
 #let mohm = $M Omega$
+
+// Capacités
 #let uf = $mu upright("F")$
 #let nf = $upright("nF")$
 #let pf = $upright("pF")$
+
+// Tensions
 #let vpp = $V_("pp")$
 #let vrms = $V_("rms")$
 #let vdc = $V_("dc")$
+#let vac = $V_("ac")$
+#let mv = $upright("mV")$
+#let uv = $mu upright("V")$
+
+// Courants
+#let ma = $upright("mA")$
+#let ua = $mu upright("A")$
+#let na = $upright("nA")$
+
+// Fréquences
+#let hz = $upright("Hz")$
+#let khz = $upright("kHz")$
+#let mhz = $upright("MHz")$
+#let ghz = $upright("GHz")$
 #let fcut = $f_0$
+
+// Temps
+#let ms = $upright("ms")$
+#let us = $mu upright("s")$
+#let ns = $upright("ns")$
+#let ps = $upright("ps")$
+
+// Puissances & Décibels
+#let mw = $upright("mW")$
+#let uw = $mu upright("W")$
+#let db = $upright("dB")$
+#let dbm = $upright("dBm")$
+
+// Température & Notations
+#let degc = $degree upright("C")$
+#let celsius = $degree upright("C")$
 
 // =============================================================================
 // DICTIONNAIRES D'INTERNATIONALISATION (i18n)
@@ -409,13 +492,14 @@
       let current_page = counter(page).get().first()
       if current_page > 1 {
         let headings = query(heading.where(level: 1))
+        let has_h1_on_page = headings.any(h => h.location().page() == current_page)
         let current_heading = headings.rev().find(h => h.location().page() <= current_page)
         let promo_label = if actual_major != none { promo + " – " + actual_major } else { promo }
         grid(
           columns: (auto, 1fr, auto),
           align: (left + horizon, center + horizon, right + horizon),
           _render-logo(logo, width: 2.5cm),
-          if current_heading != none [
+          if not has_h1_on_page and current_heading != none [
             #text(size: 9pt, fill: rgb("#666666"), style: "italic")[
               #current_heading.body
             ]
@@ -478,12 +562,22 @@
   }
 
   set bibliography(style: "ieee")
+  show figure: set block(above: 1.5em, below: 1.5em)
+  set figure(gap: 0.85em)
   show figure.where(kind: table): set figure(supplement: dict.supp_table)
   show figure.where(kind: raw): set figure(supplement: dict.supp_code)
   show figure.where(kind: image): set figure(supplement: dict.supp_figure)
   show figure.caption: it => [
     #text(weight: "bold")[#it.supplement #context { it.counter.display(it.numbering) }] – #it.body
   ]
+
+  set table(
+    stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") },
+    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
+    inset: 7pt,
+    align: horizon,
+  )
+  show table.cell.where(y: 0): set text(weight: "bold")
 
   set heading(numbering: (..nums) => {
     let pos = nums.pos()
@@ -498,23 +592,23 @@
 
   show heading.where(level: 1): it => {
     set text(size: 18pt, fill: ece, weight: "bold")
-    v(1.2em, weak: true)
+    v(1.5em, weak: true)
     it
-    v(0.6em, weak: true)
+    v(0.8em, weak: true)
   }
 
   show heading.where(level: 2): it => {
     set text(size: 16pt, fill: ece, weight: "bold")
-    v(1em, weak: true)
+    v(1.3em, weak: true)
     it
-    v(0.5em, weak: true)
+    v(0.7em, weak: true)
   }
 
   show heading.where(level: 3): it => {
     set text(size: 15pt, fill: gamboge, weight: "bold")
-    v(0.8em, weak: true)
+    v(1.2em, weak: true)
     it
-    v(0.4em, weak: true)
+    v(0.7em, weak: true)
   }
 
   // --- PAGE DE TITRE ---
@@ -707,13 +801,14 @@
       let current_page = counter(page).get().first()
       if current_page > 1 {
         let headings = query(heading.where(level: 1))
+        let has_h1_on_page = headings.any(h => h.location().page() == current_page)
         let current_heading = headings.rev().find(h => h.location().page() <= current_page)
         let promo_label = if actual_major != none { promo + " – " + actual_major } else { promo }
         grid(
           columns: (auto, 1fr, auto),
           align: (left + horizon, center + horizon, right + horizon),
           _render-logo(logo, width: 2.5cm),
-          if current_heading != none [
+          if not has_h1_on_page and current_heading != none [
             #text(size: 9pt, fill: rgb("#666666"), style: "italic")[
               #current_heading.body
             ]
@@ -776,6 +871,8 @@
   }
 
   set bibliography(style: "ieee")
+  show figure: set block(above: 1.5em, below: 1.5em)
+  set figure(gap: 0.85em)
   show figure.where(kind: table): set figure(supplement: dict.supp_table)
   show figure.where(kind: raw): set figure(supplement: dict.supp_code)
   show figure.where(kind: image): set figure(supplement: dict.supp_figure)
@@ -783,27 +880,35 @@
     #text(weight: "bold")[#it.supplement #context { it.counter.display(it.numbering) }] – #it.body
   ]
 
+  set table(
+    stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") },
+    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
+    inset: 7pt,
+    align: horizon,
+  )
+  show table.cell.where(y: 0): set text(weight: "bold")
+
   set heading(numbering: numbering-format)
 
   show heading.where(level: 1): it => {
     set text(size: 18pt, fill: ece, weight: "bold")
-    v(1.4em, weak: true)
+    v(1.5em, weak: true)
     it
-    v(0.6em, weak: true)
+    v(0.8em, weak: true)
   }
 
   show heading.where(level: 2): it => {
     set text(size: 14pt, fill: ece, weight: "bold")
-    v(1.1em, weak: true)
+    v(1.3em, weak: true)
     it
-    v(0.5em, weak: true)
+    v(0.7em, weak: true)
   }
 
   show heading.where(level: 3): it => {
     set text(size: 12pt, fill: gamboge, weight: "bold")
-    v(0.8em, weak: true)
+    v(1.2em, weak: true)
     it
-    v(0.4em, weak: true)
+    v(0.7em, weak: true)
   }
 
   // --- PAGE DE TITRE ---
