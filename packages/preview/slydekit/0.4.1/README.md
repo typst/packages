@@ -1,12 +1,8 @@
 # Slydekit
 
-[![Generic badge](https://img.shields.io/badge/Version-0.4.1-cornflowerblue.svg)]()
+[![Generic badge](https://img.shields.io/badge/Version-0.4.1-cornflowerblue.svg)](https://github.com/maucejo/slydekit/releases)
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/slydekit/blob/6960a9b2a8be41e10230a2a98a9751e03d4fdbbb/LICENSE)
 [![Stable documentation](https://img.shields.io/badge/docs-stable-mediumpurple)](https://maucejo.github.io/slydekit/)
-
-<p align="center">
-<img src="./src/resources/images/slydekit-full.svg" alt="drawing" width="200"/>
-</p>
 
 <p align=center>
 <b><em>Simple yet powerful slides</em></b>
