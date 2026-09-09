@@ -1,26 +1,25 @@
-<h1 align="center">🎓 ECE — Modèles de Rapport avec Typst</h1>
+<h1 align="center">🎓 ECE — Modèles Typst Non Officiels</h1>
 
 <p align="center">
   <a href="https://typst.app">
-    <img alt="Typst" src="https://img.shields.io/badge/Typst-%232f90ba.svg?&logo=Typst&logoColor=white" />
+    <img alt="Typst logo" src="https://img.shields.io/badge/Typst-%232f90ba.svg?&logo=Typst&logoColor=white" />
   </a>
   <a href="LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg" />
   </a>
-  <a href="#-avertissement--disclaimer">
+  <a href="#-avertissement">
     <img alt="Status: Unofficial" src="https://img.shields.io/badge/Status-Non%20Officiel-lightgrey.svg" />
   </a>
 </p>
 
 <p align="center">
-  <img src="assets/preview-tp.png" width="46%" alt="Aperçu Rapport de TP" />
-    
-  <img src="assets/preview-projet.png" width="46%" alt="Aperçu Rapport de Projet" />
+  <img src="https://raw.githubusercontent.com/leonpwd/ece-reports/main/assets/preview-tp.png" width="46%" alt="Aperçu Rapport de TP" />
+  &nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/leonpwd/ece-reports/main/assets/preview-projet.png" width="46%" alt="Aperçu Rapport de Projet" />
 </p>
 
 Modèles **Typst** pour la rédaction de **Rapports de Travaux Pratiques (`tp`)** et de **Rapports de Projet (`projet`)** à l'**ECE (École Centrale d'Électronique)**.
 
-> [!NOTE]
 > **Avertissement** : Ce projet est un template **non officiel**, non affilié à l'administration de l'établissement.
 
 ---
@@ -51,11 +50,11 @@ typst watch examples/rapport-projet/rapport-projet-fr.typ
 
 ## 📚 Documentation complète
 
-La documentation détaillée est disponible dans le dossier [`docs/`](docs/) :
+La documentation détaillée est disponible sur le dépôt GitHub du projet :
 
-- [⚙️ **Référence des Paramètres de Configuration**](docs/parametres.md) : options communes, spécifiques `tp` et `projet`, styles de polices commutables (`font-presets`), auteurs structurés, mode filigrane `draft`.
-- [🛠️ **Utilitaires & Composants d'Ingénierie**](docs/composants.md) : questions `#t()` / `#e()`, encarts `#callout`, tableaux BOM `#table-composants`, brochage `#table-brochage`, glossaires, figures intelligentes et gestionnaire d'annexes `#show: annexes`.
-- [📂 **Exemples prêts à l'emploi**](examples/) : rapports complets en français et en anglais avec bibliographie BibTeX.
+- [⚙️ **Référence des Paramètres de Configuration**](https://github.com/leonpwd/ece-reports/blob/main/docs/parametres.md) : options communes, spécifiques `tp` et `projet`, styles de polices commutables (`font-presets`), auteurs structurés, mode filigrane `draft`.
+- [🛠️ **Utilitaires & Composants d'Ingénierie**](https://github.com/leonpwd/ece-reports/blob/main/docs/composants.md) : questions `#t()` / `#e()`, encarts `#callout`, tableaux BOM `#table-composants`, brochage `#table-brochage`, glossaires, figures intelligentes et gestionnaire d'annexes `#show: annexes`.
+- [📂 **Exemples prêts à l'emploi**](https://github.com/leonpwd/ece-reports/tree/main/examples) : rapports complets en français et en anglais avec bibliographie BibTeX.
 
 ---
 
