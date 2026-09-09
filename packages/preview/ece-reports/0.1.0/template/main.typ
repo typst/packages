@@ -15,7 +15,7 @@
 #show: tp.with(
   lang: langue,
   title: "Filtres Actifs et Traitement du Signal",
-  tp_num: "1",
+  tp-num: "1",
   promo: "ING5",
   major: "Systèmes Embarqués", // ou none
   groupe: "Groupe 02",
@@ -24,12 +24,12 @@
     (name: "Alessandro VOLTA", email: "volta@ece.fr"),
   ),
   supervisor: (name: "Dr. Jean DUPONT", email: "jean.dupont@ece.fr"), // ou "Dr. Jean DUPONT" ou none
-  show_emails: true, // passer à false pour masquer les adresses email
-  show_supervisor_email: true, // passer à false pour masquer l'email du tuteur
+  show-emails: true, // passer à false pour masquer les adresses email
+  show-supervisor-email: true, // passer à false pour masquer l'email du tuteur
   date: auto,  // ou date: "15 octobre 2026" pour une date fixe
   city: "Paris",
   draft: false, // passer à true pour activer le filigrane "BROUILLON"
-  // equation_numbering: "(1)",  // décommenter pour numéroter les équations
+  // equation-numbering: "(1)",  // décommenter pour numéroter les équations
   font: font-presets.at(style-police, default: "New Computer Modern"),
 )
 
@@ -46,14 +46,14 @@
 //     (name: "André-Marie AMPÈRE", email: "ampere@ece.fr", role: "Chef de projet"),
 //     (name: "Alessandro VOLTA", email: "volta@ece.fr", role: "Développement Embarqué"),
 //   ),
-//   show_roles: true, // passer à false pour masquer les rôles
-//   show_emails: true, // passer à false pour masquer les adresses email
-//   show_supervisor_email: true, // passer à false pour masquer l'email du tuteur
+//   show-roles: true, // passer à false pour masquer les rôles
+//   show-emails: true, // passer à false pour masquer les adresses email
+//   show-supervisor-email: true, // passer à false pour masquer l'email du tuteur
 //   supervisor: (name: "Dr. Jean DUPONT", email: "jean.dupont@ece.fr"), // ou "Dr. Jean DUPONT" ou none
 //   date: auto,  // ou date: "15 octobre 2026" pour une date fixe
 //   city: "Paris",
 //   draft: false,
-//   // equation_numbering: "(1)",  // décommenter pour numéroter les équations
+//   // equation-numbering: "(1)",  // décommenter pour numéroter les équations
 //   abstract: [Contexte, problématique et objectifs techniques du projet.],
 //   font: font-presets.at(style-police, default: "New Computer Modern"),
 // )

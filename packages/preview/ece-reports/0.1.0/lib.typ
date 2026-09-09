@@ -89,41 +89,41 @@
 
 #let note-cadre = callout // Alias de compatibilité
 
-#let table-termes(header_term: "Terme", header_def: "Définition", ..rows) = [
+#let table-termes(header-term: "Terme", header-def: "Définition", ..rows) = [
   #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
   #table(
     columns: (1.5fr, 3.5fr),
     fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
     inset: 8pt,
     table.header(
-      [#text(weight: "bold")[#header_term]],
-      [#text(weight: "bold")[#header_def]],
+      [#text(weight: "bold")[#header-term]],
+      [#text(weight: "bold")[#header-def]],
     ),
     ..rows
   )
 ]
 
-#let table-acronymes(header_acr: "Acronyme", header_mean: "Signification", header_exp: "Explication", ..rows) = [
+#let table-acronymes(header-acr: "Acronyme", header-mean: "Signification", header-exp: "Explication", ..rows) = [
   #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
   #table(
     columns: (1fr, 1.8fr, 2.7fr),
     fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
     inset: 8pt,
     table.header(
-      [#text(weight: "bold")[#header_acr]],
-      [#text(weight: "bold")[#header_mean]],
-      [#text(weight: "bold")[#header_exp]],
+      [#text(weight: "bold")[#header-acr]],
+      [#text(weight: "bold")[#header-mean]],
+      [#text(weight: "bold")[#header-exp]],
     ),
     ..rows
   )
 ]
 
 #let table-composants(
-  header_ref: "Réf.",
-  header_comp: "Désignation",
-  header_val: "Valeur / Boîtier",
-  header_qty: "Qté",
-  header_note: "Remarques",
+  header-ref: "Réf.",
+  header-comp: "Désignation",
+  header-val: "Valeur / Boîtier",
+  header-qty: "Qté",
+  header-note: "Remarques",
   ..rows
 ) = [
   #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
@@ -133,11 +133,11 @@
     inset: 7pt,
     align: (col, row) => if col == 0 or col == 3 { center + horizon } else { left + horizon },
     table.header(
-      [#text(weight: "bold")[#header_ref]],
-      [#text(weight: "bold")[#header_comp]],
-      [#text(weight: "bold")[#header_val]],
-      [#text(weight: "bold")[#header_qty]],
-      [#text(weight: "bold")[#header_note]],
+      [#text(weight: "bold")[#header-ref]],
+      [#text(weight: "bold")[#header-comp]],
+      [#text(weight: "bold")[#header-val]],
+      [#text(weight: "bold")[#header-qty]],
+      [#text(weight: "bold")[#header-note]],
     ),
     ..rows
   )
@@ -145,10 +145,10 @@
 #let table-bom = table-composants
 
 #let table-brochage(
-  header_pin: "Broche",
-  header_sig: "Signal",
-  header_mode: "Mode I/O",
-  header_desc: "Description",
+  header-pin: "Broche",
+  header-sig: "Signal",
+  header-mode: "Mode I/O",
+  header-desc: "Description",
   ..rows
 ) = [
   #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
@@ -158,22 +158,22 @@
     inset: 7pt,
     align: (col, row) => if col in (0, 1, 2) { center + horizon } else { left + horizon },
     table.header(
-      [#text(weight: "bold")[#header_pin]],
-      [#text(weight: "bold")[#header_sig]],
-      [#text(weight: "bold")[#header_mode]],
-      [#text(weight: "bold")[#header_desc]],
+      [#text(weight: "bold")[#header-pin]],
+      [#text(weight: "bold")[#header-sig]],
+      [#text(weight: "bold")[#header-mode]],
+      [#text(weight: "bold")[#header-desc]],
     ),
     ..rows
   )
 ]
 #let table-pinout = table-brochage
 
-#let annexes(body, lang: "fr", title_prefix: auto) = {
+#let annexes(body, lang: "fr", title-prefix: auto) = {
   pagebreak()
   counter(heading).update(0)
   counter(math.equation).update(0)
-  let prefix = if title_prefix != auto {
-    title_prefix
+  let prefix = if title-prefix != auto {
+    title-prefix
   } else if lang == "en" {
     "Appendix "
   } else {
@@ -325,7 +325,7 @@
 // =============================================================================
 #let tp(
   title: none,
-  tp_num: "[X]",
+  tp-num: "[X]",
   promo: "ING[X]",
   major: none,
   majeure: none,
@@ -337,32 +337,32 @@
   date: auto,
   city: none,
   logo: auto,
-  cover_image: auto,
+  cover-image: auto,
   attestation: auto,
-  type_doc: none,
-  doc_prefix: none,
-  table_of_contents: false,
-  toc_depth: 3,
+  type-doc: none,
+  doc-prefix: none,
+  table-of-contents: false,
+  toc-depth: 3,
   draft: false,
-  show_roles: true,
-  show_role: true,
-  show_emails: true,
-  show_email: true,
-  show_supervisor_email: auto,
-  equation_numbering: none,
+  show-roles: true,
+  show-role: true,
+  show-emails: true,
+  show-email: true,
+  show-supervisor-email: auto,
+  equation-numbering: none,
   font: "New Computer Modern",
-  font_size: 11pt,
+  font-size: 11pt,
   lang: "fr",
   body
 ) = {
   let dict = i18n-tp.at(lang, default: i18n-tp.at("fr"))
   
-  let actual_show_roles = if show_roles != true { show_roles } else { show_role }
-  let actual_show_emails = if show_emails != true { show_emails } else { show_email }
-  let actual_show_sup_email = if show_supervisor_email != auto { show_supervisor_email } else { actual_show_emails }
+  let actual_show_roles = if show-roles != true { show-roles } else { show-role }
+  let actual_show_emails = if show-emails != true { show-emails } else { show-email }
+  let actual_show_sup_email = if show-supervisor-email != auto { show-supervisor-email } else { actual_show_emails }
   let actual_title = if title != none { title } else { dict.default_title }
-  let actual_type_doc = if type_doc != none { type_doc } else { dict.type_doc }
-  let actual_doc_prefix = if doc_prefix != none { doc_prefix } else { dict.doc_prefix }
+  let actual_type_doc = if type-doc != none { type-doc } else { dict.type_doc }
+  let actual_doc_prefix = if doc-prefix != none { doc-prefix } else { dict.doc_prefix }
   let actual_major = if major != none { major } else if majeure != none { majeure } else { none }
   let actual_groupe = if groupe != none { groupe } else { dict.groupe_prefix + " [X]" }
   let actual_supervisor = if supervisor != none { supervisor } else if tuteur != none { tuteur } else if enseignant != none { enseignant } else { none }
@@ -386,7 +386,7 @@
     str(authors)
   }
   set document(
-    title: actual_doc_prefix + " " + str(tp_num) + " : " + str(actual_title),
+    title: actual_doc_prefix + " " + str(tp-num) + " : " + str(actual_title),
     author: author_list,
   )
 
@@ -435,7 +435,7 @@
 
   set text(
     font: font,
-    size: font_size,
+    size: font-size,
     lang: lang,
   )
 
@@ -447,8 +447,8 @@
 
   show link: set text(fill: darkpowderblue)
 
-  if equation_numbering != none {
-    set math.equation(numbering: equation_numbering)
+  if equation-numbering != none {
+    set math.equation(numbering: equation-numbering)
   }
 
   set list(marker: ([#text(fill: ece, size: 0.9em)[•]], [--]))
@@ -538,16 +538,16 @@
     align(center)[
       #text(size: 13pt, weight: "bold", fill: rgb("#444444"))[#actual_type_doc]
       #v(0.6cm)
-      #text(size: 20pt, weight: "bold", fill: ece)[#actual_doc_prefix #tp_num : #actual_title]
+      #text(size: 20pt, weight: "bold", fill: ece)[#actual_doc_prefix #tp-num : #actual_title]
     ]
 
     v(0.4cm)
     line(length: 100%, stroke: 1.5pt + black)
     v(0.8cm)
 
-    if cover_image != none {
+    if cover-image != none {
       align(center)[
-        #_render-cover(cover_image)
+        #_render-cover(cover-image)
       ]
     }
 
@@ -599,10 +599,10 @@
 
   pagebreak()
 
-  if table_of_contents {
+  if table-of-contents {
     outline(
       title: dict.toc_title,
-      depth: toc_depth,
+      depth: toc-depth,
       indent: 1.5em,
     )
     pagebreak()
@@ -629,37 +629,37 @@
   logo: auto,
   abstract: none,
   attestation: auto,
-  type_doc: none,
-  table_of_contents: true,
-  table_of_figures: false,
-  table_of_tables: false,
-  same_page_figures_tables: true,
-  group_figures_tables: true,
-  same_page_toc: false,
-  group_outlines: false,
-  toc_depth: 3,
+  type-doc: none,
+  table-of-contents: true,
+  table-of-figures: false,
+  table-of-tables: false,
+  same-page-figures-tables: true,
+  group-figures-tables: true,
+  same-page-toc: false,
+  group-outlines: false,
+  toc-depth: 3,
   draft: false,
-  show_roles: true,
-  show_role: true,
-  show_emails: true,
-  show_email: true,
-  show_supervisor_email: auto,
-  numbering_format: "1.1",
-  equation_numbering: none,
+  show-roles: true,
+  show-role: true,
+  show-emails: true,
+  show-email: true,
+  show-supervisor-email: auto,
+  numbering-format: "1.1",
+  equation-numbering: none,
   font: "New Computer Modern",
-  font_size: 11pt,
+  font-size: 11pt,
   lang: "fr",
   body
 ) = {
   let dict = i18n-projet.at(lang, default: i18n-projet.at("fr"))
   
-  let actual_show_roles = if show_roles != true { show_roles } else { show_role }
-  let actual_show_emails = if show_emails != true { show_emails } else { show_email }
-  let actual_show_sup_email = if show_supervisor_email != auto { show_supervisor_email } else { actual_show_emails }
-  let actual_group_fig_tab = if same_page_figures_tables != true { same_page_figures_tables } else { group_figures_tables }
-  let actual_same_page_toc = if same_page_toc != false { same_page_toc } else { group_outlines }
+  let actual_show_roles = if show-roles != true { show-roles } else { show-role }
+  let actual_show_emails = if show-emails != true { show-emails } else { show-email }
+  let actual_show_sup_email = if show-supervisor-email != auto { show-supervisor-email } else { actual_show_emails }
+  let actual_group_fig_tab = if same-page-figures-tables != true { same-page-figures-tables } else { group-figures-tables }
+  let actual_same_page_toc = if same-page-toc != false { same-page-toc } else { group-outlines }
   let actual_title = if title != none { title } else { dict.default_title }
-  let actual_type_doc = if type_doc != none { type_doc } else { dict.type_doc }
+  let actual_type_doc = if type-doc != none { type-doc } else { dict.type_doc }
   let actual_major = if major != none { major } else if majeure != none { majeure } else { none }
   let actual_groupe = if groupe != none { groupe } else { dict.groupe_prefix + " [X]" }
   let actual_supervisor = if supervisor != none { supervisor } else if tuteur != none { tuteur } else if enseignant != none { enseignant } else { none }
@@ -733,7 +733,7 @@
 
   set text(
     font: font,
-    size: font_size,
+    size: font-size,
     lang: lang,
   )
 
@@ -745,8 +745,8 @@
 
   show link: set text(fill: darkpowderblue)
 
-  if equation_numbering != none {
-    set math.equation(numbering: equation_numbering)
+  if equation-numbering != none {
+    set math.equation(numbering: equation-numbering)
   }
 
   set list(marker: ([#text(fill: ece, size: 0.9em)[•]], [--]))
@@ -783,7 +783,7 @@
     #text(weight: "bold")[#it.supplement #context { it.counter.display(it.numbering) }] – #it.body
   ]
 
-  set heading(numbering: numbering_format)
+  set heading(numbering: numbering-format)
 
   show heading.where(level: 1): it => {
     set text(size: 18pt, fill: ece, weight: "bold")
@@ -898,26 +898,26 @@
 
   pagebreak()
 
-  if table_of_contents {
+  if table-of-contents {
     outline(
       title: dict.toc_title,
-      depth: toc_depth,
+      depth: toc-depth,
       indent: 1.5em,
     )
-    if (table_of_figures or table_of_tables) and actual_same_page_toc {
+    if (table-of-figures or table-of-tables) and actual_same_page_toc {
       v(1.5cm)
     } else {
       pagebreak()
     }
   }
 
-  if table_of_figures or table_of_tables {
-    if table_of_figures {
+  if table-of-figures or table-of-tables {
+    if table-of-figures {
       outline(
         title: dict.tof_title,
         target: figure.where(kind: image),
       )
-      if table_of_tables {
+      if table-of-tables {
         if actual_group_fig_tab {
           v(1.5cm)
         } else {
@@ -926,7 +926,7 @@
       }
     }
 
-    if table_of_tables {
+    if table-of-tables {
       outline(
         title: dict.tot_title,
         target: figure.where(kind: table),

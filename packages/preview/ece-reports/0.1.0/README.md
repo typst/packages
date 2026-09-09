@@ -13,9 +13,9 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/leonpwd/ece-reports/main/assets/preview-tp.png" width="46%" alt="Aperçu Rapport de TP" />
+  <img src="https://raw.githubusercontent.com/leonpwd/ece-reports/v0.1.0/assets/preview-tp.png" width="46%" alt="Aperçu Rapport de TP" />
   &nbsp;&nbsp;
-  <img src="https://raw.githubusercontent.com/leonpwd/ece-reports/main/assets/preview-projet.png" width="46%" alt="Aperçu Rapport de Projet" />
+  <img src="https://raw.githubusercontent.com/leonpwd/ece-reports/v0.1.0/assets/preview-projet.png" width="46%" alt="Aperçu Rapport de Projet" />
 </p>
 
 Modèles **Typst** pour la rédaction de **Rapports de Travaux Pratiques (`tp`)** et de **Rapports de Projet (`projet`)** à l'**ECE (École Centrale d'Électronique)**.
@@ -52,9 +52,9 @@ typst watch examples/rapport-projet/rapport-projet-fr.typ
 
 La documentation détaillée est disponible sur le dépôt GitHub du projet :
 
-- [⚙️ **Référence des Paramètres de Configuration**](https://github.com/leonpwd/ece-reports/blob/main/docs/parametres.md) : options communes, spécifiques `tp` et `projet`, styles de polices commutables (`font-presets`), auteurs structurés, mode filigrane `draft`.
-- [🛠️ **Utilitaires & Composants d'Ingénierie**](https://github.com/leonpwd/ece-reports/blob/main/docs/composants.md) : questions `#t()` / `#e()`, encarts `#callout`, tableaux BOM `#table-composants`, brochage `#table-brochage`, glossaires, figures intelligentes et gestionnaire d'annexes `#show: annexes`.
-- [📂 **Exemples prêts à l'emploi**](https://github.com/leonpwd/ece-reports/tree/main/examples) : rapports complets en français et en anglais avec bibliographie BibTeX.
+- [⚙️ **Référence des Paramètres de Configuration**](https://github.com/leonpwd/ece-reports/blob/v0.1.0/docs/parametres.md) : options communes, spécifiques `tp` et `projet`, styles de polices commutables (`font-presets`), auteurs structurés, mode filigrane `draft`.
+- [🛠️ **Utilitaires & Composants d'Ingénierie**](https://github.com/leonpwd/ece-reports/blob/v0.1.0/docs/composants.md) : questions `#t()` / `#e()`, encarts `#callout`, tableaux BOM `#table-composants`, brochage `#table-brochage`, glossaires, figures intelligentes et gestionnaire d'annexes `#show: annexes`.
+- [📂 **Exemples prêts à l'emploi**](https://github.com/leonpwd/ece-reports/tree/v0.1.0/examples) : rapports complets en français et en anglais avec bibliographie BibTeX.
 
 ---
 
