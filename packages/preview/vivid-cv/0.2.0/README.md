@@ -21,8 +21,8 @@ A clean and modern Typst resume template based on [Basic Resume](https://github.
 Before compiling locally, install [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans?preview.layout=grid&preview.script=Geor&query=Noto+sans) and the [Font Awesome fonts](https://fontawesome.com/download). On the Typst web app, upload their `.otf` files to a `fonts/` directory in your project. The Font Awesome import below is required when using custom icons.
 
 ```typst
-#import "@preview/vivid-cv:0.1.1": *
-#import "@preview/fontawesome:0.6.1": fa-icon
+#import "@preview/vivid-cv:0.2.0": *
+#import "@preview/fontawesome:0.6.2": fa-icon
 
 #show: resume.with(
   author: "Jane Doe",
@@ -189,7 +189,7 @@ When using the Typst web app, add a `fonts/` directory to your project and uploa
 Custom contact icons use `fa-icon` from the same package. Import it in the file where you define your resume:
 
 ```typst
-#import "@preview/fontawesome:0.6.1": fa-icon
+#import "@preview/fontawesome:0.6.2": fa-icon
 
 custom: (
   (
