@@ -79,19 +79,3 @@
   show-roof: false,
   labels: (whats: [Functions · inherited priorities], hows: [Components], importance: [Rel. %]),
 )
-
-// A deliberately small editorial example isolates revision semantics from the
-// café-substitution study. Relationship changes have no measured justification.
-#let revision-before = qfd-stage(
-  rows: (needs.at(0), needs.at(3), (id: "decor", label: [Offer a decorative light], weight: 2)),
-  columns: (functions.at(2), functions.at(6), (id: "light", label: [Illuminate the worktop])),
-  matrix: ((9, 9, 0), (1, 3, 1), (0, 0, 9)),
-  correlations: ((1, 2, "+"), (2, 3, "-")),
-)
-#let revision-after = qfd-stage(
-  rows: (needs.at(3) + (label: [Clean with fewer handling steps],), needs.at(0), needs.at(6)),
-  columns: (functions.at(6), functions.at(2), functions.at(11)),
-  matrix: ((9, 0, 1), (9, 9, 0), (1, 3, 9)),
-  correlations: ((1, 2, "++"), (1, 3, "+")),
-)
-#let revision-view = qfd-diff(revision-before, revision-after)

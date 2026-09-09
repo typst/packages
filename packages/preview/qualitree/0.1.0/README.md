@@ -1,12 +1,12 @@
-<p align="center"><img src="https://raw.githubusercontent.com/tychota/qfd-typst/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/docs/site/assets/logo.svg" width="72" alt="Qualitree logo"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/tychota/qfd-typst/8cb5edc677e47faee7d02b631fd5503236556f0d/docs/site/assets/logo.svg" width="72" alt="Qualitree logo"></p>
 
 # Qualitree
 
 Draw, connect, and compare Houses of Quality in native Typst. Map **needs → functions → components**, carry priorities between stages, and show design revisions with readable green/red/yellow backgrounds.
 
-[Documentation](https://tychota.github.io/qfd-typst/) · [Coffee example](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/examples/COFFEE.md) · [API reference](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/docs/API.md)
+[Documentation](https://tychota.github.io/qfd-typst/) · [Coffee example](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/examples/COFFEE.md) · [API reference](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/docs/API.md)
 
-![House of Quality and coffee-machine illustration](https://raw.githubusercontent.com/tychota/qfd-typst/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/docs/site/assets/hero.png)
+![House of Quality and coffee-machine illustration](https://raw.githubusercontent.com/tychota/qfd-typst/8cb5edc677e47faee7d02b631fd5503236556f0d/docs/site/assets/hero.png)
 
 ## Start in five minutes
 
@@ -86,7 +86,11 @@ Stable IDs identify entities; labels are editable text. Relations remain one-bas
 
 Additions have pale green backgrounds, removals pale red, and changes pale yellow. Dark symbols and +/−/~ annotations supplement color. Reordering IDs creates no false edits. Removed relationships remain visible but contribute zero to current priorities. Diff views do not currently support competitive profiles or custom basements; compare source stages without those options.
 
-![Revision comparison](https://raw.githubusercontent.com/tychota/qfd-typst/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/docs/site/assets/revisions.svg)
+The worked revision adds refrigerated milk storage and automatic steaming to the capsule-coffee baseline. Read existing and new needs row by row, then follow the revised functions into shared and added components. See the [change rationale](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/examples/COFFEE.md#deploying-a-new-capability-milk-drinks).
+
+![Milk drinks: needs to functions revision](https://raw.githubusercontent.com/tychota/qfd-typst/8cb5edc677e47faee7d02b631fd5503236556f0d/docs/site/assets/revisions.svg)
+
+![Milk drinks: functions to components revision](https://raw.githubusercontent.com/tychota/qfd-typst/8cb5edc677e47faee7d02b631fd5503236556f0d/docs/site/assets/revision-components.svg)
 
 ## Typography and layout
 
@@ -102,7 +106,7 @@ Correlation signs use bold vector +/− and circled strong signs. Choose `correl
 python3 tools/install_local.py
 ```
 
-Then use `#import "@local/qualitree:0.1.0": qfd`. This only installs the library for the local CLI; fonts are separate. See [installation paths](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/docs/API.md#installation).
+Then use `#import "@local/qualitree:0.1.0": qfd`. This only installs the library for the local CLI; fonts are separate. See [installation paths](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/docs/API.md#installation).
 
 **Typst Universe:** [submission PR #5808](https://github.com/typst/packages/pull/5808) is open. Use relative or `@local` imports until it is accepted; `@preview/qualitree:0.1.0` is not available yet.
 
@@ -119,12 +123,12 @@ Tests execute Typst assertions, 128 visibility combinations and other layout cas
 
 ## Documentation map
 
-- [Vocabulary](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/CONTEXT.md): needs, functions, components, technologies and thresholds.
-- [Coffee study](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/examples/COFFEE.md): scope, assumptions, candidate technologies, evidence and validation work.
-- [API](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/docs/API.md): inputs, styling, calculations and revision limitations.
-- [Maintaining the package](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/CONTRIBUTING.md): module boundaries, comments, checks and releases.
-- [Methodology](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/docs/METHODOLOGY.md): functional analysis and classic QFD terminology.
-- [Design](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/DESIGN.md) and [implementation plan](https://github.com/tychota/qfd-typst/blob/a02adcdc8b7e6bd07d537cdac3f41a81931c5969/PLAN.md).
+- [Vocabulary](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/CONTEXT.md): needs, functions, components, technologies and thresholds.
+- [Coffee study](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/examples/COFFEE.md): scope, assumptions, candidate technologies, evidence and validation work.
+- [API](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/docs/API.md): inputs, styling, calculations and revision limitations.
+- [Maintaining the package](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/CONTRIBUTING.md): module boundaries, comments, checks and releases.
+- [Methodology](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/docs/METHODOLOGY.md): functional analysis and classic QFD terminology.
+- [Design](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/DESIGN.md) and [implementation plan](https://github.com/tychota/qfd-typst/blob/8cb5edc677e47faee7d02b631fd5503236556f0d/PLAN.md).
 
 ## Credits
 

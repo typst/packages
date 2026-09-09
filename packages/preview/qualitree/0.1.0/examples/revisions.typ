@@ -1,11 +1,11 @@
 #import "@preview/qualitree:0.1.0": qfd
-#import "coffee-data.typ": revision-view
+#import "milk-data.typ": revision-view
 #set page(width: auto, height: auto, margin: 8mm)
 #set text(font: ("IBM Plex Sans", "New Computer Modern"), size: 9pt)
-#text(size: 16pt, weight: "bold")[Reviewing a design revision]
+#text(size: 16pt, weight: "bold")[Adding milk drinks · needs → functions]
 #v(2mm)
-#block(width: 180mm)[A small fictional revision demonstrates stable IDs, reordered entities, additions, removals, and modifications. It compares two design records; it is separate from comparison with a local café.]
+#block(width: 240mm)[Before: the capsule-coffee machine. After: an integrated refrigerated milk supply and automatic steaming/frothing. Read each existing need across its new relationships, then the two new needs at the bottom. All judgments remain provisional.]
 #v(3mm)
-#qfd(..revision-view, width: auto, what-width: 58mm, cell-size: 11mm)
+#qfd(..revision-view, width: auto, what-width: 64mm)
 #v(3mm)
-#block(width: 180mm)[Removed relations and roof signs remain visible for review. Removed rows show their historical weights, while their current importance is zero. Removed relationships contribute zero to current priorities.]
+#block(width: 240mm)[*Existing needs still apply.* Milk changes taste, drink temperature, throughput, cleanup, footprint, and safety. Grounds preservation stays unchanged. Strong relationships identify design responsibility, not proof of improvement. The roof records proposed heating/power and cold/hot integration tensions.]

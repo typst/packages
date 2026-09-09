@@ -48,7 +48,48 @@ Both pages were consulted on 9 September 2026. Sources inform the discussion onl
 - `espresso.typ`: needs → functions, with provisional targets and illustrative roof interactions.
 - `components.typ`: functions → components, inheriting unrounded priorities.
 - `report.typ`: a two-page A3 report with both deployments and the decision context.
-- `revisions.typ`: a separate, deliberately small revision exercise. It reorders stable IDs, renames a need, changes relationships, adds protection, and removes a decorative-light requirement. Removed relations and roof signs remain reviewable; they contribute nothing to current priorities.
+- `revisions.typ`: add milk drinks to the original capsule machine; compare needs → functions row by row.
+- `revision-components.typ`: continue the same change through functions → components, with priorities inherited from the revised first stage.
+- `milk-data.typ`: both revised stages and their baseline comparisons.
 - `minimal.typ`: a two-by-two introduction to the positional API.
 
 Revision comparison is different from competitive comparison. No café or competing appliance scores are supplied: they have not been measured. A future comparison should identify the particular café beverage and candidate concepts, use consistent conditions and scales, retain missing observations as `none`, and separate observed values from assumptions.
+
+
+## Deploying a new capability: milk drinks
+
+The revision asks what adding milk drinks implies for the whole existing product. The baseline is the capsule-coffee concept above. The provisional extension has integrated refrigerated milk storage feeding an automatic steam/frothing path. This is a concept assumption, not a description of an actual Nespresso product. A removable jug with a manual steam wand would produce a different deployment, particularly for refrigeration, handling, and user protection.
+
+Two new needs are **enjoy warm milk drinks with suitable texture** and **keep milk ready between drink sessions**. “Store refrigerated milk,” “heat milk,” and “generate steam and texture milk” are functions serving those needs. Five added functions cover cold storage, milk metering/transport, controlled heating, steam/texturing, and cleaning milk-contact paths. The second stage allocates them to four proposed component groups: refrigerated reservoir/sensor, milk pump/valves/tubing, steam generator/protection, and mixer/outlet. The cooling principle, steam-generation technology, and sensing implementation remain open technology choices.
+
+### Read the needs comparison row by row
+
+| Existing or new need | Consequence of the milk extension | What the team must resolve |
+| --- | --- | --- |
+| Café-worthy taste | Milk preparation and residues can affect the drink and coffee experience. | Agree milk recipes, sensory acceptance, and cleaning effectiveness. |
+| Acceptable drink temperature | The final result now depends on milk heating and mixing as well as coffee temperature. | Define measurement conditions for the combined drink. |
+| Two to three consecutive drinks | Milk capacity, steam recovery, shared heat demand, and rinsing become contributors. | Evaluate a mixed coffee/milk drink sequence with refill and cleanup. |
+| Easy setup and cleaning | This existing need expands to milk-contact surfaces and the cold reservoir. | Establish a feasible cleaning procedure and validate it. |
+| Six-month grounds preservation | The original sealed-dose preservation function remains unchanged. | Retain the existing coffee validation; do not confuse it with milk storage. |
+| Small footprint | The reservoir, cooling system, tubing, and service clearances consume space. | Revisit the full installation and maintenance envelope. |
+| Safe household use | Steam, added power demand, milk handling, and cleaning add interfaces to assess. | Revisit protection and acceptance gates with appropriate specialists. |
+| **New: warm milk drinks with suitable texture** | Requires metering, controlled heating, and texturing. | Agree drink volume, texture, temperature, and reproducibility criteria. |
+| **New: milk ready between sessions** | Requires controlled storage and a workable cleaning/storage routine. | Define and validate storage and hygiene conditions; targets remain TBD. |
+
+### Follow each function into components
+
+The first twelve rows preserve the original function identities. The last five are the new milk functions. Read the changes across each row before reading the totals:
+
+- **Convert electrical energy into heat:** the proposed steam module adds demand; controller and power-protection relationships strengthen from 3 to 9 to represent coordinated operation.
+- **Channel water and serve drinks:** the water circuit gains a steam supply interface; the cup interface must accommodate the milk outlet.
+- **Collect waste:** retain the existing coffee-drip relationship and add milk-rinse collection. The tray/capacity definition changes; no arbitrary removal is introduced.
+- **Guide operation:** the existing controller now coordinates coffee, milk, storage, and cleaning sequences.
+- **Contain hazards:** the housing and protection functions extend to the cold module, milk circuit, steam generator, and hot outlet.
+- **Store milk:** allocate controlled storage to the refrigerated reservoir and sensing, with controller and housing interfaces.
+- **Meter milk:** allocate transport/dosing to the milk circuit and controller, with reservoir and outlet interfaces.
+- **Heat and texture milk:** allocate energy transfer and texture formation to the steam module and mixer, while retaining shared water, power, and control interfaces.
+- **Clean milk-contact paths:** allocate access/flushability across reservoir, tubing, mixer, controller, and waste collector. A new dedicated cleaning device is not assumed.
+
+All strengths are illustrative engineering judgments. A strong need/function relationship means the function matters to that need; it does **not** mean adding it improves satisfaction. Refrigeration can strongly affect footprint while making the size constraint harder to satisfy. The proposed roof tensions flag simultaneous heat demand and cold/hot integration for investigation.
+
+Each revised deployment is calculated independently from the actual revised stage, then compared against its baseline. Do not deploy the diff display itself. Relative priorities can move because new needs/functions change the normalization denominator: a yellow inherited weight alone does not establish a physical hardware modification. Existing IDs, relations, and labels let the reviewer distinguish these cases. This additive concept has no deleted component; removal rendering is covered by the library tests rather than an invented product deletion.

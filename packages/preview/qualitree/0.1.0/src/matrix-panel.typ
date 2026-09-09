@@ -2,7 +2,7 @@
 // removed cells. Historical values are display-only; figure-data owns totals.
 #import "symbols.typ": _segment, _frame, _relation, _direction
 #import "text.typ": _cell, _as-content
-#import "change-display.typ": fill-cell, row-status, column-status, cell-status, changed-label, change-mark
+#import "change-display.typ": fill-cell, row-status, column-status, cell-status, cell-background-status, changed-label, change-mark
 
 #let draw-matrix(data, g, style) = {
   _cell(g.pad, g.roof-base, g.what, g.header,
@@ -38,7 +38,7 @@
     }
     for c in range(data.nc) {
       let status = cell-status(data, r, c)
-      fill-cell(g.mx + c * g.cell, g.my + r * g.row, g.cell, g.row, status, style)
+      fill-cell(g.mx + c * g.cell, g.my + r * g.row, g.cell, g.row, cell-background-status(data, r, c), style)
       let current = data.matrix.at(r).at(c)
       let value = if status == "removed" { data.changes.previous-matrix.at(r).at(c) } else { current }
       _cell(g.mx + c * g.cell, g.my + r * g.row, g.cell, g.row,
