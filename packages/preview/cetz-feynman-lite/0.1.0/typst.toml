@@ -8,4 +8,4 @@ description = "Draw customizable Feynman diagrams with CeTZ."
 repository = "https://github.com/ZhouRui-xzit/Cetz-Feynman-Lite"
 compiler = "0.15.0"
 keywords = ["feynman diagrams", "physics", "cetz"]
-exclude = ["/output/**", "/phi4-demo/**", "/tikz-feynman/**", "/tests/**", "/scripts/**", "/docs/**", "/examples/**", "/.git/**", "/.vscode/**", "/CONTRIBUTING.md"]
+exclude = ["/docs/**", "/.gitattributes"]
