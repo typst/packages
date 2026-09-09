@@ -1,4 +1,4 @@
-#import "../lib.typ": qfd
+#import "@preview/qualitree:0.1.0": qfd
 #set page(width: auto, height: auto, margin: 6mm)
 #set text(font: "IBM Plex Sans", size: 10pt)
 = Overlapping observations

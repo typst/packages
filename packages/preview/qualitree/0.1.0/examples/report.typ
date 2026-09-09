@@ -1,4 +1,4 @@
-#import "../lib.typ": qfd
+#import "@preview/qualitree:0.1.0": qfd
 #import "coffee-data.typ": needs-functions, functions-components
 #set page(paper: "a3", margin: 15mm)
 #set text(font: ("IBM Plex Sans", "New Computer Modern"), size: 10pt)

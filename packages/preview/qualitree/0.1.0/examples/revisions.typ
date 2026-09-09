@@ -1,4 +1,4 @@
-#import "../lib.typ": qfd
+#import "@preview/qualitree:0.1.0": qfd
 #import "coffee-data.typ": revision-view
 #set page(width: auto, height: auto, margin: 8mm)
 #set text(font: ("IBM Plex Sans", "New Computer Modern"), size: 9pt)

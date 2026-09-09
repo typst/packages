@@ -1,7 +1,7 @@
 // A fictional design workshop, not a product benchmark. Need weights and every
 // relationship are illustrative judgments. Thresholds are separate pass/fail
 // gates; a high aggregate priority never establishes taste or safety acceptance.
-#import "../lib.typ": qfd-stage, qfd-deploy, qfd-diff
+#import "@preview/qualitree:0.1.0": qfd-stage, qfd-deploy, qfd-diff
 
 #let needs = (
   (id: "taste", label: [Enjoy a café-worthy taste], weight: 10),
