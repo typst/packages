@@ -20,7 +20,6 @@
 
   chunks.push(current-chunk.join())
 
-  // Always return at least one chunk, even if body ends up empty, so callers spreading chunks.len() values into calc.max(..) never receive a zero-length array
   if chunks.len() == 0 {
     chunks.push([])
   }
@@ -28,7 +27,6 @@
   return chunks
 }
 
-// Splits body into parallel tracks at <sk-meanwhile> boundaries, mirroring split-at-pause exactly. Each track is then split-at-pause'd on its own by the caller (slide()), and all tracks advance on the same subslide clock, which reproduces Touying's #meanwhile: content after #meanwhile gets its own local pause chain instead of being appended to the one before it.
 #let split-at-meanwhile(body) = {
   if body.func() != [].func() {
     return (body,)
@@ -45,7 +43,6 @@
     }
   }
 
-  // Always push the trailing track, even if it's empty, so this always returns at least one track (a body with zero children, or a #meanwhile right at the end, would otherwise yield an empty array, and calc.max(..tracks.map(t => t.len())) in slide() requires at least one value)
   tracks.push(if current-track.len() > 0 { current-track.join() } else { [] })
 
   return tracks
@@ -148,25 +145,20 @@
   ))<sk-reveal>#anim-content]
 }
 
-// #let pause = <sk-pause>
-// #let meanwhile = <sk-meanwhile>
-//
-// pause/meanwhile are wrapped in metadata(none) rather than used as bare labels: a bare label reference (e.g. #let pause = <sk-pause>) attaches to the preceding content element instead of becoming its own node in the sequence. That silently breaks split-at-pause/split-at-meanwhile whenever the preceding element sits inside a style wrapper (see style-body-with-pauses in slydekit-slide.typ), and silently drops a second #pause placed right after a first one, since a single element can only carry one label. Wrapping in metadata(none) makes each #pause/#meanwhile its own standalone node, exactly like <sk-slide-parser-boundary> and anim-label already do.
+
 #let pause = [#metadata(none)<sk-pause>]
 #let meanwhile = [#metadata(none)<sk-meanwhile>]
 #let uncover = _reveal
 #let only = _reveal.with(reserved: false)
 
-// split-at-pause/split-at-meanwhile only ever look at the direct children of a sequence, so a <sk-pause>/<sk-meanwhile> hidden behind a layout wrapper - a #set scope (`#[#set align(center) a #pause b]`) or `#align(..)[a #pause b]` - is invisible to them and never animates. Naively splitting such a wrapper's content and re-instantiating the wrapper once per chunk would "fix" the visibility, but multiplies a block-level wrapper (e.g. #set align(center)) into one independent block per chunk, which is a different, worse bug (each chunk ends up on its own line). resolve-nested-pauses instead rewrites the pauses/meanwhiles into an uncover(from: ..) chain applied *inside* the wrapper, which is only ever instantiated once.
-//
-// Splits body into tracks at <sk-meanwhile>, each track into chunks at <sk-pause>, and flattens the result into a sequence of uncover(from: ..) calls, one per chunk, restarting the index at each new track - exactly mirroring how slide() renders tracks/chunks. `resolve` is applied to each chunk to recurse into further nested wrappers; taking it as a parameter (rather than calling resolve-nested-pauses by name) avoids a forward reference between the two functions below.
 #let _tracks-to-uncover-chain(body, resolve) = {
   split-at-meanwhile(body).map(split-at-pause).map(chunks => {
     chunks.enumerate().map(((idx, chunk)) => uncover(from: idx + 1, resolve(chunk))).join()
   }).join()
 }
 
-// Only #set scopes and #align(..)[..] are handled: a #set scope is rebuilt generically via its own func()(body, styles), but arbitrary function calls (block, pad, box...) mix positional-only and named-only parameters in ways that can't be safely reconstructed from body.fields() alone (rebuilding purely by field position misassigns values whenever a field isn't actually positional), so only align - whose two fields are both positional - is special-cased.
+#let _pause-container-funcs = (block, box, pad)
+
 #let resolve-nested-pauses(body) = {
   if type(body) != content {
     return body
@@ -181,9 +173,14 @@
     return body.children.map(resolve-nested-pauses).join()
   }
 
-  let wrapped = if body.has("child") and body.has("styles") {
+  let is-style = body.has("child") and body.has("styles")
+  let is-container = body.func() in _pause-container-funcs and body.has("body")
+  let is-align = body.func() == align
+  let is-columns = body.func() == columns and body.has("body")
+
+  let wrapped = if is-style {
     body.child
-  } else if body.func() == align {
+  } else if is-align or is-columns or is-container {
     body.body
   } else {
     none
@@ -200,14 +197,22 @@
     _tracks-to-uncover-chain(wrapped, resolve-nested-pauses)
   }
 
-  if body.has("child") and body.has("styles") {
+  if is-style {
     body.func()(new-body, body.styles)
-  } else {
+  } else if is-align {
     align(body.alignment, new-body)
+  } else if is-columns {
+    let fields = body.fields()
+    let count = fields.remove("count", default: 2)
+    let _ = fields.remove("body", default: none)
+    columns(count, ..fields, new-body)
+  } else {
+    let fields = body.fields()
+    let _ = fields.remove("body", default: none)
+    body.func()(..fields, new-body)
   }
 }
 
-// Rebuilds body as an equivalent uncover(from: ..) chain (see _tracks-to-uncover-chain), resolving any further nested wrapper along the way. Used by style-body-with-pauses (slydekit-slide.typ) to fold a style wrapper's pauses/meanwhiles into that single wrapper instance instead of splitting it into several.
 #let pauses-to-uncover-chain(body) = _tracks-to-uncover-chain(body, resolve-nested-pauses)
 
 // label, so nothing can land on it and overwrite it.
@@ -219,7 +224,6 @@
 }
 
 
-// Reproduces the visibility logic of reveal(), but allows a third-party package (Fletcher, CeTZ...) to provide its own masking via the hide-fn argument. This is useful for packages that use their own visibility logic and own context, which are not compatible with uncover/only.
 #let draw-reveal(..args, hide-fn: none, body) = {
   let step = sk-states.subslide-step.get().first()
   let int-or-range = args.pos()
@@ -237,14 +241,12 @@
   }
 }
 
-// Reveals a sequence of already-separated elements, one per step: element i becomes visible from step `start + i` onwards and stays. `item-by-item` builds on this after pulling the .item children out of a list/enum/terms.
 #let one-by-one(start: 1, hide-color: none, hide-fn: none, ..children) = {
   for (idx, child) in children.pos().enumerate() {
     uncover(from: start + idx, hide-color: hide-color, hide-fn: hide-fn, child)
   }
 }
 
-// Reveals each element of a list, enumeration, or terms on its own step. On the model of Polylux's item-by-item: we never reconstruct list(..)/enum(..)/terms(..), we simply filter the direct children of body that are list.item/enum.item/terms.item and reveal them one by one via one-by-one. Typst then visually groups these adjacent items, regardless of whether they are each wrapped in an uncover.
 #let item-by-item(start: 1, hide-color: none, hide-fn: none, body) = {
   let is-item(it) = type(it) == content and it.func() in (
     list.item, enum.item, terms.item
@@ -257,7 +259,6 @@
   one-by-one(start: start, hide-color: hide-color, hide-fn: hide-fn, ..children.filter(is-item))
 }
 
-// Adapts a descriptor (integer = single step, dictionary (beginning: n) = open from n) to a call to only, the only vocabulary that alternatives needs
 #let _only-for(descriptor, body) = {
   if type(descriptor) == dictionary {
     only(from: descriptor.beginning, body)
@@ -266,7 +267,6 @@
   }
 }
 
-// Displays different content per step, reserving the space of the largest among them. On the model of Polylux's alternatives-match/alternatives: each option is revealed by a separate only(..) call, so each declares its own <sk-reveal> metadata, without manual declaration of the number of steps.
 #let alternatives-match(subslides-contents) = {
   let pairs = if type(subslides-contents) == dictionary {
     subslides-contents.pairs()
@@ -298,7 +298,6 @@
   ]
 }
 
-// Parallel track: local split by <sk-pause>, counted independently of the main flow, but synchronized on the same subslide clock. Replaces the use of #meanwhile from Touying: instead of a marker inserted in the flow, we wrap each parallel branch in track(..).
 #let track(body) = {
   let chunks = split-at-pause(body)
   let n = chunks.len()
@@ -337,7 +336,6 @@
   )
 }
 
-// Helper function required to process the body when zebraw-renderer is used. This is required because, starting with zebraw 0.6.x, zebraw no longer lets Typst simply compose raw.line. It retrieves it.lines, processes the lines itself with process-lines, then reconstructs the block with grids.
 #let process-raw-body(body, hidden) = {
   if type(body) == content {
     if body.func() == raw {
