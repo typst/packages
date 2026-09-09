@@ -1,4 +1,4 @@
-#import "theme.typ": qfd-palette
+#import "palette.typ": qfd-palette
 // QFD data normalization. All public row/column indices are ONE-BASED.
 // Internal helpers intentionally have an underscore prefix.
 

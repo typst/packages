@@ -48,15 +48,35 @@ Both pages were consulted on 9 September 2026. Sources inform the discussion onl
 - `espresso.typ`: needs → functions, with provisional targets and illustrative roof interactions.
 - `components.typ`: functions → components, inheriting unrounded priorities.
 - `report.typ`: a two-page A3 report with both deployments and the decision context.
-- `revisions.typ`: add milk drinks to the original capsule machine; compare needs → functions row by row.
-- `revision-components.typ`: continue the same change through functions → components, with priorities inherited from the revised first stage.
+- `revisions.typ`: compact manual-wand walkthrough, with five needs and five functions.
+- `revision-components.typ`: continue the compact manual-wand change into five component groups.
+- `milk-options.typ`: a shared compact coffee-only baseline and two alternatives (manual jug/wand or automatic refrigerated milk).
+- `milk-automatic.typ`: two-page compact report for the automatic alternative.
+- `milk-detailed.typ`: the complete integrated-milk revision of the original twelve-function coffee study.
 - `milk-data.typ`: both revised stages and their baseline comparisons.
 - `minimal.typ`: a two-by-two introduction to the positional API.
 
 Revision comparison is different from competitive comparison. No café or competing appliance scores are supplied: they have not been measured. A future comparison should identify the particular café beverage and candidate concepts, use consistent conditions and scales, retain missing observations as `none`, and separate observed values from assumptions.
 
 
-## Deploying a new capability: milk drinks
+## Compact walkthrough: two milk options
+
+The documentation starts with a five-by-five matrix so the reader can follow one change. `milk-options.typ` is a separate teaching model with a shared coffee-only baseline: four needs, three functions, and three component groups. It deliberately aggregates the detailed coffee study; its numerical priorities must not be mixed with that study.
+
+**Option A — manual wand and removable jug.** Add the need “enjoy warm, textured milk” and the functions “heat milk” and “texture milk.” Existing cleaning and hazard-containment responsibilities expand. Add steam generation and a wand/jug group; revise the controller and housing/protection. Milk refrigeration stays outside the appliance. The user supplies, positions, and cleans the jug.
+
+**Option B — automatic preparation with refrigerated storage.** Start from the same coffee-only baseline. Add the same milk-drink need plus “keep milk ready between sessions,” with refrigerated storage and automatic milk metering as additional functions. Proposed hardware includes a refrigerated reservoir, milk pump/valves/tubing, and an automatic mixer in addition to steam generation and revised controls/protection.
+
+| Question | Manual wand + jug | Automatic + refrigeration |
+| --- | --- | --- |
+| Who meters and positions milk? | The user handles the jug. | The machine meters milk into a mixer. |
+| Where is milk stored? | Outside the appliance, between sessions. | In an integrated refrigerated reservoir. |
+| What must be cleaned? | Jug and accessible wand, alongside coffee paths. | Reservoir, milk circuit, and mixer, alongside coffee paths. |
+| What happens to existing constraints? | Reassess steam handling, cleanup effort, and jug space. | Reassess cleaning access, cold storage, shared power, and the installation envelope. |
+
+The diagrams show relevance and design responsibility, not which option is superior. Establish requirements, observe user handling, and assess both concepts before assigning satisfaction scores or selecting a technology. No numerical milk-storage or hygiene target has been asserted. Both alternatives carry their own recalculated function priorities into their component matrices.
+
+## Deploying a new capability: detailed milk study
 
 The revision asks what adding milk drinks implies for the whole existing product. The baseline is the capsule-coffee concept above. The provisional extension has integrated refrigerated milk storage feeding an automatic steam/frothing path. This is a concept assumption, not a description of an actual Nespresso product. A removable jug with a manual steam wand would produce a different deployment, particularly for refrigeration, handling, and user protection.
 
