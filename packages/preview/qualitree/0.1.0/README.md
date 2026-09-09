@@ -104,7 +104,7 @@ python3 tools/install_local.py
 
 Then use `#import "@local/qualitree:0.1.0": qfd`. This only installs the library for the local CLI; fonts are separate. See [installation paths](https://github.com/tychota/qfd-typst/blob/main/docs/API.md#installation).
 
-**Typst Universe:** this repository is prepared for submission. Use relative or `@local` imports until the submission is accepted; `@preview/qualitree:0.1.0` is not promised available yet.
+**Typst Universe:** [submission PR #5808](https://github.com/typst/packages/pull/5808) is open. Use relative or `@local` imports until it is accepted; `@preview/qualitree:0.1.0` is not available yet.
 
 ## Develop and verify
 
@@ -125,6 +125,10 @@ Tests execute Typst assertions, 128 visibility combinations and other layout cas
 - [Maintaining the package](https://github.com/tychota/qfd-typst/blob/main/CONTRIBUTING.md): module boundaries, comments, checks and releases.
 - [Methodology](https://github.com/tychota/qfd-typst/blob/main/docs/METHODOLOGY.md): functional analysis and classic QFD terminology.
 - [Design](https://github.com/tychota/qfd-typst/blob/main/DESIGN.md) and [implementation plan](https://github.com/tychota/qfd-typst/blob/main/PLAN.md).
+
+## Credits
+
+Tycho Tatitscheff and Julien Calixte.
 
 ## License
 
