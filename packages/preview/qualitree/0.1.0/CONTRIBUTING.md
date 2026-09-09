@@ -51,3 +51,24 @@ Use small numerical assertions for semantics; use rendered fixtures for layout. 
 7. Use `@preview` in the quickstart only after the package PR is merged and available.
 
 Published versions are immutable in normal circumstances. Ship a new version for fixes.
+
+
+## Bilingual documentation and highlighting
+
+The English guide is `docs/site/index.html`; its French counterpart is
+`docs/site/fr/index.html`. Keep section IDs identical so language links preserve
+the reading position. Translate prose, alternative text, and interface messages;
+API parameter names stay unchanged. French diagrams in `examples/fr/` translate
+labels from the shared model, preserving its identities and numerical data.
+Detailed English-only references are explicitly labeled in the French guide.
+
+Mark Typst blocks with `<code class="language-typst">`. The documentation build
+uses the installed Typst compiler to highlight raw text, and writes static spans
+into `build/site/`. It never evaluates the snippet as Typst code. No browser
+highlighter or CDN script is needed. `tools/highlight.py` isolates the experimental
+HTML-export interface; CI pins Typst 0.15.1 and checks that highlighting preserves
+Unicode and escaped HTML exactly. Copy controls read the resulting text content.
+
+Run `python3 -m unittest discover -s tools/tests`, then the example and documentation
+builds. Requires Python 3.11+ and Typst 0.15.1+. Inspect the rendered French diagrams
+when changing their labels, since translations can alter header dimensions.
