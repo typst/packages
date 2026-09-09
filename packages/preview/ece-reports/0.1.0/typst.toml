@@ -1,0 +1,27 @@
+[package]
+name = "ece-reports"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["léon <@leonpwd>"]
+license = "MIT"
+description = "Unofficial templates for ECE (École Centrale d'Électronique, a French engineering school) lab and project reports."
+homepage = "https://www.ece.fr"
+repository = "https://github.com/leonpwd/ece-reports"
+keywords = ["ece", "ecole-centrale-d-electronique", "ece-paris", "report", "lab-report", "project-report", "engineering"]
+categories = ["report"]
+disciplines = ["engineering", "computer-science"]
+compiler = "0.12.0"
+exclude = [
+  ".git",
+  ".github",
+  "*.pdf",
+  "assets/preview-*.png",
+  "docs",
+  "examples",
+  "justfile",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

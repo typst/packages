@@ -1,0 +1,951 @@
+// ECE Paris Typst Reports Template Package
+// Package non-officiel pour la rédaction de rapports de TP et de projets à l'ECE Paris
+
+// =============================================================================
+// COULEURS DU THÈME
+// =============================================================================
+#let ece = rgb("#007A7B")
+#let gamboge = rgb("#E39B0F")
+#let darkpowderblue = rgb("#003399")
+#let verylightgray = rgb("#F0F0F0")
+#let warning-red = rgb("#D32F2F")
+
+#let logo-ece(width: 5.5cm) = image("assets/images/logo-ece.svg", width: width)
+
+
+// =============================================================================
+// PRESETS DE POLICES
+// =============================================================================
+#let font-presets = (
+  "latex": "New Computer Modern",
+  "typst-modern": "Libertinus Serif",
+  "modern-sans": ("Helvetica Neue", "Arial"),
+  "editorial": ("Charter", "PT Serif", "Times New Roman"),
+)
+#let polices-presets = font-presets // Alias de compatibilité
+
+// =============================================================================
+// FONCTIONS UTILITAIRES DE RÉDACTION
+// =============================================================================
+#let question(label, body) = [
+  #v(0.6em, weak: true)
+  #text(fill: ece, weight: "bold")[#label.] #body
+  #v(0.4em, weak: true)
+]
+
+#let t(num, body) = question("T" + str(num), body)
+#let e(num, body) = question("E" + str(num), body)
+
+#let nb(body, prefix: "NB :") = [
+  #text(weight: "bold")[#prefix] #body
+]
+
+#let note(body, prefix: "Note:") = [
+  #text(weight: "bold")[#prefix] #body
+]
+
+#let attention(body) = [
+  #text(fill: warning-red, weight: "bold")[#body]
+]
+
+#let todo(body) = [
+  #highlight(fill: rgb("#FFF59D"))[#text(weight: "bold")[#body]]
+]
+
+#let callout(
+  body,
+  title: none,
+  type: "info",
+  fill: auto,
+  stroke: auto,
+) = {
+  let (default_fill, default_stroke) = if type in ("warning", "avertissement", "warn") {
+    (rgb("#FEF8E7"), gamboge)
+  } else if type in ("danger", "erreur", "error") {
+    (rgb("#FDF0F0"), warning-red)
+  } else if type in ("tip", "astuce") {
+    (rgb("#EBF0F8"), darkpowderblue)
+  } else {
+    (rgb("#EBF5F5"), ece)
+  }
+  let actual_fill = if fill != auto { fill } else { default_fill }
+  let actual_stroke = if stroke != auto { stroke } else { default_stroke }
+  let title_color = if stroke != auto { stroke } else { default_stroke }
+
+  rect(
+    width: 100%,
+    fill: actual_fill,
+    stroke: 1pt + actual_stroke,
+    radius: 4pt,
+    inset: 12pt,
+  )[
+    #if title != none [
+      #text(fill: title_color, weight: "bold", size: 1.05em)[#title]
+      #v(0.3em)
+    ]
+    #body
+  ]
+}
+
+#let note-cadre = callout // Alias de compatibilité
+
+#let table-termes(header_term: "Terme", header_def: "Définition", ..rows) = [
+  #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
+  #table(
+    columns: (1.5fr, 3.5fr),
+    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
+    inset: 8pt,
+    table.header(
+      [#text(weight: "bold")[#header_term]],
+      [#text(weight: "bold")[#header_def]],
+    ),
+    ..rows
+  )
+]
+
+#let table-acronymes(header_acr: "Acronyme", header_mean: "Signification", header_exp: "Explication", ..rows) = [
+  #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
+  #table(
+    columns: (1fr, 1.8fr, 2.7fr),
+    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
+    inset: 8pt,
+    table.header(
+      [#text(weight: "bold")[#header_acr]],
+      [#text(weight: "bold")[#header_mean]],
+      [#text(weight: "bold")[#header_exp]],
+    ),
+    ..rows
+  )
+]
+
+#let table-composants(
+  header_ref: "Réf.",
+  header_comp: "Désignation",
+  header_val: "Valeur / Boîtier",
+  header_qty: "Qté",
+  header_note: "Remarques",
+  ..rows
+) = [
+  #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
+  #table(
+    columns: (1fr, 2.2fr, 2fr, 0.8fr, 2fr),
+    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
+    inset: 7pt,
+    align: (col, row) => if col == 0 or col == 3 { center + horizon } else { left + horizon },
+    table.header(
+      [#text(weight: "bold")[#header_ref]],
+      [#text(weight: "bold")[#header_comp]],
+      [#text(weight: "bold")[#header_val]],
+      [#text(weight: "bold")[#header_qty]],
+      [#text(weight: "bold")[#header_note]],
+    ),
+    ..rows
+  )
+]
+#let table-bom = table-composants
+
+#let table-brochage(
+  header_pin: "Broche",
+  header_sig: "Signal",
+  header_mode: "Mode I/O",
+  header_desc: "Description",
+  ..rows
+) = [
+  #set table(stroke: (x, y) => if y == 0 { (bottom: 1.5pt + ece) } else { 0.5pt + rgb("#DDDDDD") })
+  #table(
+    columns: (1.2fr, 1.5fr, 1.3fr, 3fr),
+    fill: (col, row) => if row == 0 { rgb("#EBF5F5") } else if calc.even(row) { rgb("#FAFAFA") } else { none },
+    inset: 7pt,
+    align: (col, row) => if col in (0, 1, 2) { center + horizon } else { left + horizon },
+    table.header(
+      [#text(weight: "bold")[#header_pin]],
+      [#text(weight: "bold")[#header_sig]],
+      [#text(weight: "bold")[#header_mode]],
+      [#text(weight: "bold")[#header_desc]],
+    ),
+    ..rows
+  )
+]
+#let table-pinout = table-brochage
+
+#let annexes(body, lang: "fr", title_prefix: auto) = {
+  pagebreak()
+  counter(heading).update(0)
+  counter(math.equation).update(0)
+  let prefix = if title_prefix != auto {
+    title_prefix
+  } else if lang == "en" {
+    "Appendix "
+  } else {
+    "Annexe "
+  }
+  set heading(numbering: (..nums) => {
+    let pos = nums.pos()
+    if pos.len() == 1 {
+      prefix + numbering("A", pos.first()) + " :"
+    } else {
+      numbering("A.1", ..pos)
+    }
+  })
+  set math.equation(numbering: (..nums) => context {
+    let h_count = counter(heading).get().first()
+    let letter = numbering("A", calc.max(1, h_count))
+    "(" + letter + "." + str(nums.pos().first()) + ")"
+  })
+  body
+}
+#let appendix = annexes
+
+// =============================================================================
+// RACCOURCIS & NOTATIONS D'INGÉNIERIE SCIENTIFIQUE
+// =============================================================================
+#let ohm = $Omega$
+#let kohm = $k Omega$
+#let mohm = $M Omega$
+#let uf = $mu upright("F")$
+#let nf = $upright("nF")$
+#let pf = $upright("pF")$
+#let vpp = $V_("pp")$
+#let vrms = $V_("rms")$
+#let vdc = $V_("dc")$
+#let fcut = $f_0$
+
+// =============================================================================
+// DICTIONNAIRES D'INTERNATIONALISATION (i18n)
+// =============================================================================
+#let i18n-tp = (
+  "fr": (
+    type_doc: "RAPPORT DE TP",
+    doc_prefix: "TP",
+    groupe_prefix: "Groupe",
+    default_title: "[Nom du TP]",
+    default_date: "JJ/MM/AAAA",
+    default_city: "Ville",
+    date_connector: ", le ",
+    supervisor_prefix: "Sous la direction de : ",
+    attestation: "Nous attestons que ce travail est original,\nqu’il est le fruit d’un travail commun au binôme et qu’il a été rédigé de manière autonome.",
+    toc_title: "Table des matières",
+    supp_figure: [Figure],
+    supp_table: [Tableau],
+    supp_code: [Code],
+    draft_text: "BROUILLON",
+  ),
+  "en": (
+    type_doc: "LABORATORY REPORT",
+    doc_prefix: "LAB",
+    groupe_prefix: "Group",
+    default_title: "[Name of the lab]",
+    default_date: "MM/DD/YYYY",
+    default_city: "City",
+    date_connector: ", ",
+    supervisor_prefix: "Supervised by: ",
+    attestation: "We certify that this submission is our own original work,\nand meets the Faculty’s Expectation and Originality.",
+    toc_title: "Table of Contents",
+    supp_figure: [Figure],
+    supp_table: [Table],
+    supp_code: [Listing],
+    draft_text: "DRAFT",
+  ),
+)
+
+#let i18n-projet = (
+  "fr": (
+    type_doc: "RAPPORT DE PROJET",
+    groupe_prefix: "Groupe",
+    default_title: "[Nom du projet]",
+    default_date: "JJ/MM/AAAA",
+    default_city: "Ville",
+    date_connector: ", le ",
+    supervisor_prefix: "Sous la direction de : ",
+    abstract_title: "RÉSUMÉ",
+    default_abstract: [Quel est le contexte et la problématique du projet ? Quels sont les objectifs techniques ? Dans quel contexte faites-vous ce projet ? [maximum 20 lignes]],
+    attestation: "Nous attestons que ce travail est original,\nqu’il est le fruit d’un travail commun au binôme et qu’il a été rédigé de manière autonome.",
+    toc_title: "Table des matières",
+    tof_title: "Liste des figures",
+    tot_title: "Liste des tableaux",
+    supp_figure: [Figure],
+    supp_table: [Tableau],
+    supp_code: [Code],
+    draft_text: "BROUILLON",
+  ),
+  "en": (
+    type_doc: "PROJECT REPORT",
+    groupe_prefix: "Group",
+    default_title: "[Project Name]",
+    default_date: "MM/DD/YYYY",
+    default_city: "City",
+    date_connector: ", ",
+    supervisor_prefix: "Supervised by: ",
+    abstract_title: "ABSTRACT",
+    default_abstract: [What is the context and problem statement of the project? What are the technical objectives? In what context are you carrying out this project? [maximum 20 lines]],
+    attestation: "We certify that this submission is our own original work,\nand meets the Faculty’s Expectation and Originality.",
+    toc_title: "Table of Contents",
+    tof_title: "List of Figures",
+    tot_title: "List of Tables",
+    supp_figure: [Figure],
+    supp_table: [Table],
+    supp_code: [Listing],
+    draft_text: "DRAFT",
+  ),
+)
+
+// =============================================================================
+// GESTION DES ASSETS INTERNES
+// =============================================================================
+#let _render-logo(logo, width: 5.5cm) = {
+  if logo == none {
+    none
+  } else if type(logo) == content {
+    logo
+  } else if logo == auto {
+    image("assets/images/logo-ece.svg", width: width)
+  } else if type(logo) == str {
+    image(logo, width: width)
+  } else {
+    logo
+  }
+}
+
+#let _render-cover(cover) = {
+  if cover == none {
+    none
+  } else if type(cover) == content {
+    cover
+  } else if cover == auto {
+    image("assets/images/elec.png", width: 100%)
+  } else if type(cover) == str {
+    image(cover, width: 100%)
+  } else {
+    cover
+  }
+}
+
+// =============================================================================
+// MODÈLE 1 : RAPPORT DE TP / LABORATORY REPORT
+// =============================================================================
+#let tp(
+  title: none,
+  tp_num: "[X]",
+  promo: "ING[X]",
+  major: none,
+  majeure: none,
+  groupe: none,
+  authors: ("André-Marie AMPÈRE", "Alessandro VOLTA"),
+  supervisor: none,
+  tuteur: none,
+  enseignant: none,
+  date: auto,
+  city: none,
+  logo: auto,
+  cover_image: auto,
+  attestation: auto,
+  type_doc: none,
+  doc_prefix: none,
+  table_of_contents: false,
+  toc_depth: 3,
+  draft: false,
+  show_roles: true,
+  show_role: true,
+  show_emails: true,
+  show_email: true,
+  show_supervisor_email: auto,
+  equation_numbering: none,
+  font: "New Computer Modern",
+  font_size: 11pt,
+  lang: "fr",
+  body
+) = {
+  let dict = i18n-tp.at(lang, default: i18n-tp.at("fr"))
+  
+  let actual_show_roles = if show_roles != true { show_roles } else { show_role }
+  let actual_show_emails = if show_emails != true { show_emails } else { show_email }
+  let actual_show_sup_email = if show_supervisor_email != auto { show_supervisor_email } else { actual_show_emails }
+  let actual_title = if title != none { title } else { dict.default_title }
+  let actual_type_doc = if type_doc != none { type_doc } else { dict.type_doc }
+  let actual_doc_prefix = if doc_prefix != none { doc_prefix } else { dict.doc_prefix }
+  let actual_major = if major != none { major } else if majeure != none { majeure } else { none }
+  let actual_groupe = if groupe != none { groupe } else { dict.groupe_prefix + " [X]" }
+  let actual_supervisor = if supervisor != none { supervisor } else if tuteur != none { tuteur } else if enseignant != none { enseignant } else { none }
+  let actual_date = if date == auto {
+    if lang == "fr" {
+      datetime.today().display("[day]/[month]/[year]")
+    } else {
+      datetime.today().display("[month]/[day]/[year]")
+    }
+  } else if date != none {
+    date
+  } else {
+    dict.default_date
+  }
+  let actual_city = if city != none { city } else { dict.default_city }
+  let actual_attestation = if attestation == auto { dict.attestation } else if attestation == none or attestation == false { none } else { attestation }
+
+  let author_list = if type(authors) == array {
+    authors.map(a => if type(a) == dictionary { a.at("name", default: "") } else { str(a) }).join(", ")
+  } else {
+    str(authors)
+  }
+  set document(
+    title: actual_doc_prefix + " " + str(tp_num) + " : " + str(actual_title),
+    author: author_list,
+  )
+
+  set page(
+    paper: "a4",
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 2cm, right: 2cm),
+    background: if draft {
+      rotate(
+        -45deg,
+        text(
+          size: 90pt,
+          weight: "bold",
+          fill: rgb(180, 180, 180, 120),
+        )[#dict.draft_text]
+      )
+    } else {
+      none
+    },
+    header: context {
+      let current_page = counter(page).get().first()
+      if current_page > 1 {
+        let headings = query(heading.where(level: 1))
+        let current_heading = headings.rev().find(h => h.location().page() <= current_page)
+        let promo_label = if actual_major != none { promo + " – " + actual_major } else { promo }
+        grid(
+          columns: (auto, 1fr, auto),
+          align: (left + horizon, center + horizon, right + horizon),
+          _render-logo(logo, width: 2.5cm),
+          if current_heading != none [
+            #text(size: 9pt, fill: rgb("#666666"), style: "italic")[
+              #current_heading.body
+            ]
+          ],
+          text(size: 9.5pt, weight: "bold", hyphenate: false)[#promo_label #h(0.4em) #actual_groupe],
+        )
+      }
+    },
+    footer: context {
+      let i = counter(page).get().first()
+      let total = counter(page).final().first()
+      if i > 1 {
+        align(center, text(size: 10pt)[#i / #total])
+      }
+    }
+  )
+
+  set text(
+    font: font,
+    size: font_size,
+    lang: lang,
+  )
+
+  set par(
+    justify: true,
+    leading: 0.65em,
+    first-line-indent: 0pt,
+  )
+
+  show link: set text(fill: darkpowderblue)
+
+  if equation_numbering != none {
+    set math.equation(numbering: equation_numbering)
+  }
+
+  set list(marker: ([#text(fill: ece, size: 0.9em)[•]], [--]))
+
+  show raw.where(block: true): it => block(
+    fill: rgb("#F8F9FA"),
+    inset: (x: 18pt, y: 14pt),
+    radius: 6pt,
+    width: 100%,
+    stroke: 0.8pt + rgb("#D0D7DE"),
+    above: 1.2em,
+    below: 1.2em,
+    align(left, it),
+  )
+  show raw.where(block: false): it => box(
+    fill: rgb("#F1F3F5"),
+    inset: (x: 4pt, y: 0pt),
+    outset: (y: 2.5pt),
+    radius: 3pt,
+    it,
+  )
+  show figure.where(kind: raw): it => pad(x: -1cm, block(width: 100%, it))
+
+  show outline: it => {
+    show link: set text(fill: black)
+    it
+  }
+
+  set bibliography(style: "ieee")
+  show figure.where(kind: table): set figure(supplement: dict.supp_table)
+  show figure.where(kind: raw): set figure(supplement: dict.supp_code)
+  show figure.where(kind: image): set figure(supplement: dict.supp_figure)
+  show figure.caption: it => [
+    #text(weight: "bold")[#it.supplement #context { it.counter.display(it.numbering) }] – #it.body
+  ]
+
+  set heading(numbering: (..nums) => {
+    let pos = nums.pos()
+    if pos.len() == 1 {
+      numbering("I.", pos.last())
+    } else if pos.len() == 2 {
+      numbering("A.", pos.last())
+    } else if pos.len() == 3 {
+      numbering("(a)", pos.last())
+    }
+  })
+
+  show heading.where(level: 1): it => {
+    set text(size: 18pt, fill: ece, weight: "bold")
+    v(1.2em, weak: true)
+    it
+    v(0.6em, weak: true)
+  }
+
+  show heading.where(level: 2): it => {
+    set text(size: 16pt, fill: ece, weight: "bold")
+    v(1em, weak: true)
+    it
+    v(0.5em, weak: true)
+  }
+
+  show heading.where(level: 3): it => {
+    set text(size: 15pt, fill: gamboge, weight: "bold")
+    v(0.8em, weak: true)
+    it
+    v(0.4em, weak: true)
+  }
+
+  // --- PAGE DE TITRE ---
+  {
+    grid(
+      columns: (1fr, 1fr),
+      align: (left + horizon, right + horizon),
+      _render-logo(logo, width: 5.5cm),
+      align(right)[
+        #text(size: 14pt, weight: "bold")[
+          #promo #if actual_major != none [ \ #text(size: 11pt, weight: "regular", fill: rgb("#444444"))[#actual_major] ] \
+          #actual_groupe
+        ]
+      ],
+    )
+
+    v(1.5cm)
+    line(length: 100%, stroke: 1.5pt + black)
+    v(0.4cm)
+
+    align(center)[
+      #text(size: 13pt, weight: "bold", fill: rgb("#444444"))[#actual_type_doc]
+      #v(0.6cm)
+      #text(size: 20pt, weight: "bold", fill: ece)[#actual_doc_prefix #tp_num : #actual_title]
+    ]
+
+    v(0.4cm)
+    line(length: 100%, stroke: 1.5pt + black)
+    v(0.8cm)
+
+    if cover_image != none {
+      align(center)[
+        #_render-cover(cover_image)
+      ]
+    }
+
+    v(1fr)
+
+    align(center)[
+      #if type(authors) == array [
+        #grid(
+          columns: (1fr,) * authors.len(),
+          gutter: 1.5cm,
+          align: center,
+          ..authors.map(a => {
+            if type(a) == dictionary [
+              #text(size: 12pt, weight: "bold")[#a.at("name", default: "")]
+              #if actual_show_roles and "role" in a and a.role != none and a.role != "" [ \ #text(size: 9pt, style: "italic", fill: rgb("#666666"))[#a.role] ]
+              #if actual_show_emails and "email" in a and a.email != none and a.email != "" [ \ #text(size: 9pt, fill: darkpowderblue)[#link("mailto:" + a.email)[#a.email]] ]
+            ] else [
+              #text(size: 12pt, weight: "bold")[#a]
+            ]
+          })
+        )
+      ] else [
+        #text(size: 12pt, weight: "bold")[#authors]
+      ]
+
+      #if actual_supervisor != none [
+        #v(0.3cm)
+        #if type(actual_supervisor) == dictionary [
+          #let s_name = actual_supervisor.at("name", default: "")
+          #let s_email = actual_supervisor.at("email", default: none)
+          #text(size: 11pt, style: "italic")[#dict.supervisor_prefix#s_name]
+          #if actual_show_sup_email and s_email != none and s_email != "" [
+            \ #text(size: 9pt, fill: darkpowderblue)[#link("mailto:" + s_email)[#s_email]]
+          ]
+        ] else [
+          #text(size: 11pt, style: "italic")[#dict.supervisor_prefix#actual_supervisor]
+        ]
+      ]
+
+      #v(0.8cm)
+
+      #if actual_attestation != none [
+        #text(size: 9.5pt, fill: rgb("#333333"))[#actual_attestation]
+        #v(0.3cm)
+      ]
+      #text(size: 11pt, weight: "bold")[#actual_city#dict.date_connector#actual_date]
+    ]
+  }
+
+  pagebreak()
+
+  if table_of_contents {
+    outline(
+      title: dict.toc_title,
+      depth: toc_depth,
+      indent: 1.5em,
+    )
+    pagebreak()
+  }
+
+  body
+}
+
+// =============================================================================
+// MODÈLE 2 : RAPPORT DE PROJET / PROJECT REPORT
+// =============================================================================
+#let projet(
+  title: none,
+  promo: "ING[X]",
+  major: none,
+  majeure: none,
+  groupe: none,
+  authors: ("André-Marie AMPÈRE", "Alessandro VOLTA"),
+  supervisor: none,
+  tuteur: none,
+  enseignant: none,
+  date: auto,
+  city: none,
+  logo: auto,
+  abstract: none,
+  attestation: auto,
+  type_doc: none,
+  table_of_contents: true,
+  table_of_figures: false,
+  table_of_tables: false,
+  same_page_figures_tables: true,
+  group_figures_tables: true,
+  same_page_toc: false,
+  group_outlines: false,
+  toc_depth: 3,
+  draft: false,
+  show_roles: true,
+  show_role: true,
+  show_emails: true,
+  show_email: true,
+  show_supervisor_email: auto,
+  numbering_format: "1.1",
+  equation_numbering: none,
+  font: "New Computer Modern",
+  font_size: 11pt,
+  lang: "fr",
+  body
+) = {
+  let dict = i18n-projet.at(lang, default: i18n-projet.at("fr"))
+  
+  let actual_show_roles = if show_roles != true { show_roles } else { show_role }
+  let actual_show_emails = if show_emails != true { show_emails } else { show_email }
+  let actual_show_sup_email = if show_supervisor_email != auto { show_supervisor_email } else { actual_show_emails }
+  let actual_group_fig_tab = if same_page_figures_tables != true { same_page_figures_tables } else { group_figures_tables }
+  let actual_same_page_toc = if same_page_toc != false { same_page_toc } else { group_outlines }
+  let actual_title = if title != none { title } else { dict.default_title }
+  let actual_type_doc = if type_doc != none { type_doc } else { dict.type_doc }
+  let actual_major = if major != none { major } else if majeure != none { majeure } else { none }
+  let actual_groupe = if groupe != none { groupe } else { dict.groupe_prefix + " [X]" }
+  let actual_supervisor = if supervisor != none { supervisor } else if tuteur != none { tuteur } else if enseignant != none { enseignant } else { none }
+  let actual_date = if date == auto {
+    if lang == "fr" {
+      datetime.today().display("[day]/[month]/[year]")
+    } else {
+      datetime.today().display("[month]/[day]/[year]")
+    }
+  } else if date != none {
+    date
+  } else {
+    dict.default_date
+  }
+  let actual_city = if city != none { city } else { dict.default_city }
+  let actual_abstract = if abstract != none { abstract } else { dict.default_abstract }
+  let actual_attestation = if attestation == auto { dict.attestation } else if attestation == none or attestation == false { none } else { attestation }
+
+  let author_list = if type(authors) == array {
+    authors.map(a => if type(a) == dictionary { a.at("name", default: "") } else { str(a) }).join(", ")
+  } else {
+    str(authors)
+  }
+  set document(
+    title: actual_type_doc + " : " + str(actual_title),
+    author: author_list,
+  )
+
+  set page(
+    paper: "a4",
+    margin: (top: 2.5cm, bottom: 2.5cm, left: 2cm, right: 2cm),
+    background: if draft {
+      rotate(
+        -45deg,
+        text(
+          size: 90pt,
+          weight: "bold",
+          fill: rgb(180, 180, 180, 120),
+        )[#dict.draft_text]
+      )
+    } else {
+      none
+    },
+    header: context {
+      let current_page = counter(page).get().first()
+      if current_page > 1 {
+        let headings = query(heading.where(level: 1))
+        let current_heading = headings.rev().find(h => h.location().page() <= current_page)
+        let promo_label = if actual_major != none { promo + " – " + actual_major } else { promo }
+        grid(
+          columns: (auto, 1fr, auto),
+          align: (left + horizon, center + horizon, right + horizon),
+          _render-logo(logo, width: 2.5cm),
+          if current_heading != none [
+            #text(size: 9pt, fill: rgb("#666666"), style: "italic")[
+              #current_heading.body
+            ]
+          ],
+          text(size: 9.5pt, weight: "bold", hyphenate: false)[#promo_label #h(0.4em) #actual_groupe],
+        )
+      }
+    },
+    footer: context {
+      let i = counter(page).get().first()
+      let total = counter(page).final().first()
+      if i > 1 {
+        align(center, text(size: 10pt)[#i / #total])
+      }
+    }
+  )
+
+  set text(
+    font: font,
+    size: font_size,
+    lang: lang,
+  )
+
+  set par(
+    justify: true,
+    leading: 0.65em,
+    first-line-indent: 0pt,
+  )
+
+  show link: set text(fill: darkpowderblue)
+
+  if equation_numbering != none {
+    set math.equation(numbering: equation_numbering)
+  }
+
+  set list(marker: ([#text(fill: ece, size: 0.9em)[•]], [--]))
+
+  show raw.where(block: true): it => block(
+    fill: rgb("#F8F9FA"),
+    inset: (x: 18pt, y: 14pt),
+    radius: 6pt,
+    width: 100%,
+    stroke: 0.8pt + rgb("#D0D7DE"),
+    above: 1.2em,
+    below: 1.2em,
+    align(left, it),
+  )
+  show raw.where(block: false): it => box(
+    fill: rgb("#F1F3F5"),
+    inset: (x: 4pt, y: 0pt),
+    outset: (y: 2.5pt),
+    radius: 3pt,
+    it,
+  )
+  show figure.where(kind: raw): it => pad(x: -1cm, block(width: 100%, it))
+
+  show outline: it => {
+    show link: set text(fill: black)
+    it
+  }
+
+  set bibliography(style: "ieee")
+  show figure.where(kind: table): set figure(supplement: dict.supp_table)
+  show figure.where(kind: raw): set figure(supplement: dict.supp_code)
+  show figure.where(kind: image): set figure(supplement: dict.supp_figure)
+  show figure.caption: it => [
+    #text(weight: "bold")[#it.supplement #context { it.counter.display(it.numbering) }] – #it.body
+  ]
+
+  set heading(numbering: numbering_format)
+
+  show heading.where(level: 1): it => {
+    set text(size: 18pt, fill: ece, weight: "bold")
+    v(1.4em, weak: true)
+    it
+    v(0.6em, weak: true)
+  }
+
+  show heading.where(level: 2): it => {
+    set text(size: 14pt, fill: ece, weight: "bold")
+    v(1.1em, weak: true)
+    it
+    v(0.5em, weak: true)
+  }
+
+  show heading.where(level: 3): it => {
+    set text(size: 12pt, fill: gamboge, weight: "bold")
+    v(0.8em, weak: true)
+    it
+    v(0.4em, weak: true)
+  }
+
+  // --- PAGE DE TITRE ---
+  {
+    grid(
+      columns: (1fr, 1fr),
+      align: (left + horizon, right + horizon),
+      _render-logo(logo, width: 5.5cm),
+      align(right)[
+        #text(size: 14pt, weight: "bold")[
+          #promo #if actual_major != none [ \ #text(size: 11pt, weight: "regular", fill: rgb("#444444"))[#actual_major] ] \
+          #actual_groupe
+        ]
+      ],
+    )
+
+    v(1.5cm)
+    line(length: 100%, stroke: 1.5pt + black)
+    v(0.4cm)
+
+    align(center)[
+      #text(size: 13pt, weight: "bold", fill: rgb("#444444"))[#actual_type_doc]
+      #v(0.6cm)
+      #text(size: 22pt, weight: "bold", fill: ece)[#actual_title]
+    ]
+
+    v(0.4cm)
+    line(length: 100%, stroke: 1.5pt + black)
+
+    if actual_abstract != none {
+      v(1cm)
+      pad(x: -1cm)[
+        #rect(
+          fill: verylightgray,
+          stroke: none,
+          width: 100%,
+          inset: (x: 24pt, y: 16pt),
+          radius: 4pt,
+        )[
+          #align(left)[
+            #text(weight: "bold")[#dict.abstract_title] -- #actual_abstract
+          ]
+        ]
+      ]
+    }
+
+    v(1fr)
+
+    align(center)[
+      #if type(authors) == array [
+        #grid(
+          columns: (1fr,) * authors.len(),
+          gutter: 1.5cm,
+          align: center,
+          ..authors.map(a => {
+            if type(a) == dictionary [
+              #text(size: 12pt, weight: "bold")[#a.at("name", default: "")]
+              #if actual_show_roles and "role" in a and a.role != none and a.role != "" [ \ #text(size: 9pt, style: "italic", fill: rgb("#666666"))[#a.role] ]
+              #if actual_show_emails and "email" in a and a.email != none and a.email != "" [ \ #text(size: 9pt, fill: darkpowderblue)[#link("mailto:" + a.email)[#a.email]] ]
+            ] else [
+              #text(size: 12pt, weight: "bold")[#a]
+            ]
+          })
+        )
+      ] else [
+        #text(size: 12pt, weight: "bold")[#authors]
+      ]
+
+      #if actual_supervisor != none [
+        #v(0.3cm)
+        #if type(actual_supervisor) == dictionary [
+          #let s_name = actual_supervisor.at("name", default: "")
+          #let s_email = actual_supervisor.at("email", default: none)
+          #text(size: 11pt, style: "italic")[#dict.supervisor_prefix#s_name]
+          #if actual_show_sup_email and s_email != none and s_email != "" [
+            \ #text(size: 9pt, fill: darkpowderblue)[#link("mailto:" + s_email)[#s_email]]
+          ]
+        ] else [
+          #text(size: 11pt, style: "italic")[#dict.supervisor_prefix#actual_supervisor]
+        ]
+      ]
+
+      #v(0.8cm)
+
+      #if actual_attestation != none [
+        #text(size: 9.5pt, fill: rgb("#333333"))[#actual_attestation]
+        #v(0.3cm)
+      ]
+      #text(size: 11pt, weight: "bold")[#actual_city#dict.date_connector#actual_date]
+    ]
+  }
+
+  pagebreak()
+
+  if table_of_contents {
+    outline(
+      title: dict.toc_title,
+      depth: toc_depth,
+      indent: 1.5em,
+    )
+    if (table_of_figures or table_of_tables) and actual_same_page_toc {
+      v(1.5cm)
+    } else {
+      pagebreak()
+    }
+  }
+
+  if table_of_figures or table_of_tables {
+    if table_of_figures {
+      outline(
+        title: dict.tof_title,
+        target: figure.where(kind: image),
+      )
+      if table_of_tables {
+        if actual_group_fig_tab {
+          v(1.5cm)
+        } else {
+          pagebreak()
+        }
+      }
+    }
+
+    if table_of_tables {
+      outline(
+        title: dict.tot_title,
+        target: figure.where(kind: table),
+      )
+    }
+    pagebreak()
+  }
+
+  body
+}
+
+// =============================================================================
+// ALIASES DE COMPATIBILITÉ
+// =============================================================================
+#let conf-tp = tp
+#let conf-projet = projet
+#let conf = tp
+#let rapport-tp = tp
+#let lab-report = tp
+#let rapport-projet = projet
+#let project-report = projet
+
