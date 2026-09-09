@@ -22,7 +22,7 @@ Inspired by KOMA-Script, **satz** provides a unified configuration system (`defa
 #show: journal-entry.with(
   title: "Experiment 42",
   date: "2025-03-15",
-  keywords: ("synthesis", "characterization"),
+  keywords: "synthesis, characterization",
 )
 
 ...
@@ -41,7 +41,7 @@ Inspired by KOMA-Script, **satz** provides a unified configuration system (`defa
 | **gastspielvertrag** | `gastspielvertrag(...)` | Guest performance contract (§1–8, transport, buy-out, 3 doc modes) |
 | **cover** | `cover-page(...)` | Composable cover page with logos/body/footer slots |
 
-Stable: letter, invoice, journal, report, cover. Experimental: dfg-proposal, article mode.
+Stable: letter, invoice, journal, report, cover, legal-complaint, gastspielvertrag. Experimental: dfg-proposal, article mode.
 
 ### Letter — Internationalization
 
@@ -63,6 +63,7 @@ satz is built around the shared document class `class.typ:personal()`. It reads 
 lib.typ              ← public API
 defaults.typ         ← unified defaults + merge()
 class.typ            ← personal() + satz-figure
+citation.typ         ← citepre() — author-year cite without parens
 cover.typ            ← cover-page() — logos/body/footer slots
 letter/              ← brief() — DIN 5008 letter, i18n (de/en)
 invoice/             ← rechnung() — German invoice, EPC QR code
