@@ -16,7 +16,7 @@ A typst plugin to generate charts using [vegalite](https://vega.github.io/vega-l
 
 ```
 
-![Example](examples/image.png)
+![Bar chart comparing values across nine categories, rendered with nulite.](examples/image.png)
 
 See the [complete example](examples/bar-chart.typ) and its [inline data](examples/spec.json).
 
