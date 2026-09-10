@@ -15,7 +15,7 @@ typst init @preview/non-boring-notes
 Or copy this minimal template into your existing document:
 
 ```typst
-#import "@preview/non-boring-notes:0.1.0": *
+#import "@preview/non-boring-notes:0.1.1": *
 
 #show: template.with(
   title: [Document Title],
