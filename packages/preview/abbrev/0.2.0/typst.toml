@@ -8,4 +8,4 @@ description = "A lightweight, language-independent Typst package for defining, u
 repository = "https://github.com/girasole123/Abbrev"
 keywords = ["abbreviations", "acronyms", "glossary", "symbols", "initialisms", "custom", "list", "outline"]
 categories = ["text", "model"]
-exclude = ["example.typ", "exemple2.typ"]
+exclude = ["example.typ", "example2.typ"]
