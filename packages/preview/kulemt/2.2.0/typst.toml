@@ -1,0 +1,16 @@
+[package]
+name = "kulemt"
+version = "2.2.0"
+entrypoint = "src/lib.typ"
+authors = ["KU Leuven Faculty of Engineering Science <https://eng.kuleuven.be/>"]
+license = "LPPL-1.3c AND MIT AND MIT-0"
+description = "Master's thesis at KU Leuven's engineering faculty."
+repository = "https://gitlab.kuleuven.be/oo-firw/student-resources/firw-master-thesis-template"
+categories = ["thesis"]
+keywords = ["KU Leuven", "Katholieke Universiteit Leuven", "Faculty of Engineering Science", "kulemt", "masterproef"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

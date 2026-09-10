@@ -1,0 +1,141 @@
+#import "slydekit-animation.typ": *
+#import "slydekit-deps.typ": *
+#import "slydekit-defaults.typ": *
+#import "slydekit-outline.typ": *
+#import "slydekit-themes.typ": *
+#import "slydekit-slide.typ": slide, slide-parser
+#import "slydekit-utils.typ": *
+
+#let slydekit(
+  title: none,
+  subtitle: none,
+  short-title: none,
+  author: none,
+  date: none,
+  institution: none,
+  contact: none,
+  theme: simple,
+  fonts: (:),
+  colors: (:),
+  lang: "en",
+  aspect-ratio: "16-9",
+  navigation-style: "topbar",
+  title-logo: (),
+  slide-logo: none,
+  section-numbering: false,
+  numbering-pattern: (:),
+  frozen-counters: (),
+  slide-level: 2,
+  slide-align: horizon,
+  extra-info: (:),
+  handout: false,
+  activate-parser: true,
+  body
+) = context {
+  // Page setup
+  set page(
+    paper: "presentation-" + aspect-ratio,
+    margin: default-margins,
+  )
+
+  // Slide level: headings at this depth become slides, headings above it (depth < slide-level) are structure headings, and the heading at depth slide-level - 1 acts as the section.
+  sk-states.slide-level.update(slide-level)
+  sk-states.activate-parser.update(activate-parser)
+
+  // Section numbering
+  sk-states.section-numbering.update(section-numbering)
+
+  // Numbering
+  let sk-numbering-pattern = default-numbering-pattern + numbering-pattern
+
+  set heading(numbering: if numbering != none {
+    (..nums) => {
+      if sk-states.appendix.get() {
+        std.numbering(sk-numbering-pattern.appendix, ..nums)
+      } else {
+        std.numbering(sk-numbering-pattern.section, ..nums)
+      }
+    }
+  })
+  sk-states.numbering-pattern.update(sk-numbering-pattern)
+
+  // Slide-level headings are always numbered manually by slide() (either via slide-parser's heading-slide, or the direct show-rule substitution below) — never by Typst's own automatic heading numbering. A heading with numbering != none is auto-counted by Typst regardless of what its show rule renders it as, so leaving the pattern above active for slide-level headings would double-count them alongside slide()'s manual step. Setting numbering: none specifically for this level stops Typst's automatic counting for slide-level headings entirely, leaving slide()'s manual step as the sole, deterministic source of truth — this must come before slide-level headings are encountered, and applies independently of activate-parser since slide-level headings exist as real headings in body in both modes.
+  show heading.where(level: slide-level): set heading(numbering: none)
+
+  // Localization
+  let sk-lang = if default-language.contains(lang) {lang} else {"en"}
+
+  // Theme
+  let sk-theme = simple + theme
+  let sk-colors =  sk-theme.colors + colors
+  let sk-fonts = default-fonts + sk-theme.fonts + fonts
+
+  sk-states.colors.update(sk-colors)
+  sk-states.fonts.update(sk-fonts)
+  show: sk-theme.theme
+
+  // Optionally drop the automatic section slide produced for a level (slide-level - 1) heading. Registered after the theme so it runs first and removes the heading's output before the theme's section-slide rule renders  it; the heading element itself stays in the document, so outline / toc / mini-slides still see the section. Toggled by hide-new-section-slide.
+  show heading.where(level: slide-level - 1): it => context if not sk-states.hide-section-slide.get() { it }
+
+  // Frozen counters
+  sk-states.frozen-counters.update(default-frozen-counters + frozen-counters)
+
+  // Rules common to all themes
+  show heading: it => context {
+    sk-states.numbering-hidden.update(it.has("label") and it.label == <hide-toc>)
+
+    it
+  }
+
+  // Paragraph styles
+  set par(justify: true)
+
+  // Page alignment
+  set align(slide-align)
+
+  // Footnote style
+  set footnote.entry(separator: none, clearance: 0.25em)
+  show footnote.entry: it => context {
+    set text(size: 0.75em)
+    if sk-states.is-footcite.at(it.note.location()) {
+      it.note.body
+    } else {
+      it
+    }
+  }
+
+  // References
+  show ref: show-ref.with(slide-level: slide-level)
+
+  // Bibliography style
+  set bibliography(title: none)
+  show bibliography: set text(size: 0.85em)
+
+  // Title page
+  let sk-pres-info = (title: title, subtitle: subtitle, short-title: short-title, author: author, date: date, institution: institution, contact: contact, logo: title-logo, extra: extra-info)
+
+  // Update states
+  sk-states.navigation-style.update(navigation-style)
+  sk-states.pres-info.update(sk-pres-info)
+  sk-states.localization.update(json("resources/i18n/" + sk-lang + ".json"))
+  sk-states.theme.update(sk-theme)
+  sk-states.logo.update(slide-logo)
+  sk-states.handout.update(handout)
+
+  // Hide short titles by default
+  show metadata.where(label: <sk-title>): it => it.value.long
+
+  // Hide section titles from toc
+  show selector(<hide-toc>): set heading(numbering: none, outlined: false)
+
+  // Fonts
+  show: set-text.with(lang: sk-lang, fonts: sk-fonts)
+
+  // slide-parser (defined in slydekit-utils.typ) groups each == heading with all content that follows it until the next heading, allowing #pause / #meanwhile to work without an explicit #slide[...].
+  if sk-states.activate-parser.get() {
+    slide-parser(slide-level: slide-level, body)
+  } else {
+    show heading.where(level: slide-level): it => slide(it.body)[]
+    body
+  }
+}

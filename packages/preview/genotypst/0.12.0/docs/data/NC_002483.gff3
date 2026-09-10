@@ -1,0 +1,220 @@
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+##sequence-region NC_002483.1 1 99159
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=83333
+NC_002483.1	RefSeq	gene	66	1228	.	+	.	ID=gene-HXF02_RS00010;locus_tag=HXF02_RS00010
+NC_002483.1	Protein Homology	CDS	66	327	.	+	0	ID=cds-WP_085947771.1;Parent=gene-HXF02_RS00010;locus_tag=HXF02_RS00010;product=IS3-like element IS3 family transposase
+NC_002483.1	Protein Homology	CDS	327	1228	.	+	2	ID=cds-WP_085947771.1;Parent=gene-HXF02_RS00010;locus_tag=HXF02_RS00010;product=IS3-like element IS3 family transposase
+NC_002483.1	RefSeq	pseudogene	1259	1426	.	+	.	ID=gene-HXF02_RS00015;locus_tag=HXF02_RS00015
+NC_002483.1	Protein Homology	CDS	1259	1426	.	+	0	ID=cds-HXF02_RS00015;Parent=gene-HXF02_RS00015;locus_tag=HXF02_RS00015;product=ProQ/FINO family protein
+NC_002483.1	RefSeq	gene	1561	1749	.	+	.	ID=gene-HXF02_RS00020;locus_tag=HXF02_RS00020
+NC_002483.1	Protein Homology	CDS	1561	1749	.	+	0	ID=cds-WP_001345829.1;Parent=gene-HXF02_RS00020;locus_tag=HXF02_RS00020;product=hypothetical protein
+NC_002483.1	RefSeq	pseudogene	1947	2033	.	+	.	ID=gene-HXF02_RS00515;locus_tag=HXF02_RS00515
+NC_002483.1	Protein Homology	CDS	1947	2033	.	+	0	ID=cds-HXF02_RS00515;Parent=gene-HXF02_RS00515;locus_tag=HXF02_RS00515;product=thermonuclease family protein
+NC_002483.1	RefSeq	gene	2214	2525	.	-	.	ID=gene-HXF02_RS00025;locus_tag=HXF02_RS00025
+NC_002483.1	Protein Homology	CDS	2214	2525	.	-	0	ID=cds-WP_000802277.1;Parent=gene-HXF02_RS00025;locus_tag=HXF02_RS00025;product=hypothetical protein
+NC_002483.1	RefSeq	gene	2926	3075	.	+	.	ID=gene-HXF02_RS00030;locus_tag=HXF02_RS00030
+NC_002483.1	Protein Homology	CDS	2926	3075	.	+	0	ID=cds-WP_001312851.1;Parent=gene-HXF02_RS00030;locus_tag=HXF02_RS00030;product=Hok/Gef family protein
+NC_002483.1	RefSeq	gene	3359	3616	.	+	.	ID=gene-HXF02_RS00035;locus_tag=HXF02_RS00035
+NC_002483.1	Protein Homology	CDS	3359	3616	.	+	0	ID=cds-WP_000083834.1;Parent=gene-HXF02_RS00035;locus_tag=HXF02_RS00035;product=replication regulatory protein RepA
+NC_002483.1	RefSeq	gene	3638	3766	.	-	.	ID=gene-HXF02_RS00540;locus_tag=HXF02_RS00540
+NC_002483.1	Protein Homology	CDS	3638	3766	.	-	0	ID=cds-WP_001345828.1;Parent=gene-HXF02_RS00540;locus_tag=HXF02_RS00540;product=hypothetical protein
+NC_002483.1	RefSeq	gene	3850	3924	.	+	.	ID=gene-HXF02_RS00040;gene=tap;locus_tag=HXF02_RS00040
+NC_002483.1	Protein Homology	CDS	3850	3924	.	+	0	ID=cds-WP_001442103.1;Parent=gene-HXF02_RS00040;gene=tap;locus_tag=HXF02_RS00040;product=RepA leader peptide Tap
+NC_002483.1	RefSeq	gene	3962	4084	.	-	.	ID=gene-HXF02_RS00535;locus_tag=HXF02_RS00535
+NC_002483.1	GeneMarkS-2+	CDS	3962	4084	.	-	0	ID=cds-WP_289845690.1;Parent=gene-HXF02_RS00535;locus_tag=HXF02_RS00535;product=hypothetical protein
+NC_002483.1	RefSeq	gene	4303	6399	.	-	.	ID=gene-HXF02_RS00045;locus_tag=HXF02_RS00045
+NC_002483.1	Protein Homology	CDS	4303	6399	.	-	0	ID=cds-WP_000422420.1;Parent=gene-HXF02_RS00045;locus_tag=HXF02_RS00045;product=P-loop ATPase%2C Sll1717 family
+NC_002483.1	RefSeq	gene	6415	6966	.	-	.	ID=gene-HXF02_RS00050;locus_tag=HXF02_RS00050
+NC_002483.1	Protein Homology	CDS	6415	6966	.	-	0	ID=cds-WP_001235704.1;Parent=gene-HXF02_RS00050;locus_tag=HXF02_RS00050;product=recombinase family protein
+NC_002483.1	RefSeq	gene	7130	10138	.	+	.	ID=gene-HXF02_RS00055;locus_tag=HXF02_RS00055
+NC_002483.1	Protein Homology	CDS	7130	10138	.	+	0	ID=cds-WP_001143750.1;Parent=gene-HXF02_RS00055;locus_tag=HXF02_RS00055;product=Tn3-like element ISEc63 family transposase
+NC_002483.1	RefSeq	gene	10729	11790	.	-	.	ID=gene-HXF02_RS00060;locus_tag=HXF02_RS00060
+NC_002483.1	Protein Homology	CDS	10729	11790	.	-	0	ID=cds-WP_001092154.1;Parent=gene-HXF02_RS00060;locus_tag=HXF02_RS00060;product=EAL domain-containing protein
+NC_002483.1	RefSeq	gene	11900	12265	.	-	.	ID=gene-HXF02_RS00065;locus_tag=HXF02_RS00065
+NC_002483.1	Protein Homology	CDS	11900	12265	.	-	0	ID=cds-WP_052319267.1;Parent=gene-HXF02_RS00065;locus_tag=HXF02_RS00065;product=hypothetical protein
+NC_002483.1	RefSeq	gene	12477	12872	.	-	.	ID=gene-HXF02_RS00070;locus_tag=HXF02_RS00070
+NC_002483.1	Protein Homology	CDS	12477	12872	.	-	0	ID=cds-WP_000491615.1;Parent=gene-HXF02_RS00070;locus_tag=HXF02_RS00070;product=bactofilin family protein
+NC_002483.1	RefSeq	gene	13047	13409	.	-	.	ID=gene-HXF02_RS00075;locus_tag=HXF02_RS00075
+NC_002483.1	Protein Homology	CDS	13047	13409	.	-	0	ID=cds-WP_250911032.1;Parent=gene-HXF02_RS00075;locus_tag=HXF02_RS00075;product=hypothetical protein
+NC_002483.1	RefSeq	gene	13453	14055	.	-	.	ID=gene-HXF02_RS00080;locus_tag=HXF02_RS00080
+NC_002483.1	Protein Homology	CDS	13453	14055	.	-	0	ID=cds-WP_000271587.1;Parent=gene-HXF02_RS00080;locus_tag=HXF02_RS00080;product=hypothetical protein
+NC_002483.1	RefSeq	gene	14063	14251	.	-	.	ID=gene-HXF02_RS00085;locus_tag=HXF02_RS00085
+NC_002483.1	Protein Homology	CDS	14063	14251	.	-	0	ID=cds-WP_000131420.1;Parent=gene-HXF02_RS00085;locus_tag=HXF02_RS00085;product=hypothetical protein
+NC_002483.1	RefSeq	pseudogene	14932	15093	.	+	.	ID=gene-HXF02_RS00090;locus_tag=HXF02_RS00090
+NC_002483.1	Protein Homology	CDS	14932	15093	.	+	0	ID=cds-HXF02_RS00090;Parent=gene-HXF02_RS00090;locus_tag=HXF02_RS00090;product=IS3-like element ISKpn37 family transposase
+NC_002483.1	RefSeq	gene	15158	16320	.	+	.	ID=gene-HXF02_RS00095;locus_tag=HXF02_RS00095
+NC_002483.1	Protein Homology	CDS	15158	15419	.	+	0	ID=cds-WP_085955200.1;Parent=gene-HXF02_RS00095;locus_tag=HXF02_RS00095;product=IS3-like element IS3 family transposase
+NC_002483.1	Protein Homology	CDS	15419	16320	.	+	2	ID=cds-WP_085955200.1;Parent=gene-HXF02_RS00095;locus_tag=HXF02_RS00095;product=IS3-like element IS3 family transposase
+NC_002483.1	RefSeq	pseudogene	16415	17662	.	+	.	ID=gene-HXF02_RS00100;gene=tnpC;locus_tag=HXF02_RS00100
+NC_002483.1	Protein Homology	CDS	16415	17662	.	+	0	ID=cds-HXF02_RS00100;Parent=gene-HXF02_RS00100;gene=tnpC;locus_tag=HXF02_RS00100;product=IS66 family transposase
+NC_002483.1	RefSeq	gene	17673	18901	.	-	.	ID=gene-HXF02_RS00105;locus_tag=HXF02_RS00105
+NC_002483.1	Protein Homology	CDS	18586	18901	.	-	0	ID=cds-WP_088895425.1;Parent=gene-HXF02_RS00105;locus_tag=HXF02_RS00105;product=IS3-like element IS2 family transposase
+NC_002483.1	Protein Homology	CDS	17673	18586	.	-	2	ID=cds-WP_088895425.1;Parent=gene-HXF02_RS00105;locus_tag=HXF02_RS00105;product=IS3-like element IS2 family transposase
+NC_002483.1	RefSeq	pseudogene	18993	19142	.	+	.	ID=gene-HXF02_RS00110;locus_tag=HXF02_RS00110
+NC_002483.1	Protein Homology	CDS	18993	19142	.	+	0	ID=cds-HXF02_RS00110;Parent=gene-HXF02_RS00110;locus_tag=HXF02_RS00110;product=transposase domain-containing protein
+NC_002483.1	RefSeq	pseudogene	19203	19556	.	+	.	ID=gene-HXF02_RS00115;locus_tag=HXF02_RS00115
+NC_002483.1	Protein Homology	CDS	19203	19556	.	+	0	ID=cds-HXF02_RS00115;Parent=gene-HXF02_RS00115;locus_tag=HXF02_RS00115;product=IS3-like element ISKpn37 family transposase
+NC_002483.1	RefSeq	gene	20096	20728	.	-	.	ID=gene-HXF02_RS00120;locus_tag=HXF02_RS00120
+NC_002483.1	Protein Homology	CDS	20096	20728	.	-	0	ID=cds-WP_250911033.1;Parent=gene-HXF02_RS00120;locus_tag=HXF02_RS00120;product=hypothetical protein
+NC_002483.1	RefSeq	gene	20895	21089	.	-	.	ID=gene-HXF02_RS00125;locus_tag=HXF02_RS00125
+NC_002483.1	GeneMarkS-2+	CDS	20895	21089	.	-	0	ID=cds-WP_176453471.1;Parent=gene-HXF02_RS00125;locus_tag=HXF02_RS00125;product=hypothetical protein
+NC_002483.1	RefSeq	gene	21222	21494	.	-	.	ID=gene-HXF02_RS00130;locus_tag=HXF02_RS00130
+NC_002483.1	Protein Homology	CDS	21222	21494	.	-	0	ID=cds-WP_000560319.1;Parent=gene-HXF02_RS00130;locus_tag=HXF02_RS00130;product=hypothetical protein
+NC_002483.1	RefSeq	gene	21541	26850	.	-	.	ID=gene-HXF02_RS00520;locus_tag=HXF02_RS00520
+NC_002483.1	Protein Homology	CDS	21541	26850	.	-	0	ID=cds-WP_040078930.1;Parent=gene-HXF02_RS00520;locus_tag=HXF02_RS00520;product=autotransporter outer membrane beta-barrel domain-containing protein
+NC_002483.1	RefSeq	gene	27486	31601	.	-	.	ID=gene-HXF02_RS00140;locus_tag=HXF02_RS00140
+NC_002483.1	Protein Homology	CDS	27486	31601	.	-	0	ID=cds-WP_000995793.1;Parent=gene-HXF02_RS00140;locus_tag=HXF02_RS00140;product=autotransporter outer membrane beta-barrel domain-containing protein
+NC_002483.1	RefSeq	gene	32322	33269	.	+	.	ID=gene-HXF02_RS00145;gene=ompP;locus_tag=HXF02_RS00145
+NC_002483.1	Protein Homology	CDS	32322	33269	.	+	0	ID=cds-WP_001193612.1;Parent=gene-HXF02_RS00145;gene=ompP;locus_tag=HXF02_RS00145;product=omptin family outer membrane protease OmpP
+NC_002483.1	RefSeq	gene	33374	34861	.	+	.	ID=gene-HXF02_RS00150;locus_tag=HXF02_RS00150
+NC_002483.1	Protein Homology	CDS	33374	34861	.	+	0	ID=cds-WP_072145210.1;Parent=gene-HXF02_RS00150;locus_tag=HXF02_RS00150;product=alpha/beta hydrolase
+NC_002483.1	RefSeq	pseudogene	35363	35497	.	+	.	ID=gene-HXF02_RS00525;locus_tag=HXF02_RS00525
+NC_002483.1	Protein Homology	CDS	35363	35497	.	+	0	ID=cds-HXF02_RS00525;Parent=gene-HXF02_RS00525;locus_tag=HXF02_RS00525;product=serine/threonine protein kinase
+NC_002483.1	RefSeq	gene	35618	36358	.	+	.	ID=gene-HXF02_RS00160;locus_tag=HXF02_RS00160
+NC_002483.1	Protein Homology	CDS	35618	36358	.	+	0	ID=cds-WP_001066941.1;Parent=gene-HXF02_RS00160;locus_tag=HXF02_RS00160;product=tyrosine-type recombinase/integrase
+NC_002483.1	RefSeq	gene	36643	37620	.	-	.	ID=gene-HXF02_RS00165;locus_tag=HXF02_RS00165
+NC_002483.1	Protein Homology	CDS	36643	37620	.	-	0	ID=cds-WP_000361610.1;Parent=gene-HXF02_RS00165;locus_tag=HXF02_RS00165;product=RepB family plasmid replication initiator protein
+NC_002483.1	RefSeq	gene	38460	39101	.	-	.	ID=gene-HXF02_RS00170;locus_tag=HXF02_RS00170
+NC_002483.1	Protein Homology	CDS	38460	39101	.	-	0	ID=cds-WP_000990665.1;Parent=gene-HXF02_RS00170;locus_tag=HXF02_RS00170;product=hypothetical protein
+NC_002483.1	RefSeq	gene	40140	40307	.	-	.	ID=gene-HXF02_RS00175;locus_tag=HXF02_RS00175
+NC_002483.1	Protein Homology	CDS	40140	40307	.	-	0	ID=cds-WP_000218294.1;Parent=gene-HXF02_RS00175;locus_tag=HXF02_RS00175;product=hypothetical protein
+NC_002483.1	RefSeq	gene	41216	41506	.	+	.	ID=gene-HXF02_RS00180;locus_tag=HXF02_RS00180
+NC_002483.1	Protein Homology	CDS	41216	41506	.	+	0	ID=cds-WP_000538310.1;Parent=gene-HXF02_RS00180;locus_tag=HXF02_RS00180;product=hypothetical protein
+NC_002483.1	RefSeq	gene	41496	42395	.	+	.	ID=gene-HXF02_RS00185;locus_tag=HXF02_RS00185
+NC_002483.1	Protein Homology	CDS	41496	42395	.	+	0	ID=cds-WP_000963206.1;Parent=gene-HXF02_RS00185;locus_tag=HXF02_RS00185;product=TIR domain-containing protein
+NC_002483.1	RefSeq	gene	42445	44670	.	-	.	ID=gene-HXF02_RS00190;locus_tag=HXF02_RS00190
+NC_002483.1	Protein Homology	CDS	42445	44670	.	-	0	ID=cds-WP_000698737.1;Parent=gene-HXF02_RS00190;locus_tag=HXF02_RS00190;product=KAP family P-loop NTPase fold protein
+NC_002483.1	RefSeq	gene	44672	45760	.	-	.	ID=gene-HXF02_RS00195;gene=pifC;locus_tag=HXF02_RS00195
+NC_002483.1	Protein Homology	CDS	44672	45760	.	-	0	ID=cds-WP_000952217.1;Parent=gene-HXF02_RS00195;gene=pifC;locus_tag=HXF02_RS00195;product=transcriptional repressor PifC
+NC_002483.1	RefSeq	gene	46340	46558	.	+	.	ID=gene-HXF02_RS00200;gene=ccdA;locus_tag=HXF02_RS00200
+NC_002483.1	Protein Homology	CDS	46340	46558	.	+	0	ID=cds-WP_000813634.1;Parent=gene-HXF02_RS00200;gene=ccdA;locus_tag=HXF02_RS00200;product=type II toxin-antitoxin system antitoxin CcdA
+NC_002483.1	RefSeq	gene	46560	46865	.	+	.	ID=gene-HXF02_RS00205;gene=ccdB;locus_tag=HXF02_RS00205
+NC_002483.1	Protein Homology	CDS	46560	46865	.	+	0	ID=cds-WP_001159868.1;Parent=gene-HXF02_RS00205;gene=ccdB;locus_tag=HXF02_RS00205;product=type II toxin-antitoxin system toxin CcdB
+NC_002483.1	RefSeq	gene	46866	47672	.	+	.	ID=gene-HXF02_RS00210;locus_tag=HXF02_RS00210
+NC_002483.1	Protein Homology	CDS	46866	47672	.	+	0	ID=cds-WP_000016982.1;Parent=gene-HXF02_RS00210;locus_tag=HXF02_RS00210;product=site-specific integrase
+NC_002483.1	RefSeq	gene	48446	49201	.	+	.	ID=gene-HXF02_RS00215;gene=repE;locus_tag=HXF02_RS00215
+NC_002483.1	Protein Homology	CDS	48446	49201	.	+	0	ID=cds-WP_000852146.1;Parent=gene-HXF02_RS00215;gene=repE;locus_tag=HXF02_RS00215;product=replication initiation protein RepE
+NC_002483.1	RefSeq	gene	49789	50955	.	+	.	ID=gene-HXF02_RS00220;gene=sopA;locus_tag=HXF02_RS00220
+NC_002483.1	Protein Homology	CDS	49789	50955	.	+	0	ID=cds-WP_000772446.1;Parent=gene-HXF02_RS00220;gene=sopA;locus_tag=HXF02_RS00220;product=plasmid-partitioning protein SopA
+NC_002483.1	RefSeq	gene	50955	51926	.	+	.	ID=gene-HXF02_RS00225;locus_tag=HXF02_RS00225
+NC_002483.1	Protein Homology	CDS	50955	51926	.	+	0	ID=cds-WP_000817031.1;Parent=gene-HXF02_RS00225;locus_tag=HXF02_RS00225;product=ParB/RepB/Spo0J family plasmid partition protein
+NC_002483.1	RefSeq	pseudogene	52879	53780	.	+	.	ID=gene-HXF02_RS00230;locus_tag=HXF02_RS00230
+NC_002483.1	Protein Homology	CDS	52879	53780	.	+	0	ID=cds-HXF02_RS00230;Parent=gene-HXF02_RS00230;locus_tag=HXF02_RS00230;product=DUF1281 domain-containing protein
+NC_002483.1	RefSeq	gene	53784	54089	.	+	.	ID=gene-HXF02_RS00235;locus_tag=HXF02_RS00235
+NC_002483.1	Protein Homology	CDS	53784	54089	.	+	0	ID=cds-WP_010892536.1;Parent=gene-HXF02_RS00235;locus_tag=HXF02_RS00235;product=hypothetical protein
+NC_002483.1	RefSeq	gene	54166	54849	.	+	.	ID=gene-HXF02_RS00240;locus_tag=HXF02_RS00240
+NC_002483.1	Protein Homology	CDS	54166	54849	.	+	0	ID=cds-WP_000085939.1;Parent=gene-HXF02_RS00240;locus_tag=HXF02_RS00240;product=DNA methylase
+NC_002483.1	RefSeq	gene	54850	55071	.	+	.	ID=gene-HXF02_RS00245;locus_tag=HXF02_RS00245
+NC_002483.1	Protein Homology	CDS	54850	55071	.	+	0	ID=cds-WP_001104904.1;Parent=gene-HXF02_RS00245;locus_tag=HXF02_RS00245;product=hypothetical protein
+NC_002483.1	RefSeq	gene	54965	55519	.	+	.	ID=gene-HXF02_RS00250;locus_tag=HXF02_RS00250
+NC_002483.1	Protein Homology	CDS	54965	55519	.	+	0	ID=cds-WP_001358893.1;Parent=gene-HXF02_RS00250;locus_tag=HXF02_RS00250;product=DUF1380 family protein
+NC_002483.1	RefSeq	gene	55565	56341	.	+	.	ID=gene-HXF02_RS00255;locus_tag=HXF02_RS00255
+NC_002483.1	Protein Homology	CDS	55565	56341	.	+	0	ID=cds-WP_001005032.1;Parent=gene-HXF02_RS00255;locus_tag=HXF02_RS00255;product=hypothetical protein
+NC_002483.1	RefSeq	gene	56755	57180	.	+	.	ID=gene-HXF02_RS00260;locus_tag=HXF02_RS00260
+NC_002483.1	Protein Homology	CDS	56755	57180	.	+	0	ID=cds-WP_001198920.1;Parent=gene-HXF02_RS00260;locus_tag=HXF02_RS00260;product=antirestriction protein
+NC_002483.1	RefSeq	gene	57227	57649	.	+	.	ID=gene-HXF02_RS00265;locus_tag=HXF02_RS00265
+NC_002483.1	Protein Homology	CDS	57227	57649	.	+	0	ID=cds-WP_000271685.1;Parent=gene-HXF02_RS00265;locus_tag=HXF02_RS00265;product=DUF1380 family protein
+NC_002483.1	RefSeq	gene	57646	57837	.	+	.	ID=gene-HXF02_RS00270;locus_tag=HXF02_RS00270
+NC_002483.1	Protein Homology	CDS	57646	57837	.	+	0	ID=cds-WP_001027495.1;Parent=gene-HXF02_RS00270;locus_tag=HXF02_RS00270;product=hypothetical protein
+NC_002483.1	RefSeq	gene	57807	58325	.	-	.	ID=gene-HXF02_RS00275;locus_tag=HXF02_RS00275
+NC_002483.1	Protein Homology	CDS	57807	58325	.	-	0	ID=cds-WP_069905757.1;Parent=gene-HXF02_RS00275;locus_tag=HXF02_RS00275;product=hypothetical protein
+NC_002483.1	RefSeq	pseudogene	58412	58617	.	+	.	ID=gene-HXF02_RS00550;locus_tag=HXF02_RS00550
+NC_002483.1	Protein Homology	CDS	58412	58617	.	+	0	ID=cds-HXF02_RS00550;Parent=gene-HXF02_RS00550;locus_tag=HXF02_RS00550;product=single-stranded DNA-binding protein
+NC_002483.1	RefSeq	gene	58643	59182	.	+	.	ID=gene-HXF02_RS00280;locus_tag=HXF02_RS00280
+NC_002483.1	Protein Homology	CDS	58643	59182	.	+	0	ID=cds-WP_000290801.1;Parent=gene-HXF02_RS00280;locus_tag=HXF02_RS00280;product=single-stranded DNA-binding protein
+NC_002483.1	RefSeq	gene	59239	59472	.	+	.	ID=gene-HXF02_RS00285;locus_tag=HXF02_RS00285
+NC_002483.1	Protein Homology	CDS	59239	59472	.	+	0	ID=cds-WP_000005990.1;Parent=gene-HXF02_RS00285;locus_tag=HXF02_RS00285;product=DUF905 family protein
+NC_002483.1	RefSeq	gene	59538	61496	.	+	.	ID=gene-HXF02_RS00290;locus_tag=HXF02_RS00290
+NC_002483.1	Protein Homology	CDS	59538	61496	.	+	0	ID=cds-WP_000117173.1;Parent=gene-HXF02_RS00290;locus_tag=HXF02_RS00290;product=ParB/RepB/Spo0J family partition protein
+NC_002483.1	RefSeq	gene	61551	61985	.	+	.	ID=gene-HXF02_RS00295;gene=psiB;locus_tag=HXF02_RS00295
+NC_002483.1	Protein Homology	CDS	61551	61985	.	+	0	ID=cds-WP_010892539.1;Parent=gene-HXF02_RS00295;gene=psiB;locus_tag=HXF02_RS00295;product=conjugation system SOS inhibitor PsiB
+NC_002483.1	RefSeq	pseudogene	61982	62744	.	+	.	ID=gene-HXF02_RS00300;locus_tag=HXF02_RS00300
+NC_002483.1	Protein Homology	CDS	61982	62744	.	+	0	ID=cds-HXF02_RS00300;Parent=gene-HXF02_RS00300;locus_tag=HXF02_RS00300;product=plasmid SOS inhibition protein A
+NC_002483.1	RefSeq	pseudogene	62918	63067	.	+	.	ID=gene-HXF02_RS00530;locus_tag=HXF02_RS00530
+NC_002483.1	Protein Homology	CDS	62918	63067	.	+	0	ID=cds-HXF02_RS00530;Parent=gene-HXF02_RS00530;locus_tag=HXF02_RS00530;product=DUF5431 family protein
+NC_002483.1	RefSeq	gene	63009	63134	.	+	.	ID=gene-HXF02_RS00305;locus_tag=HXF02_RS00305
+NC_002483.1	Protein Homology	CDS	63009	63134	.	+	0	ID=cds-WP_096937776.1;Parent=gene-HXF02_RS00305;locus_tag=HXF02_RS00305;product=type I toxin-antitoxin system Hok/Gef family toxin
+NC_002483.1	RefSeq	pseudogene	63411	63732	.	-	.	ID=gene-HXF02_RS00310;locus_tag=HXF02_RS00310
+NC_002483.1	Protein Homology	CDS	63411	63732	.	-	0	ID=cds-HXF02_RS00310;Parent=gene-HXF02_RS00310;locus_tag=HXF02_RS00310;product=hypothetical protein
+NC_002483.1	RefSeq	gene	64032	64319	.	+	.	ID=gene-HXF02_RS00320;locus_tag=HXF02_RS00320
+NC_002483.1	Protein Homology	CDS	64032	64319	.	+	0	ID=cds-WP_000107542.1;Parent=gene-HXF02_RS00320;locus_tag=HXF02_RS00320;product=hypothetical protein
+NC_002483.1	RefSeq	gene	64438	65259	.	+	.	ID=gene-HXF02_RS00325;locus_tag=HXF02_RS00325
+NC_002483.1	Protein Homology	CDS	64438	65259	.	+	0	ID=cds-WP_001234417.1;Parent=gene-HXF02_RS00325;locus_tag=HXF02_RS00325;product=DUF932 domain-containing protein
+NC_002483.1	RefSeq	gene	65556	66158	.	-	.	ID=gene-HXF02_RS00330;locus_tag=HXF02_RS00330
+NC_002483.1	Protein Homology	CDS	65556	66158	.	-	0	ID=cds-WP_000243701.1;Parent=gene-HXF02_RS00330;locus_tag=HXF02_RS00330;product=transglycosylase SLT domain-containing protein
+NC_002483.1	RefSeq	gene	66479	66862	.	+	.	ID=gene-HXF02_RS00335;gene=traM;locus_tag=HXF02_RS00335
+NC_002483.1	Protein Homology	CDS	66479	66862	.	+	0	ID=cds-WP_001151527.1;Parent=gene-HXF02_RS00335;gene=traM;locus_tag=HXF02_RS00335;product=conjugal transfer relaxosome DNA-binding protein TraM
+NC_002483.1	RefSeq	gene	67049	67738	.	+	.	ID=gene-HXF02_RS00340;gene=traJ;locus_tag=HXF02_RS00340
+NC_002483.1	Protein Homology	CDS	67049	67738	.	+	0	ID=cds-WP_000283385.1;Parent=gene-HXF02_RS00340;gene=traJ;locus_tag=HXF02_RS00340;product=conjugal transfer transcriptional regulator TraJ
+NC_002483.1	RefSeq	gene	67837	68232	.	+	.	ID=gene-HXF02_RS00345;gene=traY;locus_tag=HXF02_RS00345
+NC_002483.1	Protein Homology	CDS	67837	68232	.	+	0	ID=cds-WP_001309237.1;Parent=gene-HXF02_RS00345;gene=traY;locus_tag=HXF02_RS00345;product=conjugal transfer relaxosome DNA-bindin protein TraY
+NC_002483.1	RefSeq	gene	68265	68630	.	+	.	ID=gene-HXF02_RS00350;gene=traA;locus_tag=HXF02_RS00350
+NC_002483.1	Protein Homology	CDS	68265	68630	.	+	0	ID=cds-WP_000994779.1;Parent=gene-HXF02_RS00350;gene=traA;locus_tag=HXF02_RS00350;product=type IV conjugative system pilin TraA
+NC_002483.1	RefSeq	gene	68645	68956	.	+	.	ID=gene-HXF02_RS00355;gene=traL;locus_tag=HXF02_RS00355
+NC_002483.1	Protein Homology	CDS	68645	68956	.	+	0	ID=cds-WP_000012106.1;Parent=gene-HXF02_RS00355;gene=traL;locus_tag=HXF02_RS00355;product=type IV conjugative system protein TraL
+NC_002483.1	RefSeq	gene	68978	69544	.	+	.	ID=gene-HXF02_RS00360;gene=traE;locus_tag=HXF02_RS00360
+NC_002483.1	Protein Homology	CDS	68978	69544	.	+	0	ID=cds-WP_000399792.1;Parent=gene-HXF02_RS00360;gene=traE;locus_tag=HXF02_RS00360;product=type IV conjugative system protein TraE
+NC_002483.1	RefSeq	gene	69531	70259	.	+	.	ID=gene-HXF02_RS00365;gene=traK;locus_tag=HXF02_RS00365
+NC_002483.1	Protein Homology	CDS	69531	70259	.	+	0	ID=cds-WP_001230787.1;Parent=gene-HXF02_RS00365;gene=traK;locus_tag=HXF02_RS00365;product=type-F conjugative system secretin TraK
+NC_002483.1	RefSeq	gene	70259	71686	.	+	.	ID=gene-HXF02_RS00370;gene=traB;locus_tag=HXF02_RS00370
+NC_002483.1	Protein Homology	CDS	70259	71686	.	+	0	ID=cds-WP_000146685.1;Parent=gene-HXF02_RS00370;gene=traB;locus_tag=HXF02_RS00370;product=F-type conjugal transfer pilus assembly protein TraB
+NC_002483.1	RefSeq	gene	71676	72266	.	+	.	ID=gene-HXF02_RS00375;gene=traP;locus_tag=HXF02_RS00375
+NC_002483.1	Protein Homology	CDS	71676	72266	.	+	0	ID=cds-WP_000002792.1;Parent=gene-HXF02_RS00375;gene=traP;locus_tag=HXF02_RS00375;product=conjugal transfer pilus-stabilizing protein TraP
+NC_002483.1	RefSeq	gene	72253	72450	.	+	.	ID=gene-HXF02_RS00380;locus_tag=HXF02_RS00380
+NC_002483.1	Protein Homology	CDS	72253	72450	.	+	0	ID=cds-WP_001443030.1;Parent=gene-HXF02_RS00380;locus_tag=HXF02_RS00380;product=conjugal transfer protein TrbD
+NC_002483.1	RefSeq	gene	72462	72713	.	+	.	ID=gene-HXF02_RS00385;gene=trbG;locus_tag=HXF02_RS00385
+NC_002483.1	Protein Homology	CDS	72462	72713	.	+	0	ID=cds-WP_001038342.1;Parent=gene-HXF02_RS00385;gene=trbG;locus_tag=HXF02_RS00385;product=conjugal transfer protein TrbG
+NC_002483.1	RefSeq	gene	72710	73225	.	+	.	ID=gene-HXF02_RS00390;gene=traV;locus_tag=HXF02_RS00390
+NC_002483.1	Protein Homology	CDS	72710	73225	.	+	0	ID=cds-WP_010892541.1;Parent=gene-HXF02_RS00390;gene=traV;locus_tag=HXF02_RS00390;product=type IV conjugative system lipoprotein TraV
+NC_002483.1	RefSeq	gene	73360	73581	.	+	.	ID=gene-HXF02_RS00395;gene=traR;locus_tag=HXF02_RS00395
+NC_002483.1	Protein Homology	CDS	73360	73581	.	+	0	ID=cds-WP_001278689.1;Parent=gene-HXF02_RS00395;gene=traR;locus_tag=HXF02_RS00395;product=conjugal transfer protein TraR
+NC_002483.1	RefSeq	gene	73741	76368	.	+	.	ID=gene-HXF02_RS00400;gene=traC;locus_tag=HXF02_RS00400
+NC_002483.1	Protein Homology	CDS	73741	76368	.	+	0	ID=cds-WP_001064243.1;Parent=gene-HXF02_RS00400;gene=traC;locus_tag=HXF02_RS00400;product=type IV secretion system protein TraC
+NC_002483.1	RefSeq	gene	76365	76751	.	+	.	ID=gene-HXF02_RS00405;gene=trbI;locus_tag=HXF02_RS00405
+NC_002483.1	Protein Homology	CDS	76365	76751	.	+	0	ID=cds-WP_000099690.1;Parent=gene-HXF02_RS00405;gene=trbI;locus_tag=HXF02_RS00405;product=type-F conjugative system protein TrbI
+NC_002483.1	RefSeq	gene	76748	77380	.	+	.	ID=gene-HXF02_RS00410;gene=traW;locus_tag=HXF02_RS00410
+NC_002483.1	Protein Homology	CDS	76748	77380	.	+	0	ID=cds-WP_001203720.1;Parent=gene-HXF02_RS00410;gene=traW;locus_tag=HXF02_RS00410;product=type-F conjugative system protein TraW
+NC_002483.1	RefSeq	gene	77377	78369	.	+	.	ID=gene-HXF02_RS00415;gene=traU;locus_tag=HXF02_RS00415
+NC_002483.1	Protein Homology	CDS	77377	78369	.	+	0	ID=cds-WP_000830185.1;Parent=gene-HXF02_RS00415;gene=traU;locus_tag=HXF02_RS00415;product=conjugal transfer pilus assembly protein TraU
+NC_002483.1	RefSeq	gene	78378	79016	.	+	.	ID=gene-HXF02_RS00420;gene=trbC;locus_tag=HXF02_RS00420
+NC_002483.1	Protein Homology	CDS	78378	79016	.	+	0	ID=cds-WP_000777688.1;Parent=gene-HXF02_RS00420;gene=trbC;locus_tag=HXF02_RS00420;product=type-F conjugative system pilin assembly protein TrbC
+NC_002483.1	RefSeq	gene	79013	80821	.	+	.	ID=gene-HXF02_RS00425;gene=traN;locus_tag=HXF02_RS00425
+NC_002483.1	Protein Homology	CDS	79013	80821	.	+	0	ID=cds-WP_000821835.1;Parent=gene-HXF02_RS00425;gene=traN;locus_tag=HXF02_RS00425;product=type-F conjugative system mating-pair stabilization protein TraN
+NC_002483.1	RefSeq	gene	80848	81105	.	+	.	ID=gene-HXF02_RS00430;locus_tag=HXF02_RS00430
+NC_002483.1	Protein Homology	CDS	80848	81105	.	+	0	ID=cds-WP_000864318.1;Parent=gene-HXF02_RS00430;locus_tag=HXF02_RS00430;product=conjugal transfer protein TrbE
+NC_002483.1	RefSeq	gene	81098	81841	.	+	.	ID=gene-HXF02_RS00435;gene=traF;locus_tag=HXF02_RS00435
+NC_002483.1	Protein Homology	CDS	81098	81841	.	+	0	ID=cds-WP_001030367.1;Parent=gene-HXF02_RS00435;gene=traF;locus_tag=HXF02_RS00435;product=type-F conjugative system pilin assembly protein TraF
+NC_002483.1	RefSeq	gene	81857	82204	.	+	.	ID=gene-HXF02_RS00440;gene=trbA;locus_tag=HXF02_RS00440
+NC_002483.1	Protein Homology	CDS	81857	82204	.	+	0	ID=cds-WP_001287913.1;Parent=gene-HXF02_RS00440;gene=trbA;locus_tag=HXF02_RS00440;product=conjugal transfer protein TrbA
+NC_002483.1	RefSeq	gene	82206	82520	.	-	.	ID=gene-HXF02_RS00445;locus_tag=HXF02_RS00445
+NC_002483.1	Protein Homology	CDS	82206	82520	.	-	0	ID=cds-WP_000415566.1;Parent=gene-HXF02_RS00445;locus_tag=HXF02_RS00445;product=protein ArtA
+NC_002483.1	RefSeq	gene	82601	82885	.	+	.	ID=gene-HXF02_RS00450;gene=traQ;locus_tag=HXF02_RS00450
+NC_002483.1	Protein Homology	CDS	82601	82885	.	+	0	ID=cds-WP_000624109.1;Parent=gene-HXF02_RS00450;gene=traQ;locus_tag=HXF02_RS00450;product=type-F conjugative system pilin chaperone TraQ
+NC_002483.1	RefSeq	gene	82872	83417	.	+	.	ID=gene-HXF02_RS00455;gene=trbB;locus_tag=HXF02_RS00455
+NC_002483.1	Protein Homology	CDS	82872	83417	.	+	0	ID=cds-WP_000059850.1;Parent=gene-HXF02_RS00455;gene=trbB;locus_tag=HXF02_RS00455;product=type-F conjugative system pilin assembly thiol-disulfide isomerase TrbB
+NC_002483.1	RefSeq	gene	83347	83688	.	+	.	ID=gene-HXF02_RS00460;gene=trbJ;locus_tag=HXF02_RS00460
+NC_002483.1	Protein Homology	CDS	83347	83688	.	+	0	ID=cds-WP_001443031.1;Parent=gene-HXF02_RS00460;gene=trbJ;locus_tag=HXF02_RS00460;product=P-type conjugative transfer protein TrbJ
+NC_002483.1	RefSeq	gene	83675	84055	.	+	.	ID=gene-HXF02_RS00465;gene=trbF;locus_tag=HXF02_RS00465
+NC_002483.1	Protein Homology	CDS	83675	84055	.	+	0	ID=cds-WP_001366201.1;Parent=gene-HXF02_RS00465;gene=trbF;locus_tag=HXF02_RS00465;product=F-type conjugal transfer protein TrbF
+NC_002483.1	RefSeq	gene	84055	85428	.	+	.	ID=gene-HXF02_RS00470;gene=traH;locus_tag=HXF02_RS00470
+NC_002483.1	Protein Homology	CDS	84055	85428	.	+	0	ID=cds-WP_021553026.1;Parent=gene-HXF02_RS00470;gene=traH;locus_tag=HXF02_RS00470;product=conjugal transfer pilus assembly protein TraH
+NC_002483.1	RefSeq	gene	85425	88241	.	+	.	ID=gene-HXF02_RS00475;gene=traG;locus_tag=HXF02_RS00475
+NC_002483.1	Protein Homology	CDS	85425	88241	.	+	0	ID=cds-WP_001007055.1;Parent=gene-HXF02_RS00475;gene=traG;locus_tag=HXF02_RS00475;product=conjugal transfer mating-pair stabilization protein TraG
+NC_002483.1	RefSeq	gene	88274	88795	.	+	.	ID=gene-HXF02_RS00480;gene=traS;locus_tag=HXF02_RS00480
+NC_002483.1	Protein Homology	CDS	88274	88795	.	+	0	ID=cds-WP_000632670.1;Parent=gene-HXF02_RS00480;gene=traS;locus_tag=HXF02_RS00480;product=conjugal transfer entry exclusion protein TraS
+NC_002483.1	RefSeq	gene	88820	89551	.	+	.	ID=gene-HXF02_RS00485;gene=traT;locus_tag=HXF02_RS00485
+NC_002483.1	Protein Homology	CDS	88820	89551	.	+	0	ID=cds-WP_000850422.1;Parent=gene-HXF02_RS00485;gene=traT;locus_tag=HXF02_RS00485;product=conjugal transfer complement resistance protein TraT
+NC_002483.1	RefSeq	gene	89804	91957	.	+	.	ID=gene-HXF02_RS00490;gene=traD;locus_tag=HXF02_RS00490
+NC_002483.1	Protein Homology	CDS	89804	91957	.	+	0	ID=cds-WP_000009350.1;Parent=gene-HXF02_RS00490;gene=traD;locus_tag=HXF02_RS00490;product=type IV conjugative system coupling protein TraD
+NC_002483.1	RefSeq	gene	91966	92364	.	-	.	ID=gene-HXF02_RS00495;gene=vapC;locus_tag=HXF02_RS00495
+NC_002483.1	Protein Homology	CDS	91966	92364	.	-	0	ID=cds-WP_000911324.1;Parent=gene-HXF02_RS00495;gene=vapC;locus_tag=HXF02_RS00495;product=type II toxin-antitoxin system tRNA(fMet)-specific endonuclease VapC
+NC_002483.1	RefSeq	gene	92364	92591	.	-	.	ID=gene-HXF02_RS00500;gene=vapB;locus_tag=HXF02_RS00500
+NC_002483.1	Protein Homology	CDS	92364	92591	.	-	0	ID=cds-WP_000450532.1;Parent=gene-HXF02_RS00500;gene=vapB;locus_tag=HXF02_RS00500;product=toxin-antitoxin system antitoxin VapB
+NC_002483.1	RefSeq	gene	92673	97943	.	+	.	ID=gene-HXF02_RS00505;gene=traI;locus_tag=HXF02_RS00505
+NC_002483.1	Protein Homology	CDS	92673	97943	.	+	0	ID=cds-WP_000987005.1;Parent=gene-HXF02_RS00505;gene=traI;locus_tag=HXF02_RS00505;product=conjugative transfer relaxase/helicase TraI
+NC_002483.1	RefSeq	gene	97963	98709	.	+	.	ID=gene-HXF02_RS00510;gene=traX;locus_tag=HXF02_RS00510
+NC_002483.1	Protein Homology	CDS	97963	98709	.	+	0	ID=cds-WP_000205776.1;Parent=gene-HXF02_RS00510;gene=traX;locus_tag=HXF02_RS00510;product=conjugal transfer pilus acetylase TraX
+NC_002483.1	RefSeq	pseudogene	98764	99159	.	+	.	ID=gene-HXF02_RS00005;locus_tag=HXF02_RS00005
+NC_002483.1	Protein Homology	CDS	98764	99159	.	+	0	ID=cds-HXF02_RS00005;Parent=gene-HXF02_RS00005;locus_tag=HXF02_RS00005;product=fertility inhibition protein FinO
