@@ -10,8 +10,3 @@ categories = ["visualization"]
 disciplines = ["mathematics", "physics", "engineering"]
 compiler = "0.13.0"
 exclude = ["docs/*", "gallery", "tests", "*.pdf"]
-
-[dependencies]
-cetz = "0.5.2"
-komet = "0.2.0"
-tiptoe = "0.4.0"
