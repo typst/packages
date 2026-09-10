@@ -1,4 +1,4 @@
-#import "@local/pg-thesis-unofficial:0.1.0": ang
+#import "@preview/pg-thesis-unofficial:0.1.0": ang
 
 = Super rozdział <chap:super>
 

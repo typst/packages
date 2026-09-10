@@ -1,4 +1,4 @@
-#import "@local/pg-thesis-unofficial:0.1.0": ang
+#import "@preview/pg-thesis-unofficial:0.1.0": ang
 
 = Dokument elektroniczny <chap:DokumentElektroniczny>
 Dokument, najogólniej, to nośnik zrozumiałej dla~człowieka treści, zwanej potocznie informacją. Stanowi naturalny, utrwalony przez~wieki interfejs dla~człowieka oraz powszechny środek komunikacji międzyludzkiej. Jako dokument mogą być rozumiane wszelkie środki przekazu informacji, od~tradycyjnych dokumentów tekstowo-obrazkowych, odbieranych za~pośrednictwem wzroku, po~coraz bardziej powszechne dokumenty multimedialne, szczególnie dźwiękowe, ale też odbierane poprzez dotyk (np. napisane alfabetem Braille'a) bądź nawet przez~węch#footnote[Popularny był kiedyś zwyczaj perfumowania listów, co~pozwalało identyfikować jego nadawcę.].
