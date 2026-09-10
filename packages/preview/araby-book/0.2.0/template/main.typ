@@ -3,8 +3,7 @@
 // attribution required. lib.typ, which this file imports, remains
 // BSD-3-Clause — see LICENSE and LICENSE-0BSD in the package root.
 
-// #import "@preview/araby-book:0.2.0": book, inline-quotation, inline-verse, poetry, verse, arabic-digits
-#import "../lib.typ": arabic-digits, book, inline-quotation, inline-verse, poetry, verse
+#import "@preview/araby-book:0.2.0": book, inline-quotation, inline-verse, poetry, verse, arabic-digits
 
 #show: book.with(
   title: "في ظلال الكلمات",
