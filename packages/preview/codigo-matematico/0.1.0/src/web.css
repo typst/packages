@@ -1,0 +1,567 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Web counterpart of the paged Typst theme (Typst 0.15+ HTML export). */
+
+/*
+ * The no-ligatures build from the official JetBrains Mono repository. The
+ * release tag is pinned so every system receives the same font files.
+ */
+@font-face {
+  font-family: "JetBrains Mono NL";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@v2.304/fonts/ttf/JetBrainsMonoNL-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono NL";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono@v2.304/fonts/ttf/JetBrainsMonoNL-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/*
+ * Web-optimized New Computer Modern files from the pinned
+ * `web-computer-modern` npm package. Local installations are preferred and
+ * jsDelivr is used as the fallback.
+ */
+@font-face {
+  font-family: "New Computer Modern Math Web";
+  src:
+    local("New Computer Modern Math"),
+    local("NewCMMath-Regular"),
+    url("https://cdn.jsdelivr.net/npm/web-computer-modern@1.1.0-new-cm-7-0-2/woff2/WebCM%20Math%20Serif%20Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "New Computer Modern Math Web";
+  src:
+    local("New Computer Modern Math Bold"),
+    local("NewCMMath-Bold"),
+    url("https://cdn.jsdelivr.net/npm/web-computer-modern@1.1.0-new-cm-7-0-2/woff2/WebCM%20Math%20Serif%20Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Global web scale: 17px over the usual 16px browser default (106.25%). */
+  font-size: 106.25%;
+  scroll-behavior: smooth;
+}
+
+body {
+  --background: #1e1e1e;
+  --foreground: #a89e9e;
+  --foreground-strong: #d5cccc;
+  --muted: #807878;
+  --border: rgba(168, 158, 158, 0.3);
+  --link: #a9bfd6;
+  --code-background: #282828;
+  --highlight-start: #22222b;
+  --highlight-end: #262621;
+  --axiom-start: #261d20;
+  --axiom-end: #262621;
+  --shadow: rgba(0, 0, 0, 0.25);
+  --strong-weight: 650;
+
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 350;
+  line-height: 1.65;
+  letter-spacing: 0.025em;
+}
+
+body:has(.web-shell--light),
+.web-shell--light {
+  --background: #ffffff;
+  --foreground: #000000;
+  --foreground-strong: #151515;
+  --muted: #666666;
+  --border: rgba(0, 0, 0, 0.22);
+  --link: #315f8a;
+  --code-background: #f0f0f0;
+  --highlight-start: #ededf7;
+  --highlight-end: #f5f5e9;
+  --axiom-start: #faedf3;
+  --axiom-end: #f5f5e9;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.web-shell {
+  min-height: 100vh;
+  padding: clamp(1.25rem, 4vw, 4rem) clamp(1rem, 4vw, 2.5rem);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.web-document {
+  width: min(100%, 52rem);
+  margin-inline: auto;
+}
+
+.web-document p {
+  margin-block: 0.9em;
+  text-align: justify;
+  text-wrap: pretty;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+}
+
+.web-document strong {
+  font-weight: var(--strong-weight);
+}
+
+.web-document a {
+  color: var(--link);
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 0.08em;
+}
+
+.web-document a:hover {
+  color: var(--foreground-strong);
+}
+
+.web-document a:focus-visible,
+body > [role="doc-endnotes"] a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 0.2em;
+}
+
+.web-document a[href^="#"]:link,
+.web-document a[href^="#"]:visited,
+.web-document a[href^="#"]:active {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.web-document a[href^="#"]::after {
+  content: "\00a0⧉";
+}
+
+.document-header {
+  display: grid;
+  gap: 1.5rem;
+  min-height: min(70vh, 38rem);
+  align-content: center;
+  padding-block: 3rem;
+  text-align: center;
+}
+
+.document-header h1 {
+  max-width: 18ch;
+  margin: 0 auto;
+  color: var(--foreground);
+  font-size: clamp(1.65rem, 5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.document-authors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.document-author {
+  display: grid;
+  gap: 0.2rem;
+  min-width: min(100%, 13rem);
+}
+
+.document-author__name {
+  color: var(--foreground-strong);
+  font-weight: 500;
+}
+
+.document-author__affiliation,
+.document-author__email {
+  font-size: 0.9em;
+}
+
+.document-abstract {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding: 1rem 1.2rem;
+  border-inline-start: 0.2rem solid var(--border);
+  text-align: start;
+}
+
+.document-abstract__label {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.document-abstract p {
+  margin-block: 0.35rem;
+}
+
+.table-of-contents {
+  margin-block: 2rem 5rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: color-mix(in srgb, var(--foreground) 4%, transparent);
+  box-shadow: 0 0.7rem 2rem var(--shadow);
+}
+
+.table-of-contents nav > h2 {
+  margin-top: 0;
+}
+
+.table-of-contents ol {
+  padding-inline-start: 1.25rem;
+}
+
+.table-of-contents li {
+  margin-block: 0.4rem;
+}
+
+.table-of-contents a {
+  text-decoration: none;
+}
+
+.web-document .table-of-contents a[href^="#"]:link,
+.web-document .table-of-contents a[href^="#"]:visited,
+.web-document .table-of-contents a[href^="#"]:active {
+  color: var(--link);
+}
+
+.web-document .table-of-contents a[href^="#"]:hover {
+  color: var(--foreground-strong);
+}
+
+.web-document .table-of-contents a[href^="#"]::after,
+.web-document [role="doc-noteref"] a::after,
+.web-document a[role="doc-biblioref"]::after,
+.web-document [role="doc-backlink"] a::after,
+.web-document a[role="doc-backlink"]::after {
+  content: none;
+}
+
+.web-document h2,
+.web-document h3,
+.web-document h4,
+.web-document h5,
+.web-document h6 {
+  color: var(--foreground);
+  font-weight: 500;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.web-document h2 {
+  margin: 5rem 0 1.3rem;
+  font-size: 1.65rem;
+}
+
+.web-document h3 {
+  margin: 3.5rem 0 1rem;
+  font-size: 1.35rem;
+}
+
+.web-document h4 {
+  margin: 2.2rem 0 0.8rem;
+  font-size: 1.12rem;
+}
+
+.web-document h5,
+.web-document h6 {
+  margin: 1.8rem 0 0.7rem;
+  font-size: 1rem;
+}
+
+.web-document figure {
+  margin: 1.5rem 0;
+}
+
+.math-environment,
+.exercise-environment {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.3rem;
+}
+
+.math-environment {
+  background: linear-gradient(135deg, var(--highlight-start), var(--highlight-end));
+  box-shadow: 0 0.3rem 1rem var(--shadow);
+}
+
+.math-environment--axiom {
+  background: linear-gradient(135deg, var(--axiom-start), var(--axiom-end));
+}
+
+.exercise-environment {
+  border-inline-start-width: 0.25rem;
+}
+
+.environment-heading,
+.proof__heading,
+.remark__heading {
+  color: var(--foreground);
+  font-style: italic;
+  font-weight: var(--strong-weight);
+}
+
+.environment-heading strong,
+.proof__heading strong,
+.remark__heading strong {
+  font-weight: inherit;
+}
+
+.environment-heading {
+  display: inline;
+}
+
+.environment-heading + p {
+  display: inline;
+}
+
+.environment-end-marker {
+  clear: both;
+  margin-top: 0.45rem;
+  color: var(--foreground-strong);
+  text-align: end;
+}
+
+.proof {
+  margin-block: 1.25rem;
+}
+
+.proof:not([open]):has(+ p) {
+  display: contents;
+}
+
+.proof:not([open]) > .proof__content {
+  display: none;
+}
+
+.proof:not([open]):has(+ p) + p {
+  margin-block-start: 0;
+}
+
+.proof:not([open]):has(+ p) > .proof__toggle {
+  float: inline-start;
+  margin-inline-end: 0.4em;
+}
+
+.proof__toggle {
+  display: inline;
+  padding: 0;
+  color: var(--foreground);
+  cursor: pointer;
+  list-style: none;
+}
+
+.proof__toggle::-webkit-details-marker {
+  display: none;
+}
+
+.proof__toggle:hover {
+  color: var(--foreground-strong);
+}
+
+.proof__toggle:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.18em;
+}
+
+.proof__toggle-marker::before {
+  content: "\25B8";
+  display: inline-block;
+  font-size: 0.95em;
+  line-height: 1;
+}
+
+.proof__toggle-marker {
+  display: inline-block;
+}
+
+.proof[open] > .proof__toggle .proof__toggle-marker {
+  transform: rotate(90deg);
+}
+
+.proof__content {
+  margin-top: 0.55rem;
+  padding-inline-start: 1rem;
+  border-inline-start: 1px solid var(--border);
+}
+
+.remark {
+  margin-block: 1.25rem;
+  padding-inline-start: 1rem;
+  border-inline-start: 1px solid var(--border);
+}
+
+.diversion {
+  margin-block: 1.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.3rem;
+  background: color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.source-page-break {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-block: 3.5rem 1.5rem;
+  color: var(--muted);
+  font-size: 0.88em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.source-page-break::before {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--border);
+}
+
+.web-document math {
+  font-family: "New Computer Modern Math Web", "STIX Two Math", "Cambria Math", serif;
+  font-size: 1.15em;
+}
+
+.web-document math[display="block"] {
+  max-width: 100%;
+  margin-block: 1.2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.web-document pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  background: var(--code-background);
+}
+
+.web-document code,
+.web-document pre {
+  font-family: "JetBrains Mono NL", "JetBrains Mono", ui-monospace,
+    SFMono-Regular, Consolas, monospace;
+  font-size: 0.9em;
+  font-variant-ligatures: none;
+}
+
+.web-document table {
+  width: auto;
+  max-width: 100%;
+  margin: 1.4rem auto;
+  border-collapse: collapse;
+}
+
+.web-document th,
+.web-document td {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.web-document figcaption {
+  margin-top: 0.6rem;
+  color: var(--foreground);
+  font-style: italic;
+  text-align: center;
+}
+
+body > [role="doc-endnotes"] {
+  width: min(calc(100% - clamp(2rem, 8vw, 5rem)), 52rem);
+  margin: 4rem auto 0;
+  padding: 1.2rem 0 3rem;
+  border-top: 1px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.92em;
+}
+
+body > [role="doc-endnotes"] a {
+  color: var(--link);
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 0.08em;
+}
+
+body > [role="doc-endnotes"] a:hover {
+  color: var(--foreground-strong);
+}
+
+.web-document :target {
+  scroll-margin-top: 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (max-width: 40rem) {
+  body {
+    font-size: 0.875rem;
+    line-height: 1.58;
+  }
+
+  .web-document p {
+    text-align: start;
+  }
+
+  .document-header {
+    min-height: auto;
+    padding-block: 3rem 2rem;
+  }
+
+  .table-of-contents {
+    margin-bottom: 3rem;
+  }
+
+  .web-document h2 {
+    margin-top: 3.5rem;
+  }
+}
+
+@media print {
+  body {
+    --background: #ffffff;
+    --foreground: #000000;
+    --foreground-strong: #000000;
+    --border: rgba(0, 0, 0, 0.22);
+    --link: #000000;
+
+    background: white;
+    color: black;
+  }
+
+  .web-shell {
+    padding: 0;
+    background: white;
+    color: black;
+  }
+
+  .table-of-contents,
+  .math-environment {
+    box-shadow: none;
+  }
+}
