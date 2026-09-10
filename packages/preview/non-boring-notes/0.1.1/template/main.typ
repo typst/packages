@@ -1,4 +1,4 @@
-#import "@preview/non-boring-notes:0.1.0": *
+#import "@preview/non-boring-notes:0.1.1": *
 
 #show: template.with(
   title: [Document Title],
