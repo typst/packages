@@ -1,6 +1,6 @@
 [package]
 name = "non-boring-notes"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "lib.typ"
 authors = ["aruzdh <https://aruzdh.dev>"]
 license = "MIT"
