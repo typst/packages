@@ -1,0 +1,26 @@
+[package]
+name = "ricopallazzo-uni-theme"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alberto Bertoncini"]
+license = "MIT"
+description = "A modern Touying presentation theme with automatic section slides, progress indicators and customizable branding."
+repository = "https://github.com/Bertonc98/ricopallazzo-uni-theme"
+keywords = [
+    "slides",
+    "presentation",
+    "touying",
+    "theme"
+]
+categories = [
+    "presentation"
+]
+
+exclude = [
+    "example/main.pdf"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
