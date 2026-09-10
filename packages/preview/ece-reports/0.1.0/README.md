@@ -14,7 +14,7 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/leonpwd/ece-reports/v0.1.0/assets/preview-tp.png" width="46%" alt="Aperçu Rapport de TP" />
-  &nbsp;&nbsp;
+    
   <img src="https://raw.githubusercontent.com/leonpwd/ece-reports/v0.1.0/assets/preview-projet.png" width="46%" alt="Aperçu Rapport de Projet" />
 </p>
 
@@ -48,23 +48,21 @@ typst watch examples/rapport-projet/rapport-projet-fr.typ
 
 ---
 
-## 📚 Documentation complète
+## 📚 Documentation
 
 La documentation détaillée est disponible sur le dépôt GitHub du projet :
 
 - [⚙️ **Référence des Paramètres de Configuration**](https://github.com/leonpwd/ece-reports/blob/v0.1.0/docs/parametres.md) : options communes, spécifiques `tp` et `projet`, encadrant/tuteur (`supervisor`), styles de polices commutables (`font-presets`), auteurs structurés, mode filigrane `draft`.
 - [🛠️ **Utilitaires & Composants d'Ingénierie**](https://github.com/leonpwd/ece-reports/blob/v0.1.0/docs/composants.md) : questions `#t()` / `#e()`, encarts `#callout`, tableaux au style ECE (`#table`, `#table-double-entree`), figures intelligentes et gestionnaire d'annexes `#show: annexes`.
-- [📂 **Exemples prêts à l'emploi**](https://github.com/leonpwd/ece-reports/tree/v0.1.0/examples) : rapports complets en français et en anglais avec bibliographie BibTeX.
+- [📂 **Exemples prêts à l'emploi**](https://github.com/leonpwd/ece-reports/tree/v0.1.0/examples) : rapports en français et en anglais avec bibliographie BibTeX.
 
 ---
 
-## ✨ Fonctionnalités clés
+## Fonctionnalités clés
 
-- ⚡ **Deux modèles académiques** : Rapport de TP (`tp`) et Rapport de Projet complet (`projet`).
-- 🌍 **Bilingue natif (FR / EN)** : bascule transparente de tous les intitulés via `lang: "fr"` ou `lang: "en"`.
-- 🎨 **Styles typographiques** : `latex` (Computer Modern), `typst-modern` (Libertinus), `modern-sans` (Helvetica/Arial) et `editorial` (Charter).
-- 🏷️ **Suppléments de figures intelligents** : renvois automatiques *Figure*, *Tableau* (`@tab:...`) et *Code* (`@code:...`).
-- 🔧 **Outils d'ingénierie intégrés** : encarts d'alerte, nomenclature BOM, brochage pinout, glossaires et mode filigrane brouillon.
+- **Deux modèles académiques** : Rapport de TP (`tp`) et Rapport de Projet complet (`projet`).
+- **Styles typographiques** : `latex` (Computer Modern), `typst-modern` (Libertinus), `modern-sans` (Helvetica/Arial) et `editorial` (Charter).
+- **Suppléments de figures intelligents** : renvois automatiques *Figure*, *Tableau* (`@tab:...`) et *Code* (`@code:...`).
 
 ---
 
