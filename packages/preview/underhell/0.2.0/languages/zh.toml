@@ -1,0 +1,26 @@
+language = "zh"
+
+[stats]
+ac = "护甲等级"
+hp = "生命值"
+speed = "速度"
+
+[sections]
+actions = "动作"
+reactions = "反应"
+limited_usage = "有限使用"
+equip = "装备"
+legendary_act = "传奇动作"
+
+[npc]
+description = "描述"
+background = "背景"
+roleplay = "角色扮演提示"
+
+
+# === 自定义字体配置 ===
+[fonts]
+# 定义正文字体（支持列表，自动回退）
+body = ["寒蟬錦書宋", "Source Han Sans SC", "Noto Sans CJK SC", "Microsoft YaHei"]
+# 定义标题字体
+header = ["DuanNingMaoBiXiaoKai", "Source Han Sans SC", "Noto Sans CJK SC", "Microsoft YaHei"]
