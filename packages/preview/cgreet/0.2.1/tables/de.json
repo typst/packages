@@ -1,0 +1,51 @@
+{
+  "locale": "de",
+  "source_norms": "SN 010130 for ch/li, DIN 5008 for de/at (at follows DIN since ÖNORM A 1080 was withdrawn in 2018)",
+  "honorifics": {
+    "frau": "frau",
+    "herr": "herr",
+    "herrn": "herr"
+  },
+  "titles": {
+    "dr": "Dr.",
+    "prof": "Professor",
+    "professor": "Professor",
+    "dipl-ing": "Dipl.-Ing.",
+    "dipling": "Dipl.-Ing.",
+    "mag": "Mag.",
+    "magister": "Mag.",
+    "dipl.-ing": "Dipl.-Ing.",
+    "dipl.ing": "Dipl.-Ing."
+  },
+  "sole_titles": [
+    "Professor"
+  ],
+  "filler": [
+    "herr",
+    "herrn",
+    "frau",
+    "mr",
+    "mrs",
+    "ms",
+    "miss",
+    "dr",
+    "prof",
+    "professor",
+    "dipl-ing",
+    "dipling",
+    "mag",
+    "magister",
+    "phd",
+    "ma",
+    "ba",
+    "bsc",
+    "msc",
+    "dipl.-ing",
+    "dipl.ing"
+  ],
+  "comma_regions": [
+    "de",
+    "at"
+  ],
+  "generic": "Sehr geehrte Damen und Herren"
+}
