@@ -29,11 +29,7 @@ Add the following import to your Typst document:
 
 Download `lib.typ` and place it in your document's directory, or in another directory of your choice.
 
-Then import it locally:
-
-```typst
-#import "./lib.typ": *
-```
+Then import it locally at the top of your document.
 
 ## Defining entries
 
@@ -588,11 +584,7 @@ Make sure the import is:
 #import "@preview/abbrev:0.2.0": *
 ```
 
-To compile a local copy, place `lib.typ` in the same directory as the example and use:
-
-```typst
-#import "./lib.typ": *
-```
+To compile a local copy, place `lib.typ` in the same directory as the example and update the import statement accordingly.
 
 Then run:
 
