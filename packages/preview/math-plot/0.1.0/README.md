@@ -8,7 +8,7 @@ Mathematical plotting for Typst, covering calculus I through III. Built on top o
 
 ## Manual
 
-A full manual (87 pages) with narrative tutorial and tidy-generated API reference is available in [docs/manual.pdf](docs/manual.pdf).
+A full manual (87 pages) with narrative tutorial and tidy-generated API reference is available in the [GitHub repository](https://github.com/hebertodelrio/math-plot/blob/main/docs/manual.pdf).
 
 ## Gallery
 
@@ -16,19 +16,19 @@ Click on an image to see the source code.
 
 | | | |
 |:---:|:---:|:---:|
-| [![Parabola](gallery/parabola-1.svg)](gallery/parabola.typ) | [![Trig functions](gallery/trig-functions-1.svg)](gallery/trig-functions.typ) | [![Scatter](gallery/scatter-1.svg)](gallery/scatter.typ) |
+| [![Parabola](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/parabola-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/parabola.typ) | [![Trig functions](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/trig-functions-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/trig-functions.typ) | [![Scatter](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/scatter-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/scatter.typ) |
 | Parabola | Trigonometric Functions | Scatter Plot |
-| [![Exponential & Log](gallery/exponential-1.svg)](gallery/exponential.typ) | [![Data fit](gallery/data-fit-1.svg)](gallery/data-fit.typ) | [![Markers](gallery/markers-1.svg)](gallery/markers.typ) |
+| [![Exponential & Log](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/exponential-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/exponential.typ) | [![Data fit](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/data-fit-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/data-fit.typ) | [![Markers](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/markers-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/markers.typ) |
 | Exponential & Logarithmic | Data with Model Fit | Marker Types |
-| [![Extended axes](gallery/extended-axes-1.svg)](gallery/extended-axes.typ) | [![Area fills](gallery/area-features-1.svg)](gallery/area-features.typ) | [![Revolution](gallery/revolution-1.svg)](gallery/revolution.typ) |
+| [![Extended axes](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/extended-axes-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/extended-axes.typ) | [![Area fills](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/area-features-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/area-features.typ) | [![Revolution](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/revolution-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/revolution.typ) |
 | Extended Axes | Area Fills & Riemann Sums | Volume of Revolution |
-| [![Riemann features](gallery/riemann-features-1.svg)](gallery/riemann-features.typ) | [![Zoom spy](gallery/zoom-spy-1.svg)](gallery/zoom-spy.typ) | [![Quiver](gallery/quiver-1.svg)](gallery/quiver.typ) |
+| [![Riemann features](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/riemann-features-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/riemann-features.typ) | [![Zoom spy](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/zoom-spy-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/zoom-spy.typ) | [![Quiver](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/quiver-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/quiver.typ) |
 | Riemann Sum Features | Zoom / Spy Insets | Vector Field (Quiver) |
-| [![Quiver styled](gallery/quiver-styled-1.svg)](gallery/quiver-styled.typ) | [![Contour](gallery/contour-1.svg)](gallery/contour.typ) | [![Filled contour](gallery/contour-filled-1.svg)](gallery/contour-filled.typ) |
+| [![Quiver styled](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/quiver-styled-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/quiver-styled.typ) | [![Contour](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/contour-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/contour.typ) | [![Filled contour](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/contour-filled-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/contour-filled.typ) |
 | Styled Vector Field | Contour Lines | Filled Contours |
-| [![Contour + quiver](gallery/contour-quiver-1.svg)](gallery/contour-quiver.typ) | [![Surface](gallery/surface-1.svg)](gallery/surface.typ) | [![Parametric surface](gallery/parametric-surface-1.svg)](gallery/parametric-surface.typ) |
+| [![Contour + quiver](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/contour-quiver-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/contour-quiver.typ) | [![Surface](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/surface-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/surface.typ) | [![Parametric surface](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/parametric-surface-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/parametric-surface.typ) |
 | Contour + Gradient Field | 3D Surface | Parametric Surface |
-| [![Parametric curve 3D](gallery/parametric-curve-3d-1.svg)](gallery/parametric-curve-3d.typ) | [![Quiver 3D](gallery/quiver3d-1.svg)](gallery/quiver3d.typ) | [![Surface + quiver 3D](gallery/surface-quiver3d-1.svg)](gallery/surface-quiver3d.typ) |
+| [![Parametric curve 3D](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/parametric-curve-3d-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/parametric-curve-3d.typ) | [![Quiver 3D](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/quiver3d-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/quiver3d.typ) | [![Surface + quiver 3D](https://raw.githubusercontent.com/hebertodelrio/math-plot/main/gallery/surface-quiver3d-1.svg)](https://github.com/hebertodelrio/math-plot/blob/main/gallery/surface-quiver3d.typ) |
 | 3D Parametric Curve | 3D Vector Field | Surface + Vector Field |
 
 ## Features
