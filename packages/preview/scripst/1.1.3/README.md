@@ -206,7 +206,7 @@ typst init @preview/scripst:1.1.3 project_name
 
 ## 🆕 Feature Demonstration
 
-The specific use of this section is described in [Scripst Documentation](./docs/builds/article.pdf).
+The specific use of this section is described in the [Scripst documentation source](./docs/locale/article-en.typ).
 
 ### `countblock` Module
 
@@ -301,7 +301,7 @@ So when you think the layout between paragraphs is not pretty enough, try using 
   <img src="./previews/article-en-2.png" alt="Article Page 2" width="30%" />
 </p>
 
-[Article Demo](./docs/locale/builds/article-en.pdf)
+[Article demo source](./docs/locale/article-en.typ)
 
 ### Book
 
@@ -310,7 +310,7 @@ So when you think the layout between paragraphs is not pretty enough, try using 
   <img src="./previews/book-2.png" alt="Book Page 2" width="30%" />
 </p>
 
-[Book Demo](./docs/builds/book.pdf) *(Only in Simplified Chinese)*
+[Book demo source](./docs/book.typ) *(Only in Simplified Chinese)*
 
 
 ### Report
@@ -321,7 +321,7 @@ So when you think the layout between paragraphs is not pretty enough, try using 
   <img src="./previews/report-2.png" alt="Report Page 2" width="30%" />
 </p>
 
-[Report Demo](./docs/builds/report.pdf) *(Only in Simplified Chinese)*
+[Report demo source](./docs/report.typ) *(Only in Simplified Chinese)*
 
 ## 📜 Contributing
 

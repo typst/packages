@@ -213,7 +213,7 @@ typst init @preview/scripst:1.1.3 project_name
 
 ## 🆕 特性展示
 
-该部分的具体使用方法请参见 [Scripst 文档](./docs/builds/article.pdf)。
+该部分的具体使用方法请参见 [Scripst 文档源码](./docs/article.typ)。
 
 ### `countblock`模块
 
@@ -304,7 +304,7 @@ $
   <img src="./previews/article-2.png" alt="Article Page 2" width="30%" />
 </p>
 
-[Article 示例](./docs/builds/article.pdf)
+[Article 示例源码](./docs/article.typ)
 
 ### book 文档
 
@@ -313,7 +313,7 @@ $
   <img src="./previews/book-2.png" alt="Book Page 2" width="30%" />
 </p>
 
-[Book 示例](./docs/builds/book.pdf)
+[Book 示例源码](./docs/book.typ)
 
 ### report 文档
 
@@ -322,7 +322,7 @@ $
   <img src="./previews/report-2.png" alt="Report Page 2" width="30%" />
 </p>
 
-[Report 示例](./docs/builds/report.pdf)
+[Report 示例源码](./docs/report.typ)
 
 ## 📜 贡献
 
