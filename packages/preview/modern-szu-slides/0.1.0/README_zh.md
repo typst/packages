@@ -178,7 +178,7 @@ szu-typst-slides/
 |--------|----------|------|
 | **Typst** | `0.14+`（已在 `0.14.2` 测试） | 编译工具链与 CLI |
 | `@preview/touying` | `0.7.4` | 幻灯片宏包框架 |
-| `@preview/theorion` | `0.4.0` | 定理环境与数学公式支持 |
+| `@preview/theorion` | `0.6.0` | 定理环境与数学公式支持 |
 | `@preview/numbly` | `0.1.0` | 多级标题编号格式化 |
 | `@preview/cuti` | `0.4.0` | 中文伪粗体模拟 |
 

@@ -178,7 +178,7 @@ Reusable components are defined in `slide-functions.typ`:
 |------------|------------------|---------|
 | **Typst** | `0.14+` (tested on `0.14.2`) | Document compiler & CLI |
 | `@preview/touying` | `0.7.4` | Presentation slide framework |
-| `@preview/theorion` | `0.4.0` | Theorem and mathematical environments |
+| `@preview/theorion` | `0.6.0` | Theorem and mathematical environments |
 | `@preview/numbly` | `0.1.0` | Flexible heading numbering format |
 | `@preview/cuti` | `0.4.0` | Chinese fake bold synthesis |
 
