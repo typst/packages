@@ -1,0 +1,17 @@
+[package]
+name = "modern-szu-slides"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Degurechaff57 <tusmorikawa99@gmail.com>"]
+license = "MIT"
+description = "Shenzhen University presentation slides powered by Touying."
+homepage = "https://github.com/Degurechaff57/szu-typst-slides"
+repository = "https://github.com/Degurechaff57/szu-typst-slides"
+categories = ["presentation"]
+disciplines = ["computer-science", "engineering"]
+keywords = ["szu", "shenzhen-university", "slides", "touying", "presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
