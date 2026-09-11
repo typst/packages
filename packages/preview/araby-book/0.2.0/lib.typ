@@ -61,11 +61,11 @@
 /// Inline quotation with optional footnote
 /// - `body` : quotation text
 /// - `ref`  : optional reference (e.g., "البقرة")
-/// - `footnote_entry` : optional footnote entry
-#let inline-quotation(body, ref: none, footnote_entry: none) = {
+/// - `footnote-entry` : optional footnote entry
+#let inline-quotation(body, ref: none, footnote-entry: none) = {
   text(style: "italic", weight: "medium", size: 0.95em)[« #body »]
-  if footnote_entry != none [
-    #footnote()[#footnote_entry]
+  if footnote-entry != none [
+    #footnote()[#footnote-entry]
   ]
   if ref != none [
     #text(size: 0.7em, fill: gray.darken(40%))[-- #ref --]

@@ -86,7 +86,7 @@ Typst Universe.
   quotation inline within a paragraph, with an optional attribution. The
   `color` parameter allows customizing the verse text color.
 
-- `inline-quotation(body, ref: none, footnote_entry: none)` - renders a short
+- `inline-quotation(body, ref: none, footnote-entry: none)` - renders a short
   quotation inline within a paragraph in italic style, with optional attribution
   and an optional footnote entry.
 
