@@ -409,10 +409,11 @@
 /// #hinh(xmin: -4, xmax: 4, ymin: -3, ymax: 3, ctx => { he-truc(ctx) ... })
 /// luoi-o: lưới ô vuông mờ · vach: vạch chia đơn vị · so: ghi số trên vạch
 #let he-truc = _voi-ctx(he-truc)
-/// `giong(P, ten-x: auto, ten-y: auto, huong-x: "below", huong-y: "left", mau: gray.darken(20%), mau-diem: red, diem-to: true)`
+/// `giong(P, ten-x: auto, ten-y: auto, huong-x: auto, huong-y: auto, mau: gray.darken(20%), mau-diem: red, diem-to: true)`
 ///
 /// Đường gióng từ điểm P về 2 trục (nét đứt) + nhãn toạ độ trên trục.
 /// ten-x / ten-y: auto = tự ghi số; none = không ghi; hoặc nội dung tuỳ ý.
+/// huong-x / huong-y: auto = tự chọn phía theo dấu toạ độ; có thể truyền hướng cụ thể.
 #let giong = _voi-ctx(giong)
 /// `tiep-tuyen(f, x0, mau: red, day: 1.2pt, dut: false, dai: auto, cham: true, mau-cham: auto, ten-diem: none, huong-diem: "above-left", ten: none, tai: 0.9, huong-ten: auto, cach: 6pt, ten-quay: false, giong: false, h: auto)`
 ///

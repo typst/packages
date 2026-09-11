@@ -769,6 +769,11 @@ Hàm bất kỳ + vẽ chồng qua `them`:
   })
 ```
 
+Từ 0.3.9, `giong` tự đặt nhãn theo góc phần tư: nếu hoành độ điểm dương thì
+nhãn tung độ nằm bên trái trục tung, nếu không thì nằm bên phải; nếu tung độ
+dương thì nhãn hoành độ nằm dưới trục hoành, nếu không thì nằm trên. Có thể
+ghi đè bằng `huong-x:` và `huong-y:` như trước.
+
 ### Nhiều đồ thị trên cùng một hệ trục
 
 Mỗi hàm gói bằng `ham(...)`; `giao-diem: auto` chấm đỏ giao điểm từng cặp:

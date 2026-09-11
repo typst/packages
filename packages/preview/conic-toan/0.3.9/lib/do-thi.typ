@@ -324,10 +324,11 @@
 
 // Đường gióng từ điểm P về 2 trục (nét đứt) + nhãn toạ độ trên trục.
 // ten-x / ten-y: auto = tự ghi số; none = không ghi; hoặc nội dung tuỳ ý.
+// Hướng nhãn mặc định tự né góc phần tư; vẫn có thể truyền hướng cụ thể.
 #let giong(
   ctx, P,
   ten-x: auto, ten-y: auto,
-  huong-x: "below", huong-y: "left",
+  huong-x: auto, huong-y: auto,
   mau: gray.darken(20%), mau-diem: red, diem-to: true,
 ) = {
   // điểm nằm ngay trên một trục thì bỏ đường gióng (tránh đè lên trục)
@@ -338,11 +339,17 @@
   if diem-to { diem(ctx, P, bk: 1.9pt, mau: mau-diem) }
   if ten-x != none and calc.abs(P.at(0)) > 0.0001 {
     let tx = if ten-x == auto { so-toan(P.at(0)) } else { ten-x }
-    nhan(ctx, (P.at(0), 0), tx, huong: huong-x, cach: 4pt)
+    let hx = if huong-x == auto {
+      if P.at(1) > 0 { "below" } else { "above" }
+    } else { huong-x }
+    nhan(ctx, (P.at(0), 0), tx, huong: hx, cach: 4pt)
   }
   if ten-y != none and calc.abs(P.at(1)) > 0.0001 {
     let ty = if ten-y == auto { so-toan(P.at(1)) } else { ten-y }
-    nhan(ctx, (0, P.at(1)), ty, huong: huong-y, cach: 4pt)
+    let hy = if huong-y == auto {
+      if P.at(0) > 0 { "left" } else { "right" }
+    } else { huong-y }
+    nhan(ctx, (0, P.at(1)), ty, huong: hy, cach: 4pt)
   }
 }
 
