@@ -1,6 +1,6 @@
-#import "@preview/algol:0.1.0": algol
+#import "algol-code.typ": algol
 
-#set page(height: auto, width: 25em, margin: 1em)
+#set page(height: auto, width: 30em, margin: 1em)
 #set par(justify: true)
 // math-compliant smallcaps font
 #show smallcaps: set text(font: "Libertinus Serif")
@@ -8,7 +8,7 @@
 #let algorithm = figure.with(kind: "algorithm", supplement: [Algorithm])
 
 #let my-algol(it) = {
-  show regex("if|then|else|return"): it => text(blue, strong(it))
+  show regex("\\b(if|then|else|return)\\b"): it => text(blue, strong(it))
   algol(it)
 }
 
