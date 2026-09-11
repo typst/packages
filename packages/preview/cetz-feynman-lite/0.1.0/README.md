@@ -3,15 +3,13 @@
 Draw Feynman diagrams with customizable propagators, vertices and momentum arrows
 inside a CeTZ canvas.
 
-**Release candidate 0.1.0. Not yet published on Typst Universe.**
-Requires Typst 0.15.0 or newer and CeTZ 0.5.2. The library itself needs no Python.
+Requires Typst 0.15.0 or newer and CeTZ 0.5.2.
 
 ## Quick start
 
 ![Electron self-energy](docs/readme-examples/self-energy.svg)
 
-The versioned import below works after installing the local release candidate,
-or after publication. From a source checkout, replace it with `"lib.typ"`
+From a source checkout, replace the package import with `"lib.typ"`
 when the document is at the repository root.
 
 ```typst
