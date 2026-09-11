@@ -1,6 +1,6 @@
 # The `tuwien-geo-masterthesis` Package
 
-[![Dynamic TOML Badge](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FTUW-GEO%2Ftuwien-geo-masterthesis%2Frefs%2Fheads%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=template&color=239DAD)](https://typst.app/universe/package/tuwien-geo-masterthesis) [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/TUW-GEO/tuwien-geo-masterthesis/blob/main/LICENSE) [![Test Status](https://github.com/TUW-GEO/tuwien-geo-masterthesis/actions/workflows/ci.yml/badge.svg)](https://github.com/TUW-GEO/tuwien-geo-masterthesis/actions/workflows/ci.yml)
+[![Dynamic TOML Badge](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FTUW-GEO%2Ftuwien-geo-masterthesis%2Frefs%2Fheads%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=template&color=239DAD)](https://typst.app/universe/package/tuwien-geo-masterthesis) [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/TUW-GEO/tuwien-geo-masterthesis/blob/v0.1.0/LICENSE) [![Test Status](https://github.com/TUW-GEO/tuwien-geo-masterthesis/actions/workflows/ci.yml/badge.svg)](https://github.com/TUW-GEO/tuwien-geo-masterthesis/actions/workflows/ci.yml)
 
 *"The official template for Mastertheses at the Geo Department of TU Wien."*
 

@@ -38,6 +38,8 @@
   cooperation: none,
   location: "Wien",
   date: datetime.today(),
+  logo-left: rect([Insert University Logo], height: 2.5cm),
+  logo-right: rect([Insert Department Logo], height: 2.5cm),
 )
 
 /// Generate the title page. Call before any other content.
@@ -107,8 +109,7 @@
 
   grid(
     columns: (1fr, 1fr),
-    image("graphics/tuwien_logo.png", height: 2.5cm),
-    align(right, image("graphics/Blue.png", height: 2.5cm)),
+    info.at("logo-left"), align(right, info.at("logo-right")),
   )
 
   v(2cm)
