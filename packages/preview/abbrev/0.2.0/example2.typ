@@ -135,6 +135,7 @@ This is page #this-page.
 #term-outline(
   title: [Glossary],
   level: 3,
+  show-pages: false,
 )
 
 #symbol-outline(level: 3)
