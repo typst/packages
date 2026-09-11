@@ -10,8 +10,8 @@
 //
 // 两种给文献的方式，二选一：
 //
-//   ① `bib: "refs.bib"`  —— **推荐**。用 Typst 内置的 `gb-7714-2005-numeric`
-//      （GB/T 7714-2005 正是 格式规格 §6 裁定的标准），条目格式自动生成，
+//   ① `bib: "refs.bib"`  —— **推荐**。用 Typst 内置的 `gb-7714-2015-numeric`
+//      （GB/T 7714-2015，依据官方新版类 xdupgthesis.cls 的默认设置），条目格式自动生成，
 //      正文里用 `#引用(1)` 标注引用序号。无需任何外部依赖。
 //
 //   ② `entries: ("已排好的条目文本", ...)` 或 `info.references` —— 手工排好的条目，
@@ -28,8 +28,11 @@
 #let 正文Δ = 基线偏移(20pt, 12pt)
 #let 条目Δ = 基线偏移(20pt, 10.5pt)
 #let 固定标题 = "西安电子科技大学硕士学位论文"
-// GB/T 7714-2005（格式规格 §6）。Typst 0.15 内置，实测可用。
-#let 文献样式 = "gb-7714-2005-numeric"
+// GB/T 7714-2015（格式规格 §6）。Typst 0.15 内置，实测可用。
+// 2026-09 由 2005 切换为 2015：官方新版类 xdupgthesis.cls 默认 biblatex + gb7714-2015，
+// 且一份已过检的真实论文即用该新版类；官方 Word 原文写 2005、旧类亦为 2005，两版仅差
+// @standard 的 [M]/[Z]，切换后需重新验收。
+#let 文献样式 = "gb-7714-2015-numeric"
 
 #let references(
   degree: "academic",
@@ -64,7 +67,7 @@
   v(到内容区(60.02mm) - 条目Δ)
 
   if bib != none {
-    // ① 由 .bib 自动生成 GB/T 7714-2005 格式；标题已由页面大标题给出，故 title: none
+    // ① 由 .bib 自动生成 GB/T 7714-2015 格式；标题已由页面大标题给出，故 title: none
     show bibliography: set text(font: 字体集.宋体, size: 10.5pt, lang: "zh",
       top-edge: 条目Δ, bottom-edge: "baseline")
     if 双语 {

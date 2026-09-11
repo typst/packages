@@ -38,7 +38,7 @@
 }
 
 // 给 bibliography 的输出套一层：非中文条目把「等」换成「et al.」
-// 用法：`#双语文献(bibliography("refs.bib", style: "gb-7714-2005-numeric", title: none))`
+// 用法：`#双语文献(bibliography("refs.bib", style: "gb-7714-2015-numeric", title: none))`
 #let 双语文献(body) = {
   show grid.cell.where(x: 1): it => {
     let s = 转文本(it)

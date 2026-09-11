@@ -8,7 +8,7 @@ description = "西安电子科技大学硕士学位论文模板（学术学位 /
 repository = "https://github.com/CoderJackZhu/modern-xdu-thesis"
 keywords = ["Xidian University", "thesis", "xdu", "master thesis"]
 categories = ["thesis"]
-exclude = ["docs", "dev", ".gitignore"]
+exclude = ["docs", "dev", "AGENTS.md", ".gitignore"]
 compiler = "0.15.0"
 
 [template]
