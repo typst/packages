@@ -3,9 +3,9 @@
 #import "libs/szu-met-theme.typ": *
 // #import "libs/szu-uni-theme.typ": *
 
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.7.4": *
 #import "@preview/numbly:0.1.0": *
-#import "@preview/theorion:0.3.3": *
+#import "@preview/theorion:0.4.0": *
 
 #import "slide-text.typ": zh-font, en-font
 #import "slide-functions.typ": *

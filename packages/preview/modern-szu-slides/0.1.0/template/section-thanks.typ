@@ -1,6 +1,6 @@
 // Acknowledgement / closing slide
 
-#import "@preview/touying:0.6.1": slide, config-page, config-store
+#import "@preview/touying:0.7.4": slide, config-page, config-store
 
 #import "slide-text.typ": thanks-primary-size, thanks-secondary-size, thanks-primary-fill
 

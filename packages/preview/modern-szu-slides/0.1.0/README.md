@@ -4,9 +4,9 @@
   <strong>English</strong> | <a href="README_zh.md">中文</a>
 </p>
 
-[![Typst](https://img.shields.io/badge/Typst-0.14%2B-blue)](https://typst.app/)
-[![Touying](https://img.shields.io/badge/Touying-0.6.1-orange)](https://touying-typ.github.io/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Typst version: 0.14+](https://img.shields.io/badge/Typst-0.14%2B-blue)](https://typst.app/)
+[![Touying version: 0.7.4](https://img.shields.io/badge/Touying-0.7.4-orange)](https://touying-typ.github.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 A clean, modern, and professional [Typst](https://typst.app/) slide template for Shenzhen University (SZU) presentations and thesis defenses, powered by [Touying](https://touying-typ.github.io/).
 
@@ -24,7 +24,7 @@ Two SZU-branded themes are included: **Metropolis** (dark red accent) and **Univ
 - **Dual Themes**: Easily switch between Metropolis and University themes.
 - **Separated Bilingual Templates**: Clean English (`main_en.typ`) and Chinese (`main_zh.typ`) slide decks without mixed labels.
 - **Rich Components**: Built-in cards, conclusion blocks, key metrics display, note blocks, custom tables, and more.
-- **Modern Typst Ecosystem**: Fully compatible with Typst 0.14+ and Touying 0.6.1.
+- **Modern Typst Ecosystem**: Fully compatible with Typst 0.14+ and Touying 0.7.4.
 
 ---
 
@@ -57,8 +57,8 @@ cd szu-typst-slides
 
 ### 3. Choose Your Language & Fill Information
 
-- For **English** slides: edit [section-cover_en.typ](section-cover_en.typ) to update your thesis title, candidate name, advisor, college, and major.
-- For **Chinese** slides: edit [section-cover_zh.typ](section-cover_zh.typ) to fill in your title, name, advisor, college, etc.
+- For **English** slides: edit `section-cover_en.typ` to update your thesis title, candidate name, advisor, college, and major.
+- For **Chinese** slides: edit `section-cover_zh.typ` to fill in your title, name, advisor, college, etc.
 
 ### 4. Compile to PDF
 
@@ -103,7 +103,7 @@ Edit `main_en.typ` (or `main_zh.typ`) and comment/uncomment the theme import at 
 
 The project follows a uniform bilingual naming convention (`xxx_en.*` and `xxx_zh.*`):
 
-```
+```text
 szu-typst-slides/
 ├── README.md                 # English documentation (entry point)
 ├── README_zh.md              # Chinese documentation
@@ -177,10 +177,10 @@ Reusable components are defined in `slide-functions.typ`:
 | Dependency | Required Version | Purpose |
 |------------|------------------|---------|
 | **Typst** | `0.14+` (tested on `0.14.2`) | Document compiler & CLI |
-| `@preview/touying` | `0.6.1` | Presentation slide framework |
-| `@preview/theorion` | `0.3.3` | Theorem and mathematical environments |
+| `@preview/touying` | `0.7.4` | Presentation slide framework |
+| `@preview/theorion` | `0.4.0` | Theorem and mathematical environments |
 | `@preview/numbly` | `0.1.0` | Flexible heading numbering format |
-| `@preview/cuti` | `0.3.0` | Chinese fake bold synthesis |
+| `@preview/cuti` | `0.4.0` | Chinese fake bold synthesis |
 
 > Packages from Typst's official `@preview` package registry will be downloaded automatically by Typst on first compilation.
 
@@ -191,7 +191,7 @@ Reusable components are defined in `slide-functions.typ`:
 - **Chinese**: `Heiti SC` (macOS system font)
 - **English**: `Times New Roman`
 
-To customize fonts for Linux or Windows, change `zh-font` and `en-font` in [slide-text.typ](slide-text.typ):
+To customize fonts for Linux or Windows, change `zh-font` and `en-font` in `slide-text.typ`:
 ```typst
 #let zh-font = "SimHei"       // e.g., for Windows
 #let en-font = "Times New Roman"

@@ -1,5 +1,5 @@
-#import "@preview/touying:0.6.1": *
-#import "@preview/cuti:0.3.0": *
+#import "@preview/touying:0.7.4": *
+#import "@preview/cuti:0.4.0": *
 #import themes.university: *
 #import "szu-colors.typ": *
 

@@ -1,7 +1,7 @@
 // 示例：附录 (中文)
 // `freeze-slide-counter: true` 配置防止附录页计入幻灯片总页数
 
-#import "@preview/touying:0.6.1": slide, config-page, config-store, config-common
+#import "@preview/touying:0.7.4": slide, config-page, config-store, config-common
 
 #let appendix-config = config-page(
   margin: (top: 2.0em, bottom: 1.2em, x: 1.6em),

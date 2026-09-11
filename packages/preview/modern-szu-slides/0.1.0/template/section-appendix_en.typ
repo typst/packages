@@ -2,7 +2,7 @@
 // The `freeze-slide-counter: true` config prevents appendix pages
 // from being counted in the slide-number total.
 
-#import "@preview/touying:0.6.1": slide, config-page, config-store, config-common
+#import "@preview/touying:0.7.4": slide, config-page, config-store, config-common
 
 #let appendix-config = config-page(
   margin: (top: 2.0em, bottom: 1.2em, x: 1.6em),
