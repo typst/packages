@@ -1,0 +1,17 @@
+[package]
+name = "ctheorems"
+version = "2.0.0"
+entrypoint = "lib.typ"
+authors = [
+    "sahasatvik (Satvik Saha)",
+    "rmolinari (Rory Molinari)",
+    "MJHutchinson (Michael Hutchinson)",
+    "PgBiel",
+    "DVDTSB",
+]
+license = "MIT"
+description = "Numbered theorem environments for typst."
+keywords = ["theorem", "proof", "environment"]
+disciplines = ["mathematics", "physics", "computer-science", "engineering", "education"]
+repository = "https://github.com/sahasatvik/typst-theorems"
+exclude = ["basic.typ", "basic.pdf", "basic.png", "manual.typ", "manual.pdf", "manual-template.typ"]
