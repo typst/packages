@@ -3,7 +3,7 @@
 #import "@preview/itemize:0.2.0" as el
 #import "@preview/numblex:0.2.0": numblex
 #import "@preview/kouhu:0.2.0": kouhu
-#import "utils/three-line-table.typ": *
+#import "utils/three-line-table.typ": tlt
 
 #let calc-headings(headings) = {
   let max-page-num = calc.max(..headings.map(i => i.location().page()))
