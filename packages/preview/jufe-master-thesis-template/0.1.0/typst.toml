@@ -8,7 +8,7 @@ description = "江西财经大学硕士论文模板"
 repository = "https://github.com/MaxforCherubim/Jufe-master-thesis-Typst-template"
 keywords = ["Jiangxi University of Finance and Economics", "thesis"]
 categories = ["thesis"]
-exclude = ["imgs", "pages", "tables"]
+exclude = [""]
 compiler = "0.14.2"
 
 [template]
