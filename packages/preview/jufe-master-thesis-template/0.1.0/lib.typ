@@ -1,9 +1,9 @@
 #import "@preview/cuti:0.4.0": show-cn-fakebold
-#import "@preview/pointless-size:0.1.2": zh
+#import "@preview/pointless-size:0.1.3": zh
 #import "@preview/itemize:0.2.0" as el
 #import "@preview/numblex:0.2.0": numblex
 #import "@preview/kouhu:0.2.0": kouhu
-#import "@preview/rexllent:0.4.0": xlsx-parser
+#import "@preview/rexllent:0.4.1": xlsx-parser
 
 #let calc-headings(headings) = {
   let max-page-num = calc.max(..headings.map(i => i.location().page()))
