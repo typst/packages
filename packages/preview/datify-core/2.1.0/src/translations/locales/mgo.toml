@@ -1,0 +1,135 @@
+[days.format.wide]
+1 = "Aneg 2"
+2 = "Aneg 3"
+3 = "Aneg 4"
+4 = "Aneg 5"
+5 = "Aneg 6"
+6 = "Aneg 7"
+7 = "Aneg 1"
+
+[days.format.abbreviated]
+1 = "Aneg 2"
+2 = "Aneg 3"
+3 = "Aneg 4"
+4 = "Aneg 5"
+5 = "Aneg 6"
+6 = "Aneg 7"
+7 = "Aneg 1"
+
+[days.format.narrow]
+1 = "2"
+2 = "3"
+3 = "4"
+4 = "5"
+5 = "6"
+6 = "7"
+7 = "1"
+
+[days.stand-alone.wide]
+1 = "Aneg 2"
+2 = "Aneg 3"
+3 = "Aneg 4"
+4 = "Aneg 5"
+5 = "Aneg 6"
+6 = "Aneg 7"
+7 = "Aneg 1"
+
+[days.stand-alone.abbreviated]
+1 = "Aneg 2"
+2 = "Aneg 3"
+3 = "Aneg 4"
+4 = "Aneg 5"
+5 = "Aneg 6"
+6 = "Aneg 7"
+7 = "Aneg 1"
+
+[days.stand-alone.narrow]
+1 = "2"
+2 = "3"
+3 = "4"
+4 = "5"
+5 = "6"
+6 = "7"
+7 = "1"
+
+[months.format.wide]
+1 = "iməg mbegtug"
+2 = "imeg àbùbì"
+3 = "imeg mbəŋchubi"
+4 = "iməg ngwə̀t"
+5 = "iməg fog"
+6 = "iməg ichiibɔd"
+7 = "iməg àdùmbə̀ŋ"
+8 = "iməg ichika"
+9 = "iməg kud"
+10 = "iməg tèsiʼe"
+11 = "iməg zò"
+12 = "iməg krizmed"
+
+[months.format.abbreviated]
+1 = "mbegtug"
+2 = "imeg àbùbì"
+3 = "imeg mbəŋchubi"
+4 = "iməg ngwə̀t"
+5 = "iməg fog"
+6 = "iməg ichiibɔd"
+7 = "iməg àdùmbə̀ŋ"
+8 = "iməg ichika"
+9 = "iməg kud"
+10 = "iməg tèsiʼe"
+11 = "iməg zò"
+12 = "iməg krizmed"
+
+[months.format.narrow]
+1 = "M1"
+2 = "A2"
+3 = "M3"
+4 = "N4"
+5 = "F5"
+6 = "I6"
+7 = "A7"
+8 = "I8"
+9 = "K9"
+
+[months.stand-alone.wide]
+1 = "iməg mbegtug"
+2 = "imeg àbùbì"
+3 = "imeg mbəŋchubi"
+4 = "iməg ngwə̀t"
+5 = "iməg fog"
+6 = "iməg ichiibɔd"
+7 = "iməg àdùmbə̀ŋ"
+8 = "iməg ichika"
+9 = "iməg kud"
+10 = "iməg tèsiʼe"
+11 = "iməg zò"
+12 = "iməg krizmed"
+
+[months.stand-alone.abbreviated]
+1 = "mbegtug"
+2 = "imeg àbùbì"
+3 = "imeg mbəŋchubi"
+4 = "iməg ngwə̀t"
+5 = "iməg fog"
+6 = "iməg ichiibɔd"
+7 = "iməg àdùmbə̀ŋ"
+8 = "iməg ichika"
+9 = "iməg kud"
+10 = "iməg tèsiʼe"
+11 = "iməg zò"
+12 = "iməg krizmed"
+
+[months.stand-alone.narrow]
+1 = "M1"
+2 = "A2"
+3 = "M3"
+4 = "N4"
+5 = "F5"
+6 = "I6"
+7 = "A7"
+8 = "I8"
+9 = "K9"
+
+[patterns]
+full = "EEEE, y MMMM dd"
+

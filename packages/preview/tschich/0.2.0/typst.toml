@@ -1,0 +1,12 @@
+[package]
+name = "tschich"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = [ "Alexander Abt" ]
+license = "MIT"
+description = "Perfect proportions."
+repository = "https://github.com/switchlex/tschich"
+keywords = [ "layout", "book", "margins", "binding", "typography" ]
+categories = [ "layout", "book" ]
+exclude = [ "examples/*", "docs/*" ]
+disciplines = [ ]

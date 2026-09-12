@@ -1,0 +1,11 @@
+{
+    "name": "graph",
+    "description": "Function plotting and vector visualization",
+    "dependencies": [],
+    "exports": [
+        "func",
+        "parametric",
+        "vector",
+        "data-series"
+    ]
+}

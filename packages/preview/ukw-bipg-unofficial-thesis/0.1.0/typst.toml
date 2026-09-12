@@ -1,0 +1,23 @@
+[package]
+name = "ukw-bipg-unofficial-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+license = "MIT-0"
+authors = ["Filip Jankowski <@ironupiwada>"]
+description = "Template for Bachelor’s and Master’s Theses in accordance with the Graduation Regulations for the Game Research and Design program (Kazimierz Wielki University in Bydgoszcz)."
+repository = "https://github.com/ironupiwada/unofficial-ukw-thesis"
+keywords = [
+    "thesis",
+    "ukw",
+    "university",
+    "polish",
+]
+categories = ["thesis", "layout"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool]

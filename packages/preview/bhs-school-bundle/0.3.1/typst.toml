@@ -1,0 +1,17 @@
+[package]
+name = "bhs-school-bundle"
+version = "0.3.1"
+entrypoint = "lib.typ"
+description = "Professional thesis and report template for vocational high schools in Austria following formal requirements of HAK/HAS and Kolleg Imst (Austria), easily customizable for other schools. The Template contains necassary headlines and examples for images, tables, citations, etc."
+authors = ["Stefan Stolz", "Claudio Landerer"]
+license = "MIT"
+
+# Zuordnung für das Typst Universe
+categories = ["report", "thesis"]
+disciplines = ["education"]
+keywords = ["school","thesis","Diplomarbeit", "HAK", "Kolleg", "Österreich", "Vorlage"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

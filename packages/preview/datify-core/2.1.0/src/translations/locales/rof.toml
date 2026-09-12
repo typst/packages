@@ -1,0 +1,138 @@
+[days.format.wide]
+1 = "Ijumatatu"
+2 = "Ijumanne"
+3 = "Ijumatano"
+4 = "Alhamisi"
+5 = "Ijumaa"
+6 = "Ijumamosi"
+7 = "Ijumapili"
+
+[days.format.abbreviated]
+1 = "Ijt"
+2 = "Ijn"
+3 = "Ijtn"
+4 = "Alh"
+5 = "Iju"
+6 = "Ijm"
+7 = "Ijp"
+
+[days.format.narrow]
+1 = "3"
+2 = "4"
+3 = "5"
+4 = "6"
+5 = "7"
+6 = "1"
+7 = "2"
+
+[days.stand-alone.wide]
+1 = "Ijumatatu"
+2 = "Ijumanne"
+3 = "Ijumatano"
+4 = "Alhamisi"
+5 = "Ijumaa"
+6 = "Ijumamosi"
+7 = "Ijumapili"
+
+[days.stand-alone.abbreviated]
+1 = "Ijt"
+2 = "Ijn"
+3 = "Ijtn"
+4 = "Alh"
+5 = "Iju"
+6 = "Ijm"
+7 = "Ijp"
+
+[days.stand-alone.narrow]
+1 = "3"
+2 = "4"
+3 = "5"
+4 = "6"
+5 = "7"
+6 = "1"
+7 = "2"
+
+[months.format.wide]
+1 = "Mweri wa kwanza"
+2 = "Mweri wa kaili"
+3 = "Mweri wa katatu"
+4 = "Mweri wa kaana"
+5 = "Mweri wa tanu"
+6 = "Mweri wa sita"
+7 = "Mweri wa saba"
+8 = "Mweri wa nane"
+9 = "Mweri wa tisa"
+10 = "Mweri wa ikumi"
+11 = "Mweri wa ikumi na moja"
+12 = "Mweri wa ikumi na mbili"
+
+[months.format.abbreviated]
+1 = "M1"
+2 = "M2"
+3 = "M3"
+4 = "M4"
+5 = "M5"
+6 = "M6"
+7 = "M7"
+8 = "M8"
+9 = "M9"
+
+[months.format.narrow]
+1 = "K"
+2 = "K"
+3 = "K"
+4 = "K"
+5 = "T"
+6 = "S"
+7 = "S"
+8 = "N"
+9 = "T"
+10 = "I"
+11 = "I"
+12 = "I"
+
+[months.stand-alone.wide]
+1 = "Mweri wa kwanza"
+2 = "Mweri wa kaili"
+3 = "Mweri wa katatu"
+4 = "Mweri wa kaana"
+5 = "Mweri wa tanu"
+6 = "Mweri wa sita"
+7 = "Mweri wa saba"
+8 = "Mweri wa nane"
+9 = "Mweri wa tisa"
+10 = "Mweri wa ikumi"
+11 = "Mweri wa ikumi na moja"
+12 = "Mweri wa ikumi na mbili"
+
+[months.stand-alone.abbreviated]
+1 = "M1"
+2 = "M2"
+3 = "M3"
+4 = "M4"
+5 = "M5"
+6 = "M6"
+7 = "M7"
+8 = "M8"
+9 = "M9"
+
+[months.stand-alone.narrow]
+1 = "K"
+2 = "K"
+3 = "K"
+4 = "K"
+5 = "T"
+6 = "S"
+7 = "S"
+8 = "N"
+9 = "T"
+10 = "I"
+11 = "I"
+12 = "I"
+
+[patterns]
+full = "EEEE, d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "dd/MM/y"
+

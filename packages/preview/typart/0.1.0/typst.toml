@@ -1,0 +1,11 @@
+[package]
+name = "typart"
+version = "0.1.0"
+entrypoint = "typart.typ"
+authors = ["Crag"]
+license = "GPL-2.0-only"
+description = "SmartArt-style diagrams for posters and presentations."
+repository = "https://github.com/CRAG666/typart"
+keywords = ["diagram", "smartart", "poster", "flowchart", "process", "venn", "gantt", "timeline", "cycle", "pyramid", "hierarchy", "matrix", "tree"]
+categories = ["visualization", "poster"]
+exclude = ["images/*.png"]

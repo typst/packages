@@ -1,0 +1,17 @@
+[package]
+name = "complete-unsaac"
+version = "0.2.3"
+# compiler = "0.14.2"
+entrypoint = "lib.typ"
+authors = ["Daniel A. Sallo <ccusdanielalegriasallo@gmail.com>"]
+license = "MIT"
+description = "Collection of academic document templates for UNSAAC University"
+repository = "https://github.com/daniel-alegria3/typst-complete-unsaac"
+categories = ["thesis", "report", "presentation"]
+keywords = ["universidad", "unsaac", "tesis", "trabajo", "reporte", "presentacion"]
+exclude = ["example.*"]
+
+[template]
+path = "templates"
+entrypoint = "tarea.typ"
+thumbnail = "thumbnail.png"

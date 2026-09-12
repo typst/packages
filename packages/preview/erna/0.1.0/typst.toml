@@ -1,0 +1,11 @@
+[package]
+name = "erna"
+version = "0.1.0"
+entrypoint = "erna.typ"
+authors = ["Tad Lispy <https://tad-lispy.com/>"]
+license = "GPL-3.0-only"
+description = "Arrange images in neat rows, aka magazine layout."
+repository = "https://codeberg.org/tad-lispy/erna"
+keywords = ["images", "rows", "magazine", "layout", "aspect ratio", "resize"]
+categories = ["components"]
+exclude = [ "preview.pdf", "diagram.png" ]

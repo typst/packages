@@ -1,0 +1,10 @@
+pre-commit:
+  commands:
+    - ./scripts/package @local
+
+pre-push:
+  commands:
+    - just install
+    - typst compile --format png --pages 1 --ppi 300 template/main.typ thumbnail.png
+    - git add thumbnail.png
+    - git commit --amend --no-edit

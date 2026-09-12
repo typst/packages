@@ -1,0 +1,23 @@
+[package]
+name = "implicplot"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Uwni"]
+license = "MIT"
+description = "Rigorous implicit-relation plotting: pixel rasters by interval arithmetic, and curves traced with a guaranteed topology"
+repository = "https://github.com/uwni/implicplot"
+keywords = ["plot", "implicit", "curve", "contour", "interval arithmetic"]
+categories = ["visualization"]
+# The oldest compiler this package has actually been tested under. The plugin
+# itself only needs `plugin()` and `to-bytes`/`from-bytes`; relax after testing.
+compiler = "0.15.0"
+# The manual and the thumbnail generator are repository documentation, not
+# package payload; consumers get `lib.typ`, the wasm, and the README with its
+# cover image.
+exclude = [
+  "manual.typ",
+  "manual-helpers.typ",
+  "manual.pdf",
+  "references.yml",
+  "make-thumbnail.sh",
+]

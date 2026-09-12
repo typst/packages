@@ -1,0 +1,17 @@
+[package]
+name = "rirekisho-ofa"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aldrick Tadeo <@aldrick-t>"]
+license = "MIT"
+description = "Japanese rirekisho for role-focused job applications."
+repository = "https://github.com/aldrick-t/typst-rirekisho-ofa"
+keywords = ["rirekisho", "resume", "japanese", "cv"]
+categories = ["cv"]
+compiler = "0.15.0"
+exclude = ["docs/**", "examples/**"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

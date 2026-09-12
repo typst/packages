@@ -1,0 +1,98 @@
+[days.format.wide]
+1 = "Poʻakahi"
+2 = "Poʻalua"
+3 = "Poʻakolu"
+4 = "Poʻahā"
+5 = "Poʻalima"
+6 = "Poʻaono"
+7 = "Lāpule"
+
+[days.format.abbreviated]
+1 = "P1"
+2 = "P2"
+3 = "P3"
+4 = "P4"
+5 = "P5"
+6 = "P6"
+7 = "LP"
+
+[days.stand-alone.wide]
+1 = "Poʻakahi"
+2 = "Poʻalua"
+3 = "Poʻakolu"
+4 = "Poʻahā"
+5 = "Poʻalima"
+6 = "Poʻaono"
+7 = "Lāpule"
+
+[days.stand-alone.abbreviated]
+1 = "P1"
+2 = "P2"
+3 = "P3"
+4 = "P4"
+5 = "P5"
+6 = "P6"
+7 = "LP"
+
+[months.format.wide]
+1 = "Ianuali"
+2 = "Pepeluali"
+3 = "Malaki"
+4 = "ʻApelila"
+5 = "Mei"
+6 = "Iune"
+7 = "Iulai"
+8 = "ʻAukake"
+9 = "Kepakemapa"
+10 = "ʻOkakopa"
+11 = "Nowemapa"
+12 = "Kekemapa"
+
+[months.format.abbreviated]
+1 = "Ian."
+2 = "Pep."
+3 = "Mal."
+4 = "ʻAp."
+5 = "Mei"
+6 = "Iun."
+7 = "Iul."
+8 = "ʻAu."
+9 = "Kep."
+10 = "ʻOk."
+11 = "Now."
+12 = "Kek."
+
+[months.stand-alone.wide]
+1 = "Ianuali"
+2 = "Pepeluali"
+3 = "Malaki"
+4 = "ʻApelila"
+5 = "Mei"
+6 = "Iune"
+7 = "Iulai"
+8 = "ʻAukake"
+9 = "Kepakemapa"
+10 = "ʻOkakopa"
+11 = "Nowemapa"
+12 = "Kekemapa"
+
+[months.stand-alone.abbreviated]
+1 = "Ian."
+2 = "Pep."
+3 = "Mal."
+4 = "ʻAp."
+5 = "Mei"
+6 = "Iun."
+7 = "Iul."
+8 = "ʻAu."
+9 = "Kep."
+10 = "ʻOk."
+11 = "Now."
+12 = "Kek."
+
+[patterns]
+full = "EEEE, d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = ""
+

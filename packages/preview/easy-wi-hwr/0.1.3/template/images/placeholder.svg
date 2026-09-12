@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#f5f5f5" stroke="#cccccc" stroke-width="2"/>
+  <line x1="0" y1="0" x2="800" y2="400" stroke="#dddddd" stroke-width="1"/>
+  <line x1="800" y1="0" x2="0" y2="400" stroke="#dddddd" stroke-width="1"/>
+  <rect x="2" y="2" width="796" height="396" fill="none" stroke="#cccccc" stroke-width="1" stroke-dasharray="8,4"/>
+  <text x="400" y="185" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#888888">Beispiel-Abbildung</text>
+  <text x="400" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#aaaaaa">Ersetze diese Datei durch dein eigenes Bild</text>
+  <text x="400" y="245" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#bbbbbb">PNG · JPEG · SVG · GIF</text>
+</svg>

@@ -1,0 +1,28 @@
+[package]
+name = "basho"
+version = "0.1.0"
+authors = ["KoyaTofu"]
+description = "Render vertical Japanese text (tategaki)."
+entrypoint = "lib.typ"
+compiler = "0.14.0"
+repository = "https://github.com/KoyaTofu42/typst-basho"
+exclude = ["*.pdf", "/example", "/test", "/docs"]
+keywords = [
+  "vertical",
+  "Japanese",
+  "日本語",
+  "tategaki",
+  "縦書き",
+  "yokogaki",
+  "横書き",
+  "typesetting",
+  "typography",
+  "writing-mode",
+  "ruby",
+  "furigana",
+  "ルビ",
+  "振り仮名",
+]
+categories = ["layout", "text", "languages"]
+disciplines = ["linguistics"]
+license = "MIT"

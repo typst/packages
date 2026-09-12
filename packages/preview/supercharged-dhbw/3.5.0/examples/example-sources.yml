@@ -1,0 +1,13 @@
+examplesource:
+  type: article
+  title: "Example article about an important topic"
+  authors:
+  - name: Seidel, Danny
+  - name: Gingele, Thomas
+  volume: 5
+  page-range: 123-456
+  date: 2024-08-01
+  serial-number:
+    doi: IMPORTANT/10.123456789
+  parent:
+    title: "Very important internation conference"

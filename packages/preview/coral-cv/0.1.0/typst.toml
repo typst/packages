@@ -1,0 +1,15 @@
+[package]
+name = "coral-cv"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["BriceLucifer <@BriceLucifer>"]
+license = "MIT-0"
+description = "Elegant coral-accented CV and cover letter for job applications."
+keywords = ["cv", "resume", "cover-letter"]
+categories = ["cv"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
