@@ -1,5 +1,5 @@
 [package]
-name = "Jufe-master-thesis-template"
+name = "jufe-master-thesis-template"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["MaxforCherubim"]
