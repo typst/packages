@@ -13,6 +13,8 @@ que reemplaces el texto de ejemplo y empieces a escribir de inmediato.
 > adaptada y traducida para la UNI por **Aarón Flores Alberca**
 > ([@bxcowo](https://github.com/bxcowo)). Licencia MIT.
 
+![Portada de la plantilla](preview.png)
+
 ## Características
 
 - **Portada institucional** con el logo de la UNI y el nombre de la universidad
