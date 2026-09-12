@@ -94,7 +94,7 @@ Context.
 
 #kouhu(builtin-text: "aspirin", indices: 2, length: 50)
 #figure(
-  tlt("./tables/筛分粒度组成.xlsx"),
+  tlt("./tables/筛分粒度组成.xlsx", here()),
   caption: [筛分粒度组成],
 ) <表1>
 注：如有需要可对表格进行注释说明。
