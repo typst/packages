@@ -1,0 +1,17 @@
+[package]
+name = "check-six"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Dottellini <@Dottellini>"]
+license = "MIT"
+description = "A simple, dotted-leader checklist layout for procedure checklists (e.g. for aviation)."
+repository = "https://github.com/Dottellini/check-six"
+keywords = ["checklist", "aviation", "flight-simulation", "template", "procedure"]
+categories = ["utility", "layout", "office"]
+disciplines = ["engineering"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
