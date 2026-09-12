@@ -654,8 +654,7 @@
 }
 
 //! 设置三线表格式
-#let tlt(path-str) = {
-  let table-path = path(path-str)
+#let tlt(table-path) = {
   let data = read(table-path, encoding: none)
   xlsx-parser(
     data,
