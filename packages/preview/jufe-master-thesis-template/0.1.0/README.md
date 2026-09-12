@@ -1,4 +1,4 @@
-[![jufe-logo](assets/江西财经大学-logo.svg)](https://www.jxufe.edu.cn/)
+[![江西财经大学logo](assets/江西财经大学-logo.svg)](https://www.jxufe.edu.cn/)
 
 # 江西财经大学硕士毕业论文Typst模板
 
