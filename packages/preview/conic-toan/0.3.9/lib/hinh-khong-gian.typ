@@ -22,6 +22,44 @@
   if them != none { them(ctx, dinh) }
 }
 
+// Chọn góc trống quanh một đỉnh để đặt nhãn. Khác `huong-ra` (chỉ nhìn
+// trọng tâm), helper này tránh trực tiếp mọi cạnh kề đỉnh; nếu hai hướng
+// thoáng tương đương thì ưu tiên hướng ra ngoài hình theo G.
+#let _huong-goc-trong(P, hang-xom, G: none) = {
+  let ung-vien = (
+    ("phai",      (1.0,  0.0)),
+    ("tren-phai", (0.7,  0.7)),
+    ("tren",      (0.0,  1.0)),
+    ("tren-trai", (-0.7, 0.7)),
+    ("trai",      (-1.0, 0.0)),
+    ("duoi-trai", (-0.7, -0.7)),
+    ("duoi",      (0.0, -1.0)),
+    ("duoi-phai", (0.7, -0.7)),
+  )
+  let ngoai = if G == none { (0.0, 0.0) } else {
+    let dx = P.at(0) - G.at(0)
+    let dy = P.at(1) - G.at(1)
+    let l = calc.sqrt(dx * dx + dy * dy)
+    if l == 0 { (0.0, 0.0) } else { (dx / l, dy / l) }
+  }
+  let tot-nhat = none
+  for uv in ung-vien {
+    let v = uv.at(1)
+    let vl = calc.sqrt(v.at(0) * v.at(0) + v.at(1) * v.at(1))
+    // `sat`: cos lớn nhất với một cạnh kề; càng nhỏ thì hướng càng thoáng.
+    let sat = calc.max(..hang-xom.map(Q => {
+      let dx = Q.at(0) - P.at(0)
+      let dy = Q.at(1) - P.at(1)
+      let l = calc.sqrt(dx * dx + dy * dy)
+      (v.at(0) * dx + v.at(1) * dy) / (vl * l)
+    }))
+    let uu-tien-ngoai = (v.at(0) * ngoai.at(0) + v.at(1) * ngoai.at(1)) / vl
+    let muc = sat - 0.08 * uu-tien-ngoai
+    if tot-nhat == none or muc < tot-nhat.at(0) { tot-nhat = (muc, uv.at(0)) }
+  }
+  tot-nhat.at(1)
+}
+
 // ---------- HÌNH CHÓP TAM GIÁC S.ABC ----------
 // duong-cao: none | "tam" (chân H trong tam giác) | "dinh-a" (SA vuông đáy)
 #let hinh-chop-tam-giac(
@@ -387,9 +425,17 @@
       if duong-cheo {
         doan(ctx, d.A, d.C1, mau: mau-phu, day: 1pt, dut: true)
       }
-      let G = trong-tam(d.A, d.C1)
-      for (P, t) in ((d.A, d.B, d.C, d.D, d.A1, d.B1, d.C1, d.D1).zip(ten)) {
-        diem(ctx, P, ten: t, huong: huong-ra(P, G))
+      let G = trong-tam(d.A, d.B, d.C, d.D, d.A1, d.B1, d.C1, d.D1)
+      let dinh = (d.A, d.B, d.C, d.D, d.A1, d.B1, d.C1, d.D1)
+      let ke = (
+        (d.B, d.D, d.A1), (d.A, d.C, d.B1),
+        (d.B, d.D, d.C1), (d.A, d.C, d.D1),
+        (d.B1, d.D1, d.A), (d.A1, d.C1, d.B),
+        (d.B1, d.D1, d.C), (d.A1, d.C1, d.D),
+      )
+      for (i, cap) in dinh.zip(ten).enumerate() {
+        let (P, t) = cap
+        diem(ctx, P, ten: t, huong: _huong-goc-trong(P, ke.at(i), G: G))
       }
       goi-them(them, ctx, d)
     },
@@ -434,8 +480,14 @@
   doan(ctx, d.A, d.C, mau: mau, day: day, dut: true)
   doan(ctx, d.B, d.C, mau: mau, day: day, dut: true)
   let G = trong-tam(d.A, d.B, d.C, d.A1, d.B1, d.C1)
-  for (P, t) in ((d.A, d.B, d.C, d.A1, d.B1, d.C1).zip(ten)) {
-    diem(ctx, P, ten: t, huong: huong-ra(P, G))
+  let dinh = (d.A, d.B, d.C, d.A1, d.B1, d.C1)
+  let ke = (
+    (d.B, d.C, d.A1), (d.A, d.C, d.B1), (d.A, d.B, d.C1),
+    (d.B1, d.C1, d.A), (d.A1, d.C1, d.B), (d.A1, d.B1, d.C),
+  )
+  for (i, cap) in dinh.zip(ten).enumerate() {
+    let (P, t) = cap
+    diem(ctx, P, ten: t, huong: _huong-goc-trong(P, ke.at(i), G: G))
   }
   goi-them(them, ctx, d)
 })
@@ -855,8 +907,16 @@
     }
     let Gb = trong-tam(..B2)
     let Gt = trong-tam(..T2)
-    for i in range(n) { diem(ctx, B2.at(i), ten: ten.at(i), huong: huong-ra(B2.at(i), Gt)) }
-    for i in range(n) { diem(ctx, T2.at(i), ten: ten.at(i + n), huong: huong-ra(T2.at(i), Gb)) }
+    for i in range(n) {
+      let truoc = calc.rem(i + n - 1, n)
+      let sau = calc.rem(i + 1, n)
+      diem(ctx, B2.at(i), ten: ten.at(i), huong: _huong-goc-trong(
+        B2.at(i), (B2.at(truoc), B2.at(sau), T2.at(i)), G: Gb,
+      ))
+      diem(ctx, T2.at(i), ten: ten.at(i + n), huong: _huong-goc-trong(
+        T2.at(i), (T2.at(truoc), T2.at(sau), B2.at(i)), G: Gt,
+      ))
+    }
     if them != none { them(ctx, (duoi: B3, tren: T3)) }
   })
 }
@@ -910,8 +970,16 @@
     }
     let Gb = trong-tam(..B2)
     let Gt = trong-tam(..T2)
-    for i in range(n) { diem(ctx, B2.at(i), ten: ten2.at(i), huong: huong-ra(B2.at(i), Gt)) }
-    for i in range(n) { diem(ctx, T2.at(i), ten: ten2.at(i + n), huong: huong-ra(T2.at(i), Gb)) }
+    for i in range(n) {
+      let truoc = calc.rem(i + n - 1, n)
+      let sau = calc.rem(i + 1, n)
+      diem(ctx, B2.at(i), ten: ten2.at(i), huong: _huong-goc-trong(
+        B2.at(i), (B2.at(truoc), B2.at(sau), T2.at(i)), G: Gb,
+      ))
+      diem(ctx, T2.at(i), ten: ten2.at(i + n), huong: _huong-goc-trong(
+        T2.at(i), (T2.at(truoc), T2.at(sau), B2.at(i)), G: Gt,
+      ))
+    }
     if them != none { them(ctx, (duoi: B3, tren: T3)) }
   })
 }
