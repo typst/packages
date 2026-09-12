@@ -1,9 +1,6 @@
-# ctheorems / typst-theorems
+# ctheorems
 
-An implementation of numbered theorem environments in
-[typst](https://github.com/typst/typst).
-Available as [ctheorems](https://typst.app/universe/package/ctheorems) in the
-official Typst [universe](https://typst.app/universe).
+An implementation of numbered theorem environments.
 Import with
 
 ```typst
