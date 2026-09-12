@@ -1,0 +1,16 @@
+[package]
+name = "classic-uni-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aarón Flores Alberca <@bxcowo>", "Alejandro Cobos <@Cobos-Bioinfo>"]
+license = "MIT AND MIT-0"
+description = "Tesis de pregrado de la Universidad Nacional de Ingeniería."
+repository = "https://github.com/bxcowo/classic-uni-thesis"
+keywords = ["thesis", "tesis", "pregrado", "universidad nacional de ingeniería", "uni"]
+categories = ["thesis", "report"]
+compiler = "0.15.1"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
