@@ -1,0 +1,17 @@
+[package]
+name = "jufe-master-thesis-template"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["MaxforCherubim"]
+license = "MIT"
+description = "江西财经大学硕士论文模板"
+repository = "https://github.com/MaxforCherubim/Jufe-master-thesis-Typst-template"
+keywords = ["Jiangxi University of Finance and Economics", "thesis"]
+categories = ["thesis"]
+exclude = ["images"]
+compiler = "0.14.2"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
