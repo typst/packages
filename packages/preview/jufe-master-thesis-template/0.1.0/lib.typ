@@ -306,7 +306,7 @@
   place(
     dx: -0.29cm,
     dy: 0.33cm,
-    image("./assets/江西财经大学相关元素/硕士毕业论文封面logo.png", width: 6.78cm),
+    image("./assets/硕士毕业论文封面logo.png", width: 6.78cm),
   )
 
   //! 出版信息
