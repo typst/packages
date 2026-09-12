@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "@preview/jufe-master-thesis-template:0.1.0": *
 
 //! 封面
 #cover(

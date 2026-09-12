@@ -1,8 +1,8 @@
-[![jxufe](assets/江西财经大学-logo.svg)](https://www.jxufe.edu.cn/)
+[![jufe](assets/江西财经大学-logo.svg)](https://www.jxufe.edu.cn/)
 
 # 江西财经大学硕士毕业论文Typst模板
 
-![GitHub License](https://img.shields.io/github/license/MaxforCherubim/Jxufe-master-thesis-Typst-template)
+![GitHub License](https://img.shields.io/github/license/MaxforCherubim/jufe-master-thesis-Typst-template)
 
 为酱菜学子提供方便好用的硕士毕业论文Typst模板
 
@@ -19,9 +19,9 @@
 
 ## 项目概述​
 
-- 本项目为[江西财经大学硕士毕业论文全流程](https://github.com/MaxforCherubim/Jxufe-master-thesis-process)的子项目
+- 本项目为[江西财经大学硕士毕业论文全流程](https://github.com/MaxforCherubim/jufe-master-thesis-process)的子项目
 - 项目起初源于给导师的审阅稿和查重稿，使用的是Typst工具
-- 本项目在[Github](https://github.com/MaxforCherubim/Jxufe-master-thesis-Typst-template)和[Gitee](https://gitee.com/maxforcherubim/Jxufe-master-thesis-Typst-template)上同步更新，欢迎各位学弟学妹提交反馈，共同完善此模板
+- 本项目在[Github](https://github.com/MaxforCherubim/jufe-master-thesis-Typst-template)和[Gitee](https://gitee.com/maxforcherubim/jufe-master-thesis-Typst-template)上同步更新，欢迎各位学弟学妹提交反馈，共同完善此模板
 
 > [Typst](https://typst.app/)是一款可用于出版的可编程标记语言，定位与[$\LaTeX$](https://www.latex-project.org/) 相似
 
@@ -41,8 +41,8 @@
 
 ## 注意事项​
 
-1. 本项目较为傻瓜，安装好Typst和Vscode对应的Tinymist Typst插件后，就可以运行本项目，完成自己的论文而无需关系格式问题。如果在使用过程中产生了多种问题，请在[讨论区](https://github.com/MaxforCherubim/Jxufe-thesis-defence-Revealjs-template/discussions)创建相关讨论，我都会尽力解答的
-2. 由于Tpyst也在不断更新，可能会导致本项目产生Bug，除此之外还可能会有其他Bug，请在Github上提交[issues](https://github.com/MaxforCherubim/Jxufe-thesis-defence-Revealjs-template/issues)，我会及时修复
+1. 本项目较为傻瓜，安装好Typst和Vscode对应的Tinymist Typst插件后，就可以运行本项目，完成自己的论文而无需关系格式问题。如果在使用过程中产生了多种问题，请在[讨论区](https://github.com/MaxforCherubim/jufe-thesis-defence-Revealjs-template/discussions)创建相关讨论，我都会尽力解答的
+2. 由于Tpyst也在不断更新，可能会导致本项目产生Bug，除此之外还可能会有其他Bug，请在Github上提交[issues](https://github.com/MaxforCherubim/jufe-thesis-defence-Revealjs-template/issues)，我会及时修复
 
 ## 贡献指南​
 
