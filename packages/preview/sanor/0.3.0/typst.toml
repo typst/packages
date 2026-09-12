@@ -1,1 +1,11 @@
-
+[package]
+name = "sanor"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["pacaunt <@pacaunt>"]
+license = "MIT"
+compiler = "0.14.2"
+repository = "https://github.com/pacaunt/sanor"
+description = "Precise animated presentation utility"
+categories = ["utility", "presentation"]
+exclude = ["/gallery/*", "/docs/*"]
