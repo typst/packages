@@ -69,7 +69,7 @@ Context.
 #lorem(10)
 #kouhu(builtin-text: "aspirin", indices: 2, length: 10)
 #figure(
-  image("../imgs/论文流程图.png", width: 90%),
+  image("./imgs/论文流程图.png", width: 90%),
   caption: [论文流程图],
 ) <图2.1>
 
@@ -79,7 +79,7 @@ Context.
 
 数据清洗流程图如下#[@图3.1]所示
 #figure(
-  image("../imgs/数据清洗流程图.png", width: 90%),
+  image("./imgs/数据清洗流程图.png", width: 90%),
   caption: [数据清洗流程图],
 ) <图3.1>
 注：如有需要可对图片进行注释说明。
@@ -94,7 +94,7 @@ Context.
 
 #kouhu(builtin-text: "aspirin", indices: 2, length: 50)
 #figure(
-  tlt("../tables/筛分粒度组成.xlsx"),
+  tlt("./tables/筛分粒度组成.xlsx"),
   caption: [筛分粒度组成],
 ) <表1>
 注：如有需要可对表格进行注释说明。
@@ -129,7 +129,7 @@ $ n_w / n_d dot log N / (N_w + 1) $
 #show heading.where(level: 1): set align(center)
 #set heading(level: 1, numbering: none)
 #bibliography(
-  "../refs.bib",
+  "./refs.bib",
   style: "gb-7714-2015-numeric",
   title: [参 考 文 献],
 )
