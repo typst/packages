@@ -8,7 +8,7 @@
 
 | 硕士（学术 / 专业学位） | 本科毕业设计（论文） |
 |---|---|
-| ![硕士预览：封面 / 目录 / 正文](https://raw.githubusercontent.com/CoderJackZhu/modern-xdu-thesis/main/docs/images/preview.png) | ![本科预览：封面 / 目录 / 正文](https://raw.githubusercontent.com/CoderJackZhu/modern-xdu-thesis/main/docs/images/preview-bachelor.png) |
+| ![硕士预览：封面 / 目录 / 正文](https://raw.githubusercontent.com/CoderJackZhu/modern-xdu-thesis/053e54ad89df3c4ef4008435e24f7650d97c8f00/docs/images/preview.png) | ![本科预览：封面 / 目录 / 正文](https://raw.githubusercontent.com/CoderJackZhu/modern-xdu-thesis/053e54ad89df3c4ef4008435e24f7650d97c8f00/docs/images/preview-bachelor.png) |
 
 ## 特性
 
@@ -48,7 +48,7 @@
 
 ## 快速开始
 
-包已提交 Typst Universe（[typst/packages#5822](https://github.com/typst/packages/pull/5822)），
+包已提交 Typst Universe（[typst/packages#5823](https://github.com/typst/packages/pull/5823)），
 **发布后一条命令即可创建项目**：
 
 ```bash
@@ -57,7 +57,8 @@ cd my-thesis && typst compile thesis.typ                # 编译出 PDF
 ```
 
 本科没有 `[template]` 入口（一个包只能声明一份默认模板，已留给硕士），
-把 [`examples/bachelor-thesis.typ`](examples/bachelor-thesis.typ) 复制到自己的项目后编译即可。
+把 [`examples/bachelor-thesis.typ`](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/053e54ad89df3c4ef4008435e24f7650d97c8f00/examples/bachelor-thesis.typ)
+复制到自己的项目后编译即可。
 
 发布前（或想直接用仓库里的开发版）：
 
@@ -94,12 +95,12 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
   info: (
     title: ("论文题目第一行", "论文题目第二行"),
     author: "张三",
-    department: "人工智能学院",
-    major: "智能科学与技术",
+    department: "电子工程学院",
+    major: "电子信息工程",
     supervisor: ("李四", "王五"),
     class-id: "2101011",
     student-id: "21010100001",
-    abstract: [中文摘要……],
+    abstract: [这里填写中文摘要。],
     abstract-en: [English abstract...],
     keywords: ("关键词一", "关键词二", "关键词三"),
     keywords-en: ("keyword one", "keyword two", "keyword three"),
@@ -139,8 +140,8 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
 | `school-code` / `clc` / `student-id` / `secret-level` | 题名页左上角信息栏（西电代码 `10701`） |
 | `abstract` / `keywords` | 中文摘要与关键词 |
 | `abstract-en` / `keywords-en` | 英文摘要与关键词 |
-| `notation` | 符号对照表，`(("α", "路径损耗指数"), …)` |
-| `abbreviations` | 缩略语对照表，`(("MIMO", "全称", "中文"), …)` |
+| `notation` | 符号对照表，如 `(("α", "路径损耗指数"), ("β", "衰减系数"))` |
+| `abbreviations` | 缩略语对照表，如 `(("MIMO", "Multiple-Input Multiple-Output", "多输入多输出"),)` |
 
 关键词写成数组，模板会按「逗号 + 空格」分隔并处理末尾标点。
 
@@ -183,7 +184,7 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
 #show: mainmatter.with(header-title: "西安电子科技大学硕士学位论文")
 
 = 第一章 绪论
-…
+这里填写正文内容。
 
 #pagebreak(to: "odd")
 #appendix()                     // 附录
@@ -212,13 +213,13 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
 
 #show: mainmatter
 = 引言
-…
+这里填写正文内容。
 
-#appendix(title: "补充材料", body: […])
+#appendix(title: "补充材料", body: [这里填写附录内容。])
 #pagebreak(to: "odd")
 #acknowledgement()
 #pagebreak(to: "odd")
-#references(entries: (…))
+#references(entries: ("作者. 题名[M]. 北京: 出版社, 1993.",))
 ```
 
 封面默认输出并自动留空背面。`cover-enabled: false` 时 `cover()` 不输出内容，可插入学院提供的封面。
@@ -243,7 +244,7 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
 #figure(image("fig.png", width: 80%),
   caption: [毫米波大规模 MIMO 系统框图])      // 图题在下，编号「图 2.1」
 
-#figure(table(columns: 3, [参数], [符号], [取值], …),
+#figure(table(columns: 3, [参数], [符号], [取值], [载波频率], [$f_c$], [28 GHz]),
   caption: [仿真参数设置])                    // 表题在上，「表 2.1」
 
 $ bold(y) = bold(A) bold(h) + bold(n) $       // 公式编号「(2-1)」，右对齐
@@ -265,7 +266,7 @@ $ bold(y) = bold(A) bold(h) + bold(n) $       // 公式编号「(2-1)」，右�
 末尾在**论文文件里**构造好 bibliography，再交给 `#references`：
 
 ```typ
-正文……#cite(<koseki2002>)。          // 输出上标 [1]
+正文中的引用示例 #cite(<koseki2002>)。 // 输出上标 [1]
 
 #references(body: bibliography(
   "/refs.bib", style: "gb-7714-2015-numeric", title: none,
@@ -279,7 +280,10 @@ Typst 会**在包内部**解析它，指向包目录而不是你的项目，所�
 也可以直接把排好的条目交给模板：
 
 ```typ
-#references(entries: ("作者. 题名[M]. 北京: 出版社, 1993.", …))
+#references(entries: (
+  "作者甲. 题名[M]. 北京: 出版社, 1993.",
+  "作者乙. 题名[J]. 期刊, 2024, 1(1): 1-10.",
+))
 ```
 
 ### 盲审模式
@@ -288,7 +292,7 @@ Typst 会**在包内部**解析它，指向包目录而不是你的项目，所�
 作者简介中的本文作者姓名替换为「（盲审隐去）」，**保留「第一作者」「第一发明人」等排序标记**，
 合作者署名按惯例保留。
 
-`author` 这类信息写成字符串时模板会自动隐去；写成 markup（`[…]`）的内容模板无法改写，需要自行处理。
+`author` 这类信息写成字符串时模板会自动隐去；写成 markup（如 `[自定义内容]`）时模板无法改写，需要自行处理。
 
 ## 常见问题
 
@@ -328,7 +332,7 @@ Typst 会**在包内部**解析它，指向包目录而不是你的项目，所�
 
 ## 目录结构
 
-```
+```text
 lib.typ          硕士包入口，并导出 bachelor 模块命名空间
 bachelor.typ     本科独立实现入口，bachelor.documentclass(info:, cover-enabled:)
 bachelor/        本科专用版式、页面与正文规则（不导入硕士 layouts/pages）
