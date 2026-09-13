@@ -1,0 +1,10 @@
+[package]
+name = "cbcp"
+version = "0.1.0"
+entrypoint = "typst/cbcp.typ"
+authors = ["Julian Y. Richard Corbet <@julian-corbet>"]
+license = "LGPL-3.0-only WITH LicenseRef-corbet-linking-exception"
+description = "Deterministic BCP 47 locale-ID casting and vendor code mapping."
+repository = "https://github.com/corbet-labs/cbcp"
+keywords = ["locale", "bcp47", "i18n"]
+categories = ["text", "languages"]
