@@ -33,7 +33,7 @@
 
   // 顶部信息栏两栏：左 30mm 起（学校代码 / 分类号），右 140mm 起（学号 / 密级）
   let 左栏 = (("学校代码", info.school-code), ("分类号", info.clc))
-  let 右栏 = (("学　　号", info.student-id), ("密　　级", info.secret-level))
+  let 右栏 = (("学　　号", if blind { "" } else { info.student-id }), ("密　　级", info.secret-level))
 
   // 学硕 / 专硕字段表（唯一差异）
   let 学硕 = (

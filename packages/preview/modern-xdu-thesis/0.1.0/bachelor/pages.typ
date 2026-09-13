@@ -140,7 +140,7 @@
 }
 
 #let references(
-  info: (:), fonts: (:), title: "参考文献", body: none, bib: none, entries: none, 双语: true,
+  info: (:), fonts: (:), title: "参考文献", body: none, entries: none, 双语: true,
 ) = {
   let 字体集 = 字体 + fonts
   let 条目 = if entries != none { entries } else { info.at("references", default: ()) }
@@ -153,9 +153,6 @@
     top-edge: 上伸, bottom-edge: "baseline")
   if body != none {
     body
-  } else if bib != none {
-    let 文献 = bibliography(bib, style: "gb-7714-2015-numeric", title: none)
-    if 双语 { 双语文献(文献) } else { 文献 }
   } else {
     set par(hanging-indent: 9mm, first-line-indent: (amount: 0pt, all: true))
     for (i, e) in 条目.enumerate() {

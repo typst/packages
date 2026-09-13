@@ -38,7 +38,7 @@
 
   set text(font: 字体集.宋体, size: 12pt, lang: "zh",
     top-edge: 正文Δ, bottom-edge: "baseline")
-  set par(leading: 20pt - 正文Δ, spacing: 20pt - 正文Δ)
+  set par(leading: 20pt - 正文Δ, spacing: 20pt - 正文Δ, first-line-indent: 0pt)
 
   // 表头行：基线 57.61mm（显式定位，不依赖流式间距）
   place(top + left, dx: 0mm, dy: 到内容区(57.61mm) - 正文Δ,
@@ -49,11 +49,12 @@
     ))))
 
   // 数据行：首行基线 64.64mm（表头 + 20 磅），行距固定 20 磅
-  place(top + left, dx: 0mm, dy: 到内容区(64.64mm) - 正文Δ,
-    pad(left: 4.13mm, box(width: 155mm, grid(
+  v(到内容区(64.64mm) - 正文Δ)
+  block(breakable: true, above: 0pt, below: 0pt,
+    pad(left: 4.13mm, grid(
       columns: (64.23mm, 1fr),    // 98.36 − 34.13
       row-gutter: 20pt - 正文Δ,    // grid 行不受 par leading 控制，需显式补偿
       align: (left, left),
       ..数据.map(((a, b)) => (text(a), text(b))).flatten(),
-    ))))
+    )))
 }

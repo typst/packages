@@ -10,9 +10,8 @@
 //
 // 两种给文献的方式，二选一：
 //
-//   ① `bib: "refs.bib"`  —— **推荐**。用 Typst 内置的 `gb-7714-2015-numeric`
-//      （GB/T 7714-2015，依据官方新版类 xdupgthesis.cls 的默认设置），条目格式自动生成，
-//      正文里用 `#引用(1)` 标注引用序号。无需任何外部依赖。
+//   ① `body: bibliography("refs.bib", style: "gb-7714-2015-numeric", title: none)`
+//      在论文文件中构造文献，路径相对于该文件解析；正文用 `#cite(<key>)`。
 //
 //   ② `entries: ("已排好的条目文本", ...)` 或 `info.references` —— 手工排好的条目，
 //      版式由本模板控制（首行缩进 1.85mm、续行回到左边界，与官方一致）。
@@ -28,11 +27,12 @@
 #let 正文Δ = 基线偏移(20pt, 12pt)
 #let 条目Δ = 基线偏移(20pt, 10.5pt)
 #let 固定标题 = "西安电子科技大学硕士学位论文"
-// GB/T 7714-2015（格式规格 §6）。Typst 0.15 内置，实测可用。
+// 文献样式由调用方在自己的 bibliography(…) 里指定：GB/T 7714-2015（格式规格 §6）。
+// Typst 0.15 内置 gb-7714-2015-numeric，实测可用；本模板不再替调用方解析 .bib 路径，
+// 因此这里没有样式常量可给（原 `文献样式` 随 bib: 参数一并移除）。
 // 2026-09 由 2005 切换为 2015：官方新版类 xdupgthesis.cls 默认 biblatex + gb7714-2015，
 // 且一份已过检的真实论文即用该新版类；官方 Word 原文写 2005、旧类亦为 2005，两版仅差
 // @standard 的 [M]/[Z]，切换后需重新验收。
-#let 文献样式 = "gb-7714-2015-numeric"
 
 #let references(
   degree: "academic",
@@ -40,9 +40,7 @@
   fonts: (:),
   info: (:),
   title: "参考文献",
-  bib: none,
-  // 文档侧构造好的 bibliography（推荐用法）。bib 参数保留兼容，但其路径在包内解析，
-  // 对使用者不可用 —— 详见 docs/实现笔记.md 的「参考文献」一节。
+  // 文档侧构造好的 bibliography（推荐用法），路径由调用方解析。
   body: none,
   entries: none,
   // 中文文献用「等」、英文文献用「et al.」——Typst 只能整篇统一选择，故这里做后处理。
@@ -79,15 +77,6 @@
       双语文献(body)
     } else {
       body
-    }
-  } else if bib != none {
-    // ① 由 .bib 自动生成 GB/T 7714-2015 格式；标题已由页面大标题给出，故 title: none
-    show bibliography: set text(font: 字体集.宋体, size: 10.5pt, lang: "zh",
-      top-edge: 条目Δ, bottom-edge: "baseline")
-    if 双语 {
-      双语文献(bibliography(bib, style: 文献样式, title: none))
-    } else {
-      bibliography(bib, style: 文献样式, title: none)
     }
   } else {
     // ② 手工条目。缩进实测（两份官方实现一致）：

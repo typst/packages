@@ -184,8 +184,9 @@
 // 一行索引条目：左内容 + 点填充 + 右对齐页码（页码右边界 185mm）
 // 注意：页码列必须给**固定宽度**：auto 列会让贪婪的 repeat 把页码挤到正文区外
 //    （实测：auto → 点填充撑到 185、页码消失；12mm → 点填充止于 173、页码右对齐到 185）
-#let 索引条目(左内容, 页码) = grid(
-  columns: (auto, 1fr, 12mm),
+#let 索引条目(左内容, 页码) = context grid(
+  // 短题注保留原宽度；长题注最多占剩余版心，允许自然换行。
+  columns: (calc.min(measure(左内容).width, 139mm), 1fr, 12mm),
   column-gutter: 2mm,
   align: (left, left, right),
   左内容, 点填充, box(width: 12mm, align(right, 页码)),
@@ -259,7 +260,11 @@
   let 标题 = if type(info.title) == str { info.title } else { info.title.join(" ") }
   set document(
     title: 标题,
-    author: info.author,
+    // 盲审不写作者；富文本仅用于可见页面，不能交给 PDF 元数据。
+    author: if not blind and (type(info.author) == str or
+      (type(info.author) == array and info.author.all(a => type(a) == str))) {
+      info.author
+    } else { () },
   )
 
   // 5. 暴露关键常量给后续页面使用（通过状态变量）

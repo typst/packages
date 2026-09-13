@@ -108,7 +108,6 @@
 #abstract()
 
 #pagebreak(to: "odd")
-#counter(page).update(3)
 #abstract-en()
 
 // ============================================================
@@ -116,23 +115,18 @@
 // ============================================================
 
 #pagebreak(to: "odd")
-#counter(page).update(5)
 #list-of-figures()
 
 #pagebreak(to: "odd")
-#counter(page).update(7)
 #list-of-tables()
 
 #pagebreak(to: "odd")
-#counter(page).update(9)
 #notation()
 
 #pagebreak(to: "odd")
-#counter(page).update(11)
 #abbreviations()
 
 #pagebreak(to: "odd")
-#counter(page).update(13)
 #outline-page()
 
 // ============================================================

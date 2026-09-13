@@ -6,7 +6,7 @@
 // - 条目：`图 <章-序> <题> …… <页码>`，12pt，首条基线 61.12mm，
 //   行距固定 20 磅，页码右对齐到 185mm（30~185 为正文宽）
 // - 数据来源：query(figure.where(kind: image))；编号为分章编号（格式规格 §2.5）
-// - 每条显式绝对定位，避免流式间距污染行网格
+// - 条目进入文档流，长题注与续页沿用固定行距
 
 #import "../layouts/doc.typ": 基线偏移, 到内容区, 页眉, 默认页脚, 上边距, 页眉顶, 页面大标题, 索引条目
 #import "../utils/style.typ": 字体 as 字体集
@@ -35,7 +35,8 @@
 
   set text(font: 字体集.宋体, size: 12pt, lang: "zh",
     top-edge: 正文Δ, bottom-edge: "baseline")
-  set par(leading: 20pt - 正文Δ, spacing: 20pt - 正文Δ)
+  set par(leading: 20pt - 正文Δ, spacing: 20pt - 正文Δ, first-line-indent: 0pt)
+  v(到内容区(61.12mm) - 正文Δ)
 
   // 让 索引题注() 知道现在渲染的是索引（状态更新要在 context 之外，故写成块）
   索引中.update(true)
@@ -48,15 +49,13 @@
     // （上游 issue：typst/typst#3994 → #1880，维护者认可为 bug。）
     show cite: it => none
     let 列表 = query(figure.where(kind: image))
-    for (i, f) in 列表.enumerate() {
+    for f in 列表 {
       // 注意：编号必须按**元素自身位置**求章号：写成 numbering(f.numbering, …) 时，
       //    编号函数里的 章号.get() 是在**索引页**求值（那时一章都还没有）→ 会得到「图 0.1」。
       let loc = f.location()
       // 必须写成一行：Typst 里行首的 `+` 会被解析成一元加号（或列表标记）
       let 编号 = numbering("1", 章号.at(loc).first()) + "." + numbering("1", ..f.counter.at(loc))
-      place(top + left, dx: 0mm,
-        dy: 到内容区(61.12mm) + 20pt * i - 正文Δ,
-        box(width: 155mm, 索引条目(
+      block(width: 155mm, above: 0pt, below: 20pt - 正文Δ, breakable: true, 索引条目(
           // 用 + 显式拼接，避免 markup 换行混入空格影响对齐
           text(font: 字体集.宋体, "图")
           + h(0.5em)                                     // 前缀→编号：官方 30.00→36.35
@@ -72,8 +71,7 @@
             let 样式 = loc.page-numbering()
             if 样式 == none { str(号) } else { numbering(样式, 号) }
           }),
-        )),
-      )
+        ))
     }
   }
   索引中.update(false)

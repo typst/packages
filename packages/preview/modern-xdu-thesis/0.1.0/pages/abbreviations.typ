@@ -40,7 +40,7 @@
 
   set text(font: 字体集.宋体, size: 12pt, lang: "zh",
     top-edge: 正文Δ, bottom-edge: "baseline")
-  set par(leading: 20pt - 正文Δ, spacing: 20pt - 正文Δ)
+  set par(leading: 20pt - 正文Δ, spacing: 20pt - 正文Δ, first-line-indent: 0pt)
 
   // 表头行：基线 57.61mm（显式定位）
   place(top + left, dx: 0mm, dy: 到内容区(57.61mm) - 正文Δ,
@@ -51,11 +51,12 @@
     ))))
 
   // 数据行：首行基线 64.64mm，行距固定 20 磅
-  place(top + left, dx: 0mm, dy: 到内容区(64.64mm) - 正文Δ,
-    pad(left: 5.19mm, box(width: 155mm, grid(
+  v(到内容区(64.64mm) - 正文Δ)
+  block(breakable: true, above: 0pt, below: 0pt,
+    pad(left: 5.19mm, grid(
       columns: (40.94mm, 43.05mm, 1fr),
       row-gutter: 20pt - 正文Δ,
       align: (left, left, left),
       ..数据.map(((a, b, c)) => (text(a), text(b), text(c))).flatten(),
-    ))))
+    )))
 }
