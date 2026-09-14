@@ -2,3 +2,8 @@
 name = "thu-phys-Touying"
 version = "0.1.0"
 entrypoint = "theme.typ"
+authors = [ "Chenyang Wang <https://github.com/Chenyang-Wang-1999>" ]
+license = "MIT"
+description = "A Touying template for THU physics presentations."
+categories = [ "Presentation" ]
+exclude = [ "/gallery/*", "/tools/*" ]
