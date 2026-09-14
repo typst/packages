@@ -1,4 +1,4 @@
-# Shuimu-Touying-zen: Minimalist Tsinghua Theme for Touying
+# Shuimu-touying-zen: Minimalist Tsinghua Theme for Touying
 
 English | [简体中文](README.zh.md)
 
@@ -26,7 +26,7 @@ Minimal example:
 
 ```typst
 #import "@preview/touying:0.7.4": *
-#import "@preview/shuimu-Touying-zen:0.1.0": *
+#import "@preview/shuimu-touying-zen:0.1.0": *
 
 #show: group-meeting-theme.with(
   config-info(

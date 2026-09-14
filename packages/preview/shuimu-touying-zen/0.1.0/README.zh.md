@@ -1,4 +1,4 @@
-# Shuimu-Touying-zen: 清华简约主题 Touying 模板
+# Shuimu-touying-zen: 清华简约主题 Touying 模板
 
 [English](README.md) | 简体中文
 
@@ -26,7 +26,7 @@ typst watch main.typ main.pdf
 
 ```typst
 #import "@preview/touying:0.7.4": *
-#import "@preview/shuimu-Touying-zen:0.1.0": *
+#import "@preview/shuimu-touying-zen:0.1.0": *
 
 #show: group-meeting-theme.with(
   config-info(

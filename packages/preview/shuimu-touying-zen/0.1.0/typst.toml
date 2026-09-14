@@ -1,5 +1,5 @@
 [package]
-name = "shuimu-Touying-zen"
+name = "shuimu-touying-zen"
 version = "0.1.0"
 entrypoint = "theme.typ"
 authors = [ "Chenyang Wang <https://github.com/Chenyang-Wang-1999>" ]
