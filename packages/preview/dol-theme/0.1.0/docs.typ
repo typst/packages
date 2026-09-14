@@ -1,4 +1,4 @@
-#import "dol-theme.typ": *
+#import "@preview/dol-theme:0.1.0": *
 
 #let version = "0.1.0"
 
