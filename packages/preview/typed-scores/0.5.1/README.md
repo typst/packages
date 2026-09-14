@@ -248,6 +248,7 @@ before the next bar. Set `bar-numbers` to
 | `/` | Break the automatic beam before the next event |
 | `-` | Join the adjacent flagged events into one beam group |
 | `tuplet 3:2 { c:e d e }` | Inline time-scaled music group |
+| `cue { c:e d }` | Cue-sized notes that keep their rhythmic value |
 | `acciaccatura { d:e } f:q` | Slashed single grace note resolving to F |
 | `tremolo 16 { c:h g:h }` | Two-note alternating sixteenth tremolo |
 | `(c e g):h[arpeggio=up]` | Upward arpeggio over a chord |
@@ -284,9 +285,15 @@ eighths in the time of two. By default, the centered numerator has no bracket
 when a single visible beam spans the entire group; otherwise it receives one.
 The italic numeral is optically centered through the interrupted bracket line,
 using LilyPond's bracket weight and hook height.
-Use `bracket=always`, `bracket=never`, `side=above`, or `side=below` in the
-group header when an explicit engraving choice is needed, for example
-`tuplet 3:2[bracket=always side=below] { c5:e d e }`. Groups may nest.
+Use `bracket=always`, `bracket=never`, `side=above`, `side=below`, or
+`number=never` in the group header when an explicit engraving choice is needed,
+for example `tuplet 3:2[bracket=always side=below] { c5:e d e }`. The numeral
+and bracket are controlled independently. Groups may nest.
+
+`cue { ... }` draws notes, chords, and rests at the reduced grace-note size
+while keeping their full rhythmic value, so a small tuplet upbeat such as
+`cue { tuplet 3:2[number=never] { g4:t d5 d } }` still fills its measure.
+Cue-sized and normal-sized notes never share a beam.
 
 Grace notes also stay inside the string and consume no bar time. Use
 `grace { ... }`, `acciaccatura { ... }`, or `appoggiatura { ... }`; the latter

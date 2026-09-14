@@ -9,17 +9,30 @@
 #let _min-onset-step = 1.0
 #let _grace-note-step = 1.05
 #let _grace-main-gap = 0.42
-#let _grace-notation-scale = 0.7071
-#let _grace-stem-length-fraction = 0.80
-#let _grace-beam-thickness = 0.384
-#let _grace-beam-center-step = 0.648
-#let _grace-stem-length = 3.5 * _grace-stem-length-fraction - stem-anchor-dy * _grace-notation-scale
+// Grace and cue notes share LilyPond's reduced notation size (font-size -3).
+#let _small-notation-scale = 0.7071
+#let _small-stem-length-fraction = 0.80
+#let _small-beam-thickness = 0.384
+#let _small-beam-center-step = 0.648
+#let _small-stem-length = 3.5 * _small-stem-length-fraction - stem-anchor-dy * _small-notation-scale
 
 // ---------------------------------------------------------------------------
 // Small helpers
 // ---------------------------------------------------------------------------
 
 #let _duration-base(layout) = str(layout.duration.base)
+
+#let _uses-small-notation(layout) = (
+  layout.at("grace", default: false) or layout.at("cue", default: false)
+)
+
+#let _event-notation-scale(layout) = {
+  if _uses-small-notation(layout) { _small-notation-scale } else { 1.0 }
+}
+
+#let _group-notation-scale(group) = {
+  if group.all(item => _uses-small-notation(item.layout)) { _small-notation-scale } else { 1.0 }
+}
 
 #let _duration-denominator(layout) = {
   let base = _duration-base(layout)
@@ -82,8 +95,8 @@
   if calc.rem(position, 2) == 0 { y + line-gap / 2 } else { y }
 }
 
-#let _draw-dots(x, y, dots, unit: 8pt, paint: black) = {
+#let _draw-dots(x, y, dots, unit: 8pt, scale: 1.0, paint: black) = {
   for dot-index in range(dots) {
-    draw-augmentation-dot(x + dot-index * _dot-step, y, unit: unit, paint: paint)
+    draw-augmentation-dot(x + dot-index * _dot-step * scale, y, unit: unit, scale: scale, paint: paint)
   }
 }

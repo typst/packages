@@ -715,14 +715,14 @@
 
 // Rests attach to staff lines: the whole rest hangs from the 4th line,
 // the half rest sits on the middle line, the rest glyphs center there.
-#let draw-rest(duration-base, x, bottom-y: 0, line-gap: 1.0, unit: 8pt, paint: black) = {
+#let draw-rest(duration-base, x, bottom-y: 0, line-gap: 1.0, unit: 8pt, scale: 1.0, paint: black) = {
   let (name, origin-y) = if duration-base == "Whole" { ("rest-whole", 3) }
     else if duration-base == "Half" { ("rest-half", 2) }
     else if duration-base == "Quarter" { ("rest-quarter", 2) }
     else if duration-base == "Eighth" { ("rest-eighth", 2) }
     else if duration-base == "Sixteenth" { ("rest-sixteenth", 2) }
     else { ("rest-thirty-second", 2) }
-  _draw-bravura-glyph(name, x, bottom-y + origin-y * line-gap, unit: unit, origin: true, paint: paint)
+  _draw-bravura-glyph(name, x, bottom-y + origin-y * line-gap, unit: unit, origin: true, glyph-scale: scale, paint: paint)
 }
 
 #let rest-width(duration-base) = {

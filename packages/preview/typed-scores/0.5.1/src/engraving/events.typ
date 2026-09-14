@@ -1,6 +1,6 @@
 #import "@preview/cetz:0.5.2"
 #import "primitives.typ": beam-spacing, beam-thickness, draw-accidental, draw-arpeggio, draw-augmentation-dot, draw-beam, draw-bow, draw-filled-notehead, draw-flag, draw-ledger-lines, draw-open-notehead, draw-rest, draw-stem, draw-stem-tremolo, draw-whole-notehead, ledger-extension, rest-width, staff-y, stem-anchor-dy, stem-center-offset, stem-tip
-#import "event-geometry.typ": _accidental-gap, _alternating-tremolo-strokes, _default-stem-length, _dot-gap-from-head, _dot-step, _dot-y, _draw-dots, _duration-base, _grace-beam-center-step, _grace-beam-thickness, _grace-notation-scale, _grace-stem-length, _grace-stem-length-fraction, _head-half-width, _layout-stem-direction, _single-tremolo-strokes, _stem-direction
+#import "event-geometry.typ": _accidental-gap, _alternating-tremolo-strokes, _default-stem-length, _dot-gap-from-head, _dot-step, _dot-y, _draw-dots, _duration-base, _event-notation-scale, _group-notation-scale, _head-half-width, _layout-stem-direction, _single-tremolo-strokes, _small-beam-center-step, _small-beam-thickness, _small-notation-scale, _small-stem-length, _small-stem-length-fraction, _stem-direction, _uses-small-notation
 #import "signatures.typ": _key-default-accidental
 #import "spacing.typ": _accidental-plan, _cluster-offsets
 
@@ -21,12 +21,12 @@
   paint: black,
 ) = {
   import cetz.draw: *
-  let notation-scale = if layout.at("grace", default: false) { _grace-notation-scale } else { 1.0 }
+  let notation-scale = _event-notation-scale(layout)
   if layout.rest {
     let rest-bottom = bottom-y + layout.at("rest-offset", default: 0)
-    draw-rest(_duration-base(layout), x, bottom-y: rest-bottom, line-gap: line-gap, unit: unit, paint: paint)
-    let dot-x = x + rest-width(_duration-base(layout)) + _dot-gap-from-head
-    _draw-dots(dot-x, rest-bottom + 2.5 * line-gap, layout.duration.dots, unit: unit, paint: paint)
+    draw-rest(_duration-base(layout), x, bottom-y: rest-bottom, line-gap: line-gap, unit: unit, scale: notation-scale, paint: paint)
+    let dot-x = x + (rest-width(_duration-base(layout)) + _dot-gap-from-head) * notation-scale
+    _draw-dots(dot-x, rest-bottom + 2.5 * line-gap, layout.duration.dots, unit: unit, scale: notation-scale, paint: paint)
   } else {
     let positions = layout.pitches.map(p => p.staff_position)
     let y-values = positions.map(p => staff-y(p, bottom-y: bottom-y, line-gap: line-gap))
@@ -106,7 +106,7 @@
       let high-y = calc.max(..y-values)
       let stem-start-y = if direction == "up" { low-y } else { high-y }
       let stem-length = if stem-length-override == none {
-        (high-y - low-y) + if notation-scale < 1 { _grace-stem-length } else { _default-stem-length }
+        (high-y - low-y) + if notation-scale < 1 { _small-stem-length } else { _default-stem-length }
       } else {
         stem-length-override
       }
@@ -180,8 +180,8 @@
     let low-y = calc.min(..y-values)
     let high-y = calc.max(..y-values)
     let stem-start-y = if direction == "up" { low-y } else { high-y }
-    let notation-scale = if layout.at("grace", default: false) { _grace-notation-scale } else { 1.0 }
-    let stem-length = (high-y - low-y) + if notation-scale < 1 { _grace-stem-length } else { _default-stem-length }
+    let notation-scale = _event-notation-scale(layout)
+    let stem-length = (high-y - low-y) + if notation-scale < 1 { _small-stem-length } else { _default-stem-length }
     // Ledger-line notes: the stem always reaches the middle staff line.
     let middle-y = bottom-y + 2 * line-gap
     if direction == "up" {
@@ -236,11 +236,11 @@
   }
   let direction = if forced-direction == none { _stem-direction(all-positions) } else { forced-direction }
   let sign = if direction == "up" { 1 } else { -1 }
-  let is-grace = group.first().layout.at("grace", default: false)
-  let notation-scale = if is-grace { _grace-notation-scale } else { 1.0 }
-  let stem-length-scale = if is-grace { _grace-stem-length-fraction } else { 1.0 }
-  let local-beam-thickness = if is-grace { _grace-beam-thickness } else { beam-thickness }
-  let beam-center-step = if is-grace { _grace-beam-center-step } else { beam-thickness + beam-spacing }
+  let is-small-group = _uses-small-notation(group.first().layout)
+  let notation-scale = _event-notation-scale(group.first().layout)
+  let stem-length-scale = if is-small-group { _small-stem-length-fraction } else { 1.0 }
+  let local-beam-thickness = if is-small-group { _small-beam-thickness } else { beam-thickness }
+  let beam-center-step = if is-small-group { _small-beam-center-step } else { beam-thickness + beam-spacing }
 
   let items = group.map(item => {
     let y-values = item.layout.pitches.map(p => staff-y(p.staff_position, bottom-y: bottom-y, line-gap: line-gap))
@@ -410,7 +410,7 @@
 
 #let _ledger-column-span(item) = {
   let layout = item.layout
-  let scale = if layout.at("grace", default: false) { _grace-notation-scale } else { 1.0 }
+  let scale = _event-notation-scale(layout)
   let direction = _layout-stem-direction(layout)
   let offsets = _cluster-offsets(layout, direction)
   let head-half = _head-half-width(layout) * scale
@@ -494,7 +494,7 @@
       // extent; the remaining clearance is just under half a staff space.
       let tip-clearance = 0.48
       draw-bow(
-        (first.x - 0.08, grace-y - (0.5 * _grace-notation-scale + tip-clearance)),
+        (first.x - 0.08, grace-y - (0.5 * _small-notation-scale + tip-clearance)),
         (main.x - 0.13, main-y - (0.5 + tip-clearance)),
         direction-sign: -1,
         height: 0.55,
@@ -629,12 +629,14 @@
       let group = placed.slice(start-index, end-index + 1)
       let side = _tuplet-side(group, tuplet.side)
       let above = side == "above"
+      let tuplet-scale = _group-notation-scale(group)
+      let shows-number = tuplet.at("number", default: "always") != "never"
       // LilyPond centers a TupletNumber on the note-column origins. Our event
       // x coordinates denote notehead centers, so use each boundary head's
       // left-side origin rather than the center of its bounding box. The
       // asymmetric terminal padding includes the last column's stem edge.
-      let left = group.first().x - _head-half-width(group.first().layout) - 0.16
-      let right = group.last().x - _head-half-width(group.last().layout) + 0.32
+      let left = group.first().x - _head-half-width(group.first().layout) * _event-notation-scale(group.first().layout) - 0.16
+      let right = group.last().x - _head-half-width(group.last().layout) * _event-notation-scale(group.last().layout) + 0.32
       let lane = tuplet.depth * 1.12
       let y = if above {
         let top = calc.max(..group.map(item => {
@@ -642,15 +644,17 @@
             bottom-y + 3
           } else {
             let heads = item.layout.pitches.map(p => staff-y(p.staff_position, bottom-y: bottom-y))
+            // A numeral on the notehead side must clear the head outline, not its center.
+            let head-top = calc.max(..heads) + (0.5 + 0.2) * _event-notation-scale(item.layout)
             let stem = _event-stem-geometry(item.layout, item.x, bottom-y: bottom-y)
             if stem != none and stem.direction == "up" {
-              calc.max(calc.max(..heads), stem.point.at(1))
+              calc.max(head-top, stem.point.at(1))
             } else {
-              calc.max(..heads)
+              head-top
             }
           }
         }))
-        top + 0.66 + lane
+        top + 0.66 * tuplet-scale + lane
       } else {
         let bottom = calc.min(..group.map(item => {
           if item.layout.rest or item.layout.pitches.len() == 0 {
@@ -665,10 +669,10 @@
             }
           }
         }))
-        bottom - 0.66 - lane
+        bottom - 0.66 * tuplet-scale - lane
       }
-      let number = text(size: unit * 1.55, style: "italic", fill: paint, str(tuplet.numerator))
-      let number-half = measure(number).width / unit / 2 + 0.32
+      let number = text(size: unit * 1.55 * tuplet-scale, style: "italic", fill: paint, str(tuplet.numerator))
+      let number-half = measure(number).width / unit / 2 + 0.32 * tuplet-scale
       // Compensate for the rightward ink overhang of the italic digit so its
       // visible center, not merely its advance box, lands on the span center.
       let center = (left + right) / 2 - 0.04
@@ -677,22 +681,28 @@
       )
       if show-bracket {
         let stroke = 0.16 * unit + paint
-        if center - number-half > left {
-          line((left, y), (center - number-half, y), stroke: stroke)
+        if not shows-number {
+          line((left, y), (right, y), stroke: stroke)
+        } else {
+          if center - number-half > left {
+            line((left, y), (center - number-half, y), stroke: stroke)
+          }
+          if center + number-half < right {
+            line((center + number-half, y), (right, y), stroke: stroke)
+          }
         }
-        if center + number-half < right {
-          line((center + number-half, y), (right, y), stroke: stroke)
-        }
-        let hook = if above { -0.70 } else { 0.70 }
+        let hook = (if above { -0.70 } else { 0.70 }) * tuplet-scale
         line((left, y), (left, y + hook), stroke: stroke)
         line((right, y), (right, y + hook), stroke: stroke)
       }
-      content(
-        (center, y),
-        number,
-        anchor: "center",
-        padding: 0pt,
-      )
+      if shows-number {
+        content(
+          (center, y),
+          number,
+          anchor: "center",
+          padding: 0pt,
+        )
+      }
     }
   }
 }
