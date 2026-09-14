@@ -5,26 +5,6 @@
 // end-of-proof tombstone symbol — add it yourself where you want it.
 #let QED = h(1fr) + box(width: 0.6em, height: 0.6em, stroke: 0.8pt + black)
 
-// Frame an equation (or any content) to highlight a key result. A block
-// equation is centred like a normal display equation; anything else is
-// framed inline.
-//   #boxed($ E = m c^2 $)             // display, centred
-//   the bound #boxed($O(n log n)$)    // inline
-#let boxed(
-  body,
-  stroke: 0.6pt + black,
-  fill: none,
-  inset: (x: 8pt, y: 6pt),
-  radius: 2pt,
-) = {
-  let framed = box(stroke: stroke, fill: fill, inset: inset, radius: radius, body)
-  if type(body) == content and body.func() == math.equation and body.at("block", default: false) {
-    block(width: 100%, align(center, framed))
-  } else {
-    framed
-  }
-}
-
 // Internal base for the titled cards below: coloured header bar + tinted body.
 #let _titled-card(
   title: none,
@@ -68,43 +48,35 @@
   },
 )
 
-// gray default block, e.g. #block(title: "Note")[Body text.]
-#let block(title: none, width: 100%, content) = _titled-card(
-  title: title, width: width,
-  header-fill: rgb("#6b7280"), body-fill: rgb("#f3f4f6"),
-  border: rgb("#d1d5db"), body-text-fill: rgb("#1f2937"),
-  content,
-)
-
 // blue theorem, e.g. #theorem(title: "Theorem 1")[For all $x$, ...]
 #let theorem(title: "Theorem", width: 100%, content) = _titled-card(
   title: title, width: width,
-  header-fill: rgb("#1565c0"), body-fill: rgb("#ecf3fc"),
-  border: rgb("#b3cdeb"), body-text-fill: rgb("#0d2e57"),
+  header-fill: rgb("#5b7ca3"), body-fill: rgb("#f4f7fb"),
+  border: rgb("#c7d3e0"), body-text-fill: rgb("#2c3e50"),
   content,
 )
 
 // purple corollary, e.g. #corollary[Follows directly from Theorem 1.]
 #let corollary(title: "Corollary", width: 100%, content) = _titled-card(
   title: title, width: width,
-  header-fill: rgb("#6d28d9"), body-fill: rgb("#f3ecfd"),
-  border: rgb("#d8b9f2"), body-text-fill: rgb("#3b1257"),
+  header-fill: rgb("#8a75a8"), body-fill: rgb("#f6f3fa"),
+  border: rgb("#d6cbe3"), body-text-fill: rgb("#3c2f4d"),
   content,
 )
 
 // green definition, e.g. #definition(title: "Definition (Group)")[A set $G$ with ...]
 #let definition(title: "Definition", width: 100%, content) = _titled-card(
   title: title, width: width,
-  header-fill: rgb("#2e7d32"), body-fill: rgb("#ecfdf5"),
-  border: rgb("#a7f3d0"), body-text-fill: rgb("#14532d"),
+  header-fill: rgb("#679b70"), body-fill: rgb("#f4f8f5"),
+  border: rgb("#c9dccb"), body-text-fill: rgb("#2c4530"),
   content,
 )
 
 // red example, e.g. #example[Let $x = 2$, then ...]
 #let example(title: "Example", width: 100%, content) = _titled-card(
   title: title, width: width,
-  header-fill: rgb("#c62828"), body-fill: rgb("#fdeced"),
-  border: rgb("#f2b9bc"), body-text-fill: rgb("#5a1212"),
+  header-fill: rgb("#a86b6b"), body-fill: rgb("#faf5f5"),
+  border: rgb("#e0c7c7"), body-text-fill: rgb("#4d2c2c"),
   content,
 )
 
@@ -112,9 +84,17 @@
 // e.g. #proof[By induction on $n$. ...]  (add `#QED` yourself if wanted)
 #let proof(title: "Proof", width: 100%, content) = _titled-card(
   title: title, width: width,
-  header-fill: rgb("#4b5563"), body-fill: white,
+  header-fill: rgb("#6b7280"), body-fill: white,
   border: rgb("#d1d5db"), body-text-fill: rgb("#1f2937"),
   [#content],
+)
+
+// gray default block, e.g. #block(title: "Note")[Body text.]
+#let block(title: none, width: 100%, content) = _titled-card(
+  title: title, width: width,
+  header-fill: rgb("#7c8592"), body-fill: rgb("#f3f4f6"),
+  border: rgb("#d1d5db"), body-text-fill: rgb("#1f2937"),
+  content,
 )
 
 // ═══════════════════════════
@@ -143,3 +123,30 @@
   stroke: (left: 1pt + luma(180)),
   body,
 )
+
+// Frame an equation (or any content) to highlight a key result. A block
+// equation is centred like a normal display equation; anything else is
+// framed inline.
+//   #boxed($ E = m c^2 $)             // display, centred
+//   the bound #boxed($O(n log n)$)    // inline
+#let boxed(
+  body,
+  stroke: 0.6pt + black,
+  fill: none,
+  inset: (x: 8pt, y: 6pt),
+  radius: 2pt,
+) = {
+  let framed = box(
+    stroke: stroke,
+    fill: fill,
+    inset: inset,
+    radius: radius,
+    body,
+  )
+
+  if type(body) == content and body.func() == math.equation and body.at("block", default: false) {
+    align(center, framed)
+  } else {
+    framed
+  }
+}
