@@ -4,11 +4,11 @@ version = "0.1.4"
 entrypoint = "js.typ"
 authors = ["Haruhiko Okumura <okumura@okumuralab.org>"]
 license = "MIT-0"
-description = "Typst template based on LaTeX jsarticle/jsbook document classes"
+description = "template based on LaTeX jsarticle/jsbook document classes"
 repository = "https://github.com/okumuralab/typst-js"
 keywords = ["Japanese", "js", "book", "article"]
 categories = ["book", "paper"]
-compiler = "0.15.1"
+compiler = "0.13"
 
 [template]
 path = "template"
