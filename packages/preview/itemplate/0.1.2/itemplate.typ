@@ -34,7 +34,8 @@
             "imports": {
               "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
               "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/",
-              "cannon-es": "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js"
+              "cannon-es": "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js",
+              "mathjs": "https://esm.sh/mathjs@15.2.0"
             }
           }
           ```.text,
