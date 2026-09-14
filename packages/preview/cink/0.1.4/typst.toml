@@ -1,0 +1,7 @@
+[package]
+name = "cink"
+version = "0.1.4"
+entrypoint = "typst/ink.typ"
+authors = ["Julian Y. Richard Corbet <@julian-corbet>"]
+license = "Apache-2.0"
+description = "Size signature images for correspondence"
