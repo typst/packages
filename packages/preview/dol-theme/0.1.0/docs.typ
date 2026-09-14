@@ -1,4 +1,4 @@
-#import "@preview/dol-theme:0.1.0": *
+#import "dol-theme.typ": *
 
 #let version = "0.1.0"
 
@@ -75,8 +75,8 @@ Um das DOL-Theme zu verwenden, importiere es zunächst und setze anschließend d
   #show: dol-theme.with(
     title: [Rätselsprache],
     author: [Jonta Ikaluk],
-    points: 24,
-    composition: [8+2+3+5+6]
+    points: 20,
+    composition: [8+3+9]
   )
   ```
 )
@@ -257,8 +257,8 @@ Die Lösungen eines Rätsels werden korrespondierend zu den Teilaufgaben des Rä
   #import "@preview/dol-theme:{version}": *
   #show: dol-theme.with(
     title: [Rätselsprache],
-    points: 24,
-    composition: [8+2+3+5+6],
+    points: 20,
+    composition: [8+3+9],
     solution: true
   )
   ```
@@ -397,8 +397,8 @@ Außerdem die internen Konfigurationen der exportierten Funktionen.
     title: [Rätselsprache],                             // hidden when metadata==false
     longtitle: [Grammatisches Phänomen in der Rätselsprache],           // for publish
     author: [Jonta Ikaluk],                  // hidden when metadata==false
-    points: 24,                                                                 // int
-    composition: [8+2+3+5+6],                               // sum should equal points
+    points: 20,                                                                 // int
+    composition: [8+3+9],                               // sum should equal points
     background: [Hintergrund und Quellen ...],                          // for publish
     solution: false,                      // DEFAULT      true in raetsel-solution.typ
     solution-file: include "raetsel-solution.typ", // for publish, only in raetsel.typ
