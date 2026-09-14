@@ -1,0 +1,87 @@
+[package]
+
+# ----------------------------
+# --------- REQUIRED ---------
+# ----------------------------
+
+# The package's identifier in its namespace. We have some specific rules for
+# packages submitted to Typst Universe.
+#
+# See https://github.com/typst/packages/blob/main/docs/manifest.md#naming-rules
+name = "aoran"
+
+# The package's version as a full major-minor-patch triple. Package versioning
+# should follow SemVer.
+#
+# See https://semver.org/
+version = "0.1.0"
+
+# The path to the main Typst file that is evaluated when the package is
+# imported.
+entrypoint = "src/lib.typ"
+
+# A list of the package's authors. Each author can provide an email address,
+# homepage, or GitHub handle in angle brackets. The latter must start with an @
+# character, and URLs must start with http:// or https://.
+authors = ["Stephen Waits <steve@waits.net>"]
+
+# The package's license. Must contain a valid SPDX-2 expression describing one
+# or multiple licenses. Please make sure to meet our licensing requirements if
+# you want to submit your package to Typst Universe.
+#
+# See https://github.com/typst/packages/blob/main/docs/licensing.md
+license = "MIT"
+
+# A short description of the package. Double-check this for grammar and spelling
+# mistakes as it will appear in the package list. If you want some tips on how
+# to write a great description, you can refer to the dedicated section below.
+#
+# See https://github.com/typst/packages/blob/main/docs/manifest.md#writing-a-good-description
+description = "Helper to determine proper articles, like 'a or an'"
+
+# ----------------------------
+# --------- OPTIONAL ---------
+# ----------------------------
+
+# The minimum Typst compiler version required for this package to work.
+
+# compiler = "0.14.0"
+
+# An array with up to three categories from the list of categories to help users
+# discover the package.
+#
+# See https://github.com/typst/packages/blob/main/docs/CATEGORIES.md
+categories = ["utility"]
+
+# An array of disciplines defining the target audience for which the package is
+# useful. Should be empty if the package is generally applicable.
+#
+# See https://github.com/typst/packages/blob/main/docs/DISCIPLINES.md
+disciplines = ["linguistics"]
+
+# An array of search keywords for the package.
+keywords = ["article", "plural"]
+
+# A link to the repository where this package is developed. Will be linked to
+# from Typst Universe if there is no homepage.
+repository = "https://github.com/swaits-typst-packages/aoran"
+
+# An array of globs specifying files that should not be part of the published
+# bundle that the compiler downloads when importing the package. These files
+# will still be available on typst universe to link to from the README.
+#
+# To be used for large support files like images or PDF documentation that would
+# otherwise unnecessarily increase the bundle size. Don't exclude the README or
+# the LICENSE.
+#
+# See https://github.com/typst/packages/blob/main/docs/tips.md#what-to-commit-what-to-exclude
+exclude = [
+  ".jj",
+  "bin",
+  "build",
+  "dist",
+  "docs",
+  "examples",
+  "justfile",
+  "tests",
+]

@@ -1,0 +1,16 @@
+[package]
+name = "clean-fuh"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Andreas Wolf <@xxchillkroetexx>"]
+license = "MIT"
+description = "An inofficial Typst Template for University Hagen"
+repository = "https://github.com/xxchillkroetexx/fuh-typst-template"
+keywords = ["fernuni", "hagen", "thesis", "fernuniversität"]
+categories = ["paper", "thesis", "report"]
+exclude = ["template/main.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,11 @@
+[package]
+name = "dtree"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT"
+description = "A flexible package for visualizing directory trees and file structures using indented text."
+compiler = "0.13.1"
+repository = "https://github.com/rice8y/dtree"
+keywords = ["directory", "tree", "file", "folder", "structure", "visualization", "hierarchy"]
+exclude = ["/images"]

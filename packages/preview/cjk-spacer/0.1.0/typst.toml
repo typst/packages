@@ -1,0 +1,12 @@
+[package]
+name = "cjk-spacer"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["ryuryu-ymj"]
+license = "MIT"
+description = "Improves spacing between characters when typesetting Japanese (CJK characters)."
+repository = "https://github.com/ryuryu-ymj/cjk-spacer"
+keywords = ["japanese", "cjk", "space", "math"]
+categories = ["layout", "text"]
+compiler = "0.14.0"
+exclude = ["tests/*", "examples/*"]

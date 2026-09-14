@@ -1,0 +1,5 @@
+slug = "permutations"
+title = "Permutations"
+difficulty = "medium"
+labels = ["array", "backtracking"]
+validator = "unordered-compare"

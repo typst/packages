@@ -1,0 +1,30 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "iconify"
+version = "0.5.3"
+entrypoint = "src/lib.typ"
+authors = ["ecstrema"]
+license = "MIT"
+description = "Use more than 200'000 vector icons from iconify"
+repository = "https://github.com/ecstrema/iconify-typst"
+keywords = ["iconify", "icons", "mdi", "material", "lucide", "phosphor", "remix", "tableau", "design", "solar", "tabler", "unicons"]
+categories = ["components"]
+disciplines = []
+# compiler = ""
+exclude = [
+  ".github",
+  "scripts",
+  "tests",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

@@ -1,0 +1,14 @@
+{
+    "settings": [
+        {
+            "key": "block-design",
+            "type": "choice",
+            "label": "Block Design",
+            "default": "simple",
+            "options": [
+                "simple",
+                "modern"
+            ]
+        }
+    ]
+}

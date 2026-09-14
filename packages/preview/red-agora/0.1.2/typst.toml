@@ -1,0 +1,16 @@
+[package]
+name = "red-agora"
+description = "A Typst template to quickly scaffold a report for your projects and internships at ENSIAS"
+version = "0.1.2"
+entrypoint = "lib.typ"
+license = "MIT"
+authors = ["Mehdi Essalehi <@essmehdi>", "Amine Hadnane <@amin-hdn>"]
+categories = ["report"]
+keywords = ["ensias", "report", "internship", "academic", "project"]
+exclude = ["example.pdf"]
+repository = "https://github.com/essmehdi/ensias-report-template"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"

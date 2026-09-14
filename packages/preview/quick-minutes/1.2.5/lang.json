@@ -1,0 +1,147 @@
+{
+  "DEFAULT_ITEM_NUMBERING": {
+    "en": "1.a.i:",
+    "de": "1.a.i:",
+    "nb": "1.a.i:"
+  },
+  "ITEM": {
+    "en": "Item",
+    "de": "TOP",
+    "nb": "Punkt"
+  },
+  "SINCE": {
+    "en": "since",
+    "de": "ab",
+    "nb": "fra"
+  },
+  "DURING_EVENT": {
+    "en": "during the event",
+    "de": "später dazugekommen",
+    "nb": "tillagt under møtet"
+  },
+  "NOT_VOTING": {
+    "en": "not voting",
+    "de": "kein Stimmrecht",
+    "nb": "ikke stemmeberettiget"
+  },
+  "DEFAULT_TIME_FORMAT": {
+    "en": "[hour repr:12]:[minute] [period case:lower]",
+    "de": "[hour]:[minute] Uhr",
+    "nb": "kl. [hour]:[minute]"
+  },
+  "DEFAULT_DATE_FORMAT": {
+    "en": "[year]-[month]-[day]",
+    "de": "[day].[month].[year]",
+    "nb": "[day].[month].[year]"
+  },
+  "CHAIR": {
+    "en": "Chairperson",
+    "de": "Sitzungsvorsitz",
+    "nb": "Ordstyrer"
+  },
+  "PROTOCOL": {
+    "en": "Secretary",
+    "de": "Protokoll",
+    "nb": "Sekretær"
+  },
+  "AWARENESS": {
+    "en": "Awareness",
+    "de": "Awareness",
+    "nb": "Awareness"
+  },
+  "TRANSLATION": {
+    "en": "Translation",
+    "de": "Übersetzung",
+    "nb": "Oversettelse"
+  },
+  "PRESENT": {
+    "en": "Present",
+    "de": "Anwesend",
+    "nb": "Tilstede"
+  },
+  "PRESENT_COUNT": {
+    "en": "Count present",
+    "de": "Anzahl Anwesender",
+    "nb": "Antall tilstede"
+  },
+  "START": {
+    "en": "Start of meeting",
+    "de": "Beginn der Sitzung",
+    "nb": "Møtet satt"
+  },
+  "END": {
+    "en": "End of meeting",
+    "de": "Ende der Sitzung",
+    "nb": "Møtet hevet"
+  },
+  "SCHEDULE": {
+    "en": "Schedule",
+    "de": "Tagesordnung",
+    "nb": "Dagsorden"
+  },
+  "DECISION": {
+    "en": "Vote",
+    "de": "Abstimmung",
+    "nb": "Avstemming"
+  },
+  "YES": {
+    "en": "For",
+    "de": "Dafür",
+    "nb": "For"
+  },
+  "NO": {
+    "en": "Against",
+    "de": "Dagegen",
+    "nb": "Imot"
+  },
+  "ABST": {
+    "en": "Abstain",
+    "de": "Enthaltung",
+    "nb": "Avstår"
+  },
+  "JOIN": {
+    "en": "comes back: ([0] / [1]) present",
+    "de": "kommt zurück: ([0] / [1]) Anwesend",
+    "nb": "returnerer: ([0] / [1]) tilstede"
+  },
+  "JOIN_LONG": {
+    "en": "arrives at the meeting: ([0] / [1]) present",
+    "de": "meldet sich an: ([0] / [1]) Anwesend",
+    "nb": "ankommer møtet: ([0] / [1]) tilstede"
+  },
+  "LEAVE": {
+    "en": "leaves: ([0] / [1]) present",
+    "de": "geht kurz: ([0] / [1]) Anwesend",
+    "nb": "forlater: ([0] / [1]) tilstede"
+  },
+  "LEAVE_LONG": {
+    "en": "leaves the meeting: ([0] / [1]) present",
+    "de": "verlässt die Sitzung-: ([0] / [1]) Anwesend",
+    "nb": "forlater møtet: ([0] / [1]) tilstede"
+  },
+  "SIGNATURE_PRE": {
+    "en": "This protocol is hereby approved",
+    "de": "Dieses Protokoll wird hiermit genehmigt",
+    "nb": "Denne protokollen er herved godkjent"
+  },
+  "SIGNATURE": {
+    "en": "Signature",
+    "de": "Unterschrift",
+    "nb": "Underskrift"
+  },
+  "PLACE_DATE": {
+    "en": "Place, Date",
+    "de": "Ort, Datum",
+    "nb": "Sted, Tid"
+  },
+  "LOCATION": {
+    "en": "Location",
+    "de": "Ort",
+    "nb": "Sted"
+  },
+  "PAGE": {
+    "en": "Page [0] of [1]",
+    "de": "Seite [0] von [1]",
+    "nb": "Side [0] av [1]"
+  }
+}

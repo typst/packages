@@ -1,0 +1,33 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "stash"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["<@VanessB>"]
+license = "GPL-3.0-or-later"
+description = "Stash content to display it later."
+# homepage = "https://github.com/VanessB/typst-stash"
+repository = "https://github.com/VanessB/typst-stash"
+keywords = ["stash", "appendix", "proof-at-the-end", "supplementary"]
+categories = ["components", "model"]
+disciplines = ["mathematics", "computer-science", "physics", "engineering", "philosophy", "education"]
+# compiler = ""
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+# [template]
+# path = "template"
+# entrypoint = "main.typ"
+# thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

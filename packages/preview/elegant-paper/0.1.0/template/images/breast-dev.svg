@@ -1,0 +1,32 @@
+<svg width="300" height="250" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .label { font: bold 14px sans-serif; fill: #333; }
+    .caption { font: 12px sans-serif; fill: #666; }
+    .outline { stroke: #555; stroke-width: 2; fill: #f8f8f8; }
+    .tissue { fill: #ddd; }
+    .duct { stroke: #bbb; stroke-width: 1; fill: none; }
+    .highlight-text { fill: #c00; font-weight: bold; }
+  </style>
+
+  <rect x="1" y="1" width="298" height="248" fill="none" stroke="#ccc"/>
+
+  <text x="150" y="25" text-anchor="middle" class="label">T+3m 乳腺超声示意</text>
+
+  <!-- Simplified breast outline for ultrasound view -->
+  <path class="outline" d="M 50,50 Q 150,40 250,50 L 230,180 Q 150,220 70,180 Z"/>
+
+  <!-- Glandular tissue representation -->
+  <ellipse cx="150" cy="120" rx="70" ry="40" class="tissue"/>
+  <ellipse cx="150" cy="120" rx="50" ry="30" class="tissue" transform="rotate(30, 150, 120)"/>
+  <ellipse cx="150" cy="120" rx="60" ry="35" class="tissue" transform="rotate(-20, 150, 120)"/>
+
+  <!-- Simplified duct structures -->
+  <path class="duct" d="M 150,120 C 130,100 100,90 80,100"/>
+  <path class="duct" d="M 150,120 C 170,105 200,100 220,110"/>
+  <path class="duct" d="M 150,120 C 140,140 130,160 120,170"/>
+  <path class="duct" d="M 150,120 C 160,145 170,165 180,175"/>
+
+  <text x="150" y="200" text-anchor="middle" class="caption highlight-text">乳腺组织结构</text>
+  <text x="150" y="215" text-anchor="middle" class="caption highlight-text">发育良好</text>
+
+</svg>

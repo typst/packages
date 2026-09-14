@@ -1,0 +1,10 @@
+[package]
+name = "mandolin"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Lukas Werling <lukas@lwrl.de>"]
+license = "ISC"
+description = "Render manpages to PDF using mandoc."
+repository = "https://github.com/lluchs/mandolin"
+keywords = ["man", "mdoc", "mandoc", "roff"]
+categories = ["integration"]

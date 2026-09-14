@@ -1,0 +1,18 @@
+[package]
+name = "tudelft-prime-presentation"
+version = "0.1.2"
+entrypoint = "src/lib.typ"
+authors = ["Daniel Balagué Guardia"]
+license = "MIT"
+description = "Create presentations for PRIME courses at TU Delft"
+repository = "https://gitlab.tudelft.nl/prime/primeslides/template"
+keywords = ["touying", "presentation", "pre", "slide", "slides", "lecture", "touying", "beamer", "talk"]
+categories = ["presentation"]
+exclude = ["examples", "Wiki"]
+compiler = "0.13.0"
+
+[template]
+path = "examples/Linear Algebra"
+entrypoint = "Linear Algebra Lecture 5.typ"
+thumbnail = "thumbnail.png"
+

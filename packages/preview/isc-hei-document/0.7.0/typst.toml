@@ -1,0 +1,17 @@
+[package]
+name = "isc-hei-document"
+version = "0.7.0"
+compiler = "0.14.2"
+entrypoint = "isc_templates.typ"
+repository = "https://github.com/ISC-HEI/isc-hei-student-templates"
+authors = ["Pierre-André Mudry"]
+license = "MIT"
+description = "A simple document template for the 'Informatique et systèmes de communication' (ISC) bachelor degree programme, School of Engineering (HEI) in Sion, Switzerland."
+keywords = ["document", "ISC", "university", "Informatique et systèmes de communication", "HES-SO Valais", "Sion", "HEI", "School of engineering"]
+categories = ["office"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "src"
+entrypoint = "document.typ"
+thumbnail = "document_thumb.png"

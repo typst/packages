@@ -20,9 +20,7 @@ documentation](https://github.com/ntjess/wrap-it/blob/main/docs/manual.pdf)</u><
 The easiest method is to import `wrap-it: wrap-content` from the
 `@preview` package:
 
-``` typ
-#import "@preview/wrap-it:0.1.0": wrap-content
-```
+`#import "@preview/wrap-it:0.1.1": wrap-content`
 
 # Sample use:
 

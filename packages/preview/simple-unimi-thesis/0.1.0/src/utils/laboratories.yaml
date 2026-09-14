@@ -1,0 +1,119 @@
+# ADAPT Lab
+adaptlab:
+  name: "ADAPT LA"
+  url: "https://cazzola.di.unimi.it/adapt-lab.html"
+  logo: "img/loghi/adapt.png"
+
+# AIS Lab - Sistemi Intelligenti Applicati
+aislab:
+  name: "Laboratorio di Sistemi Intelligenti Applicati (AIS Lab"
+  url: "http://ais-lab.di.unimi.it"
+  logo: "img/loghi/aislab.jpg"
+
+# AnacletoLab - Laboratorio di Biologia Computazionale e Bioinformatica
+anacletolab:
+  name: "AnacletoLa"
+  url: "http://anacletolab.di.unimi.it"
+  logo: "img/loghi/anacleto.png"
+
+# BiSP Lab - Biomedical Image and Signal Processing Lab
+bisplab:
+  name: "Biomedical Image and Signal Processing (BiSP Lab)"
+  url: "https://bisp.di.unimi.it"
+  logo: "img/loghi/bisp.svg"
+
+# CONNETS - Computer Networks and Network Science Lab
+connetslab:
+  name: "Computer Networks and Network Science (CONNETS Lab)"
+  url: "https://connets.di.unimi.it"
+  logo: "img/loghi/connets.png"
+
+# EveryWare Lab - Data Management for Mobile and Pervasive Computing
+everywarelab:
+  name: "EveryWare Lab"
+  url: "http://everywarelab.di.unimi.it"
+  logo: "img/loghi/everyware.png"
+
+# FALSE Lab - Metodi Formali ed Algoritmi per Sistemi Large-Scale
+falselab:
+  name: "Formal methods and Algorithms for Large-Scale systEms (FALSE)"
+  url: "http://false.di.unimi.it"
+  logo: "img/loghi/false.svg"
+
+# IEBI Lab - Industrial Environmental and Biometric Informatics Laboratory
+iebilab:
+  name: "Industrial Environmental and Biometric Informatics (IEBI Laboratory)"
+  url: "http://iebil.di.unimi.it"
+  logo: "img/loghi/iebil.svg"
+
+# ISLab - Information Systems and Knowledge Management
+islab:
+  name: "Information Systems and Knowledge Management Laboratory (ISLab)"
+  url: "http://islab.di.unimi.it"
+  logo: "img/loghi/islab.png"
+
+# LAILA - Laboratory of Artificial Intelligence and Learning Algorithms
+lailalab:
+  name: "Laboratory of Artificial Intelligence and Learning Algorithms (LAILA)"
+  url: "https://sites.google.com/view/lailaunimi"
+  logo: "img/loghi/laila.png"
+
+# LALALab - Linguaggi Automi Logica Algebrica
+lalalab:
+  name: "Laboratorio di Linguaggi Automi Logica Algebrica (LALALab)"
+  url: "https://di.unimi.it/it/ricerca/risorse-e-luoghi-della-ricerca/laboratori-di-ricerca/lalalab-linguaggi-automi-logica-algebrica"
+  logo: "img/unimi.svg"
+
+# LAW - Laboratorio di Algoritmica per il Web
+lawlab:
+  name: "Laboratorio di Algoritmica per il Web (LAW)"
+  url: "http://law.di.unimi.it"
+  logo: "img/loghi/law.png"
+
+# LaSER - System security and cryptography Lab
+laserlab:
+  name: "System security and cryptography Lab (LaSER)"
+  url: "https://security.di.unimi.it/"
+  logo: "img/loghi/laser.png"
+
+# LIM - Laboratorio di Informatica Musicale
+limlab:
+  name: "Laboratorio di Informatica Musicale (LIM)"
+  url: "https://www.lim.di.unimi.it"
+  logo: "img/loghi/lim.svg"
+
+# MIPS Lab - Multimedia Interaction Perception and Social Lab
+mipslab:
+  name: "Multimedia Interaction Perception and Social (MIPS Lab)"
+  url: "http://mips.di.unimi.it"
+  logo: "img/loghi/mips.png"
+
+# OptLab - Laboratorio di Ricerca Operativa
+optlab:
+  name: "Laboratorio di Ricerca Operativa (OptLab)"
+  url: "http://optlab.di.unimi.it"
+  logo: "img/loghi/opt.png"
+
+# PHuSe - Perceptual Computing and Human Sensing Lab
+phuselab:
+  name: "Perceptual Computing and Human Sensing (PHuSe Lab)"
+  url: "http://phuselab.di.unimi.it"
+  logo: "img/loghi/phuse.png"
+
+# PONG - Playlab for innovation in games
+ponglab:
+  name: "Playlab for innovation in games (PONG)"
+  url: "https://pong.di.unimi.it"
+  logo: "img/loghi/pong.png"
+
+# SESAR Lab - SEcure Service-oriented Architectures Research Lab
+sesarlab:
+  name: "SEcure Service-oriented Architectures Research (SESAR Lab)"
+  url: "http://sesar.di.unimi.it"
+  logo: "img/loghi/sesar.png"
+
+# SPDP - Security Privacy and Data Protection
+spdplab:
+  name: "Security Privacy and Data Protection (SPDP Lab)"
+  url: "http://spdp.di.unimi.it"
+  logo: "img/loghi/spdp.png"

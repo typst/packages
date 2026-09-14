@@ -1,0 +1,11 @@
+[package]
+name = "tableau-icons"
+version = "0.334.1"
+entrypoint = "lib.typ"
+authors = [ "Joel von Rotz",]
+license = "MIT"
+description = "Tabler.io Icons v3.34.0 for Typst"
+repository = "https://codeberg.org/joelvonrotz/tableau-icons"
+keywords = [ "icon", "codeberg", "tabler icons",]
+categories = [ "text",]
+exclude = [ "docs", "tools", ".gitignore",]

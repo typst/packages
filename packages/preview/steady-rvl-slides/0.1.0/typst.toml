@@ -1,0 +1,25 @@
+[package]
+name = "steady-rvl-slides"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+authors = ["Chi Wei Yeh <@chiwei085>"]
+license = "MIT"
+description = "RVL group meeting slides built on Touying."
+repository = "https://github.com/chiwei085/RVL-Typst-Template"
+keywords = ["presentation", "slides", "touying", "meeting", "rvl"]
+categories = ["presentation"]
+exclude = [
+  ".git",
+  ".github",
+  ".gitignore",
+  "examples",
+  "skills",
+  "Makefile",
+  "CHANGELOG.md",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

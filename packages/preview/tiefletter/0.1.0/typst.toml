@@ -1,0 +1,16 @@
+[package]
+name = "tiefletter"
+version = "0.1.0"
+compiler = "0.13.1"
+authors = ["Lena Tauchner"]
+entrypoint = "lib.typ"
+license = "MIT"
+description = "Invoice and offer template for Austrian freelancers"
+keywords = ["invoice", "german"]
+categories = ["layout", "office"]
+disciplines = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

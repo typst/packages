@@ -1,0 +1,17 @@
+[package]
+name = "wut-thesis"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["Łukasz Neumann <lukasz.neumann@pw.edu.pl>"]
+license = "MIT-0"
+description = "Official thesis template for the Warsaw University of Technology."
+categories = ["thesis"]
+repository = "https://github.com/fuine/wut-thesis-typst"
+keywords = ["Warsaw University of Technology", "WUT", "Politechnika Warszawska", "PW", "Thesis", "Bachelor's  Thesis", "Master's  Thesis"]
+disciplines = []
+compiler = "0.13.1"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

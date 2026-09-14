@@ -1,0 +1,52 @@
+#let zihao = (
+  chuhao: 42pt,
+  xiaochu: 36pt,
+  yihao: 28pt,
+  xiaoyi: 24pt,
+  erhao: 21pt,
+  xiaoer: 18pt,
+  sanhao: 15.75pt,
+  xiaosan: 15pt,
+  sihao: 14pt,
+  xiaosi: 12pt,
+  wuhao: 10.5pt,
+  xiaowu: 9pt,
+  liuhao: 7.5pt,
+  xiaoliu: 6.5pt,
+  qihao: 5.5pt,
+  xiaoqi: 5pt,
+)
+
+#let ziti = (
+  songti: ((name: "Times New Roman", covers: "latin-in-cjk"), "Songti SC", "SimSun", "STSongti"),
+  heiti: ((name: "Times New Roman", covers: "latin-in-cjk"), "Heiti SC", "SimHei", "STHeiti"),
+  kaiti: (
+    (name: "Times New Roman", covers: "latin-in-cjk"),
+    "Kaiti SC",
+    "KaiTi",
+    "STKaiti",
+    "KaiTi_GB2312",
+  ),
+  fangsong: (
+    (name: "Times New Roman", covers: "latin-in-cjk"),
+    "FangSong_GB2312",
+    "FangSong SC",
+    "FangSong",
+    "STFangSong",
+  ),
+  dengkuan: (
+    "Menlo",
+    "Courier New",
+    (name: "Heiti SC", covers: regex("\p{script=Han}")),
+    (name: "SimHei", covers: regex("\p{script=Han}")),
+    (name: "STHeiti", covers: regex("\p{script=Han}")),
+  ),
+  math: (
+    "Cambria Math",
+    "New Computer Modern Math",
+    "Libertinus Math",
+    (name: "Songti SC", covers: regex("\p{script=Han}")),
+    (name: "SimSun", covers: regex("\p{script=Han}")),
+    (name: "STSongti", covers: regex("\p{script=Han}")),
+  ),
+)

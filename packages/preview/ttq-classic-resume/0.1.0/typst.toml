@@ -1,0 +1,26 @@
+[package]
+name = "ttq-classic-resume"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/nibsbin/ttq-classic-resume"
+authors = ["Nibs"]
+license = "MIT"
+description = "A clean and modern resume."
+
+keywords = [
+    "resume",
+    "cv",
+    "curriculum vitae",
+    "job",
+    "career",
+    "professional",
+    "template",
+]
+categories = ["cv"]
+disciplines = ["business", "computer-science", "engineering", "communication"]
+
+[template]
+path = "template"
+entrypoint = "resume.typ"
+thumbnail = "thumbnail.png"

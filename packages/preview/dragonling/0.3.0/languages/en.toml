@@ -1,0 +1,18 @@
+language = "en"
+
+[stats]
+ac = "Armor Class"
+hp = "Hit Points"
+speed = "Speed"
+
+[sections]
+actions = "Actions"
+reactions = "Reactions"
+limited_usage = "Limited Usage"
+equip = "Equipment"
+legendary_act = "Legendary Actions"
+
+[npc]
+description = "Description"
+background = "Background"
+roleplay = "Roleplay Hints"

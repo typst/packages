@@ -1,0 +1,84 @@
+/* night mode: invert media inside math figures for better contrast */
+@media (prefers-color-scheme: dark) {
+    [role="math"] :is(img, svg, canvas, picture, video, object, embed) {
+        filter: invert(1) hue-rotate(180deg);
+    }
+}
+
+/* base font size */
+html {
+    font-size: 10pt;
+}
+
+/* responsive media */
+img,
+svg {
+    max-height: 80vh;
+}
+
+/* basic header + navigation styles */
+header nav {
+    display: flex;
+    gap: 1em;
+}
+
+/* nav links: remove underline/gradient and add hover bg */
+header nav a,
+header nav a:link,
+header nav a:visited {
+    color: inherit;
+    text-decoration: none !important;
+    background-image: none !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    text-shadow: none;
+    font-size: 1.5rem;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    transition: background-color 120ms ease;
+}
+
+/* POST TILES */
+.post-tile {
+    margin: 0 0 1rem;
+}
+
+.post-tile a {
+    display: inline-block;
+    padding: 0.1em 0.2em;
+    background-image: none !important;
+}
+
+.post-tile h3 {
+    margin: 0;
+}
+
+.post-tile p {
+    margin: 0.25rem 0 0;
+}
+
+
+/* HOVER */
+header nav a:hover,
+header nav a:focus-visible,
+.post-tile a:hover,
+.post-tile a:focus-visible {
+    background: rgba(0, 0, 0, 0.06);
+    outline: none;
+}
+
+
+@media (prefers-color-scheme: dark) {
+
+    header nav a:hover,
+    header nav a:focus-visible,
+    .post-tile a:hover,
+    .post-tile a:focus-visible {
+        background: rgba(255, 255, 255, 0.10);
+    }
+}
+
+/* TODO: remove hack for math zooming */
+figure[role="math"] {
+    zoom: 1.4;
+}

@@ -1,0 +1,15 @@
+[package]
+name = "not-tudabeamer-2023"
+version = "0.2.1"
+entrypoint = "template/lib.typ"
+authors = ["Moritz Hedtke <https://github.com/mohe2015>"]
+license = "MIT"
+description = "Not the TU Darmstadt Beamer 2023 template"
+repository = "https://github.com/JeyRunner/tuda-typst-templates"
+keywords = ["TU Darmstadt", "Technische Universität Darmstadt", "tu-darmstadt", "beamer", "presentation"]
+categories = ["presentation"]
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "preview/thumbnail.webp"

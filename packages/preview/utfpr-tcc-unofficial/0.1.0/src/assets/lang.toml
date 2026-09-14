@@ -1,0 +1,46 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+university = "Federal Technological University of Paraná"
+abstract = "Abstract"
+keywords = "Keywords"
+glossary = "Glossary"
+annex = "Annex"
+appendix = "Appendix"
+acknowledgments = "Acknowledgments"
+
+photograph = "Photograph"
+graph = "Graph"
+frame = "Frame"
+note = "Note"
+source = "Source"
+
+outline = "Summary"
+outline-figure = "Illustration list"
+outline-table = "Table list"
+abbreviations = "Abbreviations and acronyms list"
+symbols = "List of Symbols"
+bibliography = "References"
+
+[lang.pt]
+university = "Universidade Tecnológica Federal do Paraná"
+abstract = "Resumo"
+keywords = "Palavras-chave"
+glossary = "Glossário"
+annex = "Anexo"
+appendix = "Apêndice"
+acknowledgments = "Agradecimentos"
+
+photograph = "Fotografia"
+graph = "Gráfico"
+frame = "Quadro"
+note = "Nota"
+source = "Fonte"
+
+outline = "Sumário"
+outline-figure = "Lista de ilustrações"
+outline-table = "Lista de tabelas"
+abbreviations = "Lista de abreviaturas e siglas"
+symbols = "Lista de Símbolos"
+bibliography = "Referências"

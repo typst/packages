@@ -1,0 +1,13 @@
+across:
+  - {number: 2, row: 0, col: 2, word: elk, definition: 'You can ride one in "The Legend of Zelda: Breath of the Wild"'}
+  - {number: 5, row: 1, col: 0, word: ar, definition: 'New "space" for immersive games (Abbr.)'}
+  - {number: 7, row: 1, col: 3, word: ur, definition: 'Recent trend in visually stunning games (Abbr.)'}
+  - {number: 8, row: 2, col: 0, word: mario, definition: 'Red cap wearer'}
+  - {number: 9, row: 3, col: 0, word: if, definition: 'Simple conditional statement, in most programming languages'}
+  - {number: 10, row: 3, col: 3, word: go, definition: 'Word that follows "3, 2, 1..." in many racing game'}
+  - {number: 11, row: 4, col: 1, word: tail, definition: "Sonic's friend has two of them, for one"}
+down:
+  - {number: 1, row: 0, col: 0, word: fami, definition: "First word of the NES's Japanese name"}
+  - {number: 3, row: 0, col: 3, word: luigi, definition: "[8-Across]'s brother"}
+  - {number: 4, row: 0, col: 4, word: krool, definition: "Evil crocodile in the \"Donkey Kong\" series"}
+  - {number: 6, row: 1, col: 1, word: raft, definition: "You can ride one in \"Super Mario Party\""}

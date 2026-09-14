@@ -1,0 +1,12 @@
+[package]
+name = "concise-history"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Rivulet Cedar <@RivuletCedar>"]
+license = "MIT"
+description = "Typeset Chinese humanities books in A Concise History’s style."
+categories = [ "layout", "book"]
+keywords = ["chinese", "book", "classic"]
+repository = "https://codeberg.org/RivuletCedar/concise-history-template"
+compiler="0.14.0"
+exclude = ["example/*"]

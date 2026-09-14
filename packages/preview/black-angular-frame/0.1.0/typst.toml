@@ -1,0 +1,23 @@
+[package]
+name = "black-angular-frame"
+version = "0.1.0"
+entrypoint = "black-angular-frame.typ"
+authors = ["Miguel Montes <@miguelm7654>"]
+license = "MIT"
+description = "Formal academic slide decks."
+keywords = ["slides", "presentation", "academic", "beamer"]
+categories = ["presentation"]
+exclude = [
+  "example.typ",
+  "example.pdf",
+  "assets/fonts/**",
+  "assets/curves.csv",
+  "tinymist.lock",
+  ".vscode/**",
+  "tmp/**",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

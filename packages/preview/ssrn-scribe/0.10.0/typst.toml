@@ -1,0 +1,14 @@
+[package]
+name = "ssrn-scribe"
+version = "0.10.0"
+entrypoint = "paper_template.typ"
+authors = [ "Academic Template Collective",]
+license = "MIT"
+description = "A clean, modern academic working-paper template for SSRN and general research drafts."
+categories = [ "paper",]
+exclude = [ "/screenshots/", "/example*.typ", "/extra.typ",]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,147 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "definitions": {
+        "link": {
+            "type": "object",
+            "properties": {
+                "display": {
+                    "type": "string",
+                    "description": "The text to display for the link."
+                },
+                "destination": {
+                    "type": "string",
+                    "description": "The URL or email address the link points to."
+                }
+            },
+            "required": ["display"]
+        },
+        "date": {
+            "type": "object",
+            "properties": {
+                "year": {
+                    "type": "integer",
+                    "description": "The year."
+                },
+                "month": {
+                    "type": "integer",
+                    "description": "The month."
+                }
+            },
+            "required": ["year", "month"]
+        },
+        "subsection": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "The title of the subsection."
+                },
+                "subtitle": {
+                    "type": "string",
+                    "description": "The subtitle of the subsection."
+                },
+                "location": {
+                    "type": "string",
+                    "description": "The location associated with the subsection."
+                },
+                "from": {
+                    "$ref": "#/definitions/date",
+                    "description": "The start date of the subsection."
+                },
+                "to": {
+                    "$ref": "#/definitions/date",
+                    "description": "The end date of the subsection."
+                },
+                "text": {
+                    "type": "string",
+                    "description": "The text content of the subsection."
+                },
+                "items": {
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "description": "A list of items in the subsection.",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "type": "object",
+                            "description": "A map of items in the subsection.",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "section": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "The title of the section."
+                },
+                "subsections": {
+                    "type": "array",
+                    "description": "A list of subsections within the section.",
+                    "items": {
+                        "$ref": "#/definitions/subsection"
+                    }
+                }
+            }
+        },
+        "style": {
+            "type": "object",
+            "properties": {
+                "font": {
+                    "type": "string",
+                    "description": "The font used in the resume."
+                },
+                "link-color": {
+                    "type": "string",
+                    "description": "The color of the links."
+                },
+                "header-color": {
+                    "type": "string",
+                    "description": "The color of the headers."
+                },
+                "divider-color": {
+                    "type": "string",
+                    "description": "The color of the dividers."
+                }
+            }
+        }
+    },
+    "properties": {
+        "candidate-name": {
+            "type": "string",
+            "description": "The name of the candidate."
+        },
+        "job-title": {
+            "type": "string",
+            "description": "The job title of the candidate."
+        },
+        "links": {
+            "type": "array",
+            "description": "A list of links related to the candidate.",
+            "items": {
+                "$ref": "#/definitions/link"
+            }
+        },
+        "sections": {
+            "type": "array",
+            "description": "A list of sections in the resume.",
+            "items": {
+                "$ref": "#/definitions/section"
+            }
+        },
+        "style": {
+            "$ref": "#/definitions/style",
+            "description": "Styling options for the resume."
+        }
+    },
+    "required": ["candidate-name", "job-title", "links", "sections", "style"]
+}

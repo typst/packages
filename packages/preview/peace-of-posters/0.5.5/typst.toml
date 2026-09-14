@@ -1,0 +1,15 @@
+[package]
+name = "peace-of-posters"
+version = "0.5.5"
+authors = ["Jonas Pleyer<jonas.sci@pleyer.org>"]
+license = "MIT"
+description = "Create scientific posters in Typst."
+entrypoint = "lib.typ"
+repository = "https://github.com/jonaspleyer/peace-of-posters"
+homepage = "https://jonaspleyer.github.io/peace-of-posters/"
+categories = ["poster"]
+
+[template]
+path = "templates/pop-uni-fr-poster"
+entrypoint = "main.typ"
+thumbnail = "templates/pop-uni-fr-poster/thumbnail.png"

@@ -1,0 +1,10 @@
+[package]
+name = "patstdlib"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Patrick Kidger <contact@kidger.site>"]
+license = "Apache-2.0"
+description = "Some standard pieces I find useful: fonts, subfigures, algorithms, labeled enums, etc."
+repository = "https://github.com/patrick-kidger/patstdlib"
+keywords = []
+categories = ["components", "scripting"]

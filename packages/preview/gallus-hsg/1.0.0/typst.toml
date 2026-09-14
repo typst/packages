@@ -1,0 +1,15 @@
+[package]
+name = "gallus-hsg"
+version = "1.0.0"
+entrypoint = "thesis-template.typ"
+categories = [ "thesis" ]
+disciplines = [ ]
+description = "Thesis at the University of St. Gallen (HSG)"
+license = "MIT"
+repository = "https://github.com/joshuabeny1999/unisg-thesis-template-typst"
+authors = ["Joshua Hürzeler <https://joshuah.ch>"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "template-hsg.webp"

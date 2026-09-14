@@ -1,0 +1,17 @@
+[package]
+name = "clear-tub"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Ezra Cerpac <@EzraCerpac>"]
+license = "MIT"
+description = "Unofficial TU Berlin design presentation slides."
+categories = ["presentation"]
+keywords = ["TU Berlin", "presentation", "student", "university", "corporate design", "slides", "touying"]
+repository = "https://github.com/EzraCerpac/tub-typst-presentation"
+compiler = "0.12.0"
+exclude = ["/main.typ", "main.pdf", "DISCLAIMER.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

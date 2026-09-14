@@ -1,0 +1,9 @@
+[package]
+name = "bulb"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Miel Peeters <@mielpeeters>"]
+license = "MIT"
+description = "Image dithering plugin, powered by WASM."
+keywords = ["dithering", "image", "stylized", "bayer", "halftone", "palette"]
+categories = ["visualization"]

@@ -1,0 +1,20 @@
+[package]
+name = "scribe"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["lentilus <mail@lentilus.me>"]
+license = "MIT"
+description = "Write math in ascii notation."
+repository = "https://github.com/lentilus/typst-scribe"
+exclude = [
+  "tests",
+  "assets"
+]
+categories = ["utility"]
+keywords = [
+  "ascii",
+  "symobls",
+  "notation",
+  "shorthands",
+  "caligraphic"
+]

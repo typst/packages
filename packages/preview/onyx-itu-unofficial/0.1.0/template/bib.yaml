@@ -1,0 +1,119 @@
+# https://typst.app/docs/reference/model/ref/
+# file format: https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+
+quantum_computing:
+  type: article
+  title: Quantum Computing for Cloud-based Machine Learning
+  author: 
+    - Jensen, Markus A.
+    - Chen, Ling
+    - Rodriguez, Sofia P.
+  date: 2022-05
+  journal: IEEE Transactions on Quantum Computing Systems
+  volume: 14
+  number: 2
+  pages: 143-159
+  doi: 10.1109/TQCS.2022.3178624
+
+distributed_systems:
+  type: book
+  title: Modern Distributed Systems Architecture
+  subtitle: Principles and Applications
+  author: 
+    - Patel, Raj K.
+    - Müller, Anna S.
+  date: 2021
+  publisher: Technical Publishing Institute
+  location: New York, NY
+  isbn: 978-3-540-97845-2
+
+blockchain:
+  type: proceedings
+  title: Secure Blockchain Protocols for IoT Networks
+  author: 
+    - Nakamura, Kenji
+    - Singh, Priya
+    - Andersen, Lars
+  date: 2023-06
+  booktitle: Proceedings of the 19th International Conference on Cyber Security
+  editor:
+    - Whitman, Rebecca
+    - Zhao, David
+  publisher: ACM
+  venue: Berlin, Germany
+  pages: 217-232
+  doi: 10.1145/3597423.3597489
+
+neural_networks:
+  type: misc
+  title: Self-Optimizing Neural Networks for Edge Computing
+  author: 
+    - Lee, Hana
+    - Nowak, Michael J.
+  date: 2023-01-18
+  eprinttype: arxiv
+  eprint: 2301.09428
+  url: https://arxiv.org/abs/2301.09428
+
+cloud_security:
+  type: report
+  title: Advanced Threat Protection in Multi-Cloud Environments
+  author: 
+    - Goldstein, Sarah
+    - Kumar, Vikram
+    - Zhang, Wei
+  date: 2022-11
+  institution: Institute for Cybersecurity Research
+  number: TR-2022-143
+  url: https://icr.org/reports/tr-2022-143.pdf
+
+cybersecurity:
+  type: thesis
+  title: Zero Trust Architecture for Enterprise Networks
+  author: Thompson, James
+  date: 2023
+  institution: Technical University of Denmark
+  location: Copenhagen, Denmark
+  url: https://repository.dtu.dk/theses/2023/thompson-zerotrust.pdf
+
+container_orchestration:
+  type: chapter
+  title: Advanced Kubernetes Patterns for Microservice Deployment
+  author:
+    - Miyazaki, Haruto
+    - Fernandez, Diego
+  date: 2024
+  booktitle: Cloud Native Infrastructure Design Patterns
+  editor: Garcia, Maria
+  publisher: O'Reilly Media
+  pages: 78-103
+  isbn: 978-1-098-10584-7
+
+web_security:
+  type: web
+  title: OWASP Top 10 Web Application Security Risks
+  author: OWASP Foundation
+  date: 2023
+  url: https://owasp.org/www-project-top-ten/
+  accessed: 2024-03-15
+
+ai_conference:
+  type: conference
+  title: Explainable AI in Healthcare Applications
+  author:
+    - Johnson, Emily R.
+    - Ahmed, Tariq
+  date: 2023-09
+  booktitle: International Conference on Medical AI
+  venue: Toronto, Canada
+  publisher: IEEE
+  pages: 312-329
+  doi: 10.1109/ICMAI.2023.58329
+
+database_blog:
+  type: blog
+  title: Performance Tuning PostgreSQL for High-Traffic Applications
+  author: Gonzalez, Marco
+  date: 2024-02-12
+  url: https://dbperformance.blog/postgresql-tuning
+  publisher: Database Performance Blog

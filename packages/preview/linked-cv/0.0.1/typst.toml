@@ -1,0 +1,23 @@
+
+[package]
+name = "linked-cv"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Elliott Phillips"]
+repository = "https://github.com/ellsphillips/linked-cv"
+license = "MIT"
+description = "A beautiful CV template that emulates the LinkedIn UI."
+keywords = ["linkedin", "cv", "resume", "template"]
+categories = ["cv"]
+disciplines = [
+    "business",
+    "computer-science",
+    "engineering",
+    "mathematics",
+    "physics",
+    "chemistry",
+    "economics",
+    "design",
+    "education",
+]
+exclude = ["build", "example"]

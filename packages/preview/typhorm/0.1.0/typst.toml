@@ -1,0 +1,11 @@
+[package]
+    name = "typhorm"
+    version = "0.1.0"
+    compiler = "0.13.0"
+    repository = "https://github.com/ivaquero/typhorm.git"
+    entrypoint = "src/lib.typ"
+    authors = ["ivaquero"]
+    license = "MIT"
+    description = "A set of utility functions for creating complex forms."
+    categories = ["layout"]
+    keywords = ["forms", "columns"]

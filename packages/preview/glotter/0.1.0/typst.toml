@@ -1,0 +1,12 @@
+[package]
+name = "glotter"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT AND CC-BY-SA-3.0"
+description = "Detect languages from text fragments."
+compiler = "0.13.0"
+repository = "https://github.com/rice8y/glotter"
+keywords = ["language", "detection", "fasttext", "multilingual"]
+categories = ["languages", "text"]
+exclude = ["/images"]

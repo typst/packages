@@ -1,0 +1,188 @@
+# Produced with `hayagriva template/biblio.bib > template/biblio.yaml`
+
+doe2020book:
+  type: book
+  title: 'A Sample Book Title: Testing BibTeX Styles'
+  author:
+  - Doe, Jane
+  - Smith, John
+  date: 2020
+  publisher:
+    name: Example Press
+    location: New York
+  edition: 2
+  serial-number:
+    isbn: 978-1-23456-789-0
+miller2021article:
+  type: article
+  title: A Sample Journal Article on Formatting
+  author:
+  - Miller, Anna
+  - Brown, Chris
+  - Lee, David
+  date: 2021
+  page-range: 101-118
+  serial-number:
+    doi: 10.1234/jcs.2021.31415
+  parent:
+    type: periodical
+    title: Journal of Citation Studies
+    issue: 3
+    volume: 14
+nguyen2019conf:
+  type: article
+  title: A Conference Paper with Proceedings Formatting
+  author:
+  - Nguyen, Linh
+  - Patel, Ravi
+  date: 2019
+  editor:
+  - Garcia, Maria
+  - Wilson, Paul
+  page-range: 55-62
+  serial-number:
+    doi: 10.1000/exampleconf.2019.55
+  parent:
+    type: proceedings
+    title: Proceedings of the 12th International Conference on Example Systems
+    publisher:
+      name: Springer
+      location: Berlin, Germany
+    organization: Example Association
+chen2018chapter:
+  type: anthos
+  title: A Chapter in an Edited Volume
+  author: Chen, Mei
+  date: 2018
+  editor:
+  - Anderson, Robert
+  - Taylor, Susan
+  page-range: 201-230
+  parent:
+    type: anthology
+    title: Handbook of Citation Examples
+    publisher:
+      name: Academic Publishing House
+      location: London
+garcia2022thesis:
+  type: thesis
+  title: Testing Bibliographic Styles in Practice
+  author: Garcia, Elena
+  date: 2022
+  publisher:
+    name: null
+    location: Amsterdam
+  organization: University of Example
+  genre: Doctoral dissertation
+kim2021thesis:
+  type: thesis
+  title: A Smaller Test Case for Thesis Citations
+  author: Kim, Jae
+  date: 2021
+  publisher:
+    name: null
+    location: Seoul
+  organization: Example Institute of Technology
+  genre: Master's thesis
+smith2017report:
+  type: report
+  title: A Technical Report for Style Testing
+  author:
+  - Smith, Oliver
+  - Johnson, Emily
+  date: 2017
+  publisher:
+    name: null
+    location: Chicago
+  organization: Example Research Lab
+  serial-number:
+    serial: TR-2017–8
+  genre: technical report
+somewebcompany2024misc:
+  type: misc
+  title: A Miscellaneous Entry for Web or Software
+  author: Some Web Company
+  date: 2024
+  url: https://example.com/project-page
+  note: Accessed 2026-04-30
+website2023online:
+  type: web
+  title: A Web Page with an Online Entry
+  author: The Example Team
+  date: 2023
+  url:
+    value: https://example.org/resources/bibtex-testing
+    date: 2026-04-30
+white2025unpub:
+  type: manuscript
+  title: A Preprint or Unpublished Manuscript
+  author: White, Natalie
+  date: 2025
+  note: Manuscript under review
+brown2020short:
+  type: article
+  title: Short Article
+  author: Brown, Alex
+  date: 2020
+  page-range: 1-2
+  parent:
+    type: periodical
+    title: Tiny Journal
+    issue: 1
+    volume: 1
+editor2023edited:
+  type: book
+  title: An Edited Book Without Named Authors
+  date: 2023
+  editor:
+  - Lopez, Andrea
+  - Müller, Franz
+  publisher:
+    name: Scholar House
+    location: Vienna
+multi2024many:
+  type: article
+  title: A Paper With Many Authors
+  author:
+  - Avery, Sam
+  - Baker, Taylor
+  - Clark, Jordan
+  - Davis, Casey
+  date: 2024
+  page-range: 10-19
+  parent:
+    type: proceedings
+    title: Proceedings of the Example Symposium
+    publisher:
+      name: null
+      location: Paris
+special2021chars:
+  type: article
+  title: 'Testing Special Characters: {LaTeX}, {&}, and Accents'
+  author:
+  - O'Neil, Fiona
+  - Åkesson, Lars
+  - Gömez, Inés
+  date: 2021
+  page-range: 77-89
+  parent:
+    type: periodical
+    title: International Journal of Typesetting
+    issue: 4
+    volume: 8
+string2015volume:
+  type: article
+  title: 'Volume as a String: Testing Non-Integer Volume Fields'
+  author: String, Victor
+  date: 2015
+  page-range: 45-50
+  parent:
+    type: periodical
+    title: Journal of Citation Anomalies
+    volume: Volume X # This one has to be added by hand as it was not copied automatically by the command
+missingfields2026:
+  type: misc
+  title: An Entry With Missing Common Fields
+  date: 2026
+  note: Useful for testing fallback behavior
+

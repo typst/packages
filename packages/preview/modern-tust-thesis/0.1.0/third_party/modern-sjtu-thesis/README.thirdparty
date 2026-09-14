@@ -1,0 +1,20 @@
+Third-Party Notice
+===================
+
+This directory contains code from:
+
+Project: modern-sjtu-thesis
+Repository: https://github.com/tzhtaylor/modern-sjtu-thesis
+License: MIT License
+
+Copyright (c) 2024-2025 tzhtaylor
+
+The code from this project is used in:
+- /template/thesis.typ
+- /layouts/*.typ
+- /pages/*.typ
+- /utils/*.typ
+
+Modified: Yes
+
+The full license text can be found in the LICENSE file in this directory.

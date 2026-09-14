@@ -1,0 +1,20 @@
+[format]
+lang = "no"       # or "en"
+type = "bachelor" # or "master"
+
+[frontpage]
+title = "Project Title"
+subtitle = "A subtitle for the project. This can be longer, and wrap over multiple lines."
+
+[authors]
+students = ["John Doe", "Jane Smith", "Bob Namey"]
+supervisor = "Supervisor Name"
+
+[institution]
+date = "mai 2025"
+faculty = "Fakultet for teknologi og realfag"
+department = "Institutt for teknologi og realfag"
+
+# or:
+#faculty = "Faculty of Engineering and Science"
+#department = "Department of Engineering and Science"

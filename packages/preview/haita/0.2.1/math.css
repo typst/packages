@@ -1,0 +1,7 @@
+math {
+    font-family: "STIX Two Math", serif;
+}
+
+math[display="block"] {
+    font-size: large;
+}

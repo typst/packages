@@ -1,0 +1,16 @@
+[package]
+name = "xmdjy-simple-report-template"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["xmdjy <xmdjy703@outlook.com>"]
+license = "MIT"
+description = "A simple and customizable experimental report template for SDU students (Shandong University)."
+repository = "https://github.com/xmdjy/exp-report-template"
+keywords = ["sdu","simple","personalization"]
+exclude = ["template/fonts"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

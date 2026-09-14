@@ -1,0 +1,13 @@
+[package]
+name = "materia"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jinguo Liu <@GiggleLiu>"]
+license = "MIT"
+description = "Visualize crystal, reciprocal, and electronic structures."
+repository = "https://github.com/GiggleLiu/scenery"
+homepage = "https://giggleliu.github.io/scenery/"
+keywords = ["materials", "crystal", "crystallography", "brillouin", "k-path", "molecular orbital", "visualization", "physics", "chemistry"]
+categories = ["visualization"]
+compiler = "0.15.0"
+exclude = ["/tests/*", "/examples/*", "/images/*", "/Makefile"]

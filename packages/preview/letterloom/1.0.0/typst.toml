@@ -1,0 +1,33 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "letterloom"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["nandac"]
+license = "Unlicense"
+description = "The letterloom package is a user-friendly and customizable template designed to streamline the creation of professional-looking letters."
+# homepage = ""
+repository = "https://github.com/nandac/letterloom"
+keywords = ["letter", "letter template", "letter template typst", "business correspondence", "personal letter"]
+categories = ["office"]
+disciplines = ["business", "communication"]
+compiler = "0.13.0"
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+# [tool.mytool]
+# foo = "bar"

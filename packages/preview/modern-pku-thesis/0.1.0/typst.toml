@@ -1,0 +1,30 @@
+[package]
+name = "modern-pku-thesis"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Gabriel Wu <@lucifer1004>"]
+license = "MIT"
+description = "Dissertation template for Peking University (PKU)."
+repository = "https://github.com/pku-typst/pkuthss-typst"
+keywords = [
+  "thesis",
+  "dissertation",
+  "pku",
+  "peking-university",
+  "academic",
+  "chinese",
+]
+categories = ["thesis"]
+disciplines = [
+  "computer-science",
+  "mathematics",
+  "physics",
+  "engineering",
+  "linguistics",
+]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "images/cover.png"

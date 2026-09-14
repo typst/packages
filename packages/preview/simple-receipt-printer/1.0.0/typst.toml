@@ -1,0 +1,12 @@
+[package]
+name = "simple-receipt-printer"
+version = "1.0.0"
+entrypoint = "simple-receipt-printer.typ"
+exclude = ["examples/*"]
+authors = ["Maik Allgöwer <maik@llgoewer.de>"]
+license = "MIT"
+description = "Print to a thermal receipt printer"
+homepage = "https://github.com/allgoewer/typst-packages/tree/main/packages/preview/simple-receipt-printer"
+repository = "https://github.com/allgoewer/typst-packages"
+keywords = ["printer", "thermal", "receipt", "bixolon"]
+categories = ["fun"]

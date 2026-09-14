@@ -1,0 +1,29 @@
+#:schema https://raw.githubusercontent.com/xrsl/nabcv/v0.1.0/schema/schema.json
+
+[letter.sender]
+name     = "John Doe"
+phone    = "+1 503 555 0142"
+email    = "john.doe@example.com"
+linkedin = "johndoe"
+
+[letter.recipient]
+name    = "Hiring Manager"
+company = "Mundane Solutions Ltd."
+address = "1 Enterprise Boulevard, Seattle, WA 98101"
+
+[letter.metadata]
+date = "auto"
+
+[letter.content]
+subject    = "Senior Software Engineer — Application"
+salutation = "Dear Hiring Manager"
+closing    = "Kind regards"
+
+[[letter.content.body]]
+paragraph = "I am writing to apply for the Senior Software Engineer position at Mundane Solutions Ltd. I have nine years of experience building distributed systems, surviving legacy codebases, and writing postmortems that are equal parts honest and diplomatic. I believe I would bring considerable value to your team, and I have been told I am very easy to have in a meeting."
+
+[[letter.content.body]]
+paragraph = "In my current role at Infinite Loop Technologies, I have led platform engineering efforts that meaningfully reduced deployment times and, more importantly, reduced the number of 2am pages by 40%. I am proficient across the full stack, comfortable in cloud environments, and experienced enough to know which problems are interesting and which are simply load-bearing tech debt that should be left alone. I have strong opinions about observability, loosely held opinions about tabs versus spaces, and no opinion whatsoever about the correct naming convention for environment variables (I adapt)."
+
+[[letter.content.body]]
+paragraph = "I am drawn to Mundane Solutions Ltd. because your engineering blog suggests a culture where reliability is taken seriously and heroics are not considered a sustainable strategy. I hold the same view. I am a thorough code reviewer, a willing on-call participant, and someone who writes documentation without needing to be asked more than twice. I look forward to the opportunity to discuss how I can contribute. My references are available upon request; they have been briefed."

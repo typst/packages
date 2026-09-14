@@ -1,0 +1,11 @@
+[package]
+name = "frogst"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Raphael-CV"]
+license = "MIT"
+description = "Literal naming of numbers in French"
+repository = "https://github.com/Raphael-CV/frogst"
+categories = ["text", "languages"]
+keywords = ["french", "numbers", "naming"]
+exclude = ["examples"]

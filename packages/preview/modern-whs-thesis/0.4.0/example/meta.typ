@@ -1,0 +1,17 @@
+#let title = "Der Titel der zugehörigen Bachelorarbeit in der es um ein Thema geht"
+#let title-size = 16pt
+#let thesis-type = "Bachelorarbeit"
+#let author = "Max Mustermann"
+#let first-name = "Max"
+#let last-name = "Mustermann"
+#let description = "Thema Beschreibung"
+#let date = datetime.today()
+#let date-of-submission = "14.07.2025"
+#let place = "Bocholt"
+#let keywords = ("Bachelorarbeit", "Westfälische Hochschule", "Informatik")
+#let degree = "Bachelor of Science (B.Sc.)"
+#let study-course = "Informatik.Softwaresysteme"
+#let department = "Wirtschaft und Informationstechnik"
+#let first-examiner = "Prof. Dr. Max Mustermann"
+#let second-examiner = "Prof. Dr. Max Mustermann"
+#let bibliography = bibliography.with("bibliography.bib")

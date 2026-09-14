@@ -1,0 +1,13 @@
+[package]
+name = "astro"
+version = "0.1.0"
+homepage = "https://astro.anvaratayev.com/"
+repository = "https://github.com/AnvarAtayev/astro"
+license = "MIT"
+entrypoint = "src/bodies.typ"
+authors = ["Anvar Atayev <https://github.com/AnvarAtayev>"]
+description = "Draw beautiful astronomical diagrams."
+categories = [ "visualization" ]
+disciplines = [ "education", "physics" ]
+keywords = ["astronomy", "planet", "solar system", "space", "cosmos"]
+exclude = ["examples"]

@@ -1,0 +1,11 @@
+[package]
+name = "molchemist"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT"
+description = "Render beautiful chemical structures directly from Molfile (.mol) and Structure-Data File (.sdf) formats."
+compiler = "0.13.1"
+repository = "https://github.com/rice8y/molchemist"
+keywords = ["chemistry", "molecule", "sdf", "molfile", "cetz", "wasm", "science", "alchemist"]
+exclude = ["/images"]

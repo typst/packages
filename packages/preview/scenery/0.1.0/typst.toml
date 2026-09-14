@@ -1,0 +1,11 @@
+[package]
+name = "scenery"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jinguo Liu <@GiggleLiu>"]
+license = "MIT"
+description = "Render depth-sorted 2D and 3D scenes with CeTZ."
+repository = "https://github.com/GiggleLiu/scenery"
+homepage = "https://giggleliu.github.io/scenery/"
+compiler = "0.14.0"
+exclude = ["/tests/*", "/examples/*", "/images/*", "/manual.typ", "/manual.pdf", "/Makefile"]

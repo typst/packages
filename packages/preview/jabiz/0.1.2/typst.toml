@@ -1,0 +1,19 @@
+[package]
+name = "jabiz"
+version = "0.1.2"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+repository = "https://github.com/kimushun1101/typst-jabiz"
+authors = [
+  "Shunsuke Kimura <https://github.com/kimushun1101>",
+]
+license = "MIT-0"
+description = "Template for Japanese business documents. 日本語のビジネス文書テンプレート"
+keywords = ["Japanese", "business"]
+disciplines = ["business"]
+categories = ["office"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

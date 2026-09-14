@@ -1,0 +1,18 @@
+[package]
+name = "academicv"
+version = "1.1.0"
+compiler = "0.13.1"
+entrypoint = "cv.typ"
+authors = [ "Mikkel Roald-Arbøl <https://roald-arboel.com>", "Je Sian Keith Herman <https://jskherman.com>"]
+license = "Apache-2.0"
+description = "A clean, flexible curriculum vitae (CV) template using Typst and YAML"
+keywords = ["CV", "Curriculum Vitae", "Resume", "Minimalistic", "Academic", "Academia", "Science", "YAML", "Data"]
+categories = ["cv"]
+disciplines = []
+repository = "https://github.com/roaldarbol/academicv"
+
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "assets/thumbnail_1.png"

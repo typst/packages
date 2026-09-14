@@ -1,0 +1,205 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+volume = [ "Volume", "vol."]
+edition = [ "Edition", "ed."]
+part = "Part"
+chapter = "Chapter"
+appendix = [ "Appendix", "Appendices" ]
+annex = [ "Annex", "Annexes" ]
+errata = "Errata"
+acknowledgements = "Acknowledgements"
+
+[lang.pt]
+volume = [ "Volume", "vol."]
+edition = [ "Edição", "ed."]
+part = "Parte"
+chapter = "Capítulo"
+appendix = [ "Apêndice", "Apêndices" ]
+annex = [ "Anexo", "Anexos" ]
+errata = "Errata"
+acknowledgements = "Agradecimentos"
+
+
+# The following are AI translations, and may contain errors:
+
+[lang.es]
+volume = [ "Volumen", "vol." ]
+edition = [ "Edición", "ed." ]
+part = "Parte"
+chapter = "Capítulo"
+appendix = [ "Apéndice", "Apéndices" ]
+annex = [ "Anexo", "Anexos" ]
+errata = "Fe de erratas"
+acknowledgements = "Agradecimientos"
+
+[lang.fr]
+volume = [ "Volume", "vol." ]
+edition = [ "Édition", "éd." ]
+part = "Partie"
+chapter = "Chapitre"
+appendix = [ "Annexe", "Annexes" ]
+annex = [ "Appendice", "Appendices" ]
+errata = "Errata"
+acknowledgements = "Remerciements"
+
+[lang.de]
+volume = [ "Band", "Bd." ]
+edition = [ "Ausgabe", "Ausg." ]
+part = "Teil"
+chapter = "Kapitel"
+appendix = [ "Anhang", "Anhänge" ]
+annex = [ "Anlage", "Anlagen" ]
+errata = "Errata"
+acknowledgements = "Danksagungen"
+
+[lang.id]
+volume = [ "Jilid", "jld." ]
+edition = [ "Edisi", "ed." ]
+part = "Bagian"
+chapter = "Bab"
+appendix = [ "Lampiran", "Lampiran" ]
+annex = [ "Aneks", "Aneks" ]
+errata = "Koreksi"
+acknowledgements = "Ucapan Terima Kasih"
+
+[lang.it]
+volume = [ "Volume", "vol." ]
+edition = [ "Edizione", "ed." ]
+part = "Parte"
+chapter = "Capitolo"
+appendix = [ "Appendice", "Appendici" ]
+annex = [ "Allegato", "Allegati" ]
+errata = "Errata"
+acknowledgements = "Ringraziamenti"
+
+[lang.tr]
+volume = [ "Cilt", "c." ]
+edition = [ "Baskı", "bs." ]
+part = "Bölüm"
+chapter = "Bap"
+appendix = [ "Ek", "Ekler" ]
+annex = [ "İlave", "İlaveler" ]
+errata = "Düzeltmeler"
+acknowledgements = "Teşekkürler"
+
+[lang.vi]
+volume = [ "Tập", "t." ]
+edition = [ "Ấn bản", "ab." ]
+part = "Phần"
+chapter = "Chương"
+appendix = [ "Phụ lục", "Phụ lục" ]
+annex = [ "Phụ đính", "Phụ đính" ]
+errata = "Sửa lỗi"
+acknowledgements = "Lời cảm ơn"
+
+[lang.pl]
+volume = [ "Tom", "t." ]
+edition = [ "Wydanie", "wyd." ]
+part = "Część"
+chapter = "Rozdział"
+appendix = [ "Dodatek", "Dodatki" ]
+annex = [ "Załącznik", "Załączniki" ]
+errata = "Errata"
+acknowledgements = "Podziękowania"
+
+[lang.ro]
+volume = [ "Volum", "vol." ]
+edition = [ "Ediție", "ed." ]
+part = "Partea"
+chapter = "Capitolul"
+appendix = [ "Anexă", "Anexe" ]
+annex = [ "Apéndice", "Apéndicele" ]
+errata = "Erata"
+acknowledgements = "Mulțumiri"
+
+[lang.nl]
+volume = [ "Deel", "dl." ]
+edition = [ "Editie", "ed." ]
+part = "Deel"
+chapter = "Hoofdstuk"
+appendix = [ "Bijlage", "Bijlagen" ]
+annex = [ "Aanhangsel", "Aanhangsels" ]
+errata = "Errata"
+acknowledgements = "Woord van dank"
+
+[lang.jv]
+volume = [ "Jilid", "jld." ]
+edition = [ "Édisi", "ed." ]
+part = "Bagean"
+chapter = "Bab"
+appendix = [ "Llampiran", "Llampiran" ]
+annex = [ "Llampahan", "Llampahan" ]
+errata = "Ralat"
+acknowledgements = "Pangatur pambagyaharja"
+
+[lang.fil]
+volume = [ "Tomo", "tom." ]
+edition = [ "Edisyon", "eds." ]
+part = "Bahagi"
+chapter = "Kabanata"
+appendix = [ "Apendiks", "Mga Apendiks" ]
+annex = [ "Ankla", "Mga Ankla" ]
+errata = "Pagwawasto"
+acknowledgements = "Pasasalamat"
+
+[lang.ha]
+volume = [ "Juzu'i", "jz." ]
+edition = [ "Bugu", "bg." ]
+part = "Sashe"
+chapter = "Babi"
+appendix = [ "Ƙari", "Ƙarori" ]
+annex = [ "Ƙari na biyu", "Ƙarori na biyu" ]
+errata = "Gyara"
+acknowledgements = "Godiya"
+
+[lang.sw]
+volume = [ "Juzuu", "jz." ]
+edition = [ "Toleo", "tl." ]
+part = "Sehemu"
+chapter = "Sura"
+appendix = [ "Kiambatisho", "Viambatisho" ]
+annex = [ "Kiambatanisho", "Viambatanisho" ]
+errata = "Marekebisho"
+acknowledgements = "Shukrani"
+
+[lang.uk]
+volume = [ "Том", "т." ]
+edition = [ "Видання", "вид." ]
+part = "Частина"
+chapter = "Розділ"
+appendix = [ "Додаток", "Додатки" ]
+annex = [ "Додаткова частина", "Додаткові частини" ]
+errata = "Виправлення"
+acknowledgements = "Подяки"
+
+[lang.uz]
+volume = [ "Jild", "jl." ]
+edition = [ "Nashr", "nsh." ]
+part = "Qism"
+chapter = "Bob"
+appendix = [ "Ilova", "Ilovalar" ]
+annex = [ "Qo‘shimcha", "Qo‘shimchalar" ]
+errata = "Xatoliklar"
+acknowledgements = "Minnatdorchilik"
+
+[lang.fa]
+volume = [ "جلد", "جلد" ]
+edition = [ "نسخه", "ن‌سخه" ]
+part = "بخش"
+chapter = "فصل"
+appendix = [ "پیوست", "پیوست‌ها" ]
+annex = [ "ضمیمه", "ضمیمه‌ها" ]
+errata = "اشتباهات"
+acknowledgements = "تشکرات"
+
+[lang.hr]
+volume = [ "Svezak", "sv." ]
+edition = [ "Izdanje", "izd." ]
+part = "Dio"
+chapter = "Poglavlje"
+appendix = [ "Dodatak", "Dodaci" ]
+annex = [ "Prilog", "Prilozi" ]
+errata = "Errata"
+acknowledgements = "Zahvale"

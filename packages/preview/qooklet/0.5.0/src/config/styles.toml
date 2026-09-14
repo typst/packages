@@ -1,0 +1,21 @@
+[paper]
+    note = "a4"
+    booklet = "iso-b5"
+
+[fonts.en]
+    title = "Palatino"
+    author = "Times New Roman"
+    preface = "Georgia"
+    contents = "Georgia"
+    context = "Georgia"
+    part = "Georgia"
+    math = "Times New Roman"
+
+[fonts.zh]
+    title = "STKaiti"
+    author = "Kaiti SC"
+    preface = "Songti SC"
+    contents = "Songti SC"
+    context = "Songti SC"
+    part = "Songti SC"
+    math = "Kaiti SC"

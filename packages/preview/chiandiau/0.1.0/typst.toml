@@ -1,0 +1,12 @@
+[package]
+name = "chiandiau"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["OverflowCat<https://about.overflow.cat>"]
+license = "Apache-2.0"
+description = "Display tone-based jumpy pronunciations"
+repository = "https://github.com/OverflowCat/chiandiau"
+keywords = ["linguistics", "ruby", "chinese"]
+categories = ["text"]
+exclude = ["package.json", "pnpm-lock.yaml", "fig1.typ", "demo.typ", "compile.sh", "wuu/*.lua" ]
+compiler = "0.12.0"

@@ -1,0 +1,20 @@
+[package]
+name = "grape-suite"
+version = "3.1.0"
+compiler = "0.13.0"
+entrypoint = "src/library.typ"
+
+authors = ["Tristan Pieper <tristanpieper080803@gmail.com>"]
+
+repository = "https://github.com/piepert/grape-suite"
+license = "MIT"
+
+keywords = ["clean", "grape", "minimal", "paper"]
+description = "Library of templates for exams, seminar papers, homeworks, etc."
+categories = ["layout", "paper", "presentation"]
+exclude = ["/img/*", "/examples/*"]
+
+[template]
+path = "src/template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

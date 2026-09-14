@@ -1,0 +1,11 @@
+[package]
+name = "mercator"
+version = "0.1.1"
+entrypoint = "mercator.typ"
+authors = ["Bernstein <https://github.com/bernsteining>"]
+license = "MIT"
+description = "🌎 Render GeoJSON in typst."
+repository = "https://github.com/bernsteining/mercator/"
+keywords = ["geojson", "map", "cartography", "vector tiles", "GIS", "SVG"]
+categories = ["visualization"]
+compiler = "0.13.1"

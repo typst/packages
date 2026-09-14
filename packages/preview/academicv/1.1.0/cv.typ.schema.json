@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/roaldarbol/academicv/main/cv.typ.schema.json",
+  "type": "object",
+  "default": {},
+  "title": "academicv data schema",
+  "required": [
+    "personal",
+    "sections"
+  ],
+  "properties": {
+    "settings": {
+      "type": "object",
+      "properties": {
+        "font_heading": { "type": "string" },
+        "font_body": { "type": "string" },
+        "fontsize": { 
+          "type": "string",
+          "description": "Font size with unit, e.g. '10pt'"
+        },
+        "spacing_line": { 
+          "type": "string",
+          "description": "Line spacing within elements with unit, e.g. '5pt'"
+        },
+        "spacing_section": { 
+          "type": "string",
+          "description": "Spacing between major sections with unit, e.g. '12pt'"
+        },
+        "spacing_entry": { 
+          "type": "string",
+          "description": "Spacing between entries within a section, e.g. '0.1em'"
+        },
+        "spacing_element": { 
+          "type": "string",
+          "description": "Spacing between elements within an entry (primary/secondary/tertiary), e.g. '3pt'"
+        },
+        "color_hyperlink": { 
+          "type": "string", 
+          "description": "Color for hyperlinks in format 'rgb(r, g, b)', 'rgba(r, g, b, a)', or hex like '#577FE6'"
+        },
+        "page": {
+          "type": "object",
+          "properties": {
+            "paper": { 
+              "type": "string",
+              "description": "Paper size like 'a4', 'letter', etc." 
+            },
+            "numbering": { 
+              "type": "string",
+              "description": "Page numbering format, e.g. '1 / 1'"
+            },
+            "number-align": { 
+              "type": "string", 
+              "enum": ["center", "left", "right"],
+              "description": "Alignment of page numbers"
+            },
+            "margin": { 
+              "type": "string",
+              "description": "Page margin with unit, e.g. '3.5cm'"
+            }
+          }
+        }
+      }
+    },
+    "personal": {
+      "type": "object",
+      "default": {},
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": ""
+        },
+        "titles": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            }
+          }
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "format": "email"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "website": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "profiles": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "type": "object",
+            "required": [
+              "network",
+              "username",
+              "url"
+            ],
+            "properties": {
+              "network": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "description": "Defines the structure and content of each CV section",
+      "items": {
+        "type": "object",
+        "required": ["key", "layout"],
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Unique identifier for the section"
+          },
+          "layout": {
+            "type": "string",
+            "description": "The layout type to use for this section",
+            "enum": ["header", "timeline", "timeline_title", "numbered_list", "prose"]
+          },
+          "title": {
+            "type": "string",
+            "description": "Display title for the section"
+          },
+          "show": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to display this section"
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of elements to include in the header layout"
+          },
+          "primary_element": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Primary element to display in bold (first one only)"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of primary elements with the first one displayed in bold"
+              }
+            ]
+          },
+          "secondary_element": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Secondary element to display in italic"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of secondary elements to display in italic"
+              }
+            ]
+          },
+          "tertiary_element": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Tertiary element to display in small text"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of tertiary elements to display in small text"
+              }
+            ]
+          },
+          "entries": {
+            "oneOf": [
+              {
+                "type": "array",
+                "description": "Array of entries for education, experience, teaching, publications, etc.",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "institution": { "type": "string" },
+                        "location": { "type": "string" },
+                        "title": { "type": "string" },
+                        "start_date": { "type": ["string", "number"] },
+                        "end_date": { "type": ["string", "number", "null"] },
+                        "description": { "type": "string" },
+                        "advisors": { 
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "List of advisors, displayed with 'Advisor:' in italic"
+                        },
+                        "professors": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "List of professors, displayed with 'Professor:' in italic"
+                        },
+                        "supervisors": {
+                          "type": "array",
+                          "items": { "type": "string" },
+                          "description": "List of supervisors, displayed with 'Supervisor:' in italic"
+                        }
+                      }
+                    },
+                    {
+                      "type": "string",
+                      "description": "For numbered lists like publications"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "string",
+                "description": "For prose sections with continuous text"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

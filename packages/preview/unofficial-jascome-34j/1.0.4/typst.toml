@@ -1,0 +1,17 @@
+[package]
+name = "unofficial-jascome-34j"
+version = "1.0.4"
+entrypoint = "src/lib.typ"
+authors = ["34j <@34j>"]
+categories = ["paper"]
+keywords = ["academic", "journal"]
+disciplines = ["engineering", "computer-science", "mathematics"]
+license = "MIT-0"
+repository = "https://github.com/34j/typst-unofficial-jascome-34j"
+description = "Unofficial template for JASCOME."
+exclude = ["tests/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

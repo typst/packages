@@ -1,0 +1,30 @@
+[package]
+name = "sos-ugent-style"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Thijs Paelman"]
+license = "GPL-3.0-only"
+keywords = ["UGent", "Universiteit Gent", "Ghent University",
+"thesis", "educatieve", "masterproef", "MPP", "presentation"]
+categories = ["thesis", "presentation", "report"] # paper
+exclude = ["/examples", "/fonts", "/src/logos/README.md", "/src/utils/README.md", "/utils/README.md"]
+# Don't commit (i.e. after copying everything, remove):
+# - .git
+# - .gitignore
+# - .guix
+# - .guix-channel
+# - examples/{README.md,*.typ} (only commit examples/compiled/)
+# - fonts/*.ttf
+# - src/design-docs/
+# - src/logos/*{wit,white}.png
+# - src/utils/debug.typ
+# - Any straggling pdf (`find . -iname '*pdf*'`)
+description = "Write documents, presentations and dissertations in the same, uniform UGent style. Unofficial template."
+repository = "https://codeberg.org/th1j5/typst-sos-ugent-style"
+
+[template]
+path = "template"
+entrypoint = "dissertation.typ"
+# TODO: create automatic release script (using Guix?)
+# Use ./build.sh for the moment
+thumbnail = "examples/compiled/template-dissertation-thumbnail.png"

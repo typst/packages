@@ -1,0 +1,16 @@
+[package]
+name = "muddy-mit-thesis"
+version = "0.2.0"
+authors = ["Josh Pollock <jopo@mit.edu>"]
+license = "MIT"
+description = "Typst port of the MIT mitthesis LaTeX template (v1.22). Produces a thesis document conforming to MIT Libraries dissertation formatting requirements."
+repository = "https://github.com/joshpoll/muddy-mit-thesis"
+keywords = ["thesis", "mit", "academic"]
+categories = ["paper"]
+entrypoint = "mitthesis.typ"
+exclude = ["template/MIT-Thesis.pdf"]
+
+[template]
+path = "template"
+entrypoint = "MIT-Thesis.typ"
+thumbnail = "thumbnail.png"

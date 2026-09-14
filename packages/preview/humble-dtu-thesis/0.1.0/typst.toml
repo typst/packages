@@ -1,0 +1,17 @@
+[package]
+name = "humble-dtu-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+keywords = ["DTU", "Technical University of Denmark", "Danmarks Tekniske Universitet" ]
+categories = ["thesis", "report"]
+authors = [
+    "Tobias Olrik Birck Kristensen @bircck",
+    "Thyge Skødt Steffensen @thygesteffensen"
+    ]
+license = "MIT"
+description = "DTU Thesis Template for Typst"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"
