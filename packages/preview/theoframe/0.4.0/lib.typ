@@ -53,7 +53,7 @@
     if (target() == "html" or target() == "bundle") {
       html.elem("div", attrs: (
         class: "thmbox",
-        style: "border-left: 5px solid #565656a2; border-radius: 10px;  background: #ffffff; padding: 0.8em;",
+        style: "border-left: 5px solid #aaaaaa; border-radius: 10px; background: #f1f1f1; padding: 0.8em;",
       ))[
         #strong()[#trans-supplement] #fig-number(kind, here()) #str(
           "  ",
@@ -223,6 +223,7 @@
 // Create another template function used to produce a figure with very plain appearance.
 #let thmplain(trans-supplement: [], kind: "", color: auto, name: [], content) = figure(
   context {
+    let computed-color = if (color != auto) { color } else { theoframe-theme.final().color }
     if (target() == "html" or target() == "bundle") {
       html.elem("div", attrs: (
         class: "thmplain",
@@ -235,6 +236,9 @@
     } else {
       block(
         width: 100%,
+        inset: 1em,
+        fill: computed-color.lighten(10%).transparentize(95%),
+        radius: 1em,
       )[
         #set align(left)
         #text(weight: 600)[ #trans-supplement] #fig-number(kind, here()) #h(1em)
@@ -334,6 +338,21 @@
   // set heading(numbering: "1.")
 
   show heading.where(level: 1): set text(fill: theme.color.darken(20%))
+
+  show figure: set block(breakable: true)
+  
+  show figure.where(kind: "diagram"): it => {
+    if (target() == "bundle" or target() == "html") {
+      html.elem(
+        "div",
+        attrs: (
+          style: "width: 100%; margin: 10pt auto; display: flex; justify-content: center",
+          class: "typst-diagram",
+        ),
+        html.frame(it),
+      )
+    } else { it }
+  }
 
   doc
 }
