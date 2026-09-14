@@ -1,0 +1,588 @@
+# beautiframe
+
+[![beautiframe on Typst Universe](https://img.shields.io/badge/Typst_Universe-v._0.4.6-239dad?labelColor=eee)](https://typst.app/universe/package/beautiframe)
+[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-beautiframe/blob/640ea4d1ce9b46ea415cbe84ae74b23539d603cf/docs/manual.pdf)
+[![Distributed under the MIT license](https://img.shields.io/badge/License-MIT-333333?labelColor=eee)](LICENSE)
+
+Beautiful theorem-like environments with 9 distinctive styles and a French math preset.
+
+## Gallery
+
+<table>
+<tr>
+<td width="50%"><strong>Classic</strong><br><img src="gallery/classic.svg" alt="classic style with vertical rule and label in the left margin"></td>
+<td width="50%"><strong>Modern</strong><br><img src="gallery/modern.svg" alt="modern style with colored left border bar"></td>
+</tr>
+<tr>
+<td><strong>Elegant</strong><br><img src="gallery/elegant.svg" alt="elegant style with thin horizontal rules above and below"></td>
+<td><strong>Colorful</strong><br><img src="gallery/colorful.svg" alt="colorful style with tinted background per environment type"></td>
+</tr>
+<tr>
+<td><strong>Boxed</strong><br><img src="gallery/boxed.svg" alt="boxed style with full rectangular frames around environments"></td>
+<td><strong>Minimal</strong><br><img src="gallery/minimal.svg" alt="minimal style with inline bold labels and no decoration"></td>
+</tr>
+<tr>
+<td><strong>Academic</strong><br><img src="gallery/academic.svg" alt="academic journal style with small-caps labels"></td>
+<td><strong>QED Symbols</strong><br><img src="gallery/qed-symbols.svg" alt="proof endings with the available QED symbol presets"></td>
+</tr>
+<tr>
+<td><strong>BW</strong> (French B&amp;W course)<br><img src="gallery/bw.svg" alt="black-and-white French course style with framed theorem boxes"></td>
+<td><strong>Cours</strong> (French course)<br><img src="gallery/cours.svg" alt="French course style with blue accents and side labels"></td>
+</tr>
+<tr>
+<td colspan="2"><strong>French Math Preset &amp; New Features</strong><br><img src="gallery/french-math.svg" alt="French math preset showing theoreme, formule, pratique and defi environments"></td>
+</tr>
+<tr>
+<td colspan="2"><strong>Trous</strong> (student and instructor builds)<br><img src="gallery/trous.svg" alt="the same source rendered twice: reserved ruled and dotted space in the student build, the written content in the instructor build"></td>
+</tr>
+<tr>
+<td colspan="2"><strong>Header Layout &amp; Per-Environment Colors</strong><br><img src="gallery/header-layout.svg" alt="the three header layouts label-first, title-first and prefix, then per-environment colors and perceptual background tints"></td>
+</tr>
+</table>
+
+## Features
+
+- **9 distinct styles**: classic, modern, elegant, colorful, boxed, minimal, academic, **bw**, **cours**
+- **6 variants per style**: prominent, standard, subtle, accent, minimal, inline
+- **Flexible mapping**: Assign any variant to any environment type
+- **Independent counters**: Each environment type has its own counter
+- **Customizable labels**: Change "Theorem" to "Théorème", "Satz", etc.
+- **QED symbol presets**: □, ■, ∎, CQFD, //, Q.E.D.
+- **Color themes**: Pre-built themes (ocean, forest, sunset, lavender)
+- **Language presets**: French, German, Spanish
+- **French Math Preset**: one-call setup for French secondary math courses
+- **QR sidebar**: attach a QR code column to any environment
+- **Environment references**: label theorem-like blocks and link back to their page
+- **Section-linked numbering**: LaTeX `\numberwithin`-style "Theorem 2.1.3" with per-section reset (opt-in)
+- **Instructor mode**: one source, two documents. Corrections and instructor-only blocks are hidden in the student build, and `instructor-only-envs` reserves whole families of environments at once
+- **Student fill space**: blank, ruled lines, or dot grid appended inside any environment
+- **Per-environment colors everywhere**: `env-colors: true` makes every variant of every style follow `theorem-color`, `example-color`, … (not just the `accent` variants); `label-color: "base"` paints the header in the same colour
+- **Perceptual background tints**: `background-tint: auto` lightens each colour until it reaches the same perceived lightness, so a yellow tint reads as strongly as a green one
+- **Header layout**: `header-layout: "title-first"` / `"title-abbrev"` / `"title-only"` / `"prefix"` swaps the emphasis so the title leads and the label follows (`What is analysis? (Rem 2)`, `Rem 2: What is analysis?`), in every style
+- **Trous**: `#trou[...]` reserves space sized to the hidden content (scaled by a handwriting factor, snapped to the ruling) in the student build and prints that content in the instructor build; `#trou-inline[...]` blanks a single word
+- **Print-friendly modes**: color, grayscale, black & white
+
+## Quick Start
+
+```typst
+#import "@preview/beautiframe:0.4.6": *
+
+#theorem(name: "Pythagorean")[
+  In a right triangle: $a^2 + b^2 = c^2$
+]
+
+#definition[
+  A *limit* is the value that a function approaches.
+]
+
+#proof[
+  The proof is left as an exercise.
+]
+```
+
+## Environments
+
+| Environment | Default Variant | Counter | Notes |
+|-------------|-----------------|---------|-------|
+| `theorem`   | prominent       | Optional | Main results |
+| `definition`| standard        | Optional | Foundational concepts |
+| `lemma`     | standard        | Optional | Supporting results |
+| `proposition`| standard       | Optional | Secondary results |
+| `corollary` | standard        | Optional | Consequences |
+| `remark`    | subtle          | Optional | Commentary |
+| `example`   | accent          | Optional | Illustrations |
+| `proof`     | (special)       | No       | Ends with QED |
+
+All environments support optional numbering via the `number` parameter.
+All environments accept `title:` as a synonym for `name:` (backward compat).
+All environments accept `label:` for cross-references with `env-ref`.
+
+### French Math Environments
+
+The following environments are available after `#preset-french-math()` or `#preset-french-math-bw()`:
+
+| Environment | Label | Base | Numbered |
+|-------------|-------|------|---------|
+| `theoreme`  | Théorème | theorem | Yes |
+| `definitionfr` | Définition | definition | Yes |
+| `propositionfr` | Proposition | proposition | Yes |
+| `exemplefr` / `exemple` | Exemple | example | Yes |
+| `remarque`  | Remarque | remark | No |
+| `corollaire` | Corollaire | corollary | Yes |
+| `preuve`    | Preuve | proof | No |
+| `pratique`  | En pratique | example | Yes |
+| `guided-example` | Exemple guidé | example | Yes |
+| `propriete` | Propriété | corollary | No |
+| `formule`   | Formule | lemma | Yes |
+| `formules(...)` | Formules (plural) | lemma | Yes |
+| `methode`   | Méthode | proposition | Yes |
+| `notation(...)` | Notation | remark | No |
+| `discussion(...)` | Discussion | remark | No |
+
+### Numbering Control
+
+```typst
+// Automatic numbering (default for most)
+#theorem[Theorem 1]
+#theorem[Theorem 2]
+
+// No numbering
+#theorem(number: none)[Unnumbered theorem]
+
+// Custom number
+#theorem(number: "A")[Special theorem A]
+
+// title: alias for name:
+#theorem(title: "Pythagorean")[...]
+```
+
+Section-linked numbering (LaTeX `\numberwithin` style) is opt-in and also applies
+to `new-env` custom environments such as `formule`:
+
+```typst
+#set heading(numbering: "1.1.")
+#beautiframe-setup(
+  link-to-section: true,      // true = 1 heading level; an int N = N levels ("2.1.3")
+  counter-reset: "section",   // restart counters at each heading up to that depth
+)
+
+= Première section
+#formule[$a^2 + b^2 = c^2$]   // Formule 1.1
+#formule[$e^(i pi) = -1$]     // Formule 1.2
+= Deuxième section
+#formule[$sin^2 + cos^2 = 1$] // Formule 2.1
+```
+
+`env-ref`/`env-refs` display the same section-linked numbers.
+
+### References
+
+Add a Typst label to any environment, then reference it with `#env-ref(<label>)`.
+The reference text includes the environment label, number, and target page, and the whole text links to the labelled block.
+
+```typst
+#theorem(label: <thm-pythagore>, title: "Pythagore")[
+  Dans un triangle rectangle: $a^2 + b^2 = c^2$.
+]
+
+Voir #env-ref(<thm-pythagore>).
+// -> Théorème 1 (p. 3)
+
+#remark(label: <rem-unites>)[Attention aux unités.]
+Voir #env-ref(<rem-unites>).
+// -> Remark (p. 3)
+```
+
+Use `page: false` to hide the page number: `#env-ref(<thm-pythagore>, page: false)`.
+Use `page-style: "comma"` when the reference already sits inside parentheses:
+`(voir #env-ref(<thm-pythagore>, page-style: "comma"))`.
+
+Use `env-refs` for several environments. Consecutive references with the same label are compacted:
+
+```typst
+#pratique(label: <prac-3>)[...]
+#pratique(label: <prac-4>)[...]
+#pratique(label: <prac-5>)[...]
+#pratique(label: <prac-6>)[...]
+
+Voir #env-refs(<prac-3>, <prac-4>, <prac-5>, <prac-6>, page: false).
+// -> En pratique 3-6
+
+Voir #env-refs(<prac-3>, <prac-4>, <prac-5>, <prac-6>, page-style: "comma").
+// -> En pratique 3-6, pp. 4-5
+
+#definition(label: <def-limite>)[...]
+#proposition(label: <prop-limite>)[...]
+
+Voir #env-refs(<def-limite>, <prop-limite>, page: false).
+// -> Définition 1 et Proposition 2
+```
+
+## Style Selection
+
+```typst
+#beautiframe-setup(style: "modern")
+// Available: classic, modern, elegant, colorful, boxed, minimal, academic, bw, cours
+```
+
+## French Math Preset
+
+One-call setup for French secondary math courses:
+
+```typst
+#import "@preview/beautiframe:0.4.6": *
+
+// Color version (cours style, blue accent, bold labels, QED square)
+#preset-french-math()
+
+// Black-and-white version (bw style, 8.4pt labels, luma palette)
+#preset-french-math-bw()
+
+// Reset all counters (including custom French envs)
+#beautiframe-reset-french-math()
+
+// Use French environments
+#theoreme(name: "Pythagore")[Dans un triangle rectangle: $a^2 + b^2 = c^2$]
+#definitionfr[Une fonction continue préserve les limites.]
+#pratique[Calculer la dérivée de $f(x) = x^3 - 2x$.]
+#worked-exercise(correction: [On obtient $f'(x)=3x^2$.])[
+  Calculer la dérivée de $f(x)=x^3$.
+]
+#guided-example(title: "Méthode guidée")[On détaille chaque étape.]
+#formule[Les solutions de $a x^2 + b x + c = 0$ sont $x = (-b plus.minus sqrt(b^2 - 4 a c)) / (2 a)$.]
+#preuve[Par définition de la continuité.]
+```
+
+`worked-exercise` displays its `correction:` only when `beautiframe-setup(instructor-mode: true)` is active. Configure `correction-renderer: (title, body) => ...` to use a custom correction style.
+
+## Instructor-only environments
+
+Every environment takes `instructor:`, and `instructor-only-envs` lists the ones
+reserved for the instructor build by default:
+
+```typst
+#beautiframe-setup(
+  instructor-mode: false,
+  instructor-only-envs: ("worked-exercise", "methode"),
+)
+
+#methode[Hidden in the student build.]
+#methode(instructor: false)[Shown anyway: the per-env key wins.]
+#remark(instructor: true)[Instructor-only, whatever the list says.]
+```
+
+| `instructor:` | effect |
+| --- | --- |
+| `auto` (default) | consult `instructor-only-envs` for this environment's key |
+| `true` | instructor build only |
+| `false` | always shown, even when the key is listed |
+
+An environment names itself by the function you call: built-ins by their type
+(`"theorem"`, `"definition"`, `"lemma"`, `"proposition"`, `"corollary"`,
+`"remark"`, `"example"`, `"proof"`), the French set by
+`"propriete"`, `"formule"`, `"methode"`, `"regles"`, `"pratique"`,
+`"guided-example"`, `"objectifs"`, `"concepts"`, `"glossaire"`,
+`"worked-exercise"`, `"defi"`, `"notation"`, `"discussion"`,
+`"formules-recap"`, and a `new-env` custom by its `key:` (defaulting to its
+label). A hidden environment is fully absent: it steps no counter, so the
+visible ones stay numbered without gaps, and it leaves no reference target
+behind.
+
+`env-visible(key, instructor: auto)` exposes the same decision, so a project can
+gate environments it defines outside the package on the same list:
+
+```typst
+#let activite(instructor: auto, body) = context {
+  if not env-visible("activite", instructor: instructor) { return }
+  ...
+}
+```
+
+## QR Sidebar
+
+Attach a QR code (or any content) in a right sidebar to any environment:
+
+```typ
+// Configure once in your preamble (using tiaoma or any renderer):
+#beautiframe-setup(
+  qr-renderer: url => image(tiaoma.qrcode(url), format: "svg", width: 1.85cm),
+  qr-width: 1.85cm,
+)
+
+// Then use qr: on any environment:
+#theorem(qr: "https://example.com/proof")[
+  In a right triangle: $a^2 + b^2 = c^2$
+]
+```
+
+The `qr-renderer` receives the URL string and returns content placed in a right sidebar column of width `qr-width`.
+
+## Student Fill Space
+
+Append blank space for students to write in, inside any environment:
+
+```typst
+// Blank area
+#pratique(space: "empty", space-height: 3cm)[Solve for x.]
+
+// 8mm ruled lines
+#pratique(space: "lines", space-height: 4cm)[Show your work.]
+
+// 5mm dot grid
+#exemple(space: "grid", space-height: 5cm)[Sketch the function.]
+```
+
+`space:` values: `"empty"` (blank), `"lines"` (8mm ruled lines), `"grid"` (5mm dot grid).
+Default `space-height` is 3cm.
+
+## Trous
+
+Where `space:` appends anonymous blank space, a trou *carries* the content the
+class is meant to produce there. It prints as reserved space in the student
+build and as the content itself in the instructor build, from one source file:
+
+```typst
+#trou[La suite 1/n tend vers 0 sans jamais l'atteindre.]
+
+#trou(hint: [contre-exemple])[La fonction de Dirichlet.]
+
+#trou(fill: "lines", height: 4cm)[Esquisse du graphe.]
+
+Une fonction #trou-inline[continue] sur [a; b] atteint ses bornes.
+
+// The instructor build is one switch away
+#beautiframe-setup(instructor-mode: true)
+```
+
+The reserved height is measured from the hidden content and multiplied by
+`trou-scale` (default `2.0`), because a hand needs about twice the room typeset
+text occupies; with `fill: "lines"` it then snaps up to a whole number of
+`trou-line-gap` rules. An explicit `height:` is used as given. Every style
+renders trous in its own visual language.
+
+## Header Layout
+
+Which half of the header carries the emphasis:
+
+```typst
+#beautiframe-setup(header-layout: "label-first")   // Remark 2 (What is analysis?)  [default]
+#beautiframe-setup(header-layout: "title-first")   // What is analysis? (Remark 2)
+#beautiframe-setup(header-layout: "title-abbrev")  // What is analysis? (Rem 2)
+#beautiframe-setup(header-layout: "title-only")    // What is analysis?
+#beautiframe-setup(header-layout: "prefix", label-abbrev: true)  // Rem 2: What is analysis?
+```
+
+Only environments that have a title are affected, and every style follows.
+
+## Variant Mapping
+
+Assign any variant to any environment type:
+
+```typst
+#beautiframe-setup(
+  theorem-variant: "prominent",   // Strongest emphasis
+  definition-variant: "standard", // Normal styling
+  remark-variant: "inline",       // Flows with text
+  example-variant: "accent",      // Uses environment color
+)
+```
+
+Set **all 7 variants at once** with `default-variant`; individual params override it:
+
+```typst
+// All environments use boxed, except theorems which stay prominent
+#beautiframe-setup(default-variant: "boxed", theorem-variant: "prominent")
+```
+
+Available variants: `prominent`, `standard`, `subtle`, `accent`, `minimal`, `inline`
+
+BW style has additional variants: `boxed` (light rect), `prominent` (thicker rect), `accent` (env-color)
+
+Boxed style has 4 additional variants: `titled`, `centered`, `corner`, `corner2`
+
+## QED Symbols
+
+```typst
+#qed-square()     // □ (default)
+#qed-filled()     // ■
+#qed-tombstone()  // ∎
+#qed-cqfd()       // CQFD
+#qed-slashes()    // //
+#qed-text()       // Q.E.D.
+#qed-none()       // (none)
+
+// Custom symbol (use size: 1.4em for consistency)
+#beautiframe-setup(qed-symbol: text(size: 1.4em, fill: green, sym.checkmark))
+```
+
+## Language Presets
+
+```typst
+#preset-french()   // Théorème, Définition, Preuve...
+#preset-german()   // Satz, Definition, Beweis...
+#preset-spanish()  // Teorema, Definición, Demostración...
+#preset-english()  // Back to the built-in Theorem, Definition, Proof...
+```
+
+## Color Themes
+
+```typst
+#theme-ocean()     // Blue tones
+#theme-forest()    // Green tones
+#theme-sunset()    // Red/orange tones
+#theme-lavender()  // Purple tones
+```
+
+## Print-Friendly Modes
+
+```typst
+#beautiframe-setup(color-mode: "color")      // Full color (default)
+#beautiframe-setup(color-mode: "grayscale")  // Grayscale
+#beautiframe-setup(color-mode: "bw")         // Pure black and white
+```
+
+## Configuration Reference
+
+See the [full manual](https://github.com/nathan-ed/typst-package-beautiframe/blob/640ea4d1ce9b46ea415cbe84ae74b23539d603cf/docs/manual.pdf) for complete API documentation.
+
+```typst
+#beautiframe-setup(
+  style: "classic",              // classic, modern, elegant, colorful, boxed, minimal, academic, bw, cours
+
+  // Variant mapping (default-variant sets all 7; individual params override)
+  default-variant: none,
+  theorem-variant: "prominent",
+  definition-variant: "standard",
+  lemma-variant: "standard",
+  remark-variant: "subtle",
+  example-variant: "accent",
+
+  // Colors
+  accent-color: rgb("#2980b9"),
+  theorem-color: rgb("#c0392b"),
+  definition-color: rgb("#2980b9"),
+  env-colors: false,             // true = every variant follows the per-environment colors
+  label-color: auto,             // auto | "base" | a color
+  background-tint: auto,         // auto = perceptual, or a ratio like 92%
+  background-lightness: 0.93,    // target lightness of tints, 0..1
+
+  // Header layout
+  header-layout: "label-first",  // label-first, title-first, title-abbrev,
+                                 // title-only, prefix
+  label-abbrev: false,           // demote labels to theorem-abbrev, remark-abbrev, ...
+  prefix-separator: ":",
+
+  // Trous
+  trou-fill: "empty",            // empty, lines, grid
+  trou-scale: 2.0,               // handwriting factor on the measured height
+  trou-line-gap: 8mm,
+  trou-frame: true,
+  trou-min-height: 1cm,
+
+  // Typography
+  label-size: 1em,               // Defaults to body font size
+  label-weight: "bold",
+
+  // Layout (classic style)
+  line-position: 2cm,
+  label-extra: 1cm,
+  border-width: 1pt,
+
+  // Labels
+  theorem-label: "Theorem",
+  proof-label: "Proof",
+
+  // QED
+  qed-symbol: sym.square.stroked,
+
+  // Print mode
+  color-mode: "color",
+
+  // QR sidebar
+  qr-renderer: none,             // url => content function, or none
+  qr-width: 1.85cm,              // Width of the QR sidebar column
+)
+```
+
+## Utility Functions
+
+```typst
+#beautiframe-reset()                // Reset all built-in counters to 0
+#beautiframe-reset-french-math()    // Reset built-in + French env counters
+#reset-env("Conjecture")            // Reset a specific custom env counter
+#beautiframe-reset-config()         // Reset every setting to its default value
+```
+
+## Changelog
+
+### [0.4.6] - 2026-09-14
+
+#### Added
+- `instructor-only-envs`: a list of environment keys reserved for the instructor build, so a whole family (`("worked-exercise", "methode")`) is hidden from the student build without annotating every call. An environment names itself by the function you call: built-ins by their type, the French set by `"methode"`, `"propriete"`, `"worked-exercise"`, `"defi"`, …, a `new-env` custom by the new `key:` parameter (default: its label).
+- `env-visible(key, instructor: auto)`: the same visibility decision, exported so a project can gate environments it defines outside the package on the same list.
+- `instructor:` is now on every environment, `worked-exercise`, `defi`, `notation`, `formules` and `formules-recap` included.
+
+#### Changed
+- The `instructor:` parameter defaults to `auto` instead of `false`: `auto` consults `instructor-only-envs`, `true` still means instructor-only, and `false` now forces an environment back into the student build even when its key is listed. Existing documents are unaffected, the list being empty by default.
+
+#### Fixed
+- A labelled instructor-only environment left a reference marker behind while its counter never stepped, so `env-ref` pointed at a number that did not exist. A hidden environment now emits no marker and `env-ref` falls back to its `missing:` text.
+
+### [0.4.5] - 2026-08-19
+
+#### Added
+- **Trous** (`trou`, `trou-inline`): fill-in space that *carries* its content. The student build prints reserved, correctly sized blank space; the instructor build (`instructor-mode: true`) prints the content itself, flagged in the accent colour. The reserved height is measured from the hidden content and multiplied by `trou-scale` (default `2.0`, a handwriting factor), then snapped to a whole number of `trou-line-gap` rules when `fill: "lines"`; an explicit `height:` is used as given. Per-call `height`, `scale`, `fill` (`"empty"` / `"lines"` / `"grid"`), `frame`, `hint`, `min-height`, `padding`; config `trou-fill`, `trou-scale`, `trou-line-gap`, `trou-frame`, `trou-color`, `trou-padding`, `trou-min-height`, `trou-max-height`, `trou-hint-size`, `trou-mark-instructor`, `trou-mark-color`. Every style renders trous in its own visual language, and a trou inside an environment body drops the label-column layout since that column is already taken.
+- `header-layout` redistributes the two halves of an environment header: `"label-first"` (default, *Remark 2 (What is analysis?)*), `"title-first"` (*What is analysis? (Remark 2)*), `"title-abbrev"` (*What is analysis? (Rem 2)*, the label always abbreviated whatever `label-abbrev` says), `"title-only"` (*What is analysis?*, label and number dropped from the header while the counter still advances, so `env-ref` keeps working), `"prefix"` (*Rem 2: What is analysis?*, separator configurable via `prefix-separator`). It applies to every style, since the redistribution happens before the style is called, and only to environments that have a title.
+- `label-abbrev: true` demotes labels to the short forms `theorem-abbrev`, `definition-abbrev`, `lemma-abbrev`, `proposition-abbrev`, `corollary-abbrev`, `remark-abbrev`, `example-abbrev`, `proof-abbrev`. Plural forms and `new-env` custom labels are never abbreviated. `preset-french()` sets the French forms and a narrow non-breaking space before the `"prefix"` colon.
+- `env-colors: true` makes *every* variant of *every* style follow the per-environment colours (`theorem-color`, `example-color`, …), not just the `accent` variants. Styles now read the resolved `base-color` instead of `accent-color`, so the setting is honoured everywhere, boxed-only variants (`titled`, `centered`, `corner`, `corner2`) included.
+- `beautiframe-reset-config()` restores every setting to its default. Configuration is global and cumulative, so this is the way back after a style, preset or theme has been applied — each chapter of a document can start from a known state.
+- `preset-english()` restores the built-in English labels, plurals and abbreviations — the way back from `preset-french()`, `preset-german()`, `preset-spanish()` or `preset-french-math()`.
+- `label-color` controls header ink: `auto` (each style's own choice, default), `"base"` (follow the environment colour), or an explicit colour.
+
+#### Fixed
+- Proof label and body sat on different baselines. The QED symbol is set at `1.4em`, taller than the text it ends, which grew the line box and dropped the body line relative to the label standing in its own column. The symbol is now placed in a zero-height box: it still sits on the baseline but no longer dictates the height of the line.
+
+#### Changed
+- Background tints of filled boxes are now perceptual by default (`background-tint: auto`): each colour is lightened by however much it takes to reach `background-lightness` (default `0.93`), so a yellow tint no longer vanishes where a green shouts. Set `background-tint` to a ratio (e.g. `92%`) for the previous fixed lightening.
+
+### [0.4.0] - 2026-07-14
+
+#### Added
+- References: `env-ref(<label>)` and `env-refs(<a>, <b>, ...)` link to any labelled environment, displaying its label, number and page ("théorème 2, p. 5"). Consecutive references of the same type are compacted into ranges ("formule 1.1-1.2"). Options: `page`, `page-style`, `page-prefix`, `lower-label`, `missing`, `separator`, `last-separator`. Aliases `envref`/`envrefs`.
+- Section-linked numbering (LaTeX `\numberwithin` style), opt-in:
+  - `link-to-section` now accepts an integer depth in addition to `true`: `true` = one heading level ("Théorème 2.3"), `N` = first N levels ("Formule 2.1.3" with `link-to-section: 2`).
+  - `counter-reset: "section"` is now implemented: every environment counter restarts after each heading up to the `link-to-section` depth (level 1 when the prefix is off). Default `"manual"` unchanged.
+  - Both settings now also apply to `new-env` custom environments (`formule`, `methode`, `pratique`, ...), which previously ignored them.
+  - `env-ref`/`env-refs` display the same section-linked numbers.
+- `instructor: false` parameter on every environment (built-ins and `new-env` customs): the whole block is only rendered when `instructor-mode: true`, in addition to the existing per-`correction` gating.
+
+#### Fixed
+- `bw` style: boxed/prominent variants now honour the configured `inset` instead of a hardcoded value.
+
+### [0.3.1] - 2026-05-27
+
+#### Added
+- **`worked-exercise`**: new environment for instructor-controlled correction reveal — shows correction only when `beautiframe-setup(instructor-mode: true)` is active; customizable via `correction-renderer`
+- **`guided-example`**: new "Exemple guidé" environment for step-by-step demonstrations
+- **`instructor-mode`** / **`correction-label`** / **`correction-renderer`**: new `beautiframe-setup` parameters for worked exercise support
+- **`lower-label`** parameter on `env-ref` / `env-refs`: renders environment label in lowercase (e.g. "le théorème 3" vs "Théorème 3")
+- Manual: document `defi`/`défi` challenge callout with parameter table and live examples
+- Manual: document `formule-end` / `formules-recap` formula recap workflow
+- Manual: document `objectifs`, `concepts`, `glossaire` course meta-environments
+
+#### Fixed
+- Replace deprecated `pattern` with `tiling` (removed in Typst 0.15.0)
+- Remove "Typst" from package description (redundant on Typst Universe)
+
+### v0.3.0
+
+- **`default-variant`**: new parameter on `beautiframe-setup()` — sets all 7 environment variants at once; individual `*-variant` params override it
+- **Documentation**: comprehensive manual expansion — full API reference with all spacing params, `title:` alias documentation, `notation`/`discussion`/`pratique` live examples, `default-variant` section with live gallery
+
+### v0.2.0
+
+- **New styles**: `bw` (Gymnomath black-and-white two-column) and `cours` (French course style with margin overhang)
+- **French Math Preset**: `#preset-french-math()` and `#preset-french-math-bw()` for one-call setup
+- **French environments**: `theoreme`, `definitionfr`, `propositionfr`, `exemplefr`, `remarque`, `corollaire`, `preuve`, `pratique`, `propriete`, `formule`, `formules`, `methode`, `notation`, `discussion`
+- **QR sidebar**: `qr-renderer` config + `qr:` parameter on all environments
+- **Student fill space**: `space: "empty"|"lines"|"grid"` and `space-height:` on all environments
+- **`title:` alias**: synonym for `name:` on all environments
+- **Default label-size**: changed from `11pt` to `1em` (inherits document body font)
+- **`beautiframe-reset-french-math()`**: resets all counters including French custom envs
+- Bug fix: fill-space lines calculation with length arithmetic
+
+### v0.1.0 (2026-01-28)
+
+- Initial release
+- 7 styles: classic, modern, elegant, colorful, boxed, minimal, academic
+- 6 core variants: prominent, standard, subtle, accent, minimal, inline
+- Boxed style extras: titled, centered, corner, corner2
+- QED symbol presets: square, filled, tombstone, CQFD, slashes, Q.E.D.
+- Language presets: French, German, Spanish
+- Color themes: ocean, forest, sunset, lavender
+- Print modes: color, grayscale, bw
+- Optional numbering for all environments
+
+## License
+
+MIT
