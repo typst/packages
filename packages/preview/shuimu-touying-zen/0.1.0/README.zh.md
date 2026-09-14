@@ -227,8 +227,8 @@ typst watch main.typ main.pdf
 Touying 的接口可参考 [官方文档](https://touying-typ.github.io/zh/docs/intro) 和 [0.7.4 包页面](https://typst.app/universe/package/touying/)。
 
 ## 预览
-![](gallery/example-page-01.png)
-![](gallery/example-page-02.png)
-![](gallery/example-page-03.png)
-![](gallery/example-page-05.png)
-![](gallery/example-page-10.png)
+![首页](gallery/example-page-01.png)
+![目录](gallery/example-page-02.png)
+![章节目录](gallery/example-page-03.png)
+![正文](gallery/example-page-05.png)
+![结束页](gallery/example-page-10.png)

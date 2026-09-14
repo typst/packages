@@ -227,8 +227,8 @@ Font rendering, paragraph spacing, and the SVG logos differ slightly from the or
 For the Touying API, see the [official documentation](https://touying-typ.github.io/docs/intro) and the [0.7.4 package page](https://typst.app/universe/package/touying/).
 
 ## Preview
-![](gallery/example-page-01.png)
-![](gallery/example-page-02.png)
-![](gallery/example-page-03.png)
-![](gallery/example-page-05.png)
-![](gallery/example-page-10.png)
+![Cover page](gallery/example-page-01.png)
+![Outline](gallery/example-page-02.png)
+![Outline-section](gallery/example-page-03.png)
+![Main text](gallery/example-page-05.png)
+![Acknowledgment](gallery/example-page-10.png)
