@@ -228,7 +228,7 @@ For the Touying API, see the [official documentation](https://touying-typ.github
 
 ## Preview
 ![Cover page](gallery/example-page-01.png)
-![Outline](gallery/example-page-02.png)
-![Outline-section](gallery/example-page-03.png)
+![An automatically generated TOC](gallery/example-page-02.png)
+![ToC before each section](gallery/example-page-03.png)
 ![Main text](gallery/example-page-05.png)
-![Acknowledgment](gallery/example-page-10.png)
+![Acknowledgment page](gallery/example-page-10.png)
