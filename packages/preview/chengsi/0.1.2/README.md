@@ -4,7 +4,7 @@ Chinese and English mathematics notes with three color themes, theorem environme
 
 适合长期书写的中英文数学笔记模板。提供封面、目录、定理与证明、章首题辞、图片与题注、按 A/B/C 编号的附录、代码高亮及参考文献；青绿、靛蓝、暖赭棕三种配色共享同一套版式。
 
-![thumbnail](thumbnail.png)
+![Cover of the Chengsi guide titled “澄思使用手册 / Chengsi Guide”](thumbnail.png)
 
 ## 快速开始
 
