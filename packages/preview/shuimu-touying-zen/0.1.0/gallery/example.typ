@@ -1,5 +1,5 @@
 #import "@preview/touying:0.7.4": *
-#import "@preview/shuimu-physica:0.1.0": *
+#import "@preview/shuimu-Touying-zen:0.1.0": *
 
 #show: group-meeting-theme.with(
   // 主色控制横条、目录竖线、标题和强调文字；反白 SVG 背景透明。
