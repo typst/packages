@@ -1,0 +1,7 @@
+*.pdf
+cv.typ
+cv_data.json
+*.png
+*.jpg
+!template/*.json
+!screenshots/*.png
