@@ -274,7 +274,7 @@ gate environments it defines outside the package on the same list:
 ```typst
 #let activite(instructor: auto, body) = context {
   if not env-visible("activite", instructor: instructor) { return }
-  ...
+  /* ... */
 }
 ```
 
