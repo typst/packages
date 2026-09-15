@@ -1,0 +1,15 @@
+[package]
+name = "tlacuache-thesis-msc-pcm-unam"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Javier Roberto Rubalcava Cortes, rubal820@ciencias.unam.mx","David Valencia, davidalencia@ciencias.unam.mx"]
+license = "MIT"
+description = "Template para escribir una tesis de maestria para el posgrado en Ciencias Matemáticas de la UNAM."
+categories = ["thesis"]
+repository = "https://github.com/rubal501/tlacuache-thesis-pcm-unam"
+keywords = ["thesis", "tesis", "UNAM"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
