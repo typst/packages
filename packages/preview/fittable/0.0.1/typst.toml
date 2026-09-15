@@ -1,0 +1,8 @@
+[package]
+name = "fittable"
+version = "0.0.1"
+entrypoint = "src/lib.typ"
+authors = ["Guo Yichen"]
+license = "MIT"
+description = "Distribute leftover space into `auto` columns of a table or a grid."
+exclude = ["docs/", "tests/"]
