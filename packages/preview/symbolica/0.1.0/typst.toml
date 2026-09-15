@@ -1,0 +1,18 @@
+[package]
+name = "symbolica"
+version = "0.1.0"
+entrypoint = "symbolica/lib.typ"
+authors = ["lcnbr <https://github.com/lcnbr>"]
+license = "MIT AND LicenseRef-Symbolica-Typst AND LGPL-3.0-only AND MPL-2.0 AND Apache-2.0 AND BSD-3-Clause AND Zlib AND Unicode-3.0 AND CC0-1.0"
+description = "Perform symbolic computations and numerical evaluations directly in your Typst document"
+repository = "https://github.com/symbolica-dev/symbolica-typst-plugin"
+keywords = ["computer-algebra", "symbolic-computation", "symbolica"]
+categories = ["integration", "scripting"]
+disciplines = ["mathematics"]
+compiler = "0.14.0"
+exclude = [
+  "src", "crates", "scripts", "docs", "target", "dist", "test.typ", "CHANGELOG.md",
+  "Cargo.toml", "Cargo.lock", "flake.nix", "flake.lock",
+  "symbolica/examples", "symbolica/tests", "symbolica/*.pdf", "symbolica/*manual.typ",
+  "symbolica/*.wasm.part*",
+]
