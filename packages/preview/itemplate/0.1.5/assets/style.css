@@ -80,7 +80,6 @@
   max-width: 250px;
 }
 
-
 .lil-gui {
   --background-color: #dddddd;
   --title-background-color: #cccccc;
@@ -96,12 +95,9 @@
   background-color: #cccccc;
 }
 
-
 .lil-gui .controller {
   background-color: #dddddd;
 }
-
-
 
 @media screen and (max-width: 700px) {
   .lil-gui.root {
@@ -527,35 +523,6 @@ article :is(h1, h2, h3, h4, h5, h6) {
   scroll-margin-top: calc(var(--header-height) + 2px);
 }
 
-/* mathjax.css */
-
-span.math {
-  font-size: 0.8rem;
-}
-
-span.math-space {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: nowrap;
-}
-
-div.math {
-  text-align: center;
-  font-size: 1rem;
-}
-
-@media screen and (max-width: 1000px) {
-  span.math {
-    font-size: 1rem;
-  }
-  div.math {
-    font-size: 1rem;
-  }
-}
-
 /* highlight.css */
 
 div.highlight {
@@ -594,20 +561,18 @@ article a {
   text-decoration: none;
 }
 
-/* MathJax.css */
+/* mathfonts.css */
 
-mjx-container[display="true"] {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: auto;
-  scrollbar-width: none;
-   /* Firefox 隐藏滚动条  */
-  -ms-overflow-style: none;
-  /* IE/Edge 旧版本隐藏滚动条 */
+html {
+  font-family: "STIX Two Math", "Libertinus Math", "Noto Sans Math", "Latin Modern Math", "Cambria Math", "Fira Math", "Times New Roman", "KaiTi", sans-serif;
 }
 
-mjx-container[display="true"]::-webkit-scrollbar {
-  /*  Chrome、Safari、新版 Edge 隐藏滚动条 */
-  display: none;
+math {
+  font-family: "STIX Two Math", "Libertinus Math", "Noto Sans Math", math;
+  font-weight: 400;
+  font-style: normal;
 }
+
+/* mover[accent="true"] > mo {
+  margin-left: 0.1em;
+} */
