@@ -1,6 +1,6 @@
 # faboxyst
 
-Coloured, titled boxes for **Typst 0.15.x**, in the spirit of LaTeX’s
+Coloured, titled boxes, frames and full-page covers for **Typst 0.15.x**, in the spirit of LaTeX’s
 *tcolorbox*. Version **0.2.0**. 
 
 ![faboxyst 0.2.0 thumbnail](thumbnail.png)
