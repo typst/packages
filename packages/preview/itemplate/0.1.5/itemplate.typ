@@ -41,17 +41,17 @@
           ```.text,
         )
 
-        // html.script(
-        //   ```js
-        //   MathJax = {
-        //     loader: {
-        //       load: ['input/asciimath', 'output/chtml', 'ui/menu']
-        //     }
-        //   };
-        //   ```.text,
-        // )
+        html.script(
+          ```js
+          MathJax = {
+            loader: {
+              load: ['input/asciimath', 'output/chtml']
+            }
+          };
+          ```.text,
+        )
 
-        // html.script(src: "https://cdn.jsdelivr.net/npm/mathjax@4/startup.js", defer: true)
+        html.script(src: "https://cdn.jsdelivr.net/npm/mathjax@4/startup.js", defer: true)
 
         // html.link(rel: "stylesheet", href: "https://unpkg.com/@hexiongwu1995/itemplate/styles/style.css")
         html.link(rel: "stylesheet", href: "./assets/style.css")
@@ -59,7 +59,7 @@
         // html.link(rel: "stylesheet", href: "https://fred-wang.github.io/MathFonts/LatinModern/mathfonts.css")
         html.link(rel: "preconnect", href: "https://fonts.googleapis.com")
         html.link(rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous")
-        html.link(rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Libertinus+Math&family=Noto+Sans+Math&family=STIX+Two+Math&display=swap")
+        html.link(rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Noto+Sans+Math&family=STIX+Two+Math&display=swap")
 
         // html.script(src: "https://unpkg.com/@hexiongwu1995/itemplate/scripts/script.js", defer: true)
         html.script(src: "./assets/script.js", defer: true)

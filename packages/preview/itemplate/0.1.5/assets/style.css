@@ -564,11 +564,11 @@ article a {
 /* mathfonts.css */
 
 html {
-  font-family: "STIX Two Math", "Libertinus Math", "Noto Sans Math", "Latin Modern Math", "Cambria Math", "Fira Math", "Times New Roman", "KaiTi", sans-serif;
+  font-family: "STIX Two Math", "Noto Sans Math", "Cambria Math", "Fira Math", "Times New Roman", "KaiTi", sans-serif;
 }
 
 math {
-  font-family: "STIX Two Math", "Libertinus Math", "Noto Sans Math", math;
+  font-family: "STIX Two Math", "Noto Sans Math", math;
   font-weight: 400;
   font-style: normal;
 }
