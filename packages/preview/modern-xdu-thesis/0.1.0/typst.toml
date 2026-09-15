@@ -1,0 +1,17 @@
+[package]
+name = "modern-xdu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["JackZhu"]
+license = "MIT"
+description = "西安电子科技大学学位论文模板（硕士学术/专业学位、本科毕业设计论文）。"
+repository = "https://github.com/CoderJackZhu/modern-xdu-thesis"
+keywords = ["Xidian University", "thesis", "xdu", "master thesis", "bachelor thesis"]
+categories = ["thesis"]
+exclude = ["docs", "dev", "AGENTS.md", ".gitignore", "examples"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
