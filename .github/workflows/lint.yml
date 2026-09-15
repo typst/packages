@@ -27,7 +27,10 @@ jobs:
           git fetch origin ${{ github.base_ref }}
           git checkout ${{ github.base_ref }}
           git checkout $pr_head
-          git rebase ${{ github.base_ref }} -X ours
+          if ! git rebase ${{ github.base_ref }} -X ours; then
+            echo "::warning::Could not rebase the pull request onto ${{ github.base_ref }}; linting the pull request revision instead."
+            git rebase --abort
+          fi
       - uses: typst/package-check@dbdea7189458fd6c3b10291e79d934dfb04726c0 # v0.7.0
         with:
           installation-id: ${{ secrets.GH_INSTALLATION_ID }}
