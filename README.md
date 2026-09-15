@@ -2,6 +2,8 @@
 The package repository for Typst, where package authors submit their packages.
 The packages submitted here are available on [Typst Universe][universe].
 
+![faboxyst 0.2.0 thumbnail](thumbnail.png)
+
 ## Package format
 
 A package is a collection of Typst files and assets that can be imported as a
