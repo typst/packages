@@ -1,0 +1,15 @@
+[package]
+name = "yaes"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["David Sattler <https://github.com/daalsat42>"]
+license = "MIT"
+description = "Exercise sheets for university teaching."
+repository = "https://github.com/daalsat42/yaes"
+categories = ["utility"]
+compiler = "0.15.1"
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
