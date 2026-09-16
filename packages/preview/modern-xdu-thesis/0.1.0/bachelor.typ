@@ -11,6 +11,8 @@
 
 #let documentclass(
   cover-enabled: true,
+  cover-wordmark: none,
+  cover-emblem: none,
   fonts: (:),
   info: (:),
 ) = {
@@ -32,13 +34,17 @@
     references: (),
   )
   let 合并info = 默认info + info
+  let 默认封面校名 = cover-wordmark
+  let 默认封面校徽 = cover-emblem
   (
     info: 合并info,
     fonts: fonts,
     doc: (..args) => doc(info: 合并info, fonts: fonts, ..args),
-    cover: (enabled: none, ..args) => cover(
+    cover: (enabled: none, cover-wordmark: none, cover-emblem: none, ..args) => cover(
       info: 合并info, fonts: fonts,
       enabled: if enabled == none { cover-enabled } else { enabled },
+      cover-wordmark: if cover-wordmark == none { 默认封面校名 } else { cover-wordmark },
+      cover-emblem: if cover-emblem == none { 默认封面校徽 } else { cover-emblem },
       ..args,
     ),
     abstract: (..args) => abstract(info: 合并info, fonts: fonts, ..args),

@@ -86,11 +86,24 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
 `typst.toml` 的 `[template]` 仍指向硕士 `template/thesis.typ`。本科从包导出的独立
 `bachelor` 模块进入，完整文件见 `examples/bachelor-thesis.typ`：
 
+学校官方校名标准字与校徽的再分发条款不可得，因此**本包不附带这两项标识素材**。请从
+[教务处官方下载页](https://jwc.xidian.edu.cn/info/1022/12943.htm)获取，或直接下载
+[`毕业设计表格-全套.zip`](https://jwc.xidian.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&owner=1070628979&wbfileid=B32886C694EC6AD523FA1277D0C25409)。
+若直链失效，请回到官方下载页，下载名为 `毕业设计表格-全套.zip` 的附件。
+
+解压外层文件 `毕业设计表格-全套.zip`，找到内层文件
+`1-1.西安电子科技大学本科毕业设计（论文）封皮模板（需装订）.docx`；将该 DOCX 打开为 ZIP
+（或把扩展名改为 `.zip` 后解压），取出 `word/media/image1.jpeg`（中文校名标准字）和
+`word/media/image2.png`（校徽），分别放到自己项目的 `assets/xdu-wordmark.jpeg` 与
+`assets/xdu-emblem.png`。然后用调用方构造的 `path(...)` 传给模板：
+
 ```typ
 #import "@preview/modern-xdu-thesis:0.1.0": bachelor
 
 #let (doc, cover, abstract, abstract-en, outline-page, mainmatter,
   appendix, references, acknowledgement) = bachelor.documentclass(
+  cover-wordmark: path("assets/xdu-wordmark.jpeg"),
+  cover-emblem: path("assets/xdu-emblem.png"),
   cover-enabled: true, // 学院封面不同时可设为 false，再自行插入封面
   info: (
     title: ("论文题目第一行", "论文题目第二行"),
@@ -108,6 +121,10 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
 )
 ```
 
+未传入某项素材时，对应位置会显示浅灰色占位框，位置和尺寸不变：校名标准字区域为
+64.5 × 12.04mm，校徽区域为 42.1mm 正方形。也可以在单次调用时覆盖，例如
+`#cover(cover-wordmark: path("assets/xdu-wordmark.jpeg"), cover-emblem: path("assets/xdu-emblem.png"))`。
+
 `info` 字段与硕士基本对应，本科特有的三项：
 
 | 字段 | 说明 |
@@ -117,7 +134,8 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
 | `supervisor` | 导师，可写两人 `("李四", "王五")` |
 
 其余字段（`author`、`department`、`major`、`abstract`、`abstract-en`、`keywords`、
-`keywords-en`）与硕士含义相同。`cover-enabled: false` 时封面整页不输出，可插入学院提供的封面。
+`keywords-en`）与硕士含义相同。`cover-enabled: false` 时封面整页不输出，也不会显示占位符，
+可改为插入学院提供的官方封面。
 
 本科正文一级标题只写 `= 引言`，模板自动生成“第一章 引言”；附录连续调用
 `appendix(...)`，会生成“附录 A / B / C”及图 A1、表 B2、式 (C-3)。
@@ -225,7 +243,8 @@ typst compile --root . examples/bachelor-thesis.typ bachelor.pdf # 本科独立�
 #references(entries: ("作者. 题名[M]. 北京: 出版社, 1993.",))
 ```
 
-封面默认输出并自动留空背面。`cover-enabled: false` 时 `cover()` 不输出内容，可插入学院提供的封面。
+封面默认输出并自动留空背面；未配置学校标识时显示固定尺寸的浅灰色占位框。
+`cover-enabled: false` 时 `cover()` 不输出内容，可插入学院提供的官方封面。
 完整示例见 `examples/bachelor-thesis.typ`。
 
 ### 标题
@@ -332,14 +351,14 @@ $ bold(y) = bold(A) bold(h) + bold(n) $       // 公式编号「(2-1)」，右�
 | 封面与声明 | 官方 LaTeX 模板有两代实现（2024.04 与新版重写版），本模板采用 2024.04 版与 Word 2025.01 版 |
 | 符号对照表字号 | 本模板 12pt；参考论文为 10.5pt，官方示例未包含此页 |
 | 附录页 | 官方示例与参考论文均无附录页，其坐标按其它后置部分推导 |
-| 本科封面素材 | 校名书法字与校徽在官方封面里是图形（无文字层），本模板按实测坐标以图片随包分发，版权归学校；`cover-enabled: false` 时不引用 |
+| 本科封面标识 | 校名标准字与校徽在官方封面里是图形（无文字层）；因官方再分发条款不可得，本包不附带素材，用户可通过 `cover-wordmark` / `cover-emblem` 提供，未提供时显示固定尺寸占位框 |
 | 本科压力测试分页 | 转换脚本为对齐分页骨架补过填充页（Pandoc 丢失复杂表格所致），故「55 页一致」证明的是骨架可对齐；版式数值另有反向测量独立核验（见 `docs/本科验收报告.md`） |
 
 ## 目录结构
 
 ```text
 lib.typ          硕士包入口，并导出 bachelor 模块命名空间
-bachelor.typ     本科独立实现入口，bachelor.documentclass(info:, cover-enabled:)
+bachelor.typ     本科独立实现入口，bachelor.documentclass(info:, cover-enabled:, cover-wordmark:, cover-emblem:)
 bachelor/        本科专用版式、页面与正文规则（不导入硕士 layouts/pages）
 layouts/         硕士页面版式核心
 pages/           硕士各页面组件
@@ -372,5 +391,5 @@ docs/            格式规格（权威来源、冲突裁定、硬约束）、各
 排版问题、版式差异请走 [Issues](https://github.com/CoderJackZhu/modern-xdu-thesis/issues)。
 报版式差异时请附上官方文件或实物论文的对应页 —— 本项目所有版式结论都以可测量的证据为准。
 
-代码以 MIT 许可发布。本科封面使用的校名书法字与校徽是学校标识，版权归学校，仅随封面组件
-分发（`cover-enabled: false` 时不引用）；在其它场合使用请另行获得授权。
+代码以 MIT 许可发布。学校官方校名标准字与校徽不在本仓库或软件包内分发；用户应从学校官方
+附件取得，并自行确认其使用范围。

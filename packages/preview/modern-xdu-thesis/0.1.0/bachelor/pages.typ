@@ -10,7 +10,24 @@
       top-edge: "baseline", bottom-edge: "baseline", 内容))))
 }
 
-#let cover(info: (:), fonts: (:), enabled: true) = {
+#let 封面标识(素材, 标签, width, height, 字体集) = {
+  if 素材 == none {
+    rect(
+      width: width,
+      height: height,
+      fill: luma(242),
+      stroke: luma(180),
+      inset: 0pt,
+      align(center + horizon, text(font: 字体集.黑体, size: 8pt, fill: luma(100), 标签)),
+    )
+  } else {
+    image(素材, width: width, height: height, fit: "contain")
+  }
+}
+
+#let cover(
+  info: (:), fonts: (:), enabled: true, cover-wordmark: none, cover-emblem: none,
+) = {
   if enabled {
     let 字体集 = 字体 + fonts
     let 题目 = if type(info.title) == str { (info.title,) } else { info.title }
@@ -28,14 +45,16 @@
       #封面文字(info.student-id, 146mm, 36.5mm, width: 28.8mm, alignment: center,
         size: 12pt, font: 字体集.宋体, weight: "bold")
 
-      // 校名书法字与校徽取自官方封面（图片形式随包分发，保证在未装学校标准字的机器上
-      // 也能正确呈现；版权归学校所有，见 docs/本科规格.md「封面」一节）。
-      #place(top + left, dx: 77.7mm, dy: 49.5mm, image("assets/xdu-name.png", width: 64.5mm))
+      // 学校标识不随包分发。未提供素材时保留原版式尺寸并显示提示；提供时由模板
+      // 固定图片几何，避免用户素材的像素尺寸改变封面布局。
+      #place(top + left, dx: 77.7mm, dy: 49.5mm,
+        封面标识(cover-wordmark, "请用户提供校名标准字图片", 64.5mm, 12.04mm, 字体集))
       #封面文字("本科毕业设计论文", 30mm, 84.2mm, width: 150mm, alignment: center,
         size: 42pt, font: 字体集.黑体)
-      #place(top + left, dx: 89mm, dy: 107.2mm, image("assets/xdu-emblem.png", width: 42.1mm))
+      #place(top + left, dx: 89mm, dy: 107.2mm,
+        封面标识(cover-emblem, "请用户提供校徽图片", 42.1mm, 42.1mm, 字体集))
 
-      // 填写横线：官方封面共 6 条 —— 题目每行一条 + 字段四行各一条，
+      // 题目与字段填写横线共 6 条 —— 题目每行一条 + 字段四行各一条，
       // 均为 x 82.1~166.8mm（宽 84.7mm），题目与字段值都居中于横线。
       #for (i, 行) in 题目.enumerate() {
         place(top + left, dx: 82.1mm, dy: 172.9mm + 16.5mm * i,
