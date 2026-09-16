@@ -5,7 +5,7 @@
 //   documentclass(degree:, blind:, info:, fonts:) — 配置入口
 //   返回的对象暴露全部页面函数（前置 6 页 / 索引 5 页 / 正文 / 后置 4 部分）
 //   以及辅助：引用、索引题注、双语文献。
-//   版本：硕士页面与版式已全部实现，经官方 templet.pdf 逐页对照 + 一份 112 页真实论文压测。
+//   版本：硕士页面与版式已全部实现；版式值以格式规格和官方 templet.pdf 为准。
 
 #import "utils/style.typ": 字号, 字体
 #import "utils/counters.typ": 索引题注

@@ -65,8 +65,7 @@
 //
 // 注意：不要用「show 规则里手写编号文本」的写法：那样编号只是画上去的一段文本，
 // 公式本体没有 numbering，正文里 `@eq:xxx` 引用会直接报
-// `cannot reference equation without numbering` —— 真实论文会写「由公式(2-1)」，
-// 所以必须用真正的 `numbering`。（压力测试实测发现的缺口。）
+// `cannot reference equation without numbering`，所以必须用真正的 `numbering`。
 // 图表编号 `(<章>.<序>)` 的「章.序」部分。给 figure 元素设置真正的 `numbering` 有三个好处：
 //   ① 题注与索引共用同一算法，不会各算各的
 //   ② @fig: / @tab: 引用能拿到正确编号

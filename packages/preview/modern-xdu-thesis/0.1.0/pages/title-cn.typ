@@ -87,7 +87,7 @@
         }))
         place(top + left, dx: 虚线x, dy: y + 1.06mm,
           line(length: 虚线宽,
-            stroke: 0.4pt))   // 实线：官方与已过检参考论文的填空线都是实线
+            stroke: 0.4pt))   // 官方模板的填空线使用实线
         // 值居中于虚线
         place(top + left, dx: 虚线x, dy: y - 信息Δ,
           box(width: 虚线宽, align(center, {
