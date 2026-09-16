@@ -1,6 +1,6 @@
 #import "@preview/bizu-sheet:0.1.0": *
 
-#show: cheat_sheet.with(
+#show: cheat-sheet.with(
   title: "My Revision Sheet",
   subtitle: "Quick review",
   author: "Your name",

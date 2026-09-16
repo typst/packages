@@ -250,13 +250,13 @@
 
 
 // English API aliases. The original b-* names remain available for compatibility.
-#let cheat_sheet = bizuario
+#let cheat-sheet = bizuario
 #let card = b-card
 #let alert = b-alert
 #let definition = b-definition
 #let mnemonic = b-mnemonic
 #let compare = b-compare
-#let data_table = b-table
+#let data-table = b-table
 #let checklist = b-checklist
 #let columns = b-columns
 #let pagebreak = b-pagebreak
@@ -267,4 +267,4 @@
 #let unit = b-unit
 #let constant = b-constant
 #let condition = b-condition
-#let formula_pair = b-formula-pair
+#let formula-pair = b-formula-pair

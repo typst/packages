@@ -9,7 +9,7 @@ repository = "https://github.com/silveirinhajuan/bizu-sheet"
 keywords = ["revision", "study", "formula", "education"]
 categories = ["components", "layout"]
 disciplines = ["mathematics", "physics", "education"]
-compiler = ">=0.15.0"
+compiler = "0.15.0"
 exclude = ["/bizu-sheet-github-banner.png"]
 
 [template]

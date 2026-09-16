@@ -11,7 +11,7 @@ Import the package with its full version:
 ```typst
 #import "@preview/bizu-sheet:0.1.0": *
 
-#show: cheat_sheet.with(
+#show: cheat-sheet.with(
   title: "Algebra",
   subtitle: "Quick revision",
   author: "Your name",
@@ -32,13 +32,13 @@ The package provides English names for new projects:
 
 | Function | Purpose |
 |---|---|
-| `cheat_sheet` | Apply the page layout, typography, header, footer, and title block. |
+| `cheat-sheet` | Apply the page layout, typography, header, footer, and title block. |
 | `card` | Create a compact revision card. |
 | `alert` | Highlight a warning, exception, or common mistake. |
 | `definition` | Create a definition card. |
 | `mnemonic` | Display a mnemonic and its explanation. |
 | `compare` | Compare two concepts in parallel columns. |
-| `data_table` | Create a styled summary table. |
+| `data-table` | Create a styled summary table. |
 | `checklist` | Create a revision checklist. |
 | `columns` | Place two blocks side by side. |
 | `formula` | Highlight a mathematical formula. |
@@ -47,7 +47,7 @@ The package provides English names for new projects:
 | `unit` | Summarize a unit, relation, and example. |
 | `constant` | Present a useful constant or numerical approximation. |
 | `condition` | Highlight a hypothesis, domain, or validity condition. |
-| `formula_pair` | Place two formulas side by side. |
+| `formula-pair` | Place two formulas side by side. |
 | `pagebreak` | Insert an explicit page break. |
 | `small` | Render auxiliary text at a smaller size. |
 
