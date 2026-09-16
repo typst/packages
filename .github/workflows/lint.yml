@@ -27,7 +27,7 @@ jobs:
           git fetch origin ${{ github.base_ref }}
           git reset --hard origin/${{ github.base_ref }}
           git merge --squash $pr_head
-          git commit "squashed"
+          git commit -m "squashed"
       - uses: typst/package-check@dbdea7189458fd6c3b10291e79d934dfb04726c0 # v0.7.0
         with:
           installation-id: ${{ secrets.GH_INSTALLATION_ID }}
