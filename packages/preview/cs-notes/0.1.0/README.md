@@ -45,17 +45,16 @@ Some notes here.
 `cs-notes` is the main show rule for the document. All content passed to `#show: cs-notes.with(...)` is rendered with the template's styling applied.
 
 ```typ
-#let cs-notes(
-  title: none,
-  author: none,
-  date: none,
-  subject: none,
-  keywords: (),
-  color: none,
+#show: cs-notes.with(
+  title: "Notes Title",
+  author: "Your Name",
+  date: "2026",
+  subject: "Lecture notes",
+  keywords: ("notes"),
+  color: blue,
   show-outline: true,
   outline-title: [Contents],
   chapter-label: [Chapter],
-  body,
 )
 ```
 
@@ -97,10 +96,6 @@ Applying `cs-notes` configures the whole document:
 A simple, undecorated callout for asides or remarks. Fixed black/gray styling (not affected by the `color` theme).
 
 ```typ
-#let note(body)
-```
-
-```typ
 #note[
   Remember to check edge cases when `n = 0`.
 ]
@@ -111,10 +106,6 @@ Renders as a non-breakable block with a thick black left border, a thin border o
 ### `callout`
 
 A colored, titled callout box for tips, warnings, definitions, etc.
-
-```typ
-#let callout(title: none, color: blue, body)
-```
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|

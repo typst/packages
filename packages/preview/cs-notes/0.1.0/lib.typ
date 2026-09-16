@@ -1,7 +1,7 @@
 #import "@preview/algorithmic:1.0.7": *
 #import "@preview/algorithmic:1.0.7": algorithm-figure as base-algorithm-figure, style-algorithm as base-style-algorithm
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.10": *
 
 // --- "note" component ---
 #let note(body) = block(
