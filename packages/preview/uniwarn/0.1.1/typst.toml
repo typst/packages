@@ -1,0 +1,14 @@
+[package]
+name = "uniwarn"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["zral0kh", "OrangeX4"]
+license = "MIT"
+description = "A miniscule package for package authors to emit custom warnings."
+repository = "https://github.com/fornings-typ/font-warnings"
+keywords = ["warning", "illegal"]
+categories = ["utility"]
+compiler = "0.13.0"
+
+[tool.tytanic]
+default.ppi = 72

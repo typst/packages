@@ -1,0 +1,16 @@
+[package]
+name = "sudo-docs"
+version = "0.1.0"
+description = "A minimalist, code-centric template for Computer Science students."
+authors = ["Elijah <@G0ldenPin>"]
+license = "MIT"
+categories = ["paper", "report", "layout"]
+entrypoint = "lib.typ"
+repository = "https://github.com/G0ldenPin/sudodocs"
+keywords = ["template", "computer-science", "notes", "university"]
+compiler = "0.11.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

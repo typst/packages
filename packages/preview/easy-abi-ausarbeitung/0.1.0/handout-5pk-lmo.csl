@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="de-DE">
+  <info>
+    <title>5PK Lise Meitner OSZ Handout 2024</title>
+    <id>http://www.zotero.org/styles/5pk-lmo-handout-2024</id>
+    <link href="http://www.zotero.org/styles/5pk-lmo-handout-2024" rel="self"/>
+    <author>
+      <name>GitHub Copilot</name>
+    </author>
+    <category citation-format="author-date"/>
+    <summary>Custom bibliography formatting to match the handout (pp. 4-5).</summary>
+    <updated>2026-05-06T00:00:00+00:00</updated>
+  </info>
+
+  <locale xml:lang="de-DE">
+    <terms>
+      <term name="and">/</term>
+      <term name="editor" form="short">Hrsg.</term>
+      <term name="open-quote">"</term>
+      <term name="close-quote">"</term>
+    </terms>
+  </locale>
+
+  <macro name="author">
+    <names variable="author" delimiter=" / " and="text" name-as-sort-order="first" sort-separator=", ">
+      <name/>
+    </names>
+  </macro>
+
+  <macro name="author-plain">
+    <names variable="author" delimiter=" / " and="text">
+      <name/>
+    </names>
+  </macro>
+
+  <macro name="editor">
+    <names variable="editor" delimiter=" / " and="text" name-as-sort-order="first" sort-separator=", ">
+      <name/>
+      <label form="short" prefix=", [" suffix="]"/>
+    </names>
+  </macro>
+
+  <macro name="director-plain">
+    <names variable="director" delimiter=" / " and="text">
+      <name/>
+    </names>
+  </macro>
+
+  <macro name="issued-year">
+    <date variable="issued">
+      <date-part name="year" form="numeric"/>
+    </date>
+  </macro>
+
+  <macro name="issued-date">
+    <date variable="issued">
+      <date-part name="day" form="numeric-leading-zeros" suffix="."/>
+      <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+      <date-part name="year" form="numeric"/>
+    </date>
+  </macro>
+
+  <macro name="issued-date-or-year">
+    <date variable="issued">
+      <date-part name="day" form="numeric-leading-zeros" suffix="."/>
+      <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+      <date-part name="year" form="numeric"/>
+    </date>
+  </macro>
+
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <macro name="title-quoted">
+    <text variable="title" quotes="true"/>
+  </macro>
+
+  <macro name="publisher">
+    <group delimiter=": ">
+      <text variable="publisher-place"/>
+      <text variable="publisher"/>
+    </group>
+  </macro>
+
+  <macro name="url">
+    <text variable="URL" prefix=" &lt;" suffix="&gt;"/>
+  </macro>
+
+  <macro name="accessed">
+    <date variable="accessed" prefix=" (letzter Zugriff: " suffix=")">
+      <date-part name="day" form="numeric-leading-zeros" suffix="."/>
+      <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+      <date-part name="year" form="numeric"/>
+    </date>
+  </macro>
+
+  <macro name="pages">
+    <text variable="page" prefix="S. " suffix="."/>
+  </macro>
+
+  <citation>
+    <layout delimiter="; ">
+      <group delimiter=" ">
+        <choose>
+          <if variable="author">
+            <names variable="author" delimiter=", " and="text">
+              <name form="short"/>
+            </names>
+          </if>
+          <else-if variable="editor">
+            <names variable="editor" delimiter=", " and="text">
+              <name form="short"/>
+            </names>
+          </else-if>
+        </choose>
+        <text macro="issued-year"/>
+        <text variable="locator" prefix=", "/>
+      </group>
+    </layout>
+  </citation>
+
+  <bibliography hanging-indent="true">
+    <sort>
+      <key macro="author"/>
+      <key macro="issued-year"/>
+      <key variable="title"/>
+    </sort>
+    <layout>
+      <choose>
+        <if type="article-journal">
+          <text macro="author" suffix=" "/>
+          <group prefix="(" suffix="). ">
+            <text macro="issued-year"/>
+          </group>
+          <text macro="title-quoted" suffix=". "/>
+          <text variable="container-title"/>
+          <group prefix=" (Jahrgang " suffix=")">
+            <text variable="volume"/>
+          </group>
+          <text value=": "/>
+          <text variable="issue"/>
+          <group prefix=" (" suffix=")">
+            <text macro="issued-year"/>
+          </group>
+          <text value=": "/>
+          <text macro="pages"/>
+        </if>
+
+        <else-if type="article-newspaper">
+          <text macro="author" suffix=" "/>
+          <group prefix="(" suffix="). ">
+            <text macro="issued-year"/>
+          </group>
+          <text macro="title-quoted" suffix=". "/>
+          <text variable="container-title"/>
+          <text variable="edition" prefix=", "/>
+          <group prefix=" (" suffix=")">
+            <text macro="issued-date"/>
+          </group>
+          <text value=": "/>
+          <text macro="pages"/>
+        </else-if>
+
+        <else-if type="webpage">
+          <text macro="author" suffix=" "/>
+          <group prefix="(" suffix="). ">
+            <text macro="issued-date-or-year"/>
+          </group>
+          <text macro="title-quoted" suffix="."/>
+          <text variable="genre" prefix=" (" suffix=")."/>
+          <text variable="container-title" prefix=" Website: " suffix="."/>
+          <text macro="url"/>
+          <text macro="accessed"/>
+        </else-if>
+
+        <else-if type="broadcast">
+          <text macro="title-quoted" suffix=". "/>
+          <text macro="author-plain" suffix=". "/>
+          <group prefix="(" suffix=") ">
+            <text macro="issued-date-or-year"/>
+          </group>
+          <text variable="container-title"/>
+          <text variable="publisher" prefix=", Kanal "/>
+          <text value="."/>
+          <text macro="url"/>
+          <text macro="accessed"/>
+        </else-if>
+
+        <else-if type="motion_picture">
+          <text macro="title" suffix=". "/>
+          <group delimiter=", " suffix=".">
+            <group delimiter=" ">
+              <text variable="publisher-place"/>
+              <text macro="issued-year"/>
+            </group>
+            <text macro="director-plain"/>
+            <text variable="note"/>
+          </group>
+        </else-if>
+
+        <else-if type="software">
+          <text value="Bei der Erstellung des " />
+          <text variable="genre" suffix=" "/>
+          <text variable="title" quotes="true" suffix=" wurde das KI-Tool " />
+          <text variable="publisher" quotes="true" suffix=" eingesetzt." />
+          <text variable="note" prefix=" Folgende Prompts wurden benutzt: " suffix="."/>
+        </else-if>
+
+        <else-if type="book">
+          <choose>
+            <if variable="author">
+              <text macro="author" suffix=" "/>
+              <group prefix="(" suffix="). ">
+                <text macro="issued-year"/>
+              </group>
+              <text macro="title" suffix=". "/>
+              <text macro="publisher" suffix="."/>
+            </if>
+            <else-if variable="editor">
+              <text macro="editor" suffix=" "/>
+              <group prefix="(" suffix="). ">
+                <text macro="issued-year"/>
+              </group>
+              <text macro="title" suffix=". "/>
+              <text macro="publisher" suffix="."/>
+            </else-if>
+            <else>
+              <text macro="title"/>
+            </else>
+          </choose>
+        </else-if>
+
+        <else>
+          <text macro="author" suffix=" "/>
+          <group prefix="(" suffix="). ">
+            <text macro="issued-year"/>
+          </group>
+          <text macro="title"/>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
+</style>

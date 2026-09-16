@@ -1,0 +1,16 @@
+[package]
+authors = ["Borna Punda"]
+categories = ["layout", "office"]
+compiler = "0.14.0"
+description = "A clean, traditional template for formal governance documents, bylaws, and articles."
+disciplines = ["business", "law", "politics"]
+entrypoint = "lib.typ"
+keywords = ["article", "bylaws", "formal", "governance", "legal"]
+license = "MIT"
+name = "govern"
+version = "0.1.0"
+
+[template]
+entrypoint = "main.typ"
+path = "template"
+thumbnail = "thumbnail.png"

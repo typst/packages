@@ -1,0 +1,134 @@
+[days.format.wide]
+1 = "Mōnite"
+2 = "Tūsite"
+3 = "Pulelulu"
+4 = "Tuʻapulelulu"
+5 = "Falaite"
+6 = "Tokonaki"
+7 = "Sāpate"
+
+[days.format.abbreviated]
+1 = "Mōn"
+2 = "Tūs"
+3 = "Pul"
+4 = "Tuʻa"
+5 = "Fal"
+6 = "Tok"
+7 = "Sāp"
+
+[days.format.narrow]
+3 = "P"
+6 = "T"
+
+[days.stand-alone.wide]
+1 = "Mōnite"
+2 = "Tūsite"
+3 = "Pulelulu"
+4 = "Tuʻapulelulu"
+5 = "Falaite"
+6 = "Tokonaki"
+7 = "Sāpate"
+
+[days.stand-alone.abbreviated]
+1 = "Mōn"
+2 = "Tūs"
+3 = "Pul"
+4 = "Tuʻa"
+5 = "Fal"
+6 = "Tok"
+7 = "Sāp"
+
+[days.stand-alone.narrow]
+3 = "P"
+6 = "T"
+
+[months.format.wide]
+1 = "Sānuali"
+2 = "Fēpueli"
+3 = "Maʻasi"
+4 = "ʻEpeleli"
+5 = "Mē"
+6 = "Sune"
+7 = "Siulai"
+8 = "ʻAokosi"
+9 = "Sēpitema"
+10 = "ʻOkatopa"
+11 = "Nōvema"
+12 = "Tīsema"
+
+[months.format.abbreviated]
+1 = "Sān"
+2 = "Fēp"
+3 = "Maʻa"
+4 = "ʻEpe"
+5 = "Mē"
+6 = "Sun"
+7 = "Siu"
+8 = "ʻAok"
+9 = "Sēp"
+10 = "ʻOka"
+11 = "Nōv"
+12 = "Tīs"
+
+[months.format.narrow]
+1 = "S"
+2 = "F"
+3 = "M"
+4 = "ʻE"
+5 = "M"
+6 = "S"
+7 = "S"
+8 = "ʻA"
+9 = "S"
+10 = "ʻO"
+11 = "N"
+12 = "T"
+
+[months.stand-alone.wide]
+1 = "Sānuali"
+2 = "Fēpueli"
+3 = "Maʻasi"
+4 = "ʻEpeleli"
+5 = "Mē"
+6 = "Sune"
+7 = "Siulai"
+8 = "ʻAokosi"
+9 = "Sepitema"
+10 = "ʻOkatopa"
+11 = "Nōvema"
+12 = "Tīsema"
+
+[months.stand-alone.abbreviated]
+1 = "Sān"
+2 = "Fēp"
+3 = "Maʻa"
+4 = "ʻEpe"
+5 = "Mē"
+6 = "Sun"
+7 = "Siu"
+8 = "ʻAok"
+9 = "Sēp"
+10 = "ʻOka"
+11 = "Nōv"
+12 = "Tīs"
+
+[months.stand-alone.narrow]
+1 = "S"
+2 = "F"
+3 = "M"
+4 = "ʻE"
+5 = "M"
+6 = "S"
+7 = "S"
+8 = "ʻA"
+9 = "S"
+10 = "ʻO"
+11 = "N"
+12 = "T"
+
+[patterns]
+full = "EEEE d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "d/M/yy"
+

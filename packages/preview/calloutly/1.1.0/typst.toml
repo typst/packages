@@ -1,0 +1,14 @@
+[package]
+name = "calloutly"
+version = "1.1.0"
+entrypoint = "callout.typ"
+authors = ["Alex Anderson"]
+license = "MIT"
+description = "Create customizable Markdown-style Callouts"
+repository = "https://github.com/Alpha9463/typst-callout"
+categories = ["components", "layout", "utility"]
+keywords = [
+    "callout",
+    "markdown",
+    "documentation"
+]

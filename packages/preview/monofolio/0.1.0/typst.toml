@@ -1,0 +1,23 @@
+[package]
+name = "monofolio"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Harsh Kasodariya<https://github.com/harshkaso>"]
+license = "MIT"
+description = "A modular, data-driven, minimal resume framework designed to make customization simple."
+repository = "https://github.com/harshkaso/monofolio"
+keywords = ["cv", "resume", "ATS", "curriculum vitae", "simple", "minimal", "compact", "customizable", "data"]
+categories = ["cv"]
+exclude = [
+    ".git",
+    "example-resume.pdf",
+    "banner.png",
+    "docs",
+    ".DS_Store",
+    ".gitignore"
+]
+
+[template]
+path = "template"
+entrypoint = "resume.typ"
+thumbnail = "example-resume.png"

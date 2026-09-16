@@ -1,0 +1,1 @@
+#import "heading-subnumbering.typ": heading-subnumbering

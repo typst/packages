@@ -1,0 +1,16 @@
+[package]
+name = "simple-cvut-report"
+version = "0.2.0"
+compiler = "0.11.0"
+authors = ["Filip Růžička <https://firu.dev>"]
+repository = "https://github.com/firu11/cvut-report-template"
+license = "MIT"
+description = "A simple report template for ČVUT (CTU in Prague) students and their for term projects."
+entrypoint = "lib.typ"
+categories = ["report", "paper", "thesis"]
+keywords = ["cvut", "ctu", "czech-technical-university", "prague", "report", "paper", "thesis", "education", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

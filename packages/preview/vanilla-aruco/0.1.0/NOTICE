@@ -1,0 +1,7 @@
+The built-in ArUco codewords are reproduced from OpenCV's predefined
+dictionary data. See https://github.com/opencv/opencv for the upstream project
+and its license terms.
+
+The path traversal design follows the exposed-edge graph, straight/left/right
+preference, Euler-tour and collinear compression approach in datamatrix-rs:
+https://github.com/jannschu/datamatrix-rs/blob/30ba51a838d93940779c62270e2d45586ef95082/src/placement/path.rs

@@ -1,0 +1,12 @@
+[package]
+name = "molfig"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT"
+description = "Render molecular structures through maquette."
+repository = "https://github.com/rice8y/molfig"
+keywords = ["molecule", "pdb", "cif", "mmcif", "3d", "maquette"]
+categories = ["visualization"]
+compiler = "0.14.0"
+exclude = ["/examples"]

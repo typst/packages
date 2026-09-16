@@ -1,0 +1,14 @@
+[package]
+name = "awesome-mff-cuni"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Petr Velyčko <@petrvelycko>"]
+categories = ["thesis"]
+repository = "https://git.brloh.is/petrvel/awesome-mff-cuni"
+license = "MIT"
+description = "Thesis at the Faculty of Mathematics and Physics, Charles University, Prague."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

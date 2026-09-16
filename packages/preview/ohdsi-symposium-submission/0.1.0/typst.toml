@@ -1,0 +1,17 @@
+[package]
+name = "ohdsi-symposium-submission"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Huan He"]
+license = "MIT"
+description = "Brief reports for the OHDSI symposium."
+repository = "https://github.com/huanhe4096/packages"
+keywords = ["ohdsi", "symposium", "submission", "template", "paper"]
+categories = ["paper", "report"]
+disciplines = ["medicine", "computer-science"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

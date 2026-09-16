@@ -1,0 +1,17 @@
+[package]
+name = "hanqing"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["songwupei"]
+license = "MIT"
+description = "A manual/handbook template with full Chinese typography support (CJK fonts, custom cover pages, flexible TOC styles)."
+repository = "https://codeberg.org/songwupei/hanqing"
+keywords = ["manual", "handbook", "chinese", "cjk", "document", "book"]
+categories = ["layout"]
+compiler = "0.13.1"
+exclude = ["example.pdf", ".gitignore", "thumbnail.pdf", "CLAUDE.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

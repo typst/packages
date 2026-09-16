@@ -1,0 +1,21 @@
+[package]
+name = "touying-greyc-ambrosia"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+  "Hoang-Nhat Tran <hnhat.tran@gmail.com>"
+]
+license = "MIT"
+description = "Touying unofficial theme for the GREYC laboratory at University Caen Normandy, France"
+# homepage = ""
+repository = "https://github.com/inspiros/touying-greyc-ambrosia"
+keywords = ["touying", "greyc", "unicaen", "ensicaen", "nu", "cnrs", "presentation", "slides", "lecture", "university", "theme"]
+categories = ["presentation"]
+disciplines = []
+compiler = "0.14.2"
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "assets/thumbnail.webp"

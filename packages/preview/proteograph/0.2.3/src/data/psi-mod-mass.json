@@ -1,0 +1,10 @@
+{
+  "MOD:00394": {
+    "name": "monoacetylated residue",
+    "diff-mono": 42.010565
+  },
+  "MOD:00425": {
+    "name": "monohydroxylated residue",
+    "diff-mono": 15.994915
+  }
+}
