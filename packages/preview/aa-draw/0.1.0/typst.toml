@@ -1,0 +1,12 @@
+[package]
+name = "aa-draw"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["chillcicada"]
+license = "MIT"
+description = "Convert ASCII art diagrams into SVG powered by aasvg-rs"
+repository = "https://github.com/chillcicada/typst-aasvg"
+keywords = ["wasm", "aasvg"]
+categories = ["utility"]
+exclude = [".*", "example*"]
+compiler = "0.14.0"

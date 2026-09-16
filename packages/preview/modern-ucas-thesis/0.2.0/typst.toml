@@ -1,0 +1,24 @@
+[package]
+name = "modern-ucas-thesis"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Wenjie Xu <@Vncntvx>"]
+license = "MIT"
+description = "Master or doctoral thesis at the University of Chinese Academy of Sciences."
+repository = "https://github.com/Vncntvx/modern-ucas-thesis"
+keywords = [
+    "University of Chinese Academy of Sciences",
+    "UCAS",
+    "thesis",
+    "dissertation",
+    "typst",
+    "template",
+]
+categories = ["thesis"]
+exclude = ["imgs"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

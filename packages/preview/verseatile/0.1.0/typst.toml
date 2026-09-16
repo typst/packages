@@ -1,0 +1,11 @@
+[package]
+name = "verseatile"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alexander Abt"]
+license = "MIT"
+description = "Easily set poetry."
+repository = "https://github.com/switchlex/verseatile"
+keywords = ["verse", "poem", "poetry"]
+categories = ["text", "layout"]
+exclude = ["examples/*", "docs/*"]

@@ -1,0 +1,9 @@
+[package]
+name = "neural-viz"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Michel Jean Joseph Donnet"]
+license = "MIT"
+description = "Draw neural network architecture graphs with CeTZ."
+keywords = ["neural-network", "diagram", "graph", "cetz", "machine-learning", "visualization"]
+exclude = ["docs/**", "examples/**", "scripts/**", "tests/**", "assets/**", ".github/**", "dist/**"]

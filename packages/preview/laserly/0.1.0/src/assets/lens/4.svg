@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="2.9124773mm"
+   height="6.5286899mm"
+   viewBox="0 0 2.9124773 6.5286899"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="4.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.72693603"
+     inkscape:cx="-140.31496"
+     inkscape:cy="88.04076"
+     inkscape:window-width="1920"
+     inkscape:window-height="1020"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-141.81667,-125.14792)">
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;fill:#ffffff;fill-opacity:0.576471;stroke:#3f3f3f;stroke-width:0.529;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new"
+       i:knockout="Off"
+       d="m 144.37722,125.41242 h -2.20874 c 0.21749,0.75221 0.35454,1.81636 0.35454,2.99984 0,1.18348 -0.13705,2.24764 -0.35454,2.99985 h 2.20874 c -0.21749,-0.75221 -0.35401,-1.81637 -0.35401,-2.99985 0,-1.18348 0.13626,-2.24763 0.35401,-2.99984 z"
+       id="path3768" />
+  </g>
+</svg>

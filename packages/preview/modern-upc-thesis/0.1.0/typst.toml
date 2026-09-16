@@ -1,0 +1,17 @@
+[package]
+name = "modern-upc-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["@ttOwwA"]
+license = "MIT"
+description = "中国石油大学（华东）本科毕设论文 Typst 模板。A Typst template for bachelor's thesis of China University of Petroleum (East China)."
+repository = "https://github.com/ttOwwA/ts-upc-thesis-typst"
+keywords = ["thesis", "template", "bachelor", "upc", "china university of petroleum", "typst"]
+categories = ["thesis"]
+exclude = [".agents", "demo", "AGENTS.md", ".gitignore"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

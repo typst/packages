@@ -1,0 +1,17 @@
+[package]
+name = "fdu-bubble"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Yang Yuchen <@yangyuchenhahaha>"]
+license = "MIT"
+description = "Unofficial FDU-style Chinese report."
+repository = "https://github.com/yangyuchenhahaha/-typst-"
+keywords = ["fdu", "fudan", "chinese", "report", "codly", "bubble"]
+categories = ["report"]
+compiler = "0.13.1"
+exclude = ["main.pdf", "docs/**"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

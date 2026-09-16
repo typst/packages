@@ -1,0 +1,16 @@
+[package]
+name = "pintorita-neo"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Min Chen (hikerpig)", "Taylorh140", "HSGamer"]
+license = "MIT"
+description = "Package to draw Diagrams based on Pintora (a fork of pintorita)."
+categories = ["visualization"]
+
+repository = "https://github.com/HSGamer/pintora4typst"
+keywords = [
+    "pintora",
+    "gantt",
+    "sequence",
+    "diagram",
+]

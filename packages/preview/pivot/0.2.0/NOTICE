@@ -1,0 +1,15 @@
+pivot
+Copyright 2026 cybermallard and the pivot contributors
+
+Licensed under the Apache License, Version 2.0 (the "License"); see the LICENSE
+file in this repository for the full terms.
+
+---
+
+Third-party attribution
+
+pivot renders with CeTZ (https://github.com/cetz-package/cetz), licensed under
+the GNU Lesser General Public License v3.0 or later (LGPL-3.0-or-later). CeTZ is
+neither vendored nor modified by this package; the Typst compiler fetches it
+independently at build time. pivot calls CeTZ's public API only and contains no
+CeTZ source.

@@ -1,0 +1,11 @@
+[package]
+name = "typhoon"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["Jeremy Gao <@WenSimEHRP>"]
+license = "MIT"
+description = "TailwindCSS for HTML exports"
+repository = "https://github.com/wensimehrp/tailwindcss-typst"
+keywords = ["tailwind", "css", "styling", "web", "html"]
+categories = ["integration", "layout", "text"]
+compiler = "0.14.0"

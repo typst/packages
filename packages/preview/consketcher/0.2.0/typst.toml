@@ -1,0 +1,13 @@
+[package]
+name = "consketcher"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["ivaquero"]
+license = "MIT"
+description = "Draws control blocks using CeTZ"
+repository = "https://github.com/ivaquero/typst-consketcher"
+exclude = [
+  "examples/example.png",
+  "examples/example2.png",
+  "examples/example.typ"
+]

@@ -1,0 +1,18 @@
+[package]
+name = "texam"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nathan Scheinmann"]
+license = "MIT"
+description = "Exam document template with cover page, header/footer, evaluation table, and draft page"
+repository = "https://github.com/nathan-ed/typst-package-texam"
+keywords = ["exam", "test", "education", "template", "cover-page", "evaluation", "school"]
+categories = ["components", "office"]
+disciplines = ["mathematics", "education"]
+compiler = "0.11.0"
+exclude = ["docs/*", "gallery", "*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

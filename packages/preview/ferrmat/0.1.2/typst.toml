@@ -1,0 +1,12 @@
+[package]
+name = "ferrmat"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["Esdras"]
+license = "MIT"
+description = "Visual toolkit for Typst in Portuguese: heading themes with color palettes, math environments, decorative boxes, Gantt charts, exams and annotations."
+repository = "https://github.com/3sdras/ferrmat"
+keywords = ["tcolorbox", "theorem", "teorema", "box", "caixa", "math", "matemática", "code", "gantt", "theme", "heading"]
+categories = ["components", "visualization", "layout"]
+compiler = "0.14.0"
+exclude = ["docs/*", "tests/*", "test*.typ", "test*.pdf", "CREDITS.md", ".DS_Store", ".gitignore", ".claude/*"]

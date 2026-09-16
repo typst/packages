@@ -1,0 +1,656 @@
+#import "utils.typ"
+
+#let cell = block.with(
+  width: 100%,
+  height: 100%,
+  above: 0pt,
+  below: 0pt,
+  outset: 0pt,
+  breakable: false,
+)
+
+
+/// A simple wrapper around `grid` that creates a single-row grid. Used as the default `composer` for multi-body slides.
+///
+/// Example: `side-by-side[a][b][c]` will display `a`, `b`, and `c` side by side.
+///
+/// - columns (auto, array): The column widths. Default is `auto`, which creates equal-width columns matching the number of bodies.
+///
+/// - gutter (length): The space between columns. Default is `1em`.
+///
+/// - bodies (content): The contents to display side by side.
+///
+/// -> content
+#let side-by-side(columns: auto, gutter: 1em, ..bodies) = {
+  let args = bodies.named()
+  let bodies = bodies.pos()
+  if bodies.len() == 1 {
+    return bodies.first()
+  }
+  let columns = if columns == auto {
+    (1fr,) * bodies.len()
+  } else {
+    columns
+  }
+  grid(columns: columns, gutter: gutter, ..args, ..bodies)
+}
+
+
+/// Adaptive columns layout that automatically chooses the number of columns based on content height.
+///
+/// Example: `components.adaptive-columns(outline())`
+///
+/// - gutter (length): The space between columns. Default is `4%`.
+///
+/// - max-count (int): The maximum number of columns. Default is `3`.
+///
+/// - start (content, none): The content to place before the columns. Default is `none`.
+///
+/// - end (content, none): The content to place after the columns. Default is `none`.
+///
+/// - body (content): The content to place in the columns.
+///
+/// -> content
+#let adaptive-columns(
+  gutter: 4%,
+  max-count: 3,
+  start: none,
+  end: none,
+  body,
+) = layout(size => {
+  let n = calc.min(
+    calc.ceil(
+      measure(body).height
+        / (size.height - measure(start).height - measure(end).height),
+    ),
+    max-count,
+  )
+  if n < 1 {
+    n = 1
+  }
+  start
+  if n == 1 {
+    body
+  } else {
+    columns(n, body)
+  }
+  end
+})
+
+
+/// Touying progress bar.
+///
+/// - primary (color): The color of the progress bar.
+///
+/// - secondary (color): The color of the background of the progress bar.
+///
+/// - height (length): The height of the progress bar, optional. Default is `2pt`.
+///
+/// -> content
+#let progress-bar(height: 2pt, primary, secondary) = utils.touying-progress(
+  ratio => {
+    grid(
+      columns: (ratio * 100%, 1fr),
+      rows: height,
+      gutter: 0pt,
+      cell(fill: primary), cell(fill: secondary),
+    )
+  },
+)
+
+
+/// Place two content blocks at the left and right edges of the available width using a three-column grid.
+///
+/// - left (content): The content of the left part.
+///
+/// - right (content): The content of the right part.
+///
+/// -> content
+#let left-and-right(left, right) = grid(
+  columns: (auto, 1fr, auto),
+  left, none, right,
+)
+
+
+/// Create a slide where the provided content blocks are displayed in a grid with a checkerboard color pattern.
+///
+/// You can configure the grid using the `rows` and `columns` keyword arguments (both default to `none`):
+///
+/// - If `columns` is an integer, create that many columns of width `1fr`.
+/// - If `columns` is `none`, create as many columns of width `1fr` as there are content blocks.
+/// - Otherwise assume that `columns` is an array of widths already, use that.
+/// - If `rows` is an integer, create that many rows of height `1fr`.
+/// - If `rows` is `none`, create as many rows of height `1fr` as needed given the number of content blocks and columns.
+/// - Otherwise assume that `rows` is an array of heights already, use that.
+///
+/// That means that `#checkerboard[...][...]` stacks horizontally and `#checkerboard(columns: 1)[...][...]` stacks vertically.
+///
+/// - columns (int, array, none): The column specification. Default is `none`.
+///
+/// - rows (int, array, none): The row specification. Default is `none`.
+///
+/// - alignment (alignment): The alignment applied to the contents of each checkerboard cell. Default is `center + horizon`.
+///
+/// - primary (color): The background color of odd cells. Default is `white`.
+///
+/// - secondary (color): The background color of even cells. Default is `silver`.
+///
+/// -> content
+#let checkerboard(
+  columns: none,
+  rows: none,
+  alignment: center + horizon,
+  primary: white,
+  secondary: silver,
+  ..bodies,
+) = {
+  let bodies = bodies.pos()
+  let columns = if type(columns) == int {
+    (1fr,) * columns
+  } else if columns == none {
+    (1fr,) * bodies.len()
+  } else {
+    columns
+  }
+  let num-cols = columns.len()
+  let rows = if type(rows) == int {
+    (1fr,) * rows
+  } else if rows == none {
+    let quotient = calc.quo(bodies.len(), num-cols)
+    let correction = if calc.rem(bodies.len(), num-cols) == 0 {
+      0
+    } else {
+      1
+    }
+    (1fr,) * (quotient + correction)
+  } else {
+    rows
+  }
+  let num-rows = rows.len()
+  if num-rows * num-cols < bodies.len() {
+    panic(
+      "number of rows ("
+        + str(num-rows)
+        + ") * number of columns ("
+        + str(num-cols)
+        + ") must at least be number of content arguments ("
+        + str(
+          bodies.len(),
+        )
+        + ")",
+    )
+  }
+  let cart-idx(i) = (calc.quo(i, num-cols), calc.rem(i, num-cols))
+  let color-body(idx-body) = {
+    let (idx, body) = idx-body
+    let (row, col) = cart-idx(idx)
+    let color = if calc.even(row + col) {
+      primary
+    } else {
+      secondary
+    }
+    set align(alignment)
+    rect(inset: .5em, width: 100%, height: 100%, fill: color, body)
+  }
+  let body = grid(
+    columns: columns, rows: rows,
+    gutter: 0pt,
+    ..bodies.enumerate().map(color-body)
+  )
+  body
+}
+
+
+/// Show progressive outline. It will make other sections except the current section to be semi-transparent.
+///
+/// - alpha (ratio): The transparency of the other sections. Default is `60%`.
+///
+/// - level (int): The level of the outline. Default is `1`.
+///
+/// - transform (function): A function applied to each outline entry. It receives `(cover: bool, level: int, alpha: ratio, ..args, it)` where `cover` is `true` when the entry should be visually de-emphasized, `it` is the outline entry element, and `alpha` is the transparency value.
+///
+/// - args (arguments): Additional arguments forwarded to the inner `outline()` call.
+///
+/// -> content
+#let progressive-outline(
+  alpha: 60%,
+  level: 1,
+  transform: (cover: false, alpha: 60%, ..args, it) => if cover {
+    text(utils.update-alpha(text.fill, alpha), it)
+  } else {
+    it
+  },
+  ..args,
+) = (
+  context {
+    // start page and end page
+    let start-page = 1
+    let end-page = calc.inf
+    if level != none {
+      let current-heading = utils.current-heading(level: level)
+      if current-heading != none {
+        start-page = current-heading.location().page()
+        if level != auto {
+          let next-headings = query(
+            selector(heading.where(level: level)).after(
+              inclusive: false,
+              current-heading.location(),
+            ),
+          )
+          if next-headings != () {
+            end-page = next-headings.at(0).location().page()
+          }
+        } else {
+          end-page = start-page + 1
+        }
+      }
+    }
+    show outline.entry: it => transform(
+      cover: it.element.location().page() < start-page
+        or it.element.location().page() >= end-page,
+      level: level,
+      alpha: alpha,
+      ..args,
+      it,
+    )
+
+    outline(..args)
+  }
+)
+
+
+/// A fully-featured progressive outline that renders headings from multiple levels with per-level styling.
+///
+/// Uses arrays indexed by heading level (first element = level 1, second = level 2, etc.) to apply different styling to each level. Unlike `progressive-outline` (a thin wrapper around Typst's built-in `outline`), this function renders each heading manually, giving full control over numbering, indentation, fills, and typography.
+///
+/// - self (none): The self context.
+///
+/// - alpha (ratio): The transparency of the other headings. Default is `60%`.
+///
+/// - level (auto, int): The outline level. When `auto`, all levels up to `slide-level` are shown. Default is `auto`.
+///
+/// - numbered (array): Per-level booleans indicating whether headings are numbered. Default is `(false,)`.
+///
+/// - filled (array): Per-level booleans indicating whether to show a fill between the heading and the page number. Default is `(false,)`.
+///
+/// - paged (array): Per-level booleans indicating whether to show the page number. Default is `(false,)`.
+///
+/// - numbering (array): Per-level numbering strings or `none` overrides. Default is `()`.
+///
+/// - text-fill (array, none): Per-level text fill colors. Default is `none` (inherits current text color).
+///
+/// - text-size (array, none): Per-level text sizes. Default is `none` (inherits current text size).
+///
+/// - text-weight (array, none): Per-level text weights. Default is `none` (inherits current text weight).
+///
+/// - vspace (array, none): Per-level vertical space above each heading. Default is `none`.
+///
+/// - title (str, none): The title of the outline section. Default is `none`.
+///
+/// - indent (array): Per-level left indentation. Default is `(0em,)`.
+///
+/// - fill (array): Per-level fill content between heading and page number. Default is `(repeat[.],)`.
+///
+/// - short-heading (bool): Whether to shorten headings that have labels using `utils.short-heading`. Default is `true`.
+///
+/// - uncover-fn (function): A function `body => body` applied to currently-active (non-covered) headings. Default is the identity function.
+///
+/// - args (arguments): Additional arguments forwarded to the underlying `progressive-outline` call.
+///
+/// -> content
+#let custom-progressive-outline(
+  self: none,
+  alpha: 60%,
+  level: auto,
+  numbered: (false,),
+  filled: (false,),
+  paged: (false,),
+  numbering: (),
+  text-fill: none,
+  text-size: none,
+  text-weight: none,
+  vspace: none,
+  title: none,
+  indent: (0em,),
+  fill: (repeat[.],),
+  short-heading: true,
+  uncover-fn: body => body,
+  ..args,
+) = progressive-outline(
+  alpha: alpha,
+  level: level,
+  transform: (cover: false, alpha: alpha, ..args, it) => {
+    let array-at(arr, idx) = arr.at(idx, default: arr.last())
+    let set-text(level, body) = {
+      set text(fill: {
+        let text-color = if type(text-fill) == array and text-fill.len() > 0 {
+          array-at(text-fill, level - 1)
+        } else {
+          text.fill
+        }
+        if cover {
+          utils.update-alpha(text-color, alpha)
+        } else {
+          text-color
+        }
+      })
+      set text(
+        size: array-at(text-size, level - 1),
+      ) if type(text-size) == array and text-size.len() > 0
+      set text(
+        weight: array-at(text-weight, level - 1),
+      ) if type(text-weight) == array and text-weight.len() > 0
+      body
+    }
+    let body = {
+      if type(vspace) == array and vspace.len() > it.level - 1 {
+        v(vspace.at(it.level - 1))
+      }
+      h(range(1, it.level + 1).map(level => array-at(indent, level - 1)).sum())
+      set-text(
+        it.level,
+        {
+          if array-at(numbered, it.level - 1) {
+            let current-numbering = numbering.at(
+              it.level - 1,
+              default: it.element.numbering,
+            )
+            if current-numbering != none {
+              std.numbering(
+                current-numbering,
+                ..counter(heading).at(it.element.location()),
+              )
+              h(.3em)
+            }
+          }
+          link(
+            it.element.location(),
+            {
+              if short-heading {
+                utils.short-heading(self: self, it.element)
+              } else {
+                it.element.body
+              }
+              box(
+                width: 1fr,
+                inset: (x: .2em),
+                if array-at(filled, it.level - 1) {
+                  array-at(fill, it.level - 1)
+                },
+              )
+              if array-at(paged, it.level - 1) {
+                std.numbering(
+                  if page.numbering != none {
+                    page.numbering
+                  } else {
+                    "1"
+                  },
+                  ..counter(page).at(it.element.location()),
+                )
+              }
+            },
+          )
+        },
+      )
+    }
+    if cover {
+      body
+    } else {
+      uncover-fn(body)
+    }
+  },
+  title: title,
+  ..args,
+)
+
+
+/// Section navigation component showing all sections and their per-slide progress as small filled/empty circle dots.
+///
+/// Typically placed in a theme's page header. Each section is labeled with a link, and each slide within the section is represented by a small dot (filled for the current slide, hollow for others). The active section uses the full `fill` color; inactive sections have `alpha` transparency applied.
+///
+/// - self (none): The self context, used to resolve short headings.
+///
+/// - fill (color): The text and dot color. Default is `rgb("000000")`.
+///
+/// - alpha (ratio): The transparency applied to inactive sections. Default is `60%`.
+///
+/// - display-section (bool): Whether to show per-slide dots for level-1 section headings. Default is `false`.
+///
+/// - display-subsection (bool): Whether to show per-slide dots for level-2 subsection headings. Default is `true`.
+///
+/// - linebreaks (bool): Whether to insert a line break after section/subsection labels. Default is `true`.
+///
+/// - short-heading (bool): Whether to shorten heading labels using `utils.short-heading`. Default is `true`.
+///
+/// - inline (bool): Whether to place dots on the same line as the section label instead of below it. Default is `false`.
+///
+/// -> content
+#let mini-slides(
+  self: none,
+  fill: rgb("000000"),
+  alpha: 60%,
+  display-section: false,
+  display-subsection: true,
+  linebreaks: true,
+  short-heading: true,
+  inline: false,
+) = (
+  context {
+    let headings = query(
+      heading.where(level: 1).or(heading.where(level: 2)),
+    ).filter(it => it.outlined)
+    let sections = headings.filter(it => it.level == 1)
+    if sections == () {
+      return
+    }
+    let first-page = sections.at(0).location().page()
+    headings = headings.filter(it => it.location().page() >= first-page)
+    let slides = query(<touying-metadata>).filter(it => (
+      utils.is-kind(it, "touying-new-slide")
+        and it.location().page() >= first-page
+    ))
+    let current-page = here().page()
+    let current-index = (
+      sections.filter(it => it.location().page() <= current-page).len() - 1
+    )
+    let cols = ()
+    let col = ()
+    for (hd, next-hd) in headings.zip(headings.slice(1) + (none,)) {
+      let next-page = if next-hd != none {
+        next-hd.location().page()
+      } else {
+        calc.inf
+      }
+      if hd.level == 1 {
+        if col != () {
+          cols.push(align(left, col.sum()))
+          col = ()
+        }
+        col.push({
+          let body = if short-heading {
+            utils.short-heading(self: self, hd)
+          } else {
+            hd.body
+          }
+          [#link(hd.location(), body)<touying-link>]
+          if inline {
+            h(.5em)
+          } else {
+            linebreak()
+          }
+          while (
+            slides.len() > 0 and slides.at(0).location().page() < next-page
+          ) {
+            let slide = slides.remove(0)
+            if display-section {
+              let next-slide-page = if slides.len() > 0 {
+                slides.at(0).location().page()
+              } else {
+                calc.inf
+              }
+              if (
+                slide.location().page() <= current-page
+                  and current-page < next-slide-page
+              ) {
+                [#link(slide.location(), sym.circle.filled)<touying-link>]
+              } else {
+                [#link(slide.location(), sym.circle.small)<touying-link>]
+              }
+            }
+          }
+          if display-section and display-subsection and linebreaks {
+            linebreak()
+          }
+        })
+      } else {
+        col.push({
+          while (
+            slides.len() > 0 and slides.at(0).location().page() < next-page
+          ) {
+            let slide = slides.remove(0)
+            if display-subsection {
+              let next-slide-page = if slides.len() > 0 {
+                slides.at(0).location().page()
+              } else {
+                calc.inf
+              }
+              if (
+                slide.location().page() <= current-page
+                  and current-page < next-slide-page
+              ) {
+                [#link(slide.location(), sym.circle.filled)<touying-link>]
+              } else {
+                [#link(slide.location(), sym.circle.small)<touying-link>]
+              }
+            }
+          }
+          if display-subsection and linebreaks {
+            linebreak()
+          }
+        })
+      }
+    }
+    if col != () {
+      cols.push(align(left, col.sum()))
+      col = ()
+    }
+    if current-index < 0 or current-index >= cols.len() {
+      cols = cols.map(body => text(fill: fill, body))
+    } else {
+      cols = cols
+        .enumerate()
+        .map(pair => {
+          let (idx, body) = pair
+          if idx == current-index {
+            text(fill: fill, body)
+          } else {
+            text(fill: utils.update-alpha(fill, alpha), body)
+          }
+        })
+    }
+    set align(top)
+    show: block.with(inset: (top: .5em, x: if inline { 1em } else { 2em }))
+    show linebreak: it => it + v(-1em)
+    set text(size: .7em)
+    grid(columns: cols.map(_ => auto).intersperse(1fr), ..cols.intersperse([]))
+  }
+)
+
+
+/// A horizontal navigation bar showing all level-1 sections as clickable links.
+///
+/// The active section label is shown in `primary` color; all other sections use `secondary` color. An optional logo is placed at the right edge. Typically used as a page header in themes.
+///
+/// - self (none): The self context, used to resolve short headings.
+///
+/// - short-heading (bool): Whether to shorten heading labels using `utils.short-heading`. Default is `true`.
+///
+/// - primary (color): The text color of the currently active section. Default is `white`.
+///
+/// - secondary (color): The text color of inactive sections. Default is `gray`.
+///
+/// - background (color): The background fill of the navigation bar. Default is `black`.
+///
+/// - logo (content, none): Optional logo displayed at the right side of the bar. Default is `none`.
+///
+/// -> content
+#let simple-navigation(
+  self: none,
+  short-heading: true,
+  primary: white,
+  secondary: gray,
+  background: black,
+  logo: none,
+) = (
+  context {
+    let body() = {
+      let sections = query(heading.where(level: 1, outlined: true))
+      if sections.len() == 0 {
+        return
+      }
+      let current-page = here().page()
+      set text(size: 0.5em)
+      for (section, next-section) in sections.zip(sections.slice(1) + (none,)) {
+        set text(fill: if section.location().page() <= current-page
+          and (
+            next-section == none
+              or current-page < next-section.location().page()
+          ) {
+          primary
+        } else {
+          secondary
+        })
+        box(inset: 0.5em)[#link(
+          section.location(),
+          if short-heading {
+            utils.short-heading(self: self, section)
+          } else {
+            section.body
+          },
+        )<touying-link>]
+      }
+    }
+    block(
+      fill: background,
+      inset: 0pt,
+      outset: 0pt,
+      grid(
+        align: center + horizon,
+        columns: (1fr, auto),
+        rows: 1.8em,
+        gutter: 0em,
+        cell(
+          fill: background,
+          body(),
+        ),
+        block(fill: background, inset: 4pt, height: 100%, text(
+          fill: primary,
+          logo,
+        )),
+      ),
+    )
+  }
+)
+
+
+/// LaTeX-like knob marker for list items.
+///
+/// Example: `#set list(marker: components.knob-marker(primary: rgb("005bac")))`
+///
+/// - primary (color): The color of the marker.
+///
+/// -> content
+#let knob-marker(primary: rgb("#005bac")) = box(
+  width: 0.5em,
+  place(
+    dy: 0.1em,
+    circle(
+      fill: gradient.radial(
+        primary.lighten(100%),
+        primary.darken(40%),
+        focal-center: (30%, 30%),
+      ),
+      radius: 0.25em,
+    ),
+  ),
+)

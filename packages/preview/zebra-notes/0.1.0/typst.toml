@@ -1,0 +1,11 @@
+[package]
+name = "zebra-notes"
+version = "0.1.0"
+entrypoint = "zebra-notes.typ"
+authors = ["Yooweey"]
+license = "MIT"
+description = "Elegant, non-intrusive collaborative note-taking and task marking for Typst documents. Features automatic numbering, bilingual support, and automated summary tables."
+repository = "https://github.com/lartpang/zebra-notes"
+keywords = ["notes", "todo", "academic", "collaboration", "annotation"]
+categories = ["utility", "report"]
+exclude = ["zebra-notes-demo.typ", "zebra-notes-demo.pdf"]
