@@ -28,7 +28,7 @@
     let font = if lang == "cjk-latin" {
       ""
     } else {
-      fonts.at(role, default: fonts.at("default", default: role))
+      fonts.at(role, default: fonts.at("default", default: ""))
     }
     if font == "" { return (:) }
     return (font: font)
@@ -38,13 +38,14 @@
     .at("fonts", default: (:))
     .at(font-platform-for(styles), default: (:))
   let roles = styles.at("font-roles").at(lang)
-  let family = roles.at(role, default: roles.at("default", default: role))
+  let family = roles.at(role, default: roles.at("default", default: ""))
   let font = platform-fonts.at(family, default: family)
+  if font == "" { return (:) }
   if lang == "zh" {
     let latin-font = font-role-options(styles, "cjk-latin", role).at("font", default: font)
     return (font: ((name: latin-font, covers: latin-coverage()), font))
   }
-  if font == "" { (:) } else { (font: font) }
+  (font: font)
 }
 
 #let cjk-latin-style(
