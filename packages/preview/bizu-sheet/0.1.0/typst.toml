@@ -1,0 +1,17 @@
+[package]
+name = "bizu-sheet"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Juan Guerra <https://github.com/silveirinhajuan>"]
+license = "MIT"
+description = "Create compact revision sheets with cards, formulas, units, and checklists."
+repository = "https://github.com/silveirinhajuan/bizu-sheet"
+keywords = ["revision", "study", "formula", "education"]
+categories = ["components", "layout"]
+disciplines = ["mathematics", "physics", "education"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
