@@ -81,7 +81,7 @@ Coloured titled cards for notes and exercises — `theorem`, `definition`,
 
 #definition(title: "Definition 1.2 (Spectral gap)")[
   The _spectral gap_ of $G$ is 
-  #boxed[$ gamma = lambda_2 - lambda_1 $.
+  #boxed[$ gamma = lambda_2 - lambda_1 $.]
 ]
 
 #example(title: "Example 1.3")[
