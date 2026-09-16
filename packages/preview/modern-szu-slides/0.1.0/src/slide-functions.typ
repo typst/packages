@@ -44,27 +44,45 @@
   )
 ]
 
-#let card(title, body, fill: card-fill, width: auto) = block(
-  fill: fill,
-  width: width,
-  inset: 10pt,
-  radius: 10pt,
-  stroke: card-stroke,
-)[
-  #text(weight: "bold", size: card-title-size, fill: cover-accent)[#title]
-  #set text(size: card-text-size)
-  #body
-]
-
-#let conclusion-card(title, body, fill: conclusion-fill, width: 100%) = card(
-  title,
-  [
-    #set text(size: conclusion-text-size)
+#let card(..args) = {
+  let pos = args.pos()
+  let named = args.named()
+  let title = named.at("title", default: if pos.len() > 1 { pos.at(0) } else { none })
+  let body = if pos.len() > 1 { pos.at(1) } else if pos.len() == 1 { pos.at(0) } else { named.at("body", default: []) }
+  let fill = named.at("fill", default: card-fill)
+  let width = named.at("width", default: auto)
+  block(
+    fill: fill,
+    width: width,
+    inset: 10pt,
+    radius: 10pt,
+    stroke: card-stroke,
+  )[
+    #if title != none {
+      text(weight: "bold", size: card-title-size, fill: cover-accent)[#title]
+    }
+    #set text(size: card-text-size)
     #body
-  ],
-  fill: fill,
-  width: width,
-)
+  ]
+}
+
+#let conclusion-card(..args) = {
+  let pos = args.pos()
+  let named = args.named()
+  let title = named.at("title", default: if pos.len() > 1 { pos.at(0) } else { none })
+  let body = if pos.len() > 1 { pos.at(1) } else if pos.len() == 1 { pos.at(0) } else { named.at("body", default: []) }
+  let fill = named.at("fill", default: conclusion-fill)
+  let width = named.at("width", default: 100%)
+  card(
+    title: title,
+    [
+      #set text(size: conclusion-text-size)
+      #body
+    ],
+    fill: fill,
+    width: width,
+  )
+}
 
 #let result-conclusion(body, fill: conclusion-fill, width: 100%, label: [结论：]) = block(
   fill: fill,

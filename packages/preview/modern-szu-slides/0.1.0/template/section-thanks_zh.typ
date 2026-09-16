@@ -1,8 +1,5 @@
 // 致谢页 (中文)
-
-#import "@preview/touying:0.7.4": slide, config-page, config-store
-
-#import "slide-text.typ": thanks-primary-size, thanks-secondary-size, thanks-primary-fill
+#import "@preview/modern-szu-slides:0.1.0": *
 
 #let thanks-section = [
   #slide(

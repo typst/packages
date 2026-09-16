@@ -1,32 +1,31 @@
-// Example: Research Background section (English)
-// Replace with your own content or delete this file.
-
-#import "slide-functions.typ": small-title, card, conclusion-card
+// Example: Background & Motivation (English)
+#import "@preview/modern-szu-slides:0.1.0": *
 
 #let background-section = [
-  = Research Background
+  = Background
 
-  == Background & Motivation
+  == Motivation & Problem Definition
 
-  Your content here. You can use *bold*, _italic_, $x + y = z$, and more.
+  Describe the research motivation and background here. Typst natively supports *bold*, _italic_, inline formulas $x + y = z$, and more.
 
   #card(
     [Research Objective],
-    [Describe the problem context and core motivation here. Cards are useful for highlighting key points.],
+    [Formulate the core objective and primary research question clearly. Use card components to emphasize fundamental definitions and scope.],
   )
 
   #pagebreak()
 
-  == Key Challenges
+  == Core Challenges
 
-  #small-title[Problem Formulation]
+  Key limitations and unresolved challenges in existing state-of-the-art literature:
 
-  - Challenge one: High computational complexity in large-scale datasets
-  - Challenge two: Limited generalizability across heterogeneous domains
-  - Challenge three: Robustness under noisy environmental conditions
+  #v(0.5em)
 
   #conclusion-card(
-    [Key Insight],
-    [Summarize your main finding, core hypothesis, or key takeaway here.],
+    title: [Key Technical Challenges],
+    [
+      - *Challenge 1: High-dimensional Representation* --- Sparse embedding space and complex multi-modal alignment.
+      - *Challenge 2: Real-time Latency Constraints* --- High computational complexity under edge deployment scenarios.
+    ],
   )
 ]

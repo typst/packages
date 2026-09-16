@@ -1,14 +1,9 @@
 // SZU Typst Slides Template (English Version)
-// Choose one theme:
-#import "libs/szu-met-theme.typ": *
-// #import "libs/szu-uni-theme.typ": *
+#import "@preview/modern-szu-slides:0.1.0": *
 
-#import "@preview/touying:0.7.4": *
-#import "@preview/numbly:0.1.0": *
-#import "@preview/theorion:0.6.0": *
+// Choose theme (Metropolis is default):
+// #let szu-theme = szu-uni-theme  // Uncomment to switch to University theme
 
-#import "slide-text.typ": zh-font, en-font
-#import "slide-functions.typ": *
 #import "section-cover_en.typ": cover-section, thesis-title, thesis-subtitle, candidate-name, college-name
 #import "section-outline_en.typ": outline-section
 #import "section-background_en.typ": background-section
@@ -17,7 +12,7 @@
 #import "section-thanks_en.typ": thanks-section
 #import "section-appendix_en.typ": appendix-section
 
-// ── Theme & Fonts ────────────────────────────────────────────
+// ── Theme & Theorems ─────────────────────────────────────────
 #show: show-theorion
 
 #show: szu-theme.with(
@@ -31,7 +26,7 @@
 
 #show: apply-slide-fonts
 
-// ── Style Settings ───────────────────────────────────────────
+// ── Typography & Numbering ───────────────────────────────────
 #set heading(numbering: numbly("{1}.", default: "1.1"))
 #set par(justify: false)
 #show strong: set text(fill: black)

@@ -1,9 +1,5 @@
-// Outline / Table of Contents (English)
-
-#import "@preview/touying:0.7.4": slide
-
-#import "slide-functions.typ": outline-item, no-break
-#import "slide-text.typ": cover-accent, outline-heading-size, outline-rule
+// Outline / Agenda (English)
+#import "@preview/modern-szu-slides:0.1.0": *
 
 #let outline-section = [
   #slide[
@@ -22,29 +18,29 @@
             [
               #outline-item(
                 [01],
-                [Section One],
-                [*Background and Motivation*],
+                [Part I],
+                [*Background & Motivation*],
               )
             ],
             [
               #outline-item(
                 [02],
-                [Section Two],
-                [*Core Methodology and Design*],
+                [Part II],
+                [*Methodology & Architecture*],
               )
             ],
             [
               #outline-item(
                 [03],
-                [Section Three],
-                [*Experiments and Analysis*],
+                [Part III],
+                [*Experiments & Results*],
               )
             ],
             [
               #outline-item(
                 [04],
-                [Summary],
-                [*Conclusion and Future Work*],
+                [Part IV],
+                [*Conclusion & Future Work*],
               )
             ],
           )

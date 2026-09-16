@@ -1,4 +1,4 @@
-#import "libs/szu-colors.typ": *
+#import "szu-colors.typ": *
 
 // Font families.
 #let zh-font = "Heiti SC"

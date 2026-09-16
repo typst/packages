@@ -1,9 +1,5 @@
 // 大纲 / 目录 (中文)
-
-#import "@preview/touying:0.7.4": slide
-
-#import "slide-functions.typ": outline-item, no-break
-#import "slide-text.typ": cover-accent, outline-heading-size, outline-rule
+#import "@preview/modern-szu-slides:0.1.0": *
 
 #let outline-section = [
   #slide[

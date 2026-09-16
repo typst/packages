@@ -12,9 +12,21 @@
 
 内置两种深大官方品牌配色主题：**Metropolis**（深红现代极简风格）与 **University**（经典学术风格）。提供独立的中英文全套模板（遵循 `xxx_zh.*` 与 `xxx_en.*` 统一命名），彻底解决中英混排与元数据标签混乱问题。
 
-<p align="center">
-  <img src="assets/szu-logo.svg" width="120" alt="SZU logo">
-</p>
+---
+
+## 页面预览
+
+### 中文版幻灯片效果
+
+| 封面标题页 | 目录大纲页 | 正文卡片与挑战 |
+| :---: | :---: | :---: |
+| <img src="gallery/preview-zh-cover.png" width="260" alt="深圳大学中文封面页"> | <img src="gallery/preview-zh-outline.png" width="260" alt="深圳大学中文大纲页"> | <img src="gallery/preview-zh-content.png" width="260" alt="深圳大学中文正文内容页"> |
+
+### 英文版幻灯片效果
+
+| Title Cover | Outline | Content |
+| :---: | :---: | :---: |
+| <img src="gallery/preview-en-cover.png" width="260" alt="SZU English Cover Slide"> | <img src="gallery/preview-en-outline.png" width="260" alt="SZU English Outline Slide"> | <img src="gallery/preview-en-content.png" width="260" alt="SZU English Content Slide"> |
 
 ---
 
@@ -30,50 +42,41 @@
 
 ## 快速上手
 
-### 1. 安装 Typst
+### 方式一：通过 Typst Universe 初始化（推荐）
 
-- **macOS** (Homebrew):
-  ```bash
-  brew install typst
-  ```
-- **Arch Linux**:
-  ```bash
-  pacman -S typst
-  ```
-- **Windows** (Winget / Scoop):
-  ```powershell
-  winget install --id Typst.Typst
-  # 或
-  scoop install typst
-  ```
-- 或从 [Typst Releases](https://github.com/typst/typst/releases) 直接下载预编译二进制。
-
-### 2. 克隆模板
+通过 Typst 官方 CLI 可以直接创建新幻灯片项目：
 
 ```bash
-git clone https://github.com/<your-username>/szu-typst-slides.git
-cd szu-typst-slides
+# 初始化幻灯片项目模板
+typst init @preview/modern-szu-slides:0.1.0 my-slides
+cd my-slides
+
+# 编译默认幻灯片（中文）
+typst compile main.typ
+
+# 或编译英文版幻灯片
+typst compile main_en.typ
 ```
 
-### 3. 选择语言并修改个人信息
+在 Typst Web App 网页版中，点击 **Start from template** 并搜索 `modern-szu-slides` 即可一键创建。
 
-- **中文幻灯片**：编辑 `section-cover_zh.typ`，修改论文标题、答辩人、导师、学院、专业等。
-- **英文幻灯片**：编辑 `section-cover_en.typ`，填写对应英文信息。
-
-### 4. 编译导出 PDF
+### 方式二：克隆 GitHub 仓库
 
 ```bash
+git clone https://github.com/Degurechaff57/szu-typst-slides.git
+cd szu-typst-slides
+
 # 编译中文幻灯片：
 typst compile main_zh.typ main_zh.pdf
 
 # 编译英文幻灯片：
 typst compile main_en.typ main_en.pdf
 
-# 兼容默认编译入口：
+# 兼容默认入口：
 typst compile main.typ
 ```
 
-### 5. 实时预览与热更新
+### 实时预览与热更新
 
 ```bash
 # 实时监视中文幻灯片修改：
@@ -87,53 +90,55 @@ typst watch main_en.typ
 
 ## 切换主题
 
-编辑 `main_zh.typ`（或 `main_en.typ`），通过注释/取消注释顶部的主题引入语句即可切换：
+本包内置两套深大专属主题风格：
+- **Metropolis 主题**（默认）：深红配色现代扁平学术风格。
+- **University 主题**：经典大学学术风格，具备顶部横幅与侧边栏章节高亮。
+
+使用包时切换主题非常简单：
 
 ```typst
-// Metropolis 主题（默认：深红配色极简风）
-#import "libs/szu-met-theme.typ": *
+#import "@preview/modern-szu-slides:0.1.0": *
 
-// University 主题（经典学术页眉与侧边栏风格）
-// #import "libs/szu-uni-theme.typ": *
+// 默认使用 Metropolis 主题：
+#show: szu-theme.with(lang: "zh", title: [我的论文题目], ...)
+
+// 或切换为经典大学主题：
+// #show: szu-uni-theme.with(lang: "zh", title: [我的论文题目], ...)
 ```
 
 ---
 
 ## 文件结构
 
-本项目采用统一的中英文划分命名规范（`xxx_en.*` 和 `xxx_zh.*`）：
+本项目清晰划分为底层库组件与用户模板文件：
 
 ```text
-szu-typst-slides/
-├── README.md                 # 英文说明文档（默认入口）
-├── README_zh.md              # 中文说明文档
-├── README_en.md              # 英文说明文档别名
-├── main_zh.typ               # 中文幻灯片主入口
-├── main_en.typ               # 英文幻灯片主入口
-├── main.typ                  # 兼容入口（默认引入 main_zh.typ）
-├── libs/
+modern-szu-slides/
+├── lib.typ                   # 包主入口（统一重导出主题、组件、工具函数等）
+├── src/                      # 底层库实现源码
 │   ├── szu-colors.typ        # 深大品牌色值（红/金/蓝/青体系）
 │   ├── szu-met-theme.typ     # SZU Metropolis 主题实现
-│   └── szu-uni-theme.typ     # SZU University 主题实现
-├── slide-text.typ            # 全局字体、字号、配色变量
-├── slide-functions.typ       # 可复用组件（卡片、指标、图表等）
-├── slide-components.typ      # 兼容层导出文件
-├── section-cover_zh.typ      # 中文封面页（在此填写答辩信息）
-├── section-cover_en.typ      # 英文封面页
-├── section-outline_zh.typ    # 中文大纲/目录页
-├── section-outline_en.typ    # 英文大纲/目录页
-├── section-background_zh.typ # 中文研究背景示例章节
-├── section-background_en.typ # 英文研究背景示例章节
-├── section-work_zh.typ       # 中文主要工作与实验示例章节
-├── section-work_en.typ       # 英文主要工作与实验示例章节
-├── section-summary_zh.typ    # 中文总结与展望示例章节
-├── section-summary_en.typ    # 英文总结与展望示例章节
-├── section-thanks_zh.typ     # 中文致谢页
-├── section-thanks_en.typ     # 英文致谢页
-├── section-appendix_zh.typ   # 中文附录示例
-├── section-appendix_en.typ   # 英文附录示例
-├── assets/                   # 校徽与矢量旗帜资源
-└── ref.bib                   # BibTeX 参考文献库
+│   ├── szu-uni-theme.typ     # SZU University 主题实现
+│   ├── slide-cover.typ       # 封面与标题页布局实现
+│   ├── slide-functions.typ   # 可复用组件（卡片、指标、图表、表格等）
+│   └── slide-text.typ        # 全局字体、字号、配色变量
+├── assets/
+│   └── SZU_flag.pdf          # 矢量深大校旗旗帜图形
+├── gallery/                  # 文档预览渲染图
+│   ├── preview-zh-*.png
+│   └── preview-en-*.png
+├── template/                 # 初始化至用户项目的模板工程文件
+│   ├── main.typ              # 默认入口（包含 main_zh.typ）
+│   ├── main_zh.typ           # 中文幻灯片主入口
+│   ├── main_en.typ           # 英文幻灯片主入口
+│   ├── section-cover_zh.typ  # 中文封面元数据配置
+│   ├── section-cover_en.typ  # 英文封面元数据配置
+│   ├── section-outline_*.typ # 大纲页面
+│   ├── section-*.typ         # 示例幻灯片章节
+│   └── ref.bib               # BibTeX 参考文献库
+├── LICENSE                   # MIT 开源协议与深大商标排除声明
+├── README.md                 # 英文说明文档
+└── README_zh.md              # 中文说明文档
 ```
 
 ---
@@ -152,7 +157,7 @@ szu-typst-slides/
 | `outline-item(index, title, subtitle)` | 见 `section-outline_*.typ` | 带数字角标的大纲卡片项 |
 | `soft-note(body)` | `#soft-note[备注说明]` | 浅色背景提示框 |
 | `issue-row(tag, desc)` | `#issue-row([问题标签], [问题详情描述])` | 胶囊标签与描述行 |
-| `img(path, caption, width)` | `#img("assets/szu-logo.svg", [图名], width: 60%)` | 居中图片与图题 |
+| `img(path, caption, width)` | `#img("figures/chart.png", [图名], width: 60%)` | 居中图片与图题 |
 | `slide-table(...)` | `#slide-table(columns: 2, ...)` | 适合幻灯片字号的表格封装 |
 
 ---
@@ -199,12 +204,14 @@ szu-typst-slides/
 
 ---
 
-## 开源协议
+## 开源协议与商标声明
 
-本项目采用 MIT 许可证，详见 [LICENSE](LICENSE) 文件。
+- **模板代码与组件**：遵循 [MIT 开源协议](LICENSE)。
+- **高校商标版权声明**：本项目中包含的深圳大学校旗旗帜图形（位于 `assets/SZU_flag.pdf`）属于**深圳大学**的注册商标与受保护财产，**不包含在 MIT 开源协议范围内**。该资源仅供深圳大学师生及科研人员在学术答辩、学术报告等非商业教育场景中使用。商标所有权归深圳大学所有（官网：https://www.szu.edu.cn ）。
 
 ## 致谢
 
 - [Touying](https://touying-typ.github.io/) — 优秀的 Typst 幻灯片制作框架
 - [modern-szu-slides](https://github.com/yjdyamv/modern-szu-slides) — 灵感来源的深大 LaTeX 模版
 - 深圳大学 (Shenzhen University)
+

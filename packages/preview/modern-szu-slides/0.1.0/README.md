@@ -12,9 +12,21 @@ A clean, modern, and professional [Typst](https://typst.app/) slide template for
 
 Two SZU-branded themes are included: **Metropolis** (dark red accent) and **University** (classic style). Dedicated English and Chinese templates (`xxx_en.*` / `xxx_zh.*`) are provided out-of-the-box with tailored typography and localized metadata.
 
-<p align="center">
-  <img src="assets/szu-logo.svg" width="120" alt="SZU logo">
-</p>
+---
+
+## Preview
+
+### Chinese Slides (中文版)
+
+| Title Cover | Outline | Content |
+| :---: | :---: | :---: |
+| <img src="gallery/preview-zh-cover.png" width="260" alt="SZU Chinese Cover Slide"> | <img src="gallery/preview-zh-outline.png" width="260" alt="SZU Chinese Outline Slide"> | <img src="gallery/preview-zh-content.png" width="260" alt="SZU Chinese Content Slide"> |
+
+### English Slides (英文版)
+
+| Title Cover | Outline | Content |
+| :---: | :---: | :---: |
+| <img src="gallery/preview-en-cover.png" width="260" alt="SZU English Cover Slide"> | <img src="gallery/preview-en-outline.png" width="260" alt="SZU English Outline Slide"> | <img src="gallery/preview-en-content.png" width="260" alt="SZU English Content Slide"> |
 
 ---
 
@@ -30,39 +42,30 @@ Two SZU-branded themes are included: **Metropolis** (dark red accent) and **Univ
 
 ## Quick Start
 
-### 1. Install Typst
+### Option 1: Use via Typst Universe (Recommended)
 
-- **macOS** (Homebrew):
-  ```bash
-  brew install typst
-  ```
-- **Arch Linux**:
-  ```bash
-  pacman -S typst
-  ```
-- **Windows** (Winget / Scoop):
-  ```powershell
-  winget install --id Typst.Typst
-  # or
-  scoop install typst
-  ```
-- Or download prebuilt binaries directly from [Typst Releases](https://github.com/typst/typst/releases).
-
-### 2. Clone the Repository
+You can initialize a new project directly with the Typst CLI:
 
 ```bash
-git clone https://github.com/<your-username>/szu-typst-slides.git
-cd szu-typst-slides
+# Initialize project template
+typst init @preview/modern-szu-slides:0.1.0 my-slides
+cd my-slides
+
+# Compile default slides (Chinese)
+typst compile main.typ
+
+# Or compile English slides
+typst compile main_en.typ
 ```
 
-### 3. Choose Your Language & Fill Information
+In the Typst Web App, click **Start from template** and search for `modern-szu-slides`.
 
-- For **English** slides: edit `section-cover_en.typ` to update your thesis title, candidate name, advisor, college, and major.
-- For **Chinese** slides: edit `section-cover_zh.typ` to fill in your title, name, advisor, college, etc.
-
-### 4. Compile to PDF
+### Option 2: Clone from GitHub
 
 ```bash
+git clone https://github.com/Degurechaff57/szu-typst-slides.git
+cd szu-typst-slides
+
 # Compile English slides:
 typst compile main_en.typ main_en.pdf
 
@@ -73,7 +76,7 @@ typst compile main_zh.typ main_zh.pdf
 typst compile main.typ
 ```
 
-### 5. Live Preview / Auto-recompile
+### Live Preview / Auto-recompile
 
 ```bash
 # Watch English slides for changes:
@@ -87,53 +90,55 @@ typst watch main_zh.typ
 
 ## Switching Themes
 
-Edit `main_en.typ` (or `main_zh.typ`) and comment/uncomment the theme import at the top:
+The package includes two tailored themes:
+- **Metropolis Theme** (default): Modern minimalist slide deck with dark red accents.
+- **University Theme**: Classic academic presentation with header banner and section highlights.
+
+When using the package:
 
 ```typst
-// Metropolis Theme (default, dark red accent)
-#import "libs/szu-met-theme.typ": *
+#import "@preview/modern-szu-slides:0.1.0": *
 
-// University Theme (classic university header & sidebar style)
-// #import "libs/szu-uni-theme.typ": *
+// Default is Metropolis theme:
+#show: szu-theme.with(lang: "en", title: [My Title], ...)
+
+// Or switch to University theme:
+// #show: szu-uni-theme.with(lang: "en", title: [My Title], ...)
 ```
 
 ---
 
 ## File Structure
 
-The project follows a uniform bilingual naming convention (`xxx_en.*` and `xxx_zh.*`):
+The project separates the core library package and user-facing template files:
 
 ```text
-szu-typst-slides/
-├── README.md                 # English documentation (entry point)
-├── README_zh.md              # Chinese documentation
-├── README_en.md              # English documentation alias
-├── main_en.typ               # Entry point: English slides
-├── main_zh.typ               # Entry point: Chinese slides
-├── main.typ                  # Compatibility entry point (includes main_zh.typ)
-├── libs/
+modern-szu-slides/
+├── lib.typ                   # Package entry point (re-exports themes, components, helpers)
+├── src/                      # Library implementation modules
 │   ├── szu-colors.typ        # SZU brand color definitions (red, gold, blue, cyan)
 │   ├── szu-met-theme.typ     # SZU Metropolis theme implementation
-│   └── szu-uni-theme.typ     # SZU University theme implementation
-├── slide-text.typ            # Global font family, sizing, and color variables
-├── slide-functions.typ       # Reusable layout and presentation components
-├── slide-components.typ      # Re-export compatibility shim
-├── section-cover_en.typ      # English title / cover slide
-├── section-cover_zh.typ      # Chinese title / cover slide
-├── section-outline_en.typ    # English table of contents slide
-├── section-outline_zh.typ    # Chinese table of contents slide
-├── section-background_en.typ # English research background sample section
-├── section-background_zh.typ # Chinese research background sample section
-├── section-work_en.typ       # English core work & experiments section
-├── section-work_zh.typ       # Chinese core work & experiments section
-├── section-summary_en.typ    # English summary & future outlook section
-├── section-summary_zh.typ    # Chinese summary & future outlook section
-├── section-thanks_en.typ     # English closing / acknowledgements slide
-├── section-thanks_zh.typ     # Chinese closing / acknowledgements slide
-├── section-appendix_en.typ   # English appendix section
-├── section-appendix_zh.typ   # Chinese appendix section
-├── assets/                   # Vector logos and flag assets
-└── ref.bib                   # BibTeX references database
+│   ├── szu-uni-theme.typ     # SZU University theme implementation
+│   ├── slide-cover.typ       # Cover and title slide layouts
+│   ├── slide-functions.typ   # Reusable presentation components (cards, metrics, tables)
+│   └── slide-text.typ        # Global font family, sizing, and color variables
+├── assets/
+│   └── SZU_flag.pdf          # Vector SZU flag graphic
+├── gallery/                  # Rendered preview images for documentation
+│   ├── preview-zh-*.png
+│   └── preview-en-*.png
+├── template/                 # Starter template files copied into user projects
+│   ├── main.typ              # Default entry point (includes main_zh.typ)
+│   ├── main_zh.typ           # Chinese presentation entry point
+│   ├── main_en.typ           # English presentation entry point
+│   ├── section-cover_zh.typ  # Chinese cover metadata configuration
+│   ├── section-cover_en.typ  # English cover metadata configuration
+│   ├── section-outline_*.typ # Outline slides
+│   ├── section-*.typ         # Sample presentation sections
+│   └── ref.bib               # Sample BibTeX references database
+├── LICENSE                   # MIT License with University Trademark disclaimer
+├── README.md                 # English documentation
+└── README_zh.md              # Chinese documentation
 ```
 
 ---
@@ -152,7 +157,7 @@ Reusable components are defined in `slide-functions.typ`:
 | `outline-item(index, title, subtitle)` | See `section-outline_*.typ` | Numbered outline item card |
 | `soft-note(body)` | `#soft-note[Note details]` | Light-colored contextual note block |
 | `issue-row(tag, desc)` | `#issue-row([Problem], [Description])` | Tagged issue and resolution row |
-| `img(path, caption, width)` | `#img("assets/szu-logo.svg", [Caption], width: 60%)` | Centered image with caption |
+| `img(path, caption, width)` | `#img("figures/chart.png", [Caption], width: 60%)` | Centered image with caption |
 | `slide-table(...)` | `#slide-table(columns: 2, ...)` | Table wrapper with optimized presentation typography |
 
 ---
@@ -199,12 +204,14 @@ To customize fonts for Linux or Windows, change `zh-font` and `en-font` in `slid
 
 ---
 
-## License
+## License & Trademark Notice
 
-MIT License — see the [LICENSE](LICENSE) file for details.
+- **Code & Templates**: Licensed under the [MIT License](LICENSE).
+- **University Trademark Notice**: The Shenzhen University (SZU) flag graphic (`assets/SZU_flag.pdf`) is a trademark and intellectual property of **Shenzhen University**. It is **not covered by the MIT License**. It is included strictly for non-commercial, academic, and educational presentations by Shenzhen University students, faculty, and researchers. All trademark and intellectual property rights belong to Shenzhen University (https://www.szu.edu.cn).
 
 ## Acknowledgements
 
 - [Touying](https://touying-typ.github.io/) — Powerful slides framework for Typst
 - [modern-szu-slides](https://github.com/yjdyamv/modern-szu-slides) — Original LaTeX inspiration
 - Shenzhen University (SZU)
+

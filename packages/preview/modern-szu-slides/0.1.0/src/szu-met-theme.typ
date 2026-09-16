@@ -1,13 +1,7 @@
 #import "@preview/touying:0.7.4": *
 #import "@preview/cuti:0.4.0": *
-#import themes.university: *
+#import themes.metropolis: *
 #import "szu-colors.typ": *
-
-// 创建两个不同大小的logo定义
-// 1. 用于标题幻灯片的8%宽度logo
-#let szu-logo-title = image("../assets/szu-logo.svg", width: 8%)
-// 2. 用于右上角的正常大小logo
-#let szu-logo-red = image("../assets/szu-logo.svg")
 
 #let szu-theme(
   aspect-ratio: "16-9",
@@ -18,25 +12,32 @@
   author: [深小荔],
   date: datetime.today(),
   institution: [深圳大学],
+  logo: none,
+  header-right: none,
   ..args,
   body,
 ) = {
-  show: university-theme.with(
-    // Lang and font configuration
+  if lang == "zh" {
+    show: show-cn-fakebold
+  }
+
+  show: metropolis-theme.with(
+    aspect-ratio: aspect-ratio,
     lang: lang,
-    // Basic information
     config-info(
       title: title,
       subtitle: subtitle,
       author: author,
       date: date,
       institution: institution,
-      logo: szu-logo-title,  // 在标题幻灯片中使用8%宽度的logo
+      logo: logo,
     ),
     config-colors(
-      primary: szu-first-red,
-      secondary: szu-second-red,
-      tertiary: szu-third-red,
+      primary: szu-primary-red,
+      primary-dark: szu-primary-dark-red,
+      secondary: szu-first-red,
+      secondary-light: szu-second-red,
+      secondary-lighter: szu-third-red,
       neutral-darkest: rgb("#000000"),
       neutral-darker: szu-primary-dark-red,
       neutral-dark: szu-primary-red,
@@ -44,7 +45,8 @@
       neutral-lighter: szu-third-red,
       neutral-lightest: rgb("#ffffff"),
     ),
-    header-right: self => szu-logo-red,
+    header-right: if header-right != none { header-right } else { self => none },
+    ..args,
   )
 
   set heading(numbering: "1.1.1.1")
@@ -53,10 +55,6 @@
   show bibliography: it => {
     set text(size: 10pt)
     it
-  }
-
-  if lang == "zh" {
-    show: show-cn-fakebold
   }
 
   body

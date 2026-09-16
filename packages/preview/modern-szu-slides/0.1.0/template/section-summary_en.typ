@@ -1,9 +1,10 @@
-// Example: Summary & Outlook section (English)
+// Example: Summary & Future Work (English)
+#import "@preview/modern-szu-slides:0.1.0": *
 
 #let summary-section = [
-  = Summary & Outlook
+  = Summary
 
-  == Summary
+  == Key Contributions
 
   #block(
     fill: rgb("#f1f8ff"),
@@ -11,11 +12,11 @@
     inset: 15pt,
     radius: 6pt,
   )[
-    *Contribution One: Framework Design*
+    *Contribution 1: Framework Architecture*
     #v(4pt)
-    Strategy: Designed an end-to-end scalable representation learning model.
+    Proposed an end-to-end adaptive representation learning pipeline.
     #v(4pt)
-    Results: Achieved 94.8% accuracy on benchmark test suite.
+    Achieved 95.6% benchmark accuracy, setting a new competitive result.
   ]
 
   #v(8pt)
@@ -26,16 +27,10 @@
     inset: 15pt,
     radius: 6pt,
   )[
-    *Contribution Two: Efficiency Optimization*
+    *Contribution 2: Efficiency Optimization*
     #v(4pt)
-    Strategy: Developed lightweight pruning and quantization algorithms.
+    Designed dynamic compression and distillation, reducing size by 62%.
     #v(4pt)
-    Results: Reduced parameter count by 42% with negligible accuracy drop.
+    Delivered real-time performance at 45 FPS on edge platforms.
   ]
-
-  == Future Work
-
-  + Exploring cross-domain generalization in zero-shot transfer scenarios
-  + Extending the methodology to real-time embedded and mobile edge devices
-  + Integrating multimodal foundation models for broader downstream tasks
 ]

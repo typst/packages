@@ -1,8 +1,5 @@
-// Acknowledgement / closing slide (English)
-
-#import "@preview/touying:0.7.4": slide, config-page, config-store
-
-#import "slide-text.typ": thanks-primary-size, thanks-secondary-size, thanks-primary-fill
+// Thanks / Q&A Slide (English)
+#import "@preview/modern-szu-slides:0.1.0": *
 
 #let thanks-section = [
   #slide(
@@ -17,9 +14,9 @@
     ),
   )[
     #align(center + horizon)[
-      #text(size: thanks-primary-size, weight: "bold", fill: thanks-primary-fill)[Thank you for listening!]
+      #text(size: thanks-primary-size, weight: "bold", fill: thanks-primary-fill)[Thank You!]
       #v(16pt)
-      #text(size: thanks-secondary-size)[Questions & Discussion]
+      #text(size: thanks-secondary-size)[Questions & Comments Welcome]
     ]
   ]
 ]
