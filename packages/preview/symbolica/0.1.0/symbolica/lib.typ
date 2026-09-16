@@ -1,4 +1,4 @@
-#import "@preview/parsely:0.1.0"
+#import "@preview/parsely:0.1.1"
 #import "render.typ" as atom-render
 
 #let _default_grammar = (
@@ -16,15 +16,15 @@
   pow: (match: $#parsely.slot("base")^#parsely.slot("exp")$),
   union: (infix: $union$, prec: 1),
   inter: (infix: $inter$, prec: 1),
-  attach: math.attach,
-  frac: math.frac,
-  lr: math.lr,
-  mat: math.mat,
-  vec: math.vec,
-  root: math.root,
+  attach: (match: math.attach),
+  frac: (match: math.frac),
+  lr: (match: math.lr),
+  mat: (match: math.mat),
+  vec: (match: math.vec),
+  root: (match: math.root),
   op-call: (match: $op(#parsely.slot("op"))(#parsely.slot("args*"))$),
   call: (match: $#parsely.slot("fn") #parsely.tight (#parsely.slot("body*"))$),
-  op: math.op,
+  op: (match: math.op),
 )
 #let _typst_math = math
 
@@ -90,6 +90,9 @@
   let kind = repr(fn)
   if kind == "sequence" and "children" in fields {
     return fields.children.join()
+  }
+  if kind == "root" and "index" not in fields {
+    return _typst_math.sqrt(fields.remove("radicand"), ..fields)
   }
 
   let pos = ()

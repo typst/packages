@@ -6,6 +6,8 @@ prepared.
 
 ## Unreleased
 
+- Update Parsely to 0.1.1 and adopt its explicit element-match grammar syntax.
+- Preserve square roots when normalizing Typst math content for parsing.
 - Recognize Typst's π as Symbolica's built-in constant, so numerical evaluation
   does not require an explicit substitution for pi.
 - Combine algebra and integration in one `symbolica` package and Wasm module.
