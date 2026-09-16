@@ -73,3 +73,10 @@ only have one of the two font families on your system. However, Typst will
 still issue a warning (see [issue
 \#6010](https://github.com/typst/typst/issues/6010)), which you can safely
 ignore.
+
+## Licensing
+
+The licence mentioned in the `typst.toml` manifest file covers the whole
+project, except for `logo.png`. The latter is released under the [redistribution
+terms](https://designguide.sdu.dk/brandguide_en/#logo:~:text=The%20SDU%20logo%20may%20be%20redistributed%20as%20part%20of%20larger%20works%2C%20such%20as%20document%20or%20presentation%20templates%2C%20if%20they%20comply%20with%20SDU%E2%80%99s%20visual%20identity%20guidelines%20and%20include%20a%20reference%20to%20these%20guidelines)
+of the copyright holder, Southern Denmark University.
