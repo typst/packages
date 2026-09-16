@@ -2,6 +2,8 @@
 
 Create compact revision sheets with cards, formulas, units, comparisons, and checklists.
 
+![bizu-sheet banner](bizu-sheet-github-banner.png)
+
 ## Quick start
 
 Import the package with its full version:
