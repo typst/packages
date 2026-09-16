@@ -1,24 +1,24 @@
 #import "@preview/bizu-sheet:0.1.0": *
 
-#show: bizuario.with(
-  title: "Meu bizuário",
-  subtitle: "Revisão rápida",
-  author: "Seu nome",
+#show: cheat_sheet.with(
+  title: "My Revision Sheet",
+  subtitle: "Quick review",
+  author: "Your name",
 )
 
-= Primeiro tópico
+= First topic
 
-#b-card(title: "Resumo", tone: "info")[
-  Escreva aqui o conteúdo da sua revisão.
+#card(title: "Summary", tone: "info")[
+  Write the key idea here.
 ]
 
-#b-formula(
-  title: "Fórmula importante",
+#formula(
+  title: "Important formula",
   $ x = (-b plus.minus sqrt(b^2 - 4 a c)) / (2 a) $,
 )
 
-#b-checklist((
-  [Revise a definição principal.],
-  [Confira as unidades ou condições.],
-  [Resolva uma questão de aplicação.],
+#checklist((
+  [Review the main definition.],
+  [Check the units or conditions.],
+  [Solve one application problem.],
 ))
