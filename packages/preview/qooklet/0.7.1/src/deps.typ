@@ -39,7 +39,7 @@
     .at(font-platform-for(styles), default: (:))
   let roles = styles.at("font-roles").at(lang)
   let family = roles.at(role, default: roles.at("default", default: ""))
-  let font = platform-fonts.at(family, default: family)
+  let font = platform-fonts.at(family, default: "")
   if font == "" { return (:) }
   if lang == "zh" {
     let latin-font = font-role-options(styles, "cjk-latin", role).at("font", default: font)
