@@ -1,0 +1,16 @@
+[package]
+name = "cs-notes"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Michael Cecchini"]
+license = "MIT"
+description = "Clean Typst template for university computer science notes."
+repository = "https://github.com/cecco25/cs-notes"
+keywords = ["notes", "university", "computer-science", "lecture"]
+categories = ["book", "report"]
+compiler = "0.15.1"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
