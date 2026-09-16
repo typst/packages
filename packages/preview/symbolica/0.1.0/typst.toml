@@ -1,0 +1,20 @@
+[package]
+name = "symbolica"
+version = "0.1.0"
+entrypoint = "symbolica/lib.typ"
+authors = ["lcnbr <https://github.com/lcnbr>"]
+# Covers the original plugin code. The bundled Wasm contains components under
+# other licenses; see README.md and THIRD_PARTY.md for their scope and terms.
+license = "MIT"
+description = "Perform symbolic computations and numerical evaluations."
+repository = "https://github.com/symbolica-dev/symbolica-typst-plugin"
+keywords = ["computer-algebra", "symbolic-computation", "symbolica"]
+categories = ["integration", "scripting"]
+disciplines = ["mathematics"]
+compiler = "0.14.0"
+exclude = [
+  "src", "crates", "scripts", "docs", "target", "dist", "test.typ", "CHANGELOG.md",
+  "Cargo.toml", "Cargo.lock", "flake.nix", "flake.lock",
+  "symbolica/examples", "symbolica/tests", "symbolica/*.pdf", "symbolica/*manual.typ",
+  "symbolica/*.wasm.part*",
+]
