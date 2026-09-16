@@ -572,6 +572,10 @@ The older v0.1.x API remains available:
 
 This makes it possible to update the package without immediately rewriting existing documents. New documents can use the category-based v0.2.0 API.
 
+# Examples
+
+The [repository](https://github.com/girasole123/Abbrev/) contains example documents demonstrating both the backward-compatible API (file [`example.typ`](https://github.com/girasole123/Abbrev/example.typ)) and the new v0.2.0 functionality (file [`example2.typ`](https://github.com/girasole123/Abbrev/example2.typ)).
+
 ## Local compilation
 
 To compile an example using the Typst Universe package:
@@ -594,9 +598,7 @@ Then run:
 typst compile example.typ
 ```
 
-## Examples and compiled PDFs
-
-The repository contains example documents demonstrating both the backward-compatible API (file `example.typ`) and the new v0.2.0 functionality (file `example2.typ`).
+## Compiled PDF examples
 
 To view the compiled PDFs without installing Typst:
 
