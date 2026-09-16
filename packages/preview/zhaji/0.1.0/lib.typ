@@ -28,18 +28,26 @@
   author: "",              // 作者（可选）
   date: auto,              // 封面日期：auto（当天年月）、none（不显示）或自定义文本
   mode: "lesson",          // "lesson"（单课独立模式）或 "book"（全书合订模式）
+  font-head: font-head,
+  font-math: font-math,
+  font-text: font-text,
+  font-size: 10.8pt,
+  lang: "zh",
+  region: "cn",
+  first-line-indent: 2em,
+  leading: 0.86em,
   body,
 ) = {
   // 全局正文字体与段落规范（在顶层生效）
-  set text(font: font-text, size: 10.8pt, lang: "zh", region: "cn")
-  set par(justify: true, leading: 0.86em, first-line-indent: 2em)
+  set text(font: font-text, size: font-size, lang: lang, region: region)
+  set par(justify: true, leading: leading, first-line-indent: first-line-indent)
   set math.equation(numbering: none)
   show math.equation: set text(font: font-math)
   show math.equation.where(block: false): it => it
 
   // 全局标题样式（免冗余数字编号，层级视觉对比极其分明）
   // Level 1: 大章 / 课程主题（底置主题色横线）
-  show heading.where(level: 1): it => block(width: 100%, above: 2.4em, below: 1.2em)[
+  show heading.where(level: 1): it => context block(width: 100%, above: 2.4em, below: calc.max(1.2em, par.spacing))[
     #set text(font: font-head, size: 20pt, weight: "bold", fill: c-accent)
     #it.body
     #v(0.35em)
@@ -47,7 +55,7 @@
   ]
 
   // Level 2: 大节（左侧 3.5pt 蓝灰坚挺色标，上方充分留白，一眼认出新大节）
-  show heading.where(level: 2): it => block(width: 100%, above: 2.0em, below: 0.85em)[
+  show heading.where(level: 2): it => context block(width: 100%, above: 2.0em, below: calc.max(0.85em, par.leading))[
     #grid(
       columns: (auto, 1fr),
       gutter: 0.55em,
@@ -58,15 +66,17 @@
   ]
 
   // Level 3: 具体模型 / 核心课题（前置精致实心小方块，字号 12.5pt）
-  show heading.where(level: 3): it => block(above: 1.4em, below: 0.6em)[
-    #text(fill: c-blue, size: 8.5pt)[■]
+  show heading.where(level: 3): it => context block(above: 1.4em, below: calc.max(0.6em, par.leading))[
+    // 因为 ■ 比 font-head 小了 4pt, 所以要上移 baseline 2pt，下同
+    #text(fill: c-blue, size: 8.5pt, baseline: -2pt)[■]
     #h(0.45em)
     #text(font: font-head, size: 12.5pt, weight: "bold", fill: c-accent)[#it.body]
   ]
 
   // Level 4: 具体分析环节 / 步骤分支（11pt 黑体，前置优雅小短杠引领）
-  show heading.where(level: 4): it => block(above: 1.0em, below: 0.45em)[
-    #text(fill: c-remark, size: 9pt)[–]
+  show heading.where(level: 4): it => context block(above: 1.0em, below: calc.max(0.45em, par.leading))[
+    // 因为c-remark 比 font-head 小了 2pt，所以要上移 baseline 1pt
+    #text(fill: c-remark, size: 9pt, baseline: -1pt)[–]
     #h(0.35em)
     #text(font: font-head, size: 11pt, weight: "bold", fill: rgb("#444444"))[#it.body]
   ]
@@ -207,7 +217,7 @@
 }
 
 // ---------- 提示块：通用环境，同时支持标准中括号语法与旧式命名参数 ----------
-#let hint(..args) = {
+#let hint(font-head: font-head, ..args) = {
   let pos = args.pos()
   let named = args.named()
   let style = named.at("style", default: "gray")

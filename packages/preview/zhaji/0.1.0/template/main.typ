@@ -1,9 +1,23 @@
 #import "@preview/zhaji:0.1.0": *
-#show: note
+// #import "../lib.typ": *
+#let my-font-head = ("Arial", "Noto Sans SC")
+#show: note.with(
+  font-head: my-font-head,
+  font-text: ("Times New Roman", "SimSun"),
+  first-line-indent: 0em
+)
 
-== 引论
+= 引论
+这是引论
 
-=== 核心模型
+== 线性自治系统
+线性自治系统是右端项不含时的线性系统
+
+=== 一阶线性方程
+一阶线性方程是只含一阶导数的线性方程。
+
+==== 核心模型
+
 设 $t$ 为时间自变量，$x(t)$ 表示系统的状态。
 
 根据基本物理定律，变化率满足：
@@ -18,6 +32,6 @@ $ frac(dd x, dd t) = - k x. $
   $ x(t) = C e^(- k t), quad C in R. $
 ]
 
-#hint[思考与拓展][
+#hint(font-head: my-font-head)[思考与拓展][
   若初始时刻满足 $x(0) = x_0$，则特解为 $x(t) = x_0 e^(- k t)$。当 $t -> +infinity$ 时系统状态渐近趋向于稳定平衡态。
 ]
