@@ -1,0 +1,135 @@
+[days.format.wide]
+1 = "Maandag"
+2 = "Dinsdag"
+3 = "Woensdag"
+4 = "Donderdag"
+5 = "Vrydag"
+6 = "Saterdag"
+7 = "Sondag"
+
+[days.format.abbreviated]
+1 = "Ma."
+2 = "Di."
+3 = "Wo."
+4 = "Do."
+5 = "Vr."
+6 = "Sa."
+7 = "So."
+
+[days.format.narrow]
+2 = "D"
+4 = "D"
+5 = "V"
+
+[days.stand-alone.wide]
+1 = "Maandag"
+2 = "Dinsdag"
+3 = "Woensdag"
+4 = "Donderdag"
+5 = "Vrydag"
+6 = "Saterdag"
+7 = "Sondag"
+
+[days.stand-alone.abbreviated]
+1 = "Ma."
+2 = "Di."
+3 = "Wo."
+4 = "Do."
+5 = "Vr."
+6 = "Sa."
+7 = "So."
+
+[days.stand-alone.narrow]
+2 = "D"
+4 = "D"
+5 = "V"
+
+[months.format.wide]
+1 = "Januarie"
+2 = "Februarie"
+3 = "Maart"
+4 = "April"
+5 = "Mei"
+6 = "Junie"
+7 = "Julie"
+8 = "Augustus"
+9 = "September"
+10 = "Oktober"
+11 = "November"
+12 = "Desember"
+
+[months.format.abbreviated]
+1 = "Jan."
+2 = "Feb."
+3 = "Mrt."
+4 = "Apr."
+5 = "Mei"
+6 = "Jun."
+7 = "Jul."
+8 = "Aug."
+9 = "Sep."
+10 = "Okt."
+11 = "Nov."
+12 = "Des."
+
+[months.format.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "A"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[months.stand-alone.wide]
+1 = "Januarie"
+2 = "Februarie"
+3 = "Maart"
+4 = "April"
+5 = "Mei"
+6 = "Junie"
+7 = "Julie"
+8 = "Augustus"
+9 = "September"
+10 = "Oktober"
+11 = "November"
+12 = "Desember"
+
+[months.stand-alone.abbreviated]
+1 = "Jan."
+2 = "Feb."
+3 = "Mrt."
+4 = "Apr."
+5 = "Mei"
+6 = "Jun."
+7 = "Jul."
+8 = "Aug."
+9 = "Sep."
+10 = "Okt."
+11 = "Nov."
+12 = "Des."
+
+[months.stand-alone.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "A"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[patterns]
+full = "EEEE dd MMMM y"
+long = "dd MMMM y"
+medium = "dd MMM y"
+

@@ -1,0 +1,12 @@
+[package]
+name = "fast-layout"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jinguo Liu <@GiggleLiu>"]
+license = "MIT"
+description = "Compute fast layouts for graph plots."
+repository = "https://github.com/GiggleLiu/fast-layout"
+compiler = "0.14.2"
+categories = ["visualization"]
+keywords = ["graph", "layout", "network", "tree"]
+exclude = ["/images/", "/tests/", "/manual.typ", "/manual.pdf", "/Makefile"]

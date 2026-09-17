@@ -1,0 +1,13 @@
+[package]
+name = "mesa"
+version = "0.2.0"
+compiler = "0.14.0"
+entrypoint = "src/lib.typ"
+authors = ["Davide G. F. Lombardo <davide.lombardo@eit.lth.se>"]
+license = "MIT"
+description = "Draw semiconductor devices and fabrication process flows from GDS layouts"
+repository = "https://github.com/digiefel/mesa"
+categories = ["visualization", "scripting", "integration"]
+disciplines = ["engineering", "physics"]
+keywords = ["semiconductor", "visualization", "process-flow", "cetz"]
+exclude = [ "/manual.md", "/assets/" ]

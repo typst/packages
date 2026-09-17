@@ -1,0 +1,12 @@
+[package]
+name = "chalks"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jinguo Liu <@GiggleLiu>"]
+license = "MIT"
+description = "Draw hand-sketched figures and annotations in pencil or chalk."
+repository = "https://github.com/GiggleLiu/chalks"
+compiler = "0.14.0"
+categories = ["visualization"]
+keywords = ["drawing", "sketch", "annotation", "chalk"]
+exclude = ["/tests/*", "/examples/*", "/manual.typ", "/manual.pdf", "/Makefile", "/images/*"]

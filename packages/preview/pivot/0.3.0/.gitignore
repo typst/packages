@@ -1,0 +1,31 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# LLM development
+.claude/
+CLAUDE.md
+CONTEXT.md
+
+# Local docs source (separate docs site)
+design/
+
+# Secrets
+*.token
+token.txt
+.env
+.env.*
+
+# Test output
+tests/**/out/
+tests/**/diff/
+
+# Typst build artifacts
+*.pdf

@@ -1,0 +1,6 @@
+First Name,Last Name,Company,Email,Address 1,Address 2,City,State,Zip,Balance,Status,Join Date
+Alice,Smith,Acme Corp,alice@acme.com,123 Main St,Suite 400,New York,NY,10001,150.00,Active,2023-01-15
+Bob,Johnson,Global Tech,bob@global.org,456 Market St,,San Francisco,CA,94105,0.00,Active,2022-11-20
+Carol,Williams,Apex LLC,carol@apex.io,789 Oak Ave,Apt 2B,Chicago,IL,60601,420.50,Pending,2024-03-05
+David,Brown,InnoSys,david@innosys.net,101 Pine Rd,,Austin,TX,78701,89.90,Active,2021-08-12
+Eva,Davis,Omni Media,eva@omni.com,202 Elm St,Floor 3,Seattle,WA,98101,0.00,Inactive,2023-06-30
