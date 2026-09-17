@@ -3,7 +3,7 @@
 ## License scope
 
 The MIT license declared in `typst.toml` covers the original Typst interface
-and Rust adapter code. The bundled `symbolica/symbolica.wasm` incorporates
+and Rust adapter code. The bundled `symbolica/symbolica.wasm.zlib` incorporates
 components under multiple licenses and is not covered solely by MIT.
 Symbolica's components remain subject to `LICENSE-SYMBOLICA.md` and
 `LICENSE-SYMBOLICA-TYPST.md`; other dependencies retain their respective
@@ -12,7 +12,7 @@ licenses as recorded below and in `THIRD_PARTY_LICENSES.txt`.
 ## Bundled engine and dependencies
 
 The runtime package includes [the collected license texts](THIRD_PARTY_LICENSES.txt)
-for the 99 registry crates in the locked Wasm build, including build-time
+for the registry crates in the locked engine and inflater builds, including build-time
 dependencies conservatively. Each entry identifies the version, declared
 license, repository, and source archive. For alternatives such as MIT OR
 Apache-2.0, the distribution uses MIT where available, and otherwise an

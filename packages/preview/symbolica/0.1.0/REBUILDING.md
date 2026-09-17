@@ -19,7 +19,14 @@ bash scripts/build-engine.sh
 ```
 
 Cargo downloads the locked dependencies. The result is
-`symbolica/symbolica.wasm`. The release profile uses the default 16 codegen
+`symbolica/symbolica.wasm.zlib` and `symbolica/symbolica-inflate.wasm`.
+The build optimizes the engine with Binaryen, then compresses it with
+miniz_oxide's level-10 zlib-wrapped DEFLATE and verifies a byte-for-byte
+round trip. The small inflater plugin decompresses the engine before Typst
+loads it. Both distributed assets must fit our 10 MiB per-file budget.
+The optimized uncompressed engine is retained only at
+`target/wasm32-unknown-unknown/release/symbolica.raw.wasm`, which can also be
+used with `init(source: ...)`. The release profile uses the default 16 codegen
 units and no Wizer preinitialization.
 
 To rebuild with a modified dependency whose license permits modification,

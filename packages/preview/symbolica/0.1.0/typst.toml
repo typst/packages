@@ -17,4 +17,5 @@ exclude = [
   "Cargo.toml", "Cargo.lock", "flake.nix", "flake.lock",
   "symbolica/examples", "symbolica/tests", "symbolica/*.pdf", "symbolica/*manual.typ",
   "symbolica/*.wasm.part*",
+  "symbolica/symbolica.wasm",
 ]

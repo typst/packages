@@ -148,33 +148,13 @@ Before publication on Universe, upload the library files into your project
 and import `"symbolica/lib.typ"`. A local installation on your computer is
 not available to the web app.
 
-If the 23.36 MiB Wasm exceeds the web app's per-file upload limit, split it
-into smaller parts. For this build, the following GNU `split` command creates
-three files of at most 8 MiB:
-
-```sh
-split -b 8M -d -a 1 symbolica/symbolica.wasm symbolica/symbolica.wasm.part
-```
-
-In the **uploaded copy** of `symbolica/lib.typ`, replace `_bundled_plugin`
-with:
-
-```typst
-#let _bundled_plugin() = plugin(
-  read("symbolica.wasm.part0", encoding: none) +
-  read("symbolica.wasm.part1", encoding: none) +
-  read("symbolica.wasm.part2", encoding: none)
-)
-```
-
-Upload that `lib.typ`, `render.typ`, and the three parts into a `symbolica`
-folder in the project. Omit the original large `symbolica.wasm`. Your document
-can then use the usual `#import "symbolica/lib.typ" as sym` and `sym.integrate`
-API. [Typst accepts raw bytes as a plugin source](https://typst.app/docs/reference/foundations/plugin/).
-This joins the exact original engine in memory, without decompression. It
-reduces individual upload sizes, but not total project storage or runtime memory.
-The split loader was verified with the CLI; web upload acceptance depends on
-the account's file and project limits.
+Upload `lib.typ`, `render.typ`, `symbolica-inflate.wasm`, and
+`symbolica.wasm.zlib` into a `symbolica` folder in the project. The engine is
+compressed to about 6.08 MiB, with a separate 29 KiB decompression plugin.
+The library first decompresses the engine in memory, then loads it through
+Typst's `plugin` constructor. No file splitting or loader edits are needed.
+Compression reduces the shipped files; the engine still expands to about
+23.36 MiB in memory.
 
 Once published on Universe, use `#import "@preview/symbolica:0.1.0" as sym`
 instead; the package is fetched without manually uploading its Wasm.
@@ -212,7 +192,7 @@ rights to modify Symbolica itself or distribute modified Symbolica source.
 The original Typst interface and Rust adapter code are under [MIT](LICENSE).
 The `license = "MIT"` field in `typst.toml` describes that original plugin code.
 
-**The bundled `symbolica/symbolica.wasm` is built from components under multiple
+**The bundled `symbolica/symbolica.wasm.zlib` is built from components under multiple
 licenses and is not covered solely by MIT.** Symbolica's components are covered
 by its [source-available license](LICENSE-SYMBOLICA.md), with the
 [Symbolica Typst permission](LICENSE-SYMBOLICA-TYPST.md) taking precedence for

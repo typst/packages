@@ -621,7 +621,10 @@
 #let _div(engine, lhs, rhs) = engine.plugin.div(_expr_bytes(engine, lhs), _expr_bytes(engine, rhs))
 #let _pow(engine, base, exp) = engine.plugin.power(_expr_bytes(engine, base), _expr_bytes(engine, exp))
 
-#let _bundled_plugin() = plugin("symbolica.wasm")
+#let _decompress-bundled(path) = plugin("symbolica-inflate.wasm").decompress(
+  read(path, encoding: none),
+)
+#let _bundled_plugin() = plugin(_decompress-bundled("symbolica.wasm.zlib"))
 
 /// Create an independent set of Symbolica functions.
 ///

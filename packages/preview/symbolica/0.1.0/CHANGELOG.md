@@ -14,8 +14,11 @@ prepared.
   Both top-level functions and `init()` engines expose `integrate` and
   `integrate-with-steps`. Integration rules initialize on first use through a
   cached Typst transition, with compressed step metadata enabled.
-- Load the joint Wasm directly and use package archive compression for downloads.
-  Remove the separate integration package and custom decompression plugins.
+- Restore the two-stage loader: a small decompression plugin expands the joint
+  DEFLATE-compressed engine before Typst loads it. Distributed engine assets
+  shrink from 23.36 MiB to about 6.11 MiB and are checked against a 10 MiB
+  per-file budget. The raw engine is excluded from distribution.
+  Remove the separate integration package.
   `symbolica/examples/integration.typ` demonstrates the joint API from one import.
 
 - Remove unused Symbolica C API exports from the core Wasm before optimization,
