@@ -574,7 +574,7 @@ This makes it possible to update the package without immediately rewriting exist
 
 # Examples
 
-The [repository](https://github.com/girasole123/Abbrev/) contains example documents demonstrating both the backward-compatible API (file [`example.typ`](https://github.com/girasole123/Abbrev/example.typ)) and the new v0.2.0 functionality (file [`example2.typ`](https://github.com/girasole123/Abbrev/example2.typ)).
+The [repository](https://github.com/girasole123/Abbrev/) contains example documents demonstrating both the backward-compatible API (file [`example.typ`](example.typ)) and the new v0.2.0 functionality (file [`example2.typ`](example2.typ)).
 
 ## Local compilation
 
