@@ -564,15 +564,15 @@ article a {
 /* mathfonts.css */
 
 html {
-  font-family: "STIX Two Math", "Noto Sans Math", "Cambria Math", "Fira Math", "Times New Roman", "KaiTi", sans-serif;
+  font-family: "latin modern math", "STIX Two Math", "Noto Sans Math", "Cambria Math", "Fira Math", "Times New Roman", "KaiTi", sans-serif;
 }
 
 math {
-  font-family: "STIX Two Math", "Noto Sans Math", math;
+  font-family: "latin modern math", "STIX Two Math", "Noto Sans Math", math;
   font-weight: 400;
   font-style: normal;
 }
 
-/* mover[accent="true"] > mo {
-  margin-left: 0.1em;
-} */
+mover[accent="true"] > mo {
+  margin-left: 0.2em;
+}
