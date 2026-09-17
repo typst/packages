@@ -7,4 +7,4 @@ license = "MIT"
 description = "A Touying template for THU physics presentations."
 keywords = ["slides", "presentation", "touying", "PPT", "THU", "Tsinghua University"]
 categories = ["presentation"]
-exclude = [ "/gallery/*", "/tools/*" ]
+exclude = [ "/gallery/*" ]
