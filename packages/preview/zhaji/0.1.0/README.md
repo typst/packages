@@ -26,19 +26,13 @@ Instead of heavy colored containers and cumbersome multi-level numeric counters 
 
 ---
 
-### Project Structure Recommendation
+### Recommended Project Layout
 
-It is strongly recommended to decouple the template from specific course repositories:
+The template is distributed as a package, so there is no template directory to
+copy or maintain: import `@preview/zhaji:0.1.0` and a course repository only
+needs its own material.
 
 ```text
-# 1. Template Repository (Global reusable package)
-typst-zhaji/
-├── typst.toml             # Typst package manifest
-├── lib.typ                # Core template definitions and show rules
-├── LICENSE                # MIT License
-└── README.md              # Documentation (Bilingual)
-
-# 2. Individual Course Repository (e.g., ODE, PDE, Real Analysis)
 my-zhajis/
 ├── book.typ               # Full book entry point (Cover + Outline + Chapters)
 ├── notes/                 # Lesson notes (01.typ, 02.typ, ...)
@@ -48,32 +42,49 @@ my-zhajis/
 
 ---
 
-### Installation via Typst Local Packages (`@local`)
+### Installation
 
-Typst natively supports local packages under the `@local` namespace. By creating a symlink in your system's package directory, any Typst document on your machine can import the template without relative paths (`../`) or `--root` flags.
+`zhaji` is available on [Typst Universe](https://typst.app/universe/package/zhaji),
+so there is nothing to install: import it and start writing.
 
-#### macOS
+```typst
+#import "@preview/zhaji:0.1.0": *
+```
+
+To begin from the bundled example document, pick the `zhaji` template in the
+Typst web app or run:
+
+```bash
+typst init @preview/zhaji:0.1.0 my-notes
+```
+
+#### Alternative: local packages (`@local`)
+
+If you would rather track a development checkout of this repository, you can
+expose it through Typst's `@local` namespace instead.
+
+##### macOS
 ```bash
 # 1. Create the package namespace directory
 mkdir -p "$HOME/Library/Application Support/typst/packages/local/zhaji"
 
-# 2. Symlink this template repository as version 0.1.0
-ln -s "/Users/lyy/Desktop/typst-zhaji" "$HOME/Library/Application Support/typst/packages/local/zhaji/0.1.0"
+# 2. Symlink your checkout as version 0.1.0
+ln -s "/path/to/typst-zhaji" "$HOME/Library/Application Support/typst/packages/local/zhaji/0.1.0"
 ```
 
-#### Linux
+##### Linux
 ```bash
 mkdir -p "$HOME/.local/share/typst/packages/local/zhaji"
 ln -s "/path/to/typst-zhaji" "$HOME/.local/share/typst/packages/local/zhaji/0.1.0"
 ```
 
-#### Windows (PowerShell)
+##### Windows (PowerShell)
 ```powershell
 New-Item -ItemType Directory -Force -Path "$env:APPDATA\typst\packages\local\zhaji"
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\typst\packages\local\zhaji\0.1.0" -Target "C:\path\to\typst-zhaji"
 ```
 
-Once linked, simply import it anywhere:
+Once linked, import the local copy with:
 ```typst
 #import "@local/zhaji:0.1.0": *
 ```
@@ -86,7 +97,7 @@ Once linked, simply import it anywhere:
 For fast, frictionless classroom note-taking:
 
 ```typst
-#import "@local/zhaji:0.1.0": *
+#import "@preview/zhaji:0.1.0": *
 #show: note
 
 == Introduction
@@ -101,7 +112,7 @@ Consider a point mass $m$ undergoing free fall under gravity...
 Assemble all lectures into a comprehensive course volume:
 
 ```typst
-#import "@local/zhaji:0.1.0": *
+#import "@preview/zhaji:0.1.0": *
 #show: note.with(
   title: "Ordinary Differential Equations",
   subtitle: "Lecture Notes & Compendium",
@@ -228,26 +239,40 @@ Left border: 1pt neutral gray (or amber for warnings).
 
 ---
 
-### 安装与配置（使用 Typst 原生 `@local` 本地包）
+### 安装
 
-Typst 原生支持 `@local` 本地包体系。凡是软链接到系统包目录下的模板，全局任何项目均可直接无缝导入，**彻底告别 `../` 相对路径和 `--root .` 编译限制**。
+`zhaji` 已收录于 [Typst Universe](https://typst.app/universe/package/zhaji)，无需任何安装步骤，直接导入即可使用：
 
-#### macOS 快速挂载
+```typst
+#import "@preview/zhaji:0.1.0": *
+```
+
+若想从自带的示例文档开始，可在 Typst 网页版中直接选择 `zhaji` 模板，或在命令行执行：
+
+```bash
+typst init @preview/zhaji:0.1.0 my-notes
+```
+
+#### 备选方案：`@local` 本地包
+
+如果你想直接使用本仓库的开发版本，也可以把它挂载到 Typst 的 `@local` 命名空间下，**彻底告别 `../` 相对路径和 `--root .` 编译限制**。
+
+##### macOS 快速挂载
 ```bash
 # 1. 创建本地包存放目录
 mkdir -p "$HOME/Library/Application Support/typst/packages/local/zhaji"
 
-# 2. 软链接本仓库（请替换实际路径）
-ln -s "/Users/lyy/Desktop/typst-zhaji" "$HOME/Library/Application Support/typst/packages/local/zhaji/0.1.0"
+# 2. 软链接你的仓库副本（请替换实际路径）
+ln -s "/path/to/typst-zhaji" "$HOME/Library/Application Support/typst/packages/local/zhaji/0.1.0"
 ```
 
-#### Linux
+##### Linux
 ```bash
 mkdir -p "$HOME/.local/share/typst/packages/local/zhaji"
 ln -s "/path/to/typst-zhaji" "$HOME/.local/share/typst/packages/local/zhaji/0.1.0"
 ```
 
-#### Windows (PowerShell)
+##### Windows (PowerShell)
 ```powershell
 New-Item -ItemType Directory -Force -Path "$env:APPDATA\typst\packages\local\zhaji"
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\typst\packages\local\zhaji\0.1.0" -Target "C:\path\to\typst-zhaji"
@@ -265,7 +290,7 @@ New-Item -ItemType SymbolicLink -Path "$env:APPDATA\typst\packages\local\zhaji\0
 #### 1. 单课独立笔记（例如 `notes/01.typ`）
 
 ```typst
-#import "@local/zhaji:0.1.0": *
+#import "@preview/zhaji:0.1.0": *
 #show: note
 
 == 引论
@@ -277,7 +302,7 @@ New-Item -ItemType SymbolicLink -Path "$env:APPDATA\typst\packages\local\zhaji\0
 #### 2. 全书讲义合订本（例如 `book.typ`）
 
 ```typst
-#import "@local/zhaji:0.1.0": *
+#import "@preview/zhaji:0.1.0": *
 #show: note.with(
   title: "常微分方程",
   subtitle: "课堂笔记与讲义",
