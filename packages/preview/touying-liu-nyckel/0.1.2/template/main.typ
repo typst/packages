@@ -1,4 +1,4 @@
-#import "@local/touying-liu-nyckel:0.1.2": *
+#import "@preview/touying-liu-nyckel:0.1.2": *
 #import "@preview/touying:0.7.4": utils.fit-to-height
 
 #show: liu-theme.with(
