@@ -1,0 +1,18 @@
+[package]
+name = "emblem-cv"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["JobSprout <https://jobsprout.ai>"]
+license = "MIT AND MIT-0"
+description = "Single-column CV anchored by a filled monogram."
+homepage = "https://www.jobsprout.ai/resume-templates/emblem"
+repository = "https://github.com/davidculemann/typst-templates"
+keywords = ["cv", "resume", "curriculum vitae"]
+categories = ["cv"]
+compiler = "0.12.0"
+exclude = ["doc"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
