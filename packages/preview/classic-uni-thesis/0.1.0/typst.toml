@@ -9,7 +9,6 @@ repository = "https://github.com/bxcowo/classic-uni-thesis"
 keywords = ["thesis", "tesis", "pregrado", "universidad nacional de ingeniería", "uni"]
 categories = ["thesis", "report"]
 compiler = "0.15.0"
-exclude = ["/preview.png"]
 
 [template]
 path = "template"
