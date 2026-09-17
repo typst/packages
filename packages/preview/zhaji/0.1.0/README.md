@@ -42,56 +42,11 @@ my-zhajis/
 
 ---
 
-### Installation
-
-`zhaji` is available on [Typst Universe](https://typst.app/universe/package/zhaji),
-so there is nothing to install: import it and start writing.
-
-```typst
-#import "@preview/zhaji:0.1.0": *
-```
-
-To begin from the bundled example document, pick the `zhaji` template in the
-Typst web app or run:
-
-```bash
-typst init @preview/zhaji:0.1.0 my-notes
-```
-
-#### Alternative: local packages (`@local`)
-
-If you would rather track a development checkout of this repository, you can
-expose it through Typst's `@local` namespace instead.
-
-##### macOS
-```bash
-# 1. Create the package namespace directory
-mkdir -p "$HOME/Library/Application Support/typst/packages/local/zhaji"
-
-# 2. Symlink your checkout as version 0.1.0
-ln -s "/path/to/typst-zhaji" "$HOME/Library/Application Support/typst/packages/local/zhaji/0.1.0"
-```
-
-##### Linux
-```bash
-mkdir -p "$HOME/.local/share/typst/packages/local/zhaji"
-ln -s "/path/to/typst-zhaji" "$HOME/.local/share/typst/packages/local/zhaji/0.1.0"
-```
-
-##### Windows (PowerShell)
-```powershell
-New-Item -ItemType Directory -Force -Path "$env:APPDATA\typst\packages\local\zhaji"
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\typst\packages\local\zhaji\0.1.0" -Target "C:\path\to\typst-zhaji"
-```
-
-Once linked, import the local copy with:
-```typst
-#import "@local/zhaji:0.1.0": *
-```
-
----
-
 ### Quick Start
+
+Import the package with `#import "@preview/zhaji:0.1.0": *`, or start from the
+bundled example with `typst init @preview/zhaji:0.1.0 my-notes` (the same
+template is available in the Typst web app under "Start from template").
 
 #### 1. Single Lesson Mode (`notes/01.typ`)
 For fast, frictionless classroom note-taking:
@@ -239,53 +194,9 @@ Left border: 1pt neutral gray (or amber for warnings).
 
 ---
 
-### 安装
-
-`zhaji` 已收录于 [Typst Universe](https://typst.app/universe/package/zhaji)，无需任何安装步骤，直接导入即可使用：
-
-```typst
-#import "@preview/zhaji:0.1.0": *
-```
-
-若想从自带的示例文档开始，可在 Typst 网页版中直接选择 `zhaji` 模板，或在命令行执行：
-
-```bash
-typst init @preview/zhaji:0.1.0 my-notes
-```
-
-#### 备选方案：`@local` 本地包
-
-如果你想直接使用本仓库的开发版本，也可以把它挂载到 Typst 的 `@local` 命名空间下，**彻底告别 `../` 相对路径和 `--root .` 编译限制**。
-
-##### macOS 快速挂载
-```bash
-# 1. 创建本地包存放目录
-mkdir -p "$HOME/Library/Application Support/typst/packages/local/zhaji"
-
-# 2. 软链接你的仓库副本（请替换实际路径）
-ln -s "/path/to/typst-zhaji" "$HOME/Library/Application Support/typst/packages/local/zhaji/0.1.0"
-```
-
-##### Linux
-```bash
-mkdir -p "$HOME/.local/share/typst/packages/local/zhaji"
-ln -s "/path/to/typst-zhaji" "$HOME/.local/share/typst/packages/local/zhaji/0.1.0"
-```
-
-##### Windows (PowerShell)
-```powershell
-New-Item -ItemType Directory -Force -Path "$env:APPDATA\typst\packages\local\zhaji"
-New-Item -ItemType SymbolicLink -Path "$env:APPDATA\typst\packages\local\zhaji\0.1.0" -Target "C:\path\to\typst-zhaji"
-```
-
-挂载完成后，在任意课程笔记中均可直接使用：
-```typst
-#import "@local/zhaji:0.1.0": *
-```
-
----
-
 ### 快速上手
+
+用 `#import "@preview/zhaji:0.1.0": *` 导入本包；也可以执行 `typst init @preview/zhaji:0.1.0 my-notes` 从自带示例起步（Typst 网页版的 "Start from template" 中同样可以找到 `zhaji`）。
 
 #### 1. 单课独立笔记（例如 `notes/01.typ`）
 
