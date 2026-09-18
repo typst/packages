@@ -16,30 +16,30 @@ Developed by the team behind [Rubrol](https://github.com/maxcomperatore/rubrol) 
 #import "@preview/rubrol-invoice:0.1.0": invoice
 
 #show: invoice.with(
-  invoice_number: "FA-2026-0842",
-  issued_date: "2026-09-17",
-  due_date: "2026-10-17",
-  currency_symbol: "€",
+  invoice-number: "FA-2026-0842",
+  issued-date: "2026-09-17",
+  due-date: "2026-10-17",
+  currency-symbol: "€",
   status: "PAID",
   seller: (
     name: "Acme Cloud SAS",
-    vat_id: "FR12345678901",
+    vat-id: "FR12345678901",
     address: "15 Rue de la Paix",
     city: "75002 Paris, France",
     email: "billing@acme.com"
   ),
   buyer: (
     name: "Deutsche Software GmbH",
-    vat_id: "DE987654321",
+    vat-id: "DE987654321",
     address: "Friedrichstraße 42",
     city: "10117 Berlin, Germany"
   ),
   items: (
-    (name: "Dedicated Node Subscription (Monthly)", qty: 1, unit_price: 490.00),
-    (name: "Priority Support SLA", qty: 1, unit_price: 200.00),
+    (name: "Dedicated Node Subscription (Monthly)", qty: 1, unit-price: 490.00),
+    (name: "Priority Support SLA", qty: 1, unit-price: 200.00),
   ),
-  tax_rate: 0.20,
-  payment_details: (
+  tax-rate: 0.20,
+  payment-details: (
     bank: "BNP Paribas",
     iban: "FR76 3000 4000 5000 6000 7000 123",
     bic: "BNPAFR2X"
