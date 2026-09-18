@@ -1,0 +1,12 @@
+[package]
+name = "underhell"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Colin Jacobs", "跨越晨昏"]
+license = "MIT"
+description = "用于创建龙与地下城 5E 内容,包括冒险、属性方块、法术卡。"
+repository = "https://github.com/CrossDark/UnderHellTemplate"
+keywords = ["roleplaying", "dnd", "dungeons-dragons", "rpg", "template", "gaming"]
+categories = ["layout", "report"]
+compiler = "0.13.0"
+exclude = ["example"]
