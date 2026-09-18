@@ -1,4 +1,4 @@
-#import "@preview/guido:0.1.0": *
+#import "@preview/guido:0.2.0": *
 
 #show: guido.with(
   logo: emoji.owl,
