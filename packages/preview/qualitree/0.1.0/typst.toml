@@ -1,0 +1,12 @@
+[package]
+name = "qualitree"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tycho Tatitscheff", "Julien Calixte"]
+license = "MIT"
+description = "Draw and compare cascading Houses of Quality."
+compiler = "0.15.1"
+repository = "https://github.com/tychota/qfd-typst"
+homepage = "https://tychota.github.io/qfd-typst/"
+keywords = ["qfd", "house-of-quality", "requirements", "matrix", "functional-analysis"]
+exclude = ["/tests", "/tools", "/build", "/.github", "/docs", "/fonts", "/PLAN.md", "/DESIGN.md"]
