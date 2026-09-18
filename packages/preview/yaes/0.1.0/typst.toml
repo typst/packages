@@ -7,7 +7,7 @@ license = "MIT"
 description = "Exercise sheets for university teaching."
 repository = "https://github.com/daalsat42/yaes"
 categories = ["utility"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 
 [template]
 path = "example"
