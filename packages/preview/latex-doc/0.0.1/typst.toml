@@ -8,7 +8,7 @@ authors = ["Maobin Xu"]
 license = "MIT-0"
 description = "A LaTeX-style book template: part/chapter/section structure, frontmatter/mainmatter/appendix/backmatter, theorem environments, subfigures, Harvard citations, and bibliography."
 keywords = ["latex", "book", "template"]
-categories = ["book", "template"]
+categories = ["book", "layout", "model"]
 
 [template]
 path = "template"
