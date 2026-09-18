@@ -3,7 +3,7 @@
 Mind maps for Typst. A hub, branches growing out of it, a card at the end of
 each one.
 
-![Sprig — the map of its own syntax, drawn by itself.](gallery/cover.png)
+![Sprig — the map of its own syntax, drawn by itself.](gallery/cover.png).
 
 The hub is a polygon with **exactly as many sides as there are branches**,
 and each branch leaves from the **midpoint of its own side** — so the stalk
