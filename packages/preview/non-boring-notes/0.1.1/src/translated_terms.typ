@@ -148,8 +148,12 @@
     en: "Warning",
     es: "Advertencia",
   ),
-  unit: (
-    en: "Unit",
+  topic: (
+    en: "Topic",
     es: "Tema",
+  ),
+  unit: (
+    en: "Unidad",
+    es: "Unit",
   ),
 )
