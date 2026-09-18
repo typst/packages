@@ -214,7 +214,6 @@ The guide is [`manual.typ`](manual.typ) /
 [`manual.pdf`](manual.pdf): outline, numbered sections, signatures,
 parameter tables, and code | result on every function — including the
 *Ornate frames* and *Flag box* chapters. Smoke tests live in
-[`examples/quickstart.typ`](examples/quickstart.typ),
 [`examples/ornate.typ`](examples/ornate.typ),
 [`examples/arabic-plates.typ`](examples/arabic-plates.typ) and
 [`examples/image-motif.typ`](examples/image-motif.typ),
