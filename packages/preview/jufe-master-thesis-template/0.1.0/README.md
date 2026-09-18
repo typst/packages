@@ -1,5 +1,4 @@
-> [!NOTE]
-> This is a thesis template for Jiangxi University of Finance and Economics
+**This is a thesis template for Jiangxi University of Finance and Economics**
 
 [![江西财经大学logo](assets/江西财经大学-logo.svg)](https://www.jxufe.edu.cn/)
 
