@@ -6,8 +6,8 @@ entrypoint = "lib.typ"
 repository = "https://github.com/maobin-xu/latex-doc"
 authors = ["Maobin Xu"]
 license = "MIT-0"
-description = "A LaTeX-style book template for Typst: part/chapter/section structure, frontmatter/mainmatter/appendix/backmatter, theorem environments, subfigures, Harvard citations, and bibliography."
-keywords = ["latex", "book", "template", "theorem", "citation", "bibliography"]
+description = "A LaTeX-style book template: part/chapter/section structure, frontmatter/mainmatter/appendix/backmatter, theorem environments, subfigures, Harvard citations, and bibliography."
+keywords = ["latex", "book", "template"]
 categories = ["book", "template"]
 
 [template]
