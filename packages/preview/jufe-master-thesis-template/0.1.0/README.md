@@ -1,3 +1,6 @@
+> [!NOTE]
+> This is a thesis template for Jiangxi University of Finance and Economics
+
 [![江西财经大学logo](assets/江西财经大学-logo.svg)](https://www.jxufe.edu.cn/)
 
 # 江西财经大学硕士毕业论文Typst模板
@@ -35,9 +38,9 @@
 
 > MacOS的可以使用brew安装
 
-2. 在Vscode（建议）中安装Tinymist Typst插件
-3. Git clone本项目到本地
-4. 在Vscode中打开本项目，修改模版文件内容为你自己的内容，运行后即可输出你的硕士毕业论文PDF文件
+1. 在Vscode（建议）中安装Tinymist Typst插件
+2. Git clone本项目到本地
+3. 在Vscode中打开本项目，修改模版文件内容为你自己的内容，运行后即可输出你的硕士毕业论文PDF文件
 
 ## 注意事项​
 
