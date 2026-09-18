@@ -46,7 +46,7 @@
 // wrapper's own position, because typst records an element in the middle of a line at the
 // line's baseline, not at its top-left corner, while a placement records the corner of the
 // container it is placed in, whatever that container is.
-// Measured on typst 0.15.1; see *Findings*.
+// Measured on typst 0.15.0; see *Findings*.
 #let site-label = label("animo-site")
 
 // The label that keeps a placement out of the recording below.
@@ -55,7 +55,7 @@
 // so recording the placements it holds costs a `context` and a `measure` each for records
 // that no `query` can reach.
 // A label is how the rendering asks to be passed over.
-// Measured on typst 0.15.1, a `show place:` rule inside such a rendering does not keep the
+// Measured on typst 0.15.0, a `show place:` rule inside such a rendering does not keep the
 // rule around it from firing, so staying silent is not enough.
 // The inner rule does run first, and the outer one is handed the element it produced,
 // so a label attached inside is readable outside.
@@ -135,7 +135,7 @@
 //
 // The width is the viewport's inner width, and the height is that of the viewport unless the
 // body's own flow is taller, because a taller body needs a taller box.
-// Measured on typst 0.15.1, every block-level element that does not fit a fixed-height
+// Measured on typst 0.15.0, every block-level element that does not fit a fixed-height
 // container is stacked at the container's bottom edge rather than overflowing past it, so a
 // derivation that runs off the viewport comes out as a pile of overlapping blocks.
 // See *Findings* in the design document.
@@ -180,7 +180,7 @@
 // `measure` here has no container to resolve a ratio against, so a placed
 // `rect(width: 100%, height: 100%)` reports nothing and adds nothing.
 //
-// Measured on typst 0.15.1; see *Findings* and the tier-1 canvas tests.
+// Measured on typst 0.15.0; see *Findings* and the tier-1 canvas tests.
 //
 // `container` is the box the body is laid out in, which `body-box` above answers.
 //

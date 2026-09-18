@@ -53,7 +53,7 @@
 // turned its page down would produce a handout with no content.
 // Typst does not refuse such a document and emits one blank page of its own default size,
 // which looks like a rendering failure rather than like the flag doing what it was told
-// (measured on typst 0.15.1; see *Findings*).
+// (measured on typst 0.15.0; see *Findings*).
 //
 // This runs in a context block of its own that emits nothing, so a panic here empties no
 // slide and leaves nothing for the next introspection pass to disagree about.

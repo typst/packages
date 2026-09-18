@@ -48,7 +48,7 @@
 //
 // A box takes its baseline from the first line of its content even at a fixed size, so a
 // fixed box alone still moves its line when one rendering's first line is taller, or when
-// a rendering lays out nothing at all (measured on typst 0.15.1; see *Findings*).
+// a rendering lays out nothing at all (measured on typst 0.15.0; see *Findings*).
 // A rendering is placed instead, which gives the box no baseline of its own, at the height
 // that puts its baseline where the tallest one's is, and the box is lowered by the deepest
 // descent.
@@ -72,8 +72,8 @@
 
 // Whether a length that `layout` handed over is a real one.
 //
-// Inside a `measure` without a width, `layout` reports an infinite size (measured on typst
-// 0.15.1), and a footprint cannot take that size.
+// Inside a `measure` without a width, `layout` reports an infinite size
+// (measured on typst 0.15.0), and a footprint cannot take that size.
 #let finite(length) = length.pt() != float.inf
 
 // What each rendering measures at one width, with a rendering of `none` counted as nothing.

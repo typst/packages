@@ -7,14 +7,14 @@ SPDX-License-Identifier: Apache-2.0
 
 [![Package on Typst Universe](https://img.shields.io/badge/universe-animo-239dad?logo=typst&logoColor=white)](https://typst.app/universe/package/animo)
 [![Latest release on GitHub](https://img.shields.io/github/v/release/reproducible-reporting/animo?logo=github&label=release)](https://github.com/reproducible-reporting/animo/releases)
-[![Supported typst release](https://img.shields.io/badge/typst-0.15.1-239dad?logo=typst&logoColor=white)](https://github.com/typst/typst/releases/tag/v0.15.1)
+[![Supported typst release](https://img.shields.io/badge/typst-0.15.0-239dad?logo=typst&logoColor=white)](https://github.com/typst/typst/releases/tag/v0.15.0)
 [![Documentation site](https://img.shields.io/badge/docs-animo-blue)](https://reproducible-reporting.github.io/animo/)
 [![Status of the test suite](https://github.com/reproducible-reporting/animo/actions/workflows/pytest.yml/badge.svg)](https://github.com/reproducible-reporting/animo/actions/workflows/pytest.yml)
 [![Status of the pre-commit hooks](https://results.pre-commit.ci/badge/github/reproducible-reporting/animo/main.svg)](https://results.pre-commit.ci/latest/github/reproducible-reporting/animo/main)
 [![Status of the documentation build](https://github.com/reproducible-reporting/animo/actions/workflows/zensical.yml/badge.svg)](https://github.com/reproducible-reporting/animo/actions/workflows/zensical.yml)
 [![Status of the release build](https://github.com/reproducible-reporting/animo/actions/workflows/release.yml/badge.svg)](https://github.com/reproducible-reporting/animo/actions/workflows/release.yml)
 [![Status of the weekly probes](https://github.com/reproducible-reporting/animo/actions/workflows/probes.yml/badge.svg)](https://github.com/reproducible-reporting/animo/actions/workflows/probes.yml)
-[![Apache-2.0 license](https://img.shields.io/badge/license-Apache--2.0-green)](https://github.com/reproducible-reporting/animo/blob/v0.1.0/LICENSES/Apache-2.0.txt)
+[![Apache-2.0 license](https://img.shields.io/badge/license-Apache--2.0-green)](https://github.com/reproducible-reporting/animo/blob/v0.1.1/LICENSES/Apache-2.0.txt)
 
 <!-- snipwise.md BEGIN tagline -->
 
@@ -28,7 +28,7 @@ gives a quick impression of its capabilities.
 A minimal single-slide deck with a single animation looks like this:
 
 ```typst
-#import "@preview/animo:0.1.0": *
+#import "@preview/animo:0.1.1": *
 #show: animo.with(width: 16cm, height: 9cm, margin: 1cm)
 
 #slide(animation: {
@@ -61,12 +61,12 @@ Key features:
 
 | Deck                                                                                                  | Shows                                                      | Open                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`hello.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.0/examples/hello.typ)         | The smallest deck that animates: one slide, one reveal.    | <a href="https://reproducible-reporting.github.io/animo/examples/hello.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/hello-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/hello-handouts.pdf" target="_blank" rel="noopener">handouts</a>             |
-| [`motion.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.0/examples/motion.typ)       | Moving and scaling, and the four timing keywords.          | <a href="https://reproducible-reporting.github.io/animo/examples/motion.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/motion-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/motion-handouts.pdf" target="_blank" rel="noopener">handouts</a>          |
-| [`content.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.0/examples/content.typ)     | Content replaced, removed and restyled, inside a region.   | <a href="https://reproducible-reporting.github.io/animo/examples/content.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/content-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/content-handouts.pdf" target="_blank" rel="noopener">handouts</a>       |
-| [`pan.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.0/examples/pan.typ)             | A canvas larger than the slide, travelled over by panning. | <a href="https://reproducible-reporting.github.io/animo/examples/pan.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/pan-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/pan-handouts.pdf" target="_blank" rel="noopener">handouts</a>                   |
-| [`numbering.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.0/examples/numbering.typ) | Slide and subslide numbers, and a progress bar.            | <a href="https://reproducible-reporting.github.io/animo/examples/numbering.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/numbering-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/numbering-handouts.pdf" target="_blank" rel="noopener">handouts</a> |
-| [`tour.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.0/examples/tour.typ)           | Every feature of Animo in one deck.                        | <a href="https://reproducible-reporting.github.io/animo/examples/tour.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/tour-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/tour-handouts.pdf" target="_blank" rel="noopener">handouts</a>                |
+| [`hello.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.1/examples/hello.typ)         | The smallest deck that animates: one slide, one reveal.    | <a href="https://reproducible-reporting.github.io/animo/examples/hello.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/hello-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/hello-handouts.pdf" target="_blank" rel="noopener">handouts</a>             |
+| [`motion.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.1/examples/motion.typ)       | Moving and scaling, and the four timing keywords.          | <a href="https://reproducible-reporting.github.io/animo/examples/motion.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/motion-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/motion-handouts.pdf" target="_blank" rel="noopener">handouts</a>          |
+| [`content.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.1/examples/content.typ)     | Content replaced, removed and restyled, inside a region.   | <a href="https://reproducible-reporting.github.io/animo/examples/content.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/content-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/content-handouts.pdf" target="_blank" rel="noopener">handouts</a>       |
+| [`pan.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.1/examples/pan.typ)             | A canvas larger than the slide, travelled over by panning. | <a href="https://reproducible-reporting.github.io/animo/examples/pan.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/pan-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/pan-handouts.pdf" target="_blank" rel="noopener">handouts</a>                   |
+| [`numbering.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.1/examples/numbering.typ) | Slide and subslide numbers, and a progress bar.            | <a href="https://reproducible-reporting.github.io/animo/examples/numbering.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/numbering-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/numbering-handouts.pdf" target="_blank" rel="noopener">handouts</a> |
+| [`tour.typ`](https://github.com/reproducible-reporting/animo/blob/v0.1.1/examples/tour.typ)           | Every feature of Animo in one deck.                        | <a href="https://reproducible-reporting.github.io/animo/examples/tour.html" target="_blank" rel="noopener">HTML</a> · <a href="https://reproducible-reporting.github.io/animo/examples/tour-presentation.pdf" target="_blank" rel="noopener">PDF</a> · <a href="https://reproducible-reporting.github.io/animo/examples/tour-handouts.pdf" target="_blank" rel="noopener">handouts</a>                |
 
 A deck opens in a new tab and is stepped through with the arrow keys or a click.
 
@@ -85,12 +85,12 @@ with a unique approach to animations.
   every public name and its arguments
 - [Animo Development Guide](https://reproducible-reporting.github.io/animo/development/),
   for changing Animo itself
-- [planning/design.md](https://github.com/reproducible-reporting/animo/blob/v0.1.0/planning/design.md), the specification,
+- [planning/design.md](https://github.com/reproducible-reporting/animo/blob/v0.1.1/planning/design.md), the specification,
   including the reasoning behind every decision, and
-  [planning/findings.md](https://github.com/reproducible-reporting/animo/blob/v0.1.0/planning/findings.md), the verified typst and browser behaviour it
+  [planning/findings.md](https://github.com/reproducible-reporting/animo/blob/v0.1.1/planning/findings.md), the verified typst and browser behaviour it
   rests on
-- [CONTRIBUTING.md](https://github.com/reproducible-reporting/animo/blob/v0.1.0/CONTRIBUTING.md)
+- [CONTRIBUTING.md](https://github.com/reproducible-reporting/animo/blob/v0.1.1/CONTRIBUTING.md)
 
 ## License
 
-Apache-2.0. See [LICENSES/Apache-2.0.txt](https://github.com/reproducible-reporting/animo/blob/v0.1.0/LICENSES/Apache-2.0.txt).
+Apache-2.0. See [LICENSES/Apache-2.0.txt](https://github.com/reproducible-reporting/animo/blob/v0.1.1/LICENSES/Apache-2.0.txt).
