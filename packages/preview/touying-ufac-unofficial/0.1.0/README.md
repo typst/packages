@@ -68,7 +68,7 @@ names), `footer-left` and `footer-right` (content or `self => ...`).
 
 ## Example
 
-[example/main.typ](example/main.typ) shows the elements of the [syntax](#syntax) in a short deck:
+[example/main.typ](https://github.com/lucaslrodri/touying-ufac-unofficial/blob/v0.1.0/example/main.typ) shows the elements of the [syntax](#syntax) in a short deck:
 
 <!-- example:begin (generated from example/main.typ by scripts/readme.sh: do not edit by hand) -->
 ```typst

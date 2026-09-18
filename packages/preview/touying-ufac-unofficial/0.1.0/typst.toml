@@ -9,8 +9,8 @@ repository = "https://github.com/lucaslrodri/touying-ufac-unofficial"
 keywords = ["touying", "slide", "theme", "ufac", "universidade federal do acre", "university", "lecture", "acre"]
 categories = ["presentation"]
 compiler = "0.14.0"
-# Linked from the README, not needed to compile. tests/, docs/ and scripts/ are not published at all (scripts/package.sh).
-exclude = ["example/"]
+# No `exclude`: only what the package needs is published (scripts/package.sh); example/, tests/, docs/ and scripts/ stay
+# in the repository.
 
 [template]
 path = "template"
