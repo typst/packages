@@ -126,7 +126,7 @@ Body text uses **Libertinus Serif**, which ships with the Typst compiler itself 
 
 Headings, table headers, and page furniture use a sans-serif with an automatic fallback chain, in order: **Inter → Helvetica Neue → Helvetica → Arial → Liberation Sans → DejaVu Sans → Noto Sans**. Whichever of these is installed first wins — nothing needs to be configured.
 
-**Recommended:** install [Inter](https://rsms.me/inter/) system-wide for the best result (it's also bundled with this package as static `.ttf` files under `fonts/`, licensed under the [SIL Open Font License](fonts/Inter-OFL.txt), for tools that support pointing at a package's own assets — e.g. `--font-path <path-to-package-cache>/preview/gibz-script/0.2.0/fonts` on the CLI, or the `tinymist.fontPaths` setting in VS Code). Without Inter installed or configured, headings automatically fall back to the next available sans-serif on your system — still a clean sans/serif contrast with the body text, just a different typeface.
+**Recommended:** install [Inter](https://rsms.me/inter/) system-wide for the best result — packages can't bundle font files, so grab it yourself and point your tool at it (e.g. `--font-path <path-to-inter>` on the CLI, or the `tinymist.fontPaths` setting in VS Code). Without Inter installed or configured, headings automatically fall back to the next available sans-serif on your system — still a clean sans/serif contrast with the body text, just a different typeface.
 
 ---
 
@@ -139,7 +139,7 @@ The language is set via `gibz-script(language: "de" | "en")`.
 
 ## License
 
-This package is licensed under the [MIT-0 License](LICENSE), allowing reuse with minimal restrictions.
+This package is licensed under the [MIT-0 License](LICENSE.txt), allowing reuse with minimal restrictions.
 
 ---
 

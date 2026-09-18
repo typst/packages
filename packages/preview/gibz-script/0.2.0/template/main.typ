@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/gibz-script:0.2.0": *
 
 #show: gibz-script.with(
   moduleNumber: "000",
