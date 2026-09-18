@@ -1,6 +1,6 @@
 [package]
 name = "atsthetic-cv"
-entrypoint = "./template/internal/lib.typ"
+entrypoint = "lib.typ"
 version = "0.1.0"
 authors = ["arsmoriendy <@arsmoriendy>"]
 license = "MIT"
@@ -8,7 +8,7 @@ description = "ATS-friendly aesthetic cv"
 keywords = ["cv", "ats"]
 repository = "https://github.com/arsmoriendy/atsthetic-cv"
 categories = ["cv"]
-exclude = ["./assets", "./flake.lock", "./flake.nix", "./justfile"]
+exclude = ["assets"]
 
 [template]
 path = "template"

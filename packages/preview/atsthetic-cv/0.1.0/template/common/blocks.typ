@@ -1,4 +1,4 @@
-#import "../internal/lib.typ": generate-blocks
+#import "@preview/atsthetic-cv:0.1.0": generate-blocks
 
 #let (
   init-cv,
