@@ -3,7 +3,7 @@
 Coloured, titled boxes for **Typst 0.15.x**, in the spirit of LaTeX’s
 *tcolorbox*. Version **0.2.0**. 
 
-[faboxyst 0.2.0 thumbnail](thumbnail.png)
+![faboxyst 0.2.0 thumbnail](thumbnail.png)
 
 ```typst
 #import "@preview/faboxyst:0.2.0": *
