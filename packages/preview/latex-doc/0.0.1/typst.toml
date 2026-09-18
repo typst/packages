@@ -1,0 +1,15 @@
+[package]
+name = "latex-doc"
+version = "0.0.1"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+repository = ""
+authors = ["Maobin Xu"]
+license = "MIT-0"
+description = "A LaTeX-style book template for Typst: part/chapter/section structure, frontmatter/mainmatter/appendix/backmatter, theorem environments, subfigures, Harvard citations, and bibliography."
+keywords = ["latex", "book", "template", "theorem", "citation", "bibliography"]
+categories = ["book", "template"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
