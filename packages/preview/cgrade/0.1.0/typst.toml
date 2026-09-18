@@ -1,0 +1,9 @@
+[package]
+name = "cgrade"
+version = "0.1.0"
+entrypoint = "typst/grade.typ"
+authors = ["Julian Y. Richard Corbet"]
+license = "LGPL-3.0-only WITH LGPL-3.0-linking-exception"
+description = "Deterministic school grades across scales: grading tables plus the modified Bavarian formula for foreign-to-German conversion. Mirrors the cgrade Rust crate release line."
+repository = "https://github.com/corbet-labs/cgrade"
+exclude = [".git", ".github", ".crow", "target", "dist", "js", "py", "tests", "scripts"]
