@@ -1,0 +1,7 @@
+[package]
+name = "cletter"
+version = "0.2.1"
+entrypoint = "typst/letter.typ"
+authors = ["Julian Y. Richard Corbet <@julian-corbet>"]
+license = "Apache-2.0"
+description = "Compose locale-aware correspondence helpers"
