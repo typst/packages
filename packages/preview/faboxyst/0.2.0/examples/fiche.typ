@@ -7,7 +7,7 @@
 // ===========================================================================
 
 #import "@preview/faboxyst:0.2.0": *
-#import "@preview/longops:0.1.0": division
+#import "@preview/longops:0.1.1": division
 
 #set page(paper: "a4", margin: 0.6cm)
 #set text(dir: rtl, lang: "ar", size: 7.6pt,
