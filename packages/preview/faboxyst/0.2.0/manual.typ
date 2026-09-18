@@ -176,12 +176,12 @@
     })
   ]
   place(bottom + right, dx: -0.2cm, dy: -0.1cm,
-    post-it(angle: 5deg, size: 5.2cm)[
-      #set text(size: 8pt)
+    post-it(angle: 5deg, size: 8.2cm)[
+      #set text(size: 12pt)
       Compilation :
       #v(2pt)
       #terminal(inset: 0.35em)[
-        #set text(size: 6.2pt)
+        #set text(size: 12pt)
         typst compile manual.typ --root .
       ]
     ])
