@@ -27,7 +27,7 @@ separators, pill-style skill chips, and optional profile photo.
 
 ## Quick start
 
-> [!note]
+> ### Note
 >
 > By default, this template uses the
 > [`Space Grotesk`](https://fonts.floriankarsten.com/space-grotesk) font. If you
