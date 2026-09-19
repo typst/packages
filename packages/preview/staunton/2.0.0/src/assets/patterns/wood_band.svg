@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+  <!-- Grain CONCENTRIC to the frame: follows the perimeter on all
+       four sides and survives any label-border-ratio (a mitred
+       frame would line up at exactly one ratio). -->
+  <defs>
+    <filter id="warp" x="-25%" y="-25%" width="150%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.010 0.011" numOctaves="2" seed="13" result="raw"/>
+      <feColorMatrix in="raw" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0 1" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#warp)" fill="none">
+    <rect x="2.70" y="2.70" width="194.60" height="194.60" rx="2.0" stroke="#ffffff" stroke-width="1.22" stroke-opacity="0.110"/>
+    <rect x="8.17" y="8.17" width="183.67" height="183.67" rx="4.1" stroke="#ffffff" stroke-width="0.90" stroke-opacity="0.107"/>
+    <rect x="12.76" y="12.76" width="174.48" height="174.48" rx="6.4" stroke="#ffffff" stroke-width="1.41" stroke-opacity="0.054"/>
+    <rect x="15.05" y="15.05" width="169.90" height="169.90" rx="7.5" stroke="#ffffff" stroke-width="1.03" stroke-opacity="0.105"/>
+    <rect x="18.11" y="18.11" width="163.78" height="163.78" rx="9.1" stroke="#ffffff" stroke-width="1.19" stroke-opacity="0.071"/>
+    <rect x="23.19" y="23.19" width="153.63" height="153.63" rx="11.6" stroke="#ffffff" stroke-width="1.80" stroke-opacity="0.078"/>
+    <rect x="28.78" y="28.78" width="142.44" height="142.44" rx="14.4" stroke="#ffffff" stroke-width="0.59" stroke-opacity="0.111"/>
+    <rect x="33.96" y="33.96" width="132.08" height="132.08" rx="17.0" stroke="#ffffff" stroke-width="0.72" stroke-opacity="0.102"/>
+    <rect x="38.06" y="38.06" width="123.88" height="123.88" rx="19.0" stroke="#ffffff" stroke-width="1.81" stroke-opacity="0.062"/>
+    <rect x="42.09" y="42.09" width="115.81" height="115.81" rx="21.0" stroke="#ffffff" stroke-width="1.71" stroke-opacity="0.097"/>
+    <rect x="45.35" y="45.35" width="109.31" height="109.31" rx="22.7" stroke="#ffffff" stroke-width="0.62" stroke-opacity="0.121"/>
+    <rect x="49.16" y="49.16" width="101.69" height="101.69" rx="24.6" stroke="#ffffff" stroke-width="1.87" stroke-opacity="0.056"/>
+    <rect x="54.12" y="54.12" width="91.76" height="91.76" rx="27.1" stroke="#ffffff" stroke-width="1.62" stroke-opacity="0.120"/>
+  </g>
+  <g filter="url(#warp)" fill="none">
+    <rect x="1.20" y="1.20" width="197.60" height="197.60" rx="2.0" stroke="#000000" stroke-width="1.44" stroke-opacity="0.245"/>
+    <rect x="6.67" y="6.67" width="186.67" height="186.67" rx="3.3" stroke="#000000" stroke-width="1.06" stroke-opacity="0.238"/>
+    <rect x="11.26" y="11.26" width="177.48" height="177.48" rx="5.6" stroke="#000000" stroke-width="1.66" stroke-opacity="0.120"/>
+    <rect x="13.55" y="13.55" width="172.90" height="172.90" rx="6.8" stroke="#000000" stroke-width="1.21" stroke-opacity="0.234"/>
+    <rect x="16.61" y="16.61" width="166.78" height="166.78" rx="8.3" stroke="#000000" stroke-width="1.40" stroke-opacity="0.157"/>
+    <rect x="21.69" y="21.69" width="156.63" height="156.63" rx="10.8" stroke="#000000" stroke-width="2.11" stroke-opacity="0.172"/>
+    <rect x="27.28" y="27.28" width="145.44" height="145.44" rx="13.6" stroke="#000000" stroke-width="0.70" stroke-opacity="0.246"/>
+    <rect x="32.46" y="32.46" width="135.08" height="135.08" rx="16.2" stroke="#000000" stroke-width="0.84" stroke-opacity="0.227"/>
+    <rect x="36.56" y="36.56" width="126.88" height="126.88" rx="18.3" stroke="#000000" stroke-width="2.13" stroke-opacity="0.138"/>
+    <rect x="40.59" y="40.59" width="118.81" height="118.81" rx="20.3" stroke="#000000" stroke-width="2.01" stroke-opacity="0.215"/>
+    <rect x="43.85" y="43.85" width="112.31" height="112.31" rx="21.9" stroke="#000000" stroke-width="0.73" stroke-opacity="0.269"/>
+    <rect x="47.66" y="47.66" width="104.69" height="104.69" rx="23.8" stroke="#000000" stroke-width="2.19" stroke-opacity="0.125"/>
+    <rect x="52.62" y="52.62" width="94.76" height="94.76" rx="26.3" stroke="#000000" stroke-width="1.90" stroke-opacity="0.266"/>
+  </g>
+</svg>
