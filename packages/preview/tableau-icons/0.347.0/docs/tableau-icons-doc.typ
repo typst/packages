@@ -2,7 +2,7 @@
 #import "thumbnail_list.typ": *
 
 #import "@preview/tidy:0.4.3"
-#import "@preview/shadowed:0.3.0": shadow
+#import "@preview/shadowed:0.4.0": shadow
 
 /* -------------------------------------------------------------------------- */
 /*                            General Configuration                           */
