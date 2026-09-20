@@ -4,7 +4,7 @@ This is a port of DOOM to Typst, using DoomGeneric and a WebAssembly plugin.
 You play by typing commands into the document and watching the live preview.
 Freedoom: Phase 1 is included. Requires Typst 0.15.1 or later.
 
-![Freedoom E1M1 with the HUD and Typst input controls](docs/preview.png)
+![Playing Freedoom by typing commands in Typst’s live preview](demo.gif)
 
 ## How to Play
 
@@ -31,7 +31,7 @@ make package
 typst init --package-path build/packages @preview/doom-wasm:0.1.0 build/my-doom
 ```
 
-See [package setup](docs/packaging.md) for the editor's package-path setting.
+For live preview, set your editor’s package path to the full path of `build/packages`.
 After publication, `typst init @preview/doom-wasm:0.1.0` will work without it.
 
 Adding a character advances the game. Deleting characters rewinds it. The game

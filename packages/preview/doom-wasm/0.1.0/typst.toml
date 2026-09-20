@@ -9,7 +9,7 @@ description = "Play DOOM by typing into your document."
 categories = ["fun"]
 keywords = ["doom", "game", "wasm"]
 compiler = "0.15.1"
-exclude = ["/build/", "/assets/doom1.wad", "/docs/preview.png", "/tests/", "/examples/", "/engine/doom.typ", "/vendor/doomgeneric/screenshots/", "**/__pycache__/", "/.git/"]
+exclude = ["/build/", "/assets/doom1.wad", "/docs/preview.png", "/demo.gif", "/tests/", "/examples/", "/engine/doom.typ", "/vendor/doomgeneric/screenshots/", "**/__pycache__/", "/.git/"]
 
 [template]
 path = "template"
