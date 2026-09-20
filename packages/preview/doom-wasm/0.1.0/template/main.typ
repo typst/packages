@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT-0
-#import "@preview/doomtyp:0.1.0": game
+#import "@preview/doom-wasm:0.1.0": game
 #show: game.with(
   save: if "save" in sys.inputs { bytes(json(sys.inputs.save)) } else { none },
   // Freedoom is included. To use your own DOOM IWAD instead:

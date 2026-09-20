@@ -1,10 +1,10 @@
-# DOOM in Typst
+# doom-wasm
 
 This is a port of DOOM to Typst, using DoomGeneric and a WebAssembly plugin.
 You play by typing commands into the document and watching the live preview.
 Freedoom: Phase 1 is included. Requires Typst 0.15.1 or later.
 
-![DOOM in Typst](docs/preview.png)
+![doom-wasm](docs/preview.png)
 
 ## How to Play
 
@@ -20,19 +20,19 @@ You can also run `make play` and open
 ### Online
 
 1. Run `make package` from the repository.
-2. Unzip `build/doomtyp-web.zip` and upload its files and folders to a Typst project.
+2. Unzip `build/doom-wasm-web.zip` and upload its files and folders to a Typst project.
 3. Open `main.typ` and type commands below the show rule to play.
 
-The Universe submission uses `@preview/doomtyp:0.1.0`. Until it is accepted,
+The Universe submission uses `@preview/doom-wasm:0.1.0`. Until it is accepted,
 try it from this repository with:
 
 ```sh
 make package
-typst init --package-path build/packages @preview/doomtyp:0.1.0 build/my-doom
+typst init --package-path build/packages @preview/doom-wasm:0.1.0 build/my-doom
 ```
 
 See [package setup](docs/packaging.md) for the editor's package-path setting.
-After publication, `typst init @preview/doomtyp:0.1.0` will work without it.
+After publication, `typst init @preview/doom-wasm:0.1.0` will work without it.
 
 Adding a character advances the game. Deleting characters rewinds it. The game
 pauses when you stop typing, and saving the document keeps your input history.
@@ -65,7 +65,7 @@ If a repeated fire or use command doesn't register, put `x` between presses.
 Set `skill`, `episode`, and `map` in `game.with`:
 
 ```typst
-#import "@preview/doomtyp:0.1.0": game
+#import "@preview/doom-wasm:0.1.0": game
 #show: game.with(
   skill: 2,
   episode: 1,

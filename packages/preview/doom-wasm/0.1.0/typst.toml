@@ -1,5 +1,5 @@
 [package]
-name = "doomtyp"
+name = "doom-wasm"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["seniormars <@SeniorMars>"]
