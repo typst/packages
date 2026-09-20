@@ -6,3 +6,4 @@ authors = ["Guo Yichen"]
 license = "MIT"
 description = "Distribute leftover space into `auto` columns of a table or a grid."
 exclude = ["docs/", "tests/"]
+repository = "https://github.com/ybbyoddfe/fittable"
