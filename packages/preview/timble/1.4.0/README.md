@@ -32,7 +32,7 @@ Draw and style precise time tables with ease.
 )
 ```
 
-![Example output of timble](./example/example.png)
+![Example output of timble](./template.png)
 
 ## Quick overview
 - Import via `#import "@preview/timble:1.4.0"`.
