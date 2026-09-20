@@ -1,0 +1,17 @@
+[package]
+name = "doomtyp"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["seniormars <@SeniorMars>"]
+repository = "https://github.com/SeniorMars/doom-typst"
+license = "GPL-2.0-or-later AND BSD-3-Clause AND MIT-0"
+description = "Play DOOM by typing into your document."
+categories = ["fun"]
+keywords = ["doom", "game", "wasm"]
+compiler = "0.15.1"
+exclude = ["/build/", "/assets/doom1.wad", "/docs/preview.png", "/tests/", "/examples/", "/main.typ", "/engine/doom.typ", "/vendor/doomgeneric/screenshots/", "**/__pycache__/", "/.git/", "/graphify-out/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
