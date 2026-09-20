@@ -1,28 +1,32 @@
-# tlacuache-thesis-pcm-unam
+# tlacuache-thesis-pcm-unam template
 
+🇺🇸 [English](README.en.md)
 
-Template para tesis de maestría del Posgrado en Ciencias Matemáticas de la Universidad Nacional Autónoma de México (UNAM).
+Este repositorio contiene un template para tesis de maestría del Posgrado en Ciencias Matemáticas de la Universidad Nacional Autónoma de México (UNAM).
+
 
 El diseño está basado en el template [tlacuache-thesis-fc-unam](https://github.com/davidalencia/tlacuache-thesis-fc-unam), originalmente desarrollado para la licenciatura en la Facultad de Ciencias. La portada ha sido adaptada para cumplir (de manera aproximada) con los lineamientos del programa de posgrado.
 
 ## Uso
 
-~⚠️ Nota: Actualmente este template no se encuentra en el repositorio oficial de paquetes de Typst.~
 
-La Plantilla ya se encuentra en Typst Universe, puede usarla importandola desde `@preview` : 
-```typst
-#import "@preview/tlacuache-thesis-msc-pcm-unam:0.1.0":*
-```
-o inciando un nuevo archivo con `typst init`:
-```bash
-typst init @preview/tlacuache-thesis-msc-pcm-unam:0.1.0 mi-tesis
-cd mi-tesis
-typst watch main.typ
-```
+⚠️ Nota: Actualmente este template no se encuentra en el repositorio oficial de paquetes de Typst.
 
+- Clonar el repositorio usando git:
+  ```bash
+  git clone git@github.com:rubal501/tlacuache-thesis-pccm-unam.git
+  ```
+- Importa el template en tu archivo principal:
+  ```typ
+  #import "./tlacuache-thesis-pccm-unam/lib.typ":*
+  ```
+
+## Configuración
+
+Para configurar tu tesis puedes hacerlo con estas lineas al inicio de tu archivo principal.
 
 ```typ
-#import "@preview/tlacuache-thesis-msc-pcm-unam:0.1.0":*
+#import "./tlacuache-thesis-pccm-unam/lib.typ":*
 
 #show: thesis.with(
   titulo: [Titulo],
@@ -60,7 +64,8 @@ También puedes utilizar estas lineas para crear capítulos con bibliografía,
 si deseas crear un pdf solamente para el capítulo.
 
 ```typ
-#import "@preview/tlacuache-thesis-msc-pcm-unam:0.1.0":chapter
+
+#import "./tlacuache-thesis-pccm-unam/lib.typ":chapter
 
 
 // completamente opcional cargar la bibliografía, compilar el capítulo
@@ -72,7 +77,8 @@ si deseas crear un pdf solamente para el capítulo.
 Si quieres crear pdf aún más cortos, puedes utilizar estas lineas para crear un pdf solo para la sección de tu capítulo.
 
 ```typ
-#import "@preview/tlacuache-thesis-msc-pcm-unam:0.1.0":section
+
+#import "./tlacuache-thesis-pccm-unam/lib.typ":section
 
 
 // completamente opcional cargar la bibliografía, compilar el sección
