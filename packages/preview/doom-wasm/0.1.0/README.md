@@ -4,7 +4,7 @@ This is a port of DOOM to Typst, using DoomGeneric and a WebAssembly plugin.
 You play by typing commands into the document and watching the live preview.
 Freedoom: Phase 1 is included. Requires Typst 0.15.1 or later.
 
-![doom-wasm](docs/preview.png)
+![Freedoom E1M1 with the HUD and Typst input controls](docs/preview.png)
 
 ## How to Play
 

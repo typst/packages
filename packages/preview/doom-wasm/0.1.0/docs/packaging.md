@@ -1,56 +1,71 @@
-# Package and template
+# Packaging
 
-The public entry point is `lib.typ`, the starter is `template/main.typ`, and
-`typst.toml` declares the package as `doom-wasm:0.1.0` in the preview namespace.
-The default game data is the unmodified Freedoom: Phase 1 0.13.0 IWAD. The
-initial template opens E1M1 without requiring the player to upload anything.
+`lib.typ` is the package entry point. `template/main.typ` is the file players
+start with. `typst.toml` defines the package name, version, and template.
 
-## Test the submission locally
+Freedoom: Phase 1 is included, so a new project opens straight into E1M1.
+
+## Build and try it
+
+From the repository root, run:
 
 ```sh
-make test
-make test-package
+make package
 ```
 
-`make package` stages the submission at `build/packages/preview/doom-wasm/0.1.0`
-and creates `build/doom-wasm-web.zip`. It includes the engine sources, build
-scripts, Freedoom data, and license notices. It excludes the original DOOM WAD,
-upstream screenshots, tests, and local build artifacts.
+This creates two things:
 
-The full Freedoom IWAD is about 29 MB. Keeping it unmodified preserves all four
-episodes, their textures and sprites, and normal level progression. The zipped
-package is smaller, but this is still larger than a typical document template.
+- `build/packages/preview/doom-wasm/0.1.0`: the files for the Universe submission.
+- `build/doom-wasm-web.zip`: a project you can unzip and upload to the Typst web app.
 
-To try the staged files before they are available from Universe:
+To try the package before it's published:
 
 ```sh
 typst init --package-path build/packages @preview/doom-wasm:0.1.0 build/my-doom
 typst compile --package-path build/packages build/my-doom/main.typ build/my-doom.pdf
 ```
 
-Configure the editor's package path to the absolute path of `build/packages`.
-Alternatively, open `build/doom-wasm-web/main.typ`, which uses file imports.
-Upload the contents of the web zip to a Typst project to try it online.
+For live preview, set your editor's package path to the full path of
+`build/packages`. Or open `build/doom-wasm-web/main.typ`, which uses local file
+imports and doesn't need that setting.
 
-`make test-package` initializes an isolated project using the staged preview
-package and tests the default game, remapped controls, CLI input, save export,
-and save loading. It also extracts and compiles the web zip without a package
-lookup. No game files are manually added for the default-game checks.
+## Test it
 
-## Submission
+```sh
+make test
+make test-package
+```
 
-The package author is seniormars and the source repository is
-https://github.com/SeniorMars/doom-typst.
+The package test creates a fresh project with `typst init` and checks gameplay,
+custom controls, CLI input, and save/load. It also extracts and compiles the web
+zip. Both start with the included Freedoom data.
 
-Submit the staged directory at `packages/preview/doom-wasm/0.1.0` in a pull request
-to [typst/packages](https://github.com/typst/packages). The title is
-`doom-wasm:0.1.0`. The package will become downloadable after that submission is
-accepted and published; switching the import namespace alone does not publish it.
+## What's included
 
-The thumbnail must show the freshly initialized template, without extra input.
-README screenshots are excluded from the runtime bundle. The template files use
-MIT-0 so players can freely modify and distribute their starter documents.
-The engine/library use GPL-2.0-or-later and Freedoom uses BSD-3-Clause.
+The package contains the WASM plugin, its source and build scripts, the Typst
+files, and Freedoom's game data and license notices. The original DOOM WAD,
+tests, build output, and upstream screenshots are left out.
 
-See the official [submission guide](https://github.com/typst/packages/blob/main/docs/README.md)
-and [manifest format](https://github.com/typst/packages/blob/main/docs/manifest.md).
+Freedoom's full Phase 1 IWAD is about 29 MB before compression. It includes all
+four episodes and hasn't been edited. The web zip is about 11 MB.
+
+The engine and library use GPL-2.0-or-later. Freedoom uses BSD-3-Clause. The files
+in `template/` use MIT-0 so players can modify and share their documents freely.
+
+## Submit to Universe
+
+The author is seniormars. The source is at
+[SeniorMars/doom-typst](https://github.com/SeniorMars/doom-typst).
+
+Copy the staged package into `packages/preview/doom-wasm/0.1.0` in a fork of
+[typst/packages](https://github.com/typst/packages), then open a PR titled
+`doom-wasm:0.1.0`. The current submission is [PR #5893](https://github.com/typst/packages/pull/5893).
+The package can be downloaded from Universe after it's accepted and published.
+
+Use a screenshot of the unchanged starter project for `thumbnail.png`. Keep
+README images out of the runtime bundle with the manifest's `exclude` setting.
+Keep the license files in the bundle.
+
+The official [submission guide](https://github.com/typst/packages/blob/main/docs/README.md)
+and [manifest reference](https://github.com/typst/packages/blob/main/docs/manifest.md)
+cover the remaining requirements.
