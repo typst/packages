@@ -1,4 +1,4 @@
-#import "@preview/tud-corporate-design-slides:0.1.0": *
+#import "@preview/tud-corporate-design-slides:0.2.0": *
 
 #show: tud-slides.with(
   title: "Presentation templates",
