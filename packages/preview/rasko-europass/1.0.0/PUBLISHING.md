@@ -10,7 +10,11 @@ the link later forces a pointless `1.0.1` bump.
 
 - [x] `typst.toml` → `authors = ["rasko-- <raskolny@gmail.com>"]` (Universe display name)
 - [x] `typst.toml` → `repository = "https://github.com/Raskolny/europass-cv"`
-- [x] `typst.toml` → `thumbnail = "thumbnail.png"` present at repo root
+- [x] `thumbnail.png` present at repo root and included in the package bundle.
+      Do **not** add a `thumbnail` key to `typst.toml`: the current bundler
+      rejects unknown manifest fields (it failed CI with
+      `unknown fields in package: ["thumbnail"]`); the site picks the file up
+      by convention.
 - [x] README CI badge points at the real repository
 - [ ] Regenerate `thumbnail.png` if the visual design changed:
       `typst compile --ignore-system-fonts --font-path fonts --format png --ppi 150 --pages 1 main.typ thumbnail.png`

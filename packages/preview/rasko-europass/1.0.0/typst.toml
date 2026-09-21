@@ -2,7 +2,9 @@
 name = "rasko-europass"
 version = "1.0.0"
 entrypoint = "lib.typ"
-thumbnail = "thumbnail.png"
+# NOTE: do NOT add a `thumbnail` key here — the current typst/packages bundler
+# rejects unknown manifest fields.  The thumbnail.png FILE is included in the
+# package and picked up by convention instead.
 authors = ["rasko-- <raskolny@gmail.com>"]
 license = "MIT"
 description = "A faithful, accessible reproduction of the official EU Europass CV: asymmetric two-column grid, EU blue palette, CEFR language self-assessment table, GDPR clause and full 24-language i18n."
