@@ -1,5 +1,10 @@
 # Typst template for slide in TU Dresden's the corporate design :microphone:
 
+[!WARNING]
+The slides in this package use the outdated corporate design (pre-2025).
+This template is no longer recommended for new projects.
+An updated version, aligned with the current corporate design, is currently in development and will be released soon.
+
 This template can be used to create presentations in [Typst](https://github.com/typst/typst) with the corporate design of [TU Dresden](https://www.tu-dresden.de/).
 
 ## Usage
