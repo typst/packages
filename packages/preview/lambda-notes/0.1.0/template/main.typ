@@ -1,6 +1,6 @@
-#import "@preview/cs-notes:0.1.0": *
+#import "@local/lambda-notes:0.1.0": *
 
-#show: cs-notes.with(
+#show: lambda-notes.with(
   title: "Algorithms and Data Structures",
   author: "Your Name",
   date: "Fall 2026",
@@ -11,7 +11,7 @@
 
 = Introduction
 
-These are example notes generated from the *cs-notes* template. They show off
+These are example notes generated from the *lambda-notes* template. They show off
 headings, notes, callouts, tables, code, algorithms, and cross-references.
 
 Jump ahead to the @sorting section, or check out an external link like

@@ -49,9 +49,9 @@
 )
 
 // ============================================================
-// --- cs-notes: template declaration ---
+// --- lambda-notes: template declaration ---
 // ============================================================
-#let cs-notes(
+#let lambda-notes(
   title: none,
   author: none,
   date: none,
@@ -70,7 +70,7 @@
     keywords: keywords,
   )
 
-  // Header with h1 — kept local, only cs-notes needs it
+  // Header with h1 — kept local, only lambda-notes needs it
   let running-header() = context {
     let elems = query(
       heading.where(level: 1).or(heading.where(level: 2)).before(here()),

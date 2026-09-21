@@ -1,11 +1,11 @@
 [package]
-name = "cs-notes"
+name = "lambda-notes"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Michael Cecchini"]
 license = "MIT"
 description = "Clean template for university computer science notes."
-repository = "https://github.com/cecco25/cs-notes"
+repository = "https://github.com/cecco25/lambda-notes"
 keywords = ["notes", "university", "computer-science", "lecture"]
 categories = ["book", "report"]
 

@@ -1,4 +1,4 @@
-# cs-notes
+# lambda-notes
 
 A clean [Typst](https://typst.app) template for university computer science notes. It provides a themeable document layout with chapter-style headings, a running header, styled tables and code blocks, an algorithm figure environment, and two callout components for highlighting information.
 
@@ -7,19 +7,19 @@ A clean [Typst](https://typst.app) template for university computer science note
 Import the template from the local package:
 
 ```typ
-#import "@local/cs-notes:0.1.0": *
+#import "@local/lambda-notes:0.1.0": *
 ```
 
 or, once published, from the Typst Universe:
 
 ```typ
-#import "@preview/cs-notes:0.1.0": *
+#import "@preview/lambda-notes:0.1.0": *
 ```
 
 ## Quick start
 
 ```typ
-#show: cs-notes.with(
+#show: lambda-notes.with(
   title: "Algorithms and Data Structures",
   author: "Your Name",
   date: "A.A. 2025/2026",
@@ -40,12 +40,12 @@ Some notes here.
 ]
 ```
 
-## The `cs-notes` function
+## The `lambda-notes` function
 
-`cs-notes` is the main show rule for the document. All content passed to `#show: cs-notes.with(...)` is rendered with the template's styling applied.
+`lambda-notes` is the main show rule for the document. All content passed to `#show: lambda-notes.with(...)` is rendered with the template's styling applied.
 
 ```typ
-#show: cs-notes.with(
+#show: lambda-notes.with(
   title: "Notes Title",
   author: "Your Name",
   date: "2026",
@@ -73,7 +73,7 @@ Some notes here.
 
 ### What it sets up
 
-Applying `cs-notes` configures the whole document:
+Applying `lambda-notes` configures the whole document:
 
 - **Document metadata** — `title`, `author`, `description`, `keywords` are set via `set document(...)`.
 - **Page numbering** — Arabic numbering (`"1"`), right-aligned.
@@ -123,7 +123,7 @@ Renders as a non-breakable, full-width block with a light tint of `color` as bac
 
 ### Algorithms
 
-`cs-notes` re-exports customized versions of `algorithm-figure` and `style-algorithm` from the [algorithmic](https://typst.app/universe/package/algorithmic) package:
+`lambda-notes` re-exports customized versions of `algorithm-figure` and `style-algorithm` from the [algorithmic](https://typst.app/universe/package/algorithmic) package:
 
 - `algorithm-figure` — preconfigured with light gray vertical rules (`luma(200)`), a `0.3em` inset, and plain (unbracketed) line numbers.
 - `style-algorithm` — preconfigured to draw a rule above the caption, one below it, and one at the bottom of the algorithm table (no per-row lines).
@@ -159,12 +159,12 @@ Algorithms are written using [algorithmic](https://typst.app/universe/package/al
 )
 ```
 
-`style-algorithm` is applied automatically by `cs-notes`, so algorithms match the rest of the document's table styling.
+`style-algorithm` is applied automatically by `lambda-notes`, so algorithms match the rest of the document's table styling.
 
 ## Theming
 
 The `color` argument drives the whole visual identity of the notes: heading text, chapter rules, the title page rule and title, link color, and table header fills all derive from it via `.lighten()` / `.darken()`. Leaving `color: none` falls back to plain black/white styling.
 
 ```typ
-#show: cs-notes.with(title: "Networking", color: rgb("#1E88E5"))
+#show: lambda-notes.with(title: "Networking", color: rgb("#1E88E5"))
 ```
