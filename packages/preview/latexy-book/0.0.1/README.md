@@ -1,4 +1,4 @@
-# latex-doc
+# latexy-book
 
 A LaTeX-style book template for Typst. Provides part/chapter/section structure,
 frontmatter/mainmatter/appendix/backmatter book parts, theorem environments,
@@ -9,7 +9,7 @@ subfigures, Harvard-style citations, and bibliography.
 ## Quick Start
 
 ```typst
-#import "@preview/latex-doc:0.0.1": book, frontmatter, mainmatter, appendix, backmatter
+#import "@preview/latexy-book:0.0.1": book, frontmatter, mainmatter, appendix, backmatter
 
 #show: book.with(
   title: "Book Title",
@@ -212,26 +212,6 @@ Bibliography uses Chicago author-date style:
 #bibliography("refs.bib")
 ```
 
-## Additional Utilities
-
-| Function | Description |
-|----------|-------------|
-| `#within-section[Title]` | Unnumbered centered sub-heading |
-| `#diary[Body]` | Diary-style paragraph with no first-line indent |
-| `#poem[Body]` | Poem block with a left indent |
-
-## Music — Mode Wheel
-
-`#mode-wheel` draws a circular musical mode wheel highlighting the given
-scale degrees. Requires the [`@preview/cetz`](https://typst.app/pkg/cetz)
-package.
-
-```typst
-#import "@preview/cetz:0.5.2"
-#import "@preview/latex-doc:0.0.1": mode-wheel
-
-#mode-wheel(scale-notes: (0, 2, 4, 7, 9))  // C major pentatonic
-```
 
 ## License
 
