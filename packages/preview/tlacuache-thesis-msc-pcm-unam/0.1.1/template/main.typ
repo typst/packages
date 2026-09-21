@@ -1,6 +1,6 @@
 #import "@preview/tlacuache-thesis-msc-pcm-unam:0.1.1": thesis
 #import "./utils.typ": *
-#show: thmrules // IMPORTANTE
+#show: thm-rules.with(qed-symbol: $square$) // IMPORTANTE para teoremas
 
 #show: thesis.with(
   titulo: [Foundations for a general theory of functions of a variable complex quantity],

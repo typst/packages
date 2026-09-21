@@ -1,31 +1,90 @@
-#import "@preview/ctheorems:1.1.3": *
-#show: thmrules
-// Some basic enviroments
-#let teorema = thmbox(
-  "teorema", // identifier
-  "Teorema", // head
+#import "@preview/ctheorems:2.0.0": *
+#show: thm-rules.with(qed-symbol: $square$)
+
+
+#let thm = thm.with(
+  fmt: thm-fmt-block.with(
+    name-fmt: x => [(#x)],
+    title-fmt: strong,
+    body-fmt: emph,
+    separator: [*.* ]
+  )
+)
+
+#let thm-def = thm.with(
+  fmt: thm-fmt-block.with(
+    name-fmt: x => [(#x)],
+    title-fmt: strong,
+    body-fmt: x => x,
+    separator: [*.* ]
+  )
+)
+
+#let thm-rem = thm.with(
+  numbering: none,
+  fmt: thm-fmt-block.with(
+    name-fmt: name => emph([(#name)]),
+    title-fmt: emph,
+    body-fmt: x => x,
+    separator: [. ]
+  )
+)
+
+
+#let teorema = thm.with(
+  supplement: "Teorema",
+  counter: "Theorem",
   fill: rgb("#e8e8f8"),
-).with(supplement: none)
-
-
-#let corolario = thmbox(
-  "corolario", // identifier
-  "Corolario", // head
-  base: "teorema", // base - use the theorem counter
-  fill: rgb("#f8e8e8"),
-).with(supplement: none)
-
-
-#let proposicion = thmbox(
-  "proposicion", // identifier
-  "Proposición", // head
+)
+#let proposicion = thm.with(
+  supplement: "Proposición",
+  counter: "Theorem",
   fill: rgb("#e8f8ea"),
-).with(supplement: none)
+)
+#let lema = thm.with(
+  supplement: "Lema",
+  counter: "Theorem"
+)
+#let conjetura = thm.with(
+  supplement: "Conjetura",
+  counter: "Theorem"
+)
 
+#let corolario = thm.with(
+  supplement: "Corolario",
+  counter: "Sub-Theorem",
+  base: "Theorem"
+)
 
-#let definicion = thmbox("definicion", "Definición", inset: (x: 0.0em, top: 0.0em)).with(supplement: "definición")
+#let definicion = thm-def.with(
+  supplement: "Definicion",
+  counter: "Theorem"
+)
+#let ejemplo = thm-def.with(
+  supplement: "Ejemplo",
+  counter: "Sub-Theorem",
+  base: "Theorem"
+)
 
-#let ejemplo = thmplain("ejemplo", "Ejemplo").with(numbering: none)
-#let demostracion = thmproof("demostracion", "Demostración")
+#let problem = thm-def.with(
+  supplement: "Problem",
+  counter: "Problem"
+)
 
-#let observacion = thmplain("observación", "Observación", base: "heading")
+#let aclaracion = thm-rem.with(
+  supplement: "Aclaracion",
+)
+#let afirmacion = thm-rem.with(
+  supplement: "afirmacion"
+)
+
+#let demostracion = thm.with(
+  supplement: "Demostracion",
+  numbering: none,
+  fmt: thm-fmt-block.with(
+    name-fmt: emph,
+    title-fmt: emph,
+    body-fmt: proof-body-fmt,
+    separator: [. ]
+  )
+)
