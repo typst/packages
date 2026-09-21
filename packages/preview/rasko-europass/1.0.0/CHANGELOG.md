@@ -37,3 +37,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   gender-neutral placeholder portrait `assets/photo-placeholder.svg`.
 - **CI** (`.github/workflows/ci.yml`) running the hermetic build plus the
   accessibility and font-embedding verification on every push and PR.
+- **Overridable typeface stack**: a `font:` parameter (default Open Sans),
+  because Typst Universe policy forbids bundling font binaries in a package;
+  the vendored `fonts/` directory serves repository builds only.
+- **Package-spec imports**: `main.typ` and all examples import the package via
+  `@preview/rasko-europass:1.0.0` (resolved in-repo through a local package
+  cache), matching how end users consume it from Typst Universe.

@@ -1,7 +1,7 @@
 // Europass CV example — German (de).
 // Persona of Deutsch nationality.  Demonstrates lang="de" end to end.
 // Gender option used here: "male"
-#import "../lib.typ": cv-entry, europass-cv, l
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
   lang: "de",

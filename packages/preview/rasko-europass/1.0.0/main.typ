@@ -14,7 +14,7 @@
 //  Italian persona — written in English, as Italians commonly submit Europass
 //  in English for EU/international applications.
 // =============================================================================
-#import "lib.typ": cv-entry, europass-cv, l
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  CONFIGURE YOUR CV HERE

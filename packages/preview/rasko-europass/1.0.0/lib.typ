@@ -326,11 +326,19 @@
 // caller only supplies what they need.
 // ============================================================================
 
+/// Renders a complete Europass CV.
+///
+/// The design uses the Open Sans family.  Typst Universe policy forbids
+/// bundling font binaries inside a package, so end users should install Open
+/// Sans (see the README "Fonts" section); the `font` parameter lets them
+/// substitute any family available to their system (e.g. the Typst web app).
 #let europass-cv(
   // ── Language & PDF/UA metadata ────────────────────────────────────────────
   lang: "en",
   title: "", // PDF document title (a11y); defaults to `name`
   author: "", // PDF author      (a11y); defaults to `name`
+  // Typeface stack; see the doc comment above.  Defaults to Open Sans.
+  font: body-font,
 
   // ── Personal information ──────────────────────────────────────────────────
   name: "",
@@ -387,7 +395,7 @@
   // ── a11y: `lang` tags the whole document so screen readers pick the right
   //          pronunciation rules; PDF/UA-1 fails without it. ─────────────────
   set page(paper: "a4", margin: page-margin)
-  set text(font: body-font, size: body-size, fill: eu-gray, lang: lang)
+  set text(font: font, size: body-size, fill: eu-gray, lang: lang)
   set par(leading: 0.62em, justify: false, spacing: 0.45em)
   set list(marker: text(fill: eu-blue)[–])
 

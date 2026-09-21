@@ -4,7 +4,7 @@ Published on Typst Universe as `rasko-europass`; the template function you
 call is `europass-cv`.  The development repository keeps the descriptive name
 `europass-cv`.
 
-[![CI](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml/badge.svg)](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml)
+[![Continuous integration status](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml/badge.svg)](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml)
 
 ![Europass CV rendered with this template](thumbnail.png)
 
@@ -48,8 +48,9 @@ typst compile --pdf-standard 1.7,ua-1 --ignore-system-fonts --font-path fonts ma
 ```
 
 and then runs `verify.sh`, which asserts accessibility and font embedding
-(see *Verification* below).  Plain `typst compile main.typ` also works —
-Typst auto-discovers `./fonts` — but only `build.sh` guarantees the hermetic,
+(see *Verification* below).  `build.sh` also materialises a local package
+cache (`.pkgcache/`) so that `main.typ`'s `@preview/rasko-europass:1.0.0`
+import resolves inside the clone; only `build.sh` guarantees the hermetic,
 UA-1-validated result.
 
 ---
@@ -60,7 +61,7 @@ Everything an end user touches lives in **`main.typ`**.  You never edit the
 layout.  Fill in fields and go:
 
 ```typst
-#import "lib.typ": cv-entry, europass-cv
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv
 
 #show: europass-cv.with(
   lang: "it",
@@ -211,6 +212,16 @@ build *fails* if the document would not be accessible.
 the host machine, and the PDF embeds **subsetted** Open Sans with a Unicode
 CMap (`emb=yes sub=yes uni=yes`) — there is no fallback to local/Base-14 PDF
 fonts.  See `fonts/README.md`.
+
+**Typst Universe note.**  Universe policy forbids shipping font binaries
+inside a package, so the published bundle does **not** include `fonts/`.
+Universe users should install Open Sans (e.g. from
+[fonts.google.com/specimen/Open+Sans](https://fonts.google.com/specimen/Open+Sans)
+or their distribution's `open-sans` package); alternatively they may pass any
+family available to them via the `font:` parameter, which is also the escape
+hatch for environments where fonts cannot be installed (such as the Typst web
+app).  The vendored copy remains in this repository so that repository builds
+stay hermetic and reproducible.
 
 ## Verification
 

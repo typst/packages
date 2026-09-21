@@ -1,7 +1,7 @@
 // Europass CV example — Dutch (nl).
 // Persona of Nederlander nationality.  Demonstrates lang="nl" end to end.
 // Gender option used here: omitted
-#import "../lib.typ": cv-entry, europass-cv, l
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
   lang: "nl",

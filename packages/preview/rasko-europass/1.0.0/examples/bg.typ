@@ -1,7 +1,7 @@
 // Europass CV example — Bulgarian (bg).
 // Persona of Българин nationality.  Demonstrates lang="bg" end to end.
 // Gender option used here: "male"
-#import "../lib.typ": cv-entry, europass-cv, l
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
   lang: "bg",

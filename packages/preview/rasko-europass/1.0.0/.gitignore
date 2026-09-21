@@ -14,3 +14,6 @@ examples/pdf/
 # Editor / OS noise
 .DS_Store
 *.swp
+
+# Local package cache used to resolve @preview imports in-repo
+.pkgcache/

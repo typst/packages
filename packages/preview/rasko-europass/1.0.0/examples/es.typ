@@ -1,7 +1,7 @@
 // Europass CV example — Spanish (es).
 // Persona of Española nationality.  Demonstrates lang="es" end to end.
 // Gender option used here: "female"
-#import "../lib.typ": cv-entry, europass-cv, l
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
   lang: "es",

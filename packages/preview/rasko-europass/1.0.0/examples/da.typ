@@ -1,7 +1,7 @@
 // Europass CV example — Danish (da).
 // Persona of Dansk nationality.  Demonstrates lang="da" end to end.
 // Gender option used here: "female"
-#import "../lib.typ": cv-entry, europass-cv, l
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
   lang: "da",

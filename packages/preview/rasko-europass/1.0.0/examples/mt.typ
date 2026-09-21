@@ -1,7 +1,7 @@
 // Europass CV example — Maltese (mt).
 // Persona of Maltija nationality.  Demonstrates lang="mt" end to end.
 // Gender option used here: "female"
-#import "../lib.typ": cv-entry, europass-cv, l
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
   lang: "mt",

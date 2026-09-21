@@ -15,4 +15,4 @@ compiler = "0.15.0"
 # The vendored Open Sans family ships with the package so every build is
 # reproducible and never silently substitutes a locally installed font.
 # Remove the fonts/ line below if you prefer to supply your own copy.
-exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "examples/pdf", ".github"]
+exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "examples/pdf", ".github", "fonts"]

@@ -1,7 +1,7 @@
 // Europass CV example — French (fr).
 // Persona of Française nationality.  Demonstrates lang="fr" end to end.
 // Gender option used here: "undeclared"
-#import "../lib.typ": cv-entry, europass-cv, l
+#import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
   lang: "fr",
