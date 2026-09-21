@@ -33,8 +33,3 @@ typst w main.typ
 ```
 
 This will watch your file and recompile it to a pdf when the file is saved. For writing, you can use [Vscode](https://code.visualstudio.com/) with these extensions: [Typst LSP](https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp) and [Typst Preview](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview). Or use the [typst web app](https://typst.app/) (here you need to upload the fonts).
-
-## Todos
-
-- [ ] Add more slide layouts (e.g. 2-column layout)
-- [ ] Port to [touying](https://github.com/touying-typ/touying)
