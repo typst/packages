@@ -53,7 +53,7 @@ To start writing, run:
 
 ## Examples
 
-See [examples](examples) for more details.
+See [examples/main.typ](examples/main.typ) for more details.
 
 Compile the examples yourself:
 
@@ -70,6 +70,7 @@ This package is maintained using:
 - [Typush](https://github.com/Vncntvx/typush) - for publishing to the Typst package registry.
 - [Typst Upgrade](https://github.com/Coekjan/typst-upgrade) - for upgrading Typst packages.
 
-## License
+## License & Trademark Notice
 
-Licensed under the [MIT License](LICENSE).
+- **Code & Templates**: Licensed under the [MIT License](LICENSE).
+- **University Emblem Notice**: The Capital Normal University emblem and logo (`assets/CNU.svg`, `assets/emblem.svg`, and preview images such as `thumbnail.png` that contain them) are intellectual property of **Capital Normal University (CNU)**. They are **not covered by the MIT License**. They are included exclusively for non-commercial, academic, and educational presentations, thesis defenses, and reports by Capital Normal University members, in accordance with the [CNU Visual Identity System management rules](https://dwxcb.cnu.edu.cn/whjs/xywh/3ad0e4dd072c4ed5be6530c7dedc6c01.htm). All intellectual property and trademark rights are reserved by Capital Normal University (https://www.cnu.edu.cn).
