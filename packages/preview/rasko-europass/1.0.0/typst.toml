@@ -1,0 +1,16 @@
+[package]
+name = "rasko-europass"
+version = "1.0.0"
+entrypoint = "lib.typ"
+thumbnail = "thumbnail.png"
+authors = ["rasko-- <raskolny@gmail.com>"]
+license = "MIT"
+description = "A faithful, accessible reproduction of the official EU Europass CV: asymmetric two-column grid, EU blue palette, CEFR language self-assessment table, GDPR clause and full 24-language i18n."
+repository = "https://github.com/Raskolny/europass-cv"
+keywords = ["cv", "resume", "curriculum-vitae", "europass", "europe", "accessible", "pdf-ua", "i18n"]
+categories = ["cv"]
+compiler = "0.15.0"
+# The vendored Open Sans family ships with the package so every build is
+# reproducible and never silently substitutes a locally installed font.
+# Remove the fonts/ line below if you prefer to supply your own copy.
+exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "examples/pdf", ".github"]

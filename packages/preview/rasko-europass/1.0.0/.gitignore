@@ -1,0 +1,16 @@
+# Build outputs
+output.pdf
+*.pdf
+!fonts/*.ttf
+
+# Render previews
+page-*.png
+*.png
+!thumbnail.png
+
+# Example build outputs
+examples/pdf/
+
+# Editor / OS noise
+.DS_Store
+*.swp
