@@ -1,8 +1,8 @@
-#import "@preview/latex-doc:0.0.1": book, frontmatter, mainmatter, appendix, backmatter, definition, theorem, assumption, proposition, lemma, corollary, exercise, example, notice, code, citep, citet, subfigure, mode-wheel
+#import "@preview/latexy-book:0.0.1": book, frontmatter, mainmatter, appendix, backmatter, definition, theorem, assumption, proposition, lemma, corollary, exercise, example, notice, code, citep, citet, subfigure, mode-wheel
 /* 
 If you are sure you want to import all the macros and not conflict with other packages, uncomment the line below.
 
-#import "@preview/latex-doc:0.0.1": *
+#import "@preview/latexy-book:0.0.1": *
 */
 #show: book.with(
   title: "Book Title",
@@ -352,7 +352,7 @@ Original commands:
 @lamontFinancialConstraintsStock2001 @famaCrossSectionExpectedStock1992.
 
 
-Commands defined in `latex-doc`:
+Commands defined in `latexy-book`:
 
 // \citep{} in LaTeX
 #citep(<famaCrossSectionExpectedStock1992>,<lamontFinancialConstraintsStock2001>,<chungEffectsAntitrustLaws2024>,)
