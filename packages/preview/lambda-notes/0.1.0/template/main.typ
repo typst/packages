@@ -1,4 +1,4 @@
-#import "@local/lambda-notes:0.1.0": *
+#import "@preview/lambda-notes:0.1.0": *
 
 #show: lambda-notes.with(
   title: "Algorithms and Data Structures",
