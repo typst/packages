@@ -1,0 +1,16 @@
+[package]
+name = "simple-cs"
+description = "A template for Ecole CentraleSupelec"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = [ "Unplanned" ]
+license = "MIT"
+repository = "https://codeberg.org/unplanned/simple-cs"
+keywords = [ "centralesupelec", "report", "academic", "rapport", "internship", "stage" ]
+categories = [ "layout", "report" ]
+
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
