@@ -1,4 +1,4 @@
-#import "@preview/polylux:0.3.1": polylux-slide, logic, utils, pause, only
+#import "@preview/polylux:0.4.0": *
 
 #let tud-outer-margin = 17pt
 #let tud-inner-margin = 60.5pt
@@ -127,7 +127,7 @@ let guides = {
     )
   }
 
-  polylux-slide(content)
+  slide(content)
 }
 
 #let footer = block(width: 100%, height: 100%, fill: white)[
@@ -151,8 +151,8 @@ let guides = {
           parbreak()
           context [#tud-location-occasion.get() \/\/ #tud-date.get().display(tud-date-format)]
         },
-        [
-          Slide #logic.logical-slide.display()/#strong(utils.last-slide-number)
+        context[
+          Slide #toolbox.slide-number()/#strong(toolbox.last-slide-number())
         ],
         pad(right: 9pt,
           image(
@@ -184,7 +184,7 @@ let guides = {
     footer: footer,
     footer-descent: 0pt,
   )
-  polylux-slide(wrapped-body)
+  slide(wrapped-body)
 }
 
 #let fluid-slide(body) = {
@@ -205,7 +205,7 @@ let guides = {
     footer: footer,
     footer-descent: 0pt,
   )
-  polylux-slide(wrapped-body)
+  slide(wrapped-body)
 }
 
 #let section-slide(title: none, subtitle: none) = {
@@ -234,5 +234,5 @@ let guides = {
       rect(width: 100%, height: 100%, fill: tud-gradient)
     },
   )
-  polylux-slide(wrapped-body)
+  slide(wrapped-body)
 }
