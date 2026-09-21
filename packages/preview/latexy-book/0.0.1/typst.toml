@@ -1,9 +1,9 @@
 [package]
-name = "latex-doc"
+name = "latexy-book"
 version = "0.0.1"
 compiler = "0.14.0"
 entrypoint = "lib.typ"
-repository = "https://github.com/maobin-xu/latex-doc"
+repository = "https://github.com/maobin-xu/latexy-book"
 authors = ["Maobin Xu"]
 license = "MIT-0"
 description = "A LaTeX-style book template: part/chapter/section structure, frontmatter/mainmatter/appendix/backmatter, theorem environments, subfigures, and citations."
