@@ -1,8 +1,8 @@
 //#import "/lib.typ": * 
+// #import "@local/fom-thesis-unofficial:0.1.0": *
 //Für lokale Entwicklung bitte einkommentieren
 
-//#import "@preview/fom-thesis-unofficial:0.1.0": *
-#import "@local/fom-thesis-unofficial:0.1.0": *
+#import "@preview/fom-thesis-unofficial:0.1.0": *
 
 // META INFORMATIONEN FÜLLEN:
 #show: project.with(
