@@ -4,7 +4,7 @@
   authors: (),
   dokumentart: "",
   studiengang: "",
-  akademischer_grad: "",
+  akademischer-grad: "",
   matrikelnummer: "",
   betreuer: "",
   abgabedatum: "",
