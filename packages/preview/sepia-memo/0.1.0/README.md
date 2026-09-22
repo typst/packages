@@ -7,7 +7,7 @@ printer's rules, and readable mathematics and tables. Adapted from
 spelling and numerals. No package dependencies or font installation are needed
 for the default appearance.
 
-Requires Typst 0.15.1 or newer.
+Requires Typst 0.15.0 or newer.
 
 ![Sample research memo](https://raw.githubusercontent.com/ChennoShen239/sepia-memo/v0.1.0/thumbnail.png)
 
@@ -57,7 +57,7 @@ To adapt an existing document, keep its content and select its existing paper
 size explicitly, for example `paper: "us-letter"`.
 
 The [source repository](https://github.com/ChennoShen239/sepia-memo) also includes
-a [local example](example.typ). In a checkout, run `typst compile example.typ`
+a [local example](https://github.com/ChennoShen239/sepia-memo/blob/v0.1.0/example.typ). In a checkout, run `typst compile example.typ`
 without installing the package. That example reads its body from
 `template/content.typ`.
 
@@ -106,7 +106,7 @@ faces. Both font projects use OFL-1.1. Install the fonts on your system, or put
 them in a local directory and pass that directory to the compiler:
 
 ```sh
-typst compile --font-path /path/to/fonts example.typ memo.pdf
+typst compile --font-path /path/to/fonts main.typ memo.pdf
 ```
 
 Select the families in the show rule:

@@ -9,7 +9,7 @@ description = "Research memos with cream paper and classical typography."
 repository = "https://github.com/ChennoShen239/sepia-memo"
 keywords = ["memo", "research", "vintage", "sepia", "notes"]
 categories = ["report"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 exclude = ["/example.typ"]
 
 [template]
