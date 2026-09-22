@@ -55,7 +55,7 @@
 = Erste Ebene
 #lorem(20)
 #figure(
-  image("/media/Finn_Riedel_FOM_Koeln_Rheinauhafen.JPG", width: 60%),
+  image("media/Finn_Riedel_FOM_Koeln_Rheinauhafen.JPG", width: 60%),
   caption: [FOM Aussicht, Rheinauhafen, Köln (C) Finn Riedel]
 ) <fom_cgn>
 
