@@ -60,8 +60,6 @@ Things to watch when upgrading:
 
 Most documentation pages were rewritten or corrected.
 
-For more information, a migration guide, and a separate one for theme authors, see the detailed [changelog](./changelog.md).
-
 ## Documents & Help
 
 - **Recommended workflow:** [open the Touying example in Tylina Web](https://tylina.github.io/app/?repo=https%3A%2F%2Fgithub.com%2Ftouying-typ%2Ftouying&provider=github&ref=main&load=dependencies&main=examples%2Fsimple.typ&file=examples%2Fsimple.typ&view=slides) to edit, present, and export it—including experimental editable PPTX
