@@ -1,0 +1,32 @@
+sepia-memo uses separate licenses for separate files.
+
+CC-BY-SA-4.0:
+  lib.typ and thumbnail.png
+  Copyright (c) 2026 Chen Gao and the vintage-latex repository contributors.
+  Adapted from Foadsf/vintage-latex; see NOTICE for source and change details.
+  Full terms: licenses/CC-BY-SA-4.0.txt
+  https://creativecommons.org/licenses/by-sa/4.0/legalcode.en
+
+MIT-0:
+  template/main.typ, template/content.typ, example.typ, typst.toml,
+  and README.md
+  Copyright (c) 2026 Chen Gao.
+  These starter files, sample prose, and supporting files are independently
+  written. Full terms: licenses/MIT-0.txt
+
+LICENSE, NOTICE, and licenses/* provide attribution and license notices;
+preserve the applicable notices when redistributing licensed material.
+The manifest's AND expression records these file-level license boundaries.
+It does not relicense the adapted library as MIT-0.
+
+Generated documents:
+  Authors retain rights in their own original text and research. Sharing an
+  output that contains or adapts protected upstream material may carry that
+  material's license obligations; this package grants no blanket exception.
+  The supplied sample PDF and thumbnail may be shared under CC-BY-SA-4.0.
+
+Fonts:
+  No font files are distributed. Optional EB Garamond and Garamond Math fonts
+  are separately available under OFL-1.1; retain their licenses and notices
+  if redistributing them separately. Font embedding does not impose OFL on
+  the document itself. The Typst compiler supplies the default embedded fonts.
