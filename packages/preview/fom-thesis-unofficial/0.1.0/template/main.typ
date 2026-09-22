@@ -9,7 +9,7 @@
   title: "Hier könnte Ihr Titel stehen!",
   authors: "Max Mustermann",
   studiengang: "Wirtschaftsinformatik",
-  akademischer_grad: "Bachelor of Science (B.Sc.)",
+  akademischer-grad: "Bachelor of Science (B.Sc.)",
   dokumentart: "Seminararbeit",
   matrikelnummer: "361710",
   betreuer: "Prof. Dr. Maria Musterfrau",
