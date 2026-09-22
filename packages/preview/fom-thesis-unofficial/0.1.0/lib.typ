@@ -10,7 +10,7 @@
   abgabedatum: "",
   
   date: none,
-  logo: "media/fomLogo.pdf",
+  logo: "fomLogo.pdf",
   bib-file: none,
   bib-web-file: none,
   abbreviations: none,
