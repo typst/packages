@@ -7,12 +7,9 @@
 //  All the complex layout lives in lib.typ — you never need to touch it.
 //  Just replace the sample data with your own.
 //
-//  NOTE ON THE SAMPLE PERSONA: Europass uptake is highest in Southern and
-//  Eastern Europe (Italy, Spain, Portugal, Greece, Romania, Poland); countries
-//  such as Germany and France prefer their national CV formats.  Italy is the
-//  largest single producer of Europass CVs, so the flagship example keeps an
-//  Italian persona — written in English, as Italians commonly submit Europass
-//  in English for EU/international applications.
+//  NOTE ON THE SAMPLE PERSONA: the flagship example keeps an Italian persona
+//  written in English — a common Europass combination for EU/international
+//  applications.  Replace the sample data with your own.
 // =============================================================================
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 

@@ -6,7 +6,7 @@ call is `europass-cv`.  The development repository keeps the descriptive name
 
 [![Continuous integration status](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml/badge.svg)](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml)
 
-![Europass CV rendered with this template](thumbnail.png)
+![Europass CV rendered with this template](preview.png)
 
 A faithful, **accessible** reproduction of the official European Union
 **Europass CV** format, built for [Typst](https://typst.app) ≥ 0.15.
@@ -151,7 +151,7 @@ Why this rather than one file per language (or an inline dictionary)?
 
 ## Gender (inclusive, localisable, omittable)
 
-The `gender` parameter is deliberately flexible and GDPR-conscious:
+The `gender` parameter is deliberately flexible, localisable, and omittable:
 
 | Value | Effect |
 | --- | --- |
@@ -177,10 +177,8 @@ Every example uses the same anonymous, gender-neutral placeholder portrait
 (`assets/photo-placeholder.svg`) so no real person is depicted.
 
 The flagship `main.typ` is written in **English** (the lingua franca of EU
-mobility) but keeps an **Italian** persona: Europass uptake is highest in
-Southern/Eastern Europe and Italy is its largest single market, whereas
-Germany and France favour their national CV formats — so an Italian submitting
-in English is the archetypal Europass user.
+mobility) but keeps an **Italian** persona — a common Europass combination for
+EU/international applications.
 
 ---
 
