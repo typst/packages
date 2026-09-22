@@ -96,7 +96,7 @@
 
   #v(1fr)
   zur Erlangung des Grades eines 
-  \ #akademischer_grad
+  \ #akademischer-grad
 
   #v(1.5cm)
   über das Thema
