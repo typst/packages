@@ -1,4 +1,5 @@
 #import "@preview/polylux:0.4.0": *
+#import "@preview/polylux:0.4.0": slide as polylux-slide
 
 #let tud-outer-margin = 17pt
 #let tud-inner-margin = 60.5pt
@@ -152,7 +153,7 @@ let guides = {
           context [#tud-location-occasion.get() \/\/ #tud-date.get().display(tud-date-format)]
         },
         context[
-          Slide #toolbox.slide-number()/#strong(toolbox.last-slide-number())
+          Slide #toolbox.slide-number/#strong(toolbox.last-slide-number)
         ],
         pad(right: 9pt,
           image(
@@ -184,7 +185,7 @@ let guides = {
     footer: footer,
     footer-descent: 0pt,
   )
-  slide(wrapped-body)
+  polylux-slide(wrapped-body)
 }
 
 #let fluid-slide(body) = {
