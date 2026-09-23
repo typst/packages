@@ -1,0 +1,10 @@
+[package]
+name = "inv-cmarker"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Christian Kögler"]
+license = "MIT"
+description = "Convert content to CommonMark."
+repository = "https://github.com/ck3d/typst2commonmark"
+keywords = ["markdown", "commonmark", "converter", "export"]
+compiler = "0.14.0"

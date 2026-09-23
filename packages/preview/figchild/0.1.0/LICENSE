@@ -1,0 +1,29 @@
+figchild — Typst port © 2026 FERGOUS Abdelhak
+=====================
+
+This package is a derivative port of the LaTeX package `figchild`
+(*Figures for Creating Children's Activities*), version 3.1.2
+(2026-05-29), written by Fernando de Souza Bastos
+<fernando.bastos@ufv.br> and contributors (Federal University of Viçosa,
+Brazil).
+
+The original package is distributed under the LaTeX Project Public
+License, version 1.3c or later:
+
+    Copyright 2021-2026 Fernando de Souza Bastos
+
+    This work may be distributed and/or modified under the conditions
+    of the LaTeX Project Public License, either version 1.3c of this
+    license or (at your option) any later version.
+
+    The latest version of this license is in
+        http://www.latex-project.org/lppl.txt
+    and version 1.3c or later is part of all distributions of LaTeX
+    version 2005/12/01 or later.
+
+This Typst port is distributed under the same license (LPPL-1.3c).
+The rendering engine and conversion tooling are provided as-is for
+interoperability with the original package.
+
+The CeTZ and Scrawl Typst packages, used as runtime dependencies, are
+distributed under their own licenses (LGPL-3.0-or-later and MIT).

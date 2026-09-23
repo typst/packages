@@ -3,7 +3,7 @@
 
 # synapse
 
-Synapse is a typst package offering an easy way to have every reference of a concept linked to its introduction throughout a document. This is heavily inspired by the [knowledge](https://ctan.org/pkg/knowledge) package for LaTeX, but with a typst-like API.
+Synapse is a typst package offering an easy way to have every reference of a concept linked to its introduction throughout a document. This is heavily inspired by the [knowledge](https://ctan.org/pkg/knowledge) package for LaTeX, but with a more idiomatic API.
 
 ## Usage
 

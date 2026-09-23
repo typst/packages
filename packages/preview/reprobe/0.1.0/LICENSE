@@ -1,0 +1,43 @@
+MIT License
+
+Copyright (c) 2026 Isaac Hiram Lopez Diaz
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+SCOPE NOTE: THIRD-PARTY ASSET
+
+The MIT license above covers the Typst source of this template and its
+documentation: lib.typ, template/, README.md, and typst.toml.
+
+The MIT license above does NOT cover the following bundled file, which is not
+the author's work:
+
+  assets/logo.svg — the institutional seal of the University of Puerto Rico –
+  Río Piedras. All rights in the seal remain with the University. It is included
+  here for use with this template by members of the institution, and is not
+  granted for redistribution or reuse under the MIT terms above.
+
+If you are not affiliated with the University of Puerto Rico – Río Piedras, set
+`logo: none` or supply your own image with `logo: image("...")`.
+
+This package is unofficial. It is not affiliated with, endorsed by, or
+maintained by the University of Puerto Rico, its Department of Computer Science,
+or El MegaProbe Lab.

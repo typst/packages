@@ -1,0 +1,21 @@
+[package]
+name = "medieval-resume"
+version = "0.1.0"
+entrypoint = "main.typ"
+authors = ["kleines Filmröllchen <kleines@filmroellchen.eu>"]
+license = "MIT"
+description = "Simple resume/CV class based on yuan-resume, with a minimalist and classic look"
+repository = "https://git.filmroellchen.eu/filmroellchen/medieval-resume"
+keywords = ["theme", "resume", "cv", "yuan-resume"]
+categories = ["cv"]
+compiler = "0.15.0"
+
+exclude = ["/examples/", "/manual.*", "/.gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool.utpm]
+exclude = [".git", ".forgejo", "*.md", "tests/"]

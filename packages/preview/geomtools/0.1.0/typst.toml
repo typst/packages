@@ -1,0 +1,27 @@
+[package]
+name = "geomtools"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+repository = "https://github.com/fergousA/geomtools" 
+license = "MIT"
+description = "Draw rulers, set squares, protractors and compasses on a figure."
+keywords = [
+  "geometry",
+  "ruler",
+  "protractor",
+  "compass",
+  "set-square",
+  "teaching",
+]
+categories = ["visualization", "components"]
+disciplines = ["mathematics", "education"]
+compiler = "0.13.0"
+
+# README illustrations and the gallery live on Universe, not in the
+# downloaded bundle. The compiler only needs lib.typ and src/.
+exclude = [
+  "/examples",
+  "*.pdf",
+  ".DS_Store",
+]
