@@ -81,6 +81,15 @@ When a package's PR has been merged and CI has completed, the package will be
 available for use. However, it can currently take up to 30 minutes until the package
 will be visible on [Typst Universe][universe].
 
+## Submission limits
+
+To encourage long term maintainance of packages, a single author can only
+maintain four different packages. If need be, this limit can be raised on a
+case by case basis. A maintainer willing to have their limit raised should
+send an email to `hello@typst.app` beforehand, explaining their situation. The
+Tyspt Universe team will then accept the demand or not, given the context and
+maintainance history.
+
 ## Fixing or removing a package
 
 Once submitted, a package will not be changed or removed without good reason to
