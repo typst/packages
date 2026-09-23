@@ -13,10 +13,10 @@ compiler = "0.15.0"
 # excluded from the bundle: the vendored Open Sans family (Apache-2.0, see the
 # repository's fonts/README.md and NOTICE.md) serves repository builds only,
 # while users install Open Sans themselves or pass the `font:` parameter.
-# `preview.png` is the README banner (excluded from the bundle per the exclude
-# docs, still rendered on Universe); the template thumbnail below is picked up
-# from the [template] table and must not be referenced inside the package.
-exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "examples/pdf", ".github", "fonts", "preview.png"]
+# The `[template]` thumbnail below is stripped from the archive automatically
+# and must not be referenced inside the package, so the README banner links to
+# the repository's copy over HTTPS instead of shipping a duplicate image.
+exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "sync-universe.sh", "examples/pdf", ".github", "fonts"]
 
 [template]
 path = "template"

@@ -26,9 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   document outline; presentational layout tagged as `Div` (never a bogus data
   table); CEFR grid tagged `Table/THead/TH/TD`; lists, links and alt text
   tagged; document title/author/language metadata set.
-- **Self-contained fonts**: complete Open Sans family vendored in `fonts/`
-  (Apache-2.0); builds run with `--ignore-system-fonts` so the rendered PDF
-  embeds subsetted fonts and never falls back to local/Base-14 fonts.
+- **Hermetic repository builds**: the development repository vendors the
+  complete Open Sans family in `fonts/` (Apache-2.0) and compiles with
+  `--ignore-system-fonts`, so the rendered PDF embeds subsetted fonts and never
+  falls back to local/Base-14 fonts.  Font binaries cannot ship inside a
+  Universe package — package users install Open Sans themselves or pass `font:`
+  (see the *Overridable typeface stack* entry below).
 - **Verification tooling**: `build.sh` (hermetic PDF/UA-1 build) and
   `verify.sh` (asserts font embedding, no Base-14 fallback, PDF/UA markers,
   outline and tag tree).
