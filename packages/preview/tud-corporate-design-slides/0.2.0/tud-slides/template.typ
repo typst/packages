@@ -184,7 +184,24 @@ let guides = {
     footer: footer,
     footer-descent: 0pt,
   )
-  polylux-slide(wrapped-body)
+  polylux-slide({
+    wrapped-body
+    place(center +horizon,
+      rect(
+        fill: yellow,
+        stroke: orange,
+        inset: 2em,
+        radius: .5em,
+        width: 50%,
+      )[
+        The slides in this package use the outdated corporate design (pre-2025).
+
+        *This template is no longer recommended for new projects.*
+
+        An updated version, aligned with the current corporate design, is currently in development and will be released soon.
+      ]
+    )
+    })
 }
 
 #let fluid-slide(body) = {
