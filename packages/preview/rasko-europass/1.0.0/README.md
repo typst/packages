@@ -6,7 +6,7 @@ call is `europass-cv`.  The development repository keeps the descriptive name
 
 [![Continuous integration status](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml/badge.svg)](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml)
 
-![Europass CV rendered with this template](https://raw.githubusercontent.com/Raskolny/europass-cv/main/thumbnail.png)
+![Europass CV rendered with this template](https://raw.githubusercontent.com/Raskolny/europass-cv/v1.0.0/thumbnail.png)
 
 A faithful, **accessible** reproduction of the official European Union
 **Europass CV** format, built for [Typst](https://typst.app) ≥ 0.15.
@@ -77,13 +77,13 @@ cd europass-cv
 ./build.sh my-cv.pdf       # custom output name
 ```
 
-or fetch an archive instead of cloning:
+or fetch the released version as an archive instead of cloning:
 
 ```bash
 curl -L -o europass-cv.tar.gz \
-  https://github.com/Raskolny/europass-cv/archive/refs/heads/main.tar.gz
+  https://github.com/Raskolny/europass-cv/archive/refs/tags/v1.0.0.tar.gz
 tar xzf europass-cv.tar.gz
-cd europass-cv-main && ./build.sh
+cd europass-cv-1.0.0 && ./build.sh
 ```
 
 > **Repository-only files.**  `build.sh`, `build-examples.sh`, `verify.sh`, the
@@ -261,14 +261,14 @@ All four semantic values are translated in `lang.toml` for every language.
 ## Examples
 
 **Browse all 24 examples in the repository →
-[`examples/`](https://github.com/Raskolny/europass-cv/tree/main/examples)**
+[`examples/`](https://github.com/Raskolny/europass-cv/tree/v1.0.0/examples)**
 (only this README is displayed on Typst Universe, so the links point at
-GitHub).
+GitHub, pinned to this release's tag).
 
-Each [`examples/<code>.typ`](https://github.com/Raskolny/europass-cv/tree/main/examples)
+Each [`examples/<code>.typ`](https://github.com/Raskolny/europass-cv/tree/v1.0.0/examples)
 is one complete CV in an EU language, with a persona of the matching
 nationality — e.g.
-[`examples/bg.typ`](https://github.com/Raskolny/europass-cv/blob/main/examples/bg.typ)
+[`examples/bg.typ`](https://github.com/Raskolny/europass-cv/blob/v1.0.0/examples/bg.typ)
 → Георги Иванов, Българин.  They double as the i18n regression suite:
 
 ```bash
