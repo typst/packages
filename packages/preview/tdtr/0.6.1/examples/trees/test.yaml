@@ -1,0 +1,9 @@
+app:
+  server:
+    host: localhost
+    port: 8080
+  database:
+    user: 
+      admin: admin
+    password: 
+      secret: kdi90gs78a7fgasad123gf70aa7ds0

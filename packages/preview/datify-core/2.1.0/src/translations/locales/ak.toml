@@ -1,0 +1,138 @@
+[days.format.wide]
+1 = "Dwoada"
+2 = "Benada"
+3 = "Wukuada"
+4 = "Yawoada"
+5 = "Fiada"
+6 = "Memeneda"
+
+[days.format.abbreviated]
+1 = "Dwo"
+2 = "Ben"
+3 = "Wuk"
+4 = "Yaw"
+5 = "Fia"
+6 = "Mem"
+7 = "Kwa"
+
+[days.format.narrow]
+1 = "D"
+2 = "B"
+4 = "Y"
+6 = "M"
+7 = "K"
+
+[days.stand-alone.wide]
+1 = "Dwoada"
+2 = "Benada"
+3 = "Wukuada"
+4 = "Yawoada"
+5 = "Fiada"
+6 = "Memeneda"
+
+[days.stand-alone.abbreviated]
+1 = "Dwo"
+2 = "Ben"
+3 = "Wuk"
+4 = "Yaw"
+5 = "Fia"
+6 = "Mem"
+7 = "Kwa"
+
+[days.stand-alone.narrow]
+1 = "D"
+2 = "B"
+4 = "Y"
+6 = "M"
+7 = "K"
+
+[months.format.wide]
+1 = "Ɔpɛpɔn"
+2 = "Ɔgyefoɔ"
+3 = "Ɔbɛnem"
+4 = "Oforisuo"
+5 = "Kɔtɔnimma"
+6 = "Ayɛwohomumu"
+7 = "Kutawonsa"
+8 = "Ɔsanaa"
+9 = "Ɛbɔ"
+10 = "Ahinime"
+11 = "Obubuo"
+12 = "Ɔpɛnimma"
+
+[months.format.abbreviated]
+1 = "Ɔpɛpɔn"
+2 = "Ɔgyefoɔ"
+3 = "Ɔbɛnem"
+4 = "Oforisuo"
+5 = "Kɔtɔnimma"
+6 = "Ayɛwohomumu"
+7 = "Kutawonsa"
+8 = "Ɔsanaa"
+9 = "Ɛbɔ"
+10 = "Ahinime"
+11 = "Obubuo"
+12 = "Ɔpɛnimma"
+
+[months.format.narrow]
+1 = "Ɔp"
+2 = "Ɔg"
+3 = "Ɔb"
+4 = "O"
+5 = "K"
+6 = "A"
+7 = "Ku"
+8 = "A"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[months.stand-alone.wide]
+1 = "Ɔpɛpɔn"
+2 = "Ɔgyefoɔ"
+3 = "Ɔbɛnem"
+4 = "Oforisuo"
+5 = "Kɔtɔnimma"
+6 = "Ayɛwohomumu"
+7 = "Kutawonsa"
+8 = "Ɔsanaa"
+9 = "Ɛbɔ"
+10 = "Ahinime"
+11 = "Obubuo"
+12 = "Ɔpɛnimma"
+
+[months.stand-alone.abbreviated]
+1 = "Ɔpɛpɔn"
+2 = "Ɔgyefoɔ"
+3 = "Ɔbɛnem"
+4 = "Oforisuo"
+5 = "Kɔtɔnimma"
+6 = "Ayɛwohomumu"
+7 = "Kutawonsa"
+8 = "Ɔsanaa"
+9 = "Ɛbɔ"
+10 = "Ahinime"
+11 = "Obubuo"
+12 = "Ɔpɛnimma"
+
+[months.stand-alone.narrow]
+1 = "Ɔ"
+2 = "Ɔ"
+3 = "Ɔ"
+4 = "O"
+5 = "K"
+6 = "A"
+7 = "K"
+8 = "Ɔ"
+9 = "Ɛ"
+10 = "A"
+11 = "O"
+12 = "Ɔ"
+
+[patterns]
+full = "EEE, d, MMMM, y"
+long = "d, MMMM, y"
+medium = "d, MMM, y"
+short = "d/M/yy"
+

@@ -1,0 +1,16 @@
+Asset License Notice
+
+The files in the `assets/` directory are NOT covered by the MIT License.
+
+In particular:
+
+- assets/gzu_logo.png
+- assets/gzu_name.png
+
+contains the logo and trademarks of Guizhou University(贵州大学）.
+
+All rights to these assets are reserved by their respective owners.
+
+These assets may not be redistributed, modified, or used except as permitted by the trademark owner or applicable law.
+
+The MIT License applies only to the source code and template files of this repository.

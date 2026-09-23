@@ -37,7 +37,8 @@ page should only have a single `<h1>` tag for accessibility and SEO reasons, and
 Typst Universe already shows the name of the package in such a heading.
 
 Also note that some Markdown extensions that are present on GitHub, like
-[alert blocks] or [emoji shortcodes] are not available on Typst Universe.
+[alert blocks], [emoji shortcodes], or [task lists] are not available on
+Typst Universe.
 
 ## Theme-responsive images
 
@@ -56,3 +57,4 @@ using the following snippet:
 [what to exclude]: tips.md#what-to-commit-what-to-exclude
 [alert blocks]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
 [emoji shortcodes]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emojis
+[task lists]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#task-lists

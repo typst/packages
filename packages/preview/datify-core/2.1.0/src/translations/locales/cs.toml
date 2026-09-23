@@ -1,0 +1,114 @@
+[days.format.wide]
+1 = "pondělí"
+2 = "úterý"
+3 = "středa"
+4 = "čtvrtek"
+5 = "pátek"
+6 = "sobota"
+7 = "neděle"
+
+[days.format.abbreviated]
+1 = "po"
+2 = "út"
+3 = "st"
+4 = "čt"
+5 = "pá"
+6 = "so"
+7 = "ne"
+
+[days.format.narrow]
+1 = "P"
+2 = "Ú"
+3 = "S"
+4 = "Č"
+5 = "P"
+7 = "N"
+
+[days.stand-alone.wide]
+1 = "pondělí"
+2 = "úterý"
+3 = "středa"
+4 = "čtvrtek"
+5 = "pátek"
+6 = "sobota"
+7 = "neděle"
+
+[days.stand-alone.abbreviated]
+1 = "po"
+2 = "út"
+3 = "st"
+4 = "čt"
+5 = "pá"
+6 = "so"
+7 = "ne"
+
+[days.stand-alone.narrow]
+1 = "P"
+2 = "Ú"
+3 = "S"
+4 = "Č"
+5 = "P"
+7 = "N"
+
+[months.format.wide]
+1 = "ledna"
+2 = "února"
+3 = "března"
+4 = "dubna"
+5 = "května"
+6 = "června"
+7 = "července"
+8 = "srpna"
+9 = "září"
+10 = "října"
+11 = "listopadu"
+12 = "prosince"
+
+[months.format.abbreviated]
+1 = "led"
+2 = "úno"
+3 = "bře"
+4 = "dub"
+5 = "kvě"
+6 = "čvn"
+7 = "čvc"
+8 = "srp"
+9 = "zář"
+10 = "říj"
+11 = "lis"
+12 = "pro"
+
+[months.stand-alone.wide]
+1 = "leden"
+2 = "únor"
+3 = "březen"
+4 = "duben"
+5 = "květen"
+6 = "červen"
+7 = "červenec"
+8 = "srpen"
+9 = "září"
+10 = "říjen"
+11 = "listopad"
+12 = "prosinec"
+
+[months.stand-alone.abbreviated]
+1 = "led"
+2 = "úno"
+3 = "bře"
+4 = "dub"
+5 = "kvě"
+6 = "čvn"
+7 = "čvc"
+8 = "srp"
+9 = "zář"
+10 = "říj"
+11 = "lis"
+12 = "pro"
+
+[patterns]
+full = "EEEE d. MMMM y"
+long = "d. MMMM y"
+medium = "d. M. y"
+short = "dd.MM.yy"
+

@@ -1,0 +1,11 @@
+[package]
+name = "typed-dsa"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Geronimo Castano"]
+license = "MIT"
+description = "Declarative data-structure diagrams (BST, AVL, linked lists, stacks, queues) with before/after operation transitions."
+repository = "https://github.com/GeronimoCastano/typed-dsa"
+keywords = ["data-structures", "algorithms", "diagrams", "trees", "education"]
+categories = ["visualization"]
+exclude = ["assets/readme/*.png"]

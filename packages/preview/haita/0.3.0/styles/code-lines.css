@@ -1,0 +1,25 @@
+pre {
+    counter-reset: line;
+    line-height: 1.5;
+    padding-left: 2rem;
+    position: relative;
+}
+
+pre code .line {
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+pre code .line::before {
+    counter-increment: line;
+    content: counter(line);
+    position: absolute;
+    left: -1.1428571em;
+    top: 0;
+    width: 2rem;
+    text-align: right;
+    padding-right: 0.45em;
+    line-height: inherit;
+    color: color-mix(in oklab, currentColor 50%, transparent);
+}

@@ -1,0 +1,1 @@
+#import "mcx.typ": mc-question, mc-answer, mc-questions, mc-gen-split-script

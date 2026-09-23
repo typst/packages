@@ -1,0 +1,25 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "basic-cv-with-photo"
+version = "0.2.10"
+entrypoint = "src/lib.typ"
+authors = ["Joel <@joelfischerr>"]
+license = "Unlicense"
+description = "A simple, standard cv, with an optional photo."
+repository = "https://github.com/joelfischerr/basic-typst-resume-template"
+keywords = ["cv", "resume", "ATS"]
+categories = ["cv"]
+exclude = [
+	".github",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	".git",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

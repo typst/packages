@@ -1,0 +1,30 @@
+[package]
+name = "xyzrender-rustyp"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Jonathan Di Pietro <https://github.com/jonathandip>"]
+license = "MIT"
+description = "Render XYZ molecular structures as publication-quality SVG graphics."
+repository = "https://github.com/Typsium/xyzrender-rustyp"
+keywords = ["chemistry", "molecule", "xyz", "svg", "molecular", "visualization"]
+categories  = ["visualization", "paper"]
+disciplines = ["education", "chemistry", "physics"]
+compiler = "0.15.0"
+exclude = [
+  "plugin",
+  "tests",
+  "gallery",
+  "examples",
+  ".github",
+  # Maintainer sources for manual.pdf / gallery/*.png — regenerated via
+  # `typst compile --root . manual.typ manual.pdf` and
+  # `typst compile --root . --input preset=<name> gallery_gen.typ
+  # gallery/caffeine_<name>.png`. Not needed by package consumers.
+  "manual.typ",
+  "gallery_gen.typ",
+  "branding",
+  # Kept in the repo (linked from README) but excluded from the downloaded
+  # bundle to keep it small — still viewable/linkable on Typst Universe.
+  # Matches CeTZ's precedent (packages/preview/cetz).
+  "manual.pdf",
+]
