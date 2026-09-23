@@ -210,12 +210,13 @@ Any contributions are welcome! Just fork the repository and make a pull request.
 Thanks to ObaulG for the idea and most of the work on the durations functions.
 
 ## Changelog
-*0.2.0* 
+**0.2.0**
 - the four basic operations now work in bases from 2 to 36
 - added option 'arrows' to division to show when digits are pulled down (thanks to Y.D.X. in https://forum.typst.app/t/how-to-draw-a-vertical-line-across-grid-cells/6384) and 'arrows-coef' to adjust the length or the arrows
 - renamed parameters to have them all in english (there was a weird mix of french and english ones) *breaking change*
 - added help-en and help-fr to get help in english or french (provided by tidy, like the manuals)
-*0.1.1* 
+
+**0.1.1**
 - Added addition-durees and soustractions-durees to work with durations
 - correction of an inconsistency in functions names
 - A few fixes/improvements
