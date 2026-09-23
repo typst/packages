@@ -1,4 +1,4 @@
-# Typst template for slide in TU Dresden's the corporate design :microphone:
+# Typst template for slide in TU Dresden's the corporate design :microphone: 
 
 This template can be used to create presentations in [Typst](https://github.com/typst/typst) with the corporate design of [TU Dresden](https://www.tu-dresden.de/).
 
