@@ -12,7 +12,14 @@ categories = ["report"]
 disciplines = ["engineering", "computer-science"]
 compiler = "0.12.0"
 exclude = [
+  ".git",
+  ".github",
+  ".vscode",
   "*.pdf",
+  "assets/preview-*.png",
+  "docs",
+  "examples",
+  "justfile",
 ]
 
 [template]
