@@ -145,11 +145,10 @@ let guides = {
           ),
         ),
         {
-          set block(above: .35em)
           context [#tud-short-title.get()]
-          parbreak()
+          linebreak()
           context [#tud-organizational-unit.get() / #tud-short-author.get()]
-          parbreak()
+          linebreak()
           context [#tud-location-occasion.get() \/\/ #tud-date.get().display(tud-date-format)]
         },
         context[
