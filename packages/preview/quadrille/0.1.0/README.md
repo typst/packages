@@ -15,7 +15,7 @@ Typst, with no dependencies.
 )
 ```
 
-![showcase](examples/showcase.png)
+![Four graphs made with quadrille: a parabola with named points and a line through two of them; a velocity-time lab graph with measured points, a fitted line and a shaded area; a triangle with a force vector; and tan x with 2 sin x on ticks in steps of pi/2.](examples/showcase.png)
 
 ## The rules
 
