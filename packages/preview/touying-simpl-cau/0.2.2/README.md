@@ -70,6 +70,7 @@ This package is maintained using:
 - [Typush](https://github.com/Vncntvx/typush) - for publishing to the Typst package registry.
 - [Typst Upgrade](https://github.com/Coekjan/typst-upgrade) - for upgrading Typst packages.
 
-## License
+## License & Trademark Notice
 
-Licensed under the [MIT License](LICENSE).
+- **Code & Templates**: Licensed under the [MIT License](LICENSE).
+- **University Logo Notice**: The China Agricultural University logo, shield and campus gate artwork (`assets/CAU_logo.svg`, `assets/CAU_shield.svg`, `assets/Gate.svg`, and preview images such as `thumbnail.png` that contain them) are intellectual property of **China Agricultural University (CAU)**. They are **not covered by the MIT License**. They are included exclusively for non-commercial, academic, and educational presentations, thesis defenses, and reports by China Agricultural University members, in accordance with the [CAU Visual Identity System management rules](https://www.cau.edu.cn/xxgk/whbz/sjsbxt/index.htm). All intellectual property and trademark rights are reserved by China Agricultural University (https://www.cau.edu.cn).
