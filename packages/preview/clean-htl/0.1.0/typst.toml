@@ -1,0 +1,16 @@
+[package]
+name = "clean-htl"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Gecko <@probablygecko>"]
+license = "MIT-0"
+description = "Clean class notes for HTL students."
+keywords = ["HTL", "Höhere Technische Lehranstalt", "Mitschrift", "notes", "Schule"]
+categories = ["report"]
+disciplines = ["education", "engineering"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
