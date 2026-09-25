@@ -153,7 +153,7 @@
     es: "Tema",
   ),
   unit: (
-    en: "Unidad",
-    es: "Unit",
+    en: "Unit",
+    es: "Unidad",
   ),
 )
