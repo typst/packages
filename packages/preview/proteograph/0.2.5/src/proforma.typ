@@ -342,6 +342,9 @@
     }
   }
 
+  let fmax = 20
+  if (count-y > fmax) { count-y = fmax }
+  if (count-b > fmax) { count-b = fmax }
   sum-int = sum-int * calc.fact(count-y)
   sum-int = sum-int * calc.fact(count-b)
 
