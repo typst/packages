@@ -1,6 +1,6 @@
 // Manuel du paquet profmaquette-minimal.
 
-#import "../src/lib.typ" as paquet
+#import "@preview/profmaquette-minimal:0.1.0" as paquet
 #import "@preview/gentle-clues:1.3.1": info, tip, warning, code, idea
 
 #let manifeste = toml("../typst.toml").package

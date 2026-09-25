@@ -9,8 +9,7 @@ les interrogations), et corrigés que l'on affiche — ou non — d'un seul rég
 📖 **[Manuel complet (PDF)](https://cdn.jsdelivr.net/gh/amjmeyer/profmaquette-minimal@main/docs/manuel.pdf)** : tous les réglages, un exemple et
 son rendu pour chacun.
 
-> [!NOTE]
-> profmaquette-minimal reprend seulement une petite partie des idées de
+> **Note :** profmaquette-minimal reprend seulement une petite partie des idées de
 > ProfMaquette, dont il s'inspire directement. Ses fonctionnalités sont **beaucoup plus limitées** que
 > celles de l'original, qui reste la référence. Ce paquet a d'abord été écrit pour
 > mon **usage personnel**. Il est partagé tel quel et **pourra évoluer**, y compris
@@ -87,7 +86,7 @@ Les icônes du dossier `src/icones/` sont des dessins de Font Awesome Free, sous
 licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) :
 *Font Awesome Free by @fontawesome — https://fontawesome.com*.
 
-```
+```text
 Copyright 2026 Arthur Meyer
 
 This work may be distributed and/or modified under the
