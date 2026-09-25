@@ -101,7 +101,7 @@ The template also supports project documentation for a Modularbeit. Use `modular
 )
 ```
 
-Modularbeiten do not include the thesis declaration, abstract, or blocking notice. Lists of abbreviations, figures, listings, and tables can be disabled individually with the corresponding `print-*` parameters. A complete example is available in [`examples/modularbeit.typ`](examples/modularbeit.typ).
+Modularbeiten do not include the thesis declaration, abstract, or blocking notice. Lists of abbreviations, figures, listings, and tables can be disabled individually with the corresponding `print-*` parameters. A complete example is available in `examples/modularbeit.typ` on [GitHub](https://github.com/fine-seat/hm-typst-template).
 
 The repository contains complete examples for both document types. Compile them from the `examples` directory with:
 
