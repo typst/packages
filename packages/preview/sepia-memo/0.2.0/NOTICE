@@ -1,27 +1,32 @@
-sepia-memo 0.1.0
+sepia-memo
 
 Adapted style: Foadsf/vintage-latex, Vintage LaTeX MWEs.
 Copyright (c) 2026 the repository contributors.
 Source: https://github.com/Foadsf/vintage-latex
 Revision: 559011918849a3da819912a7c26493071d542df5
 Examples: 01-early-modern-page.tex (page typography and printer's rule);
-15-fiziko-inclined-plane.tex (optional Garamond text/math font pairing only).
+15-fiziko-inclined-plane.tex (Garamond text/math font pairing only).
 License: CC-BY-SA-4.0
 https://creativecommons.org/licenses/by-sa/4.0/
 Full legal text: licenses/CC-BY-SA-4.0.txt
 
 Adaptation by Chen Gao, 2026:
 - Native Typst layout replaces the LaTeX implementation.
-- Libertinus Serif and New Computer Modern Math are the default fonts.
-- Garamond remains an optional user-selected font pair.
+- EB Garamond and Garamond-Math are the default fonts from version 0.2.0.
+- Libertinus Serif and New Computer Modern Math remain selectable alternatives.
 - Modern spelling, standard ligatures, and lining numerals replace the
   historical demonstration treatment; tables use tabular numerals.
 - Headings, research-memo metadata, and a height-reserving margin-note block
-  are added. Drop capitals and engraved figures are omitted.
+  are added. The starter enables a three-line drop capital from droplet.
+  Engraved figures remain outside the scope of this memo template.
 - Starter prose and illustrative measurements were written independently.
 
 No upstream demonstration prose, figures, font binaries, MetaPost, or fiziko
 code is distributed in this package. fiziko is a separate GPL-3.0 work and is
 not a dependency of sepia-memo.
+
+Starter dependency: droplet 0.3.1 by Eric Biedert, MIT License.
+Source: https://github.com/typst/packages/tree/main/packages/preview/droplet/0.3.1
+Imported from Typst Universe; no droplet source is copied into this package.
 
 No endorsement by the upstream project or its contributors is claimed.
