@@ -22,15 +22,19 @@ It currently defines functions to display MS2 annotated fragmentation spectra an
 
 [eXtracted Ion Current (XIC)](examples/xic_plot.typ)
 
-![Representation of an eXtracted Ion Current (XIC)](examples/xic_plot.svg "eXtracted Ion Current (XIC)")
+![Representation of an eXtracted Ion Current (XIC)](examples/xic_plot.png "eXtracted Ion Current (XIC)")
+
+[Total Ion Count (TIC)](examples/tic_plot.typ)
+
+![Representation of a total ion count chromatogram (TIC), with barplot of MS2 scans frequencies](examples/tic_plot.png "Total Ion Count (TIC)")
 
 [Retention time alignment between 2 MS runs](examples/rt_align.typ)
 
-![Retention time alignment delta between 2MS runs across the chromatography](examples/rt_align.svg "Retention time alignment")
+![Retention time alignment delta between 2MS runs across the chromatography](examples/rt_align.png "Retention time alignment")
 
 [Protein sequence diagram showing highlighted subsequences](examples/protein_diag.typ)
 
-![Representation of a protein sequence with highlighted segments](examples/protein_diag.svg "Protein sequence diagram")
+![Representation of a protein sequence with highlighted segments](examples/protein_diag.png "Protein sequence diagram")
 
 ## Documentation
 
