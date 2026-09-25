@@ -1,0 +1,16 @@
+[package]
+name = "profmaquette-minimal"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Arthur Meyer"]
+license = "LPPL-1.3c"
+description = "Build exercise sheets with selectable solutions"
+repository = "https://github.com/amjmeyer/profmaquette-minimal"
+keywords = [
+  "exercice", "exercise", "corrigé", "solution", "fiche", "worksheet",
+  "QR code", "ProfMaquette", "enseignement", "teaching",
+]
+categories = ["components", "office"]
+disciplines = ["education", "mathematics"]
+compiler = "0.13.0"
+exclude = ["docs/*", "examples/*.pdf", "tests/*", "tester.sh", "PUBLIER.md", "CHANGELOG.md"]
