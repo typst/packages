@@ -1,0 +1,17 @@
+[package]
+name = "faboxyst"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Draw coloured, titled boxes, frames and full-page covers."
+repository = "https://github.com/fergousA/faboxyst"
+compiler = "0.15.1"
+categories = ["components", "layout"]
+disciplines = ["education", "computer-science", "mathematics"]
+keywords = ["tcolorbox", "boxes", "frames", "callout", "rtl", "arabic", "fabox", "ornate", "zellij", "ornaments", "flag", "meter", "pictogram", "wood", "sign", "plank", "torn", "paper", "note"]
+exclude = [
+  "**/*.pdf",
+  "/FB_IMG_*",
+  "/showcase/gen.py",
+]
