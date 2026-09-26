@@ -1,0 +1,13 @@
+[package]
+name = "checkitoff"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["David Hajage <dhajage@gmail.com>"]
+description = "Reporting-guideline checklists (CONSORT, STROBE, SPIRIT...) filled automatically from labels anchored in the manuscript, with real page numbers from the same compilation."
+license = "MIT"
+keywords = ["consort", "strobe", "reporting guideline", "checklist", "manuscript"]
+compiler = "0.15.0"
+categories = ["office", "model"]
+repository = "https://github.com/eusebe/typst-checkitoff"
+homepage = "https://eusebe.github.io/typst-contexture-site/checkitoff/"
+exclude = ["tests", "CLAUDE.md", "readme-assets", "checklists/*.pdf", "checklists/*.docx", "*.pdf", "**/*.pdf", "**/*.png", ".gitignore", ".DS_Store"]
