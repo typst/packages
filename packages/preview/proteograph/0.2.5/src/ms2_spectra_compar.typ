@@ -118,10 +118,6 @@
   /// #parbreak() Example: ```js 30000```
   /// -> none | float
   max-intensity: none,
-  delta: none,
-  /// Whether to clip the matched ion masss delta to the plot. *Optional*.
-  /// -> bool
-  delta-fragments: false,
   charge-max: 1,
 ) = {
   let mass-array = get-mass-array-from-proforma(proforma)
@@ -198,7 +194,7 @@
     ion-series: ion-serie,
     mz-range: mz-range,
     max-intensity: max-intensity,
-    delta: delta,
-    delta-fragments: delta-fragments,
+    delta: none,
+    delta-fragments: false,
   )
 }

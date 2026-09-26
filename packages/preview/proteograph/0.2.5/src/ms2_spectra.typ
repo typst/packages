@@ -206,28 +206,27 @@
     },
 
     ..if (delta != none) { ms2spectra-delta-plot(delta).flatten() },
+
+    if (delta-fragments) {
+      lq.place(100%, 100% + 1em, align: top + right, lq.diagram(
+        width: width,
+        height: 1.5cm,
+        ylabel: [#sym.Delta ppm],
+        ylim: (-10, 10),
+        xlim: inside_xlim,
+        xaxis: none,
+
+        ..if (ion-series != none) {
+          ion-series
+            .pairs()
+            .map(((type, ion_arr)) => {
+              ms2spectra-ion-delta-plot(type, ion_arr)
+            })
+            .flatten()
+        },
+
+        lq.line(stroke: (paint: blue, dash: "dashed"), (0, 0), (100%, 0)),
+      ))
+    },
   )
-
-  if (delta-fragments) {
-    lq.diagram(
-      width: width,
-      height: 1.5cm,
-      margin: 0%,
-      ylabel: [#sym.Delta ppm],
-      ylim: (-10, 10),
-      xlim: inside_xlim,
-      xaxis: none,
-
-      ..if (ion-series != none) {
-        ion-series
-          .pairs()
-          .map(((type, ion_arr)) => {
-            ms2spectra-ion-delta-plot(type, ion_arr)
-          })
-          .flatten()
-      },
-
-      lq.line(stroke: (paint: blue, dash: "dashed"), (0, 0), (100%, 0)),
-    )
-  }
 }
