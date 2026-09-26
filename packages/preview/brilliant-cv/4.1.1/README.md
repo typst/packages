@@ -53,11 +53,11 @@ The same design across scripts — one profile per language, all from the same b
 |:---:|:---:|:---:|
 | ![English CV preview](https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/docs/previews/cv-en.png) | ![French CV preview](https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/docs/previews/cv-fr.png) | ![Chinese CV preview](https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/docs/previews/cv-zh.png) |
 
-_Previews are generated in CI from the live template (`just previews`) — see [`scripts/render_previews.sh`](scripts/render_previews.sh)._
+_Previews are generated in CI from the live template (`just previews`)._
 
 ## Contributing
 
-Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) to get started.
+Contributions are welcome — see the [project repository](https://github.com/yunanwg/brilliant-CV) for the contribution guide.
 
 ## Sponsors
 
