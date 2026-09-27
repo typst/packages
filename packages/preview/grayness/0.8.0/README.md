@@ -12,18 +12,18 @@ The package name is inspired by the blurry, gray images of Nessie, the [Loch Nes
 Due to the way Typst interprets given paths, you cannot specify the path to a file as string directly. Instead, you have to either read the images yourself in the calling Typst file or provide the direction to the file with the path-type. This imagedata can then be passed to the grayness-package functions, like `image-grayscale()`. These functions also optionally accept all additional parameters of the original Typst image function like `width` or `height`:
 
 ```typst
-#import "@preview/grayness:0.7.0": image-grayscale
+#import "@preview/grayness:0.8.0": image-grayscale
 
 #let data = path("Arturo_Nieto-Dorantes.webp")
 #image-grayscale(data, width: 50%)
 ```
 
-A detailed descriptions of all available functions is provided in the [manual](manual.pdf).
+A detailed descriptions of all available functions is provided in the [manual](manual/manual.pdf).
 
 You can also use the built-in help functions provided by tidy:
 
 ```typst
-#import "@preview/grayness:0.7.0": *
+#import "@preview/grayness:0.8.0": *
 #help("image-flip-vertical")
 ```
 
@@ -37,7 +37,7 @@ All functions except `image-mask()` and `image-infos()` also work with SVG image
 ## Examples
 
 Here are several functions applied to a WEBP image of [Arturo Nieto Dorantes](https://commons.wikimedia.org/wiki/File:Arturo_Nieto-Dorantes.webp) (CC-By-SA 4.0):
-![Example image manipulations](example.png)
+![Example image manipulations](examples/example.png)
 
 ## Limitations
 

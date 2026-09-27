@@ -21,6 +21,7 @@ limitations under the License.
 /// - `svg_grayscale(image_bytes)`
 /// - `convert(image_bytes)`
 /// - `mask(target_image_bytes, mask_image_bytes, use_alpha)`
+/// - `svg_mask(target_image_bytes, mask_image_bytes)`
 /// - `crop(image_bytes, start_x, start_y, width, height)`
 /// - `svg_crop(image_bytes, start_x, start_y, width, height)`
 /// - `blur(image_bytes, sigma)`
@@ -35,11 +36,14 @@ limitations under the License.
 /// - `svg_huerotate(image_bytes, amount)`
 /// - `matrix(imagebytes, m00, m01, m02, m03, m04, m10, m11, m12, m13, m14, m20, m21, m22, m23, m24, m30, m31, m32, m33, m34)`
 /// - `svg_matrix(imagebytes, m00, m01, m02, m03, m04, m10, m11, m12, m13, m14, m20, m21, m22, m23, m24, m30, m31, m32, m33, m34)`
+/// - `infos(imagebytes)`
+/// - `svg_infos(imagebytes)`
 /// - `decode(imagebytes)`
 ///
+/// #colbreak()
 ///    _Raster Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": plg
+/// #import "@preview/grayness:0.8.0": plg
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #let grayscaled-bytes = plg.grayscale(arturo)
 /// #let blurred-and-grayscaled = plg.blur(grayscaled-bytes,float(5).to-bytes(size: 4))
@@ -47,7 +51,7 @@ limitations under the License.
 /// ```
 ///    _Vector Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": plg
+/// #import "@preview/grayness:0.8.0": plg
 /// <<<#let gallardo = read("gallardo.svg", encoding: none)
 /// #let grayscaled-bytes = plg.svg_grayscale(gallardo)
 /// #let blurred-and-grayscaled = plg.svg_blur(grayscaled-bytes,float(40).to-bytes(size: 4))
@@ -59,7 +63,7 @@ limitations under the License.
 ///
 ///  _Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-grayscale(arturo)
 /// ```
@@ -75,7 +79,7 @@ limitations under the License.
   ///
   /// _Example:_
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-grayscale(gallardo, format:"svg", width:4cm, alt:"Lamborghini Gallardo")
   /// ```
@@ -99,7 +103,7 @@ limitations under the License.
 ///
 ///  _Example:_
 ///	 ```example
-///  #import "@preview/grayness:0.7.0": *
+///  #import "@preview/grayness:0.8.0": *
 ///  <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 ///  #image-show(arturo)
 ///  ```
@@ -115,7 +119,7 @@ limitations under the License.
   ///
   /// _Example:_
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-show(gallardo, format:"svg", width:2cm, alt:"Lamborghini Gallardo")
   /// ```
@@ -138,7 +142,7 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-crop(
 /// 	arturo,
@@ -172,7 +176,7 @@ limitations under the License.
   ///
   /// _Example:_
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let gallardo = path("gallardo.svg")
   /// #image-crop(
   ///  gallardo,
@@ -221,7 +225,7 @@ limitations under the License.
 /// _Example:_
 ///
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let gallardo = read("gallardo.svg")
 /// #image-flip-horizontal(gallardo, format:"svg")
 /// ```
@@ -249,7 +253,7 @@ limitations under the License.
 /// _Example:_
 ///
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let gallardo = read("gallardo.svg")
 /// #image-flip-vertical(gallardo, format:"svg")
 /// ```
@@ -266,7 +270,7 @@ limitations under the License.
 /// _Warning:_ This operation is slow, especially for large sigmas.
 ///
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 /// #image-blur(arturo, sigma:3.14)
 /// ```
@@ -280,7 +284,7 @@ limitations under the License.
   /// A measure of how much to blur by (standard deviation)
   ///
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
   /// #image-blur(arturo, sigma:6.28)
   /// ```
@@ -291,7 +295,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-blur(gallardo, sigma: 40, format: "svg")
   /// ```
@@ -315,7 +319,7 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// //Place rectangle in background to demonstrate transparency
 /// #place(top+center, dx:-3cm)[#rect(fill:blue, width:4cm, height:100%)]
 /// //Add image over rectangle
@@ -333,7 +337,7 @@ limitations under the License.
   ///	0% = fully transparent, 100% = fully opaque
   ///
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// //Place rectangle in background to demonstrate transparency
   /// #place(top+center, dx:-3cm)[#rect(fill:blue, width:4cm, height:100%)]
   /// <<<#let gallardo = read("gallardo.svg")
@@ -366,7 +370,7 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-brighten(arturo, amount:50%)
 /// ```
@@ -403,7 +407,7 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 /// #image-darken(arturo, amount:50%)
 /// ```
@@ -421,7 +425,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   ///  ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-darken(gallardo, amount:50%, format:"svg")
   /// ```
@@ -441,7 +445,7 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-invert(arturo)
 /// ```
@@ -455,7 +459,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-invert(gallardo, format:"svg")
   /// ```
@@ -485,7 +489,7 @@ limitations under the License.
 /// ```
 ///
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 /// #let matrix = (
 ///   (0.5, 0.0, 0.0, 0.0, 0.5),
@@ -517,7 +521,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #let matrix = (
   ///   (0.5, 0.0, 0.0, 0.0, 0.5),
@@ -622,7 +626,7 @@ limitations under the License.
 ///
 /// _Example:_
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// #image-huerotate(arturo, amount:100)
 /// ```
@@ -640,7 +644,7 @@ limitations under the License.
   ///
   /// You must pass `format:"svg"` as argument if you use a SVG-image as your input.
   /// ```example
-  /// #import "@preview/grayness:0.7.0": *
+  /// #import "@preview/grayness:0.8.0": *
   /// <<<#let gallardo = read("gallardo.svg")
   /// #image-huerotate(gallardo, amount:100, format:"svg")
   /// ```
@@ -665,7 +669,7 @@ limitations under the License.
 ///
 ///*This function does not work with SVG data.*
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
+/// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 /// <<<#let mask = read("mask.png", encoding:none)
 /// #image-mask(arturo, mask)
@@ -702,30 +706,46 @@ limitations under the License.
   image(plg.mask(imagebytes, maskbytes, alpha), ..args)
 }
 
-/// Gets the images dimensions (in pixels) and its format as string
+/// Gets the images dimensions and its format as string
+/// The dimensions are given in pixels for raster images.
+/// For SVG, the width, height and viewBox for the toplevel SVG Element
+/// are returned if present in the original. They should include units if the
+/// file adheres to the SVG 2.0 standard.
 ///
-///*This function does not work with SVG data.*
 /// ```example
-/// #import "@preview/grayness:0.7.0": *
-/// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
-/// #let infos = image-infos(arturo)
+/// #import "@preview/grayness:0.8.0": *
+/// <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
+/// <<<#let gallardo = path("Arturo_Nieto-Dorantes.webp")
+/// #let infos_a = image-infos(arturo)
+/// #let infos_g = image-infos(gallardo, format:"svg")
 ///
-/// Width: #infos.width, Height: #infos.height, Format: #infos.format
+/// Width: #infos_a.width, Height: #infos_a.height, Format: #infos_a.format\
+/// Width: #infos_g.width, Height: #infos_g.height, Viewbox: #infos_g.viewBox
 /// ```
 /// -> dictionary
 #let image-infos(
   /// Raw imagedata, e.g. provided by the `read()` function or a path to a file
   /// -> bytes | path
   imagedata,
+  ..args,
 ) = {
+  if args.named().keys().contains("format") and type(args.named().format) == dictionary {
+    panic("format-dictionary is not supported")
+  }
   let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
     imagedata
   } else { panic("imagedata must be raw bytes or given as path") }
-  let infos = plg.infos(imagebytes)
-  let width = int.from-bytes(infos.slice(0, count: 4))
-  let height = int.from-bytes(infos.slice(4, count: 4))
-  let format = str(infos.slice(8))
-  (width: width, height: height, format: format)
+
+  if args.named().keys().contains("format") and args.named().format == "svg" {
+    let infos = cbor(plg.svg_infos(imagebytes))
+    (width: infos.w, height: infos.h, viewBox: infos.viewBox, format: "svg")
+  } else {
+    let infos = plg.infos(imagebytes)
+    let width = int.from-bytes(infos.slice(0, count: 4))
+    let height = int.from-bytes(infos.slice(4, count: 4))
+    let format = str(infos.slice(8))
+    (width: width, height: height, format: format)
+  }
 }
 
 #let help(..args) = {
