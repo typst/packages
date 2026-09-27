@@ -246,7 +246,6 @@ for example:
     student-name: (style: "normal", upper: true),
   ),
   labels: (students: [Oleh]),
-  ..
 )
 ```
 
@@ -537,7 +536,7 @@ the error message lists the missing ones.
 
 Bug reports and requests for campus rules jilid does not support yet are
 welcome as [GitHub issues](https://github.com/shuretokki/jilid/issues). See
-[CONTRIBUTING.md](https://github.com/shuretokki/jilid/blob/main/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/shuretokki/jilid/blob/v0.1.0/CONTRIBUTING.md)
 for development.
 
 ## License

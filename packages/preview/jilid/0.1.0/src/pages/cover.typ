@@ -29,8 +29,8 @@
   ]
 
   // a grid filled column by column.
-  // id-pos "right": name and id side by side.
-  // id-pos "below": id under the name in one cell.
+  // id-pos "right", name and id side by side.
+  // id-pos "below", id under the name in one cell.
   let students(cols) = if it.students.len() == 0 { none } else {
     let list = it.students
     let beside = c.student-id-pos == "right"
@@ -46,7 +46,7 @@
         ]
       }
     })
-    // space the label and rows like the lecturer lines.
+
     context stack(
       spacing: par.leading,
       styled(c.label, t.students),
