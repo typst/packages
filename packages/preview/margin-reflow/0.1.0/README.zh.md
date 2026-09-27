@@ -1,7 +1,7 @@
 # margin-reflow
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![手册](https://img.shields.io/badge/manual-Chinese%20%7C%20English-purple)](doc/manual-zh.pdf)
+[![手册](https://img.shields.io/badge/manual-Chinese%20%7C%20English-purple)](https://raw.githubusercontent.com/sses7757/typst-margin-reflow/main/doc/manual-zh.pdf)
 
 在页面中途把内容重排到新的页边距。
 
@@ -137,8 +137,8 @@
 
 ## 文档
 
-- [手册（中文）](doc/manual-zh.pdf)
-- [Manual (English)](doc/manual.pdf)
+- [手册（中文）](https://raw.githubusercontent.com/sses7757/typst-margin-reflow/main/doc/manual-zh.pdf)
+- [Manual (English)](https://raw.githubusercontent.com/sses7757/typst-margin-reflow/main/doc/manual.pdf)
 - [README (English)](README.md)
 
 手册中的示例以小页面渲染，并带有边界辅助线：*蓝色*虚线标记对称内容边界，*橙色*虚线

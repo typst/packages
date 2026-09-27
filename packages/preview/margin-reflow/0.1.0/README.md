@@ -1,7 +1,7 @@
 # margin-reflow
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Manual](https://img.shields.io/badge/manual-English%20%7C%20Chinese-purple)](doc/manual.pdf)
+[![Manual](https://img.shields.io/badge/manual-English%20%7C%20Chinese-purple)](https://raw.githubusercontent.com/sses7757/typst-margin-reflow/main/doc/manual.pdf)
 
 Reflow content into new margins in the middle of a page.
 
@@ -155,8 +155,8 @@ reflowed content.
 
 ## Documentation
 
-- [Manual (English)](doc/manual.pdf)
-- [手册（中文）](doc/manual-zh.pdf)
+- [Manual (English)](https://raw.githubusercontent.com/sses7757/typst-margin-reflow/main/doc/manual.pdf)
+- [手册（中文）](https://raw.githubusercontent.com/sses7757/typst-margin-reflow/main/doc/manual-zh.pdf)
 - [README（中文）](README.zh.md)
 
 The examples in the manuals are rendered on small pages with boundary guide
