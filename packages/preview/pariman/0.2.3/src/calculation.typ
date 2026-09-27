@@ -5,7 +5,7 @@
 #let neg(
   q,
   method: q => {
-    $-$ + if q.source == "add" { $(#q.method)$ } else { q.method }
+    $-$ + if { { q.source in ("add", "sub") } or { q.value < 0 } } { $(#q.method)$ } else { q.method }
   },
   error-method: q => q.error-method,
   ..formatting,
@@ -66,8 +66,9 @@
   q1,
   q2,
   method: (q1, q2) => {
-    if q1.source in ("sub", "add") { q1.method = $(#q1.method)$ }
-    if q2.source in ("sub", "add") { q2.method = $(#q2.method)$ }
+    let cond(q) = q.source in ("sub", "add")
+    if cond(q1) { q1.method = $(#q1.method)$ }
+    if cond(q2) or q2.value < 0 { q2.method = $(#q2.method)$ }
     $#q1.method - #q2.method$
   },
   error-method: (q1, q2) => conv.rss-method(q1.error-method, q2.error-method),
@@ -207,7 +208,7 @@
   let new-unit
   let new-figures = q1.figures
   assert(u2 == (), message: "The exponent must be dimensionless.")
-if type(v2) == int or int(v2) == v2{
+  if type(v2) == int or int(v2) == v2 {
     new-value = calc.pow(v1, v2)
     new-unit = power-unit(..u1, v2)
   } else {
@@ -394,7 +395,7 @@ if type(v2) == int or int(v2) == v2{
       new-func,
     ),
     origin: init,
-    ..formatting
+    ..formatting,
   )
 }
 
