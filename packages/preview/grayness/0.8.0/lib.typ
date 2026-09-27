@@ -755,10 +755,10 @@ limitations under the License.
     let infos = cbor(plg.svg_infos(imagebytes))
     (width: infos.w, height: infos.h, viewBox: infos.viewBox, format: "svg")
   } else {
-    let infos = plg.infos(imagebytes)
-    let width = int.from-bytes(infos.slice(0, count: 4))
-    let height = int.from-bytes(infos.slice(4, count: 4))
-    let format = str(infos.slice(8))
+    let infos = cbor(plg.infos(imagebytes))
+    let width = infos.w
+    let height = infos.h
+    let format = infos.f
     (width: width, height: height, format: format)
   }
 }
