@@ -105,10 +105,14 @@ Mask with alpha:
 #let mask = read("mask.png", encoding: none)
 #image-mask(data, mask, use-alpha-channel: true)
 
+#image-mask(data2, mask, format: "svg")
+
 #colbreak()
 
 Mask with brightness:
 #image-mask(data, mask, use-alpha-channel: false)
+
+_(has no effect on SVG images)_
 
 #colbreak()
 Matrix Modifications:
@@ -119,6 +123,7 @@ Matrix Modifications:
   (0.0, 0.0, 0.0, 1.0, 0.0),
 )
 #image-matrix(data, matrix)
+#image-matrix(data2, matrix, format: "svg")
 
 #colbreak()
 Infos & Decode:
