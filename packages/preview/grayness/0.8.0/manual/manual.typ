@@ -4,7 +4,6 @@
 #[
   #show link: underline.with(stroke: blue)
   = Grayness
-
   #sym.copyright 2024 -- 2026 Nikolai Neff-Sarnow, Licensed under the #link("http://www.apache.org/licenses/LICENSE-2.0")[Apache License, Version 2.0]\
   Version #toml("../typst.toml").package.version, #datetime.today().display()
 
@@ -64,3 +63,5 @@
   gallardo: gallardo,
 ))
 #tidy.show-module(docs, sort-functions: none, first-heading-level: 1)
+
+The wasm plugin has its own version numer which can be queried using `#str(plg.plugin_version())`. The current plugin version is #str(plg.plugin_version())
