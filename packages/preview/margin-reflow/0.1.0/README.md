@@ -144,6 +144,15 @@ reflowed content.
   manually, so use the `footnote-entry` parameter if a package restyles
   `footnote.entry`.
 
+- **Margin-note packages** (e.g. `marginalia`, a common combination): because the
+  flow functions manage the page and change `page.margin` mid-page, do *not* wrap
+  the output of a flow function in `marginalia.wideblock`, and do *not* use
+  `marginalia.wideblock`/`marginalia.header` for headers or footers. Instead,
+  align the header/footer from `page.margin` so that they follow the margins the
+  flow sets (the manual shows a minimal example). An *empty*
+  `marginalia.wideblock` may still be used to keep margin notes from overflowing
+  into the body text.
+
 ## Documentation
 
 - [Manual (English)](doc/manual.pdf)

@@ -129,6 +129,12 @@
   包通常可以使用。脚注是手动排版的，如果某个包重设了 `footnote.entry`，请改用
   `footnote-entry` 参数。
 
+- **旁注包**（例如常见的 `marginalia` 组合）：由于重排函数接管了页面并在页面中途修改
+  `page.margin`，*不要*把本包函数的输出包在 `marginalia.wideblock` 中，*也不要*用
+  `marginalia.wideblock`/`marginalia.header` 来排版页眉页脚；应直接依据
+  `page.margin` 对齐页眉页脚，使其跟随本包设置的页边距（手册中有最简示例）。仍可用
+  一个*空的* `marginalia.wideblock` 来避免旁注溢出到正文。
+
 ## 文档
 
 - [手册（中文）](doc/manual-zh.pdf)
