@@ -8,13 +8,5 @@ authors = ["Nikolai Neff-Sarnow"]
 license = "Apache-2.0"
 description = "Simple image editing capabilities like converting to grayscale and cropping via a WASM plugin."
 categories = ["visualization", "integration", "utility"]
-keywords = [
-  "grayscale",
-  "image",
-  "transparency",
-  "blur",
-  "wasm",
-  "crop",
-  "mask",
-]
+keywords = ["grayscale", "image", "transparency", "blur", "wasm", "crop", "mask", "color", "matrix"]
 exclude = ["examples/*", "manual/*"]

@@ -2,14 +2,14 @@
 
 A package providing simple image editing capabilities via a WASM plugin.
 
-Available functionality includes converting images to grayscale, cropping and flipping the images.
-Furthermore, this package supports adding transparency and bluring (very slow) as well as handling additional raster image formats.
+Available functionality includes converting images to grayscale, cropping, applying color transforms (as matrix or hue-rotation).
+Furthermore, this package supports adding transparency and bluring (very slow) as well as handling additional raster image formats and getting image dimensions.
 
 The package name is inspired by the blurry, gray images of Nessie, the [Loch Ness Monster](https://en.wikipedia.org/wiki/Loch_Ness_Monster)
 
 ## Usage
 
-Due to the way Typst interprets given paths, you cannot specify the path to a file as string directly. Instead, you have to either read the images yourself in the calling Typst file or provide the direction to the file with the path-type. This imagedata can then be passed to the grayness-package functions, like `image-grayscale()`. These functions also optionally accept all additional parameters of the original Typst image function like `width` or `height`:
+Due to the way Typst interprets given paths, you cannot specify the path to a file as string directly. Instead, you have to either read the images yourself in the calling Typst file or provide the direction to the file with the path-type (using typst 0.15 or later). This imagedata can then be passed to the grayness-package functions, like `image-grayscale()`. These functions also optionally accept all additional parameters of the original Typst image function like `width` or `height`:
 
 ```typst
 #import "@preview/grayness:0.8.0": image-grayscale
@@ -18,26 +18,16 @@ Due to the way Typst interprets given paths, you cannot specify the path to a fi
 #image-grayscale(data, width: 50%)
 ```
 
-A detailed descriptions of all available functions is provided in the [manual](manual/manual.pdf).
-
-You can also use the built-in help functions provided by tidy:
-
 ```typst
-#import "@preview/grayness:0.8.0": *
-#help("image-flip-vertical")
-```
-
-All functions except `image-mask()` and `image-infos()` also work with SVG images. To do so you must specify the format as `"svg"`:
-
-```typst
-#let data = read("gallardo.svg", encoding: none)
-#image-grayscale(data, format: "svg")
+#let data = path("gallardo.svg")
+#image-grayscale(data)
 ```
 
 ## Examples
 
 Here are several functions applied to a WEBP image of [Arturo Nieto Dorantes](https://commons.wikimedia.org/wiki/File:Arturo_Nieto-Dorantes.webp) (CC-By-SA 4.0):
-![Example image manipulations](examples/example.png)
+![Example image manipulations](examples/example.png), more functions are shown in [the example PDF](exaples/examples.pdf).
+A detailed descriptions of all available functions is provided in the [manual](manual/manual.pdf).
 
 ## Limitations
 

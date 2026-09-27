@@ -7,10 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.8.0] unreleased
 
+### Added
+
+- `image-mask()` and `image-infos()` now also work with SVG images
+
 ### Changed
 
-- Updated to require Typst 0.15
-- All functions now also accept `path` in addition to `bytes` as input data
+- Require Typst 0.15
+- Specifying `format:"svg"` is no longer required for SVG images since they are autodetected
+- Restructured code for better maintainability
+
+## [0.7.0] 2026-06-24
+
+### Changed
+
+- All functions now also accept path in addition to bytes as input data on Typst 0.15 or later
 
 ## [0.6.0] 2026-03-22
 

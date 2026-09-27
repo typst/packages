@@ -130,12 +130,16 @@ Infos & Decode:
 #let sml = read("smol.png", encoding: none)
 #let bytedata = plg.decode(sml)
 #let infos = image-infos(sml)
-
-Width: #infos.width, Height: #infos.height, Format: #infos.format
-
 #image(
   bytedata,
   format: (encoding: "rgba8", width: infos.width, height: infos.height),
   width: 100%,
   scaling: "pixelated",
 )
+Width: #infos.width, Height: #infos.height, Format: #infos.format
+
+#colbreak()
+Combining operations:
+#let b = plg.blur(data, float(8).to-bytes(size: 4))
+#image(plg.invert(b))
+
