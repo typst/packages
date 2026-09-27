@@ -1,0 +1,17 @@
+[package]
+name = "zhaji"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Boshugege <https://github.com/Boshugege>"]
+license = "MIT"
+description = "Clean, restrained academic lecture notes and book template."
+repository = "https://github.com/Boshugege/typst-zhaji"
+keywords = ["zhaji", "lecture-notes", "chinese", "math", "book"]
+categories = ["book", "components"]
+compiler = "0.11.0"
+exclude = [".gitignore", ".github"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,11 @@
+{
+    "name": "timeline",
+    "description": "Create vertical and horizontal timelines for events and milestones",
+    "dependencies": [],
+    "exports": [
+        "event",
+        "timeline",
+        "draw-timeline",
+        "timeline-figure"
+    ]
+}

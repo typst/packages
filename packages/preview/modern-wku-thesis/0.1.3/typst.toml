@@ -1,0 +1,17 @@
+[package]
+name = "modern-wku-thesis"
+version = "0.1.3"
+entrypoint = "src/lib.typ"
+authors = ["Timmycheng"]
+license = "MIT"
+description = "Graduate thesis template at Wenzhou-Kean University Computer Science and Mathematics department."
+repository = "https://github.com/timmycheng/modern-wku-thesis"
+keywords = ["thesis", "template", "university", "academic", "wku"]
+categories = ["thesis"]
+disciplines = ["computer-science", "mathematics"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

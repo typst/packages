@@ -14,6 +14,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+/// Internal function to accept bytes and paths on Typst 0.15 or later
+/// -> bytes
+#let _check_args(
+  /// -> bytes | path
+  imagedata,
+) = {
+  if type(imagedata) == path {
+    if sys.version < version(0, 15, 0) {
+      panic("Using path as argument requires Typst 0.15 or later, use bytes instead on earlier versions.")
+    }
+    read(imagedata, encoding: none)
+  } else if type(imagedata) == bytes {
+    imagedata
+  } else { panic("imagedata must be raw bytes or given as path") }
+}
+
+
 /// Provides direct access to the webassebmly functions, which can be used to chain several operations after oneanother.
 /// The available methods are:
 ///
@@ -84,9 +101,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_grayscale(imagebytes), ..args)
   } else {
@@ -124,9 +139,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(imagebytes, ..args)
   } else {
@@ -189,9 +202,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(
       plg.svg_crop(
@@ -239,9 +250,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   scale(x: -100%, image-show(imagebytes, ..args))
 }
 
@@ -300,9 +309,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_blur(imagebytes, float(sigma).to-bytes(size: 4)), ..args)
   } else {
@@ -350,9 +357,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if args.named().keys().contains("format") and args.named().format == "svg" {
     let ratio = float(alpha).to-bytes(size: 4)
     image(plg.svg_transparency(imagebytes, ratio), ..args)
@@ -389,9 +394,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_brighten(imagebytes, float(amount).to-bytes(size: 4)), ..args)
   } else {
@@ -431,9 +434,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   image-brighten(imagebytes, amount: -amount, ..args)
 }
 
@@ -465,9 +466,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_invert(imagebytes), ..args)
   } else {
@@ -530,9 +529,7 @@ limitations under the License.
   /// -> arguments
   ..args,
 ) = {
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if matrix.len() != 4 { panic("matrix must be 5x4") }
   for i in range(0, 4) {
     if matrix.at(i).len() != 5 { panic("matrix must be 5x4") }
@@ -650,9 +647,7 @@ limitations under the License.
   if args.named().keys().contains("format") and type(args.named().format) == dictionary {
     panic("format-dictionary is not supported")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   if args.named().keys().contains("format") and args.named().format == "svg" {
     image(plg.svg_huerotate(imagebytes, float(amount).to-bytes(size: 4)), ..args)
   } else {
@@ -691,12 +686,8 @@ limitations under the License.
   if args.named().keys().contains("format") and args.named().format == "svg" {
     panic("The image-mask() function does not work with SVG-Data")
   }
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
-  let maskbytes = if type(maskdata) == path { read(maskdata, encoding: none) } else if type(maskdata) == bytes {
-    maskdata
-  } else { panic("maskdata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
+  let maskbytes = _check_args(maskdata)
   let alpha = 1.to-bytes()
   if not use-alpha-channel { alpha = 0.to-bytes() }
   image(plg.mask(imagebytes, maskbytes, alpha), ..args)
@@ -718,9 +709,7 @@ limitations under the License.
   /// -> bytes | path
   imagedata,
 ) = {
-  let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
-    imagedata
-  } else { panic("imagedata must be raw bytes or given as path") }
+  let imagebytes = _check_args(imagedata)
   let infos = plg.infos(imagebytes)
   let width = int.from-bytes(infos.slice(0, count: 4))
   let height = int.from-bytes(infos.slice(4, count: 4))

@@ -1,0 +1,28 @@
+[package]
+name = "pivot"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["cybermallard <cybermallard@ttp.dev>"]
+license = "Apache-2.0"
+description = "Draw diagrams for Cyber Threat Intelligence (CTI) analysis."
+
+repository = "https://github.com/cybermallard/typst-pivot"
+
+keywords = ["cti", "threat-intelligence", "cybersecurity", "security", "protocol", "packet", "struct", "hexdump", "timeline", "flowchart"]
+categories = ["visualization"]
+
+# Minimum Typst version. CeTZ 0.5.2 requires >= 0.14.0, and the test runner
+# tytanic 0.3.4 embeds Typst 0.14.2 (it compiles the visual-regression
+# references), so the toolchain is pinned to 0.14.x. Floor is 0.14.0; CI pins
+# Typst 0.14.2 to match tytanic. (Revisit when a tytanic on Typst 0.15 ships.)
+compiler = "0.14.0"
+
+# Keep the published bundle lean. Never exclude README/LICENSE/NOTICE.
+# manual.pdf is a GitHub release asset, not bundle weight.
+exclude = [
+  "tests",
+  "examples",
+  "docs",
+  ".github",
+  "scripts",
+]

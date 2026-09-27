@@ -1,0 +1,12 @@
+[package]
+name = "baler"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = [ "Yana Zhabura <yana.zhabura@gmail.com>" ]
+license = "MPL-2.0"
+description = "Dynamically balance column sizes of grids and tables."
+repository = "https://github.com/yana-zhabura/baler.git"
+keywords = [ "table", "grid", "balanced" ]
+categories = [ "layout" ]
+disciplines = [ ]
+exclude = [ "example1.svg", "example2.svg" ]

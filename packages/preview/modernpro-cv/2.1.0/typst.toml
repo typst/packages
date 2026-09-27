@@ -1,0 +1,15 @@
+[package]
+name = "modernpro-cv"
+version = "2.1.0"
+entrypoint = "modernpro-cv.typ"
+authors = [ "Academic Template Collective",]
+license = "MIT"
+description = "A clean, modern CV template for academic and professional applications."
+keywords = [ "cv", "resume", "academic",]
+categories = [ "cv",]
+exclude = [ "/screenshots/", "/CHANGELOG.md",]
+
+[template]
+path = "template"
+entrypoint = "cv-single.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,10 @@
+# Validation entry point for standalone PreFigure source.
+# A diagram may be authored in no namespace or entirely in the
+# PreFigure namespace (for xi:inclusion in a PreTeXt document).
+# pf_schema.rnc stays namespace-free so it can be copied verbatim
+# to the pretext repository, whose own adapter supplies the namespace.
+
+namespace pf = "https://prefigure.org"
+
+start = external "pf_schema.rnc"
+      | external "pf_schema.rnc" inherit = pf

@@ -58,9 +58,12 @@
 #let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
 #let gallardo = read("gallardo.svg", encoding: none)
 
-#let docs = tidy.parse-module(read("lib.typ"), scope: (
-  mask: mask,
-  arturo: arturo,
-  gallardo: gallardo,
-))
-#tidy.show-module(docs, sort-functions: none, first-heading-level: 1)
+#let docs = tidy.parse-module(
+  read("lib.typ"),
+  scope: (
+    mask: mask,
+    arturo: arturo,
+    gallardo: gallardo,
+  ),
+)
+#tidy.show-module(docs, sort-functions: none, first-heading-level: 1, omit-private-definitions: true)

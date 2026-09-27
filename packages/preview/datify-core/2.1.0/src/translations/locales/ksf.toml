@@ -1,0 +1,116 @@
+[days.format.wide]
+1 = "lǝndí"
+2 = "maadí"
+3 = "mɛkrɛdí"
+4 = "jǝǝdí"
+5 = "júmbá"
+6 = "samdí"
+7 = "sɔ́ndǝ"
+
+[days.format.abbreviated]
+1 = "lǝn"
+2 = "maa"
+3 = "mɛk"
+4 = "jǝǝ"
+5 = "júm"
+6 = "sam"
+7 = "sɔ́n"
+
+[days.format.narrow]
+1 = "l"
+2 = "m"
+3 = "m"
+4 = "j"
+5 = "j"
+6 = "s"
+7 = "s"
+
+[days.stand-alone.wide]
+1 = "lǝndí"
+2 = "maadí"
+3 = "mɛkrɛdí"
+4 = "jǝǝdí"
+5 = "júmbá"
+6 = "samdí"
+7 = "sɔ́ndǝ"
+
+[days.stand-alone.abbreviated]
+1 = "lǝn"
+2 = "maa"
+3 = "mɛk"
+4 = "jǝǝ"
+5 = "júm"
+6 = "sam"
+7 = "sɔ́n"
+
+[days.stand-alone.narrow]
+1 = "l"
+2 = "m"
+3 = "m"
+4 = "j"
+5 = "j"
+6 = "s"
+7 = "s"
+
+[months.format.wide]
+1 = "ŋwíí a ntɔ́ntɔ"
+2 = "ŋwíí akǝ bɛ́ɛ"
+3 = "ŋwíí akǝ ráá"
+4 = "ŋwíí akǝ nin"
+5 = "ŋwíí akǝ táan"
+6 = "ŋwíí akǝ táafɔk"
+7 = "ŋwíí akǝ táabɛɛ"
+8 = "ŋwíí akǝ táaraa"
+9 = "ŋwíí akǝ táanin"
+10 = "ŋwíí akǝ ntɛk"
+11 = "ŋwíí akǝ ntɛk di bɔ́k"
+12 = "ŋwíí akǝ ntɛk di bɛ́ɛ"
+
+[months.format.abbreviated]
+1 = "ŋ1"
+2 = "ŋ2"
+3 = "ŋ3"
+4 = "ŋ4"
+5 = "ŋ5"
+6 = "ŋ6"
+7 = "ŋ7"
+8 = "ŋ8"
+9 = "ŋ9"
+10 = "ŋ10"
+11 = "ŋ11"
+12 = "ŋ12"
+
+[months.stand-alone.wide]
+1 = "ŋwíí a ntɔ́ntɔ"
+2 = "ŋwíí akǝ bɛ́ɛ"
+3 = "ŋwíí akǝ ráá"
+4 = "ŋwíí akǝ nin"
+5 = "ŋwíí akǝ táan"
+6 = "ŋwíí akǝ táafɔk"
+7 = "ŋwíí akǝ táabɛɛ"
+8 = "ŋwíí akǝ táaraa"
+9 = "ŋwíí akǝ táanin"
+10 = "ŋwíí akǝ ntɛk"
+11 = "ŋwíí akǝ ntɛk di bɔ́k"
+12 = "ŋwíí akǝ ntɛk di bɛ́ɛ"
+
+[months.stand-alone.abbreviated]
+1 = "ŋ1"
+2 = "ŋ2"
+3 = "ŋ3"
+4 = "ŋ4"
+5 = "ŋ5"
+6 = "ŋ6"
+7 = "ŋ7"
+8 = "ŋ8"
+9 = "ŋ9"
+10 = "ŋ10"
+11 = "ŋ11"
+12 = "ŋ12"
+
+[patterns]
+full = "EEEE d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "d/M/y"
+
