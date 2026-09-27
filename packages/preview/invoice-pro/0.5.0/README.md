@@ -110,59 +110,6 @@ With the major refactoring introduced in version 0.2.0, the package structure is
 
 - **Factur-X XMP metadata:** Typst cannot write custom XMP metadata yet, so the PDF lacks the Factur-X extension schema that announces the embedded XML. The embedded XML is valid, but validators that check the PDF itself (Factur-X / ZUGFeRD PDF validation) reject the PDF. An optional post-processing step with the Mustang command line tool, outside the package, is described in the [e-invoicing documentation](https://leonieziechmann.github.io/invoice-pro/e-invoicing/limitations#factur-x-xmp-metadata).
 
-## 🛠️ Development
-
-This project uses **Nix** to provide a reproducible, sandboxed development environment. You do not need to install Typst, linters, or formatters globally—the flake provides everything.
-
-### Try it out (No Install)
-
-You can instantly compile a `.typ` file using the latest unreleased version of this template directly from GitHub, without entering a development shell:
-
-```bash
-nix run github:leonieziechmann/invoice-pro -- my-invoice.typ
-# Or locally from the repository root:
-nix run .#default -- my-invoice.typ
-```
-
-### Quick Start
-
-1. **Enter the environment:**
-
-```bash
-nix develop
-# or if you use direnv:
-direnv allow
-```
-
-This activates a shell containing `typst`, `typstyle`, `markdownlint`, and `prettier`.
-
-2. **Automatic Package Linking:**
-   The environment automatically links the current directory to a sandboxed local package registry (inside `.typst-data`). You can import the package in your test files immediately without manual installation:
-
-```typst
-#import "@preview/invoice-pro:0.5.0": *
-```
-
-3. **Quality Control:**
-   To run the full suite of Pull Request checks (linter, tests, and documentation build) locally before submitting a PR, you can use the built-in test runner:
-
-```bash
-check-pr
-```
-
-## 🗺️ Roadmap
-
-I am actively working on improving this template. Here is what's planned for future releases:
-
-- [x] (v0.2.0) **Refactored API:** Moving away from global states to a more robust, scoped API (inspired by CeTZ) for better stability and flexibility.
-- [x] (v0.3.0) **Internationalization (i18n):** Built-in support for English and other languages (currently creates German invoices by default).
-- [x] (v0.4.0) **ZUGFeRD Support:** (Experimental) Embedding XML data for fully compliant e-invoicing.
-- [x] (v0.5.0) **Validated E-Invoicing:** (Experimental) Checking every e-invoice against the rules of EN 16931, Factur-X and XRechnung before its XML is attached.
-- [ ] (WIP) **Theming Engine:** Allow easy customization of accent colors and fonts to match corporate identities.
-- [ ] **Data Loading:** Helper functions to load invoice items directly from JSON, CSV, or YAML files.
-
-Have an idea? Feel free to open an issue or pull request!
-
 ## Dependencies
 
 This template relies on these amazing packages:
