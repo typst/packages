@@ -1,0 +1,18 @@
+[package]
+name = "scholia"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Eric Yang <@Eryc123Y>"]
+license = "MIT"
+description = "Fill-in study notes for STEM to aid active recall."
+repository = "https://github.com/Eryc123Y/scholia"
+keywords = ["notes", "study", "theorem", "active-recall", "mathematics"]
+categories = ["book", "components"]
+disciplines = ["computer-science", "mathematics", "education"]
+compiler = "0.13.0"
+exclude = ["examples", "gallery"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

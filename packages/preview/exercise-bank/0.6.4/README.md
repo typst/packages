@@ -1,0 +1,1228 @@
+# exercise-bank
+
+[![exercise-bank on Typst Universe](https://img.shields.io/badge/Typst_Universe-v._0.6.4-239dad?labelColor=eee)](https://typst.app/universe/package/exercise-bank)
+[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-exercise-bank/blob/f06e1416ce6752ad049312afbe768f64dd464491/docs/manual.pdf)
+[![Distributed under the MIT license](https://img.shields.io/badge/License-MIT-333333?labelColor=eee)](LICENSE)
+
+A comprehensive Typst package for creating and managing exercises with solutions, metadata, filtering, and exercise banks. Perfect for teachers, textbook authors, and educational content creators.
+
+## Gallery
+
+Click on an image to see the source code.
+
+| | | |
+|:---:|:---:|:---:|
+| [![Basic exercises with automatic numbering](gallery/basic.svg)](gallery/basic.typ) | [![Exercises displayed with inline solutions](gallery/solutions.svg)](gallery/solutions.typ) | [![Exercise bank: define once, display anywhere](gallery/bank.svg)](gallery/bank.typ) |
+| Basic Exercises | With Solutions | Exercise Bank |
+| [![Filtering exercises by topic and metadata](gallery/filtering.svg)](gallery/filtering.typ) | [![Exercises tagged with competency indicators](gallery/competencies.svg)](gallery/competencies.typ) | [![Solutions collected and printed at end of section](gallery/end-section.svg)](gallery/end-section.typ) |
+| Filtering by Topic | Competency Tags | Solutions at End |
+| [![Teacher corrections with pedagogical notes](gallery/corrections.svg)](gallery/corrections.typ) | [![Mixed display mode combining solutions and corrections](gallery/mixed-display.svg)](gallery/mixed-display.typ) | [![Draft mode with placeholders for empty solutions](gallery/draft-mode-1.svg)](gallery/draft-mode.typ) |
+| Teacher Corrections | Mixed Display Mode | Draft Mode |
+| [![All 12 visual badge styles](gallery/styles.svg)](gallery/styles.typ) | [![Solutions displayed after a page break](gallery/pagebreak-1.svg)](gallery/pagebreak.typ) | [![Optional and correction-given exercise markers](gallery/markers.svg)](gallery/markers.typ) |
+| Visual Styles | Solutions with Page Break | Exercise Markers |
+| [![Per-exercise QR codes placed per badge style](gallery/qr-codes.svg)](gallery/qr-codes.typ) | [![Difficulty levels as colors, stars, or symbols](gallery/difficulty.svg)](gallery/difficulty.typ) | [![Corrections printed automatically at the end of each chapter](gallery/end-chapter.svg)](gallery/end-chapter.typ) |
+| QR Codes | Difficulty Levels | End-of-Chapter Corrections |
+| [![Clickable links between exercises and their corrections](gallery/linked-solutions.svg)](gallery/linked-solutions.typ) | [![Inline epigraph-style solutions with deferred corrections](gallery/inline-solutions.svg)](gallery/inline-solutions.typ) | [![Teacher answer key showing only corrections without exercise statements](gallery/corrections-only.svg)](gallery/corrections-only.typ) |
+| Linked Corrections | Inline Solutions | Corrections Only |
+| [![Badge placed above the statement instead of in a left margin column](gallery/badge-position.svg)](gallery/badge-position.typ) | [![Exercises and their corrections set on two columns with a vertical rule](gallery/two-columns.svg)](gallery/two-columns.typ) | [![The same badge shape at three sizes](gallery/badge-size.svg)](gallery/badge-size.typ) |
+| Badge Position | Two-Column Layouts | Badge Size |
+
+## Features
+
+- **Exercises with solutions** - Create exercises with inline or deferred solutions
+- **12 visual styles** - Box, circled, filled-circle, rect, filled-rect, pill, tag, margin, border-accent, underline, rounded-box, header-card - or pass your own badge function
+- **Customizable colors** - Set badge colors for any style
+- **Badge position** - Keep the badge in its own left column (`"margin"`) or put it on a header line above a full-width statement (`"above"`)
+- **Badge size** - Scale any badge shape with `badge-scale`, or set its padding and corner radius outright
+- **Two-column layouts** - A whole two-column document, one columned block, or just the collected corrections - each with an optional vertical rule
+- **Difficulty levels** - Encode up to 5 (or more) difficulty levels as badge colors, stars, or symbols
+- **Clickable links** - Jump from an exercise to its deferred correction and back
+- **Split solution/correction placement** - Short solution under the statement (epigraph-style), full correction at the end of the chapter
+- **Chapter-prefixed numbering** - Number exercises as "3.5" using the current heading number
+- **Automatic end-of-chapter corrections** - `#show: exo-auto-chapter` prints pending corrections before each new chapter
+- **Teacher corrections** - Add detailed corrections for teachers
+- **Flexible display modes** - Control what to show (exercises, solutions, or both)
+- **Multiple location modes** - Show solutions inline, after page break, or at end of section/chapter
+- **Draft mode** - Show placeholders for empty corrections/solutions, or hide them for clean student output
+- **Metadata support** - Tag exercises with topic, level, author, and custom fields
+- **Exercise banks** - Define exercises once, display them anywhere
+- **Powerful filtering** - Select exercises by topic, level, competency, or custom criteria
+- **Competency tags** - Tag and display competency indicators
+- **Automatic numbering** - Counter resets per section, chapter, or globally
+- **Customizable labels** - Change "Exercise" and "Solution" labels (localization support)
+- **Exercise IDs** - Unique identifiers for referencing and bank management
+- **Advanced exercise markers** - Visual cue (customizable symbol) for advanced/challenging exercises
+- **Optional exercise markers** - Star icon for optional exercises, dumbbell icon for correction-given exercises
+- **Exam display mode** - Show points in the exercise badge (`display-mode: "exam"`) without any external dependency
+- **QR codes** - Attach a QR code per exercise (e.g. link to a video correction), placed automatically per badge style
+
+## Quick Start
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo
+
+#exo(
+  exercise: [
+    Solve the equation $2x + 5 = 13$.
+  ]
+)
+```
+
+## Basic Usage
+
+### Simple Exercise
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo
+
+#exo(
+  exercise: [
+    Calculate $3 + 4 times 2$.
+  ]
+)
+```
+
+### Exercise with Solution
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo
+
+#exo(
+  exercise: [
+    Calculate $3 + 4 times 2$.
+  ],
+  solution: [
+    $3 + 4 times 2 = 3 + 8 = 11$
+  ],
+)
+```
+
+### Multiple Exercises
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo
+
+#exo(exercise: [Simplify $x^2 + 2x + 1$.])
+#exo(exercise: [Factor $x^2 - 4$.])
+#exo(exercise: [Solve $2x - 6 = 0$.])
+```
+
+## Display Control
+
+The package uses three parameters to control how exercises and solutions are displayed:
+
+### `show` - What to Display
+
+Controls what content is displayed:
+
+- `"both"` (default) - Show both exercises and solutions/corrections
+- `"ex"` - Show only exercises (hide solutions/corrections)
+- `"sol"` - Show only solutions/corrections (hide exercises)
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup
+
+// Student worksheet - exercises only
+#exo-setup(display: "ex")
+
+// Answer key - solutions only
+#exo-setup(display: "sol")
+
+// Complete document - both
+#exo-setup(display: "both")
+```
+
+### `corr-display` - What Content to Show
+
+Controls whether to show solutions or corrections:
+
+- `"solution"` (default) - Show the solution content
+- `"correction"` - Show the correction content (for teachers)
+- `"mixed"` - Default to solution, but show correction for exercises with `show-corr: true`
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup
+
+// Student version - show solutions
+#exo-setup(corr-display: "solution")
+
+// Teacher version - show corrections
+#exo-setup(corr-display: "correction")
+
+// Mixed mode
+#exo-setup(corr-display: "mixed")
+
+#exo(
+  exercise: [Solve $x^2 = 9$.],
+  solution: [$x = plus.minus 3$],
+  correction: [Detailed explanation with teaching notes...],
+  show-corr: true,  // In mixed mode, show correction for this exercise
+)
+```
+
+### `corr-loc` - Where to Display
+
+Controls where solutions/corrections appear:
+
+- `"after"` (default) - Show immediately after each exercise
+- `"pagebreak"` - Show with a page break between exercise and solution
+- `"end-section"` - Collect and show at section end
+- `"end-chapter"` - Collect and show at chapter end
+
+**Important:** with `"end-section"` and `"end-chapter"`, the solutions are only *collected* - you decide where they appear by calling `#exo-section-end()` / `#exo-chapter-end()` (or `#exo-print-solutions()`) at that point, or by using `exo-auto-chapter` (see below) to do it automatically.
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup, exo-print-solutions
+
+// Solutions at end of section
+#exo-setup(corr-loc: "end-section")
+
+#exo(exercise: [Exercise 1], solution: [Answer 1])
+#exo(exercise: [Exercise 2], solution: [Answer 2])
+
+// Print all collected solutions
+#exo-print-solutions(title: "Answers")
+```
+
+### Automatic End-of-Chapter Corrections
+
+Instead of calling `#exo-chapter-end()` manually, wrap your document with `exo-auto-chapter`: the pending solutions/corrections are printed right before each new level-1 heading and at the end of the document, and the exercise counter resets at each chapter.
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup, exo-auto-chapter
+
+#exo-setup(corr-loc: "end-chapter", counter-reset: "chapter")
+#show: exo-auto-chapter
+
+= Chapter 1
+#exo(exercise: [Exercise 1], solution: [Answer 1])
+
+= Chapter 2  // <- Chapter 1 solutions are printed just before this title
+#exo(exercise: [Exercise 2], solution: [Answer 2])
+// <- Chapter 2 solutions are printed at the end of the document
+```
+
+### `sol-loc` - Separate Solution and Correction Placement
+
+`sol-loc` controls where *solutions* go, independently of corrections (default `auto` = follow `corr-loc`). A typical setup: the short answer right below the statement, the full correction at the end of the chapter.
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup, exo-auto-chapter
+
+#exo-setup(
+  corr-display: "correction",  // show both the correction and the solution
+  sol-loc: "after",            // short answer below the statement
+  corr-loc: "end-chapter",     // full correction at the end of the chapter
+  solution-style: "inline",    // optional: epigraph-like short rule, no badge
+)
+#show: exo-auto-chapter
+
+= Chapter 1
+#exo(
+  exercise: [Solve $x^2 - 5x + 6 = 0$.],
+  solution: [$x in {2, 3}$],
+  correction: [Factor: $(x-2)(x-3) = 0$, so $x = 2$ or $x = 3$.],
+)
+```
+
+With `solution-style: "inline"`, the solution appears under the statement after a short horizontal rule (like an epigraph) instead of a badge box. A small label in the margin (the solution label, in italics) makes clear it is the solution; customize it with `inline-label` (any content, or `none` to hide it). The rule length is configurable via `inline-rule-length` (default `3cm`).
+
+### Clickable Exercise <-> Correction Links
+
+When corrections are deferred (`pagebreak`, `end-section`, `end-chapter`), enable `link-solutions` to get a small clickable arrow next to the exercise badge that jumps to its correction, and a back-arrow on the correction that returns to the statement - handy for students navigating a PDF.
+
+```typst
+#exo-setup(corr-loc: "end-chapter", link-solutions: true)
+```
+
+The icons are customizable (`link-icon`, `backlink-icon`; set to `none` to hide one side). Exercises without a deferred solution or correction get no icon.
+
+Prefer the textbook look? With `link-style: "page"`, the exercise instead shows a clickable "Solution p. 30"-style reference at the top right of the statement, pointing to the page where the correction was printed:
+
+```typst
+#exo-setup(
+  corr-loc: "end-chapter",
+  link-solutions: true,
+  link-style: "page",
+)
+```
+
+The reference uses the solution/correction label and the badge color; override with `page-ref-color` or a full `page-ref-format: (label, page) => content` function.
+
+## Corrections (Teacher Version)
+
+Corrections are detailed solutions for teachers, including pedagogical notes and teaching tips.
+
+### Exercise with Correction
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup
+
+#exo-setup(corr-display: "correction")
+
+#exo(
+  exercise: [Solve $x^2 = 9$.],
+  correction: [
+    *Teacher's notes:*
+    $x = plus.minus 3$
+
+    Common mistake: Students often forget the negative root.
+  ],
+)
+```
+
+### Corrections Only (Teacher Answer Key)
+
+Create teacher answer keys showing only corrections:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup
+
+#exo-setup(
+  display: "sol",              // Only show solutions/corrections
+  corr-display: "correction", // Show corrections
+)
+
+#exo(
+  exercise: [Exercise 1 (hidden in output)],
+  correction: [Detailed correction for teachers],
+)
+```
+
+### Mixed Display Mode
+
+Use `corr-display: "mixed"` to default to solutions while showing corrections for specific exercises:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup
+
+#exo-setup(corr-display: "mixed")
+
+// This shows solution (default)
+#exo(
+  exercise: [Simple problem],
+  solution: [Quick answer],
+  correction: [Detailed explanation],
+)
+
+// This shows correction (because show-corr: true)
+#exo(
+  exercise: [Complex problem needing explanation],
+  solution: [Answer],
+  correction: [Detailed step-by-step solution with notes],
+  show-corr: true,
+)
+```
+
+### Exercise-Level Flags
+
+- `show-corr: true` - In "mixed" mode, show correction instead of solution for this exercise
+- `sol-in-corr: true` - Indicates that the correction already includes the solution; in "correction" mode, only correction is shown (not both correction AND solution)
+
+### Draft Mode and Placeholders
+
+When creating exercise documents, you may have incomplete corrections or solutions. Draft mode allows you to:
+- Show placeholder text for empty corrections/solutions (useful for teacher drafts)
+- Maintain exercise counters even with empty content
+- Hide placeholders in student versions
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup
+
+// Teacher draft version - shows placeholders
+#exo-setup(
+  draft-mode: true,
+  correction-placeholder: [_[To be completed]_],
+  solution-placeholder: [_[Answer to be written]_],
+)
+
+#exo(
+  exercise: [Solve $x + 5 = 12$],
+  solution: [],  // Empty - shows placeholder in draft mode
+)
+
+// Student version (draft mode OFF)
+#exo-setup(draft-mode: false)
+
+#exo(
+  exercise: [Solve $x + 5 = 12$],
+  solution: [],  // Empty - shows only space, no placeholder
+)
+```
+
+## Metadata and Filtering
+
+### Adding Metadata
+
+Tag exercises with metadata for organization and filtering:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo
+
+#exo(
+  exercise: [Solve $x + 1 = 5$.],
+  topic: "algebra",
+  level: "easy",
+  authors: ("Prof. Smith",),
+)
+```
+
+### Filtering Exercises
+
+Display only exercises matching certain criteria:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-filter
+
+// First, define exercises (they display normally)
+#exo(exercise: [Exercise 1], topic: "algebra")
+#exo(exercise: [Exercise 2], topic: "geometry")
+#exo(exercise: [Exercise 3], topic: "algebra")
+
+// Later, filter and redisplay specific exercises
+#exo-filter(topic: "algebra")  // Shows exercises 1 and 3
+```
+
+## Exercise Banks
+
+Define exercises once, use them anywhere. Perfect for creating exercise collections.
+
+### Defining Bank Exercises
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-define
+
+// These don't display - just registered
+#exo-define(
+  id: "quad-1",
+  exercise: [Solve $x^2 - 5x + 6 = 0$.],
+  topic: "quadratics",
+  level: "1M",
+  solution: [$x = 2$ or $x = 3$],
+)
+
+#exo-define(
+  id: "geom-1",
+  exercise: [Find the area of a circle with radius 5.],
+  topic: "geometry",
+  level: "1M",
+  solution: [$A = pi r^2 = 25pi$],
+)
+```
+
+### Displaying Bank Exercises
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-show, exo-show-many
+
+// Show a single exercise by ID
+#exo-show("quad-1")
+
+// Show multiple exercises
+#exo-show-many("quad-1", "geom-1", "quad-2")
+```
+
+### Selecting from Bank
+
+Use powerful filtering to select exercises:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-select
+
+// All quadratics exercises
+#exo-select(topic: "quadratics")
+
+// Level 1M exercises only
+#exo-select(level: "1M")
+
+// Multiple topics
+#exo-select(topics: ("quadratics", "geometry"))
+
+// Limit number of exercises
+#exo-select(topic: "algebra", max: 5)
+
+// Custom filter function
+#exo-select(where: ex => ex.metadata.level == "hard")
+```
+
+## Competency Tags
+
+Tag exercises with competencies and display them visually:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-define, exo-show, exo-setup
+
+#exo-setup(show-competencies: true)
+
+#exo-define(
+  id: "comp-ex-1",
+  exercise: [Solve and explain your reasoning.],
+  competencies: ("C1.1", "C2.3", "C4.1"),
+  solution: [Solution here],
+)
+
+#exo-show("comp-ex-1")
+```
+
+### Filter by Competency
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-select
+
+// Exercises with specific competency
+#exo-select(competency: "C1.1")
+
+// Exercises with any of these competencies
+#exo-select(competencies: ("C1.1", "C2.3"))
+```
+
+## Configuration
+
+### Global Setup
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-setup
+
+#exo-setup(
+  // Display control
+  display: "both",               // "ex", "sol", "both"
+  corr-display: "solution",    // "solution", "correction", "mixed"
+  corr-loc: "after",           // "after", "pagebreak", "end-section", "end-chapter"
+  // Labels
+  exercise-label: "Exercise",
+  solution-label: "Solution",
+  correction-label: "Correction",
+  // Counter behavior
+  counter-reset: "section",   // "section", "chapter", "global"
+  // Display options
+  show-metadata: false,
+  show-id: false,
+  show-competencies: false,
+  // Draft mode
+  draft-mode: false,
+  correction-placeholder: [_To be completed_],
+  solution-placeholder: [_To be completed_],
+  // Spacing
+  exercise-above: 0.8em,
+  exercise-below: 0.8em,
+  solution-above: 0.8em,
+  solution-below: 0.8em,
+  correction-above: 0.8em,
+  correction-below: 0.8em,
+  // Advanced exercises
+  advanced-symbol: "*",
+)
+```
+
+### Localization
+
+Change labels for different languages:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-setup
+
+// French
+#exo-setup(
+  exercise-label: "Exercice",
+  solution-label: "Solution",
+  correction-label: "Corrigé",
+)
+
+// German
+#exo-setup(
+  exercise-label: "Aufgabe",
+  solution-label: "Lösung",
+)
+```
+
+### Visual Styles
+
+Choose from 12 different badge styles:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup
+
+// Circled number style
+#exo-setup(badge-style: "circled")
+
+// Filled circle with custom color
+#exo-setup(badge-style: "filled-circle", badge-color: rgb("#2563eb"))
+
+// Tag style
+#exo-setup(badge-style: "tag", badge-color: rgb("#1e40af"))
+
+// Custom colors for solutions and corrections
+#exo-setup(
+  solution-color: rgb("#059669"),    // Green for solutions
+  correction-color: rgb("#dc2626"),  // Red for corrections
+)
+
+#exo(exercise: [Solve $x + 3 = 7$])
+```
+
+Available styles: `"box"` (default), `"circled"`, `"filled-circle"`, `"rect"`, `"filled-rect"`, `"pill"`, `"tag"`, `"margin"`, `"border-accent"`, `"underline"`, `"rounded-box"`, `"header-card"`
+
+The `"rect"` and `"filled-rect"` styles show a compact number-only rectangle - a minimal alternative to the circle styles when circles look too large in your font.
+
+### Badge Position
+
+By default the badge sits in its own column on the left, so the statement is indented for its whole height. In a narrow measure - two-column layouts especially - that column is expensive, and it gets worse when the statement holds an enumeration, whose indent stacks on top of it.
+
+`badge-position: "above"` puts the badge alone on a header line and lets the statement run the full width underneath:
+
+```typst
+#exo-setup(badge-style: "filled-circle", badge-position: "above")
+```
+
+The setting is independent of `badge-style`, so every badge look above keeps working. When `link-style: "page"` is on, the "Solution p. 34" reference moves onto the badge line as well instead of being wrapped into the statement.
+
+#### Custom badge function
+
+For full control without touching the package, pass a function as `badge-style`. It receives `(label, number, font-size, color, is-solution)` and returns the badge content:
+
+```typst
+#exo-setup(badge-style: (label, number, font-size, color, is-solution) => {
+  box(stroke: (bottom: 1.5pt + color), inset: (x: 4pt, y: 3pt),
+    text(weight: "bold", size: font-size, fill: color)[#number.])
+})
+```
+
+#### Label margin width
+
+For badge styles, the content is indented by `margin-position` so that exercise, solution, and correction boxes all align. By default (`auto`) it is computed from your configured labels with a 3-digit number (e.g. "Correction 100"). Reduce it for a tighter layout:
+
+```typst
+#exo-setup(margin-position: 1.6cm)  // narrower label column
+#exo-setup(label-extra: 0pt)        // don't extend labels into the page margin
+```
+
+If a badge (or QR code) is wider than the configured margin, the label column widens for that box instead of overflowing.
+
+### Badge Size
+
+Every badge shape ships with paddings and a corner radius tuned for a 12pt label. `badge-scale` multiplies them - below 1 the badge closes in on the number, above 1 it grows into a block:
+
+```typst
+#exo-setup(badge-style: "filled-rect", badge-scale: 0.6)  // discreet
+#exo-setup(badge-style: "pill", badge-scale: 1.4)         // roomy
+```
+
+The label text keeps the size set by `label-font-size`: scaling the badge changes the box, not the digits, so lower both together for a genuinely small badge. For full control, `badge-pad-x`, `badge-pad-y` and `badge-radius` replace the shape's own values outright (and ignore `badge-scale`). The badge height is always `label-font-size + 2 * badge-pad-y`:
+
+```typst
+#exo-setup(
+  badge-style: "pill",
+  label-font-size: 9pt,
+  badge-pad-x: 6pt,     // horizontal padding
+  badge-pad-y: 2pt,     // -> 13pt tall
+  badge-radius: 6.5pt,  // half the height: still a pill, just a smaller one
+)
+```
+
+The label column follows the badge as it is resized, so `badge-position: "margin"` keeps its alignment without touching `margin-position`. Custom badge functions draw their own geometry and are left alone by all four settings.
+
+### Counter Reset Options
+
+Control when exercise numbering resets:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-setup, exo-section-start, exo-chapter-start
+
+// Reset at each section
+#exo-setup(counter-reset: "section")
+= Section 1
+#exo-section-start()
+
+// Reset at each chapter
+#exo-setup(counter-reset: "chapter")
+= Chapter 1
+#exo-chapter-start()
+
+// Never reset (global numbering)
+#exo-setup(counter-reset: "global")
+```
+
+### Chapter-Prefixed Numbering
+
+With `number-prefix: "heading"`, the displayed exercise number is prefixed by the current level-1 heading number, e.g. exercise 5 of chapter 3 shows as "3.5" (on the exercise, its solution, and its correction):
+
+```typst
+#set heading(numbering: "1.")
+#exo-setup(number-prefix: "heading", counter-reset: "chapter")
+#show: exo-auto-chapter  // or call #exo-chapter-start() at each chapter
+
+= Equations
+#exo(exercise: [Numbered 1.1])
+#exo(exercise: [Numbered 1.2])
+```
+
+The separator is configurable with `number-separator` (default `"."`).
+
+`number-prefix` also accepts a **counter** or a **function** `() => value`, for heading packages that keep their own chapter counter instead of `counter(heading)`.
+
+Works with [beautitled](https://typst.app/universe/package/beautitled): from beautitled 0.3.0 the native heading counter is kept in sync, so `number-prefix: "heading"` works out of the box (with earlier versions, use `number-prefix: chapter-counter` with beautitled's exported counter; same with `enable-parts: true`, where the first heading level is the part). With beautitled's *direct function calls* (`#chapter(...)` instead of `= headings`), `exo-auto-chapter` has no heading to hook onto - wrap the chapter call instead:
+
+```typst
+#let chapitre(..args) = { exo-chapter-end(); chapter(..args); exo-chapter-start() }
+```
+
+### Show Exercise IDs
+
+Display exercise IDs for reference:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-setup, exo
+
+#exo-setup(show-id: true)
+
+#exo(
+  id: "my-exercise",
+  exercise: [
+    This exercise shows its ID below the badge.
+  ]
+)
+```
+
+### Advanced Exercises
+
+Mark exercises as advanced to display a visual cue before the label:
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo, exo-setup
+
+// Default symbol is "*"
+#exo(
+  exercise: [This is a challenging problem.],
+  advanced: true,
+)
+
+// Use a custom symbol
+#exo-setup(advanced-symbol: sym.dagger)
+#exo(exercise: [Advanced with dagger.], advanced: true)
+
+// Disable the feature
+#exo-setup(advanced-symbol: none)
+```
+
+### Optional Exercises
+
+Mark exercises as optional — a star icon appears before the label:
+
+```typ
+#exo(
+  exercise: [Skip this if you're short on time. Solve $x^2 - x - 6 = 0$.],
+  optional: true,
+)
+```
+
+Customize or disable the symbol: `exo-setup(optional-symbol: [⭐])` / `exo-setup(optional-symbol: none)`.
+
+### Correction-Given Exercises
+
+A dumbbell icon signals that the printed correction will be distributed:
+
+```typ
+#exo(
+  exercise: [Factor $x^2 - 9$.],
+  solution: [$(x-3)(x+3)$],
+  corr-given: true,
+)
+```
+
+Customize via `exo-setup(corr-given-symbol: ...)` or disable with `none`.
+
+### Difficulty Levels
+
+Tag each exercise with a `difficulty:` level. The built-in scale has 5 levels; how it shows is controlled by `difficulty-display`:
+
+- `"color"` (default) - the exercise badge takes the level color: green, red, blue, purple, black
+- `"stars"` - 1 to 5 small stars before the label (numeric levels)
+- `"symbols"` - one icon per level: seedling, pencil, target, mountain, star
+- `"none"` - metadata only (still usable for filtering)
+
+```typst
+#exo(exercise: [Introductory.], difficulty: 1)
+#exo(exercise: [Exam-type.], difficulty: 3)
+#exo(exercise: [Advanced.], difficulty: 4)
+
+// Stars or symbols instead of colors
+#exo-setup(difficulty-display: "stars")
+#exo-setup(difficulty-display: "symbols")
+```
+
+Stars and symbols are placed *below* the badge by default so the badge stays compact; use `difficulty-position: "badge"` to put them inline before the label instead.
+
+The scale is fully customizable - any keys, any colors, any symbols:
+
+```typst
+#exo-setup(difficulty-scale: (
+  "easy": (color: rgb("#00897b")),
+  "hard": (color: rgb("#e65100"), symbol: [🔥]),
+))
+#exo(exercise: [...], difficulty: "hard")
+```
+
+Difficulty combines well with the `optional` marker: encode every exercise's level, and use `optional: false/true` to mark which ones are mandatory. You can also filter by difficulty:
+
+```typst
+#exo-select(difficulty: 3)          // one level
+#exo-select(difficulties: (1, 2))   // any of these levels
+#exo-count(difficulty: 4)
+```
+
+### QR Codes
+
+Attach a QR code to any exercise (e.g. linking to a video correction or an online version). Pass a URL string — the code is generated with [tiaoma](https://typst.app/universe/package/tiaoma/) — or ready-made content:
+
+```typst
+#exo(
+  exercise: [Solve $2x + 5 = 13$.],
+  qr: "https://example.com/corrections/exo-1",
+)
+
+// Works in banks too: the QR is stored and shown by exo-show / exo-select
+#exo-define(id: "eq1", exercise: [...], qr: "https://example.com/eq1")
+#exo-show("eq1")
+
+// Solutions and corrections can carry their own QR code (e.g. a video walkthrough)
+#exo(
+  exercise: [...],
+  solution: [...],
+  qr-sol: "https://example.com/videos/sol-1",   // QR on the solution box
+  correction: [...],
+  qr-corr: "https://example.com/videos/corr-1", // QR on the correction box
+)
+```
+
+The placement adapts to the badge style:
+
+- **Badge styles** (`box`, `circled`, `filled-circle`, `pill`, `tag`): the QR sits below the badge in the label margin, and shrinks automatically if you reduce `margin-position`.
+- **`margin` style**: the QR sits below the side label in the margin column.
+- **Full-width styles** (`border-accent`, `underline`, `rounded-box`, `header-card`): the exercise content wraps around the QR at the top right (via [wrap-it](https://typst.app/universe/package/wrap-it/)).
+
+Global options:
+
+```typst
+#exo-setup(
+  qr-size: 1.5cm,          // Target size (default 1.5cm)
+  qr-min-size: 1cm,        // Never shrink below this — a smaller QR is hard to
+                           // scan; past that it extends into the page margin
+  qr-color: rgb("#1e3a8a"), // Module color (default black)
+  qr-caption: [Corrigé],   // Small caption below every QR (default none)
+  qr-position: "wrap",     // "auto" (default, placed per badge style), "wrap"
+                           // (always wrap the exercise content around the QR), or
+                           // "tasks" (overlay the QR; a taskize #tasks body flows
+                           // around it instead of the whole block being pushed down)
+  show-qr: false,          // Master toggle, e.g. for a print version
+)
+```
+
+`qr-position: "tasks"` is opt-in and coordinates with [taskize](https://typst.app/universe/package/taskize/) (0.2.8+) purely through a shared state key — no import dependency in either direction. It only takes effect when the exercise body contains a `#tasks(...)` call; other bodies render as if unset.
+
+## Multi-Column Layouts
+
+Exercise sheets often read better on two columns. Typst's `columns` does the flowing but draws no separator, and it leaves the badge column at its full width - a large share of a narrow measure. The package wraps both concerns, and applies them to the corrections as well.
+
+### A Whole Two-Column Document
+
+`exo-page-columns` is a show rule: page columns, an optional vertical rule in the middle of every gutter, and (unless told otherwise) badges moved above the statements so they cost no column width. The text flows from page to page as usual and the rule is redrawn on every page.
+
+```typst
+#show: exo-page-columns.with(count: 2, rule: 0.5pt + gray)
+
+#exo(exercise: [...], solution: [...])
+```
+
+Put the show rule after `#set page(...)`: it reads the page geometry to place the rule inside the text area. `gutter`, `rule` and `rule-inset` are all configurable. The rule is page furniture here - drawn across the full text area of every page, including a last page the exercises only half fill. That is deliberate for a document set in columns throughout; `rule-inset` trims a fixed amount off both ends, and `exo-columns` (whose grid stops the rule at the content) is the better fit for a single block.
+
+> **Order matters with `exo-auto-chapter`.** Show rules nest in the order they are written, so `exo-page-columns` must come first:
+>
+> ```typst
+> #show: exo-page-columns.with(count: 2, rule: 0.5pt + gray)
+> #show: exo-auto-chapter
+> ```
+>
+> The other way round, the corrections `exo-auto-chapter` prints at the end of the document sit outside the columned body and come out full width, silently. `corr-columns` (below) wraps the corrections where they are printed, so it holds either way.
+
+### One Columned Block
+
+`exo-columns` puts a single block on several columns while the rest of the document stays full width:
+
+```typst
+#exo-columns(count: 2, rule: 0.5pt + gray, gutter: 0.7cm)[
+  #exo(exercise: [Solve $2x + 3 = 13$.], solution: [$x = 5$])
+  #exo(exercise: [Factor $x^2 - 9$.], solution: [$(x-3)(x+3)$])
+]
+```
+
+By default the block is `columns` inside a block whose height is estimated from the content (`slack` widens the estimate, `height` sets it outright). The estimate is also a cap: a body that outgrows it is cut off, and a body longer than a page is lost.
+
+`balance: true` takes a different route - the body is split into its own pieces (one exercise is one piece) and handed to a grid, which draws the rule at the real height of the content and breaks across pages like any other block. Nothing is estimated and nothing is lost:
+
+```typst
+#exo-columns(count: 2, rule: 0.5pt + gray, balance: true)[
+  #for i in range(1, 60) { exo(exercise: [...]) }
+]
+```
+
+It needs a rule, no explicit `height`, and a body it can take apart (a sequence of exercises; a `#block[..]` around everything falls back to the estimate). Counter updates travel with their exercise, so a split never renumbers anything. The columns are filled by piece count rather than measured height - every piece is a `context` element, and measuring those would leave the document short of converging - so one much taller piece leaves its column longer.
+
+It is opt-in because two ruled grids in one document (a split block **and** `corr-columns` with a rule) together with `exo-auto-chapter` can leave the document short of converging. One split block alongside ruled corrections is fine; several are not.
+
+Both functions take `badge-position`, applied to their own body only: `auto` (the default) uses `"above"`, `none` leaves your configuration alone, and an explicit value is used as given.
+
+### Corrections on Two Columns
+
+Collected corrections (`corr-loc: "end-chapter"` or `"end-section"`) are printed from inside the flow, so they cannot be wrapped in `exo-columns` by hand. `corr-columns` sets them on their own columns whatever the rest of the document does:
+
+```typst
+#exo-setup(
+  corr-loc: "end-chapter",
+  corr-columns: 2,
+  corr-columns-gutter: 0.7cm,
+  corr-columns-rule: 0.5pt + gray,   // optional vertical bar
+)
+#show: exo-auto-chapter
+```
+
+Two layouts hide behind that setting:
+
+- **Without a rule**, this is Typst's own `columns`: the corrections flow from one column into the next and on across pages.
+- **With a rule**, they are laid out as a grid, which draws the bar itself at the true height of the content on every page the section spans. The corrections are then distributed up front instead of flowing from one column into the next, and by piece count rather than by measured height (measuring `context` elements would leave the document short of converging) - so one much taller correction leaves its column longer.
+
+`corr-columns-badge-position` decides where the badge sits in those columns: `auto` (default) uses `"above"` as soon as there are two columns or more; pass `"margin"` to keep the badges beside the corrections. `corr-columns-rule: none` removes a rule set earlier - that parameter's "leave as is" value is `auto`, unlike the rest of `exo-setup`, so that `none` can mean what it says.
+
+### Badge Styles in Narrow Columns
+
+The styles that wrap the whole exercise (`border-accent`, `underline`, `rounded-box`, `header-card`) already run the full width. The exception is `margin`, whose side label is a fixed column of its own: in a two-column measure it would leave the statement about as wide as the label. It folds instead - rule across the measure, label under it on the right, statement full width below - either when the measure drops under `margin-fold-below` (`auto` = three times the label column) or whenever `badge-position` is `"above"`, which is what `exo-columns` and `exo-page-columns` ask for by default. `margin-label-width` and `margin-label-gutter` set the unfolded geometry, and `margin-fold-below: 0pt` never folds.
+
+For a document that is *entirely* two-column, use `exo-page-columns` and leave `corr-columns` at 1: the corrections then flow with everything else, under the page rule.
+
+## Utility Functions
+
+### Reset Counter
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-reset-counter
+
+#exo-reset-counter()  // Reset exercise numbering to 0
+```
+
+### Clear Registry
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-clear-registry
+
+#exo-clear-registry()  // Clear all registered exercises
+```
+
+### Count Exercises
+
+```typst
+#import "@preview/exercise-bank:0.6.4": exo-count
+
+Total algebra exercises: #exo-count(topic: "algebra")
+Level 1M exercises: #exo-count(level: "1M")
+```
+
+## Parameters Reference
+
+### `exo` Function
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `exercise` | content | none | Exercise content (named parameter) |
+| `solution` | content | none | Solution content |
+| `correction` | content | none | Correction content (teacher version) |
+| `id` | string/auto | auto | Unique exercise ID |
+| `sol-in-corr` | bool | false | If true, solution is in correction (show only correction, not both) |
+| `show-corr` | bool | false | If true, show correction in "mixed" mode |
+| `optional` | bool | false | Show optional marker before the label |
+| `corr-given` | bool | false | Show correction-given marker (dumbbell icon) |
+| `topic` | string | none | Topic metadata |
+| `level` | string | none | Class/grade level metadata |
+| `difficulty` | int/string | none | Difficulty level (key into `difficulty-scale`, e.g. 1-5) |
+| `authors` | array | () | Array of author names |
+| `..extra` | named | - | Additional metadata fields |
+
+### `exo-define` Function
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `exercise` | content | none | Exercise content (named parameter) |
+| `solution` | content | none | Solution content |
+| `correction` | content | none | Correction content (teacher version) |
+| `id` | string/auto | auto | Unique exercise ID |
+| `competencies` | array | () | List of competency tags |
+| `sol-in-corr` | bool | false | If true, solution is in correction (show only correction) |
+| `show-corr` | bool | false | If true, show correction in "mixed" mode |
+| `optional` | bool | false | Show optional marker before the label |
+| `corr-given` | bool | false | Show correction-given marker (dumbbell icon) |
+| `topic` | string | none | Topic metadata |
+| `level` | string | none | Class/grade level metadata |
+| `difficulty` | int/string | none | Difficulty level (key into `difficulty-scale`, e.g. 1-5) |
+| `authors` | array | () | Array of author names |
+| `..extra` | named | - | Additional metadata fields |
+
+### `exo-select` Function
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `topic` | string | none | Filter by exact topic |
+| `level` | string | none | Filter by exact level |
+| `difficulty` | int/string | none | Filter by difficulty level |
+| `author` | string | none | Filter by exact author |
+| `competency` | string | none | Filter by single competency |
+| `topics` | array | none | Filter by any of these topics |
+| `levels` | array | none | Filter by any of these levels |
+| `difficulties` | array | none | Filter by any of these difficulty levels |
+| `competencies` | array | none | Filter by any of these competencies |
+| `where` | function | none | Custom filter function |
+| `show-solutions` | bool/auto | auto | Override solution display |
+| `renumber` | bool | true | Renumber exercises sequentially |
+| `max` | int | none | Maximum exercises to show |
+
+### `exo-setup` Function
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `display` | string | "both" | "ex", "sol", "both" |
+| `corr-display` | string | "solution" | "solution", "correction", "mixed" |
+| `corr-loc` | string | "after" | "after", "pagebreak", "end-section", "end-chapter" |
+| `sol-loc` | string/auto | auto | Same values as `corr-loc`, for solutions only (auto = follow `corr-loc`) |
+| `solution-label` | string | "Solution" | Label for solutions |
+| `correction-label` | string | "Correction" | Label for corrections |
+| `exercise-label` | string | "Exercise" | Label for exercises |
+| `counter-reset` | string | "section" | "section", "chapter", "global" |
+| `number-prefix` | none/string/counter/function | none | "heading" (level-1 heading number), a custom counter, or a function () => value |
+| `number-separator` | string | "." | Separator for chapter-prefixed numbers |
+| `show-metadata` | bool | false | Display metadata |
+| `show-id` | bool | false | Display exercise ID |
+| `show-competencies` | bool | false | Display competency tags |
+| `draft-mode` | bool | false | Show placeholders for empty content |
+| `correction-placeholder` | content | `[_To be completed_]` | Placeholder for empty corrections |
+| `solution-placeholder` | content | `[_To be completed_]` | Placeholder for empty solutions |
+| `badge-style` | string/function | "box" | Visual style for badges, or a custom badge function |
+| `badge-position` | string | "margin" | `"margin"` (badge in its own left column) or `"above"` (badge on a header line, statement full width below) |
+| `badge-color` | color | black | Color for exercise badges |
+| `badge-scale` | float | 1.0 | Multiplies the built-in badge paddings and the circle diameter |
+| `badge-pad-x` | length/auto | auto | Horizontal padding inside the badge, overriding `badge-scale` |
+| `badge-pad-y` | length/auto | auto | Vertical padding; the badge is `label-font-size + 2 * badge-pad-y` tall |
+| `badge-radius` | length/auto | auto | Badge corner radius (auto = the style's own, scaled) |
+| `margin-label-width` | length | 3.35cm | Side-label column of badge-style "margin" |
+| `margin-label-gutter` | length | 0.55cm | Gap between that column and the statement |
+| `margin-fold-below` | length/auto | auto | Below this measure the "margin" side label folds onto a header line (auto = 3 × `margin-label-width`; 0pt = never) |
+| `solution-color` | color | green | Color for solution badges |
+| `correction-color` | color | green | Color for correction badges |
+| `exercise-above` | length | 0.8em | Space above exercise boxes |
+| `exercise-below` | length | 0.8em | Space below exercise boxes |
+| `solution-above` | length | 0.8em | Space above solution boxes |
+| `solution-below` | length | 0.8em | Space below solution boxes |
+| `correction-above` | length | 0.8em | Space above correction boxes |
+| `correction-below` | length | 0.8em | Space below correction boxes |
+| `advanced-symbol` | content/none | "*" | Symbol for advanced exercises |
+| `optional-symbol` | content/none | star icon | Symbol for optional exercises |
+| `corr-given-symbol` | content/none | dumbbell icon | Symbol when correction is handed out |
+| `difficulty-display` | string | "color" | "color", "stars", "symbols", "none" |
+| `difficulty-scale` | auto/dict | auto | auto = built-in 5-level scale, or dict key -> (color: .., symbol: ..) |
+| `difficulty-position` | string | "below" | Stars/symbols "below" the badge or inline in the "badge" |
+| `solution-style` | auto/string | auto | "inline" shows solutions as a short rule + content (no badge) |
+| `inline-rule-length` | length | 3cm | Rule length for inline solutions |
+| `inline-label` | auto/content/none | auto | Small margin label for inline solutions (auto = solution label) |
+| `link-solutions` | bool | false | Clickable links between exercises and deferred corrections |
+| `link-icon` | content/none | arrow icon | Link icon on the exercise |
+| `backlink-icon` | content/none | arrow icon | Back-link icon on the correction |
+| `link-style` | string | "icon" | "icon" (arrow) or "page" ("Solution p. 30" reference) |
+| `page-ref-format` | auto/function | auto | Custom page reference: (label, page) => content |
+| `page-ref-color` | auto/color | auto | Page reference color (auto = badge color) |
+| `corr-columns` | int | 1 | Columns for the collected (end-section / end-chapter) corrections |
+| `corr-columns-gutter` | length/ratio | 4% | Gutter between those columns |
+| `corr-columns-rule` | stroke/none | none | Vertical separator between them, e.g. `0.5pt + gray` |
+| `corr-columns-badge-position` | auto/string | auto | Badge position in those columns (auto = "above" from two columns on) |
+
+### Known limitation: `link-style: "page"` with a full-width badge style
+
+A document that uses `link-solutions: true` with `link-style: "page"` **and** declares one of the full-width badge styles (`margin`, `border-accent`, `underline`, `rounded-box`, `header-card`) anywhere fails to converge: Typst reports *"document did not converge within five attempts"* and, below it, *"query for elements labelled `<exb-corr-N>` did not stabilize"*. The page numbers are resolved by looking up where each deferred correction landed, and that lookup does not settle in this combination. The rendered output is usually correct, but the page numbers are not guaranteed.
+
+This predates 0.6.4 (it reproduces on 0.6.3). Either use `link-style: "icon"`, or keep to the badge styles that draw a badge (`box`, `circled`, `filled-circle`, `rect`, `filled-rect`, `pill`, `tag`), which 0.6.4 does fix - those diverged too before this release.
+
+## Complete Example
+
+```typst
+#import "@preview/exercise-bank:0.6.4": *
+
+// Setup
+#exo-setup(
+  corr-loc: "end-section",
+  show-competencies: true,
+)
+
+= Algebra Exercises
+
+// Define exercises in a bank
+#exo-define(
+  id: "alg-1",
+  exercise: [Solve $2x + 5 = 13$.],
+  topic: "equations",
+  level: "easy",
+  competencies: ("C1.1",),
+  solution: [$x = 4$],
+)
+
+#exo-define(
+  id: "alg-2",
+  exercise: [Solve $x^2 = 9$.],
+  topic: "equations",
+  level: "medium",
+  competencies: ("C1.1", "C1.2"),
+  solution: [$x = 3$ or $x = -3$],
+)
+
+#exo-define(
+  id: "alg-3",
+  exercise: [Solve $3x - 1 > 5$.],
+  topic: "inequalities",
+  level: "medium",
+  competencies: ("C1.3",),
+  solution: [$x > 2$],
+)
+
+// Display exercises for this section
+#exo-select(level: "easy")
+#exo-select(level: "medium", max: 2)
+
+// Print solutions at end of section
+#exo-print-solutions(title: "Answers")
+```
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Changelog
+
+### [0.6.4] - 2026-09-01
+
+#### Added
+- **Two-column layouts.** `exo-page-columns` sets a whole document on page columns, `exo-columns` sets a single block, both with an optional vertical rule in the gutter and badges moved above the statements so they cost no column width.
+- **`corr-columns`.** The corrections collected for the end of a section or chapter are printed from inside the flow, so nothing could wrap them in columns by hand. They now take `corr-columns`, `corr-columns-gutter`, `corr-columns-rule` and `corr-columns-badge-position` of their own. Without a rule they flow across pages like body text; with one they are laid out as a grid, which draws the bar at the true height of the content on every page the section spans.
+- **`badge-style: "margin"` in narrow columns.** Its side label was a hard-coded 3.35cm column, which left a two-column statement about as wide as the label itself. It now folds onto a header line below `margin-fold-below` (`auto` = three times the label column) and whenever `badge-position` is `"above"`, so the two-column functions cover it like every other style. `margin-label-width` and `margin-label-gutter` make the unfolded geometry configurable.
+- **Badge size.** `badge-scale` multiplies the paddings and corner radius every badge shape ships with; `badge-pad-x`, `badge-pad-y` and `badge-radius` replace them outright. The reserved label column follows the badge, so `badge-position: "margin"` stays aligned without touching `margin-position`.
+- **`exo-columns(.., balance: true)`.** The block's columns are normally `columns` inside a block of estimated height, and that estimate is a cap: a body longer than a page was silently truncated. `balance: true` splits the body into its own pieces and lays them out as a grid instead, which breaks across pages and stops the rule at the content. Opt-in — see *Multi-Column Layouts* above for the one combination it does not survive.
+
+#### Fixed
+- **With `badge-position: "above"`, a badge could be left alone at the bottom of a column or page while its statement started the next one.** The header line is now sticky (on Typst 0.13+, which the package does not require: on older compilers it degrades to a plain block).
+- **`badge-style: "margin"` and `link-style: "page"` together never converged.** The page reference was wrapped into the statement with wrap-it, which measures the content — and the content carries the exercise's own link target, which `measure` cannot resolve against the real document. The full-width styles now put the reference on a line of its own above the statement, where it is laid out rather than measured.
+- **The label column measured the badge it was about to draw.** Feeding a laid-out width back into the layout left any document that mixed badge styles *and* resolved page references short of converging. The column is now `auto` with a zero-height strut of the configured margin: the same constraint, stated declaratively, with nothing to converge on.
+- **The page reference appeared only from the second layout pass on.** On the first pass the correction has not been laid out, so the lookup found nothing and no reference was emitted at all; adding one on the next pass moved the very page numbers being resolved. The space is now reserved either way, and only the text inside it waits for the target.
+
+### [0.6.3] - 2026-08-19
+
+#### Fixed
+- **With `qr-position: "tasks"`, the sentence before the `#tasks` call ran under the QR code in a narrow column.** The code is drawn as an overlay of zero flow height and the zone it occupies is published for taskize to lay its rows around, but text placed ahead of that call is not part of the grid, so nothing kept it clear of the overlay. In a wide single column the sentence fit on one line and stopped short of the code, which is why the collision only showed in two-column sheets. That leading text is now set at a reduced width for as long as the overlay lasts, and only the height the overlay still occupies below it is published as the wrap zone, so the tasks grid still uses whatever room is left. A leading sentence long enough to run past the code now flows back to the full width once clear of it, and a body with no `#tasks` call at all — which had no grid to hand the zone to, and so was never kept clear of the overlay — keeps out of it too.
+
+### [0.6.2] - 2026-08-10
+
+#### Added
+- **`badge-position: "above"`** — put the badge alone on a header line and let the statement run the full width underneath, instead of reserving a left badge column on every line. Independent of `badge-style`, so every badge look keeps working; useful in a narrow measure or with enumerated statements.
+
+#### Fixed
+- **Page-counter convergence for `link-style: "page"` references** — the "Solution p. 30" reference sits in an `auto` grid column, so its width feeds back into the layout: a page number growing from 9 to 10 narrowed the text column, reflowed the statement and changed the number again ("page counter did not converge"). `make-page-ref` now reserves a width computed from an all-9s number of the same digit count, which no longer varies between layout passes.
+- **Measurement stability for `link-style: "page"` references** — with `badge-position: "margin"` the reference was handed to wrap-it, which measures it to size the wrap zone; `measure` cannot resolve the link's label against the real document and falls back to the closest matching element, so the measurement changed from one layout pass to the next ("a measured element did not stabilize", "query for elements labelled … did not stabilize"). The wrap zone is now reserved with an empty box of the reference's exact size — nothing introspective to resolve — and the reference is placed out of flow on top, where it is never measured.
+
+### [0.6.1] - 2026-07-17
+
+#### Added
+- **`qr-position: "tasks"`** — overlay the QR at the top right with zero reserved flow height, for exercise bodies built from a [taskize](https://typst.app/universe/package/taskize/) `#tasks(...)` block; taskize narrows its own top rows to flow around the QR instead of the whole grid being pushed below it. Coordinates with taskize purely through a shared state key, with no import dependency in either direction — opt-in and inert on bodies without a `#tasks` call.
+
+#### Fixed
+- Removed stray root-level `.claude/` directory from the source repo.
+
+### [0.6.0] - 2026-07-14
+
+#### Added
+- **Difficulty levels** — `difficulty:` on `exo`/`exo-define` with a configurable scale (up to 5 built-in levels); shown as badge colors (default), stars, or drawn symbols (seedling, pencil, target, mountain, star) via `difficulty-display` (stars/symbols sit below the badge by default, `difficulty-position: "badge"` for inline); new `difficulty`/`difficulties` filters on `exo-select`, `exo-filter`, and `exo-count`
+- **Clickable exercise ↔ correction links** — `link-solutions: true` adds an arrow icon on the exercise jumping to its deferred correction and a back-link on the correction (customizable `link-icon`/`backlink-icon`); with `link-style: "page"` the exercise instead shows a textbook-style clickable "Solution p. 30" reference at the top right of the statement
+- **Split solution/correction placement** — new `sol-loc` setting so solutions and corrections can go to different locations (e.g. solution right after the statement, correction at the end of the chapter)
+- **Inline solution style** — `solution-style: "inline"` renders solutions as a short epigraph-like rule + content directly under the statement, with a small margin label (rule length via `inline-rule-length`, label via `inline-label`)
+- **Automatic end-of-chapter corrections** — `#show: exo-auto-chapter` prints pending corrections before each new level-1 heading and at the end of the document
+- **Chapter-prefixed numbering** — `number-prefix: "heading"` displays exercise numbers as "3.5" using the current level-1 heading number; also accepts a custom counter or function for heading packages with their own counters, e.g. beautitled's `chapter-counter` (`number-separator` configurable)
+- **`rect` and `filled-rect` badge styles** — compact number-only rectangles, a minimal alternative to the circle styles
+- **Custom badge functions** — `badge-style` accepts a function `(label, number, font-size, color, is-solution) => content`
+
+#### Fixed
+- **Markers on all badge styles** — the optional/corr-given/difficulty markers now show on every badge style (`circled`, `filled-circle`, `pill`, `tag`, `rect`, `filled-rect`) and on full-width styles; previously they only appeared with the default `box` style
+
+### [0.5.3] - 2026-07-13
+
+#### Added
+- **QR codes** — attach a QR code to any exercise, solution, or correction box via `qr`, `qr-sol`, and `qr-corr` parameters (accepts a URL string or arbitrary content). Generated with [tiaoma](https://typst.app/universe/package/tiaoma/).
+- **QR placement per badge style** — in margin/badge styles the code sits below the badge in the label column; in full-width styles the exercise content wraps around the code (via [wrap-it](https://typst.app/universe/package/wrap-it/)).
+- **Global QR configuration in `exo-setup`** — `show-qr`, `qr-size`, `qr-min-size`, `qr-color`, `qr-caption`, and `qr-position` to control size, color, caption, placement mode, and a master on/off toggle for print versions.
+
+### [0.5.2] - 2026-07-02
+
+#### Added
+- **Optional exercise marker** — `optional: true` on `exo`/`exo-define`/`exo-show` shows a built-in star icon before the label; customize with `exo-setup(optional-symbol: ...)` or set to `none` to disable
+- **Correction-given marker** — `corr-given: true` shows a dumbbell icon indicating the printed correction will be distributed to students; customize with `exo-setup(corr-given-symbol: ...)`
+- **`margin` badge style** — side-label layout with a fixed-width left column and a horizontal rule; the 10th badge style
+- **Per-display overrides in `exo-show`** — `optional`, `optional-symbol`, `corr-given`, `corr-given-symbol` can override bank metadata for a specific display call
+
+### [0.5.1] - 2026-06-19
+
+#### Fixed
+- **Documentation link** — the "Documentation (PDF)" link now resolves correctly. It previously pointed to a commit that did not contain `docs/manual.pdf` (the file had been excluded by a `*.pdf` gitignore rule), returning a 404 on GitHub and Typst Universe.
+
+### [0.5.0] - 2026-05-22
+
+#### Removed
+- **g-exam integration** — the `exam-question`, `exam-question-many`, and `exam-select` wrapper functions have been removed, along with the unconditional `@preview/g-exam` import. The `display-mode: "exam"` flag (which shows points in the badge via `exo-show`) is retained and requires no external dependency.
+
+### [0.4.0] - 2026-02-11
+
+#### Changed (Breaking)
+- **New display control system**: Replaced `solution-mode`, `fallback-to-correction`, and `append-solution-to-correction` with three clearer parameters:
+  - `display`: Controls what to display - `"ex"` (exercises only), `"sol"` (solutions only), `"both"` (default)
+  - `corr-display`: Controls which content type to show - `"solution"` (default), `"correction"`, `"mixed"`
+  - `corr-loc`: Controls where solutions appear - `"after"` (default), `"pagebreak"`, `"end-section"`, `"end-chapter"`
+
+- **New exercise-level flags**:
+  - `sol-in-corr`: If true, correction already contains solution (show only correction, not both)
+  - `show-corr`: If true, show correction in "mixed" mode for this exercise
+
+#### Removed
+- `solution-mode` parameter (replaced by `show` and `corr-loc`)
+- `fallback-to-correction` parameter (behavior controlled by `corr-display`)
+- `append-solution-to-correction` parameter (use `corr-display: "mixed"` instead)
+- `solution-in-correction-style` parameter (no longer needed)
+
+#### Migration Guide
+| Old Parameter | New Equivalent |
+|--------------|----------------|
+| `solution-mode: "inline"` | `display: "both", corr-loc: "after"` (default) |
+| `solution-mode: "none"` | `display: "ex"` |
+| `solution-mode: "only"` | `display: "sol"` |
+| `solution-mode: "end-section"` | `corr-loc: "end-section"` |
+| `solution-mode: "end-chapter"` | `corr-loc: "end-chapter"` |
+| `fallback-to-correction: true` | `corr-display: "correction"` |
+| `append-solution-to-correction: true` | `corr-display: "mixed"` with `show-corr: true` on exercises |
+
+### [0.3.0] - 2026-01-27
+
+#### Added
+- **9 visual badge styles**: Configure with `exo-setup(badge-style: "...")`
+- **Badge color customization**: `exo-setup(badge-color: rgb("#2563eb"))`
+- **Separate solution/correction colors**
+- **Advanced exercise markers**: `advanced-symbol` parameter
+- **Spacing control**: Independent spacing for exercises, solutions, and corrections
+
+### [0.2.0] - 2026-01-15
+
+#### Changed (Breaking)
+- `exo` function: Content parameter changed from positional to named parameter `exercise:`
+- `exo-define` function: Content parameter changed from positional to named parameter `exercise:`
+- Author metadata: Changed from single `author` to `authors` array
+
+### [0.1.0] - 2026-01-13
+
+- Initial release

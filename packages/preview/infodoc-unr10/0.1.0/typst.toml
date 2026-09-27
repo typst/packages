@@ -1,0 +1,23 @@
+[package]
+name = "infodoc-unr10"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Gregor <https://github.com/woodleader>"]
+license = "MIT-0"
+description = "Information Document (Beschreibungsbogen) for UN-R 10 EMC type approval of electric/electronic sub-assemblies."
+repository = "https://github.com/woodleader/infodoc-unr10"
+keywords = ["UN-R 10", "ECE R10", "EMC", "type approval", "KBA", "Beschreibungsbogen", "automotive"]
+categories = ["office"]
+disciplines = ["engineering", "transportation"]
+compiler = "0.11.0"
+
+# Files committed to the repo (visible on Typst Universe) but excluded from
+# the download bundle to keep the package small.
+exclude = [
+  "preview-page2.png",      # README illustration
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

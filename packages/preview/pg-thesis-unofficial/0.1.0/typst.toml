@@ -1,0 +1,24 @@
+[package]
+name = "pg-thesis-unofficial"
+version = "0.1.0"
+compiler = "0.15.0" # It will be fine with 0.14 too but 0.15 fixed some stuff regarding bibliography rendering and is generally better
+entrypoint = "lib.typ"
+authors = ["Kulpas <@jan-Kulpas>"]
+license = "MIT"
+description = "A thesis paper at Gdańsk University of Technology (Politechnika Gdańska)"
+repository = "https://github.com/jan-Kulpas/pg-thesis-unofficial"
+keywords = [
+    "pg",
+    "politechnika gdańska",
+    "praca dyplomowa",
+    "praca magisterska",
+    "gdańsk university of technology",
+]
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering"]
+exclude = ["/images/"]
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

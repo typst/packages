@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="200" fill="#7C6AF7"/>
+
+  <!-- Shadow under head -->
+  <ellipse cx="200" cy="295" rx="72" ry="18" fill="#5a4fd4" opacity="0.4"/>
+
+  <!-- Torso / shirt -->
+  <ellipse cx="200" cy="390" rx="110" ry="80" fill="#4CAF82"/>
+
+  <!-- Neck -->
+  <rect x="182" y="258" width="36" height="38" rx="8" fill="#F5C89A"/>
+
+  <!-- Head -->
+  <circle cx="200" cy="195" r="88" fill="#F5C89A"/>
+
+  <!-- Hair -->
+  <path d="M118 175 Q120 100 200 95 Q280 100 282 175 Q270 130 200 128 Q130 130 118 175Z" fill="#3D2B1F"/>
+
+  <!-- Ear left -->
+  <ellipse cx="113" cy="200" rx="13" ry="17" fill="#F5C89A"/>
+  <!-- Ear right -->
+  <ellipse cx="287" cy="200" rx="13" ry="17" fill="#F5C89A"/>
+
+  <!-- Eyes -->
+  <ellipse cx="170" cy="195" rx="14" ry="15" fill="white"/>
+  <ellipse cx="230" cy="195" rx="14" ry="15" fill="white"/>
+  <circle cx="173" cy="197" r="8" fill="#2C1A0E"/>
+  <circle cx="233" cy="197" r="8" fill="#2C1A0E"/>
+  <circle cx="176" cy="193" r="3" fill="white"/>
+  <circle cx="236" cy="193" r="3" fill="white"/>
+
+  <!-- Glasses -->
+  <rect x="152" y="182" width="36" height="26" rx="8" fill="none" stroke="#3D2B1F" stroke-width="4"/>
+  <rect x="212" y="182" width="36" height="26" rx="8" fill="none" stroke="#3D2B1F" stroke-width="4"/>
+  <line x1="188" y1="195" x2="212" y2="195" stroke="#3D2B1F" stroke-width="4"/>
+  <line x1="116" y1="192" x2="152" y2="191" stroke="#3D2B1F" stroke-width="4"/>
+  <line x1="248" y1="191" x2="284" y2="192" stroke="#3D2B1F" stroke-width="4"/>
+
+  <!-- Eyebrows -->
+  <path d="M155 178 Q170 172 185 177" stroke="#3D2B1F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M215 177 Q230 172 245 178" stroke="#3D2B1F" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Smile -->
+  <path d="M172 228 Q200 250 228 228" stroke="#C87A5A" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Cheeks -->
+  <ellipse cx="155" cy="225" rx="16" ry="10" fill="#F0A090" opacity="0.45"/>
+  <ellipse cx="245" cy="225" rx="16" ry="10" fill="#F0A090" opacity="0.45"/>
+</svg>

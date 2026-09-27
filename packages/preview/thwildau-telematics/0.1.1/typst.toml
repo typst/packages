@@ -1,0 +1,29 @@
+[package]
+name = "thwildau-telematics"
+version = "0.1.1"
+entrypoint = "conf.typ"
+authors = [
+  "Carl Heinrich Bellgardt",
+  "carl@bellgardt.dev",
+  "https://bellgardt.dev",
+  "@c4mperpr0",
+]
+license = "MIT"
+description = "Thesis for telematics students at the Technische Hochschule Wildau."
+repository = "https://git.th-wildau.de/cabe7261/typst-thwildau-thesis"
+keywords = [
+  "TH",
+  "Wildau",
+  "Technische",
+  "Hochschule",
+  "Thesis",
+  "Telematik",
+  "Telematics",
+]
+categories = ["thesis", "report"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

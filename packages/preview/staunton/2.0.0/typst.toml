@@ -1,0 +1,26 @@
+[package]
+name = "staunton"
+version = "2.0.0"
+entrypoint = "lib.typ"
+authors = ["Frank Lippert <frank.lippert@gmail.com>"]
+license = "MIT AND GPL-2.0-or-later"
+description = "Chess publishing: boards, FEN/PGN diagrams, tables, outlines."
+repository = "https://github.com/ndg6/staunton"
+keywords = ["chess", "fen", "pgn", "diagram", "board"]
+categories = ["visualization"]
+compiler = "0.14.2"
+
+# Files kept in the repo but NOT shipped in the published bundle.
+#
+# Only TRACKED paths belong here. `scripts/build-bundle.sh` builds from
+# `git archive HEAD`, so anything untracked cannot reach the bundle by
+# construction -- listing it would be noise that implies a protection the
+# entry is not providing.
+exclude = [
+  "tests",
+  "bench",
+  "docs",
+  "scripts",
+  "RELEASING.md",
+  "src/assets/piece_sets/_incomplete",
+]

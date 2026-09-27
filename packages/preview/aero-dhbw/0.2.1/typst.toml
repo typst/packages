@@ -1,0 +1,17 @@
+[package]
+name = "aero-dhbw"
+version = "0.2.1"
+entrypoint = "src/aero-dhbw.typ"
+authors = ["cocoveal <https://github.com/cocoveal>"]
+license = "MIT"
+description = "Template for TX000 papers at DHBW Ravensburg"
+repository = "https://github.com/cocoveal/aero-dhbw"
+keywords = ["template", "dhbw", "thesis"]
+categories = ["paper", "thesis", "report"]
+# Dev-only files kept out of the published bundle (see scripts/package).
+exclude = ["scripts", ".github", "CLAUDE.md", ".gitignore", "cur-dev", "docs"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

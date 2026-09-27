@@ -1,0 +1,15 @@
+[package]
+name = "fun-article"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Casper van Elteren <caspervanelteren@gmail.com>"]
+license = "MIT"
+description = "Playful two-column research article."
+categories = ["paper"]
+keywords = ["article", "research", "two-column", "dropcap"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

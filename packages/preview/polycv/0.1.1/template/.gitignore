@@ -1,0 +1,5 @@
+# Generated PDFs
+*.pdf
+
+# Cached copy of the polycv schema (fetched by `make validate`)
+.polycv-schema*.json

@@ -1,0 +1,14 @@
+{
+  "atom_stroke_width": 3,
+  "fog_strength": 1,
+  "hue_shift_factor": 0.15,
+  "light_shift_factor": 0.1,
+  "saturation_shift_factor": 0.1,
+  "vdw_gradient_strength": 1.8,
+  "bond_orders": false,
+  "colors": {
+    "C": "#D9D9D9",
+    "H": "#FAFAFA",
+    "N": "#7F7FBF"
+  }
+}

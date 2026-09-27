@@ -1,0 +1,11 @@
+[package]
+name = "abbrev"
+version = "0.1.5"
+entrypoint = "lib.typ"
+authors = ["Luca P. <@girasole123>"]
+license = "GPL-3.0-or-later"
+description = "Create and manage abbreviations in your documents."
+repository = "https://github.com/girasole123/Abbrev"
+keywords = ["abbreviations", "acronyms", "glossary", "list"]
+categories = ["text", "model"]
+exclude = ["example.typ"]

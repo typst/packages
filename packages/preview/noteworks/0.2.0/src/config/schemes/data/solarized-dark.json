@@ -1,0 +1,59 @@
+{
+    "page-fill": "#002b36",
+    "text-main": "#93a1a1",
+    "text-heading": "#268bd2",
+    "text-muted": "#657b83",
+    "text-accent": "#d33682",
+    "blocks": {
+        "definition": {
+            "fill": "#073642",
+            "stroke": "#859900",
+            "title": "Definition"
+        },
+        "equation": {
+            "fill": "#073642",
+            "stroke": "#b58900",
+            "title": "Equation"
+        },
+        "example": {
+            "fill": "#073642",
+            "stroke": "#cb4b16",
+            "title": "Example"
+        },
+        "solution": {
+            "fill": "#073642",
+            "stroke": "#6c71c4",
+            "title": "Solution"
+        },
+        "proof": {
+            "fill": "#073642",
+            "stroke": "#dc322f",
+            "title": "Proof"
+        },
+        "note": {
+            "fill": "#073642",
+            "stroke": "#2aa198",
+            "title": "Note"
+        },
+        "notation": {
+            "fill": "#073642",
+            "stroke": "#268bd2",
+            "title": "Notation"
+        },
+        "analysis": {
+            "fill": "#073642",
+            "stroke": "#268bd2",
+            "title": "Analysis"
+        },
+        "theorem": {
+            "fill": "#073642",
+            "stroke": "#b58900",
+            "title": "Theorem"
+        }
+    },
+    "plot": {
+        "stroke": "#268bd2",
+        "highlight": "#d33682",
+        "grid-opacity": 0.2
+    }
+}

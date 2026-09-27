@@ -1,0 +1,11 @@
+[package]
+name = "ditto"
+version = "0.1.0"
+repository = "https://github.com/ZaneH/ditto"
+entrypoint = "src/lib.typ"
+authors = ["Zane Helton <https://github.com/ZaneH>"]
+categories = ["components"]
+license = "MIT"
+description = "Reusable components for math worksheets"
+keywords = ["worksheet", "teaching", "math"]
+exclude = ["/examples/*", "/AGENTS.md"]

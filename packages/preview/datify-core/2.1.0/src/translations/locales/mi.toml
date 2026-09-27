@@ -1,0 +1,136 @@
+[days.format.wide]
+1 = "Mane"
+2 = "Tūrei"
+3 = "Wenerei"
+4 = "Tāite"
+5 = "Paraire"
+6 = "Rāhoroi"
+7 = "Rātapu"
+
+[days.format.abbreviated]
+1 = "Man"
+2 = "Tūr"
+3 = "Wen"
+4 = "Tāi"
+5 = "Par"
+6 = "Rāh"
+7 = "Rāt"
+
+[days.format.narrow]
+5 = "P"
+6 = "Rh"
+7 = "Rt"
+
+[days.stand-alone.wide]
+1 = "Mane"
+2 = "Tūrei"
+3 = "Wenerei"
+4 = "Tāite"
+5 = "Paraire"
+6 = "Rāhoroi"
+7 = "Rātapu"
+
+[days.stand-alone.abbreviated]
+1 = "Man"
+2 = "Tūr"
+3 = "Wen"
+4 = "Tāi"
+5 = "Par"
+6 = "Rāh"
+7 = "Rāt"
+
+[days.stand-alone.narrow]
+5 = "P"
+6 = "Rh"
+7 = "Rt"
+
+[months.format.wide]
+1 = "Hānuere"
+2 = "Pēpuere"
+3 = "Māehe"
+4 = "Āpereira"
+5 = "Mei"
+6 = "Hune"
+7 = "Hūrae"
+8 = "Ākuhata"
+9 = "Hepetema"
+10 = "Oketopa"
+11 = "Noema"
+12 = "Tīhema"
+
+[months.format.abbreviated]
+1 = "Hān"
+2 = "Pēp"
+3 = "Māe"
+4 = "Āpe"
+5 = "Mei"
+6 = "Hun"
+7 = "Hūr"
+8 = "Āku"
+9 = "Hep"
+10 = "Oke"
+11 = "Noe"
+12 = "Tīh"
+
+[months.format.narrow]
+1 = "H"
+2 = "P"
+3 = "M"
+4 = "Ā"
+5 = "M"
+6 = "H"
+7 = "H"
+8 = "Ā"
+9 = "H"
+10 = "O"
+11 = "N"
+12 = "T"
+
+[months.stand-alone.wide]
+1 = "Hānuere"
+2 = "Pēpuere"
+3 = "Māehe"
+4 = "Āperira"
+5 = "Mei"
+6 = "Hune"
+7 = "Hūrae"
+8 = "Ākuhata"
+9 = "Hepetema"
+10 = "Oketopa"
+11 = "Noema"
+12 = "Tīhema"
+
+[months.stand-alone.abbreviated]
+1 = "Hān"
+2 = "Pēp"
+3 = "Māe"
+4 = "Āpe"
+5 = "Mei"
+6 = "Hun"
+7 = "Hūr"
+8 = "Āku"
+9 = "Hep"
+10 = "Oke"
+11 = "Noe"
+12 = "Tīh"
+
+[months.stand-alone.narrow]
+1 = "H"
+2 = "P"
+3 = "M"
+4 = "Ā"
+5 = "M"
+6 = "H"
+7 = "H"
+8 = "Ā"
+9 = "H"
+10 = "O"
+11 = "N"
+12 = "T"
+
+[patterns]
+full = "EEEE, d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "dd-MM-y"
+

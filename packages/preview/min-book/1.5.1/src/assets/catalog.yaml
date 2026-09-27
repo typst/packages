@@ -1,0 +1,11 @@
+this-book:
+  type: Book
+  title: TITLE
+  author: AUTHORS
+  date: DATE
+  publisher: 
+    name: PUBLISHER
+    location: PLACE
+  location: PLACE
+  volume: VOLUME
+  edition: EDITION
