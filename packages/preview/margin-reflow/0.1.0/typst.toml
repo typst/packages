@@ -1,0 +1,11 @@
+[package]
+name = "margin-reflow"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Kevin Sun <@sses7757>"]
+license = "MIT"
+description = "Reflow content into new margins in the middle of a page."
+repository = "https://github.com/sses7757/typst-margin-reflow"
+keywords = ["layout", "columns", "margins", "reflow", "asymmetric", "flow", "page"]
+categories = ["layout", "components"]
+exclude = ["doc/", "examples/", ".gitignore"]
