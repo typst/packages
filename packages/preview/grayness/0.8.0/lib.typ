@@ -58,13 +58,15 @@ limitations under the License.
 /// #image(blurred-and-grayscaled)
 /// ```
 #let plg = plugin("grayness.wasm")
+//the webassembly plugin has it's own version number, make sure it is the correct one.
+#assert(str(plg.plugin_version()) == "0.7.0")
 
 /// Create a grayscale-image representation of the provided imagedata (Raster or SVG)
 ///
 ///  _Example:_
 /// ```example
 /// #import "@preview/grayness:0.8.0": *
-/// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
+/// <<<#let arturo = path("Arturo_Nieto-Dorantes.webp")
 /// #image-grayscale(arturo)
 /// ```
 /// -> content
@@ -664,10 +666,11 @@ limitations under the License.
   }
 }
 
-///Update the alpha-channel of the image by applying the masking image to it.
-///The if the mask image is not the same size as the target image, it will be resized automatically.
+/// For raster images, this function updates the alpha-channel of the image by applying the masking image to it.
+/// The if the mask image is not the same size as the target image, it will be resized automatically.
 ///
-///*This function does not work with SVG data.*
+/// For SVG, the mask image is applied to the SVG directly without scaling if it has a different aspect ratio. The result image will appear transparent at areas not covered by the mask in this case.
+///
 /// ```example
 /// #import "@preview/grayness:0.8.0": *
 /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
@@ -683,8 +686,16 @@ limitations under the License.
   /// for the mask image
   /// -> bytes
   maskdata,
-  /// Defines if the alpha-channel of the mask image is used (default). If set to false, the brightness
+  /// For raster images, defines if the alpha-channel of the mask image is used (default). If set to false, the brightness
   /// of the mask image is used instead. Therefore, images without an alpha-channel can also be used as mask.
+  ///
+  /// For SVG images, the brigthness and alpha channel are always used both for masking.
+  /// ```example
+  /// #import "@preview/grayness:0.8.0": *
+  /// <<<#let arturo = read("Arturo_Nieto-Dorantes.webp", encoding: none)
+  /// <<<#let mask = read("mask.png", encoding:none)
+  /// #image-mask(arturo, mask, use-alpha-channel:false)
+  /// ```
   /// -> bool
   use-alpha-channel: true,
   /// Arguments to pass to the Typst image function
@@ -692,8 +703,8 @@ limitations under the License.
   /// -> arguments
   ..args,
 ) = {
-  if args.named().keys().contains("format") and args.named().format == "svg" {
-    panic("The image-mask() function does not work with SVG-Data")
+  if args.named().keys().contains("format") and type(args.named().format) == dictionary {
+    panic("format-dictionary is not supported")
   }
   let imagebytes = if type(imagedata) == path { read(imagedata, encoding: none) } else if type(imagedata) == bytes {
     imagedata
@@ -703,7 +714,11 @@ limitations under the License.
   } else { panic("maskdata must be raw bytes or given as path") }
   let alpha = 1.to-bytes()
   if not use-alpha-channel { alpha = 0.to-bytes() }
-  image(plg.mask(imagebytes, maskbytes, alpha), ..args)
+  if args.named().keys().contains("format") and args.named().format == "svg" {
+    image(plg.svg_mask(imagebytes, maskbytes), ..args)
+  } else {
+    image(plg.mask(imagebytes, maskbytes, alpha), ..args)
+  }
 }
 
 /// Gets the images dimensions and its format as string
@@ -746,12 +761,4 @@ limitations under the License.
     let format = str(infos.slice(8))
     (width: width, height: height, format: format)
   }
-}
-
-#let help(..args) = {
-  import "@preview/tidy:0.4.3"
-  let namespace = (
-    ".": read.with("lib.typ"),
-  )
-  tidy.generate-help(namespace: namespace, package-name: "grayness")(..args)
 }
