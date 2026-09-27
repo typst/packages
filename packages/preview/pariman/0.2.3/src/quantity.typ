@@ -1,7 +1,7 @@
 //quantity.typ
 #import "utils.typ"
 /// The formatting functionality is provided by zero package.
-#import "@preview/zero:0.6.1" as zero
+#import "@preview/zero:0.7.1" as zero
 
 // Parser for unit input
 // The possible patterns:

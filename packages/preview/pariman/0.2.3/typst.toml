@@ -6,5 +6,5 @@ authors = ["pacaunt <@pacaunt>"]
 license = "MIT"
 compiler = "0.13.1"
 repository = "https://github.com/pacaunt/pariman"
-description = "Calculations with Units in Typst"
+description = "Engineering Calculations with Units"
 categories = ["utility", "scripting", "components"]
