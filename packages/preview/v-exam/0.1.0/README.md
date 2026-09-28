@@ -65,7 +65,8 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
     cot: 4,//cot: 1 - bố trí 1 cột, cot: 2 - bố trí 2 cột, cot: 4 - bố trí 4 cột
     da: 0, //da: 0 - đáp án đúng A, da: 1 - đáp án đúng B, da: 2 - đáp án đúng C, da: 3 - đáp án đúng D
     lg: [Lời giải cho câu hỏi 2],)
-  ),),
+  ),
+),
   // Câu hỏi đúng sai
   (
     type: "TF",
@@ -84,6 +85,7 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
         [Lời giải cho ý c],
         [Lời giải cho ý d],
   ),
+),
 //Câu hỏi trả lời ngắn đơn
 (
     type: "TLN",
