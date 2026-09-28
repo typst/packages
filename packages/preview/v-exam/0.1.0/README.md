@@ -9,7 +9,7 @@ Bộ công cụ biên soạn bài tập, tài liệu ôn tập và trộn đề 
 - **Tự động trộn đề:** Trộn đảo phương án NLC, đảo ý $a, b, c, d$ của câu hỏi Đúng/Sai, hoán vị câu hỏi theo seed mã đề.
 - **Tự động xuất bảng đáp án & mã QR:** Tạo bảng đáp án tổng hợp và mã QR cho phần mềm chấm thi tự động (như UNT, Chấm thi KC, ...).
 - **Hỗ trợ câu hỏi chùm (Dữ kiện chung):** Tự động gom nhóm các câu hỏi con đi kèm đoạn văn cảnh/dữ kiện dùng chung mà không bị xáo rời rạc cho trường hợp câu hỏi chùm các môn.
-- **Biên soạn bài tập nối tiếp (`exercise` / `baitap-inline`):** Hỗ trợ biên soạn tài liệu giảng dạy, bài tập ôn tập chuyên đề có kèm lời giải chi tiết.
+- **Biên soạn bài tập nối tiếp (`exercise` / `bai-tap-in-line`):** Hỗ trợ biên soạn tài liệu giảng dạy, bài tập ôn tập chuyên đề có kèm lời giải chi tiết.
 
 ---
 
@@ -136,10 +136,10 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
 )
 ```
 
-### 3. Biên soạn bài tập / Tài liệu ôn tập (`exercise` / `baitap-inline`)
+### 3. Biên soạn bài tập / Tài liệu ôn tập (`exercise` / `bai-tap-in-line`)
 
 ```typst
-#import "@preview/v-exam:0.1.0": exercise, baitap-inline
+#import "@preview/v-exam:0.1.0": exercise, bai-tap-in-line
 
 #exercise(
   data,
@@ -164,26 +164,26 @@ Tạo các đề thi bằng cách rút ngẫu nhiên câu hỏi từ ngân hàng
 #let matrix = (
   (
     bank: data,
-    NLC_dem: (1, 0, 0),
-    tf_dem: (0, 1, 0),
-    TLN_dem: (0, 1, 0),
-    TL_dem: (0, 1, 0),
+    NLC-dem: (1, 0, 0),
+    tf-dem: (0, 1, 0),
+    TLN-dem: (0, 1, 0),
+    TL-dem: (0, 1, 0),
   ),
 )
 
 #let info = (
-  so_gd: [SỞ GD VÀ ĐT QUẢNG NGÃI],
+  so-gd: [SỞ GD VÀ ĐT QUẢNG NGÃI],
   truong: [TRƯỜNG THPT NGHĨA HÀNH],
-  ky_thi: [KIỂM TRA GIỮA KỲ I],
+  ky-thi: [KIỂM TRA GIỮA KỲ I],
   mon: [VẬT LÝ 12],
-  thoi_gian: [45 phút],
-  ds_ma_de: ("101", "102", "103", "104"),
+  thoi-gian: [45 phút],
+  ds-ma-de: ("101", "102", "103", "104"),
 )
 
 // Gọi lệnh tạo đề:
-#make-exam-matrix(matrix, info, show-lg: false, hienthi-bangdapan: true, theo-lv: true)
+#make-exam-matrix(matrix, info, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: true)
 // Hoặc alias tiếng Việt:
-#tron-de-bank-level(matrix, info, show-lg: false, hienthi-bangdapan: true, theo-lv: true)
+#tron-de-bank-level(matrix, info, show-lg: false, hienthi-bang-dap-an: true, theo-lv: true)
 ```
 
 #### b) Trộn đề cùng nội dung (`make-exam-sync` / `tron-de-cung-noi-dung`)
@@ -191,9 +191,9 @@ Tạo các đề thi bằng cách rút ngẫu nhiên câu hỏi từ ngân hàng
 Cùng một bộ câu hỏi nhưng xáo trộn vị trí câu và phương án giữa các mã đề:
 
 ```typst
-#make-exam-sync(matrix, info, seed-goc: 2026, show-lg: false, theo-lv: false, xao-cau: true, xao-pa: true)
+#make-exam-sync(matrix, info, seed-goc: 2026, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: false, xao-cau: true, xao-pa: true)
 // Hoặc alias tiếng Việt:
-#tron-de-cung-noi-dung(matrix, info, seed-goc: 2026, show-lg: false, theo-lv: false, xao-cau: true, xao-pa: true)
+#tron-de-cung-noi-dung(matrix, info, seed-goc: 2026, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: false, xao-cau: true, xao-pa: true)
 ```
 
 #### c) Trộn đề chỉ đảo ý/phương án (`make-exam-sub-only` / `tron-de-chi-y`)
@@ -201,9 +201,9 @@ Cùng một bộ câu hỏi nhưng xáo trộn vị trí câu và phương án g
 Cố định thứ tự câu hỏi, chỉ hoán vị phương án hoặc các ý $a, b, c, d$:
 
 ```typst
-#make-exam-sub-only(matrix, info, seed-goc: 2024, show-lg: false, tf-mode: "y-only", nlc-mode: "none", theo-lv: false)
+#make-exam-sub-only(matrix, info, seed-goc: 2024, show-lg: false, hien-thi-bang-dap-an: true, tf-mode: "y-only", nlc-mode: "none", theo-lv: false)
 // Hoặc alias tiếng Việt:
-#tron-de-chi-y(matrix, info, seed-goc: 2024, show-lg: false, tf-mode: "y-only", nlc-mode: "none", theo-lv: false)
+#tron-de-chi-y(matrix, info, seed-goc: 2024, show-lg: false, hien-thi-bang-dap-an: true, tf-mode: "y-only", nlc-mode: "none", theo-lv: false)
 ```
 
 ---
