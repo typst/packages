@@ -161,9 +161,10 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
 Tạo các đề thi bằng cách rút ngẫu nhiên câu hỏi từ ngân hàng đề:
 
 ```typst
+#import "file.typ" as b
 #let matrix = (
   (
-    bank: data,
+    bank: b.data,
     NLC-dem: (1, 0, 0),
     tf-dem: (0, 1, 0),
     TLN-dem: (0, 1, 0),
