@@ -15,9 +15,9 @@ Bộ công cụ biên soạn bài tập, tài liệu ôn tập và trộn đề 
 ## 🖼️ Mẫu kết quả (Gallery)
 
 <p align="center">
-  <img src="https://github.com/KieuQuangVu-NCP/v-exam/blob/main/gallery/Picture-de.png" width="48%" alt="Đề thi mẫu" /> <br>
-  <img src="https://github.com/KieuQuangVu-NCP/v-exam/blob/main/gallery/Picture-bangda.png" width="48%" alt="Bảng đáp án" /> <br>
-  <img src="https://github.com/KieuQuangVu-NCP/v-exam/blob/main/gallery/Picture-maQR.png" width="48%" alt="Mã QRcode dùng cho máy chấm" />
+  <img src="gallery/Picture-de.png" width="48%" alt="Đề thi mẫu" /> <br>
+  <img src="gallery/Picture-bangda.png" width="48%" alt="Bảng đáp án" /> <br>
+  <img src="gallery/Picture-maQR.png" width="48%" alt="Mã QRcode dùng cho máy chấm" />
 </p>
 
 ## 📦 Hướng dẫn sử dụng
