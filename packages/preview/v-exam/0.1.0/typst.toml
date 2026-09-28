@@ -1,0 +1,11 @@
+[package]
+name = "v-exam"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Kieu Quang Vu (@KieuQuangVu-NCP)"]
+license = "MIT"
+description = "Bộ công cụ biên soạn bài tập và trộn đề thi trắc nghiệm, tự luận chuẩn Bộ GD&ĐT Việt Nam dành cho mọi môn học."
+repository = "https://github.com/KieuQuangVu-NCP/v-exam"
+keywords = ["exam", "test", "vietnam", "quiz", "education", "v-exam"]
+categories = ["office", "layout"]
+compiler = ">= 0.11.0"
