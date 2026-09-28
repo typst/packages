@@ -220,16 +220,16 @@
   num-tl: none,
   show-lg: false,
   dong-ke: none,
-  co_nlc: none,
-  co_tf: none,
-  co_tln: none,
-  co_tl: none,
+  co-nlc: none,
+  co-tf: none,
+  co-tln: none,
+  co-tl: none,
   theo-lv: false,
 ) = {
-  let cfg-nlc = if num-nlc != none { num-nlc } else { co_nlc }
-  let cfg-tf  = if num-tf != none { num-tf } else { co_tf }
-  let cfg-tln = if num-tln != none { num-tln } else { co_tln }
-  let cfg-tl  = if num-tl != none { num-tl } else { co_tl }
+  let cfg-nlc = if num-nlc != none { num-nlc } else { co-nlc }
+  let cfg-tf  = if num-tf != none { num-tf } else { co-tf }
+  let cfg-tln = if num-tln != none { num-tln } else { co-tln }
+  let cfg-tl  = if num-tl != none { num-tl } else { co-tl }
 
   let actual-bank = if type(bank-data) == dictionary and "data" in bank-data { 
     bank-data.data 
@@ -851,7 +851,7 @@
   })
 }
 
-#let rut-cau-Level(raw-bank, q-type, dem-config, seed) = {
+#let rut-cau-level(raw-bank, q-type, dem-config, seed) = {
   let actual-bank = if type(raw-bank) == dictionary and "data" in raw-bank { raw-bank.data }
   else if type(raw-bank) == module { raw-bank.data } else { raw-bank }
 
@@ -917,10 +917,10 @@
       let tln-seed = base-seed * 999999 + b-idx * 999999 + 357
       let tl-seed  = base-seed * 999999 + b-idx * 999999 + 491
 
-      if "nlc-dem" in item { rut-nlc += rut-cau-Level(b, "NLC", item.nlc-dem, nlc-seed) }
-      if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
-      if "tln-dem" in item { rut-tln += rut-cau-Level(b, "TLN", item.tln-dem, tln-seed) }
-      if "tl-dem"  in item { rut-tl  += rut-cau-Level(b, "TL",  item.tl-dem,  tl-seed)  }
+      if "nlc-dem" in item { rut-nlc += rut-cau-level(b, "NLC", item.nlc-dem, nlc-seed) }
+      if "tf-dem"  in item { rut-tf  += rut-cau-level(b, "TF",  item.tf-dem,  tf-seed)  }
+      if "tln-dem" in item { rut-tln += rut-cau-level(b, "TLN", item.tln-dem, tln-seed) }
+      if "tl-dem"  in item { rut-tl  += rut-cau-level(b, "TL",  item.tl-dem,  tl-seed)  }
     }
 
     rut-nlc = xao-theo-tuy-chon(rut-nlc, base-seed + 991,  theo-lv: theo-lv)
@@ -1032,10 +1032,10 @@
     let tln-seed = seed-goc * 999999 + b-idx * 999999 + 357
     let tl-seed  = seed-goc * 999999 + b-idx * 999999 + 491
 
-    if "nlc-dem" in item { rut-nlc += rut-cau-Level(b, "NLC", item.nlc-dem, nlc-seed) }
-    if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
-    if "tln-dem" in item { rut-tln += rut-cau-Level(b, "TLN", item.tln-dem, tln-seed) }
-    if "tl-dem"  in item { rut-tl  += rut-cau-Level(b, "TL",  item.tl-dem,  tl-seed)  }
+    if "nlc-dem" in item { rut-nlc += rut-cau-level(b, "NLC", item.nlc-dem, nlc-seed) }
+    if "tf-dem"  in item { rut-tf  += rut-cau-level(b, "TF",  item.tf-dem,  tf-seed)  }
+    if "tln-dem" in item { rut-tln += rut-cau-level(b, "TLN", item.tln-dem, tln-seed) }
+    if "tl-dem"  in item { rut-tl  += rut-cau-level(b, "TL",  item.tl-dem,  tl-seed)  }
   }
 
   rut-nlc = tron-mang(rut-nlc, seed-goc + 991)
@@ -1119,7 +1119,7 @@
 
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
-    align(center)[#text(16pt, weight: "bold")[MÃ qr ĐÁP ÁN TRẮC NGHIỆM]]
+    align(center)[#text(16pt, weight: "bold")[MÃ QRCODE ĐÁP ÁN TRẮC NGHIỆM]]
     v(1em)
     context {
       let results = query(<exam-data>)
@@ -1159,10 +1159,10 @@
     let tln-seed = seed-goc * 999999 + b-idx * 999999 + 357
     let tl-seed  = seed-goc * 999999 + b-idx * 999999 + 491
 
-    if "nlc-dem" in item { rut-nlc += rut-cau-Level(b, "NLC", item.nlc-dem, nlc-seed) }
-    if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
-    if "tln-dem" in item { rut-tln += rut-cau-Level(b, "TLN", item.tln-dem, tln-seed) }
-    if "tl-dem"  in item { rut-tl  += rut-cau-Level(b, "TL",  item.tl-dem,  tl-seed)  }
+    if "nlc-dem" in item { rut-nlc += rut-cau-level(b, "NLC", item.nlc-dem, nlc-seed) }
+    if "tf-dem"  in item { rut-tf  += rut-cau-level(b, "TF",  item.tf-dem,  tf-seed)  }
+    if "tln-dem" in item { rut-tln += rut-cau-level(b, "TLN", item.tln-dem, tln-seed) }
+    if "tl-dem"  in item { rut-tl  += rut-cau-level(b, "TL",  item.tl-dem,  tl-seed)  }
   }
 
   rut-nlc = tron-mang(rut-nlc, seed-goc + 991)
@@ -1251,7 +1251,7 @@
 
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
-    align(center)[#text(16pt, weight: "bold")[MÃ qr ĐÁP ÁN TRẮC NGHIỆM]]
+    align(center)[#text(16pt, weight: "bold")[MÃ QRCODE ĐÁP ÁN TRẮC NGHIỆM]]
     v(1em)
     context {
       let results = query(<exam-data>)
@@ -1279,11 +1279,11 @@
   )
 }
 
-#let dang(title, STT: "1", kieu: "Dạng") = [
+#let dang(title, stt: "1", kieu: "Dạng") = [
   #grid(
     columns: (auto, 1fr), align: center + horizon, column-gutter: -2pt,
     box(fill: rgb("#72f0b1a2"), radius: 8pt, inset: (x: 10pt, y: 10pt), stroke: 2pt + rgb("#72f0b1a2"))[
-      #stack(spacing: 3pt, text(weight: "bold", fill: rgb("#f92a01fd"), size: 1.4em)[#kieu #STT:])
+      #stack(spacing: 3pt, text(weight: "bold", fill: rgb("#f92a01fd"), size: 1.4em)[#kieu #stt:])
     ],
     box(fill: rgb("#6ff6e484"), width: 100%, radius: 8pt, inset: (x: 15pt, y: 10pt), stroke: 2pt + rgb("#6ff6e484"))[
       #text(weight: "bold", fill: rgb("#e90335f8"), size: 1.4em)[#title]
