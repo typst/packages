@@ -67,4 +67,4 @@ cd modern-hfut-report
 
 [MIT License](LICENSE)
 
-`assets/` 下的校徽来自 [HFUTTUG/HFUT-badge](https://github.com/HFUTTUG/HFUT-badge)，版权归合肥工业大学所有，不在 MIT 许可范围内；使用前请先阅读[《合肥工业大学视觉形象识别系统使用管理办法》](https://github.com/HFUTTUG/HFUT-badge/tree/main/docs)。
+`assets/` 下的校徽来自 [HFUTTUG/HFUT-badge](https://github.com/HFUTTUG/HFUT-badge)，版权归合肥工业大学所有，不在 MIT 许可范围内；使用前请先阅读[《合肥工业大学视觉形象识别系统使用管理办法》](https://github.com/HFUTTUG/HFUT-badge/tree/616cf08022f035116420645d15a096eecf360ee8/docs)。
