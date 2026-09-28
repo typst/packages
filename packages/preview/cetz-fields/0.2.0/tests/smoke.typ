@@ -1,4 +1,4 @@
-#import "../main.typ": vectorfield, graph, coulomb
+#import "@preview/cetz-fields:0.2.0": vectorfield, graph, coulomb
 #import "@preview/cetz:0.5.2"
 #let uniform = vectorfield.new((x, y) => (1, 0))
 #assert(vectorfield.sample(uniform, 0, 0) == (1, 0))

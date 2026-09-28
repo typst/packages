@@ -1,4 +1,4 @@
-#import "../main.typ": vectorfield, graph, coulomb
+#import "@preview/cetz-fields:0.2.0": vectorfield, graph, coulomb
 
 = Electric charge diagrams
 
