@@ -97,10 +97,10 @@
 }
 
 // ==========================================
-// 3. HÀM TẠO QR & HIỂN THỊ LỜI GIẢI
+// 3. HÀM TẠO qr & HIỂN THỊ LỜI GIẢI
 // ==========================================
-#let tao-QR-code-key(results) = {
-  let all_content = ""
+#let tao-qr-code-key(results) = {
+  let all-content = ""
   for entry in results {
     let ma-de = str(entry.value.seed)
     let part1 = entry.value.part1.join("")
@@ -220,16 +220,16 @@
   num-tl: none,
   show-lg: false,
   dong-ke: none,
-  co_NLC: none,
+  co_nlc: none,
   co_tf: none,
-  co_TLN: none,
-  co_TL: none,
+  co_tln: none,
+  co_tl: none,
   theo-lv: false,
 ) = {
-  let cfg-nlc = if num-nlc != none { num-nlc } else { co_NLC }
+  let cfg-nlc = if num-nlc != none { num-nlc } else { co_nlc }
   let cfg-tf  = if num-tf != none { num-tf } else { co_tf }
-  let cfg-tln = if num-tln != none { num-tln } else { co_TLN }
-  let cfg-tl  = if num-tl != none { num-tl } else { co_TL }
+  let cfg-tln = if num-tln != none { num-tln } else { co_tln }
+  let cfg-tl  = if num-tl != none { num-tl } else { co_tl }
 
   let actual-bank = if type(bank-data) == dictionary and "data" in bank-data { 
     bank-data.data 
@@ -303,10 +303,10 @@
     return loc-ques
   }
 
-  let ds-NLC = rut-cau("NLC", cfg-nlc, 107)
-  let ds-TF  = rut-cau("TF", cfg-tf, 233)
-  let ds-TLN = rut-cau("TLN", cfg-tln, 357)
-  let ds-TL  = rut-cau("TL", cfg-tl, 491)
+  let ds-nlc = rut-cau("NLC", cfg-nlc, 107)
+  let ds-tf  = rut-cau("TF", cfg-tf, 233)
+  let ds-tln = rut-cau("TLN", cfg-tln, 357)
+  let ds-tl  = rut-cau("TL", cfg-tl, 491)
 
   toan-setup({
     if title != none and title != "" {
@@ -316,14 +316,14 @@
     }
 
     // PHẦN I: NLC
-    if ds-NLC.len() > 0 {
+    if ds-nlc.len() > 0 {
       set par(first-line-indent: 0pt)
       v(-0.5em)
       if cm == 1 {
         text(fill: mau-sac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẮC NGHIỆM NHIỀU LỰA CHỌN]
       }
       let c-idx = 0
-      for item in ds-NLC {
+      for item in ds-nlc {
         if item.du-kien != none and item.du-kien != [] {
           let n-sub = item.cau-hoi-con.len()
           let start-c = c-idx + 1
@@ -397,12 +397,12 @@
     }
 
     // PHẦN II: TF
-    if ds-TF.len() > 0 {
+    if ds-tf.len() > 0 {
       set par(first-line-indent: 0pt)
       v(-0.1em)
       if cm == 1 { text(fill: mau-sac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẢ LỜI ĐÚNG/SAI] }
       let c-idx = 0
-      for item in ds-TF {
+      for item in ds-tf {
         if item.du-kien != none and item.du-kien != [] {
           let n-sub = item.cau-hoi-con.len()
           let start-c = c-idx + 1
@@ -449,12 +449,12 @@
     }
 
     // PHẦN III: TLN
-    if ds-TLN.len() > 0 {
+    if ds-tln.len() > 0 {
       set par(first-line-indent: 0pt)
       v(-0.5em)
       if cm == 1 { text(fill: mau-sac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẢ LỜI NGẮN] }
       let c-idx = 0
-      for item in ds-TLN {
+      for item in ds-tln {
         if item.du-kien != none and item.du-kien != [] {
           let n-sub = item.cau-hoi-con.len()
           let start-c = c-idx + 1
@@ -511,12 +511,12 @@
     }
 
     // PHẦN IV: TL
-    if ds-TL.len() > 0 {
+    if ds-tl.len() > 0 {
       set par(first-line-indent: 0pt)
       v(-0.5em)
       if cm == 1 { text(fill: mau-sac.cau-pa, weight: "bold", size: 11pt)[► BÀI TẬP TỰ LUẬN] }
       let c-idx = 0
-      for item in ds-TL {
+      for item in ds-tl {
         for q in item.cau-hoi-con {
           c-idx += 1
           v(-0.4em)
@@ -577,25 +577,25 @@
 
   let seed = int(ma-de)
 
-  let raw-NLC = q-bank.filter(matrix.NLC-loc)
-  let xao-NLC = xao-theo-tuy-chon(raw-NLC, seed + 107, theo-lv: theo-lv)
-  let NLC-dem = calc.min(matrix.NLC-dem, xao-NLC.len())
-  let s-NLC = xao-NLC.slice(0, NLC-dem)
+  let raw-nlc = q-bank.filter(matrix.nlc-loc)
+  let xao-nlc = xao-theo-tuy-chon(raw-nlc, seed + 107, theo-lv: theo-lv)
+  let nlc-dem = calc.min(matrix.nlc-dem, xao-nlc.len())
+  let s-nlc = xao-nlc.slice(0, nlc-dem)
 
   let raw-tf = q-bank.filter(matrix.tf-loc)
   let xao-tf = xao-theo-tuy-chon(raw-tf, seed + 233, theo-lv: theo-lv)
   let tf-dem = calc.min(matrix.tf-dem, xao-tf.len())
   let s-tf = xao-tf.slice(0, tf-dem)
 
-  let raw-TLN = q-bank.filter(matrix.TLN-loc)
-  let xao-TLN = xao-theo-tuy-chon(raw-TLN, seed + 357, theo-lv: theo-lv)
-  let TLN-dem = calc.min(matrix.TLN-dem, xao-TLN.len())
-  let s-TLN = xao-TLN.slice(0, TLN-dem)
+  let raw-tln = q-bank.filter(matrix.tln-loc)
+  let xao-tln = xao-theo-tuy-chon(raw-tln, seed + 357, theo-lv: theo-lv)
+  let tln-dem = calc.min(matrix.tln-dem, xao-tln.len())
+  let s-tln = xao-tln.slice(0, tln-dem)
 
-  let raw-TL = q-bank.filter(matrix.TL-loc)
-  let xao-TL = xao-theo-tuy-chon(raw-TL, seed + 491, theo-lv: theo-lv)
-  let TL-dem = calc.min(matrix.TL-dem, xao-TL.len())
-  let s-TL = xao-TL.slice(0, TL-dem)
+  let raw-tl = q-bank.filter(matrix.tl-loc)
+  let xao-tl = xao-theo-tuy-chon(raw-tl, seed + 491, theo-lv: theo-lv)
+  let tl-dem = calc.min(matrix.tl-dem, xao-tl.len())
+  let s-tl = xao-tl.slice(0, tl-dem)
 
   let part1-ans = ()
   let part2-ans = ()
@@ -632,8 +632,8 @@
     )
     line(length: 100%, stroke: 0.5pt)
 
-    if s-NLC.len() > 0 {
-      let tong-so-cau = s-NLC.fold(0, (acc, q) => {
+    if s-nlc.len() > 0 {
+      let tong-so-cau = s-nlc.fold(0, (acc, q) => {
         if "is-chum" in q and q.is-chum == true and "cau-hoi-con" in q { acc + q.cau-hoi-con.len() } else { acc + 1 }
       })
       set par(first-line-indent: 0pt)
@@ -641,7 +641,7 @@
       text(fill: mau-sac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #tong-so-cau.* #emph[*Mỗi câu thí sinh chỉ được chọn một phương án.*]#v(0.2em)]
       
       let c-idx = 0
-      for item in s-NLC {
+      for item in s-nlc {
         let is-item-chum = "is-chum" in item and item.is-chum == true and "cau-hoi-con" in item
         if is-item-chum {
           let n-sub = item.cau-hoi-con.len()
@@ -728,19 +728,19 @@
           )
         ]
         v(-0.4em)
-        if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "TF", idx + s-NLC.len(), seed, tf-indices: sub-indices) }
+        if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "TF", idx + s-nlc.len(), seed, tf-indices: sub-indices) }
         v(-0.3em)
       }
     }
 
-    if s-TLN.len() > 0 {
-      let tong-so-cau = s-TLN.fold(0, (acc, q) => {
+    if s-tln.len() > 0 {
+      let tong-so-cau = s-tln.fold(0, (acc, q) => {
         if "is-chum" in q and q.is-chum == true and "cau-hoi-con" in q { acc + q.cau-hoi-con.len() } else { acc + 1 }
       })
       set par(first-line-indent: 0pt)
       v(0.5em); text(fill: mau-sac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #tong-so-cau.*]
       let c-idx = 0
-      for item in s-TLN {
+      for item in s-tln {
         let is-item-chum = "is-chum" in item and item.is-chum == true and "cau-hoi-con" in item
         let ds-cau-can-ve = if is-item-chum { item.cau-hoi-con } else { (item,) }
 
@@ -777,18 +777,18 @@
             )
           ]
           v(-1em)
-          if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "TLN", c-idx + s-NLC.len() + s-tf.len(), seed) }
+          if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "TLN", c-idx + s-nlc.len() + s-tf.len(), seed) }
           v(-0.2em)
           c-idx += 1
         }
       }
     }
 
-    if s-TL.len() > 0 {
+    if s-tl.len() > 0 {
       set par(first-line-indent: 0pt)
-      v(0.3em); text(mau-sac.cau-pa)[*► TỰ LUẬN (#s-TL.len() câu)*]
+      v(0.3em); text(mau-sac.cau-pa)[*► TỰ LUẬN (#s-tl.len() câu)*]
       v(-0.3em)
-      for (idx, q) in s-TL.enumerate() {
+      for (idx, q) in s-tl.enumerate() {
         part4-ans.push((nd: q.nd, lg: q.lg))
         v(-0.3em)
         block(width: 100%, inset: (y: 0.3em), breakable: true)[
@@ -816,7 +816,7 @@
   )) <exam-data>]
 }
 
-#let in-dap-an-TL(results) = {
+#let in-dap-an-tl(results) = {
   context {
     counter(page).update(1)
     set page(footer: none)
@@ -826,7 +826,7 @@
     v(-0.2em)
     for entry in results {
       let ma-de = str(entry.value.seed)
-      let lg-TL = entry.value.part4
+      let lg-tl = entry.value.part4
       if lg-TL.len() > 0 {
         align(left)[
           #block(fill: gray.lighten(80%), inset: 5pt, radius: 4pt)[
@@ -900,45 +900,45 @@
   return res-chum + res-don
 }
 
-#let tron-de-bank-Level(banks-matrix, info, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: false) = {
+#let tron-de-bank-level(banks-matrix, info, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: false) = {
   for (i, ma-de) in info.ds-ma-de.enumerate() {
     let is-first = (i == 0)
     let base-seed = int(ma-de)
     
-    let rut-NLC = ()
+    let rut-nlc = ()
     let rut-tf = ()
-    let rut-TLN = ()
-    let rut-TL = ()
+    let rut-tln = ()
+    let rut-tl = ()
 
     for (b-idx, item) in banks-matrix.enumerate() {
       let b = item.bank
-      let NLC-seed = base-seed * 999999 + b-idx * 999999 + 107
+      let nlc-seed = base-seed * 999999 + b-idx * 999999 + 107
       let tf-seed  = base-seed * 999999 + b-idx * 999999 + 233
-      let TLN-seed = base-seed * 999999 + b-idx * 999999 + 357
-      let TL-seed  = base-seed * 999999 + b-idx * 999999 + 491
+      let tln-seed = base-seed * 999999 + b-idx * 999999 + 357
+      let tl-seed  = base-seed * 999999 + b-idx * 999999 + 491
 
-      if "NLC-dem" in item { rut-NLC += rut-cau-Level(b, "NLC", item.NLC-dem, NLC-seed) }
+      if "nlc-dem" in item { rut-nlc += rut-cau-Level(b, "NLC", item.nlc-dem, nlc-seed) }
       if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
-      if "TLN-dem" in item { rut-TLN += rut-cau-Level(b, "TLN", item.TLN-dem, TLN-seed) }
-      if "TL-dem"  in item { rut-TL  += rut-cau-Level(b, "TL",  item.TL-dem,  TL-seed)  }
+      if "tln-dem" in item { rut-tln += rut-cau-Level(b, "TLN", item.tln-dem, tln-seed) }
+      if "tl-dem"  in item { rut-tl  += rut-cau-Level(b, "TL",  item.tl-dem,  tl-seed)  }
     }
 
-    rut-NLC = xao-theo-tuy-chon(rut-NLC, base-seed + 991,  theo-lv: theo-lv)
+    rut-nlc = xao-theo-tuy-chon(rut-nlc, base-seed + 991,  theo-lv: theo-lv)
     rut-tf  = xao-theo-tuy-chon(rut-tf,  base-seed + 997,  theo-lv: theo-lv)
-    rut-TLN = xao-theo-tuy-chon(rut-TLN, base-seed + 1009, theo-lv: theo-lv)
-    rut-TL  = xao-theo-tuy-chon(rut-TL,  base-seed + 1013, theo-lv: theo-lv)
+    rut-tln = xao-theo-tuy-chon(rut-tln, base-seed + 1009, theo-lv: theo-lv)
+    rut-tl  = xao-theo-tuy-chon(rut-tl,  base-seed + 1013, theo-lv: theo-lv)
 
-    let final-bank = rut-NLC + rut-tf + rut-TLN + rut-TL
+    let final-bank = rut-nlc + rut-tf + rut-tln + rut-tl
     
     let fake-matrix = (
-      NLC-loc: q => q.type == "NLC",
-      NLC-dem: rut-NLC.len(),
+      nlc-loc: q => q.type == "NLC",
+      nlc-dem: rut-nlc.len(),
       tf-loc:  q => q.type == "TF",
       tf-dem:  rut-tf.len(),
-      TLN-loc: q => q.type == "TLN",
-      TLN-dem: rut-TLN.len(),
-      TL-loc:  q => q.type == "TL",
-      TL-dem:  rut-TL.len(),
+      tln-loc: q => q.type == "TLN",
+      tln-dem: rut-tln.len(),
+      tl-loc:  q => q.type == "TL",
+      tl-dem:  rut-tl.len(),
     )
 
     render-test(ma-de, final-bank, fake-matrix, info, is-first: is-first, show-lg: show-lg, theo-lv: theo-lv)
@@ -986,17 +986,17 @@
     context {
       let results = query(<exam-data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in-dap-an-TL(results)
+        in-dap-an-tl(results)
       }
     }
 
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
-    align(center)[#text(16pt, weight: "bold")[MÃ QR ĐÁP ÁN TRẮC NGHIỆM]]
+    align(center)[#text(16pt, weight: "bold")[MÃ QRCODE ĐÁP ÁN TRẮC NGHIỆM]]
     v(1em)
     context {
       let results = query(<exam-data>)
-      let all-qrcode = tao-QR-code-key(results)
+      let all-qrcode = tao-qr-code-key(results)
       align(center)[
         #block(inset: 15pt, fill: white, radius: 8pt, stroke: gray.lighten(30%) + 1pt)[
           #text(size: 14pt, weight: "bold")[ĐÁP ÁN TRẮC NGHIỆM CÁC MÃ ĐỀ] \
@@ -1010,7 +1010,7 @@
   }
 }
 
-#let tron-de-chi-Y(
+#let tron-de-chi-y(
   banks-matrix, 
   info, 
   seed-goc: 2024,
@@ -1020,42 +1020,42 @@
   nlc-mode: "full",
   theo-lv: false,
 ) = {
-  let rut-NLC = ()
+  let rut-nlc = ()
   let rut-tf  = ()
-  let rut-TLN = ()
-  let rut-TL  = ()
+  let rut-tln = ()
+  let rut-tl  = ()
 
   for (b-idx, item) in banks-matrix.enumerate() {
     let b = item.bank
-    let NLC-seed = seed-goc * 999999 + b-idx * 999999 + 107
+    let nlc-seed = seed-goc * 999999 + b-idx * 999999 + 107
     let tf-seed  = seed-goc * 999999 + b-idx * 999999 + 233
-    let TLN-seed = seed-goc * 999999 + b-idx * 999999 + 357
-    let TL-seed  = seed-goc * 999999 + b-idx * 999999 + 491
+    let tln-seed = seed-goc * 999999 + b-idx * 999999 + 357
+    let tl-seed  = seed-goc * 999999 + b-idx * 999999 + 491
 
-    if "NLC-dem" in item { rut-NLC += rut-cau-Level(b, "NLC", item.NLC-dem, NLC-seed) }
+    if "nlc-dem" in item { rut-nlc += rut-cau-Level(b, "NLC", item.nlc-dem, nlc-seed) }
     if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
-    if "TLN-dem" in item { rut-TLN += rut-cau-Level(b, "TLN", item.TLN-dem, TLN-seed) }
-    if "TL-dem"  in item { rut-TL  += rut-cau-Level(b, "TL",  item.TL-dem,  TL-seed)  }
+    if "tln-dem" in item { rut-tln += rut-cau-Level(b, "TLN", item.tln-dem, tln-seed) }
+    if "tl-dem"  in item { rut-tl  += rut-cau-Level(b, "TL",  item.tl-dem,  tl-seed)  }
   }
 
-  rut-NLC = tron-mang(rut-NLC, seed-goc + 991)
+  rut-nlc = tron-mang(rut-nlc, seed-goc + 991)
   rut-tf  = tron-mang(rut-tf,  seed-goc + 997)
-  rut-TLN = tron-mang(rut-TLN, seed-goc + 1009)
-  rut-TL  = tron-mang(rut-TL,  seed-goc + 1013)
+  rut-tln = tron-mang(rut-tln, seed-goc + 1009)
+  rut-tl  = tron-mang(rut-tl,  seed-goc + 1013)
 
   for (i, ma-de) in info.ds-ma-de.enumerate() {
     let is-first = (i == 0)
-    let final-bank = rut-NLC + rut-tf + rut-TLN + rut-TL
+    let final-bank = rut-nlc + rut-tf + rut-tln + rut-tl
 
     let fake-matrix = (
-      NLC-loc: q => q.type == "NLC",
-      NLC-dem: rut-NLC.len(),
+      nlc-loc: q => q.type == "NLC",
+      nlc-dem: rut-nlc.len(),
       tf-loc:  q => q.type == "TF",
       tf-dem:  rut-tf.len(),
-      TLN-loc: q => q.type == "TLN",
-      TLN-dem: rut-TLN.len(),
-      TL-loc:  q => q.type == "TL",
-      TL-dem:  rut-TL.len(),
+      tln-loc: q => q.type == "TLN",
+      tln-dem: rut-tln.len(),
+      tl-loc:  q => q.type == "TL",
+      tl-dem:  rut-tl.len(),
     )
 
     render-test(
@@ -1113,17 +1113,17 @@
     context {
       let results = query(<exam-data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in-dap-an-TL(results)
+        in-dap-an-tl(results)
       }
     }
 
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
-    align(center)[#text(16pt, weight: "bold")[MÃ QR ĐÁP ÁN TRẮC NGHIỆM]]
+    align(center)[#text(16pt, weight: "bold")[MÃ qr ĐÁP ÁN TRẮC NGHIỆM]]
     v(1em)
     context {
       let results = query(<exam-data>)
-      let all-qrcode = tao-QR-code-key(results)
+      let all-qrcode = tao-qr-code-key(results)
       align(center)[
         #block(inset: 15pt, fill: white, radius: 8pt, stroke: gray.lighten(30%) + 1pt)[
           #text(size: 14pt, weight: "bold")[ĐÁP ÁN TRẮC NGHIỆM CÁC MÃ ĐỀ] \
@@ -1137,7 +1137,7 @@
   }
 }
 
-#let tron-de-cung-Noi-Dung(
+#let tron-de-cung-noi-dung(
   banks-matrix, 
   info, 
   seed-goc: 2024,
@@ -1147,49 +1147,49 @@
   xao-pa: true,
   theo-lv: false,
 ) = {
-  let rut-NLC = ()
+  let rut-nlc = ()
   let rut-tf  = ()
-  let rut-TLN = ()
-  let rut-TL  = ()
+  let rut-tln = ()
+  let rut-tl  = ()
 
   for (b-idx, item) in banks-matrix.enumerate() {
     let b = item.bank
-    let NLC-seed = seed-goc * 999999 + b-idx * 999999 + 107
+    let nlc-seed = seed-goc * 999999 + b-idx * 999999 + 107
     let tf-seed  = seed-goc * 999999 + b-idx * 999999 + 233
-    let TLN-seed = seed-goc * 999999 + b-idx * 999999 + 357
-    let TL-seed  = seed-goc * 999999 + b-idx * 999999 + 491
+    let tln-seed = seed-goc * 999999 + b-idx * 999999 + 357
+    let tl-seed  = seed-goc * 999999 + b-idx * 999999 + 491
 
-    if "NLC-dem" in item { rut-NLC += rut-cau-Level(b, "NLC", item.NLC-dem, NLC-seed) }
+    if "nlc-dem" in item { rut-nlc += rut-cau-Level(b, "NLC", item.nlc-dem, nlc-seed) }
     if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
-    if "TLN-dem" in item { rut-TLN += rut-cau-Level(b, "TLN", item.TLN-dem, TLN-seed) }
-    if "TL-dem"  in item { rut-TL  += rut-cau-Level(b, "TL",  item.TL-dem,  TL-seed)  }
+    if "tln-dem" in item { rut-tln += rut-cau-Level(b, "TLN", item.tln-dem, tln-seed) }
+    if "tl-dem"  in item { rut-tl  += rut-cau-Level(b, "TL",  item.tl-dem,  tl-seed)  }
   }
 
-  rut-NLC = tron-mang(rut-NLC, seed-goc + 991)
+  rut-nlc = tron-mang(rut-nlc, seed-goc + 991)
   rut-tf  = tron-mang(rut-tf,  seed-goc + 997)
-  rut-TLN = tron-mang(rut-TLN, seed-goc + 1009)
-  rut-TL  = tron-mang(rut-TL,  seed-goc + 1013)
+  rut-tln = tron-mang(rut-tln, seed-goc + 1009)
+  rut-tl  = tron-mang(rut-tl,  seed-goc + 1013)
 
   for (i, ma-de) in info.ds-ma-de.enumerate() {
     let is-first = (i == 0)
     let base-seed = int(ma-de)
 
-    let final-NLC = if xao-cau { xao-theo-tuy-chon(rut-NLC, base-seed + 2001, theo-lv: theo-lv) } else { rut-NLC }
+    let final-nlc = if xao-cau { xao-theo-tuy-chon(rut-nlc, base-seed + 2001, theo-lv: theo-lv) } else { rut-nlc }
     let final-tf  = if xao-cau { xao-theo-tuy-chon(rut-tf,  base-seed + 2011, theo-lv: theo-lv) } else { rut-tf }
-    let final-TLN = if xao-cau { xao-theo-tuy-chon(rut-TLN, base-seed + 2027, theo-lv: theo-lv) } else { rut-TLN }
-    let final-TL  = if xao-cau { xao-theo-tuy-chon(rut-TL,  base-seed + 2039, theo-lv: theo-lv) } else { rut-TL }
+    let final-tln = if xao-cau { xao-theo-tuy-chon(rut-tln, base-seed + 2027, theo-lv: theo-lv) } else { rut-tln }
+    let final-tl  = if xao-cau { xao-theo-tuy-chon(rut-tl,  base-seed + 2039, theo-lv: theo-lv) } else { rut-tl }
 
-    let final-bank = final-NLC + final-tf + final-TLN + final-TL
+    let final-bank = final-nlc + final-tf + final-tln + final-tl
 
     let fake-matrix = (
-      NLC-loc: q => q.type == "NLC",
-      NLC-dem: final-NLC.len(),
+      nlc-loc: q => q.type == "NLC",
+      nlc-dem: final-nlc.len(),
       tf-loc:  q => q.type == "TF",
       tf-dem:  final-tf.len(),
-      TLN-loc: q => q.type == "TLN",
-      TLN-dem: final-TLN.len(),
-      TL-loc:  q => q.type == "TL",
-      TL-dem:  final-TL.len(),
+      tln-loc: q => q.type == "TLN",
+      tln-dem: final-tln.len(),
+      tl-loc:  q => q.type == "TL",
+      tl-dem:  final-tl.len(),
     )
 
     render-test(
@@ -1245,17 +1245,17 @@
     context {
       let results = query(<exam-data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in-dap-an-TL(results)
+        in-dap-an-tl(results)
       }
     }
 
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
-    align(center)[#text(16pt, weight: "bold")[MÃ QR ĐÁP ÁN TRẮC NGHIỆM]]
+    align(center)[#text(16pt, weight: "bold")[MÃ qr ĐÁP ÁN TRẮC NGHIỆM]]
     v(1em)
     context {
       let results = query(<exam-data>)
-      let all-qrcode = tao-QR-code-key(results)
+      let all-qrcode = tao-qr-code-key(results)
       align(center)[
         #block(inset: 15pt, fill: white, radius: 8pt, stroke: gray.lighten(30%) + 1pt)[
           #text(size: 14pt, weight: "bold")[ĐÁP ÁN TRẮC NGHIỆM CÁC MÃ ĐỀ] \
@@ -1346,6 +1346,6 @@
 // 7. BÍ DANH TIẾNG ANH (API CHUẨN UNIVERSE)
 // ==========================================
 #let exercise = bai-tap-in-line
-#let make-exam-matrix = tron-de-bank-Level
-#let make-exam-sync = tron-de-cung-Noi-Dung
-#let make-exam-sub-only = tron-de-chi-Y
+#let make-exam-matrix = tron-de-bank-level
+#let make-exam-sync = tron-de-cung-noi-dung
+#let make-exam-sub-only = tron-de-chi-y
