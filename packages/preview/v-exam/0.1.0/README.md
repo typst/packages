@@ -196,7 +196,7 @@ Cách 1:
 #make-exam-sync(matrix, info, seed-goc: 2026, show-lg: false,theo-lv:false,xao-cau: true, xao-pa: true)
 
 Cách 2:
-#tron-de-cungNoiDung(matrix, info, seed-goc: 2026, show_lg: false,theo-lv:false,xao-cau: true, xao-pa: true)
+#tron-de-cungNoiDung(matrix, info, seed-goc: 2026, show-lg: false,theo-lv:false,xao-cau: true, xao-pa: true)
 ```
 Giải thích:
 - seed-goc: 2026 dùng để ấn định một seed được chon để tạo đề gốc ban đầu sau đó căn cứ theo mã đề để xáo cho hợp lý
