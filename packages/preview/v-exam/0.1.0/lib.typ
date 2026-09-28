@@ -26,7 +26,7 @@
   body
 }
 
-#let mausac = (
+#let mau-sac = (
   lg : rgb("#a8f6f13c"),
   duong: rgb("#0057b8"),
   cau-pa: rgb("#1505f2"),
@@ -100,7 +100,7 @@
 // 3. HÀM TẠO QR & HIỂN THỊ LỜI GIẢI
 // ==========================================
 #let tao-QR-code-key(results) = {
-  let all-content = ""
+  let all_content = ""
   for entry in results {
     let ma-de = str(entry.value.seed)
     let part1 = entry.value.part1.join("")
@@ -117,24 +117,24 @@
     block(
       width: 100%, 
       inset: (y: 0.5em, x: 0.5em, left: 8pt, right: 8pt), 
-      fill: mausac.lg, 
+      fill: mau-sac.lg, 
       radius: (right: 4pt),
-      stroke: (left: 2pt + mausac.duong)
+      stroke: (left: 2pt + mau-sac.duong)
     )[
       #v(0.2em)
       #if q-type == "NLC" {
         let correct-idx = if opt-indices != none { opt-indices.position(i => i == q.da) } else { q.da }
         text(fill: blue.darken(100%), size: 11pt)[*Đáp án: #to-abc(correct-idx)*\ ] 
-        text(fill: red.darken(0%), size: 15pt, font: "UTM A&S Graceland")[*Lời giải:*] 
+        text(fill: red.darken(0%), size: 15pt)[*Lời giải:*] 
       } else if q-type == "TF" or q-type == "tf" {
         let correct-ans = if tf-indices != none { to-ds(tf-indices.map(i => q.da.at(i))) } else { to-ds(q.da) }
         text(fill: blue.darken(100%), size: 11pt)[*Đáp án: #correct-ans*\ ] 
-        text(fill: red.darken(0%), size: 15pt, font: "UTM A&S Graceland")[ *Lời giải:*]
+        text(fill: red.darken(0%), size: 15pt)[ *Lời giải:*]
       } else if q-type == "TLN" {
         text(fill: blue.darken(100%), size: 11pt)[*Kết quả: #q.da*]
-        text(fill: red.darken(0%), size: 15pt, font: "UTM A&S Graceland")[\ *Lời giải:*]
+        text(fill: red.darken(0%), size: 15pt)[\ *Lời giải:*]
       } else if q-type == "TL" {
-        text(fill: red.darken(0%), weight: "bold", font: "UTM A&S Graceland", size: 16pt)[*Lời giải:*]
+        text(fill: red.darken(0%), weight: "bold", size: 16pt)[*Lời giải:*]
       }
       
       #if (q-type == "TF" or q-type == "tf") and type(q.lg) == array {
@@ -149,7 +149,7 @@
             let status-str = if is-true { "Đúng" } else { "Sai" }
             let lg-content = if orig-i < q.lg.len() { q.lg.at(orig-i) } else { [] }
             
-            [#text(fill: mausac.cau-pa, weight: "bold")[#labels.at(new-i) - #status-str:] #text(fill: blue.darken(100%), style: "italic")[#lg-content]]
+            [#text(fill: mau-sac.cau-pa, weight: "bold")[#labels.at(new-i) - #status-str:] #text(fill: blue.darken(100%), style: "italic")[#lg-content]]
           })
         )
       } else {
@@ -168,19 +168,19 @@
   v(-0.8em)
   block(
     width: 100%,
-    stroke: (left: 2.5pt + mausac.duong),
-    fill: mausac.lg,
+    stroke: (left: 2.5pt + mau-sac.duong),
+    fill: mau-sac.lg,
     inset: (x: 10pt, y: 8pt),
     radius: (right: 4pt),
     breakable: true
   )[
     #set par(leading: 0.65em)
     #if type-str == "NLC" [
-      #text(fill: mausac.duong, weight: "bold")[► Lời giải: \ ] 
+      #text(fill: mau-sac.duong, weight: "bold")[► Lời giải: \ ] 
       #if "lg" in q and q.lg != none and q.lg != [] [ #q.lg ] else [ Chưa có lời giải.]
     ]
     #if type-str == "TF" [
-      #text(fill: mausac.duong, weight: "bold")[► Đáp án:] #text(fill: mausac.daT, weight: "bold")[#to-ds(q.da)] \
+      #text(fill: mau-sac.duong, weight: "bold")[► Đáp án:] #text(fill: mau-sac.daT, weight: "bold")[#to-ds(q.da)] \
       #if "lg" in q and q.lg != none and q.lg != [] [
         #if type(q.lg) == array [
           #let labels = ("a)", "b)", "c)", "d)")
@@ -190,7 +190,7 @@
             ..q.lg.enumerate().map(((i, lg-item)) => {
               let is-true = q.da.at(i) == 1
               let status-str = if is-true { "Đúng" } else { "Sai" }
-              [#text(fill: mausac.cau-pa, weight: "bold")[#labels.at(i)  #status-str]\ #lg-item]
+              [#text(fill: mau-sac.cau-pa, weight: "bold")[#labels.at(i)  #status-str]\ #lg-item]
             })
           )
         ] else [
@@ -199,11 +199,11 @@
       ] else [ Chưa có lời giải.]
     ]
     #if type-str == "TLN" [
-      #text(fill: mausac.duong, weight: "bold")[► Kết quả:] #text(fill: mausac.daT, weight: "bold")[#q.da] \
+      #text(fill: mau-sac.duong, weight: "bold")[► Kết quả:] #text(fill: mau-sac.daT, weight: "bold")[#q.da] \
       #if "lg" in q and q.lg != none and q.lg != [] [ #v(0.01em)#q.lg #v(0.2em)] else [ Chưa có lời giải.]
     ]
     #if type-str == "TL" [
-      #text(fill: mausac.duong, weight: "bold")[► Lời giải chi tiết:] \
+      #text(fill: mau-sac.duong, weight: "bold")[► Lời giải chi tiết:] \
       #if "lg" in q and q.lg != none and q.lg != [] [ #q.lg ] else [ Chưa có lời giải.]
     ]
   ]
@@ -220,16 +220,16 @@
   num-tl: none,
   show-lg: false,
   dong-ke: none,
-  co-NLC: none,
-  co-tf: none,
-  co-TLN: none,
-  co-TL: none,
+  co_NLC: none,
+  co_tf: none,
+  co_TLN: none,
+  co_TL: none,
   theo-lv: false,
 ) = {
-  let cfg-nlc = if num-nlc != none { num-nlc } else { co-NLC }
-  let cfg-tf  = if num-tf != none { num-tf } else { co-tf }
-  let cfg-tln = if num-tln != none { num-tln } else { co-TLN }
-  let cfg-tl  = if num-tl != none { num-tl } else { co-TL }
+  let cfg-nlc = if num-nlc != none { num-nlc } else { co_NLC }
+  let cfg-tf  = if num-tf != none { num-tf } else { co_tf }
+  let cfg-tln = if num-tln != none { num-tln } else { co_TLN }
+  let cfg-tl  = if num-tl != none { num-tl } else { co_TL }
 
   let actual-bank = if type(bank-data) == dictionary and "data" in bank-data { 
     bank-data.data 
@@ -311,7 +311,7 @@
   toan-setup({
     if title != none and title != "" {
       v(0.5em)
-      align(center)[#text(fill: mausac.duong, weight: "bold", size: 13pt)[#title]]
+      align(center)[#text(fill: mau-sac.duong, weight: "bold", size: 13pt)[#title]]
       v(0.3em)
     }
 
@@ -320,7 +320,7 @@
       set par(first-line-indent: 0pt)
       v(-0.5em)
       if cm == 1 {
-        text(fill: mausac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẮC NGHIỆM NHIỀU LỰA CHỌN]
+        text(fill: mau-sac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẮC NGHIỆM NHIỀU LỰA CHỌN]
       }
       let c-idx = 0
       for item in ds-NLC {
@@ -329,8 +329,8 @@
           let start-c = c-idx + 1
           let end-c = c-idx + n-sub
           block(width: 100%, breakable: false)[
-            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mausac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
-              #text(fill: mausac.cau-pa, weight: "bold")[Dữ kiện dùng cho từ Câu #start-c đến Câu #end-c:] \
+            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mau-sac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
+              #text(fill: mau-sac.cau-pa, weight: "bold")[Dữ kiện dùng cho từ Câu #start-c đến Câu #end-c:] \
               #v(0.1em) #item.du-kien
             ]
           ]
@@ -348,7 +348,7 @@
               align: (left + top, center + top),
               [
                 #v(-0.4em)
-                #text(fill: mausac.cau-pa, weight: "bold")[Câu #c-idx.] #q.nd \
+                #text(fill: mau-sac.cau-pa, weight: "bold")[Câu #c-idx.] #q.nd \
                 #v(-0.3em)
                 
                 #let is-img-option = q.pa.any(opt => {
@@ -366,7 +366,7 @@
                     ..q.pa.enumerate().map(((i, v)) => {
                       let is-correct = show-lg and ("da" in q) and (i == q.da)
                       let label-text = [#h(1em)*#to-abc(i).*]
-                      let formatted-label = if is-correct { underline(text(fill: mausac.daT, weight: "bold")[#label-text]) } else { text(fill: mausac.cau-pa)[#label-text] }
+                      let formatted-label = if is-correct { underline(text(fill: mau-sac.daT, weight: "bold")[#label-text]) } else { text(fill: mau-sac.cau-pa)[#label-text] }
                       align(left)[#grid(columns:(auto,1fr), column-gutter:10pt, [#formatted-label], [#v])]
                     })
                   ) 
@@ -381,7 +381,7 @@
                     ..q.pa.enumerate().map(((i, v)) => {
                       let is-correct = show-lg and ("da" in q) and (i == q.da)
                       let label-text = [*#to-abc(i).*]
-                      let formatted-label = if is-correct { underline(text(fill: mausac.daT, weight: "bold")[#label-text]) } else { text(fill: mausac.cau-pa)[#label-text] }
+                      let formatted-label = if is-correct { underline(text(fill: mau-sac.daT, weight: "bold")[#label-text]) } else { text(fill: mau-sac.cau-pa)[#label-text] }
                       box[#grid(columns: (auto, 1fr), gutter: 2pt, align: left, formatted-label, v)]
                     })
                   ) #v(0.5em)
@@ -400,7 +400,7 @@
     if ds-TF.len() > 0 {
       set par(first-line-indent: 0pt)
       v(-0.1em)
-      if cm == 1 { text(fill: mausac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẢ LỜI ĐÚNG/SAI] }
+      if cm == 1 { text(fill: mau-sac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẢ LỜI ĐÚNG/SAI] }
       let c-idx = 0
       for item in ds-TF {
         if item.du-kien != none and item.du-kien != [] {
@@ -408,8 +408,8 @@
           let start-c = c-idx + 1
           let end-c = c-idx + n-sub
           block(width: 100%, breakable: false)[
-            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mausac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
-              #text(fill: mausac.cau-pa, weight: "bold")[Dữ kiện dùng cho Câu #start-c đến Câu #end-c:] \
+            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mau-sac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
+              #text(fill: mau-sac.cau-pa, weight: "bold")[Dữ kiện dùng cho Câu #start-c đến Câu #end-c:] \
               #v(0.1em) #item.du-kien
             ]
           ]
@@ -425,17 +425,17 @@
               align: (left + top, center + top),
               [
                 #v(0.2em)
-                #text(fill: mausac.cau-pa, weight: "bold")[Câu #c-idx.] #q.nd \
+                #text(fill: mau-sac.cau-pa, weight: "bold")[Câu #c-idx.] #q.nd \
                 #list(
                   marker: none, 
                   spacing: 0.7em, 
                   ..q.ytf.enumerate().map(((i, sq)) => {
                     let label-text = [#("a)", "b)", "c)", "d)").at(i)]
-                    let formatted-label = text(fill: mausac.cau-pa, weight: "bold")[#h(0.5em) #label-text]
+                    let formatted-label = text(fill: mau-sac.cau-pa, weight: "bold")[#h(0.5em) #label-text]
                     let ans-str = if show-lg and ("da" in q) and type(q.da) == array and i < q.da.len() {
                       if q.da.at(i) == 1 { " [Đúng]" } else { " [Sai]" }
                     } else { "" }
-                    [#formatted-label #sq #text(fill: mausac.daT, weight: "bold")[#ans-str]]
+                    [#formatted-label #sq #text(fill: mau-sac.daT, weight: "bold")[#ans-str]]
                   })
                 )
               ],
@@ -452,7 +452,7 @@
     if ds-TLN.len() > 0 {
       set par(first-line-indent: 0pt)
       v(-0.5em)
-      if cm == 1 { text(fill: mausac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẢ LỜI NGẮN] }
+      if cm == 1 { text(fill: mau-sac.cau-pa, weight: "bold", size: 13pt)[► BÀI TẬP TRẢ LỜI NGẮN] }
       let c-idx = 0
       for item in ds-TLN {
         if item.du-kien != none and item.du-kien != [] {
@@ -460,8 +460,8 @@
           let start-c = c-idx + 1
           let end-c = c-idx + n-sub
           block(width: 100%, breakable: false)[
-            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mausac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
-              #text(fill: mausac.cau-pa, weight: "bold", style: "italic")[Dữ kiện dùng cho Câu #start-c đến Câu #end-c:] \
+            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mau-sac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
+              #text(fill: mau-sac.cau-pa, weight: "bold", style: "italic")[Dữ kiện dùng cho Câu #start-c đến Câu #end-c:] \
               #v(0.1em) #text(style: "italic")[#item.du-kien]
             ]
           ]
@@ -478,7 +478,7 @@
               align: (left + top, center + horizon),
               [
                 #v(-0.1em)
-                #text(fill: mausac.cau-pa, weight: "bold")[Câu #c-idx.] #q.nd
+                #text(fill: mau-sac.cau-pa, weight: "bold")[Câu #c-idx.] #q.nd
                 #v(0.1em)
                 #if not show-lg [
                   #grid(
@@ -514,7 +514,7 @@
     if ds-TL.len() > 0 {
       set par(first-line-indent: 0pt)
       v(-0.5em)
-      if cm == 1 { text(fill: mausac.cau-pa, weight: "bold", size: 11pt)[► BÀI TẬP TỰ LUẬN] }
+      if cm == 1 { text(fill: mau-sac.cau-pa, weight: "bold", size: 11pt)[► BÀI TẬP TỰ LUẬN] }
       let c-idx = 0
       for item in ds-TL {
         for q in item.cau-hoi-con {
@@ -528,7 +528,7 @@
               align: (left + top, center + top),
               [
                 #v(-0.4em)
-                #text(fill: mausac.cau-pa, weight: "bold")[Câu #c-idx.] #q.nd
+                #text(fill: mau-sac.cau-pa, weight: "bold")[Câu #c-idx.] #q.nd
                 #v(0.5em)
               ],
               if has-img [ #if type(q.hv) == content { q.hv } else { image(q.hv, width: 4.5cm) } #v(1em)]
@@ -638,7 +638,7 @@
       })
       set par(first-line-indent: 0pt)
       v(-0.1em)
-      text(fill: mausac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #tong-so-cau.* #emph[*Mỗi câu thí sinh chỉ được chọn một phương án.*]#v(0.2em)]
+      text(fill: mau-sac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #tong-so-cau.* #emph[*Mỗi câu thí sinh chỉ được chọn một phương án.*]#v(0.2em)]
       
       let c-idx = 0
       for item in s-NLC {
@@ -649,8 +649,8 @@
           let end-num = c-idx + n-sub
           v(0.2em)
           block(width: 100%, breakable: false)[
-            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mausac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
-              #text(fill: mausac.cau-pa)[*Dữ kiện dùng cho từ Câu #start-num đến Câu #end-num:*] \
+            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mau-sac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
+              #text(fill: mau-sac.cau-pa)[*Dữ kiện dùng cho từ Câu #start-num đến Câu #end-num:*] \
               #v(0.1em) #item.du-kien
             ]
           ]
@@ -672,7 +672,7 @@
               align: (left + top, center + horizon),
               [
                 #v(-0.3em)
-                #text(fill: mausac.cau-pa)[*Câu #(c-idx + 1).*] #q.nd \
+                #text(fill: mau-sac.cau-pa)[*Câu #(c-idx + 1).*] #q.nd \
                 #v(-0.3em)
                 #let is-img-option = new-opts.any(opt => {
                   let r = repr(opt)
@@ -682,13 +682,13 @@
                   #grid(
                     columns: (1fr, 1fr, 1fr, 1fr),
                     column-gutter: 0.8em, row-gutter: 0.5em, align: center + horizon,
-                    ..new-opts.enumerate().map(((i, v)) => [#align(center)[#text(fill: mausac.cau-pa)[*#to-abc(i).*]) #v]])
+                    ..new-opts.enumerate().map(((i, v)) => [#align(center)[#text(fill: mau-sac.cau-pa)[*#to-abc(i).*]) #v]])
                   )
                 ] else [
                   #let n-cols = if "cot" in q { q.cot } else { 4 }
                   #grid(
                     columns: (1fr,) * n-cols, row-gutter: 0.6em, column-gutter: 1.2em, align: left + horizon,
-                    ..new-opts.enumerate().map(((i, v)) => [#text(fill: mausac.cau-pa)[#h(1em)*#to-abc(i).*] #v])
+                    ..new-opts.enumerate().map(((i, v)) => [#text(fill: mau-sac.cau-pa)[#h(1em)*#to-abc(i).*] #v])
                   )
                 ]
               ],
@@ -705,7 +705,7 @@
 
     if s-tf.len() > 0 {
       set par(first-line-indent: 0pt)
-      v(0.5em); text(mausac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #s-tf.len().* #emph[ *Trong mỗi ý a), b), c), d) của mỗi câu, thí sinh chọn đúng hoặc sai.*]]
+      v(0.5em); text(mau-sac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #s-tf.len().* #emph[ *Trong mỗi ý a), b), c), d) của mỗi câu, thí sinh chọn đúng hoặc sai.*]]
       for (idx, q) in s-tf.enumerate() {
         let sub-indices = if tf-mode == "none" { range(4) }
         else if tf-mode == "y-only" {
@@ -721,8 +721,8 @@
           #grid(
             columns: if has-img { (1fr, auto) } else { (1fr,) }, gutter: 10pt, align: (left + top, center + horizon),
             [
-              #text(fill: mausac.cau-pa)[*Câu #(idx + 1).* ]#q.nd \
-              #list(marker: none, spacing: 0.7em, ..new-subs.enumerate().map(((i, sq)) => [#h(0.5em) #text(fill: mausac.cau-pa)[#strong[#("a)", "b)", "c)", "d)").at(i)]] #sq]))
+              #text(fill: mau-sac.cau-pa)[*Câu #(idx + 1).* ]#q.nd \
+              #list(marker: none, spacing: 0.7em, ..new-subs.enumerate().map(((i, sq)) => [#h(0.5em) #text(fill: mau-sac.cau-pa)[#strong[#("a)", "b)", "c)", "d)").at(i)]] #sq]))
             ],
             if has-img [ #align(center + horizon)[#if type(q.hv) == content [ #q.hv ] else if type(q.hv) == str [ #image(q.hv, width: 4.5cm) ]] ]
           )
@@ -738,7 +738,7 @@
         if "is-chum" in q and q.is-chum == true and "cau-hoi-con" in q { acc + q.cau-hoi-con.len() } else { acc + 1 }
       })
       set par(first-line-indent: 0pt)
-      v(0.5em); text(fill: mausac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #tong-so-cau.*]
+      v(0.5em); text(fill: mau-sac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #tong-so-cau.*]
       let c-idx = 0
       for item in s-TLN {
         let is-item-chum = "is-chum" in item and item.is-chum == true and "cau-hoi-con" in item
@@ -750,8 +750,8 @@
           let end-num = c-idx + n-sub
           v(0.2em)
           block(width: 100%, breakable: false)[
-            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mausac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
-              #text(fill: mausac.cau-pa)[*Dữ kiện dùng cho từ Câu #start-num đến Câu #end-num:*] \
+            #rect(width: 100%, fill: rgb("#f8f9fa"), stroke: (left: 2.5pt + mau-sac.cau-pa), inset: (x: 8pt, y: 6pt), radius: (right: 3pt))[
+              #text(fill: mau-sac.cau-pa)[*Dữ kiện dùng cho từ Câu #start-num đến Câu #end-num:*] \
               #v(0.1em) #item.du-kien
             ]
           ]
@@ -765,7 +765,7 @@
             #grid(
               columns: if has-img { (1fr, auto) } else { (1fr,) }, gutter: 10pt, align: (left + top, center + horizon),
               [
-                #text(fill: mausac.cau-pa)[*Câu #(c-idx + 1).* ]#q.nd
+                #text(fill: mau-sac.cau-pa)[*Câu #(c-idx + 1).* ]#q.nd
                 #if not show-lg [
                   #v(-0.4em)
                   #pad(left: 0em)[
@@ -786,7 +786,7 @@
 
     if s-TL.len() > 0 {
       set par(first-line-indent: 0pt)
-      v(0.3em); text(mausac.cau-pa)[*► TỰ LUẬN (#s-TL.len() câu)*]
+      v(0.3em); text(mau-sac.cau-pa)[*► TỰ LUẬN (#s-TL.len() câu)*]
       v(-0.3em)
       for (idx, q) in s-TL.enumerate() {
         part4-ans.push((nd: q.nd, lg: q.lg))
@@ -795,7 +795,7 @@
           #let has-img = "hv" in q and q.hv != none and q.hv != ""
           #grid(
             columns: if has-img { (1fr, auto) } else { (1fr,) }, gutter: 10pt, align: (left + top, center + top),
-            [ #text(fill: mausac.cau-pa)[*Câu #(idx + 1).* ] #q.nd \ #v(-0.3em) ],
+            [ #text(fill: mau-sac.cau-pa)[*Câu #(idx + 1).* ] #q.nd \ #v(-0.3em) ],
             if has-img [ #align(center + top)[#if type(q.hv) == content [ #q.hv ] else if type(q.hv) == str [ #image(q.hv, width: 4.5cm) ]] ]
           )
           #if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "TL", idx, seed) }
@@ -841,7 +841,7 @@
             #text(11pt, fill: blue.darken(40%))[*Lời giải:* ]
             #v(-0.5em)
             #block(inset: 12pt, fill: yellow.lighten(95%), radius: 4pt, width: 100%)[
-              #text(fill: mausac.cau-pa, style: "italic")[#ans.lg]
+              #text(fill: mau-sac.cau-pa, style: "italic")[#ans.lg]
             ]
             #v(-0.5em)
           ]
@@ -900,7 +900,7 @@
   return res-chum + res-don
 }
 
-#let tron-de-bank-Level(banks-matrix, info, show-lg: false, hien-thi-bang-da-pan: true, theo-lv: false) = {
+#let tron-de-bank-Level(banks-matrix, info, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: false) = {
   for (i, ma-de) in info.ds-ma-de.enumerate() {
     let is-first = (i == 0)
     let base-seed = int(ma-de)
@@ -948,7 +948,7 @@
     }
   }
 
-  if hien-thi-bang-da-pan {
+  if hien-thi-bang-dap-an {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
@@ -1015,7 +1015,7 @@
   info, 
   seed-goc: 2024,
   show-lg: false, 
-  hien-thi-bang-da-pan: true,
+  hien-thi-bang-dap-an: true,
   tf-mode: "y-only",
   nlc-mode: "full",
   theo-lv: false,
@@ -1075,7 +1075,7 @@
     }
   }
 
-  if hien-thi-bang-da-pan {
+  if hien-thi-bang-dap-an {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
@@ -1142,7 +1142,7 @@
   info, 
   seed-goc: 2024,
   show-lg: false, 
-  hien-thi-bang-da-pan: true,
+  hien-thi-bang-dap-an: true,
   xao-cau: true,
   xao-pa: true,
   theo-lv: false,
@@ -1207,7 +1207,7 @@
     }
   }
 
-  if hien-thi-bang-da-pan {
+  if hien-thi-bang-dap-an {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
