@@ -50,8 +50,8 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
     type: "NLC",
     hv:none,//none: không có hình vẽ; nếu có hình vẽ có thể dùng image("đường dẫn) dùng cho trường hợp import hình có sẳn hoặc canvas({}) để vẽ trực tiếp
     lv: 1, //lv: 1 - Nhận biết, lv: 2 - Thông hiểu, lv: 3 - Vận dụng
-    is_chum:true,
-    du_kien:[Nội dung dùng chung],
+    is-chum:true,
+    du-kien:[Nội dung dùng chung],
     cau_hoi_con:(
     // Câu hỏi con 1.
     (nd: [Nội dung lời dẫn câu hỏi 1],
