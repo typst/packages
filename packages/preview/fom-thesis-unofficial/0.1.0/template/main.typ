@@ -18,7 +18,7 @@
   
   date: "March 16, 2026",
 
-  logo: "template/media/example-logo.png", // --!-REPLACE LOGO WITH YOUR FILE HERE-!--
+  logo: image("media/example-logo.png"), // --!-REPLACE LOGO WITH YOUR FILE HERE-!--
 
   bib-file: bibliography("references.yaml", title: "Literaturverzeichnis"),
   bib-web-file: bibliography("references_web.yaml", title: "Internetquellen"),
