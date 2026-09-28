@@ -88,8 +88,8 @@
   return tron-mang(nhom1, seed + 11) + tron-mang(nhom2, seed + 22) + tron-mang(nhom3, seed + 33) + tron-mang(nhom_khac, seed + 44)
 }
 
-#let xao-theo-tuy-chon(arr, seed, theo_lv: false) = {
-  if theo_lv {
+#let xao-theo-tuy-chon(arr, seed, theo-lv: false) = {
+  if theo-lv {
     tron-mang-theo-lv(arr, seed)
   } else {
     tron-mang(arr, seed)
@@ -163,8 +163,8 @@
 // ==========================================
 // 4. BÀI TẬP INLINE / ÔN TẬP TÀI LIỆU
 // ==========================================
-#let render_sub_sol(q, type_str, show_lg) = {
-  if not show_lg { return }
+#let render_sub_sol(q, type_str, show-lg) = {
+  if not show-lg { return }
   v(-0.8em)
   block(
     width: 100%,
@@ -214,22 +214,22 @@
   bank_data, 
   title: none,
   seed: 0,
-  num_nlc: none, 
-  num_tf: none, 
-  num_tln: none, 
-  num_tl: none,
-  show_lg: false,
-  dong_ke: none,
-  co_NLC: none,
-  co_tf: none,
-  co_TLN: none,
-  co_TL: none,
-  theo_lv: false,
+  num-nlc: none, 
+  num-tf: none, 
+  num-tln: none, 
+  num-tl: none,
+  show-lg: false,
+  dong-ke: none,
+  co-nlc: none,
+  co-tf: none,
+  co-tln: none,
+  co-tl: none,
+  theo-lv: false,
 ) = {
-  let cfg_nlc = if num_nlc != none { num_nlc } else { co_NLC }
-  let cfg_tf  = if num_tf != none { num_tf } else { co_tf }
-  let cfg_tln = if num_tln != none { num_tln } else { co_TLN }
-  let cfg_tl  = if num_tl != none { num_tl } else { co_TL }
+  let cfg_nlc = if num-nlc != none { num-nlc } else { co-nlc }
+  let cfg_tf  = if num-tf != none { num-tf } else { co-tf }
+  let cfg_tln = if num-tln != none { num-tln } else { co-tln }
+  let cfg_tl  = if num-tl != none { num-tl } else { co-tl }
 
   let actual_bank = if type(bank_data) == dictionary and "data" in bank_data { 
     bank_data.data 
@@ -274,7 +274,7 @@
     }
 
     if type(dem_config) == int { 
-      let processing = if seed == none { loc_ques } else { xao-theo-tuy-chon(loc_ques, seed + sub_seed, theo_lv: theo_lv) }
+      let processing = if seed == none { loc_ques } else { xao-theo-tuy-chon(loc_ques, seed + sub_seed, theo-lv: theo-lv) }
       return processing.slice(0, calc.min(dem_config, processing.len())) 
     }
     
@@ -364,7 +364,7 @@
                     row-gutter: 0.5em,
                     align: center + horizon,
                     ..q.pa.enumerate().map(((i, v)) => {
-                      let is_correct = show_lg and ("da" in q) and (i == q.da)
+                      let is_correct = show-lg and ("da" in q) and (i == q.da)
                       let label_text = [#h(1em)*#to-abc(i).*]
                       let formatted_label = if is_correct { underline(text(fill: mausac.daT, weight: "bold")[#label_text]) } else { text(fill: mausac.cau_pa)[#label_text] }
                       align(left)[#grid(columns:(auto,1fr), column-gutter:10pt, [#formatted_label], [#v])]
@@ -379,7 +379,7 @@
                     align: if n_cols > 1 { left + horizon } else { left },
                     inset: (x: 1em),
                     ..q.pa.enumerate().map(((i, v)) => {
-                      let is_correct = show_lg and ("da" in q) and (i == q.da)
+                      let is_correct = show-lg and ("da" in q) and (i == q.da)
                       let label_text = [*#to-abc(i).*]
                       let formatted_label = if is_correct { underline(text(fill: mausac.daT, weight: "bold")[#label_text]) } else { text(fill: mausac.cau_pa)[#label_text] }
                       box[#grid(columns: (auto, 1fr), gutter: 2pt, align: left, formatted_label, v)]
@@ -391,7 +391,7 @@
             )
           ]
           v(-0.7em)
-          render_sub_sol(q, "NLC", show_lg)
+          render_sub_sol(q, "NLC", show-lg)
         }
       }
     }
@@ -432,7 +432,7 @@
                   ..q.ytf.enumerate().map(((i, sq)) => {
                     let label_text = [#("a)", "b)", "c)", "d)").at(i)]
                     let formatted_label = text(fill: mausac.cau_pa, weight: "bold")[#h(0.5em) #label_text]
-                    let ans_str = if show_lg and ("da" in q) and type(q.da) == array and i < q.da.len() {
+                    let ans_str = if show-lg and ("da" in q) and type(q.da) == array and i < q.da.len() {
                       if q.da.at(i) == 1 { " [Đúng]" } else { " [Sai]" }
                     } else { "" }
                     [#formatted_label #sq #text(fill: mausac.daT, weight: "bold")[#ans_str]]
@@ -443,7 +443,7 @@
             )
           ]
           v(-0.8em)
-          render_sub_sol(q, "TF", show_lg)
+          render_sub_sol(q, "TF", show-lg)
         }
       }
     }
@@ -480,7 +480,7 @@
                 #v(-0.1em)
                 #text(fill: mausac.cau_pa, weight: "bold")[Câu #c_idx.] #q.nd
                 #v(0.1em)
-                #if not show_lg [
+                #if not show-lg [
                   #grid(
                     columns: (auto, auto), 
                     column-gutter: 8pt, 
@@ -489,9 +489,9 @@
                     [#(for i in range(4) { box(width: 1.2em, height: 1.2em, stroke: 0.4pt + gray.darken(80%), radius: 1pt); h(2pt) })]
                   )
                   #v(-0.4em)
-                  #let num_lines = if dong_ke == none or dong_ke == 0 { none 
+                  #let num_lines = if dong-ke == none or dong-ke == 0 { none 
                   } else if "dong_ke" in q and q.dong_ke != none { q.dong_ke 
-                  } else { dong_ke }
+                  } else { dong-ke }
                   #if num_lines != none and type(num_lines) == int and num_lines > 0 {
                     v(0.3em)
                     for i in range(num_lines) {
@@ -505,7 +505,7 @@
             )
           ]
           v(-0.4em)
-          render_sub_sol(q, "TLN", show_lg)
+          render_sub_sol(q, "TLN", show-lg)
         }
       }
     }
@@ -534,10 +534,10 @@
               if has_img [ #if type(q.hv) == content { q.hv } else { image(q.hv, width: 4.5cm) } #v(1em)]
             )
             #v(-0.8em)
-            #if not show_lg [
-              #let num_lines = if dong_ke == none or dong_ke == 0 { none
+            #if not show-lg [
+              #let num_lines = if dong-ke == none or dong-ke == 0 { none
               } else if "dong_ke" in q and q.dong_ke != none { q.dong_ke
-              } else { dong_ke }
+              } else { dong-ke }
               #if num_lines != none and type(num_lines) == int and num_lines > 0 {
                 v(0.3em)
                 for i in range(num_lines) {
@@ -550,7 +550,7 @@
             #v(0.4em)
           ]
           v(-0.8em)
-          render_sub_sol(q, "TL", show_lg)
+          render_sub_sol(q, "TL", show-lg)
         }
       }
     }
@@ -565,35 +565,35 @@
   q_bank, 
   matrix, 
   info, 
-  is_first: false, 
-  show_lg: false,
-  tf_mode: "full",
-  nlc_mode: "full",
-  theo_lv: false,
+  is-first: false, 
+  show-lg: false,
+  tf-mode: "full",
+  nlc-mode: "full",
+  theo-lv: false,
 ) = {
-  if not is_first {
+  if not is-first {
     context { counter(page).update(1) }
   }
 
   let seed = int(ma_de)
 
   let raw_NLC = q_bank.filter(matrix.NLC_loc)
-  let xao_NLC = xao-theo-tuy-chon(raw_NLC, seed + 107, theo_lv: theo_lv)
+  let xao_NLC = xao-theo-tuy-chon(raw_NLC, seed + 107, theo-lv: theo-lv)
   let NLC_dem = calc.min(matrix.NLC_dem, xao_NLC.len())
   let s_NLC = xao_NLC.slice(0, NLC_dem)
 
   let raw_tf = q_bank.filter(matrix.tf_loc)
-  let xao_tf = xao-theo-tuy-chon(raw_tf, seed + 233, theo_lv: theo_lv)
+  let xao_tf = xao-theo-tuy-chon(raw_tf, seed + 233, theo-lv: theo-lv)
   let tf_dem = calc.min(matrix.tf_dem, xao_tf.len())
   let s_tf = xao_tf.slice(0, tf_dem)
 
   let raw_TLN = q_bank.filter(matrix.TLN_loc)
-  let xao_TLN = xao-theo-tuy-chon(raw_TLN, seed + 357, theo_lv: theo_lv)
+  let xao_TLN = xao-theo-tuy-chon(raw_TLN, seed + 357, theo-lv: theo-lv)
   let TLN_dem = calc.min(matrix.TLN_dem, xao_TLN.len())
   let s_TLN = xao_TLN.slice(0, TLN_dem)
 
   let raw_TL = q_bank.filter(matrix.TL_loc)
-  let xao_TL = xao-theo-tuy-chon(raw_TL, seed + 491, theo_lv: theo_lv)
+  let xao_TL = xao-theo-tuy-chon(raw_TL, seed + 491, theo-lv: theo-lv)
   let TL_dem = calc.min(matrix.TL_dem, xao_TL.len())
   let s_TL = xao_TL.slice(0, TL_dem)
 
@@ -659,7 +659,7 @@
         let ds_cau_can_ve = if is_item_chum { item.cau_hoi_con } else { (item,) }
 
         for q in ds_cau_can_ve {
-          let opt_indices = if seed == 0 or nlc_mode == "none" { range(4) } else { tron-mang(range(4), seed + c_idx * 73) }
+          let opt_indices = if seed == 0 or nlc-mode == "none" { range(4) } else { tron-mang(range(4), seed + c_idx * 73) }
           let new_opts = opt_indices.map(i => q.pa.at(i))
           part1_ans.push(to-abc(opt_indices.position(i => i == q.da)))
           
@@ -696,7 +696,7 @@
             )
           ]
           v(-0.8em)
-          if show_lg and "lg" in q and q.lg != [] { hienthi-lg(q, "NLC", c_idx, seed, opt_indices: opt_indices) }
+          if show-lg and "lg" in q and q.lg != [] { hienthi-lg(q, "NLC", c_idx, seed, opt_indices: opt_indices) }
           v(-0.2em)
           c_idx += 1
         }
@@ -707,8 +707,8 @@
       set par(first-line-indent: 0pt)
       v(0.5em); text(mausac.cau_pa)[*► Thí sinh trả lời từ câu 1 đến câu #s_tf.len().* #emph[ *Trong mỗi ý a), b), c), d) của mỗi câu, thí sinh chọn đúng hoặc sai.*]]
       for (idx, q) in s_tf.enumerate() {
-        let sub_indices = if tf_mode == "none" { range(4) }
-        else if tf_mode == "y_only" {
+        let sub_indices = if tf-mode == "none" { range(4) }
+        else if tf-mode == "y_only" {
           let content_str = repr(q.nd) + repr(q.ytf)
           let content_hash = calc.rem(content_str.len() * 265435761, 123456789)
           tron-mang(range(4), content_hash * 31 + int(ma_de) * 7919)
@@ -728,7 +728,7 @@
           )
         ]
         v(-0.4em)
-        if show_lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TF", idx + s_NLC.len(), seed, tf_indices: sub_indices) }
+        if show-lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TF", idx + s_NLC.len(), seed, tf_indices: sub_indices) }
         v(-0.3em)
       }
     }
@@ -766,7 +766,7 @@
               columns: if has_img { (1fr, auto) } else { (1fr,) }, gutter: 10pt, align: (left + top, center + horizon),
               [
                 #text(fill: mausac.cau_pa)[*Câu #(c_idx + 1).* ]#q.nd
-                #if not show_lg [
+                #if not show-lg [
                   #v(-0.4em)
                   #pad(left: 0em)[
                     #grid(columns: (auto, auto), column-gutter: 10pt, align: (left + horizon, left + horizon), [*Trả lời:*], [#(for i in range(4) { box(width: 1.2em, height: 1.2em, stroke: 0.3pt); h(3pt) })])
@@ -777,7 +777,7 @@
             )
           ]
           v(-1em)
-          if show_lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TLN", c_idx + s_NLC.len() + s_tf.len(), seed) }
+          if show-lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TLN", c_idx + s_NLC.len() + s_tf.len(), seed) }
           v(-0.2em)
           c_idx += 1
         }
@@ -798,7 +798,7 @@
             [ #text(fill: mausac.cau_pa)[*Câu #(idx + 1).* ] #q.nd \ #v(-0.3em) ],
             if has_img [ #align(center + top)[#if type(q.hv) == content [ #q.hv ] else if type(q.hv) == str [ #image(q.hv, width: 4.5cm) ]] ]
           )
-          #if show_lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TL", idx, seed) }
+          #if show-lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TL", idx, seed) }
           #v(-0.3em)
         ]
       }
@@ -816,7 +816,7 @@
   )) <exam_data>]
 }
 
-#let in_dapan_TL(results) = {
+#let in-dapan-tl(results) = {
   context {
     counter(page).update(1)
     set page(footer: none)
@@ -851,7 +851,7 @@
   })
 }
 
-#let rut_cauLevel(raw_bank, q_type, dem_config, seed) = {
+#let rut-cau-level(raw_bank, q_type, dem_config, seed) = {
   let actual_bank = if type(raw_bank) == dictionary and "data" in raw_bank { raw_bank.data }
   else if type(raw_bank) == module { raw_bank.data } else { raw_bank }
 
@@ -900,7 +900,7 @@
   return res_chum + res_don
 }
 
-#let tron_de_bankLevel(banks_matrix, info, show_lg: false, hienthi_bangdapan: true, theo_lv: false) = {
+#let tron-de-bank-level(banks_matrix, info, show-lg: false, hienthi-bangdapan: true, theo-lv: false) = {
   for (i, ma_de) in info.ds_ma_de.enumerate() {
     let is_first = (i == 0)
     let base_seed = int(ma_de)
@@ -917,16 +917,16 @@
       let TLN_seed = base_seed * 999999 + b_idx * 999999 + 357
       let TL_seed  = base_seed * 999999 + b_idx * 999999 + 491
 
-      if "NLC_dem" in item { rut_NLC += rut_cauLevel(b, "NLC", item.NLC_dem, NLC_seed) }
-      if "tf_dem"  in item { rut_tf  += rut_cauLevel(b, "TF",  item.tf_dem,  tf_seed)  }
-      if "TLN_dem" in item { rut_TLN += rut_cauLevel(b, "TLN", item.TLN_dem, TLN_seed) }
-      if "TL_dem"  in item { rut_TL  += rut_cauLevel(b, "TL",  item.TL_dem,  TL_seed)  }
+      if "NLC_dem" in item { rut_NLC += rut-cau-level(b, "NLC", item.NLC_dem, NLC_seed) }
+      if "tf_dem"  in item { rut_tf  += rut-cau-level(b, "TF",  item.tf_dem,  tf_seed)  }
+      if "TLN_dem" in item { rut_TLN += rut-cau-level(b, "TLN", item.TLN_dem, TLN_seed) }
+      if "TL_dem"  in item { rut_TL  += rut-cau-level(b, "TL",  item.TL_dem,  TL_seed)  }
     }
 
-    rut_NLC = xao-theo-tuy-chon(rut_NLC, base_seed + 991,  theo_lv: theo_lv)
-    rut_tf  = xao-theo-tuy-chon(rut_tf,  base_seed + 997,  theo_lv: theo_lv)
-    rut_TLN = xao-theo-tuy-chon(rut_TLN, base_seed + 1009, theo_lv: theo_lv)
-    rut_TL  = xao-theo-tuy-chon(rut_TL,  base_seed + 1013, theo_lv: theo_lv)
+    rut_NLC = xao-theo-tuy-chon(rut_NLC, base_seed + 991,  theo-lv: theo-lv)
+    rut_tf  = xao-theo-tuy-chon(rut_tf,  base_seed + 997,  theo-lv: theo-lv)
+    rut_TLN = xao-theo-tuy-chon(rut_TLN, base_seed + 1009, theo-lv: theo-lv)
+    rut_TL  = xao-theo-tuy-chon(rut_TL,  base_seed + 1013, theo-lv: theo-lv)
 
     let final_bank = rut_NLC + rut_tf + rut_TLN + rut_TL
     
@@ -941,14 +941,14 @@
       TL_dem:  rut_TL.len(),
     )
 
-    render_test(ma_de, final_bank, fake_matrix, info, is_first: is_first, show_lg: show_lg, theo_lv: theo_lv)
+    render_test(ma_de, final_bank, fake_matrix, info, is-first: is_first, show-lg: show-lg, theo-lv: theo-lv)
     
     if i < info.ds_ma_de.len() - 1 {
       pagebreak(weak: true)
     }
   }
 
-  if hienthi_bangdapan {
+  if hienthi-bangdapan {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
@@ -986,7 +986,7 @@
     context {
       let results = query(<exam_data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in_dapan_TL(results)
+        in-dapan-tl(results)
       }
     }
 
@@ -1010,15 +1010,15 @@
   }
 }
 
-#let tron_de_chiY(
+#let tron-de-chi-y(
   banks_matrix, 
   info, 
-  seed_goc: 2024,
-  show_lg: false, 
-  hienthi_bangdapan: true,
-  tf_mode: "y_only",
-  nlc_mode: "full",
-  theo_lv: false,
+  seed-goc: 2024,
+  show-lg: false, 
+  hienthi-bangdapan: true,
+  tf-mode: "y_only",
+  nlc-mode: "full",
+  theo-lv: false,
 ) = {
   let rut_NLC = ()
   let rut_tf  = ()
@@ -1027,21 +1027,21 @@
 
   for (b_idx, item) in banks_matrix.enumerate() {
     let b = item.bank
-    let NLC_seed = seed_goc * 999999 + b_idx * 999999 + 107
-    let tf_seed  = seed_goc * 999999 + b_idx * 999999 + 233
-    let TLN_seed = seed_goc * 999999 + b_idx * 999999 + 357
-    let TL_seed  = seed_goc * 999999 + b_idx * 999999 + 491
+    let NLC_seed = seed-goc * 999999 + b_idx * 999999 + 107
+    let tf_seed  = seed-goc * 999999 + b_idx * 999999 + 233
+    let TLN_seed = seed-goc * 999999 + b_idx * 999999 + 357
+    let TL_seed  = seed-goc * 999999 + b_idx * 999999 + 491
 
-    if "NLC_dem" in item { rut_NLC += rut_cauLevel(b, "NLC", item.NLC_dem, NLC_seed) }
-    if "tf_dem"  in item { rut_tf  += rut_cauLevel(b, "TF",  item.tf_dem,  tf_seed)  }
-    if "TLN_dem" in item { rut_TLN += rut_cauLevel(b, "TLN", item.TLN_dem, TLN_seed) }
-    if "TL_dem"  in item { rut_TL  += rut_cauLevel(b, "TL",  item.TL_dem,  TL_seed)  }
+    if "NLC_dem" in item { rut_NLC += rut-cau-level(b, "NLC", item.NLC_dem, NLC_seed) }
+    if "tf_dem"  in item { rut_tf  += rut-cau-level(b, "TF",  item.tf_dem,  tf_seed)  }
+    if "TLN_dem" in item { rut_TLN += rut-cau-level(b, "TLN", item.TLN_dem, TLN_seed) }
+    if "TL_dem"  in item { rut_TL  += rut-cau-level(b, "TL",  item.TL_dem,  TL_seed)  }
   }
 
-  rut_NLC = tron-mang(rut_NLC, seed_goc + 991)
-  rut_tf  = tron-mang(rut_tf,  seed_goc + 997)
-  rut_TLN = tron-mang(rut_TLN, seed_goc + 1009)
-  rut_TL  = tron-mang(rut_TL,  seed_goc + 1013)
+  rut_NLC = tron-mang(rut_NLC, seed-goc + 991)
+  rut_tf  = tron-mang(rut_tf,  seed-goc + 997)
+  rut_TLN = tron-mang(rut_TLN, seed-goc + 1009)
+  rut_TL  = tron-mang(rut_TL,  seed-goc + 1013)
 
   for (i, ma_de) in info.ds_ma_de.enumerate() {
     let is_first = (i == 0)
@@ -1063,11 +1063,11 @@
       final_bank, 
       fake_matrix, 
       info, 
-      is_first: is_first, 
-      show_lg: show_lg,
-      tf_mode: "y_only",
-      nlc_mode: "none",
-      theo_lv: false,
+      is-first: is_first, 
+      show-lg: show-lg,
+      tf-mode: "y_only",
+      nlc-mode: "none",
+      theo-lv: false,
     )
 
     if i < info.ds_ma_de.len() - 1 {
@@ -1075,7 +1075,7 @@
     }
   }
 
-  if hienthi_bangdapan {
+  if hienthi-bangdapan {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
@@ -1113,7 +1113,7 @@
     context {
       let results = query(<exam_data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in_dapan_TL(results)
+        in-dapan-tl(results)
       }
     }
 
@@ -1137,15 +1137,15 @@
   }
 }
 
-#let tron_de_cungNoiDung(
+#let tron-de-cung-noi-dung(
   banks_matrix, 
   info, 
-  seed_goc: 2024,
-  show_lg: false, 
-  hienthi_bangdapan: true,
-  xao_cau: true,
-  xao_pa: true,
-  theo_lv: false,
+  seed-goc: 2024,
+  show-lg: false, 
+  hienthi-bangdapan: true,
+  xao-cau: true,
+  xao-pa: true,
+  theo-lv: false,
 ) = {
   let rut_NLC = ()
   let rut_tf  = ()
@@ -1154,30 +1154,30 @@
 
   for (b_idx, item) in banks_matrix.enumerate() {
     let b = item.bank
-    let NLC_seed = seed_goc * 999999 + b_idx * 999999 + 107
-    let tf_seed  = seed_goc * 999999 + b_idx * 999999 + 233
-    let TLN_seed = seed_goc * 999999 + b_idx * 999999 + 357
-    let TL_seed  = seed_goc * 999999 + b_idx * 999999 + 491
+    let NLC_seed = seed-goc * 999999 + b_idx * 999999 + 107
+    let tf_seed  = seed-goc * 999999 + b_idx * 999999 + 233
+    let TLN_seed = seed-goc * 999999 + b_idx * 999999 + 357
+    let TL_seed  = seed-goc * 999999 + b_idx * 999999 + 491
 
-    if "NLC_dem" in item { rut_NLC += rut_cauLevel(b, "NLC", item.NLC_dem, NLC_seed) }
-    if "tf_dem"  in item { rut_tf  += rut_cauLevel(b, "TF",  item.tf_dem,  tf_seed)  }
-    if "TLN_dem" in item { rut_TLN += rut_cauLevel(b, "TLN", item.TLN_dem, TLN_seed) }
-    if "TL_dem"  in item { rut_TL  += rut_cauLevel(b, "TL",  item.TL_dem,  TL_seed)  }
+    if "NLC_dem" in item { rut_NLC += rut-cau-level(b, "NLC", item.NLC_dem, NLC_seed) }
+    if "tf_dem"  in item { rut_tf  += rut-cau-level(b, "TF",  item.tf_dem,  tf_seed)  }
+    if "TLN_dem" in item { rut_TLN += rut-cau-level(b, "TLN", item.TLN_dem, TLN_seed) }
+    if "TL_dem"  in item { rut_TL  += rut-cau-level(b, "TL",  item.TL_dem,  TL_seed)  }
   }
 
-  rut_NLC = tron-mang(rut_NLC, seed_goc + 991)
-  rut_tf  = tron-mang(rut_tf,  seed_goc + 997)
-  rut_TLN = tron-mang(rut_TLN, seed_goc + 1009)
-  rut_TL  = tron-mang(rut_TL,  seed_goc + 1013)
+  rut_NLC = tron-mang(rut_NLC, seed-goc + 991)
+  rut_tf  = tron-mang(rut_tf,  seed-goc + 997)
+  rut_TLN = tron-mang(rut_TLN, seed-goc + 1009)
+  rut_TL  = tron-mang(rut_TL,  seed-goc + 1013)
 
   for (i, ma_de) in info.ds_ma_de.enumerate() {
     let is_first = (i == 0)
     let base_seed = int(ma_de)
 
-    let final_NLC = if xao_cau { xao-theo-tuy-chon(rut_NLC, base_seed + 2001, theo_lv: theo_lv) } else { rut_NLC }
-    let final_tf  = if xao_cau { xao-theo-tuy-chon(rut_tf,  base_seed + 2011, theo_lv: theo_lv) } else { rut_tf }
-    let final_TLN = if xao_cau { xao-theo-tuy-chon(rut_TLN, base_seed + 2027, theo_lv: theo_lv) } else { rut_TLN }
-    let final_TL  = if xao_cau { xao-theo-tuy-chon(rut_TL,  base_seed + 2039, theo_lv: theo_lv) } else { rut_TL }
+    let final_NLC = if xao-cau { xao-theo-tuy-chon(rut_NLC, base_seed + 2001, theo-lv: theo-lv) } else { rut_NLC }
+    let final_tf  = if xao-cau { xao-theo-tuy-chon(rut_tf,  base_seed + 2011, theo-lv: theo-lv) } else { rut_tf }
+    let final_TLN = if xao-cau { xao-theo-tuy-chon(rut_TLN, base_seed + 2027, theo-lv: theo-lv) } else { rut_TLN }
+    let final_TL  = if xao-cau { xao-theo-tuy-chon(rut_TL,  base_seed + 2039, theo-lv: theo-lv) } else { rut_TL }
 
     let final_bank = final_NLC + final_tf + final_TLN + final_TL
 
@@ -1197,9 +1197,9 @@
       final_bank, 
       fake_matrix, 
       info, 
-      is_first: is_first, 
-      show_lg: show_lg,
-      theo_lv: theo_lv,
+      is-first: is_first, 
+      show-lg: show-lg,
+      theo-lv: theo-lv,
     )
 
     if i < info.ds_ma_de.len() - 1 {
@@ -1207,7 +1207,7 @@
     }
   }
 
-  if hienthi_bangdapan {
+  if hienthi-bangdapan {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
@@ -1245,7 +1245,7 @@
     context {
       let results = query(<exam_data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in_dapan_TL(results)
+        in-dapan-tl(results)
       }
     }
 
@@ -1279,11 +1279,11 @@
   )
 }
 
-#let dang(title, STT: "1", kieu: "Dạng") = [
+#let dang(title, stt: "1", kieu: "Dạng") = [
   #grid(
     columns: (auto, 1fr), align: center + horizon, column-gutter: -2pt,
     box(fill: rgb("#72f0b1a2"), radius: 8pt, inset: (x: 10pt, y: 10pt), stroke: 2pt + rgb("#72f0b1a2"))[
-      #stack(spacing: 3pt, text(weight: "bold", fill: rgb("#f92a01fd"), size: 1.4em)[#kieu #STT:])
+      #stack(spacing: 3pt, text(weight: "bold", fill: rgb("#f92a01fd"), size: 1.4em)[#kieu #stt:])
     ],
     box(fill: rgb("#6ff6e484"), width: 100%, radius: 8pt, inset: (x: 15pt, y: 10pt), stroke: 2pt + rgb("#6ff6e484"))[
       #text(weight: "bold", fill: rgb("#e90335f8"), size: 1.4em)[#title]
@@ -1346,6 +1346,6 @@
 // 7. BÍ DANH TIẾNG ANH (API CHUẨN UNIVERSE)
 // ==========================================
 #let exercise = baitap_inline
-#let make-exam-matrix = tron_de_bankLevel
-#let make-exam-sync = tron_de_cungNoiDung
-#let make-exam-sub-only = tron_de_chiY
+#let make-exam-matrix = tron-de-bank-level
+#let make-exam-sync = tron-de-cung-noi-dung
+#let make-exam-sub-only = tron-de-chi-y
