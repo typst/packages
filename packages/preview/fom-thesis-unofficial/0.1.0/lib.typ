@@ -82,9 +82,10 @@
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 20mm))
   // Seitenränder temporär für Titelseite zentrieren
   
-  // The page can contain a logo if you pass one with `logo: "logo.png"`.
+  // The page can contain a logo if you pass one within main.typ `logo: "logo.png"`.
   if logo != none {
-    align(center, image(logo, width: 26%))
+    set image(width: 26%)
+    align(center, logo)
   }
 
   align(center)[
