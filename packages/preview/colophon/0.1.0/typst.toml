@@ -1,0 +1,13 @@
+[package]
+name = "colophon"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["David Hajage <dhajage@gmail.com>"]
+description = "A companion audit PDF (word counts, reading time, figure/table inventory) built from the actually-composed manuscript, not its source."
+license = "MIT"
+keywords = ["word count", "manuscript", "audit", "linting"]
+compiler = "0.15.0"
+categories = ["report", "model"]
+repository = "https://github.com/eusebe/typst-colophon"
+homepage = "https://eusebe.github.io/typst-contexture-site/colophon/"
+exclude = ["tests", "CLAUDE.md", "readme-assets", "*.pdf", "**/*.pdf", "**/*.png", ".gitignore", ".DS_Store"]
