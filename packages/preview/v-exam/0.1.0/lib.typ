@@ -99,7 +99,7 @@
 // ==========================================
 // 3. HÀM TẠO QR & HIỂN THỊ LỜI GIẢI
 // ==========================================
-#let tao-QRcode-key(results) = {
+#let tao-QR-code-key(results) = {
   let all-content = ""
   for entry in results {
     let ma-de = str(entry.value.seed)
@@ -111,7 +111,7 @@
   return all-content
 }
 
-#let hienthi-lg(q, q-type, idx, seed, opt-indices: none, tf-indices: none) = {
+#let hien-thi-lg(q, q-type, idx, seed, opt-indices: none, tf-indices: none) = {
   toan-setup({
     v(-0.4em)
     block(
@@ -209,7 +209,7 @@
   ]
 }
 
-#let baitap-inline(
+#let bai-tap-in-line(
   cm: 1,
   bank-data, 
   title: none,
@@ -696,7 +696,7 @@
             )
           ]
           v(-0.8em)
-          if show-lg and "lg" in q and q.lg != [] { hienthi-lg(q, "NLC", c-idx, seed, opt-indices: opt-indices) }
+          if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "NLC", c-idx, seed, opt-indices: opt-indices) }
           v(-0.2em)
           c-idx += 1
         }
@@ -728,7 +728,7 @@
           )
         ]
         v(-0.4em)
-        if show-lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TF", idx + s-NLC.len(), seed, tf-indices: sub-indices) }
+        if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "TF", idx + s-NLC.len(), seed, tf-indices: sub-indices) }
         v(-0.3em)
       }
     }
@@ -777,7 +777,7 @@
             )
           ]
           v(-1em)
-          if show-lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TLN", c-idx + s-NLC.len() + s-tf.len(), seed) }
+          if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "TLN", c-idx + s-NLC.len() + s-tf.len(), seed) }
           v(-0.2em)
           c-idx += 1
         }
@@ -798,7 +798,7 @@
             [ #text(fill: mausac.cau-pa)[*Câu #(idx + 1).* ] #q.nd \ #v(-0.3em) ],
             if has-img [ #align(center + top)[#if type(q.hv) == content [ #q.hv ] else if type(q.hv) == str [ #image(q.hv, width: 4.5cm) ]] ]
           )
-          #if show-lg and "lg" in q and q.lg != [] { hienthi-lg(q, "TL", idx, seed) }
+          #if show-lg and "lg" in q and q.lg != [] { hien-thi-lg(q, "TL", idx, seed) }
           #v(-0.3em)
         ]
       }
@@ -816,7 +816,7 @@
   )) <exam-data>]
 }
 
-#let in-dapan-TL(results) = {
+#let in-dap-an-TL(results) = {
   context {
     counter(page).update(1)
     set page(footer: none)
@@ -851,7 +851,7 @@
   })
 }
 
-#let rut-cauLevel(raw-bank, q-type, dem-config, seed) = {
+#let rut-cau-Level(raw-bank, q-type, dem-config, seed) = {
   let actual-bank = if type(raw-bank) == dictionary and "data" in raw-bank { raw-bank.data }
   else if type(raw-bank) == module { raw-bank.data } else { raw-bank }
 
@@ -900,7 +900,7 @@
   return res-chum + res-don
 }
 
-#let tron-de-bankLevel(banks-matrix, info, show-lg: false, hienthi-bangdapan: true, theo-lv: false) = {
+#let tron-de-bank-Level(banks-matrix, info, show-lg: false, hien-thi-bang-da-pan: true, theo-lv: false) = {
   for (i, ma-de) in info.ds-ma-de.enumerate() {
     let is-first = (i == 0)
     let base-seed = int(ma-de)
@@ -917,10 +917,10 @@
       let TLN-seed = base-seed * 999999 + b-idx * 999999 + 357
       let TL-seed  = base-seed * 999999 + b-idx * 999999 + 491
 
-      if "NLC-dem" in item { rut-NLC += rut-cauLevel(b, "NLC", item.NLC-dem, NLC-seed) }
-      if "tf-dem"  in item { rut-tf  += rut-cauLevel(b, "TF",  item.tf-dem,  tf-seed)  }
-      if "TLN-dem" in item { rut-TLN += rut-cauLevel(b, "TLN", item.TLN-dem, TLN-seed) }
-      if "TL-dem"  in item { rut-TL  += rut-cauLevel(b, "TL",  item.TL-dem,  TL-seed)  }
+      if "NLC-dem" in item { rut-NLC += rut-cau-Level(b, "NLC", item.NLC-dem, NLC-seed) }
+      if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
+      if "TLN-dem" in item { rut-TLN += rut-cau-Level(b, "TLN", item.TLN-dem, TLN-seed) }
+      if "TL-dem"  in item { rut-TL  += rut-cau-Level(b, "TL",  item.TL-dem,  TL-seed)  }
     }
 
     rut-NLC = xao-theo-tuy-chon(rut-NLC, base-seed + 991,  theo-lv: theo-lv)
@@ -948,7 +948,7 @@
     }
   }
 
-  if hienthi-bangdapan {
+  if hien-thi-bang-da-pan {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
@@ -986,7 +986,7 @@
     context {
       let results = query(<exam-data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in-dapan-TL(results)
+        in-dap-an-TL(results)
       }
     }
 
@@ -996,7 +996,7 @@
     v(1em)
     context {
       let results = query(<exam-data>)
-      let all-qrcode = tao-QRcode-key(results)
+      let all-qrcode = tao-QR-code-key(results)
       align(center)[
         #block(inset: 15pt, fill: white, radius: 8pt, stroke: gray.lighten(30%) + 1pt)[
           #text(size: 14pt, weight: "bold")[ĐÁP ÁN TRẮC NGHIỆM CÁC MÃ ĐỀ] \
@@ -1010,12 +1010,12 @@
   }
 }
 
-#let tron-de-chiY(
+#let tron-de-chi-Y(
   banks-matrix, 
   info, 
   seed-goc: 2024,
   show-lg: false, 
-  hienthi-bangdapan: true,
+  hien-thi-bang-da-pan: true,
   tf-mode: "y-only",
   nlc-mode: "full",
   theo-lv: false,
@@ -1032,10 +1032,10 @@
     let TLN-seed = seed-goc * 999999 + b-idx * 999999 + 357
     let TL-seed  = seed-goc * 999999 + b-idx * 999999 + 491
 
-    if "NLC-dem" in item { rut-NLC += rut-cauLevel(b, "NLC", item.NLC-dem, NLC-seed) }
-    if "tf-dem"  in item { rut-tf  += rut-cauLevel(b, "TF",  item.tf-dem,  tf-seed)  }
-    if "TLN-dem" in item { rut-TLN += rut-cauLevel(b, "TLN", item.TLN-dem, TLN-seed) }
-    if "TL-dem"  in item { rut-TL  += rut-cauLevel(b, "TL",  item.TL-dem,  TL-seed)  }
+    if "NLC-dem" in item { rut-NLC += rut-cau-Level(b, "NLC", item.NLC-dem, NLC-seed) }
+    if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
+    if "TLN-dem" in item { rut-TLN += rut-cau-Level(b, "TLN", item.TLN-dem, TLN-seed) }
+    if "TL-dem"  in item { rut-TL  += rut-cau-Level(b, "TL",  item.TL-dem,  TL-seed)  }
   }
 
   rut-NLC = tron-mang(rut-NLC, seed-goc + 991)
@@ -1075,7 +1075,7 @@
     }
   }
 
-  if hienthi-bangdapan {
+  if hien-thi-bang-da-pan {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
@@ -1113,7 +1113,7 @@
     context {
       let results = query(<exam-data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in-dapan-TL(results)
+        in-dap-an-TL(results)
       }
     }
 
@@ -1123,7 +1123,7 @@
     v(1em)
     context {
       let results = query(<exam-data>)
-      let all-qrcode = tao-QRcode-key(results)
+      let all-qrcode = tao-QR-code-key(results)
       align(center)[
         #block(inset: 15pt, fill: white, radius: 8pt, stroke: gray.lighten(30%) + 1pt)[
           #text(size: 14pt, weight: "bold")[ĐÁP ÁN TRẮC NGHIỆM CÁC MÃ ĐỀ] \
@@ -1137,12 +1137,12 @@
   }
 }
 
-#let tron-de-cungNoiDung(
+#let tron-de-cung-Noi-Dung(
   banks-matrix, 
   info, 
   seed-goc: 2024,
   show-lg: false, 
-  hienthi-bangdapan: true,
+  hien-thi-bang-da-pan: true,
   xao-cau: true,
   xao-pa: true,
   theo-lv: false,
@@ -1159,10 +1159,10 @@
     let TLN-seed = seed-goc * 999999 + b-idx * 999999 + 357
     let TL-seed  = seed-goc * 999999 + b-idx * 999999 + 491
 
-    if "NLC-dem" in item { rut-NLC += rut-cauLevel(b, "NLC", item.NLC-dem, NLC-seed) }
-    if "tf-dem"  in item { rut-tf  += rut-cauLevel(b, "TF",  item.tf-dem,  tf-seed)  }
-    if "TLN-dem" in item { rut-TLN += rut-cauLevel(b, "TLN", item.TLN-dem, TLN-seed) }
-    if "TL-dem"  in item { rut-TL  += rut-cauLevel(b, "TL",  item.TL-dem,  TL-seed)  }
+    if "NLC-dem" in item { rut-NLC += rut-cau-Level(b, "NLC", item.NLC-dem, NLC-seed) }
+    if "tf-dem"  in item { rut-tf  += rut-cau-Level(b, "TF",  item.tf-dem,  tf-seed)  }
+    if "TLN-dem" in item { rut-TLN += rut-cau-Level(b, "TLN", item.TLN-dem, TLN-seed) }
+    if "TL-dem"  in item { rut-TL  += rut-cau-Level(b, "TL",  item.TL-dem,  TL-seed)  }
   }
 
   rut-NLC = tron-mang(rut-NLC, seed-goc + 991)
@@ -1207,7 +1207,7 @@
     }
   }
 
-  if hienthi-bangdapan {
+  if hien-thi-bang-da-pan {
     pagebreak()
     context { counter(page).update(1); set page(footer: none) }
     align(center)[#text(16pt, weight: "bold")[BẢNG ĐÁP ÁN TRẮC NGHIỆM TỔNG HỢP]]
@@ -1245,7 +1245,7 @@
     context {
       let results = query(<exam-data>)
       if results.any(r => r.value.part4.len() > 0) {
-        in-dapan-TL(results)
+        in-dap-an-TL(results)
       }
     }
 
@@ -1255,7 +1255,7 @@
     v(1em)
     context {
       let results = query(<exam-data>)
-      let all-qrcode = tao-QRcode-key(results)
+      let all-qrcode = tao-QR-code-key(results)
       align(center)[
         #block(inset: 15pt, fill: white, radius: 8pt, stroke: gray.lighten(30%) + 1pt)[
           #text(size: 14pt, weight: "bold")[ĐÁP ÁN TRẮC NGHIỆM CÁC MÃ ĐỀ] \
@@ -1272,7 +1272,7 @@
 // ==========================================
 // 6. CÁC HÀM TRANG TRÍ TIÊU ĐỀ
 // ==========================================
-#let tdbai(title, bsize: 18pt, clorfont: rgb("#0309a7"), bground: rgb("#00ffff3b"), cle: center) = {
+#let td-bai(title, bsize: 18pt, clorfont: rgb("#0309a7"), bground: rgb("#00ffff3b"), cle: center) = {
   block(
     width: 100%, fill: bground, radius: 8pt, stroke: 0.5pt + rgb("#c405ef"), inset: (x: 25pt, y: 8pt),
     align(cle)[#text(fill: clorfont, size: bsize, weight: "bold", font: "Times New Roman", title)]
@@ -1296,7 +1296,7 @@
 #let mau-cap2 = rgb("#0501f0")
 #let mau-cap3 = rgb("#024905")
 
-#let tieude(noi-dung, cap: 1) = {
+#let tieu-de(noi-dung, cap: 1) = {
   if cap == 1 {
     block(width: 100%, below: 0.7em, inset: (x: 0pt, y: 8pt), fill: rgb("#f3b40659"), radius: 4pt)[
       #align(left)[#text(weight: "bold", size: 1.3em, fill: mau-cap2)[#noi-dung]]
@@ -1319,7 +1319,7 @@
   v(0.3em)
 }
 
-#let chimuc(title, tsize: 16pt) = {
+#let chi-muc(title, tsize: 16pt) = {
   set par(first-line-indent: 0pt)
   block(width: 100%)[
     #box(fill: rgb("#00ffff2e"), radius: (top-left: 0pt, top-right: 8pt, bottom-left: 0pt, bottom-right: 0pt), stroke: 0.5pt + rgb("#ee05ea"), inset: (x: 4pt, y: 8pt))[
@@ -1330,7 +1330,7 @@
   ]
 }
 
-#let luuy(title, body) = {
+#let luu-y(title, body) = {
   block(width: 100%, below: 0.1em, stroke: (paint: red, thickness: 1pt), inset: (x: 12pt, y: 10pt), radius: 4pt, fill: rgb("#99eee832"))[
     #text(weight: "bold", fill: blue.darken(40%))[#underline(title, offset: 3pt)]
     #v(-0.3em)
@@ -1345,7 +1345,7 @@
 // ==========================================
 // 7. BÍ DANH TIẾNG ANH (API CHUẨN UNIVERSE)
 // ==========================================
-#let exercise = baitap-inline
-#let make-exam-matrix = tron-de-bankLevel
-#let make-exam-sync = tron-de-cungNoiDung
-#let make-exam-sub-only = tron-de-chiY
+#let exercise = bai-tap-in-line
+#let make-exam-matrix = tron-de-bank-Level
+#let make-exam-sync = tron-de-cung-Noi-Dung
+#let make-exam-sub-only = tron-de-chi-Y
