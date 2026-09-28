@@ -1,16 +1,11 @@
 # v-exam: 0.1.0
-
 Bộ công cụ biên soạn bài tập, tài liệu ôn tập và trộn đề thi trắc nghiệm / tự luận chuẩn định dạng Bộ Giáo dục & Đào tạo Việt Nam dành cho mọi môn học (Toán, Vật lý, Hóa học, Sinh học, Lịch sử, Địa lý, GDKT&PL, ...).
-
 ---
-
 ## 🚀 Tính năng nổi bật
-
 - **Tự động trộn đề:** Trộn đảo phương án NLC, đảo ý $a, b, c, d$ của câu hỏi Đúng/Sai, hoán vị câu hỏi theo seed mã đề.
 - **Tự động xuất bảng đáp án & mã QR:** Tạo bảng đáp án tổng hợp và mã QR cho phần mềm chấm thi tự động (như UNT, Chấm thi KC, ...).
 - **Hỗ trợ câu hỏi chùm (Dữ kiện chung):** Tự động gom nhóm các câu hỏi con đi kèm đoạn văn cảnh/dữ kiện dùng chung mà không bị xáo rời rạc cho trường hợp câu hỏi chùm các môn.
 - **Biên soạn bài tập nối tiếp (`exercise` / `baitap_inline`):** Hỗ trợ biên soạn tài liệu giảng dạy, bài tập ôn tập chuyên đề có kèm lời giải chi tiết.
-
 ---
 ## 🖼️ Mẫu kết quả (Gallery)
 
@@ -19,15 +14,11 @@ Bộ công cụ biên soạn bài tập, tài liệu ôn tập và trộn đề 
   <img src="gallery/Picture-bangda.png" width="48%" alt="Bảng đáp án" /> <br>
   <img src="gallery/Picture-maQR.png" width="48%" alt="Mã QRcode dùng cho máy chấm" />
 </p>
-
 ## 📦 Hướng dẫn sử dụng
-
 ### 1. Import thư viện
-
 ```typst
 #import "@preview/v-exam:0.1.0": *
 ```
-
 ### 2. Định dạng ngân hàng câu hỏi
 
 Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `dictionary`:
@@ -131,7 +122,6 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
 ),
 )
 ```
-
 ### 3. Biên soạn bài tập / Tài liệu ôn tập (`exercise` / `baitap-inline`)
 ```typst
 #import "file.typ" as b
@@ -148,7 +138,6 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
   dong-ke:4
 )
 ```
-
 ### 4. Trộn đề thi
 #### a) Trộn đề thi khác nhau(`make-exam-matrix` / `tron-de-bankLevel`)
 Tạo các đề thi tư ngân hàng với các lấy ngẫu nhiên các câu hỏi từ bank để tạo bộ câu hỏi khác nhau cho mỗi đề\
@@ -180,7 +169,6 @@ Tạo các đề thi tư ngân hàng với các lấy ngẫu nhiên các câu h�
 ```typst
 Cách 1:
 #make-exam-matrix(matrix, info, show-lg: false, hienthi-bangdapan: true, theo-lv:true)
-
 Cách 2:
 #tron-de-bankLevel(matrix, info, show-g: false, hienthi-bangdapan: true, theo-lv:true)
 ```
@@ -196,7 +184,6 @@ Cách thực hiện đuề giống với "Trộn đề thi khác nhau" chỉ kh�
 ```typst
 Cách 1:
 #make-exam-sync(matrix, info, seed-goc: 2026, show-lg: false,theo-lv:false,xao-cau: true, xao-pa: true)
-
 Cách 2:
 #tron-de-cungNoiDung(matrix, info, seed-goc: 2026, show-lg: false,theo-lv:false,xao-cau: true, xao-pa: true)
 ```
@@ -212,7 +199,6 @@ Cách thực hiện đuề giống với "Trộn đề cùng nội dung" chỉ k
 ```typst
 Cách 1:
 #make-exam-sub-only(matrix, info-de, seed-goc: 2024, show-lg: false,tf-mode:"y-only",nlc-mode:"none",theo-lv:false)
-
 Cách 2:
 #tron-de-chiY(matrix, info, seed-goc: 2024, show-lg: false,tf-mode:"y-only",nlc-mode:"none",theo-lv:false)
 ```
@@ -220,7 +206,5 @@ Giải thích:
 - tf-mode: có hai chế độ "y-only" đảo ý và "full" đảo ý và đảo câu.
 - nlc-mode: có 3 chế độ:  "y-only" đảo phương án; "full" đảo phương án và đảo câu; "none" không thay đổi.
 ---
-
 ## 📜 Giấy phép
-
 Phát hành theo giấy phép [MIT License](LICENSE).
