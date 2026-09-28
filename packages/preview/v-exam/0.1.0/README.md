@@ -140,9 +140,9 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
 
 ```typst
 #import "@preview/v-exam:0.1.0": exercise, bai-tap-in-line
-
+#import "file.typ" as b
 #exercise(
-  data,
+  b.data,
   cm: 1,
   num-nlc: (1, 0, 0),
   num-tf: (0, 1, 0),
