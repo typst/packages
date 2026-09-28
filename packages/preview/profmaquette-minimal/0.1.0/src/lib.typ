@@ -14,11 +14,11 @@
 // This work consists of all the .typ files in the src/ directory
 // and its subdirectories.
 
-// Point d'entrée du paquet, exporte les 5 fonctions publiques.
+// Point d'entrée du paquet, exporte les 6 fonctions publiques.
 //
 // profmaquette-minimal : portage minimaliste, en Typst, du paquet LaTeX
 // ProfMaquette (Christophe Poulain). Point d'entrée déclaré dans typst.toml :
-// seules les cinq fonctions ci-dessous sont exportées.
+// seules les six fonctions ci-dessous sont exportées.
 //
 // Organisation de src/ :
 //   lib.typ                  ce fichier
@@ -28,12 +28,14 @@
 //   corrige.typ
 //   thematique.typ
 //   afficher-fdr.typ
+//   seyes.typ
 //   interne/                 code partagé, jamais exporté :
 //     etats.typ              états (`state`) partagés entre les fonctions
 //     utils.typ              sélection des corrigés, langues, `protege`…
 //     dessins.typ            icônes, cadres, rendu d'un corrigé
 //     cartouche.typ          cartouche de titre de la fiche
 //     blocs-fin.typ          blocs « Automatismes » et « Correction »
+//     bareme.typ             barème des interros (total, note des questions)
 //   icones/                  SVG Font Awesome Free (CC BY 4.0)
 //
 // Convergence : Typst recompile au plus 5 fois pour stabiliser les requêtes, et
@@ -49,3 +51,4 @@
 #import "corrige.typ": corrige
 #import "thematique.typ": thematique
 #import "afficher-fdr.typ": afficher-fdr
+#import "seyes.typ": seyes

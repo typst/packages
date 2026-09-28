@@ -3,8 +3,10 @@
 Fiches d'exercices à la manière du package LaTeX
 [ProfMaquette](https://ctan.org/pkg/profmaquette) de **Christophe Poulain** :
 exercices numérotés, sur la route ou non, feuille de route, entraînement
-en ligne par QR code, cartouche de titre (avec zone Nom / Prénom / Classe pour
-les interrogations), et corrigés que l'on affiche — ou non — d'un seul réglage.
+en ligne par QR code, cartouche de titre, et corrigés que l'on affiche — ou
+non — d'un seul réglage. Un mode « interro » ajoute une zone Nom / Prénom /
+Classe, des zones de réponse quadrillées (Seyes) que les corrigés peuvent venir
+remplir, et un barème calculé automatiquement.
 
 📖 **[Documentation complète](https://amjmeyer.github.io/profmaquette-minimal/)** : tous les réglages, un exemple et
 son rendu pour chacun.
@@ -28,7 +30,7 @@ use, and may change in future versions.*
 ## Démarrage rapide
 
 ```typ
-#import "@preview/profmaquette-minimal:0.1.0": maquette, exercice, corrige, afficher-fdr, thematique
+#import "@preview/profmaquette-minimal:0.1.0": maquette, exercice, corrige, afficher-fdr, thematique, seyes
 
 #show: maquette.with(
   position-corriges: "fin",
@@ -55,13 +57,16 @@ use, and may change in future versions.*
 ```
 
 Pour tous les réglages (`maquette`, `exercice`, feuille de route, cartouche de
-titre, styles de cadre, langues…), voir la **[documentation](https://amjmeyer.github.io/profmaquette-minimal/)**.
+titre, styles de cadre, mode interro, zones Seyes, barème, langues…), voir la
+**[documentation](https://amjmeyer.github.io/profmaquette-minimal/)**.
 
 ## Historique des versions
 
 ### 0.1.0 — version de départ
 
-Première version du paquet.
+Première version du paquet : exercices, corrigés, feuille de route,
+entraînements, cartouche de titre, et un mode « interro » (zones de réponse
+`seyes` que les corrigés peuvent remplir, barème avec `afficher-brm` et `brm`).
 
 ## Remerciements
 

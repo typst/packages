@@ -81,11 +81,11 @@
 // ─── Langues ─────────────────────────────────────────────────────────────────
 
 #let termes = (
-  fr: (exercice: "Exercice", correction: "Correction", automatismes: "Automatismes", exo: "Exo", titre-corriges: "Corrigé de l'exercice", nom: "Nom", prenom: "Prénom", classe: "Classe"),
-  en: (exercice: "Exercise", correction: "Solutions", automatismes: "Practice", exo: "Ex.", titre-corriges: "Solution to exercise", nom: "Last name", prenom: "First name", classe: "Class"),
-  de: (exercice: "Aufgabe", correction: "Lösungen", automatismes: "Übungen", exo: "Aufg.", titre-corriges: "Lösung zu Aufgabe", nom: "Name", prenom: "Vorname", classe: "Klasse"),
-  es: (exercice: "Ejercicio", correction: "Soluciones", automatismes: "Práctica", exo: "Ej.", titre-corriges: "Solución del ejercicio", nom: "Apellido", prenom: "Nombre", classe: "Clase"),
-  it: (exercice: "Esercizio", correction: "Soluzioni", automatismes: "Allenamento", exo: "Es.", titre-corriges: "Soluzione dell'esercizio", nom: "Cognome", prenom: "Nome", classe: "Classe"),
+  fr: (exercice: "Exercice", correction: "Correction", automatismes: "Automatismes", exo: "Exo", titre-corriges: "Corrigé de l'exercice", corrige: "Corrigé", nom: "Nom", prenom: "Prénom", classe: "Classe", point: "pt", points: "pts", separateur-decimal: ",", pluriel-des-deux: true, point-total: "point", points-total: "points"),
+  en: (exercice: "Exercise", correction: "Solutions", automatismes: "Practice", exo: "Ex.", titre-corriges: "Solution to exercise", corrige: "Solution", nom: "Last name", prenom: "First name", classe: "Class", point: "pt", points: "pts", separateur-decimal: ".", pluriel-des-deux: false, point-total: "point", points-total: "points"),
+  de: (exercice: "Aufgabe", correction: "Lösungen", automatismes: "Übungen", exo: "Aufg.", titre-corriges: "Lösung zu Aufgabe", corrige: "Lösung", nom: "Name", prenom: "Vorname", classe: "Klasse", point: "P.", points: "P.", separateur-decimal: ",", pluriel-des-deux: false, point-total: "Punkt", points-total: "Punkte"),
+  es: (exercice: "Ejercicio", correction: "Soluciones", automatismes: "Práctica", exo: "Ej.", titre-corriges: "Solución del ejercicio", corrige: "Solución", nom: "Apellido", prenom: "Nombre", classe: "Clase", point: "pto", points: "ptos", separateur-decimal: ",", pluriel-des-deux: false, point-total: "punto", points-total: "puntos"),
+  it: (exercice: "Esercizio", correction: "Soluzioni", automatismes: "Allenamento", exo: "Es.", titre-corriges: "Soluzione dell'esercizio", corrige: "Soluzione", nom: "Cognome", prenom: "Nome", classe: "Classe", point: "pt", points: "pt", separateur-decimal: ",", pluriel-des-deux: false, point-total: "punto", points-total: "punti"),
 )
 
 // Mot du paquet dans la langue choisie, dans un `context`. Avec `auto`, suit la

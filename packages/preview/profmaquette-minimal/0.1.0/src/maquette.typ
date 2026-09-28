@@ -20,6 +20,7 @@
 #import "interne/utils.typ": *
 #import "interne/cartouche.typ": cartouche-titre, modes-maquette, styles-maquette
 #import "interne/blocs-fin.typ": bloc-corriges, liste-entrainements
+#import "interne/bareme.typ": modes-bareme
 
 // ─── Réglages (internes, appelés par `maquette` seule) ───────────────────────
 
@@ -30,8 +31,10 @@
 ))
 
 // Équivalent des clés de l'environnement Maquette de ProfMaquette.
-//   mode             : "apres" (CorrigeApres) | "fin" (CorrigeFin) ; « aucun
-//                      corrigé » passe par `liste-corriges: ()`, jamais par ici
+//   mode             : "apres" (CorrigeApres) | "fin" (CorrigeFin) |
+//                      "apres-question" (à la place des `seyes`) | none (aucun
+//                      corrigé : seulement pour "apres-question" hors interro ;
+//                      sinon, « aucun corrigé » passe par `liste-corriges: ()`)
 //   vers-corrige     : clé cliquable exercice ↔ corrigé (VersSolution)
 //   titre-corriges   : début du titre de chaque corrigé (TitreCorrige)
 //   nouvelle-page    : la Correction commence sur une nouvelle page
@@ -46,8 +49,8 @@
   page-par-corrige: false,
 ) = {
   assert(
-    mode in ("apres", "fin"),
-    message: "reglages-corriges : mode doit valoir \"apres\" ou \"fin\" (jamais none : pour n'afficher aucun corrigé, utiliser liste-corriges: () sur maquette(…), pas ce réglage).",
+    mode in (none, "apres", "fin", "apres-question"),
+    message: "reglages-corriges : mode doit valoir none, \"apres\", \"fin\" ou \"apres-question\".",
   )
   etat-reglages-corriges.update((
     mode: mode,
@@ -78,7 +81,10 @@
 //   ou, en tête de fiche : #show: maquette.with(…)
 //
 //   position-corriges      : "apres" (sous chaque énoncé) | "fin"/true (en fin
-//                            de fiche). Règle la position, jamais le nombre :
+//                            de fiche) | "apres-question" (en mode interro
+//                            seulement : chaque corrigé prend la place d'un
+//                            `seyes` de l'exercice ; hors interro, aucun
+//                            corrigé). Règle la position, jamais le nombre :
 //                            pour aucun corrigé, liste-corriges: ()
 //   liste-corriges         : auto (tous), 4, "1-6,9,12", (1, "3-5"), "route",
 //                            "pas-route" ou () (aucun). Les énoncés sont
@@ -107,6 +113,13 @@
 //   style-maquette         : présentation du cartouche : "onglet" (seul style)
 //   couleur-titre          : accent du cartouche (onglet, contour) ; le niveau
 //                            (à droite) reste noir. Noir par défaut
+//   afficher-brm           : barème, en mode "interro" seulement (sans effet
+//                            sinon) : none (défaut), "partiel" (total de chaque
+//                            exercice sur son filet) ou "complet" (et note de
+//                            chaque question), d'après `exercice(brm: …)`
+//   largeur-cartouche      : part de la largeur prise par le cartouche en mode
+//                            "interro", à côté de la zone Nom / Prénom /
+//                            Classe (65 % par défaut). Sans effet sinon
 #let maquette(
   position-corriges: "fin",
   liste-corriges: auto,
@@ -127,6 +140,8 @@
   titre-maquette: (:),
   style-maquette: "onglet",
   couleur-titre: auto,
+  largeur-cartouche: 65%,
+  afficher-brm: none,
   body,
 ) = {
   // Réglages invalides : message clair plutôt qu'une erreur de Typst plus loin.
@@ -152,6 +167,14 @@
     style-maquette in styles-maquette,
     message: "maquette : style-maquette doit valoir " + styles-maquette.map(s => "\"" + s + "\"").join(", ", last: " ou ") + ", pas " + repr(style-maquette) + ".",
   )
+  assert(
+    afficher-brm == none or afficher-brm in modes-bareme,
+    message: "maquette : afficher-brm doit valoir none, " + modes-bareme.map(m => "\"" + m + "\"").join(" ou ") + ", pas " + repr(afficher-brm) + ".",
+  )
+  assert(
+    type(largeur-cartouche) == ratio and largeur-cartouche > 0% and largeur-cartouche < 100%,
+    message: "maquette : largeur-cartouche doit être un pourcentage strictement entre 0% et 100% (65%, 70%…), pas " + repr(largeur-cartouche) + ".",
+  )
   for cle in titre-maquette.keys() {
     assert(
       cle in ("gauche", "centre", "droite"),
@@ -164,10 +187,13 @@
     couleur-interne: if couleur-interne == auto { couleurs-defaut.interne } else { couleur-interne },
   )
   assert(
-    position-corriges == true or position-corriges in ("apres", "fin"),
-    message: "maquette : position-corriges doit valoir \"apres\", \"fin\" ou true (jamais none/false : pour n'afficher aucun corrigé, utiliser liste-corriges: () plutôt que ce réglage), pas " + repr(position-corriges) + ".",
+    position-corriges == true or position-corriges in ("apres", "fin", "apres-question"),
+    message: "maquette : position-corriges doit valoir \"apres\", \"fin\", \"apres-question\" ou true (jamais none/false : pour n'afficher aucun corrigé, utiliser liste-corriges: () plutôt que ce réglage), pas " + repr(position-corriges) + ".",
   )
-  let mode = if position-corriges == true { "fin" } else { position-corriges }
+  // "apres-question" n'a de sens qu'en interro (réponses dans les `seyes`).
+  let mode = if position-corriges == true { "fin" }
+    else if position-corriges == "apres-question" and mode-maquette != "interro" { none }
+    else { position-corriges }
   reglages-corriges(
     mode: mode,
     vers-corrige: vers-corrige,
@@ -179,18 +205,21 @@
   style-exercices(style-exercice)
   etat-selection.update((corriges: parser-plage(liste-corriges)))
   etat-fdr.update((couleur: couleur-fdr))
+  etat-afficher-brm.update(if mode-maquette == "interro" { afficher-brm } else { none })
   etat-langue.update(langue)
   etat-historique.update(())
   etat-serie.update(n => n + 1)
   etat-corriges.update(())
   etat-blocs-fin.update((entrainements: false, corriges: false))
   etat-corrige-deja-affiche.update(false)
+  etat-nb-seyes.update(0)
+  etat-nb-reponses.update(0)
   etat-profondeur.update(n => n + 1)
   context assert(
     etat-profondeur.get() == 1,
     message: "maquette : une maquette ne peut pas en contenir une autre. Pour plusieurs fiches dans un même document, placer les maquettes l'une après l'autre.",
   )
-  context cartouche-titre(mode-maquette, titre-maquette, style-maquette, if couleur-titre == auto { black } else { couleur-titre })
+  protege(_ => cartouche-titre(mode-maquette, titre-maquette, style-maquette, if couleur-titre == auto { black } else { couleur-titre }, largeur: largeur-cartouche))
   [#metadata(none) #repere-borne]
   body
   [#metadata(none) #repere-borne]

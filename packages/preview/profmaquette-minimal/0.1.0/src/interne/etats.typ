@@ -44,6 +44,7 @@
 #let etat-style = state("etat-style-exercice", "fond-blanc")
 
 // Réglages des corrigés (cf. `reglages-corriges` dans maquette.typ).
+// mode : none (aucun corrigé), "apres", "fin" ou "apres-question".
 #let etat-reglages-corriges = state("etat-reglages-corriges", (
   mode: none,
   vers-corrige: false,
@@ -51,6 +52,10 @@
   nouvelle-page: true,
   page-par-corrige: false,
 ))
+
+// Affichage du barème (mode "interro" seulement, sinon none) : none, "partiel"
+// ou "complet" (cf. `maquette(afficher-brm: …)`).
+#let etat-afficher-brm = state("etat-afficher-brm", none)
 
 // Corrigés à afficher (auto = tous), sous la forme rendue par `parser-plage`.
 #let etat-selection = state("etat-selection", (corriges: auto))
@@ -78,6 +83,11 @@
 // corrigé sauf le premier.
 #let etat-corrige-deja-affiche = state("etat-corrige-deja-affiche", false)
 
+// Mode "apres-question" : nombre de `seyes` et de `corrige` rencontrés depuis
+// le dernier exercice. Le k-ième corrigé remplace le k-ième seyes.
+#let etat-nb-seyes = state("etat-nb-seyes", 0)
+#let etat-nb-reponses = state("etat-nb-reponses", 0)
+
 // Blocs de fin déjà affichés pour la fiche en cours (un second appel n'affiche rien).
 #let etat-blocs-fin = state("etat-blocs-fin", (entrainements: false, corriges: false))
 
@@ -91,3 +101,9 @@
 #let repere-exercice = <profmaquette-minimal-fdr-exercice>
 #let repere-borne = <profmaquette-minimal-fdr-borne>
 #let repere-thematique = <profmaquette-minimal-fdr-thematique>
+
+// Corrigé d'une question (mode "apres-question"), relu par le `seyes` qu'il remplace.
+#let repere-reponse = <profmaquette-minimal-reponse>
+// Un `seyes` entier (sa grille en `metadata`, son compteur, sa recherche de
+// corrigé) : remplacé par la grille seule dans le corps d'un corrigé.
+#let repere-seyes = <profmaquette-minimal-seyes>

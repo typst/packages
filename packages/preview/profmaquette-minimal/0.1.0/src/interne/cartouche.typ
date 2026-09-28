@@ -88,7 +88,9 @@
 
 // `titre` : dictionnaire (gauche, centre, droite), clés facultatives. Rien
 // n'est dessiné s'il est vide, sauf en mode "interro" (zone pleine largeur).
-#let cartouche-titre(mode, titre, style, couleur) = {
+// `largeur` : part du cartouche à côté de la zone Nom / Prénom / Classe (mode
+// "interro" avec un titre seulement).
+#let cartouche-titre(mode, titre, style, couleur, largeur: 65%) = {
   let gauche = titre.at("gauche", default: none)
   let centre = titre.at("centre", default: none)
   let droite = titre.at("droite", default: none)
@@ -99,13 +101,14 @@
     zone-nom-prenom-classe-pleine-largeur()
   } else if mode == "interro" {
     layout(taille => {
-      let largeur-col = (taille.width - 1.5em) / 2
+      let largeur-cartouche = (taille.width - 1.5em) * largeur
+      let largeur-zone = taille.width - 1.5em - largeur-cartouche
       let h = calc.max(
-        measure(dessiner(gauche, centre, droite, couleur, auto), width: largeur-col).height,
-        measure(zone-nom-prenom-classe-empilee(auto), width: largeur-col).height,
+        measure(dessiner(gauche, centre, droite, couleur, auto), width: largeur-cartouche).height,
+        measure(zone-nom-prenom-classe-empilee(auto), width: largeur-zone).height,
       )
       grid(
-        columns: (1fr, 1fr),
+        columns: (largeur-cartouche, largeur-zone),
         column-gutter: 1.5em,
         dessiner(gauche, centre, droite, couleur, h),
         zone-nom-prenom-classe-empilee(h),
