@@ -98,7 +98,7 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
     hv: none,
     lv: 2,
     nd: [Lời dẫn của câu hỏi],
-    da: "1.25",
+    da: 1.25,
     lg: [Lời giải cho bài toán],
     dong_ke: 3,
   ),
@@ -107,18 +107,18 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
     type: "TLN",
     hv: none,
     lv: 1,
-    is_chum: true,
-    du_kien: [Nội dung dùng chung],
-    cau_hoi_con: (
+    is-chum: true,
+    du-kien: [Nội dung dùng chung],
+    cau-hoi-con: (
       (
         nd: [Nội dung lời dẫn câu hỏi 1],
-        da: "12",
+        da: 12,
         lg: [Lời giải 1],
         dong_ke: 2,
       ),
       (
         nd: [Nội dung lời dẫn câu hỏi 2],
-        da: "5",
+        da: 5,
         lg: [Lời giải 2],
         dong_ke: 2,
       ),
@@ -185,7 +185,7 @@ Tạo các đề thi bằng cách rút ngẫu nhiên câu hỏi từ ngân hàng
 // Gọi lệnh tạo đề:
 #make-exam-matrix(matrix, info, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: true)
 // Hoặc alias tiếng Việt:
-#tron-de-bank-level(matrix, info, show-lg: false, hienthi-bang-dap-an: true, theo-lv: true)
+#tron-de-bank-level(matrix, info, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: true)
 ```
 
 #### b) Trộn đề cùng nội dung (`make-exam-sync` / `tron-de-cung-noi-dung`)
