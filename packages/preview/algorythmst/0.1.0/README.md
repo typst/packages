@@ -1,77 +1,78 @@
-# algorythmst
+# Typst Packages
+The package repository for Typst, where package authors submit their packages.
+The packages submitted here are available on [Typst Universe][universe].
 
-Beautiful pseudocode blocks for Typst, styled after LaTeX's `algorithm` + `algorithmicx` look and built on [lovelace](https://typst.app/universe/package/lovelace).
+## Package format
 
-- LaTeX `algorithmicx`-style layout: clean booktabs-like horizontal rules, no side borders
-- Line numbers (`1:`) and indent guides
-- Optional numbered title, rendered like LaTeX's `\caption` as **Algorithm N:** followed by the title in small caps
-- Optional caption below the block
-- Easy right-aligned comments with `#comment[...]`
-- Display math is centred automatically
+A package is a collection of Typst files and assets that can be imported as a
+unit. A `typst.toml` manifest with metadata is required at the root of a
+package. [Read more about the manifest format][manifest].
 
-## Usage
+## Published packages
 
-```typst
-#import "@preview/algorythmst:0.1.0": *
+This repository contains a collection of published packages. Due to its early
+and experimental nature, all packages in this repository are scoped in a
+`preview` namespace. A package that is stored in
+`packages/preview/{name}/{version}` in this repository will become available in
+Typst as `#import "@preview/{name}:{version}"`. You must always specify the full
+package version.
 
-#pseudo(
-  title: [Binary Search],
-  caption: [Finds `v` in the sorted array `A`.],
-)[
-  - *procedure* #smallcaps[Binary-Search]$(A, n, v)$
-    + $l <- 1$; $r <- n$ #comment[search window]
-    + *while* $l <= r$ *do*
-      + $m <- floor((l + r) / 2)$
-      + *while* $l > 0$ *do*
-        + #smallcaps[Hanne-Rothe]
-      + *end while*
-      + *if* $A[m] = v$ *then*
-        + *return* $m$
-      + *else if* $A[m] < v$ *then* $l <- m + 1$
-      + *else* $r <- m - 1$
-      + *end if*
-    + *end while*
-  + *return* $-1$ #comment[not found]
-]
-```
-<img width="726" height="446" alt="image" src="https://github.com/user-attachments/assets/83f852d0-f0f4-47ff-9f33-8d745ecb247f" />
+You can use template packages to create new Typst projects with the CLI with
+the `typst init` command or the web application by clicking the _Start from
+template_ button.
 
+If you want to submit your own package, you can follow [our documentation on
+publishing packages][publishing] that will guide you through the process and
+give you some tips.
 
+### Downloads
 
-```typst
-#import "@preview/algorythmst:0.1.0": *
+The Typst compiler downloads packages from the `preview` namespace on-demand.
+Once used, they are cached in `{cache-dir}/typst/packages/preview` where
+`{cache-dir}` is
 
-#pseudo(
-  title: "Compute DSI",
-  caption: [Computes the Dataset Sparse Intervention (DSI): the neuron subset $s$ whose intervention along the activation difference $macron(a)$ best moves the model from dataset $D_0$ toward $D_k$, using at most $n$ non-zero entries.]
-  )[
-  - *Require:* dataset $D_0$, dataset $D_k$, set size $n$, number of steps $t$
-  + $macron(a) <- "mean"_(x in D_k) (a|x) - "mean"_(x in D_0) (a|x)$  #comment[average activation difference]
-  + $g <- "mean"_(x in D_0) nabla^r_a f(x)$ #comment[robustified gradient in 0-shot setting]
-  + $e<- g dot.o macron(a) $ #comment[expected first-order effect of interventions]
-  + $s_0 <- "topn"(e)$ #comment[most relevant neurons as starting point]
-  + *for* $i = 1$ *to* $t$ *do*
-    + $s_i approx arg max_s "mean"_(x in D_0) f_(s dot.o macron(a)) (x)$ #comment[update intervention]
-    
-    + #h(1em) $s t space "nnz"(x) <= n, s$ close to $s_(i-1)$ #comment[sparse & close to previous step]
-  + *return* $s$
-]
-```
-<img width="726" height="394" alt="image" src="https://github.com/user-attachments/assets/13b71a27-a7d3-48ea-9d79-2bea8b8b0a28" />
+- `$XDG_CACHE_HOME` or `~/.cache` on Linux
+- `~/Library/Caches` on macOS
+- `%LOCALAPPDATA%` on Windows
 
+You may also run `typst info` and check _Package cache path_ for the actual path.
+This would be helpful if you have installed the Typst compiler from Snap or are
+using special environment variables.
 
-Without `title` and `caption`, `pseudo` gives just the framed block.
+Importing a cached package does not result in network access.
 
-## API
+## Local packages
 
-| Function | Description |
-| --- | --- |
-| `pseudo(body, title: none, caption: none, ..args)` | Pseudocode block. Extra `args` go to lovelace's `pseudocode-list`. |
-| `comment(body)` | Gray, right-aligned comment at the end of a line. |
+Want to install a package locally on your system without publishing it or
+experiment with it before publishing? You can store packages in
+`{data-dir}/typst/packages/{namespace}/{name}/{version}` to make them available
+locally on your system. Here, `{data-dir}` is
+
+- `$XDG_DATA_HOME` or `~/.local/share` on Linux
+- `~/Library/Application Support` on macOS
+- `%APPDATA%` on Windows
+
+You may also run `typst info` and check _Package path_ for the actual path. This
+would be helpful if you have installed the Typst compiler from Snap or are using
+special environment variables.
+
+You can create an arbitrary `{namespace}`. A good namespace for system-local
+packages is `local`. Using this namespace:
+
+- Store a package in `{data-dir}/typst/packages/local/mypkg/1.0.0`
+- Import from it with `#import "@local/mypkg:1.0.0": *`.
+
+Packages in the data directory have precedence over ones in the cache directory.
+
+Note that future iterations of Typst's package management may change/break this
+local setup.
 
 ## License
 
-MIT
+The infrastructure around the package repository is licensed under the terms of
+the Apache-2.0 license. Packages in `packages/` are licensed under their
+respective license.
 
----
-
+[universe]: https://typst.app/universe/
+[manifest]: docs/manifest.md
+[publishing]: docs/README.md
