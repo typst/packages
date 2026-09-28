@@ -52,7 +52,7 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
     lv: 1, //lv: 1 - Nhận biết, lv: 2 - Thông hiểu, lv: 3 - Vận dụng
     is-chum:true,
     du-kien:[Nội dung dùng chung],
-    cau_hoi_con:(
+    cau-hoi-con:(
     // Câu hỏi con 1.
     (nd: [Nội dung lời dẫn câu hỏi 1],
     pa: ([Phương án A], [Phương án B], [Phương án C], [Phương án]),
@@ -102,7 +102,7 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
     lv: 1, //lv: 1 - Nhận biết, lv: 2 - Thông hiểu, lv: 3 - Vận dụng
     is-chum:true,
     du-kien:[Nội dung dùng chung],
-    cau_hoi_con:(
+    cau-hoi-con:(
     // Câu hỏi con 1.
     (nd: [Nội dung lời dẫn câu hỏi 1],
     da:so,// Số nhập có thể là số thực chứa phần thập phân hoặc không (tối đa 4 kí tự) đối với thập phân thì viết dấu "." thay cho ","
@@ -148,7 +148,7 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
 ```
 
 ### 4. Trộn đề thi
-#### a) Trộn đề thi khác nhau(`make-exam-matrix` / `tron_de_bankLevel`)
+#### a) Trộn đề thi khác nhau(`make-exam-matrix` / `tron-de-bankLevel`)
 Tạo các đề thi tư ngân hàng với các lấy ngẫu nhiên các câu hỏi từ bank để tạo bộ câu hỏi khác nhau cho mỗi đề\
 **- Import ngân hàng câu hỏi để trộn đề và tạo bank**
 ```typst
