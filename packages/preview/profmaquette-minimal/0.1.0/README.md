@@ -6,7 +6,7 @@ exercices numérotés, sur la route ou non, feuille de route, entraînement
 en ligne par QR code, cartouche de titre (avec zone Nom / Prénom / Classe pour
 les interrogations), et corrigés que l'on affiche — ou non — d'un seul réglage.
 
-📖 **[Manuel complet (PDF)](https://cdn.jsdelivr.net/gh/amjmeyer/profmaquette-minimal@main/docs/manuel.pdf)** : tous les réglages, un exemple et
+📖 **[Documentation complète](https://amjmeyer.github.io/profmaquette-minimal/)** : tous les réglages, un exemple et
 son rendu pour chacun.
 
 > **Note :** profmaquette-minimal reprend seulement une petite partie des idées de
@@ -16,7 +16,7 @@ son rendu pour chacun.
 > de façon incompatible entre deux versions `0.x`.
 
 *Build exercise sheets (in French) inspired by Christophe Poulain's LaTeX package
-ProfMaquette. See the [full manual (PDF)](https://cdn.jsdelivr.net/gh/amjmeyer/profmaquette-minimal@main/docs/manuel.pdf) for details. It covers
+ProfMaquette. See the [full documentation, in French](https://amjmeyer.github.io/profmaquette-minimal/) for details. It covers
 only a small part of ProfMaquette's features, was first written for personal
 use, and may change in future versions.*
 
@@ -54,13 +54,14 @@ use, and may change in future versions.*
 ]
 ```
 
-Un exemple complet se trouve dans [`examples/exemple.typ`](examples/exemple.typ).
 Pour tous les réglages (`maquette`, `exercice`, feuille de route, cartouche de
-titre, styles de cadre, langues…), voir le **[manuel (PDF)](https://cdn.jsdelivr.net/gh/amjmeyer/profmaquette-minimal@main/docs/manuel.pdf)**.
+titre, styles de cadre, langues…), voir la **[documentation](https://amjmeyer.github.io/profmaquette-minimal/)**.
 
 ## Historique des versions
 
-Les changements de chaque version sont listés dans [CHANGELOG.md](CHANGELOG.md).
+### 0.1.0 — version de départ
+
+Première version du paquet.
 
 ## Remerciements
 
@@ -100,5 +101,6 @@ version 2008 or later.
 This work has the LPPL maintenance status `maintained'.
 The Current Maintainer of this work is Arthur Meyer.
 
-This work consists of the files src/lib.typ and src/exercices.typ.
+This work consists of all the .typ files in the src/ directory
+and its subdirectories.
 ```

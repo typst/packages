@@ -13,4 +13,4 @@ keywords = [
 categories = ["components", "office"]
 disciplines = ["education", "mathematics"]
 compiler = "0.13.0"
-exclude = ["docs/*", "examples/*.pdf", "tests/*", "tester.sh", "PUBLIER.md", "CHANGELOG.md"]
+exclude = ["docs/*", "toot/*", "tests/*", "PUBLIER.md", "CHANGELOG.md"]

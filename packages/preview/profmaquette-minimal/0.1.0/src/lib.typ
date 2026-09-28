@@ -11,18 +11,41 @@
 // This work has the LPPL maintenance status `maintained'.
 // The Current Maintainer of this work is Arthur Meyer.
 //
-// This work consists of the files src/lib.typ and src/exercices.typ.
+// This work consists of all the .typ files in the src/ directory
+// and its subdirectories.
 
-// Point d'entrée du paquet profmaquette-minimal (déclaré dans typst.toml).
+// Point d'entrée du paquet, exporte les 5 fonctions publiques.
 //
-// Seules les fonctions listées ici sont accessibles aux utilisateurs du paquet :
-// tout le reste de `exercices.typ` (états, outils, éléments graphiques) reste interne.
-// Le code et sa documentation détaillée sont dans `exercices.typ`.
+// profmaquette-minimal : portage minimaliste, en Typst, du paquet LaTeX
+// ProfMaquette (Christophe Poulain). Point d'entrée déclaré dans typst.toml :
+// seules les cinq fonctions ci-dessous sont exportées.
+//
+// Organisation de src/ :
+//   lib.typ                  ce fichier
+//   deps.typ                 dépendances externes (tiaoma, pour les QR codes)
+//   maquette.typ             une fonction publique par fichier
+//   exercice.typ
+//   corrige.typ
+//   thematique.typ
+//   afficher-fdr.typ
+//   interne/                 code partagé, jamais exporté :
+//     etats.typ              états (`state`) partagés entre les fonctions
+//     utils.typ              sélection des corrigés, langues, `protege`…
+//     dessins.typ            icônes, cadres, rendu d'un corrigé
+//     cartouche.typ          cartouche de titre de la fiche
+//     blocs-fin.typ          blocs « Automatismes » et « Correction »
+//   icones/                  SVG Font Awesome Free (CC BY 4.0)
+//
+// Convergence : Typst recompile au plus 5 fois pour stabiliser les requêtes, et
+// la chaîne « clé d'exercice → corrigé → mesure du cadre » est longue. Pour
+// qu'elle converge :
+//   • les `state.update(…)` se font hors `context`, avec des valeurs fixes ;
+//   • la mise en page ne dépend jamais du résultat d'une `query` ;
+//   • les cadres sont mesurés à la volée (`layout`, `measure`), sans compteur
+//     ni état (ce qui empêchait showybox de converger avec plusieurs maquettes).
 
-#import "exercices.typ": (
-  maquette,
-  exercice,
-  corrige,
-  afficher-fdr,
-  thematique,
-)
+#import "maquette.typ": maquette
+#import "exercice.typ": exercice
+#import "corrige.typ": corrige
+#import "thematique.typ": thematique
+#import "afficher-fdr.typ": afficher-fdr
