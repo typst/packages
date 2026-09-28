@@ -8,4 +8,4 @@ description = "Bộ công cụ biên soạn bài tập và trộn đề thi tr�
 repository = "https://github.com/KieuQuangVu-NCP/v-exam"
 keywords = ["exam", "test", "vietnam", "quiz", "education", "v-exam"]
 categories = ["office", "layout"]
-compiler = ">= 0.11.0"
+compiler = "0.11.0"
