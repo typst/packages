@@ -1,0 +1,14 @@
+[package]
+name = "underhell"
+version = "0.4.0"
+entrypoint = "lib.typ"
+authors = ["Colin Jacobs", "跨越晨昏"]
+license = "MIT"
+description = "用于创建架空世界内容的文档模板,包括冒险、属性方块、法术卡、世界设定文档。A template for building worldbuilding content: adventures, stat blocks, spell cards, and setting documents."
+repository = "https://github.com/kych-net/UnderHellTemplate"
+keywords = ["roleplaying", "rpg", "template", "gaming", "worldbuilding", "fiction"]
+categories = ["layout", "report"]
+compiler = "0.14.0"
+# 不进包:示例、自托管字体(体积大,由使用方按 languages/*.toml 的 [web] 段自备)、
+# 仓库自身的 CI 与技能文件。web.css 必须进包——lib.typ 在 web 模式直接读它。
+exclude = ["example", "webfonts", ".github", ".gitcode", ".skills", ".gitattributes", ".gitignore"]
