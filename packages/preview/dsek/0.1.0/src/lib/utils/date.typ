@@ -1,4 +1,4 @@
-#import "@preview/datify:1.0.1": custom-date-format
+#import "@preview/datify:1.3.0": custom-date-format
 
 /// Constructs a `datetime` from separate components.
 ///
