@@ -17,4 +17,6 @@
 #import "./src/spectrum.typ": *
 #import "./src/psmcborjson-report-psm.typ": *
 
-#import "src/ms2_spectra_compar.typ": compar-ms2spectra-proforma-with-ms2pip-spectra
+#import "src/ms2_spectra_compar.typ": (
+  compar-ms2spectra-proforma-with-ms2pip-spectra, get-ms2spectra-plot-compar-proforma,
+)

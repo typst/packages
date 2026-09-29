@@ -196,5 +196,118 @@
     max-intensity: max-intensity,
     delta: none,
     delta-fragments: false,
+<<<<<<< HEAD
+=======
+  )
+}
+
+
+
+
+/// Generates the ion series from a peptide sequence
+/// -> object
+#let get-ms2spectra-plot-compar-proforma(
+  /// The width of the diagram. This can be
+  /// - A `length`; in this case, it defines just the width of the data area,
+  ///   excluding axes, labels, title etc.
+  /// - A `ratio` or `relative` where the ratio part is relative to the width
+  ///   of the parent that the diagram is placed in. This is not allowed if the
+  ///   parent has an unbounded width, e.g., a page with `width: auto`.
+  /// -> length | relative
+  width: 15cm,
+  /// The height of the diagram. This can be
+  /// - A `length`; in this case, it defines just the height of the data area,
+  ///   excluding axes, labels, title etc.
+  /// - A `ratio` or `relative` where the ratio part is relative to the height
+  ///   of the parent that the diagram is placed in. This is not allowed if the
+  ///   parent has an unbounded height, e.g., a page with `height: auto`.
+  /// -> length | relative
+  height: 10cm,
+  title: none,
+  proforma1: "",
+  proforma2: "",
+  spectra: (),
+  precision: 0.02,
+  /// m/z range to display. *Optional*.
+  /// #parbreak() Example: ```js (450, 950)```
+  /// -> none | array
+  mz-range: none,
+  /// maximum intensity to display. *Optional*.
+  /// #parbreak() Example: ```js 30000```
+  /// -> none | float
+  max-intensity: none,
+  delta: none,
+  /// Whether to clip the matched ion masss delta to the plot. *Optional*.
+  /// -> bool
+  delta-fragments: false,
+  charge-max: 1,
+) = {
+  let mass-array1 = get-mass-array-from-proforma(proforma1)
+  let mass-array2 = get-mass-array-from-proforma(proforma2)
+  let ion-y-1 = get-matching-mass-ion-serie(
+    spectra: spectra,
+    mass-array: mass-array1,
+    type: "y",
+    charge-max: charge-max,
+    precision: precision,
+  )
+  let ion-b-1 = get-matching-mass-ion-serie(
+    spectra: spectra,
+    mass-array: mass-array1,
+    type: "b",
+    charge-max: charge-max,
+    precision: precision,
+  )
+
+  for one-ion-y-2 in get-matching-mass-ion-serie(
+    spectra: spectra,
+    mass-array: mass-array2,
+    type: "y",
+    charge-max: charge-max,
+    precision: precision,
+  ) {
+    one-ion-y-2.intensity *= -1
+    ion-y-1.push(one-ion-y-2)
+  }
+
+  for one-ion-b-2 in get-matching-mass-ion-serie(
+    spectra: spectra,
+    mass-array: mass-array2,
+    type: "b",
+    charge-max: charge-max,
+    precision: precision,
+  ) {
+    one-ion-b-2.intensity *= -1
+    ion-b-1.push(one-ion-b-2)
+  }
+
+  let ion-serie = ("y": ion-y-1, "b": ion-b-1)
+
+  for mzitem in spectra.mz {
+    spectra.mz.push(mzitem)
+  }
+  for mzitem in spectra.intensity {
+    spectra.intensity.push(mzitem * -1)
+  }
+
+  let sorted-spectra = ("mz": (), "intensity": ())
+  for (mz, intensity) in spectra.mz.zip(spectra.intensity).sorted(by: (ita, itb) => (ita.at(0) < itb.at(0))) {
+    sorted-spectra.mz.push(mz)
+    sorted-spectra.intensity.push(intensity)
+  }
+
+  //    lq.line((0, 0), (100%, 0)),
+
+  ms2spectra-plot(
+    width: width,
+    height: height,
+    title: title,
+    spectra: sorted-spectra,
+    ion-series: ion-serie,
+    mz-range: mz-range,
+    max-intensity: max-intensity,
+    delta: delta,
+    delta-fragments: delta-fragments,
+>>>>>>> b62329ebb (lighter pdf documentation file : dense plot now rendered with a PNG file, MS2 spectra tics inverted for better interpretation)
   )
 }

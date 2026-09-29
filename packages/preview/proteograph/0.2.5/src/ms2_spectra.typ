@@ -22,7 +22,12 @@
     ylabel: [Intensity],
     legend: none,
     grid: none,
-    xaxis: (mirror: none, auto-exponent-threshold: 5, tick-args: (density: 90%)),
+    xaxis: (
+      position: bottom,
+      mirror: none,
+      auto-exponent-threshold: 5,
+      tick-args: (density: 90%),
+    ),
     yaxis: (mirror: none),
   )
   it
@@ -186,6 +191,7 @@
   if (delta-fragments) { ms2-height = height - 1.5cm }
 
   show: ms2spectra-diagram
+  show: lq.set-tick(inset: 0pt, outset: 2pt, pad: 0.4em)
 
   lq.diagram(
     width: width,
@@ -194,6 +200,10 @@
     xlim: inside_xlim,
     ylim: ylimit,
 
+    lq.xaxis(
+      position: 0,
+      ticks: none,
+    ),
     if (spectra != none) { ms2spectra-simple-plot(spectra) },
 
     ..if (ion-series != none) {

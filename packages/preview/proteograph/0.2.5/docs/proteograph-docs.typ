@@ -16,19 +16,17 @@
   ],
   date: datetime.today().display("[month repr:long] [day], [year]"),
   version: version,
-  url: "https://codeberg.org/olangella/proteograph"
+  url: "https://codeberg.org/olangella/proteograph",
 )
 
 
 #let pg-snippet(the_file) = {
-
-
   heading(level: 3, "Example :")
-  raw(read(the_file), lang:"typst")
+  raw(read(the_file), lang: "typst")
 
   heading(level: 3, "Result :")
   {
-    include(the_file)
+    include (the_file)
   }
 }
 
@@ -53,8 +51,13 @@ The alignment of retention times between MS runs done with MassChroQ3 are repres
 #code-block(read("mcq3_alignment.json"), "json", title: "MS run alignment data")
 
 
-#pg-snippet("../examples/rt_align.typ")
+//#pg-snippet("../examples/rt_align.typ")
 
+#heading(level: 3, "Example :")
+#raw(read("../examples/rt_align.typ"), lang: "typst")
+
+#heading(level: 3, "Result :")
+#image("../offline/tmp/rt_align_hr.png")
 
 #{
   let module = tidy.parse-module(read("../src/rt_align.typ"), name: "Retention time alignment full documentation")
@@ -89,8 +92,8 @@ The first key is the ion series name as follow :
 and any ion can be described by :
 
 #{
-let module = tidy.parse-module(read("ion_description.typ"))
-tidy.show-module(module, style: tidy.styles.default)
+  let module = tidy.parse-module(read("ion_description.typ"))
+  tidy.show-module(module, style: tidy.styles.default)
 }
 
 #pg-snippet("../examples/complete_psm.typ")
@@ -140,7 +143,7 @@ defined as follow
 #pagebreak()
 == Protein diagram
 
-This figure is based on the #link("https://typst.app/universe/package/fletcher/",[fletcher]) package features.
+This figure is based on the #link("https://typst.app/universe/package/fletcher/", [fletcher]) package features.
 
 #pg-snippet("../examples/protein_diag.typ")
 
@@ -152,4 +155,3 @@ This figure is based on the #link("https://typst.app/universe/package/fletcher/"
 == Isotope pattern plot
 
 #pg-snippet("../examples/isotope_pattern.typ")
-
