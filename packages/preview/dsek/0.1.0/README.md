@@ -6,7 +6,7 @@ Document types for the [D-guild](https://dsek.se)'s various documents, in Typst.
 
 > **IMPORTANT**
 >
-> To generate documents in stylistic accordance with [guild guidelines](https://www.dsek.se/api/pdf/styrdokument/releases/download/latest/riktlinje_for_grafisk_profil.pdf), you ***must install the correct fonts yourself***, as they are [not included](https://github.com/typst/packages/blob/main/docs/resources.md#fonts-are-not-supported-in-packages) in the Typst package. These fonts can be found [here](https://github.com/Dsek-LTH/dsek-typst/tree/main/fonts), and should thankfully only need to be installed globally once if you're producing documents locally. If using the typst web app, simply upload the font files to your project and Typst should pick up on them automatically.
+> To generate documents in stylistic accordance with [guild guidelines](https://www.dsek.se/api/pdf/styrdokument/releases/download/latest/riktlinje_for_grafisk_profil.pdf), you ***must install the correct fonts yourself***, as they are [not included](https://github.com/typst/packages/blob/0ae72156dda3d538389175adcd1f53de6b0ef354/docs/resources.md#fonts-are-not-supported-in-packages) in the Typst package. These fonts can be found [here](https://github.com/Dsek-LTH/dsek-typst/tree/bdffbc21c779afd1f09c34c09cd81c1ca4ad459a/fonts), and should thankfully only need to be installed globally once if you're producing documents locally. If using the typst web app, simply upload the font files to your project and Typst should pick up on them automatically.
 
 To use the `dsek` templates in your project, import it and apply a template using a show rule. For example:
 
