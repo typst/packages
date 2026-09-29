@@ -24,7 +24,7 @@
 // Classe à remplir à la main (clé IE de ProfMaquette).
 #let modes-maquette = ("exercices", "interro")
 
-#let styles-maquette = ("onglet",)
+#let styles-cartouche = ("onglet",)
 
 // Un dessin par style : (gauche, centre, droite, couleur, hauteur) → contenu.
 // `hauteur` : auto, ou la hauteur à atteindre pour égaler la zone Nom / Prénom

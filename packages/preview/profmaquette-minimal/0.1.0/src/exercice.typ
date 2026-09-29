@@ -29,7 +29,6 @@
 //   route            : true = couleur de la route, ligne du bas de la feuille de
 //                      route ; false = gris, ligne du haut (clés Route / Stop)
 //   pas-corrige      : true = jamais de corrigé, même si un `#corrige` suit
-//   titre-complement : complément du titre du corrigé (clé TitreSolution)
 //   stop             : true = coche après cet exercice sur la feuille de route
 //                      (rarement utile : `thematique` en place déjà une)
 //   calculatrice     : false = calculatrice barrée dans le titre
@@ -43,7 +42,6 @@
   source: none,
   route: true,
   pas-corrige: false,
-  titre-complement: none,
   stop: false,
   calculatrice: true,
   brm: none,
@@ -57,7 +55,6 @@
   etat-historique.update(h => h + ((
     route: route,
     pas-corrige: pas-corrige,
-    titre-complement: titre-complement,
     titre: titre,
     entrainement: entrainement,
   ),))

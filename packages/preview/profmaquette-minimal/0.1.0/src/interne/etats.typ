@@ -68,8 +68,8 @@
 
 // ─── Exercices et corrigés ───────────────────────────────────────────────────
 
-// Un dictionnaire par exercice rencontré (route, pas-corrige, titre-complement,
-// titre, entrainement) : sa longueur donne le numéro de l'exercice courant.
+// Un dictionnaire par exercice rencontré (route, pas-corrige, titre,
+// entrainement) : sa longueur donne le numéro de l'exercice courant.
 #let etat-historique = state("etat-historique-exercices", ())
 
 // Numéro de la maquette en cours : distingue les « exercice 1 » de deux fiches

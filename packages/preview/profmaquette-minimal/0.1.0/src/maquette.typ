@@ -18,7 +18,7 @@
 
 #import "interne/etats.typ": *
 #import "interne/utils.typ": *
-#import "interne/cartouche.typ": cartouche-titre, modes-maquette, styles-maquette
+#import "interne/cartouche.typ": cartouche-titre, modes-maquette, styles-cartouche
 #import "interne/blocs-fin.typ": bloc-corriges, liste-entrainements
 #import "interne/bareme.typ": modes-bareme
 
@@ -110,7 +110,7 @@
 //                            Prénom / Classe)
 //   titre-maquette         : cartouche de titre, dictionnaire aux clés
 //                            facultatives gauche / centre / droite
-//   style-maquette         : présentation du cartouche : "onglet" (seul style)
+//   style-cartouche        : présentation du cartouche : "onglet" (seul style)
 //   couleur-titre          : accent du cartouche (onglet, contour) ; le niveau
 //                            (à droite) reste noir. Noir par défaut
 //   afficher-brm           : barème, en mode "interro" seulement (sans effet
@@ -138,7 +138,7 @@
   langue: auto,
   mode-maquette: "exercices",
   titre-maquette: (:),
-  style-maquette: "onglet",
+  style-cartouche: "onglet",
   couleur-titre: auto,
   largeur-cartouche: 65%,
   afficher-brm: none,
@@ -164,8 +164,8 @@
     message: "maquette : mode-maquette doit valoir " + modes-maquette.map(m => "\"" + m + "\"").join(", ", last: " ou ") + ", pas " + repr(mode-maquette) + ".",
   )
   assert(
-    style-maquette in styles-maquette,
-    message: "maquette : style-maquette doit valoir " + styles-maquette.map(s => "\"" + s + "\"").join(", ", last: " ou ") + ", pas " + repr(style-maquette) + ".",
+    style-cartouche in styles-cartouche,
+    message: "maquette : style-cartouche doit valoir " + styles-cartouche.map(s => "\"" + s + "\"").join(", ", last: " ou ") + ", pas " + repr(style-cartouche) + ".",
   )
   assert(
     afficher-brm == none or afficher-brm in modes-bareme,
@@ -219,7 +219,7 @@
     etat-profondeur.get() == 1,
     message: "maquette : une maquette ne peut pas en contenir une autre. Pour plusieurs fiches dans un même document, placer les maquettes l'une après l'autre.",
   )
-  protege(_ => cartouche-titre(mode-maquette, titre-maquette, style-maquette, if couleur-titre == auto { black } else { couleur-titre }, largeur: largeur-cartouche))
+  protege(_ => cartouche-titre(mode-maquette, titre-maquette, style-cartouche, if couleur-titre == auto { black } else { couleur-titre }, largeur: largeur-cartouche))
   [#metadata(none) #repere-borne]
   body
   [#metadata(none) #repere-borne]

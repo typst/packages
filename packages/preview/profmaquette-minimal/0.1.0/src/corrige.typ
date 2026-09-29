@@ -27,7 +27,9 @@
 //   #corrige(exo01.corrige)
 // En mode "apres-question", le k-ième corrigé qui suit un exercice prend la
 // place de son k-ième `seyes` (ou s'affiche ici, en rouge, s'il n'y en a pas).
-#let corrige(body) = {
+//   titre-complement : complément du titre du corrigé, après « : » (clé
+//                      TitreSolution) ; sans effet en mode "apres-question"
+#let corrige(titre-complement: none, body) = {
   // Hors `context`, avec une valeur fixe : sinon, pas de convergence.
   etat-nb-reponses.update(n => n + 1)
   protege(rendre => context {
@@ -35,7 +37,7 @@
     if reglages.mode == none or etat-historique.get().len() == 0 { return }
     let infos = infos-exercice()
     if not infos.corrige { return }
-    let item = (numero: infos.numero, id: infos.id, titre: infos.titre-complement, body: body)
+    let item = (numero: infos.numero, id: infos.id, titre: titre-complement, body: body)
     if reglages.mode == "apres-question" {
       let k = etat-nb-reponses.get()
       if k <= etat-nb-seyes.get() {

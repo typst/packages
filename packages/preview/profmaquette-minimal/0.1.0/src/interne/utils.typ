@@ -65,7 +65,7 @@
 
 // Infos de l'exercice courant (le dernier de l'historique), dans un `context` :
 // numero, id (unique dans le document, pour les liens), corrige (son corrigé
-// doit-il apparaître ?), titre-complement.
+// doit-il apparaître ?).
 #let infos-exercice() = {
   let hist = etat-historique.get()
   let numero = hist.len()
@@ -74,7 +74,6 @@
     numero: numero,
     id: str(etat-serie.get()) + "-" + str(numero),
     corrige: not ex.pas-corrige and est-selectionne(numero, ex.route, etat-selection.get().corriges),
-    titre-complement: ex.titre-complement,
   )
 }
 
