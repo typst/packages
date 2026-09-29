@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/dsek:0.1.0": *
 #import "@preview/tidy:0.4.3"
 
 #show: plain-document.with(
