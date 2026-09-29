@@ -14,4 +14,8 @@
   school-logo: image("template/typst_media/logos/Logo_Schule.png"),
 )
 
+= Überschrift erste Ordnung
+
+== Überschrift zweite Ordnung
+
 Hier beginnt das Dokument ...
