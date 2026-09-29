@@ -9,4 +9,4 @@ compiler = "0.15.1"
 repository = "https://github.com/tychota/qfd-typst"
 homepage = "https://tychota.github.io/qfd-typst/"
 keywords = ["qfd", "house-of-quality", "requirements", "matrix", "functional-analysis"]
-exclude = ["/tests", "/tools", "/build", "/.github", "/docs", "/fonts", "/PLAN.md", "/DESIGN.md"]
+exclude = ["/examples", "/tests", "/tools", "/build", "/.github", "/docs", "/fonts", "/PLAN.md", "/DESIGN.md"]

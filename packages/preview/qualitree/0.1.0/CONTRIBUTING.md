@@ -45,7 +45,7 @@ Use small numerical assertions for semantics; use rendered fixtures for layout. 
 1. Update the manifest version, documented imports and examples together.
 2. Run the checks above and inspect rendered output.
 3. Build `build/packages/preview/qualitree/VERSION/` using `tools/package.py`.
-4. Check the bundle contains the README, license, manifest, library and public examples. It deliberately omits build tools, fonts and documentation images.
+4. Check the bundle contains the README, license, manifest, library and public examples. It deliberately omits build tools, fonts and documentation images. Examples remain committed for Typst Universe links, while `/examples` in the manifest’s `exclude` list keeps them out of package downloads. Keep README links to these examples relative.
 5. Push the repository. The Pages workflow validates and publishes the guide; it grants write access only to the deploy job.
 6. Submit the versioned directory to [typst/packages](https://github.com/typst/packages) with a PR. Keep the source repository and homepage in the manifest.
 7. Use `@preview` in the quickstart only after the package PR is merged and available.

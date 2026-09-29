@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/tychota/qfd-typst/006448730a3086aae1259f99e02078630f9951f6/docs/site/assets/logo.svg" width="72" alt="Qualitree logo"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/tychota/qfd-typst/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/site/assets/logo.svg" width="72" alt="Qualitree logo"></p>
 
 # Qualitree
 
@@ -6,9 +6,9 @@
 
 Draw, connect, and compare Houses of Quality in native Typst. Map **needs → functions → components**, carry priorities between stages, and show design revisions with readable green/red/yellow backgrounds.
 
-[Documentation](https://tychota.github.io/qfd-typst/) · [Coffee example](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/examples/COFFEE.md) · [API reference](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/docs/API.md)
+[Documentation](https://tychota.github.io/qfd-typst/) · [Coffee example](examples/COFFEE.md) · [API reference](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/API.md)
 
-![House of Quality and coffee-machine illustration](https://raw.githubusercontent.com/tychota/qfd-typst/006448730a3086aae1259f99e02078630f9951f6/docs/site/assets/hero.png)
+![House of Quality and coffee-machine illustration](https://raw.githubusercontent.com/tychota/qfd-typst/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/site/assets/hero.png)
 
 ## Start in five minutes
 
@@ -88,13 +88,15 @@ Stable IDs identify entities; labels are editable text. Relations remain one-bas
 
 Additions have pale green backgrounds, removals pale red, and changes pale yellow. Dark symbols and +/−/~ annotations supplement color. Reordering IDs creates no false edits. Removed relationships remain visible but contribute zero to current priorities. Diff views do not currently support competitive profiles or custom basements; compare source stages without those options.
 
-The compact walkthrough adds a steam wand to a coffee-only baseline: one new milk-drink need, two new functions, and effects on existing cleaning, space, and safety responsibilities. A second option adds automatic metering and refrigerated milk storage. Both use the same compact baseline; the full coffee study remains a separate detailed example. See the [option comparison](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/examples/COFFEE.md#compact-walkthrough-two-milk-options).
+The compact walkthrough adds a steam wand to a coffee-only baseline: one new milk-drink need, two new functions, and effects on existing cleaning, space, and safety responsibilities. A second option adds automatic metering and refrigerated milk storage. Both use the same compact baseline; the full coffee study remains a separate detailed example. See the [option comparison](examples/COFFEE.md#compact-walkthrough-two-milk-options).
 
-![Steam wand: needs to functions revision](https://raw.githubusercontent.com/tychota/qfd-typst/006448730a3086aae1259f99e02078630f9951f6/docs/site/assets/revisions.svg)
+![Steam wand: needs to functions revision](https://raw.githubusercontent.com/tychota/qfd-typst/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/site/assets/revisions.svg)
 
-![Steam wand: functions to components revision](https://raw.githubusercontent.com/tychota/qfd-typst/006448730a3086aae1259f99e02078630f9951f6/docs/site/assets/revision-components.svg)
+![Steam wand: functions to components revision](https://raw.githubusercontent.com/tychota/qfd-typst/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/site/assets/revision-components.svg)
 
-See the [profile palette reference](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/docs/PALETTE.md) for color provenance, contrast values, and customization.
+See the [profile palette reference](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/PALETTE.md) for color provenance, contrast values, and customization.
+
+Example sources: [minimal matrix](examples/minimal.typ), [coffee needs](examples/espresso.typ), [coffee components](examples/components.typ), [coffee report](examples/report.typ), [manual milk revision](examples/revisions.typ), [component revision](examples/revision-components.typ), [automatic milk option](examples/milk-automatic.typ), [detailed milk deployment](examples/milk-detailed.typ), and [comparison profiles](examples/profiles.typ). French examples: [manual revision](examples/fr/revisions.typ), [component revision](examples/fr/revision-components.typ), and [automatic option](examples/fr/milk-automatic.typ).
 
 ## Typography and layout
 
@@ -110,7 +112,7 @@ Correlation signs use bold vector +/− and circled strong signs. Choose `correl
 python3 tools/install_local.py
 ```
 
-Then use `#import "@local/qualitree:0.1.0": qfd`. This only installs the library for the local CLI; fonts are separate. See [installation paths](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/docs/API.md#installation).
+Then use `#import "@local/qualitree:0.1.0": qfd`. This only installs the library for the local CLI; fonts are separate. See [installation paths](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/API.md#installation).
 
 **Typst Universe:** [submission PR #5808](https://github.com/typst/packages/pull/5808) is open. Use relative or `@local` imports until it is accepted; `@preview/qualitree:0.1.0` is not available yet.
 
@@ -127,12 +129,12 @@ Tests execute Typst assertions, 128 visibility combinations and other layout cas
 
 ## Documentation map
 
-- [Vocabulary](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/CONTEXT.md): needs, functions, components, technologies and thresholds.
-- [Coffee study](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/examples/COFFEE.md): scope, assumptions, candidate technologies, evidence and validation work.
-- [API](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/docs/API.md): inputs, styling, calculations and revision limitations.
-- [Maintaining the package](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/CONTRIBUTING.md): module boundaries, comments, checks and releases.
-- [Methodology](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/docs/METHODOLOGY.md): functional analysis and classic QFD terminology.
-- [Design](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/DESIGN.md) and [implementation plan](https://github.com/tychota/qfd-typst/blob/006448730a3086aae1259f99e02078630f9951f6/PLAN.md).
+- [Vocabulary](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/CONTEXT.md): needs, functions, components, technologies and thresholds.
+- [Coffee study](examples/COFFEE.md): scope, assumptions, candidate technologies, evidence and validation work.
+- [API](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/API.md): inputs, styling, calculations and revision limitations.
+- [Maintaining the package](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/CONTRIBUTING.md): module boundaries, comments, checks and releases.
+- [Methodology](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/docs/METHODOLOGY.md): functional analysis and classic QFD terminology.
+- [Design](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/DESIGN.md) and [implementation plan](https://github.com/tychota/qfd-typst/blob/d2eb613f081f9c81d13fa8dcdb22fec8e26f9ef4/PLAN.md).
 
 ## Credits
 
