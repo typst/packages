@@ -12,7 +12,7 @@
 // ── Laufende Kopfzeile ────────────────────────────────────────────────────────
 
 // = Package imports
-#import "@preview/mmdr:0.2.2": mermaid
+#import "@preview/merman:0.3.0": mermaid
 
 #let running-header(fallback: [Projektarbeit]) = context {
   let chapter = none
