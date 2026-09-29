@@ -1,0 +1,17 @@
+data_nacl
+# NaCl via a spacegroup identifier only (no op loop): materia's Typst
+# tables expand the asymmetric unit.
+_space_group_IT_number 225
+_cell_length_a 5.64
+_cell_length_b 5.64
+_cell_length_c 5.64
+_cell_angle_alpha 90
+_cell_angle_beta 90
+_cell_angle_gamma 90
+loop_
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+Na 0.0 0.0 0.0
+Cl 0.5 0.0 0.0

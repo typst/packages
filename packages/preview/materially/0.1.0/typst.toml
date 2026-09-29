@@ -1,0 +1,18 @@
+[package]
+name = "materially"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Chad Skeeters"]
+license = "Apache-2.0"
+description = "Google Material Symbols Library"
+repository = "https://github.com/cskeeters/typst-materially"
+keywords = ["Google Material Symbols"]
+categories = [ "text" ]
+compiler = "0.15.0"
+exclude = [
+  ".git",
+  ".gitignore",
+  "demo.typ",
+  "demo.pdf",
+  "demo.png",
+]

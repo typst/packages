@@ -1,0 +1,18 @@
+[package]
+name = "chengsi"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Eric Zhao <zzgu1997@hotmail.com>"]
+license = "MIT-0"
+description = "Chinese and English mathematics notes in three palettes."
+repository = "https://github.com/zhaozigu/typst-chengsi-template"
+keywords = ["notes", "mathematics", "theorem", "Chinese", "bilingual", "澄思"]
+categories = ["book", "report"]
+disciplines = ["mathematics"]
+compiler = "0.15.0"
+exclude = ["/docs/*", "/build/*", "/scripts/*", "/CHANGELOG.md", "/.git*", "/.github/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

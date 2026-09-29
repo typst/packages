@@ -1,0 +1,27 @@
+[package]
+name = "typed-scores"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Geronimo Castano <@GeronimoCastano>"]
+license = "MIT AND OFL-1.1"
+description = "Engrave western music notation from compact note text, powered by a Rust parser and Bravura glyphs."
+repository = "https://github.com/GeronimoCastano/typed-scores"
+keywords = ["music", "notation", "score", "sheet music", "CeTZ"]
+categories = ["visualization"]
+disciplines = ["music"]
+compiler = "0.14.0"
+
+exclude = [
+  "docs/documentation.typ",
+  "docs/documentation.pdf",
+  "assets/",
+  "tests/",
+  "plugin/",
+  "examples/",
+  "scripts/",
+  "build.sh",
+  "PACKAGING.md",
+  "CLAUDE.md",
+  "agents.md",
+  ".github/",
+]

@@ -1,0 +1,20 @@
+[package]
+name = "hanko-kitei"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["LiquidCatMofu"]
+license = "MIT-0"
+description = "Japanese workplace regulations with automatic numbering"
+repository = "https://github.com/liquidcatmofu/typst-hanko-kitei"
+compiler = "0.14.0"
+keywords = ["japanese", "regulation", "rules", "legal"]
+categories = ["office"]
+disciplines = ["law", "business"]
+# README用の画像はUniverseの表示に必要なのでコミットしますが、
+# 配布バンドルには含めません。サムネイルは自動で除外されます。
+exclude = ["docs"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

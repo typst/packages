@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 380" role="img" aria-label="Anonymous placeholder portrait silhouette">
+  <!-- Anonymous, gender-neutral portrait placeholder for the Europass CV
+       examples.  Deliberately carries no identifying or gendered features. -->
+  <rect width="300" height="380" fill="#F2F2F2"/>
+  <circle cx="150" cy="138" r="72" fill="#AEBBD0"/>
+  <path d="M38 380 C38 278 92 238 150 238 C208 238 262 278 262 380 Z" fill="#AEBBD0"/>
+</svg>

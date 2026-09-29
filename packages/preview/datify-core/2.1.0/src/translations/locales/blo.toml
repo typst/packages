@@ -1,0 +1,115 @@
+[days.format.wide]
+1 = "aɖɩtɛnɛɛ"
+2 = "atalaata"
+3 = "alaarba"
+4 = "alaamɩshɩ"
+5 = "arɩsǝma"
+6 = "asiibi"
+7 = "alahaɖɩ"
+
+[days.format.abbreviated]
+1 = "aɖɩt"
+2 = "atal"
+3 = "alar"
+4 = "alam"
+5 = "arɩs"
+6 = "asib"
+7 = "alah"
+
+[days.format.narrow]
+1 = "ɖt"
+2 = "tl"
+3 = "lr"
+4 = "lm"
+5 = "rs"
+6 = "sb"
+7 = "lh"
+
+[days.stand-alone.wide]
+1 = "aɖɩtɛnɛɛ"
+2 = "atalaata"
+3 = "alaarba"
+4 = "alaamɩshɩ"
+5 = "arɩsǝma"
+6 = "asiibi"
+7 = "alahaɖɩ"
+
+[days.stand-alone.abbreviated]
+1 = "aɖɩt"
+2 = "atal"
+3 = "alar"
+4 = "alam"
+5 = "arɩs"
+6 = "asib"
+7 = "alah"
+
+[days.stand-alone.narrow]
+1 = "ɖt"
+2 = "tl"
+3 = "lr"
+4 = "lm"
+5 = "rs"
+6 = "sb"
+7 = "lh"
+
+[months.format.wide]
+1 = "ɩjikawǝrka kaŋɔrɔ"
+2 = "ɩjikpaka kaŋɔrɔ"
+3 = "arɛ́cika kaŋɔrɔ"
+4 = "njɩbɔ nɖʊka kaŋɔrɔ"
+5 = "acafʊnɖuka kaŋɔrɔ"
+6 = "anɔɔɖuka kaŋɔrɔ"
+7 = "alàlaka kaŋɔrɔ"
+8 = "ɩjikǝuka kaŋɔrɔ"
+9 = "abofʊmka kaŋɔrɔ"
+10 = "ɩjicimka kaŋɔrɔ"
+11 = "acapomka kaŋɔrɔ"
+12 = "anɔɔbʊnka kaŋɔrɔ"
+
+[months.format.abbreviated]
+1 = "kaw"
+2 = "kpa"
+3 = "ci"
+4 = "ɖʊ"
+5 = "ɖu5"
+6 = "ɖu6"
+7 = "la"
+8 = "kǝu"
+9 = "fʊm"
+10 = "cim"
+11 = "pom"
+12 = "bʊn"
+
+[months.stand-alone.wide]
+1 = "ɩjikawǝrka kaŋɔrɔ"
+2 = "ɩjikpaka kaŋɔrɔ"
+3 = "arɛ́cika kaŋɔrɔ"
+4 = "njɩbɔ nɖʊka kaŋɔrɔ"
+5 = "acafʊnɖuka kaŋɔrɔ"
+6 = "anɔɔɖuka kaŋɔrɔ"
+7 = "alàlaka kaŋɔrɔ"
+8 = "ɩjikǝuka kaŋɔrɔ"
+9 = "abofʊmka kaŋɔrɔ"
+10 = "ɩjicimka kaŋɔrɔ"
+11 = "acapomka kaŋɔrɔ"
+12 = "anɔɔbʊnka kaŋɔrɔ"
+
+[months.stand-alone.abbreviated]
+1 = "kaw"
+2 = "kpa"
+3 = "ci"
+4 = "ɖʊ"
+5 = "ɖu5"
+6 = "ɖu6"
+7 = "la"
+8 = "kǝu"
+9 = "fʊm"
+10 = "cim"
+11 = "pom"
+12 = "bʊn"
+
+[patterns]
+full = "EEEE, MMMM d/y"
+medium = "MMM d/y"
+short = "M/d/y"
+

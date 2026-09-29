@@ -1,0 +1,10 @@
+{
+    "name": "combi",
+    "description": "Combinatorics: permutations, combinations, counting trees",
+    "dependencies": [],
+    "exports": [
+        "linear-perm",
+        "circular-perm",
+        "counting-tree"
+    ]
+}

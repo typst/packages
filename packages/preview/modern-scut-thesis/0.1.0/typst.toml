@@ -1,0 +1,16 @@
+[package]
+name = "modern-scut-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["snow-trap <@snow-trap>"]
+license = "MIT"
+description = "Master's and doctoral thesis at the South China University of Technology."
+repository = "https://github.com/snow-trap/modern-scut-thesis"
+keywords = ["South China University of Technology", "SCUT", "thesis"]
+categories = ["thesis"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

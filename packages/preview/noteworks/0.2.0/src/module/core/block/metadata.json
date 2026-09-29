@@ -1,0 +1,13 @@
+{
+    "name": "block",
+    "description": "Semantic content blocks: definitions, theorems, proofs, examples",
+    "dependencies": [],
+    "exports": [
+        "definition",
+        "theorem",
+        "proof",
+        "example",
+        "note",
+        "solution"
+    ]
+}

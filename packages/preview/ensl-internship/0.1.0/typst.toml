@@ -1,0 +1,15 @@
+[package]
+name = "ensl-internship"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Gavroche", "Adrien Guimbal"]
+license = "MIT"
+description = "A unofficial template for internship reports at ENS de Lyon"
+repository = "https://github.com/AdrienGuimbal/typst-report-template-ens-lyon"
+keywords = ["ENS", "ENS de Lyon", "École normale supérieure", "report", "internship", "rapport", "stage"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,35 @@
+supervisor:
+  - name: Henri Grégoire
+    title: Abbé constitutionnelle
+    institution: Cnam, Paris
+  - name: Henri Tresca
+    title: Professeur titulaire de la Chaire de Mécanique
+    institution: Cnam, Paris
+
+co-supervisor:
+  - name: Pierre-Simon Laplace
+    title: Professeur de tout
+    institution: Institut de France, Paris
+  - name: Joseph Fourier
+    title: Membre de l'Académie des Sciences
+    institution: Académie des sciences, Paris
+
+committee:
+  - name: Jean-Antoine Chaptal
+    position: Professeur des Universités, Chaire de Chimie Appliquée, Conservatoire national des arts et métiers, Paris, France
+    role: Président du jury
+  - name: Donald Ervin Knuth
+    position: Professeur émérite, Département d'Informatique, Université de Stanford, Palo, Alto, Californie, États-Unis
+    role: Rapporteur
+  - name: Ada Lovelace
+    position: Maître de conférences HDR, Département de Mathématiques, Université de Londres, Royaume-Uni
+    role: Rapportrice
+  - name: Jacques de Vaucanson
+    position: Inspecteur général des manufactures, Académie royale des sciences, Paris, France
+    role: Examinateur
+  - name: Henri Grégoire
+    position: Abbé constitutionnelle, Conservatoire national des arts et métiers, Paris, France
+    role: Directeur de thèse
+  - name: Henri Tresca
+    position: Professeur titulaire de la Chaire de Mécanique, Conservatoire national des arts et métiers, Paris, France
+    role: Co-directeur de thèse

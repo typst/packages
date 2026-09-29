@@ -1,0 +1,116 @@
+[days.format.wide]
+1 = "Jumatátu"
+2 = "Jumane"
+3 = "Jumatánɔ"
+4 = "Alaámisi"
+5 = "Jumáa"
+6 = "Jumamósi"
+7 = "Jumapílí"
+
+[days.format.abbreviated]
+1 = "Jtt"
+2 = "Jnn"
+3 = "Jtn"
+4 = "Alh"
+5 = "Iju"
+6 = "Jmo"
+7 = "Jpi"
+
+[days.format.narrow]
+1 = "3"
+2 = "4"
+3 = "5"
+4 = "6"
+5 = "7"
+6 = "1"
+7 = "2"
+
+[days.stand-alone.wide]
+1 = "Jumatátu"
+2 = "Jumane"
+3 = "Jumatánɔ"
+4 = "Alaámisi"
+5 = "Jumáa"
+6 = "Jumamósi"
+7 = "Jumapílí"
+
+[days.stand-alone.abbreviated]
+1 = "Jtt"
+2 = "Jnn"
+3 = "Jtn"
+4 = "Alh"
+5 = "Iju"
+6 = "Jmo"
+7 = "Jpi"
+
+[days.stand-alone.narrow]
+1 = "3"
+2 = "4"
+3 = "5"
+4 = "6"
+5 = "7"
+6 = "1"
+7 = "2"
+
+[months.format.wide]
+1 = "Oladalʉ́"
+2 = "Arát"
+3 = "Ɔɛnɨ́ɔɨŋɔk"
+4 = "Olodoyíóríê inkókúâ"
+5 = "Oloilépūnyīē inkókúâ"
+6 = "Kújúɔrɔk"
+7 = "Mórusásin"
+8 = "Ɔlɔ́ɨ́bɔ́rárɛ"
+9 = "Kúshîn"
+10 = "Olgísan"
+11 = "Pʉshʉ́ka"
+12 = "Ntʉ́ŋʉ́s"
+
+[months.format.abbreviated]
+1 = "Dal"
+2 = "Ará"
+3 = "Ɔɛn"
+4 = "Doy"
+5 = "Lép"
+6 = "Rok"
+7 = "Sás"
+8 = "Bɔ́r"
+9 = "Kús"
+10 = "Gís"
+11 = "Shʉ́"
+12 = "Ntʉ́"
+
+[months.stand-alone.wide]
+1 = "Oladalʉ́"
+2 = "Arát"
+3 = "Ɔɛnɨ́ɔɨŋɔk"
+4 = "Olodoyíóríê inkókúâ"
+5 = "Oloilépūnyīē inkókúâ"
+6 = "Kújúɔrɔk"
+7 = "Mórusásin"
+8 = "Ɔlɔ́ɨ́bɔ́rárɛ"
+9 = "Kúshîn"
+10 = "Olgísan"
+11 = "Pʉshʉ́ka"
+12 = "Ntʉ́ŋʉ́s"
+
+[months.stand-alone.abbreviated]
+1 = "Dal"
+2 = "Ará"
+3 = "Ɔɛn"
+4 = "Doy"
+5 = "Lép"
+6 = "Rok"
+7 = "Sás"
+8 = "Bɔ́r"
+9 = "Kús"
+10 = "Gís"
+11 = "Shʉ́"
+12 = "Ntʉ́"
+
+[patterns]
+full = "EEEE, d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "dd/MM/y"
+

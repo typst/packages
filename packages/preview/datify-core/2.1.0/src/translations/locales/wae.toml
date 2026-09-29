@@ -1,0 +1,131 @@
+[days.format.wide]
+1 = "Mäntag"
+2 = "Zištag"
+3 = "Mittwuč"
+4 = "Fróntag"
+5 = "Fritag"
+6 = "Samštag"
+7 = "Sunntag"
+
+[days.format.abbreviated]
+1 = "Män"
+2 = "Ziš"
+3 = "Mit"
+4 = "Fró"
+6 = "Sam"
+
+[days.format.narrow]
+2 = "Z"
+3 = "M"
+4 = "F"
+
+[days.stand-alone.wide]
+1 = "Mäntag"
+2 = "Zištag"
+3 = "Mittwuč"
+4 = "Fróntag"
+5 = "Fritag"
+6 = "Samštag"
+7 = "Sunntag"
+
+[days.stand-alone.abbreviated]
+1 = "Män"
+2 = "Ziš"
+3 = "Mit"
+4 = "Fró"
+6 = "Sam"
+
+[days.stand-alone.narrow]
+2 = "Z"
+3 = "M"
+4 = "F"
+
+[months.format.wide]
+1 = "Jenner"
+2 = "Hornig"
+3 = "Märze"
+4 = "Abrille"
+5 = "Meije"
+6 = "Bráčet"
+7 = "Heiwet"
+8 = "Öigšte"
+9 = "Herbštmánet"
+10 = "Wímánet"
+11 = "Wintermánet"
+12 = "Chrištmánet"
+
+[months.format.abbreviated]
+1 = "Jen"
+2 = "Hor"
+3 = "Mär"
+4 = "Abr"
+5 = "Mei"
+6 = "Brá"
+7 = "Hei"
+8 = "Öig"
+9 = "Her"
+10 = "Wím"
+11 = "Win"
+12 = "Chr"
+
+[months.format.narrow]
+1 = "J"
+2 = "H"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "B"
+7 = "H"
+8 = "Ö"
+9 = "H"
+10 = "W"
+11 = "W"
+12 = "C"
+
+[months.stand-alone.wide]
+1 = "Jenner"
+2 = "Hornig"
+3 = "Märze"
+4 = "Abrille"
+5 = "Meije"
+6 = "Bráčet"
+7 = "Heiwet"
+8 = "Öigšte"
+9 = "Herbštmánet"
+10 = "Wímánet"
+11 = "Wintermánet"
+12 = "Chrištmánet"
+
+[months.stand-alone.abbreviated]
+1 = "Jen"
+2 = "Hor"
+3 = "Mär"
+4 = "Abr"
+5 = "Mei"
+6 = "Brá"
+7 = "Hei"
+8 = "Öig"
+9 = "Her"
+10 = "Wím"
+11 = "Win"
+12 = "Chr"
+
+[months.stand-alone.narrow]
+1 = "J"
+2 = "H"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "B"
+7 = "H"
+8 = "Ö"
+9 = "H"
+10 = "W"
+11 = "W"
+12 = "C"
+
+[patterns]
+full = "EEEE, d. MMMM y"
+long = "d. MMMM y"
+medium = "d. MMM y"
+
