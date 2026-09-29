@@ -101,7 +101,12 @@
   }
 
   set page(paper: paper, margin: margin, footer: none)
-  set par(justify: true, leading: 0.55em)
+  set par(
+    justify: true,
+    leading: 0.7em,
+    spacing: 1.2em,
+    first-line-indent: 0pt,
+  )
   show table: set par(justify: false)
 
   // if font == none {
@@ -113,13 +118,18 @@
   set text(lang: lang, region: region, size: fontsize)
   set text(font: font) if font != none
 
+  set list(spacing: 1em, indent: 0.5em)
+  set enum(spacing: 1em, indent: 0.5em)
+
   set heading(numbering: sectionnumbering)
   show heading.where(level: 1): it => [
     #pagebreak(weak: true)
-    #block(above: 1.8em, below: 1.0em)[#it]
+    #block(above: 2.4em, below: 1.2em, sticky: true)[#it]
   ]
-  show heading.where(level: 2): set block(above: 1.25em, below: 0.65em)
-  show heading.where(level: 3): set block(above: 0.95em, below: 0.5em)
+  show heading: it => {
+    let above-spacing = if it.level == 2 { 1.8em } else { 1.4em }
+    block(above: above-spacing, below: 0.8em, sticky: true, it)
+  }
   show figure.where(kind: "listing"): set block(breakable: true)
   show figure.where(kind: image): set figure(placement: auto)
   show figure.where(kind: table): set figure(placement: auto)
@@ -335,7 +345,12 @@
   }
 
   set page(paper: paper, margin: margin, footer: none)
-  set par(justify: true, leading: 0.55em)
+  set par(
+    justify: true,
+    leading: 0.7em,
+    spacing: 1.2em,
+    first-line-indent: 0pt,
+  )
   show table: set par(justify: false)
 
   // if font == none {
@@ -347,12 +362,15 @@
   set text(lang: lang, region: region, size: fontsize)
   set text(font: font) if font != none
 
+  set list(spacing: 1em, indent: 0.5em)
+  set enum(spacing: 1em, indent: 0.5em)
+
   set heading(numbering: sectionnumbering)
-  show heading.where(level: 1): it => [
-    #block(above: 1.8em, below: 1.0em)[#it]
-  ]
-  show heading.where(level: 2): set block(above: 1.25em, below: 0.65em)
-  show heading.where(level: 3): set block(above: 0.95em, below: 0.5em)
+  show heading: it => {
+    let above-spacing = if it.level == 1 { 2.4em } else if it.level == 2 { 1.8em } else { 1.4em }
+    let below-spacing = if it.level == 1 { 1.2em } else { 0.8em }
+    block(above: above-spacing, below: below-spacing, sticky: true, it)
+  }
   show figure.where(kind: "listing"): set block(breakable: true)
   show figure.where(kind: image): set figure(placement: auto)
   show figure.where(kind: table): set figure(placement: auto)
