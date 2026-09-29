@@ -196,8 +196,6 @@
     max-intensity: max-intensity,
     delta: none,
     delta-fragments: false,
-<<<<<<< HEAD
-=======
   )
 }
 
@@ -308,6 +306,5 @@
     max-intensity: max-intensity,
     delta: delta,
     delta-fragments: delta-fragments,
->>>>>>> b62329ebb (lighter pdf documentation file : dense plot now rendered with a PNG file, MS2 spectra tics inverted for better interpretation)
   )
 }
