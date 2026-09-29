@@ -457,41 +457,7 @@ remove them.
 
 ## Local development
 
-The commands below run from the repository root. To use the working template in
-your own document, place it beside `modernpro-coverletter.typ` and import that
-file:
-
-```typst
-#import "modernpro-coverletter.typ": *
-```
-
-Compile the repository examples against the working template:
-
-```bash
-typst compile example-coverletter.typ
-typst compile example-statement.typ
-```
-
-Run the header regression checks, including centered headers with long labels:
-
-```bash
-typst compile --root . tests/header-overflow.typ /tmp/letter-header.pdf
-typst compile --root . --input mode=centered --input long=true --input icons=true --input count=3 tests/header-overflow.typ /tmp/letter-header-centered.pdf
-```
-
-With the Font Awesome 7 desktop fonts installed, also run the glyph-alignment
-check. It mixes default and legacy `top-edge: "baseline"` icons:
-
-```bash
-typst compile --root . --input icons=fontawesome tests/header-overflow.typ /tmp/letter-header-icons.pdf
-```
-
-The fixture checks contact bounds, wrapping, first-line icon alignment, and
-centered defaults and overrides. Its opening comments list inputs for contact
-counts, presets, page widths, and `kind=statement`.
-
-All people, institutions, positions, projects, and claims in the examples are
-fictional.
+See the [source repository's development guide](https://github.com/jxpeng98/typst-coverletter#local-development) for working-template imports, examples, and header regression checks.
 
 ## License
 
