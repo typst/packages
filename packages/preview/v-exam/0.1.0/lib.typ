@@ -75,7 +75,11 @@
 
 #let tron-mang-theo-lv(arr, seed) = {
   if arr.len() <= 1 { return arr }
-  let get-lv(item) = item.at("lv", default: 1)
+  let get-lv(item) = {
+    if "lv" in item { item.lv }
+    else if "cau-hoi-con" in item and item.cau-hoi-con.len() > 0 and "lv" in item.cau-hoi-con.at(0) { item.cau-hoi-con.at(0).lv }
+    else { 1 }
+  }
 
   let nhom1 = arr.filter(q => get-lv(q) == 1)
   let nhom2 = arr.filter(q => get-lv(q) == 2)
@@ -97,7 +101,7 @@
 }
 
 // ==========================================
-// 3. HÀM TẠO qr & HIỂN THỊ LỜI GIẢI
+// 3. HÀM TẠO QR & HIỂN THỊ LỜI GIẢI
 // ==========================================
 #let tao-qr-code-key(results) = {
   let all-content = ""
@@ -263,9 +267,24 @@
     }
   })
 
+  let cat-theo-so-cau-con(arr, req-count) = {
+    if req-count <= 0 or arr.len() == 0 { return () }
+    let res = ()
+    let current-cnt = 0
+    for item in arr {
+      let n = item.cau-hoi-con.len()
+      if current-cnt + n <= req-count or res.len() == 0 {
+        res.push(item)
+        current-cnt += n
+      }
+      if current-cnt >= req-count { break }
+    }
+    return res
+  }
+
   let rut-cau(q-type, dem-config, sub-seed) = {
     let loc-ques = std-bank.filter(q => q.type == q-type)
-    if loc-ques.len() == 0 or dem-config == none or dem-config == 0 { return () }
+    if loc-ques.len() == 0 or dem-config == none { return () }
 
     let get-q-lv(item) = {
       if "lv" in item { item.lv }
@@ -275,7 +294,7 @@
 
     if type(dem-config) == int { 
       let processing = if seed == none { loc-ques } else { xao-theo-tuy-chon(loc-ques, seed + sub-seed, theo-lv: theo-lv) }
-      return processing.slice(0, calc.min(dem-config, processing.len())) 
+      return cat-theo-so-cau-con(processing, dem-config)
     }
     
     if type(dem-config) == array {
@@ -293,11 +312,39 @@
         b-vd = tron-mang(b-vd, seed + sub-seed + 33)
       }
 
-      let res-nb = b-nb.slice(0, calc.min(nb-req, b-nb.len()))
-      let res-th = b-th.slice(0, calc.min(th-req, b-th.len()))
-      let res-vd = b-vd.slice(0, calc.min(vd-req, b-vd.len()))
+      return cat-theo-so-cau-con(b-nb, nb-req) + cat-theo-so-cau-con(b-th, th-req) + cat-theo-so-cau-con(b-vd, vd-req)
+    }
 
-      return res-nb + res-th + res-vd
+    if type(dem-config) == dictionary {
+      let don-config = dem-config.at("don", default: (0, 0, 0))
+      let chum-req = dem-config.at("chum", default: 0)
+
+      let bank-chum = loc-ques.filter(q => q.is-chum == true)
+      let bank-don  = loc-ques.filter(q => q.is-chum != true)
+
+      if seed != none {
+        bank-chum = tron-mang(bank-chum, seed + sub-seed + 55)
+        bank-don  = tron-mang(bank-don,  seed + sub-seed + 77)
+      }
+
+      let res-chum = bank-chum.slice(0, calc.min(chum-req, bank-chum.len()))
+
+      let res-don = ()
+      if type(don-config) == int {
+        res-don = cat-theo-so-cau-con(bank-don, don-config)
+      } else if type(don-config) == array {
+        let nb-req = don-config.at(0, default: 0)
+        let th-req = don-config.at(1, default: 0)
+        let vd-req = don-config.at(2, default: 0)
+
+        let b-nb = bank-don.filter(q => get-q-lv(q) == 1)
+        let b-th = bank-don.filter(q => get-q-lv(q) == 2)
+        let b-vd = bank-don.filter(q => get-q-lv(q) == 3)
+
+        res-don = cat-theo-so-cau-con(b-nb, nb-req) + cat-theo-so-cau-con(b-th, th-req) + cat-theo-so-cau-con(b-vd, vd-req)
+      }
+
+      return res-chum + res-don
     }
 
     return loc-ques
@@ -633,8 +680,9 @@
     line(length: 100%, stroke: 0.5pt)
 
     if s-nlc.len() > 0 {
-      let tong-so-cau = s-nlc.fold(0, (acc, q) => {
-        if "is-chum" in q and q.is-chum == true and "cau-hoi-con" in q { acc + q.cau-hoi-con.len() } else { acc + 1 }
+      let tong-so-cau = s-nlc.fold(0, (acc, item) => {
+        let n = if "cau-hoi-con" in item { item.cau-hoi-con.len() } else { 1 }
+        acc + n
       })
       set par(first-line-indent: 0pt)
       v(-0.1em)
@@ -642,9 +690,11 @@
       
       let c-idx = 0
       for item in s-nlc {
-        let is-item-chum = "is-chum" in item and item.is-chum == true and "cau-hoi-con" in item
+        let is-item-chum = "is-chum" in item and item.is-chum == true and "cau-hoi-con" in item and item.cau-hoi-con.len() > 1
+        let ds-cau-can-ve = if "cau-hoi-con" in item { item.cau-hoi-con } else { (item,) }
+
         if is-item-chum {
-          let n-sub = item.cau-hoi-con.len()
+          let n-sub = ds-cau-can-ve.len()
           let start-num = c-idx + 1
           let end-num = c-idx + n-sub
           v(0.2em)
@@ -655,8 +705,6 @@
             ]
           ]
         }
-
-        let ds-cau-can-ve = if is-item-chum { item.cau-hoi-con } else { (item,) }
 
         for q in ds-cau-can-ve {
           let opt-indices = if seed == 0 or nlc-mode == "none" { range(4) } else { tron-mang(range(4), seed + c-idx * 73) }
@@ -706,7 +754,8 @@
     if s-tf.len() > 0 {
       set par(first-line-indent: 0pt)
       v(0.5em); text(mau-sac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #s-tf.len().* #emph[ *Trong mỗi ý a), b), c), d) của mỗi câu, thí sinh chọn đúng hoặc sai.*]]
-      for (idx, q) in s-tf.enumerate() {
+      for (idx, q-item) in s-tf.enumerate() {
+        let q = if "cau-hoi-con" in q-item { q-item.cau-hoi-con.at(0) } else { q-item }
         let sub-indices = if tf-mode == "none" { range(4) }
         else if tf-mode == "y-only" {
           let content-str = repr(q.nd) + repr(q.ytf)
@@ -734,18 +783,19 @@
     }
 
     if s-tln.len() > 0 {
-      let tong-so-cau = s-tln.fold(0, (acc, q) => {
-        if "is-chum" in q and q.is-chum == true and "cau-hoi-con" in q { acc + q.cau-hoi-con.len() } else { acc + 1 }
+      let tong-so-cau = s-tln.fold(0, (acc, item) => {
+        let n = if "cau-hoi-con" in item { item.cau-hoi-con.len() } else { 1 }
+        acc + n
       })
       set par(first-line-indent: 0pt)
       v(0.5em); text(fill: mau-sac.cau-pa)[*► Thí sinh trả lời từ câu 1 đến câu #tong-so-cau.*]
       let c-idx = 0
       for item in s-tln {
-        let is-item-chum = "is-chum" in item and item.is-chum == true and "cau-hoi-con" in item
-        let ds-cau-can-ve = if is-item-chum { item.cau-hoi-con } else { (item,) }
+        let is-item-chum = "is-chum" in item and item.is-chum == true and "cau-hoi-con" in item and item.cau-hoi-con.len() > 1
+        let ds-cau-can-ve = if "cau-hoi-con" in item { item.cau-hoi-con } else { (item,) }
 
         if is-item-chum {
-          let n-sub = item.cau-hoi-con.len()
+          let n-sub = ds-cau-can-ve.len()
           let start-num = c-idx + 1
           let end-num = c-idx + n-sub
           v(0.2em)
@@ -788,7 +838,8 @@
       set par(first-line-indent: 0pt)
       v(0.3em); text(mau-sac.cau-pa)[*► TỰ LUẬN (#s-tl.len() câu)*]
       v(-0.3em)
-      for (idx, q) in s-tl.enumerate() {
+      for (idx, q-item) in s-tl.enumerate() {
+        let q = if "cau-hoi-con" in q-item { q-item.cau-hoi-con.at(0) } else { q-item }
         part4-ans.push((nd: q.nd, lg: q.lg))
         v(-0.3em)
         block(width: 100%, inset: (y: 0.3em), breakable: true)[
@@ -804,7 +855,7 @@
       }
     }
 
-    align(center)[#text(size: 11pt)[#strong[---- hết ----]]]
+    align(center)[#text(size: 11pt)[#strong[---- HẾT ----]]]
   })
 
   [#metadata((
@@ -827,14 +878,14 @@
     for entry in results {
       let ma-de = str(entry.value.seed)
       let lg-tl = entry.value.part4
-      if lg-TL.len() > 0 {
+      if lg-tl.len() > 0 {
         align(left)[
           #block(fill: gray.lighten(80%), inset: 5pt, radius: 4pt)[
             #text(14pt, weight: "bold")[Mã đề: #ma-de]
           ]
           #v(-0.51em)
         ]
-        for (idx, ans) in lg-TL.enumerate() {
+        for (idx, ans) in lg-tl.enumerate() {
           align(left)[
             #text(12pt)[*Câu #(idx + 1). * #ans.nd]
             #v(-0.5em)
@@ -855,16 +906,49 @@
   let actual-bank = if type(raw-bank) == dictionary and "data" in raw-bank { raw-bank.data }
   else if type(raw-bank) == module { raw-bank.data } else { raw-bank }
 
-  let loc-ques = actual-bank.filter(q => q.type == q-type)
+  let std-bank = actual-bank.map(q => {
+    if "cau-hoi-con" in q and type(q.cau-hoi-con) == array and q.cau-hoi-con.len() > 0 { 
+      let is-c = q.at("is-chum", default: q.cau-hoi-con.len() > 1)
+      let dk = q.at("du-kien", default: none)
+      let q-tp = q.at("type", default: q.cau-hoi-con.at(0).at("type", default: "NLC"))
+      let q-lv = q.at("lv", default: 1)
+      (
+        type: q-tp,
+        lv: q-lv,
+        is-chum: is-c,
+        du-kien: dk,
+        cau-hoi-con: q.cau-hoi-con
+      )
+    } else { 
+      (
+        type: q.at("type", default: "NLC"),
+        lv: q.at("lv", default: 1),
+        is-chum: false, 
+        du-kien: none, 
+        cau-hoi-con: (q,)
+      ) 
+    }
+  })
+
+  let loc-ques = std-bank.filter(q => q.type == q-type)
   if loc-ques.len() == 0 { return () }
 
-  let bank-chum = loc-ques.filter(q => "is-chum" in q and q.is-chum == true)
-  let bank-don  = loc-ques.filter(q => not ("is-chum" in q and q.is-chum == true))
+  let bank-chum = loc-ques.filter(q => q.is-chum == true)
+  let bank-don  = loc-ques.filter(q => q.is-chum != true)
 
-  let safe-slice(arr, req-count) = {
+  let cat-theo-so-cau-con(arr, req-count) = {
     if req-count <= 0 or arr.len() == 0 { return () }
-    let take = calc.min(req-count, arr.len())
-    return arr.slice(0, take)
+    let res = ()
+    let current-cnt = 0
+    for item in arr {
+      let n = item.cau-hoi-con.len()
+      if current-cnt + n <= req-count or res.len() == 0 {
+        res.push(item)
+        current-cnt += n
+      }
+      if current-cnt >= req-count { break }
+    }
+    return res
   }
 
   let xao-chum = tron-mang(bank-chum, seed)
@@ -881,21 +965,25 @@
     vd-req = dem-config.at(2, default: 0)
   } else if type(dem-config) == dictionary {
     let don-arr = dem-config.at("don", default: (0, 0, 0))
-    nb-req = don-arr.at(0, default: 0)
-    th-req = don-arr.at(1, default: 0)
-    vd-req = don-arr.at(2, default: 0)
+    if type(don-arr) == array {
+      nb-req = don-arr.at(0, default: 0)
+      th-req = don-arr.at(1, default: 0)
+      vd-req = don-arr.at(2, default: 0)
+    } else if type(don-arr) == int {
+      nb-req = don-arr
+    }
     chum-req = dem-config.at("chum", default: 0)
   } else if type(dem-config) == int {
-    nb-req = dem-config
+    return cat-theo-so-cau-con(tron-mang(loc-ques, seed), dem-config)
   }
 
-  let res-chum = safe-slice(xao-chum, chum-req)
+  let res-chum = cat-theo-so-cau-con(xao-chum, chum-req)
 
-  let b-nb = xao-don.filter(q => ("lv" in q and q.lv == 1) or not ("lv" in q))
-  let b-th = xao-don.filter(q => "lv" in q and q.lv == 2)
-  let b-vd = xao-don.filter(q => "lv" in q and q.lv == 3)
+  let b-nb = xao-don.filter(q => q.lv == 1)
+  let b-th = xao-don.filter(q => q.lv == 2)
+  let b-vd = xao-don.filter(q => q.lv == 3)
 
-  let res-don = safe-slice(b-nb, nb-req) + safe-slice(b-th, th-req) + safe-slice(b-vd, vd-req)
+  let res-don = cat-theo-so-cau-con(b-nb, nb-req) + cat-theo-so-cau-con(b-th, th-req) + cat-theo-so-cau-con(b-vd, vd-req)
 
   return res-chum + res-don
 }
@@ -1185,7 +1273,7 @@
       nlc-loc: q => q.type == "NLC",
       nlc-dem: final-nlc.len(),
       tf-loc:  q => q.type == "TF",
-      tf-dem:  final-tf.len(),
+      tf-dem:  rut-tf.len(),
       tln-loc: q => q.type == "TLN",
       tln-dem: final-tln.len(),
       tl-loc:  q => q.type == "TL",
