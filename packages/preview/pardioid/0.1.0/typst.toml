@@ -8,3 +8,4 @@ description = "Draw on canvas using parametric curves."
 categories = ["visualization"]
 keywords = ["parametric curve", "canvas", "draw"]
 exclude = ["*.pdf", "/assets/", "/docs/", "gallery.typ"]
+repository = "https://github.com/DevlinNul/pardioid"
