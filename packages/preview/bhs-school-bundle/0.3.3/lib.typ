@@ -122,13 +122,12 @@
   set enum(spacing: 1em, indent: 0.5em)
 
   set heading(numbering: sectionnumbering)
-  show heading.where(level: 1): it => [
-    #pagebreak(weak: true)
-    #block(above: 2.4em, below: 1.2em, sticky: true)[#it]
-  ]
   show heading: it => {
-    let above-spacing = if it.level == 2 { 1.8em } else { 1.4em }
-    block(above: above-spacing, below: 0.8em, sticky: true, it)
+    // pagebreak must stay outside the block, otherwise it lands inside a container and errors
+    if it.level == 1 { pagebreak(weak: true) }
+    let above-spacing = if it.level == 1 { 2.4em } else if it.level == 2 { 1.8em } else { 1.4em }
+    let below-spacing = if it.level == 1 { 1.2em } else { 0.8em }
+    block(above: above-spacing, below: below-spacing, sticky: true, it)
   }
   show figure.where(kind: "listing"): set block(breakable: true)
   show figure.where(kind: image): set figure(placement: auto)
