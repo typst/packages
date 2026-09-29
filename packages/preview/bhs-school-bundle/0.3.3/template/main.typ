@@ -1,5 +1,5 @@
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen
-#import "@preview/bhs-school-bundle:0.3.2": *
+#import "@preview/bhs-school-bundle:0.3.3": *
 
 
 // Für Kolleg-Variante: "hak" durch "kolleg" ersetzen

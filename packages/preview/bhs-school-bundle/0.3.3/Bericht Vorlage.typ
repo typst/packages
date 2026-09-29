@@ -1,4 +1,4 @@
-#import "@preview/bhs-school-bundle:0.3.2": *
+#import "@preview/bhs-school-bundle:0.3.3": *
 
 #show: report.with(
   title: [Der Titel der Arbeit],
