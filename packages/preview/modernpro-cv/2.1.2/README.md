@@ -614,41 +614,7 @@ nothing at all — `"default"` is the default.
 
 ## Local development
 
-The commands below run from the repository root. To use the working template in
-your own document, place it beside `modernpro-cv.typ` and import that file:
-
-```typst
-#import "modernpro-cv.typ": *
-```
-
-Compile the repository examples against the working template:
-
-```bash
-typst compile example_single.typ
-typst compile example_double.typ
-```
-
-Run the header regression checks, including long labels and the photo rail:
-
-```bash
-typst compile --root . tests/header-overflow.typ /tmp/cv-header.pdf
-typst compile --root . --input mode=inline --input long=true --input icons=true --input count=3 tests/header-overflow.typ /tmp/cv-header-long.pdf
-typst compile --root . --input mode=rail --input long=true --input icons=true --input count=3 tests/header-overflow.typ /tmp/cv-header-rail.pdf
-```
-
-With the Font Awesome 7 desktop fonts installed, also run the glyph-alignment
-check. It mixes default and legacy `top-edge: "baseline"` icons:
-
-```bash
-typst compile --root . --input icons=fontawesome tests/header-overflow.typ /tmp/cv-header-icons.pdf
-```
-
-The fixture checks contact bounds, wrapping, first-line icon alignment, and
-identity alignment. Its opening comments list inputs for contact counts,
-presets, page widths, and the two-column variant.
-
-The single-column example is the visual and behavioural reference for the
-academic design. The double-column example demonstrates the compact variant.
+See the [source repository's development guide](https://github.com/jxpeng98/Typst-CV-Resume#local-development) for working-template imports, examples, and header regression checks.
 
 ## Release notes
 
