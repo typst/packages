@@ -37,9 +37,9 @@ Shared datasets in [`data/`](data/) used by both demo and showcase:
 - [`data/words.json`](data/words.json) — Data visualization vocabulary
 
 ```bash
-just demos      # Compile all per-chart demos
-just showcase   # Compile the showcase
-just demo       # Compile the comprehensive demo
+typst compile --root . examples/showcase.typ          # Compile the showcase
+typst compile --root . examples/demo.typ              # Compile the comprehensive demo
+typst compile --root . examples/demos/demo-bar.typ    # Compile one per-chart demo
 ```
 
 ## Features
