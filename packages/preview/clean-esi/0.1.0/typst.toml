@@ -10,7 +10,7 @@ keywords = ["esi", "esi algiers", "École nationale Supérieure d'Informatique",
 categories = ["thesis"]
 disciplines = ["computer-science"]
 compiler = "0.14.0"
-exclude = ["assets/*"]
+exclude = ["assets/*", "README.fr.md"]
 
 [template]
 path = "template"

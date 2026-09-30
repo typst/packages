@@ -1,12 +1,14 @@
 # clean-esi
 
+[Version française](README.fr.md)
+
 A [Typst](https://typst.app) template for the final-year project (PFE) thesis at
 [ESI Algiers](https://www.esi.dz) (École nationale Supérieure d'Informatique), following
 the school's formatting standards. It suits both State Engineer and Master theses.
 
 See the compiled template in the [example PDF](https://github.com/Chamiln17/clean-esi/releases/download/v0.1.0/example.pdf).
 
-<img src="thumbnail.png" alt="Cover page" width="360">
+<a href="thumbnail.png"><img src="thumbnail.png" alt="Preview of the cover page" width="360"></a>
 
 ## Features
 
@@ -20,7 +22,8 @@ See the compiled template in the [example PDF](https://github.com/Chamiln17/clea
 
 ## Usage
 
-In the web app, choose **Start from template** and search for `clean-esi`. With the CLI:
+Open the template [in the Typst web app](https://typst.app/?template=clean-esi&version=0.1.0),
+or create a project from the command line:
 
 ```sh
 typst init @preview/clean-esi:0.1.0 my-thesis
@@ -75,6 +78,9 @@ typst watch main.typ --font-path fonts/
   jury: (("Dr. President Name", "ESI", "President"),),
 )
 ```
+
+Fixed labels ("Supervised by", "Chapter", list titles) are in English; only the abstracts come
+in three languages.
 
 | Argument | Type | Default |
 |---|---|---|
@@ -136,6 +142,12 @@ with `@label`. References to chapters render as "Chapter N".
 
 Wrap tables and algorithms in `#figure(..., caption: [...])` to number them and list them in the
 List of Tables. `template/chapters/` has a working example of each helper.
+
+## Other schools and departments
+
+The cover page text (institution, degree, option) comes from the `thesis` arguments, so the
+template adapts to other ESI programs or to other Algerian schools with the same thesis layout.
+Adaptations and fixes are welcome as issues or pull requests.
 
 ## Packages used
 
