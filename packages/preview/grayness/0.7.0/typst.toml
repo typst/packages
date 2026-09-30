@@ -17,4 +17,14 @@ keywords = [
   "crop",
   "mask",
 ]
-exclude = ["Arturo_Nieto-Dorantes.webp", "CHANGELOG.md", "example.png", "example.typ", "gallardo.svg", "manual.pdf", "manual.typ", "mask.png", "smol.png"]
+exclude = [
+  "Arturo_Nieto-Dorantes.webp",
+  "CHANGELOG.md",
+  "example.png",
+  "example.typ",
+  "gallardo.svg",
+  "manual.pdf",
+  "manual.typ",
+  "mask.png",
+  "smol.png"
+]
