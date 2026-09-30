@@ -1,6 +1,6 @@
 #import "table.typ": meppp-tl-table
 
-#import "@preview/cuti:0.2.1": show-cn-fakebold
+#import "@preview/cuti:0.4.0": show-cn-fakebold
 
 #let meppp-lab-report(
   title: "",

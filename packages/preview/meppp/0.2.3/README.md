@@ -10,7 +10,7 @@ Default arguments are shown as below:
 ```typ
 #import "@preview/meppp:0.2.3": *
 
-#let meppp-lab-report(
+#meppp-lab-report(
   title: "",
   author: "",
   info: [],
@@ -39,7 +39,7 @@ It is recommended to use `#show` to use the template:
     title: [Test title],
     ..args
 )
-...your report below.
+// ...your report below.
 ```
 
 ## meppp-tl-table
@@ -47,12 +47,12 @@ It is recommended to use `#show` to use the template:
 Modify your input `table` to a three-lined table (AIP style), returned as a `figure`. Double-lines above and below the table, and a single line below the header.
 
 ```typ
-#let meppp-tl-table(
+#meppp-tl-table(
   caption: none,
   supplement: auto,
   stroke: 0.5pt,
   tbl
-) = ...
+)
 ```
 
 - `caption` is the caption above the table, center-aligned
@@ -78,7 +78,7 @@ Example:
 Counts subfigures and displays in the figure, mostly used when inserting multiple images.
 
 ```typ
-#let subfigure(
+#subfigure(
   body,
   caption: none,
   numbering: "(a)",
