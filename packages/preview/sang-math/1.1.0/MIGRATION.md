@@ -48,6 +48,6 @@ The same bank, filters, and seed produce the same selection and order. `bank-shu
 
 ## Scope of 1.1
 
-The data model allows later HTML, SCORM, Manim, AI, and analytics adapters. Version 1.1 includes deterministic section quotas through `exam-variant` and balanced multiple codes through `exam-variants`; a larger blueprint DSL and those adapters remain future work. The minimum Typst compiler remains 0.14.0, and CI also checks Typst 0.15.1.
+The data model allows later HTML, SCORM, Manim, AI, and analytics adapters. Version 1.1 includes deterministic section quotas through `exam-variant` and balanced multiple codes through `exam-variants`; a larger blueprint DSL and those adapters remain future work. Version 1.1 requires Typst 0.15.0 or newer because its preserved beamer namespace now uses Touying 0.8.0. Stay on sang-math 1.0.6 with Typst 0.14.x. CI checks Typst 0.15.0 and 0.15.1.
 
 For the horizontal 12–4–6 OMR sheet, set `state("sbd")` and `state("made")` before including the template. `exam-variant-qr(variant)` creates the teacher answer-key QR directly from one variant. The sheet's existing profile QR stays fixed for scanner calibration. See [`examples/exam-variant-omr.typ`](examples/exam-variant-omr.typ).

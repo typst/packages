@@ -15,6 +15,7 @@ Các thay đổi đáng chú ý của `sang-math` được ghi tại đây. Gói
 - Semantic theme tokens nội bộ, tài liệu chuyển đổi và bài kiểm thử hồi quy câu hỏi/OMR.
 - Các module sách Đề cương và ma trận Logic từ nhánh phát triển nội bộ được đưa vào bản phát hành 1.1.0.
 - Giữ các namespace `book`, `beamer` và những export hình học/OMR của gói 1.0.6 đã xuất bản.
+- Nâng Touying lên 0.8.0 cho beamer; yêu cầu Typst tối thiểu 0.15.0.
 
 ### Changed
 
@@ -23,7 +24,7 @@ Các thay đổi đáng chú ý của `sang-math` được ghi tại đây. Gói
 
 ### Compatibility
 
-- Tài liệu 1.0.6 hợp lệ không cần đổi source. Không có breaking change dự kiến.
+- Tài liệu 1.0.6 hợp lệ không cần đổi source khi nâng Typst lên 0.15.x. Với Typst 0.14.x, tiếp tục dùng sang-math 1.0.6.
 - Chưa phát hành lên Typst Universe; thay đổi phiên bản chỉ là bước chuẩn bị release.
 
 ## Phần phát triển nội bộ sau 1.0.6, đưa vào 1.1.0
