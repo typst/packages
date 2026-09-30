@@ -8,7 +8,7 @@ normes de mise en forme de l'école. Il convient aux mémoires d'ingénieur d'É
 
 Voir le modèle compilé dans le [PDF d'exemple](https://github.com/Chamiln17/clean-esi/releases/download/v0.1.0/example.pdf).
 
-<a href="thumbnail.png"><img src="thumbnail.png" alt="Aperçu de la page de garde" width="360"></a>
+<a href="thumbnail.png"><img src="thumbnail.png" alt="Aperçu de la page de garde" width="100%"></a>
 
 ## Fonctionnalités
 

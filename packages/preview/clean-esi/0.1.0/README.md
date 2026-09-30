@@ -8,7 +8,7 @@ the school's formatting standards. It suits both State Engineer and Master these
 
 See the compiled template in the [example PDF](https://github.com/Chamiln17/clean-esi/releases/download/v0.1.0/example.pdf).
 
-<a href="thumbnail.png"><img src="thumbnail.png" alt="Preview of the cover page" width="360"></a>
+<a href="thumbnail.png"><img src="thumbnail.png" alt="Preview of the cover page" width="100%"></a>
 
 ## Features
 
