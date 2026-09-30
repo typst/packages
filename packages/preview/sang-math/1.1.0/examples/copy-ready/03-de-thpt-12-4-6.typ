@@ -1,7 +1,7 @@
 // MẪU 03 — KHUNG ĐỀ THPT 12–4–6
 // 12 câu TN + 4 câu Đ/S + 6 câu TLN. Mọi câu có ID ổn định để dùng online.
 
-#import "@preview/sang-math:1.0.2": *
+#import "@preview/sang-math:1.1.0": *
 
 #let profile = sys.inputs.at("profile", default: "dethi")
 #let preset = exam-preset(theme: "lotus", profile: profile)
@@ -49,6 +49,6 @@
 #tln([Hình hộp chữ nhật có ba kích thước $2,3,4$. Tính thể tích.], [$24$], id: "TLN03", tags: ("the-tich", "TLN"), loigiai: [$V=2 dot 3 dot 4=24$.])
 #tln([Tính $log_2 32$.], [$5$], id: "TLN04", tags: ("logarit", "TLN"), loigiai: [$32=2^5$.])
 #tln([Có bao nhiêu cách xếp 4 học sinh thành một hàng?], [$24$], id: "TLN05", tags: ("hoan-vi", "TLN"), loigiai: [$4!=24$.])
-#tln([Cho $vec(a)=(1,2,2)$. Tính độ dài của $vec(a)$.], [$3$], id: "TLN06", tags: ("vecto", "TLN"), loigiai: [$abs(vec(a))=sqrt(1+4+4)=3$.])
+#tln([Cho vectơ $a=(1,2,2)$. Tính độ dài của $a$.], [$3$], id: "TLN06", tags: ("vecto", "TLN"), loigiai: [$abs(a)=sqrt(1+4+4)=3$.])
 
 #het

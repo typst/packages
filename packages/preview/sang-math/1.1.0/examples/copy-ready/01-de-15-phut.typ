@@ -1,7 +1,7 @@
 // MẪU 01 — KIỂM TRA 15 PHÚT
 // Chỉ sửa khối CẤU HÌNH NHANH và nội dung các câu bên dưới.
 
-#import "@preview/sang-math:1.0.2": *
+#import "@preview/sang-math:1.1.0": *
 
 // ── CẤU HÌNH NHANH ─────────────────────────────────────────────
 #let profile = sys.inputs.at("profile", default: "dethi") // dethi | loigiai

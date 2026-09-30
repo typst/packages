@@ -1,7 +1,7 @@
 // MẪU 06 — CÂU HỎI CÓ BẢNG BIẾN THIÊN VÀ HÌNH CeTZ
 
 #import "@preview/cetz:0.5.2"
-#import "@preview/sang-math:1.0.2": *
+#import "@preview/sang-math:1.1.0": *
 
 #let profile = sys.inputs.at("profile", default: "loigiai")
 #let preset = exam-preset(theme: "ocean", profile: profile)

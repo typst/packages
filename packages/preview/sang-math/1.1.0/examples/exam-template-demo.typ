@@ -28,7 +28,7 @@
 //    #let opt-style = "circle"    // A/B/C/D khoanh tròn
 //    #let opt-style = "hexagon"   // A/B/C/D trong lục giác đều
 
-#import "../lib.typ": *
+#import "@preview/sang-math:1.1.0": *
 
 // BẢNG ĐIỀU KHIỂN: sửa các dòng này là đủ.
 #let theme = "teal-pro"

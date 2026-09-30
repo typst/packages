@@ -1,6 +1,6 @@
 // MẪU 02 — ĐỀ GIỮA KỲ HỖN HỢP
 
-#import "@preview/sang-math:1.0.2": *
+#import "@preview/sang-math:1.1.0": *
 
 #let profile = sys.inputs.at("profile", default: "dethi")
 #let preset = exam-preset(theme: "navy-gold", profile: profile)

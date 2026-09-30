@@ -1,5 +1,5 @@
 // Chạy từ thư mục gói: typst compile --root . examples/exam-variant-omr.typ
-#import "../lib.typ": *
+#import "@preview/sang-math:1.1.0": *
 
 #let mcq-bank = range(12).map(i => question(
   id: "MC-" + str(i + 1), kind: QUESTION_MC,

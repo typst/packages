@@ -1,6 +1,6 @@
 // MẪU 04 — ĐỀ TỰ LUẬN CÓ DÒNG TRỐNG / VÙNG NHÁP
 
-#import "@preview/sang-math:1.0.2": *
+#import "@preview/sang-math:1.1.0": *
 
 #let profile = sys.inputs.at("profile", default: "draft") // draft | dethi | loigiai
 #let preset = exam-preset(theme: "print-economy", profile: profile, draft: true)

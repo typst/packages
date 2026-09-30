@@ -1,6 +1,6 @@
 // MẪU 07 — ĐỀ 70/30, NHÁP ĐỔI BÊN KHI IN HAI MẶT
 
-#import "@preview/sang-math:1.0.2": layout-draft
+#import "@preview/sang-math:1.1.0": layout-draft
 
 #show: layout-draft.with(
   nháp-pct: 30%,

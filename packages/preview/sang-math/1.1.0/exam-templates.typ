@@ -2,7 +2,7 @@
 // SANG-MATH EXAM TEMPLATES v1.0.2
 // Bộ preset giao diện đề thi dùng chung với thpt-school-exam.
 // Cách dùng:
-//   #import "@preview/sang-math:1.0.2": *
+//   #import "@preview/sang-math:1.1.0": *
 //   #show: exam-ocean.with(school: "THPT ...", code: "101")
 // ================================================================
 

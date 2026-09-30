@@ -7,7 +7,7 @@
 //   #let theme = "lesson-amber"
 //   #let theme = "olympiad-indigo"
 
-#import "../lib.typ": *
+#import "@preview/sang-math:1.1.0": *
 
 #let theme = sys.inputs.at("theme", default: "sgk-modern")
 

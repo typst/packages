@@ -1,6 +1,6 @@
 // MẪU 05 — PHIẾU HỌC TẬP / CHUYÊN ĐỀ
 
-#import "@preview/sang-math:1.0.2": *
+#import "@preview/sang-math:1.1.0": *
 
 #let theme = "workbook-jade"
 

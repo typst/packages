@@ -16,7 +16,7 @@ Sao chép toàn bộ khối sau và thay các phần trong `{{...}}`:
 Bạn là chuyên gia Toán THPT Việt Nam và chuyên gia Typst. Hãy tạo một file Typst
 hoàn chỉnh, biên dịch được, dùng đúng package:
 
-#import "@preview/sang-math:1.0.5": *
+#import "@preview/sang-math:1.1.0": *
 
 YÊU CẦU ĐỀ:
 - Lớp: {{10/11/12}}.
@@ -65,7 +65,7 @@ QUY TẮC API BẮT BUỘC:
     được vì sao đáp án đúng, không chỉ viết "chọn A/B/C/D".
 
 KHUNG ĐẦU FILE PHẢI GIỮ:
-#import "@preview/sang-math:1.0.5": *
+#import "@preview/sang-math:1.1.0": *
 #let profile = sys.inputs.at("profile", default: "dethi")
 #let preset = exam-preset(theme: "{{theme}}", profile: profile)
 #let (tn, ds, tln, tl) = exam-mode(..preset.question)
@@ -91,7 +91,7 @@ KẾT QUẢ TRẢ VỀ:
 
 ```text
 Hãy chuyển nội dung đề tôi gửi bên dưới thành một file Typst hoàn chỉnh dùng
-"@preview/sang-math:1.0.5".
+"@preview/sang-math:1.1.0".
 
 Nguyên tắc:
 - Giữ nguyên ý nghĩa toán học, số liệu, thứ tự câu và đáp án gốc.
@@ -157,7 +157,7 @@ FILE CẦN KIỂM ĐỊNH:
 ```text
 Bạn là chuyên gia soạn đề {{Hóa học / Vật lí}} THPT Việt Nam. Hãy tạo file Typst hoàn chỉnh:
 - Hóa học: dùng thêm #import "@preview/typsium:0.3.2": * và hàm #ce("...") cho công thức, phản ứng.
-- Khung đề: dùng #import "@preview/sang-math:1.0.5": * với đầy đủ preset, tn, ds, tln.
+- Khung đề: dùng #import "@preview/sang-math:1.1.0": * với đầy đủ preset, tn, ds, tln.
 - Trắc nghiệm: dùng #tn(..., ([A], True([B]), [C], [D]), id: "TN01", loigiai: [...]).
 - Đúng/Sai: dùng #ds(..., (True([a]), [b], True([c]), [d]), id: "DS01", loigiai: [...]).
 - Trả lời ngắn: dùng #tln(..., ans: "...", id: "TLN01", loigiai: [...]).
