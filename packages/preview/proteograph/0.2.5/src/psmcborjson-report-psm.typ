@@ -19,7 +19,11 @@
   //set text(size: 10pt)
   box(width: 100%, inset: (x: 0.5em), [
     #heading(offset: offset, level: auto, depth: 3, outlined: false, "Spoms ")
-    #if ("isotope" in psm.eval.spoms) { [/ isotope error: #psm.eval.spoms.isotope] }
+    #if ("precursor" in psm.eval.spoms) {
+      [
+        / precursor adj.: #psm.eval.spoms.isotope (#calc.round(psm.eval.spoms.precursor.mz, digits: 4) / #psm.eval.spoms.precursor.z)
+      ]
+    }
     / bracket: #psm.eval.spoms.first.bracket
     / nam: #psm.eval.spoms.first.nam
     / spc: #psm.eval.spoms.first.spc
