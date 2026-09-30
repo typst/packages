@@ -1,0 +1,11 @@
+[package]
+name = "yap"
+version = "0.1.0"
+keywords = ["video", "presentation", "html"]
+categories = ["components", "visualization", "integration"]
+entrypoint = "lib.typ"
+authors = ["<@snlxnet>"]
+homepage = "https://yap.snlx.net"
+repository = "https://github.com/snlxnet/yap"
+license = "MIT"
+description = "Add videos & speaker notes to paged documents."

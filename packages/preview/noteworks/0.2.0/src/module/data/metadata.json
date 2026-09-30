@@ -1,0 +1,10 @@
+{
+    "name": "data",
+    "description": "Data visualization: tables, series, and curve interpolation",
+    "dependencies": [],
+    "exports": [
+        "data-table",
+        "data-series",
+        "smooth-curve"
+    ]
+}

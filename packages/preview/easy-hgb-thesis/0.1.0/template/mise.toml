@@ -1,0 +1,17 @@
+[tools]
+typst = "0.14.2"
+typstyle = "0.14.4"
+
+[env]
+TYPST_ROOT = "{{config_root}}"
+TYPST_FONT_PATHS = "{{config_root}}/fonts"
+
+[tasks."fmt:typst"]
+description = "Format the typst code"
+run = ["typstyle -i ./ --timing"]
+
+[tasks."export"]
+description = "Export the document to PDF"
+run = [
+    "typst compile main.typ --format pdf --pdf-standard a-3u"
+]

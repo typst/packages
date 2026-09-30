@@ -1,0 +1,16 @@
+[package]
+name = "ost-ifs-thesis"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["David Bachmann", "Dominik Buehler", "Thomas Bocek"]
+license = "MIT"
+description = "A thesis template for the IFS Institute for Software at OST Eastern Switzerland University of Applied Sciences, using the OST visual style."
+keywords = ["thesis", "academic", "report", "university", "ost", "ifs"]
+categories = ["paper"]
+disciplines = ["computer-science", "engineering"]
+exclude = [".github"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,12 @@
+[package]
+name        = "feyndrawgram"
+version     = "1.0.0"
+entrypoint  = "src/lib.typ"
+authors     = ["M. Barbieri <https://mbarbieri.it>"]
+license     = "GPL-3.0-or-later"
+description = "Render Feynman diagrams exported from FeynDrawGram web app (https://mbarbieri.it/feyndrawgram/)."
+keywords    = ["feynman", "diagram", "physics", "qft", "cetz", "cosmological", "correlator"]
+categories  = ["integration", "visualization"]
+disciplines = ["physics"]
+repository  = "https://github.com/mbar02/FeynDrawGram"
+compiler    = "0.14.0"

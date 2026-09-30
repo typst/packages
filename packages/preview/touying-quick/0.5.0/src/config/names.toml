@@ -1,0 +1,21 @@
+[sections.en]
+outline = "Contents"
+
+[sections.zh]
+outline = "主要内容"
+
+[blocks.en]
+algorithm = "Algorithm"
+table = "Table"
+figure = "Figure"
+equation = " Eq. "
+rule = "Rule"
+law = "Law"
+
+[blocks.zh]
+algorithm = "算法"
+table = "表"
+figure = "图"
+equation = "式 "
+rule = "法则"
+law = "定律"

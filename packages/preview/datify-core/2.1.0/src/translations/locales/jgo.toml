@@ -1,0 +1,113 @@
+[days.format.wide]
+1 = "Mɔ́ndi"
+2 = "Ápta Mɔ́ndi"
+3 = "Wɛ́nɛsɛdɛ"
+4 = "Tɔ́sɛdɛ"
+5 = "Fɛlâyɛdɛ"
+6 = "Sásidɛ"
+7 = "Sɔ́ndi"
+
+[days.format.abbreviated]
+1 = "Mɔ́ndi"
+2 = "Ápta Mɔ́ndi"
+3 = "Wɛ́nɛsɛdɛ"
+4 = "Tɔ́sɛdɛ"
+5 = "Fɛlâyɛdɛ"
+6 = "Sásidɛ"
+7 = "Sɔ́ndi"
+
+[days.format.narrow]
+1 = "Mɔ́"
+2 = "ÁM"
+3 = "Wɛ́"
+4 = "Tɔ́"
+5 = "Fɛ"
+6 = "Sá"
+7 = "Sɔ́"
+
+[days.stand-alone.wide]
+1 = "Mɔ́ndi"
+2 = "Ápta Mɔ́ndi"
+3 = "Wɛ́nɛsɛdɛ"
+4 = "Tɔ́sɛdɛ"
+5 = "Fɛlâyɛdɛ"
+6 = "Sásidɛ"
+7 = "Sɔ́ndi"
+
+[days.stand-alone.abbreviated]
+1 = "Mɔ́ndi"
+2 = "Ápta Mɔ́ndi"
+3 = "Wɛ́nɛsɛdɛ"
+4 = "Tɔ́sɛdɛ"
+5 = "Fɛlâyɛdɛ"
+6 = "Sásidɛ"
+7 = "Sɔ́ndi"
+
+[days.stand-alone.narrow]
+1 = "Mɔ́"
+2 = "ÁM"
+3 = "Wɛ́"
+4 = "Tɔ́"
+5 = "Fɛ"
+6 = "Sá"
+7 = "Sɔ́"
+
+[months.format.wide]
+1 = "Nduŋmbi Saŋ"
+2 = "Pɛsaŋ Pɛ́pá"
+3 = "Pɛsaŋ Pɛ́tát"
+4 = "Pɛsaŋ Pɛ́nɛ́kwa"
+5 = "Pɛsaŋ Pataa"
+6 = "Pɛsaŋ Pɛ́nɛ́ntúkú"
+7 = "Pɛsaŋ Saambá"
+8 = "Pɛsaŋ Pɛ́nɛ́fɔm"
+9 = "Pɛsaŋ Pɛ́nɛ́pfúꞋú"
+10 = "Pɛsaŋ Nɛgɛ́m"
+11 = "Pɛsaŋ Ntsɔ̌pmɔ́"
+12 = "Pɛsaŋ Ntsɔ̌ppá"
+
+[months.format.abbreviated]
+1 = "Nduŋmbi Saŋ"
+2 = "Pɛsaŋ Pɛ́pá"
+3 = "Pɛsaŋ Pɛ́tát"
+4 = "Pɛsaŋ Pɛ́nɛ́kwa"
+5 = "Pɛsaŋ Pataa"
+6 = "Pɛsaŋ Pɛ́nɛ́ntúkú"
+7 = "Pɛsaŋ Saambá"
+8 = "Pɛsaŋ Pɛ́nɛ́fɔm"
+9 = "Pɛsaŋ Pɛ́nɛ́pfúꞋú"
+10 = "Pɛsaŋ Nɛgɛ́m"
+11 = "Pɛsaŋ Ntsɔ̌pmɔ́"
+12 = "Pɛsaŋ Ntsɔ̌ppá"
+
+[months.stand-alone.wide]
+1 = "Nduŋmbi Saŋ"
+2 = "Pɛsaŋ Pɛ́pá"
+3 = "Pɛsaŋ Pɛ́tát"
+4 = "Pɛsaŋ Pɛ́nɛ́kwa"
+5 = "Pɛsaŋ Pataa"
+6 = "Pɛsaŋ Pɛ́nɛ́ntúkú"
+7 = "Pɛsaŋ Saambá"
+8 = "Pɛsaŋ Pɛ́nɛ́fɔm"
+9 = "Pɛsaŋ Pɛ́nɛ́pfúꞋú"
+10 = "Pɛsaŋ Nɛgɛ́m"
+11 = "Pɛsaŋ Ntsɔ̌pmɔ́"
+12 = "Pɛsaŋ Ntsɔ̌ppá"
+
+[months.stand-alone.abbreviated]
+1 = "Nduŋmbi Saŋ"
+2 = "Pɛsaŋ Pɛ́pá"
+3 = "Pɛsaŋ Pɛ́tát"
+4 = "Pɛsaŋ Pɛ́nɛ́kwa"
+5 = "Pɛsaŋ Pataa"
+6 = "Pɛsaŋ Pɛ́nɛ́ntúkú"
+7 = "Pɛsaŋ Saambá"
+8 = "Pɛsaŋ Pɛ́nɛ́fɔm"
+9 = "Pɛsaŋ Pɛ́nɛ́pfúꞋú"
+10 = "Pɛsaŋ Nɛgɛ́m"
+11 = "Pɛsaŋ Ntsɔ̌pmɔ́"
+12 = "Pɛsaŋ Ntsɔ̌ppá"
+
+[patterns]
+full = "EEEE, y MMMM dd"
+

@@ -1,0 +1,18 @@
+[package]
+authors = ["Borna Punda <borna@punda.dev>"]
+categories = ["layout", "office"]
+compiler = "0.14.0"
+description = "A clean, traditional template for formal governance documents, bylaws, and articles."
+disciplines = ["business", "law", "politics"]
+entrypoint = "lib.typ"
+exclude = ["assets/"]
+keywords = ["article", "bylaws", "formal", "governance", "legal"]
+license = "MIT"
+name = "govern"
+repository = "https://github.com/Carbophile/govern-typ"
+version = "0.2.1"
+
+[template]
+entrypoint = "main.typ"
+path = "template"
+thumbnail = "assets/example_page3.png"

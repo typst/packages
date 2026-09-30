@@ -1,0 +1,8 @@
+:root {
+    scroll-behavior: smooth;
+}
+
+figure > :first-child {
+    margin-left: auto;
+    margin-right: auto;
+}

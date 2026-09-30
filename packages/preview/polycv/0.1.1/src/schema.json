@@ -1,0 +1,611 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "BodyParagraph": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "paragraph": {
+          "type": "string",
+          "description": "One letter paragraph; supports inline markup."
+        }
+      },
+      "required": [
+        "paragraph"
+      ],
+      "x-tombi-table-keys-order": "schema"
+    },
+    "CV": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name, shown large in the header."
+        },
+        "headline": {
+          "type": "string",
+          "description": "Tagline under the name."
+        },
+        "location": {
+          "type": "string",
+          "description": "Location line (city, country)."
+        },
+        "keywords": {
+          "type": "array",
+          "description": "Tag badges shown in the header.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "email": {
+          "description": "Email address; a single string or a list of lines.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "phone": {
+          "description": "Phone number; a single string or a list of lines.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "address": {
+          "description": "Postal address; a single string or a list of lines.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "description": "Summary / profile paragraph."
+        },
+        "motivation": {
+          "type": "string",
+          "description": "Motivation paragraph (cover-letter style intro)."
+        },
+        "values": {
+          "type": "array",
+          "description": "Personal values, one bullet each.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hobbies": {
+          "type": "array",
+          "description": "Hobbies / interests, one bullet each.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "references": {
+          "description": "References text, or a list of bullets.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "profiles": {
+          "type": "array",
+          "description": "Social profiles (network + username).",
+          "items": {
+            "$ref": "#/$defs/SocialNetwork"
+          }
+        },
+        "skills": {
+          "type": "object",
+          "description": "Skill groups, keyed by a stable name (used by meta.skill-order). Add any\nkey you like; the key is the icon-independent identifier, the display\nheading comes from each group's `title` (default: the key).",
+          "additionalProperties": {
+            "$ref": "#/$defs/SkillGroup"
+          }
+        },
+        "experience": {
+          "type": "array",
+          "description": "Professional experience entries.",
+          "items": {
+            "$ref": "#/$defs/Entry"
+          }
+        },
+        "education": {
+          "type": "array",
+          "description": "Education entries.",
+          "items": {
+            "$ref": "#/$defs/Entry"
+          }
+        },
+        "awards": {
+          "type": "array",
+          "description": "Honours and awards.",
+          "items": {
+            "$ref": "#/$defs/Entry"
+          }
+        },
+        "volunteering": {
+          "type": "array",
+          "description": "Volunteering and community involvement entries.",
+          "items": {
+            "$ref": "#/$defs/Entry"
+          }
+        },
+        "courses": {
+          "type": "array",
+          "description": "Courses and certifications.",
+          "items": {
+            "$ref": "#/$defs/Entry"
+          }
+        },
+        "publications": {
+          "type": "array",
+          "description": "Publications.",
+          "items": {
+            "$ref": "#/$defs/PublicationEntry"
+          }
+        }
+      },
+      "x-tombi-table-keys-order": "schema"
+    },
+    "Content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject": {
+          "type": "string",
+          "description": "Subject line, shown as \"Re: ...\"."
+        },
+        "salutation": {
+          "type": "string",
+          "description": "Opening salutation."
+        },
+        "closing": {
+          "type": "string",
+          "description": "Closing phrase before the signature."
+        },
+        "body": {
+          "type": "array",
+          "description": "Letter body paragraphs.",
+          "items": {
+            "$ref": "#/$defs/BodyParagraph"
+          }
+        }
+      },
+      "x-tombi-table-keys-order": "schema"
+    },
+    "CvMeta": {
+      "type": "object",
+      "description": "Layout/config block; consumed by the template, not part of the CV data.",
+      "additionalProperties": false,
+      "properties": {
+        "photo": {
+          "type": "string",
+          "description": "Path to the profile photo, relative to the .typ file."
+        },
+        "locale": {
+          "description": "Language for section titles and month names.",
+          "enum": [
+            "en",
+            "fr"
+          ]
+        },
+        "ats-split": {
+          "type": "boolean",
+          "description": "Two-column ATS-friendly header layout."
+        },
+        "entry-inline-meta": {
+          "type": "boolean",
+          "description": "Company + location/dates on the title line, position below."
+        },
+        "header-band": {
+          "type": "boolean",
+          "description": "Full-width header band layout (photo on its left)."
+        },
+        "header-band-contact": {
+          "type": "boolean",
+          "description": "With header-band, keep the contact line in the band (false = sidebar)."
+        },
+        "header-band-summary": {
+          "type": "boolean",
+          "description": "With header-band, render the summary inside the header."
+        },
+        "keywords-lines": {
+          "description": "Number of right-aligned lines for keyword badges (0 = one per line).",
+          "allOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer",
+              "minimum": 0
+            }
+          ]
+        },
+        "main-sections": {
+          "type": "array",
+          "description": "Ordered main-column section keys.",
+          "items": {
+            "$ref": "#/$defs/SectionName"
+          }
+        },
+        "section-icons": {
+          "type": "object",
+          "description": "Override section FontAwesome icons, keyed by section name.",
+          "additionalProperties": true
+        },
+        "section-titles": {
+          "type": "object",
+          "description": "Override section display titles, keyed by section name.",
+          "additionalProperties": true
+        },
+        "show-timeline": {
+          "type": "boolean",
+          "description": "Show the dots + vertical line on experience/education entries."
+        },
+        "sidebar-sections": {
+          "type": "array",
+          "description": "Ordered sidebar section keys.",
+          "items": {
+            "$ref": "#/$defs/SectionName"
+          }
+        },
+        "skill-order": {
+          "type": "array",
+          "description": "Which skill groups to show, in order, by their key in cv.skills. Omit a\nkey to hide that group. If unset, all groups render in their data order.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "x-tombi-table-keys-order": "schema"
+    },
+    "Date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "Entry": {
+      "type": "object",
+      "description": "A timeline or list entry, reused by experience, education, awards,\nvolunteering and courses. Not all fields apply to every section.",
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Primary title (award/course name). Alias of company for list sections."
+        },
+        "company": {
+          "type": "string",
+          "description": "Organisation or employer (experience). Alias: degree for education."
+        },
+        "position": {
+          "type": "string",
+          "description": "Job title or role, shown after the company."
+        },
+        "summary": {
+          "type": "string",
+          "description": "Short subtitle under the title. Alias: institution for education."
+        },
+        "location": {
+          "type": "string",
+          "description": "Place (city, country) shown on the right."
+        },
+        "start_date": {
+          "description": "Start date, \"YYYY-MM\" or \"YYYY\".",
+          "$ref": "#/$defs/Date"
+        },
+        "end_date": {
+          "description": "End date, \"YYYY-MM\", \"YYYY\" or \"present\".",
+          "$ref": "#/$defs/ExactDate"
+        },
+        "date": {
+          "description": "Single date, alternative to start_date/end_date (awards, courses).",
+          "$ref": "#/$defs/Date"
+        },
+        "highlights": {
+          "type": "array",
+          "description": "Bullet points; supports *bold* and _italic_ inline markup.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "x-tombi-table-keys-order": "schema"
+    },
+    "ExactDate": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "const": "present"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "Letter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sender": {
+          "description": "Sender block.",
+          "$ref": "#/$defs/Sender"
+        },
+        "recipient": {
+          "description": "Recipient block.",
+          "$ref": "#/$defs/Recipient"
+        },
+        "content": {
+          "description": "Letter content (subject, salutation, body, closing).",
+          "$ref": "#/$defs/Content"
+        },
+        "metadata": {
+          "description": "Letter metadata (date).",
+          "$ref": "#/$defs/Metadata"
+        }
+      },
+      "required": [
+        "sender"
+      ],
+      "x-tombi-table-keys-order": "schema"
+    },
+    "Metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "description": "Letter date; a display string or \"auto\" for today.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "const": "auto"
+            }
+          ]
+        }
+      },
+      "x-tombi-table-keys-order": "schema"
+    },
+    "PublicationEntry": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Publication title."
+        },
+        "authors": {
+          "type": "array",
+          "description": "List of author names.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string",
+          "description": "Short description or venue note."
+        },
+        "doi": {
+          "type": "string",
+          "description": "Digital Object Identifier; rendered as a doi.org link."
+        },
+        "url": {
+          "type": "string",
+          "description": "Direct URL to the publication."
+        },
+        "journal": {
+          "type": "string",
+          "description": "Journal or conference name."
+        },
+        "date": {
+          "description": "Publication date.",
+          "$ref": "#/$defs/Date"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "x-tombi-table-keys-order": "schema"
+    },
+    "Recipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Recipient's name."
+        },
+        "title": {
+          "type": "string",
+          "description": "Recipient's job title."
+        },
+        "company": {
+          "type": "string",
+          "description": "Recipient's company."
+        },
+        "address": {
+          "type": "string",
+          "description": "Recipient's postal address."
+        }
+      },
+      "x-tombi-table-keys-order": "schema"
+    },
+    "SectionName": {
+      "description": "Section keys usable in sidebar-sections / main-sections (either column).",
+      "enum": [
+        "photo",
+        "contact",
+        "skills",
+        "values",
+        "hobbies",
+        "references",
+        "publications",
+        "summary",
+        "motivation",
+        "experience",
+        "education",
+        "awards",
+        "volunteering",
+        "courses"
+      ]
+    },
+    "Sender": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Sender's full name."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Sender's phone number."
+        },
+        "email": {
+          "type": "string",
+          "description": "Sender's email address."
+        },
+        "linkedin": {
+          "type": "string",
+          "description": "LinkedIn handle."
+        },
+        "github": {
+          "type": "string",
+          "description": "GitHub handle."
+        },
+        "address": {
+          "type": "string",
+          "description": "Sender's postal address."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "x-tombi-table-keys-order": "schema"
+    },
+    "SkillGroup": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Display heading. Defaults to the group's key if omitted."
+        },
+        "icon": {
+          "type": "string",
+          "description": "FontAwesome icon name shown before the heading."
+        },
+        "items": {
+          "description": "Skills: a single string, or a list rendered one per line.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "x-tombi-table-keys-order": "schema"
+    },
+    "SocialNetwork": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "network": {
+          "type": "string",
+          "description": "Network name; must match a key in the template's profiles-config\n(e.g. \"LinkedIn\", \"GitHub\")."
+        },
+        "username": {
+          "type": "string",
+          "description": "Handle appended to the network's URL base (e.g. \"janedoe\")."
+        }
+      },
+      "required": [
+        "network",
+        "username"
+      ],
+      "x-tombi-table-keys-order": "schema"
+    },
+    "CVSchema": {
+      "properties": {},
+      "x-tombi-table-keys-order": "schema"
+    },
+    "LetterSchema": {
+      "properties": {},
+      "x-tombi-table-keys-order": "schema"
+    },
+    "UnifiedSchema": {
+      "properties": {},
+      "x-tombi-table-keys-order": "schema"
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "cv": {
+      "description": "CV data.",
+      "$ref": "#/$defs/CV"
+    },
+    "inherit": {
+      "type": "string",
+      "description": "Path (relative to this file) of a parent to deep-merge over."
+    },
+    "letter": {
+      "description": "Cover-letter data.",
+      "$ref": "#/$defs/Letter"
+    },
+    "meta": {
+      "description": "Layout / configuration block.",
+      "$ref": "#/$defs/CvMeta"
+    }
+  }
+}

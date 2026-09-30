@@ -1,0 +1,17 @@
+[package]
+name = "metropole-report"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+repository = "https://codeberg.org/haydn/metropole-report"
+authors = ["Haydn Trowell"]
+license = "GPL-3.0-or-later"
+description = "Modern reports with a strong typographic hierarchy."
+keywords = ["report", "swiss", "modernist", "typography"]
+categories = ["report"]
+exclude = ["example"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,12 @@
+[package]
+name = "vhdl-parse"
+version = "0.1.0"
+entrypoint = "vhdl_parse.typ"
+authors = ["Sylvain Tertois <https://github.com/daixiwen>"]
+license = "Unlicense"
+description = "Parse a VHDL file and extract data from it"
+repository = "https://github.com/daixiwen/typst-vhdl-parse"
+keywords = [ "vhdl" ]
+categories = ["model", "utility", "scripting"]
+disciplines = ["engineering"]
+exclude = ["doc/*"]

@@ -1,0 +1,17 @@
+[package]
+name = "unofficial-whu-lab-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Shouzhuo Yi <@whoisKIWIIZZZ>"]
+license = "MIT"
+description = "An unofficial course lab report template for Wuhan University (WHU). 武汉大学计算机学院本科生课程设计报告模板(非官方)"
+repository = "https://github.com/whoisKIWIIZZZ/report_template"
+keywords = ["report", "whu", "course", "chinese"]
+categories = ["report", "thesis"]
+compiler = "0.14.0"
+
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

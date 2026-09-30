@@ -1,0 +1,37 @@
+#import "generic.typ" as generic;
+#import "../utils.typ" as utils;
+
+#let serializer(l) = {
+  utils.assert_type(l, length)
+
+  import "float.typ" as float_
+
+  let dict = generic.value_unit_serializer(repr(l.abs))
+  dict.insert("em", float_.serializer(float(l.em)))
+
+  return generic.raw_serializer(dictionary)(dict)
+};
+
+#let deserializer(l, ctx, request) = {
+  utils.assert_type(l, dictionary)
+
+  import "float.typ" as float_
+  return request(
+    (
+      (l.at("em"), float_),
+      (l, generic.value_unit_deserializer),
+    ),
+    none,
+    ((em, value_unit), _n_) => {
+      return value_unit + eval(str(em) + "em")
+    },
+  )
+};
+
+#let test(cycle) = {
+  import "float.typ" as float_
+
+  for v in (10pt + 2em, 5.5pt + 0em, 0pt + 1.2em, -3.3cm + 4em) {
+    let null = cycle(v)
+  }
+};

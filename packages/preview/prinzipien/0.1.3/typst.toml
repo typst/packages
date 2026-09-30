@@ -1,0 +1,28 @@
+[package]
+name = "prinzipien"
+version = "0.1.3"
+entrypoint = "lib.typ"
+authors = ["Lukas Grassauer <entze@grassauer.eu>"]
+license = "BSL-1.0"
+description = "Present one message per slide, in the style of Doumont"
+repository = "https://github.com/Entze/prinzipien"
+compiler = "0.15.0"
+keywords = ["touying", "presentation", "slides", "doumont"]
+categories = ["presentation"]
+exclude = [
+  "examples",
+  "plans",
+  ".git",
+  ".claude",
+  "AGENTS.md",
+  "CLAUDE.md",
+  "hk.pkl",
+  "mise.toml",
+  "assets",
+  ".bumpversion.toml",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"
