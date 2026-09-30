@@ -134,7 +134,15 @@
     if ind != 0pt { out += h(ind) }
     out += _join(para)
   }
-  out
+  // Disable the ambient first-line indent so that the measured height matches
+  // the rendered height: the indentation above is added explicitly as `h(ind)`,
+  // and `_page-block` also neutralises the ambient indent. Without this, the
+  // ambient indent is counted twice during measurement, which overestimates the
+  // height and leaves the last column short of the bottom.
+  {
+    set par(first-line-indent: 0em)
+    out
+  }
 }
 
 // Largest prefix of `units` whose rendered height does not exceed `avail`,
