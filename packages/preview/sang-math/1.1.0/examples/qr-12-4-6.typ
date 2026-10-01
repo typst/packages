@@ -1,4 +1,4 @@
-// Compile from the typst/packages checkout with Typst 0.14.0+:
+// Compile from the typst/packages checkout with Typst 0.15.0+:
 // typst compile --root . --package-path packages packages/preview/sang-math/1.1.0/examples/qr-12-4-6.typ /tmp/qr-12-4-6.pdf
 #import "@preview/sang-math:1.1.0": *
 
