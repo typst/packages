@@ -16,7 +16,9 @@ Import the package with:
 #import "@preview/algorythmst:0.1.0": *
 ```
 
-The pseudo function takes a nested list and turns it into a pseudocode block. It can optionally be given a title and caption.
+### Basic block
+
+`pseudo` takes a list and turns it into a pseudocode block. Lines starting with `+` are numbered, lines starting with `-` are not, and indentation nests blocks with an indent guide. It can optionally be given a title and caption.
 ```typst
 #pseudo(
   title: [Binary Search],
@@ -38,11 +40,15 @@ The pseudo function takes a nested list and turns it into a pseudocode block. It
   + *return* $-1$ #comment[not found]
 ]
 ```
-<img width="726" height="446" alt="image" src="https://github.com/user-attachments/assets/83f852d0-f0f4-47ff-9f33-8d745ecb247f" />
+This renders as a block headed **Algorithm 1:** Binary Search as shown below.
+
+<img width="726" height="446" alt="Rendered Algorithm 1, Binary Search: a numbered pseudocode block with indent guides, gray right-aligned comments, and the caption below the bottom rule" src="https://github.com/user-attachments/assets/83f852d0-f0f4-47ff-9f33-8d745ecb247f" />
 
 Titles are numbered automatically and captions are placed below the pseudocode block.
 
-The same syntax can be used for more mathematical algorithms, with display math, constraints, and comments:
+### Math-heavy algorithms
+
+The same syntax works for more mathematical algorithms, with display math, constraints and comments. Here the `- *Require:*` line is left unnumbered:
 
 ```typst
 #pseudo(
@@ -61,7 +67,19 @@ The same syntax can be used for more mathematical algorithms, with display math,
   + *return* $s$
 ]
 ```
-<img width="726" height="394" alt="image" src="https://github.com/user-attachments/assets/13b71a27-a7d3-48ea-9d79-2bea8b8b0a28" />
+This renders as **Algorithm 2:** Compute DSI as shown below
+
+<img width="726" height="394" alt="Rendered Algorithm 2, Compute DSI: an unnumbered Require line, numbered math-heavy steps with a for loop, gray right-aligned comments, and a multi-line caption below" src="https://github.com/user-attachments/assets/13b71a27-a7d3-48ea-9d79-2bea8b8b0a28" />
+
+### Comments
+
+Put `#comment[...]` at the end of a line to add a gray, right-aligned comment:
+
+```typst
++ $i <- 0$ #comment[start at the first element]
+```
+
+### References
 
 To reference an algorithm, pass a `label` and use it like any other reference:
 
@@ -73,7 +91,29 @@ To reference an algorithm, pass a `label` and use it like any other reference:
 As shown in @alg:search, ...
 ```
 
-Without `title`, `caption` or `label`, `pseudo` gives just the framed block.
+This prints "As shown in Algorithm 1, ...", with the number linked to the block.
+
+### List of algorithms
+
+Titled blocks show up in a list of algorithms by their title, like LaTeX's `\listofalgorithms`. Blocks without a title use their caption:
+
+```typst
+#outline(title: [List of Algorithms], target: figure.where(kind: "algorithm"))
+```
+
+### Plain blocks
+
+Without `title`, `caption` or `label`, `pseudo` gives just the framed block, with no number and no header. With a caption or label but no title, the block is still numbered (for references and the outline) but has no header row.
+
+### Customising
+
+Any extra arguments go straight to lovelace's `pseudocode-list`, so its options work as usual. For example:
+
+```typst
+#pseudo(line-numbering: none)[ ... ]       // no line numbers
+#pseudo(line-gap: 1em)[ ... ]              // more space between lines
+#pseudo(indentation: 2em)[ ... ]           // wider indentation
+```
 
 ## API
 
@@ -85,6 +125,3 @@ Without `title`, `caption` or `label`, `pseudo` gives just the framed block.
 ## License
 
 MIT
-
----
-
