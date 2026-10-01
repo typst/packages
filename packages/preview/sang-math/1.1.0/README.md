@@ -174,7 +174,7 @@ Hỗ trợ trực tiếp các ký hiệu ma trận suy luận:
 
 
 ```typ
-#import "@preview/sang-math:1.0.6": *
+#import "@preview/sang-math:1.1.0": *
 
 #let preset = exam-preset(
   theme: "teal-pro",
@@ -216,7 +216,7 @@ Các theme đề có thể lấy trực tiếp bằng `exam-template-names`; hi�
 ## Ví dụ sách/chuyên đề
 
 ```typ
-#import "@preview/sang-math:1.0.6": *
+#import "@preview/sang-math:1.1.0": *
 
 #show: book-theme.with(
   theme: "sgk-modern",
@@ -237,7 +237,7 @@ Danh sách giao diện sách có sẵn nằm trong `book-template-names`.
 ## Bảng biến thiên
 
 ```typ
-#import "@preview/sang-math:1.0.6": bbtv2
+#import "@preview/sang-math:1.1.0": bbtv2
 
 #bbtv2(
   x-vals: ($-oo$, $-1$, $1$, $+oo$),
@@ -249,7 +249,7 @@ Danh sách giao diện sách có sẵn nằm trong `book-template-names`.
 ## Đề 70/30 có nháp khi in hai mặt
 
 ```typ
-#import "@preview/sang-math:1.0.6": layout-draft
+#import "@preview/sang-math:1.1.0": layout-draft
 
 #show: layout-draft.with(
   nháp-pct: 30%,
@@ -270,7 +270,7 @@ Các hàm `draw-*` được gọi bên trong `cetz.canvas`:
 
 ```typ
 #import "@preview/cetz:0.5.2"
-#import "@preview/sang-math:1.0.6": draw-ellipse, draw-cylinder
+#import "@preview/sang-math:1.1.0": draw-ellipse, draw-cylinder
 
 #cetz.canvas({
   draw-ellipse(a: 2, b: 1, show-axes: true, show-foci: true)
@@ -286,7 +286,7 @@ Gói `sang-math` cung cấp khung đề thi chuẩn Bộ GD&ĐT 2025, hoàn toà
 - **Vật lí**: Đổi `subject: "VẬT LÍ 12"`, sử dụng các ký hiệu `$ohm$`, `$doC$` hoặc `$mu"F"$.
 - **Hóa học**: Kết hợp với gói công thức hóa học `@preview/typsium:0.3.2`:
 ```typ
-#import "@preview/sang-math:1.0.6": *
+#import "@preview/sang-math:1.1.0": *
 #import "@preview/typsium:0.3.2": *
 
 #show: exam-classic.with(subject: "HÓA HỌC 12", duration: "50 phút")
