@@ -18,7 +18,7 @@ packages meet a certain quality standard and work properly for everyone.
   for bugs to slip in. If you find a mistake or bug after the package is
   accepted, you can simply submit a patch release.) If your package includes a
   template, it should compile out-of-the-box. In particular, it should use the
-  absolute package-style import and not a relative file import (i.e
+  absolute package-style import and not a relative file import (i.e.
   `@preview/my-package:0.1.0` rather than `../lib.typ`).
 
 - **Documentation:** Your package must include a `README.md` file, documenting
