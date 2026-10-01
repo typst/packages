@@ -6,5 +6,6 @@ authors = ["James Briant <james.briant@dtc.ox.ac.uk>"]
 description = "University of Oxford branding for documents and presentations."
 license = "MIT"
 repository = "https://github.com/jamesbriant/OU-typst/"
-keywords = ["Oxford", "Oxford University", "University of Oxford", "OU"]    
+keywords = ["Oxford", "Oxford University", "University of Oxford", "OU"]
 categories = ["components", "layout", "presentation"]
+exclude = ["assets/presentation-hero-john-cairns.png"]
