@@ -1,10 +1,33 @@
-# v-exam: 0.1.0
+# v-exam
+
+[English](#english) | [Tiếng Việt](#tiếng-việt)
+
+---
+
+## English
+
+### Overview
+`v-exam` is a Typst package designed to compose exercises, study materials, and shuffle multiple-choice or essay exam papers according to the standard format of the **Ministry of Education and Training (MOET) of Vietnam**. 
+
+While tailored to the Vietnamese educational structure, it supports all subjects (Mathematics, Physics, Chemistry, Biology, History, Geography, etc.).
+
+> **Note:** This package is specifically designed to meet Vietnamese high school exam layout and formatting guidelines. If you are not creating exams or study materials based on the Vietnamese educational standard, this package may not fit your needs.
+
+### Key Features
+- **Automatic Exam Shuffling:** Shuffle options (Multiple Choice), True/False items ($a, b, c, d$), and question order using random seeds.
+- **Answer Key & QR Code Generation:** Automatically generates composite answer tables and QR codes compatible with automated optical mark recognition (OMR) grading apps (e.g., UNT, Chấm thi KC).
+- **Grouped Question Support (Shared Context):** Handles context-based/passage-based questions without scattering sub-questions.
+- **In-line Exercises & Solution Rendering:** Create topical revision worksheets with optional detailed step-by-step solutions.
+
+---
+
+## Tiếng Việt
 
 Bộ công cụ biên soạn bài tập, tài liệu ôn tập và trộn đề thi trắc nghiệm / tự luận chuẩn định dạng Bộ Giáo dục & Đào tạo Việt Nam dành cho mọi môn học (Toán, Vật lý, Hóa học, Sinh học, Lịch sử, Địa lý, GDKT&PL, ...).
 
 ---
 
-## 🚀 Tính năng nổi bật
+### 🚀 Tính năng nổi bật
 
 - **Tự động trộn đề:** Trộn đảo phương án NLC, đảo ý $a, b, c, d$ của câu hỏi Đúng/Sai, hoán vị câu hỏi theo seed mã đề.
 - **Tự động xuất bảng đáp án & mã QR:** Tạo bảng đáp án tổng hợp và mã QR cho phần mềm chấm thi tự động (như UNT, Chấm thi KC, ...).
@@ -13,7 +36,7 @@ Bộ công cụ biên soạn bài tập, tài liệu ôn tập và trộn đề 
 
 ---
 
-## 🖼️ Mẫu kết quả (Gallery)
+### 🖼️ Mẫu kết quả (Gallery)
 
 <p align="center">
   <img src="gallery/Picture-de.png" width="48%" alt="Đề thi mẫu" /> <br>
@@ -23,15 +46,15 @@ Bộ công cụ biên soạn bài tập, tài liệu ôn tập và trộn đề 
 
 ---
 
-## 📦 Hướng dẫn sử dụng
+### 📦 Hướng dẫn sử dụng
 
-### 1. Import thư viện
+#### 1. Import thư viện
 
 ```typst
 #import "@preview/v-exam:0.1.0": *
 ```
 
-### 2. Định dạng ngân hàng câu hỏi
+#### 2. Định dạng ngân hàng câu hỏi
 
 Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `dictionary`:
 
@@ -136,7 +159,7 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
 )
 ```
 
-### 3. Biên soạn bài tập / Tài liệu ôn tập (`exercise` / `bai-tap-in-line`)
+#### 3. Biên soạn bài tập / Tài liệu ôn tập (`exercise` / `bai-tap-in-line`)
 
 ```typst
 #import "@preview/v-exam:0.1.0": exercise, bai-tap-in-line
@@ -154,9 +177,9 @@ Ngân hàng câu hỏi được lưu dưới dạng mảng `array` các `diction
 )
 ```
 
-### 4. Trộn đề thi
+#### 4. Trộn đề thi
 
-#### a) Trộn đề thi từ ngân hàng (`make-exam-matrix` / `tron-de-bank-level`)
+##### a) Trộn đề thi từ ngân hàng (`make-exam-matrix` / `tron-de-bank-level`)
 
 Tạo các đề thi bằng cách rút ngẫu nhiên câu hỏi từ ngân hàng đề:
 
@@ -188,7 +211,7 @@ Tạo các đề thi bằng cách rút ngẫu nhiên câu hỏi từ ngân hàng
 #tron-de-bank-level(matrix, info, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: true)
 ```
 
-#### b) Trộn đề cùng nội dung (`make-exam-sync` / `tron-de-cung-noi-dung`)
+##### b) Trộn đề cùng nội dung (`make-exam-sync` / `tron-de-cung-noi-dung`)
 
 Cùng một bộ câu hỏi nhưng xáo trộn vị trí câu và phương án giữa các mã đề:
 
@@ -198,7 +221,7 @@ Cùng một bộ câu hỏi nhưng xáo trộn vị trí câu và phương án g
 #tron-de-cung-noi-dung(matrix, info, seed-goc: 2026, show-lg: false, hien-thi-bang-dap-an: true, theo-lv: false, xao-cau: true, xao-pa: true)
 ```
 
-#### c) Trộn đề chỉ đảo ý/phương án (`make-exam-sub-only` / `tron-de-chi-y`)
+##### c) Trộn đề chỉ đảo ý/phương án (`make-exam-sub-only` / `tron-de-chi-y`)
 
 Cố định thứ tự câu hỏi, chỉ hoán vị phương án hoặc các ý $a, b, c, d$:
 
@@ -210,6 +233,6 @@ Cố định thứ tự câu hỏi, chỉ hoán vị phương án hoặc các ý
 
 ---
 
-## 📜 Giấy phép
+### 📜 Giấy phép
 
 Phát hành theo giấy phép [MIT License](LICENSE).
