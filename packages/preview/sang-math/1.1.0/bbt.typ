@@ -16,23 +16,6 @@
   )
 }
 
-// Helper tự động co tỷ lệ bảng khi vùng chứa hẹp hơn chiều rộng tự nhiên (cột 2, layout nháp...)
-#let _auto-fit-canvas(the-canvas, natural-w, fit: auto) = {
-  if fit == false {
-    the-canvas
-  } else {
-    layout(size => {
-      let nat-pt = natural-w * 1cm
-      if size.width < nat-pt and size.width > 0pt {
-        let s = (size.width / nat-pt) * 100%
-        scale(x: s, y: s, reflow: true, the-canvas)
-      } else {
-        the-canvas
-      }
-    })
-  }
-}
-
 #let bbtv2(
   var: $x$,
   var2: none,
@@ -59,7 +42,6 @@
   guides: (),
   annotations: (),
   overlay: none,
-  fit: auto,
 ) = context {
   let __clr = text.fill
   let main-stroke = if stroke == none { 0.8pt + __clr } else { stroke }
@@ -143,10 +125,10 @@
   } else { h3 }
 
   let th = h-var + h-der + h3-calc
-  let tw = w1 + w2-calc
 
-  let the-canvas = canvas({
+  canvas({
     import draw: *
+    let tw = w1 + w2-calc
 
     let x-pos = ()
     for i in range(n) {
@@ -400,7 +382,6 @@
       ))
     }
   })
-  _auto-fit-canvas(the-canvas, tw, fit: fit)
 }
 
 
@@ -419,7 +400,6 @@
   w2: 8,
   h1: 0.8,
   h2: 0.8, // chiều cao mỗi dòng dấu
-  fit: auto,
 ) = context {
   let __clr = text.fill
   // Chuẩn hóa: nếu func là mảng thì nhiều dòng
@@ -430,11 +410,11 @@
     (f-signs,)
   }
   let nrows = funcs.len()
-  let tw = w1 + w2
 
-  let the-canvas = canvas(length: 1cm, {
+  canvas(length: 1cm, {
     import draw: *
     let n = x-vals.len()
+    let tw = w1 + w2
     let th = h1 + h2 * nrows
 
     rect((0, 0), (tw, -th), stroke: 1pt + __clr)
@@ -494,7 +474,6 @@
       }
     }
   })
-  _auto-fit-canvas(the-canvas, tw, fit: fit)
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -515,7 +494,6 @@
   w2: 8,
   h1: 0.8,
   h2: 0.8,
-  fit: auto,
 ) = {
   let factors = if factors.len() > 0 { factors } else { rows }
   let result-label = if func != none { func } else { result-label }
@@ -544,7 +522,7 @@
   }
   let all-funcs = factors.map(f => f.at(0)) + (result-label,)
   let all-signs = factors.map(f => f.at(1)) + (result,)
-  bxd(var: var, func: all-funcs, x-vals: x-vals, f-signs: all-signs, w1: w1, w2: w2, h1: h1, h2: h2, fit: fit)
+  bxd(var: var, func: all-funcs, x-vals: x-vals, f-signs: all-signs, w1: w1, w2: w2, h1: h1, h2: h2)
 }
 
 #let bbbt(
@@ -562,7 +540,6 @@
   h3: auto,
   node-pad: 0.18,
   arr-shorten: 3pt,
-  fit: auto,
 ) = context {
   let __clr = text.fill
   // Tự động phân tích AST để điều chỉnh chiều cao nếu h1, h3 là auto
@@ -587,11 +564,11 @@
     if has-tall { 3.2 } else { 2.8 }
   } else { h3 }
 
-  let tw = w1 + w2
-  let the-canvas = canvas(length: 1cm, {
+  canvas(length: 1cm, {
     import draw: *
 
     let n = x-vals.len()
+    let tw = w1 + w2
     let th = h1 + h2 + h3
 
     // Kẻ khung
@@ -739,7 +716,6 @@
       }
     }
   })
-  _auto-fit-canvas(the-canvas, tw, fit: fit)
 }
 // Chuyên dùng cho các bài toán tối ưu (1 cực trị trên đoạn)
 // ==========================================
@@ -753,16 +729,15 @@
   is-min: true, // true: cực tiểu (\/), false: cực đại (/\)
   w1: 1.5, // Chiều rộng cột nhãn
   w2: 7, // Chiều rộng cột nội dung
-  fit: auto,
 ) = context {
   let __clr = text.fill
-  let tw = w1 + w2
-  let the-canvas = canvas(length: 1cm, {
+  canvas(length: 1cm, {
     import draw: *
 
     let h1 = 0.8
     let h2 = 0.8
     let h3 = 2.2
+    let tw = w1 + w2
     let th = h1 + h2 + h3
 
     // Kẻ khung và các đường ngang, dọc
@@ -809,7 +784,6 @@
     line("v1", "v2", mark: (end: ">", fill: __clr), stroke: 0.8pt + __clr)
     line("v2", "v3", mark: (end: ">", fill: __clr), stroke: 0.8pt + __clr)
   })
-  _auto-fit-canvas(the-canvas, tw, fit: fit)
 }
 
 // ═══════════════════════════════════════════════════════════

@@ -7,13 +7,13 @@
 // ─── Tập hợp ────────────────────────────────────────────────
 #let cap = sym.inter         // ∩  (LaTeX: \cap)
 #let cup = sym.union         // ∪  (LaTeX: \cup)
-#let notin = sym.in.not        // ∉  (LaTeX: \notin)
+#let notin = sym.in.not        // ∉  (LaTeX:
+otin)
 #let subseteq = sym.subset.eq     // ⊆  (LaTeX: \subseteq)
 #let supseteq = sym.supset.eq     // ⊇  (LaTeX: \supseteq)
 #let emptyset = sym.nothing       // ∅  (LaTeX: \emptyset)
 #let varnothing = sym.nothing      // ∅  (LaTeX: \varnothing)
 #let setminus = sym.backslash     // ∖  (LaTeX: \setminus)
-#let mid = sym.bar.v              // |  (LaTeX: \mid trong định nghĩa tập hợp)
 
 // ─── So sánh & quan hệ ─────────────────────────────────────
 #let leq = sym.lt.eq         // ≤  (LaTeX: \leq / \le)

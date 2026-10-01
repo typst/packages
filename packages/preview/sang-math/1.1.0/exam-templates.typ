@@ -2,12 +2,11 @@
 // SANG-MATH EXAM TEMPLATES v1.0.2
 // Bộ preset giao diện đề thi dùng chung với thpt-school-exam.
 // Cách dùng:
-//   #import "@preview/sang-math:1.1.0": *
+//   #import "@preview/sang-math:1.0.6": *
 //   #show: exam-ocean.with(school: "THPT ...", code: "101")
 // ================================================================
 
 #import "sang-exam.typ": thpt-school-exam, print-answer-key
-#import "src/theme/tokens.typ": design-tokens
 
 #let _template(
   body,
@@ -310,7 +309,7 @@
   let real-two-columns = if two-columns == auto { profile == "compact" or profile == "twocol" } else { two-columns }
   let real-answer-key = if answer-key == auto { profile == "answer" or profile == "loigiai" } else { answer-key }
   let real-boxed = if boxed == auto { s.boxed } else { boxed }
-  let accent = design-tokens(s).primary
+  let accent = s.accent
   (
     theme: theme,
     profile: profile,

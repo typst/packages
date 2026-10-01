@@ -3,8 +3,6 @@
 // Bộ giao diện sách / SGK / chuyên đề / workbook dùng chung.
 // ================================================================
 
-#import "src/theme/tokens.typ": design-tokens
-
 #let _book-palettes = (
   sgk-modern: (
     accent: rgb("#2563eb"),
@@ -408,18 +406,17 @@
   heading-font: "New Computer Modern",
 ) = {
   let p = book-palette(theme)
-  let tokens = design-tokens(p, font-body: body-font, font-title: heading-font)
   set page(paper: paper, margin: margin, numbering: none, fill: white)
-  set text(font: tokens.font-body, size: 11pt, fill: tokens.text)
+  set text(font: body-font, size: 11pt, fill: p.ink)
   set par(leading: 0.65em, first-line-indent: 0pt, justify: true)
-  show strong: it => text(fill: tokens.primary, weight: "bold")[#it.body]
+  show strong: it => text(fill: p.accent, weight: "bold")[#it.body]
   show heading: it => {
     if it.level == 1 {
-      text(font: tokens.font-title, size: 22pt, weight: "bold", fill: tokens.primary)[#it.body]
+      text(font: heading-font, size: 22pt, weight: "bold", fill: p.accent)[#it.body]
     } else if it.level == 2 {
-      text(font: tokens.font-title, size: 16pt, weight: "bold", fill: tokens.primary.darken(5%))[#it.body]
+      text(font: heading-font, size: 16pt, weight: "bold", fill: p.accent.darken(5%))[#it.body]
     } else {
-      text(font: tokens.font-title, size: 12.5pt, weight: "bold", fill: tokens.secondary)[#it.body]
+      text(font: heading-font, size: 12.5pt, weight: "bold", fill: p.accent-2)[#it.body]
     }
   }
 

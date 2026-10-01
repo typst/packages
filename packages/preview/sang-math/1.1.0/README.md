@@ -3,93 +3,40 @@
 Bộ macro Typst dành cho Toán THPT Việt Nam: đề thi bốn dạng câu hỏi, sách/chuyên đề, bảng biến thiên, bảng xét dấu và hình học CeTZ.
 
 - Hướng dẫn trực tuyến: https://hdsd-conictypst.pages.dev
-- Hướng dẫn 1.1 và 20 file mẫu copy ngay (preview): [PR nguồn và HDSD](https://github.com/sangnhc87/conictypst/pull/3)
 - Mã nguồn: https://github.com/sangnhc87/conictypst
-- Yêu cầu cho 1.1.0: Typst 0.15.0 trở lên (do `touying 0.8.0`); bản 1.0.6 vẫn dùng được với Typst 0.14.x.
+- Yêu cầu: Typst 0.14.0 trở lên (do `cetz 0.5.2`)
+
+Bản 1.1.0 giữ nguyên cách gõ và giao diện của 1.0.6. Phần bổ sung tập trung vào QR đáp án và tám phiếu OMR có thể tô sẵn SBD/mã đề; không cần mô hình câu hỏi hay cú pháp trộn đề mới.
 
 ## Cài đặt
 
 ```typ
-// Sử dụng bản chính thức trên Typst Universe:
-#import "@preview/sang-math:1.1.0": * // sau khi 1.1.0 được phát hành
-
-// Hoặc sử dụng bản cài đặt local trên máy:
-#import "@local/sang-math:1.1.0": *
+#import "@preview/sang-math:1.1.0": *
 ```
 
-Khi chỉ dùng một nhóm chức năng, có thể import tường minh:
+Khi chỉ dùng một nhóm chức năng, nên import đúng tên cần dùng để file dễ đọc và API rõ ràng:
 
 ```typ
-#import "@local/sang-math:1.1.0": tn, ds, tln, tl, True, decuong-book, decuong-preview
+#import "@preview/sang-math:1.1.0": tn, ds, tln, tl, True, sang-setup
 ```
 
 ## API chính
 
 | Nhóm | Macro tiêu biểu |
 |---|---|
-| **Sách Đề cương (1.1)** | `decuong-book`, `decuong-preview`, `chuyende-book`, `dethi-book`, `chuong`, `bai`, `dang`, `phuong-phap`, `bt-item`, `C1`..`C5` |
-| **Namespace 1.0.6 đã phát hành** | `book`, `beamer`, `sang-omr-qr`, `draw-helix`, `draw-spring`, `draw-cylinder`, `draw-cone`, `draw-sphere` tiếp tục được export |
-| **Ma trận Logic (1.1)** | `matrix-table`, `co`, `yes`, `khong`, `no`, `logic-check`, `logic-cross` |
-| **Đề thi THPT** | `tn`, `ds`, `tln`, `tl`, `exam-mode`, `exam-part`, `print-answer-key` |
-| **Câu hỏi cấu trúc (1.1)** | `bank-mode` giữ tên `tn/ds/tln/tl`; `question`, `choice`, `answer` dành cho dữ liệu nâng cao; `render-question` |
-| **Ngân hàng và trộn đề (1.1)** | `question-bank`, `bank-filter`, `bank-select`, `bank-shuffle-choices`, `exam-variant`, `exam-variants` |
-| **Đề và phiếu OMR (1.1)** | `render-exam-variant`, `exam-variant-qr`, state `sbd`/`made` cho các phiếu chuẩn |
-| **Giao diện đề thi** | `exam-theme`, `exam-preset`, `exam-input-preset`, `exam-template-names` |
-| **Sách / SGK chuyên sâu** | `book-theme`, `book-chapter`, `book-lesson`, các hộp sư phạm (`goal-box`, `theorem-box`...) |
-| **Layout in hai mặt** | `layout-draft`, `layout-2col-draft` — nội dung 70%, nháp 30% đổi bên chẵn/lẻ |
-| **Bảng biến thiên & Xét dấu** | `bbtv2`, `bbbt`, `bxd`, `my-bxd`, `my-bbbt`, `bang-gia-tri`, `auto-bbt` |
-| **Hình học cơ bản** | `tri-abc`, `tri-right`, `chop-sabc`, `circle-desc`, `axis-xy`, `plot` |
-| **Conic & Khối tròn xoay** | `draw-parabola`, `draw-ellipse`, `draw-hyperbola`, `draw-cylinder`, `draw-cone`, `draw-sphere` |
-| **Ký hiệu toán & đa môn** | `RR`, `ZZ`, `NN`, `QQ`, `tfrac`, `heva`, `hoac`, `doC`, `ohm`, `pu-tn`... |
+| Đề thi | `tn`, `ds`, `tln`, `tl`, `exam-mode`, `exam-part`, `print-answer-key` |
+| QR và phiếu tô | `sang-omr-qr`, `sang-omr-profile`, tám mẫu trong `examples/omr/` |
+| Giao diện đề | `exam-theme`, `exam-preset`, `exam-input-preset`, `exam-template-names` |
+| Sách/chuyên đề | `book-theme`, `book-chapter`, `book-lesson`, các hộp sư phạm, `book-template-names` |
+| Layout in hai mặt | `layout-draft`, `layout-2col-draft` — nội dung 70%, nháp 30% đổi bên chẵn/lẻ |
+| Bảng Toán | `bbtv2`, `bbbt`, `bxd`, `bang-gia-tri`, `bang-phan-phoi`, `auto-bbt` |
+| Hình học cơ bản | `tri-abc`, `tri-right`, `chop-sabc`, `circle-desc`, `axis-xy`, `plot` |
+| Conic | `draw-parabola`, `draw-ellipse`, `draw-hyperbola` |
+| Khối tròn xoay | `draw-cylinder`, `draw-cone`, `draw-sphere` |
+| Đường cong 3D | `draw-helix`, `draw-spring` |
+| Ký hiệu | `RR`, `ZZ`, `NN`, `QQ`, `Rightarrow`, `Leftrightarrow`, `vect`... |
 
-`lib.typ` là cổng public duy nhất xuất toàn bộ hệ thống đề thi, sách đề cương, ma trận logic, BBT và hình học CeTZ.
-
-## API câu hỏi cấu trúc 1.1
-
-Các tài liệu dùng `#tn`, `#ds`, `#tln`, `#tl` vẫn chạy với chữ ký và bố cục cũ. Khi cần ngân hàng/trộn đề, gọi `bank-mode()` một lần rồi soạn với chính bốn tên lệnh ấy; lệnh sẽ trả dữ liệu câu hỏi thay vì in ngay. Ví dụ hoàn chỉnh có tại [`examples/question-bank-demo.typ`](examples/question-bank-demo.typ).
-
-```typ
-#let (tn, ds, tln, tl) = bank-mode()
-#let q = tn(
-  [Đạo hàm của $x^2$ là gì?],
-  ([$x$], True([$2x$]), [$x^2$], [$2$]),
-  id: "1D7N2-1",
-  loigiai: [$(x^2)'=2x$.],
-)
-#let bank = question-bank(q)
-#let selected = bank-select(bank-filter(bank, id-prefix: "1D7"), count: 1, seed: 101)
-#for item in selected { render-question(item, mode: "student") }
-```
-
-Mã `1D7N2-1` lấy từ `bank.json`: `1` là lớp 11, `D7` là mạch/chương, `N` là Nhận biết, `2` là bài, `1` là dạng. `bank-mode` tự suy ra `grade`, `chapter`, mã `topic` và `difficulty` (`N/H/V/C` → `1/2/3/4`). Loại câu do tên `tn/ds/tln/tl` xác định vì mã bank không chứa loại câu. Không cần ghi lại `kind`, `grade`, `topic`, `difficulty`; nhiều câu có thể dùng cùng mã phân loại. `id-prefix` lọc theo đầu mã, chẳng hạn `"1D7"`. ID đúng cấu trúc nhưng không có trong `bank.json` không được đối chiếu tự động, nên hãy lấy mã từ catalogue. `render-question` nhận `mode: "student"`, `"teacher"`, `"solution"` hoặc `"answer-key"`. Cấu trúc `question(...)` vẫn có cho nhu cầu dữ liệu nâng cao như đáp án có kiểu/tolerance; xem [Question Model](docs/question-model.md).
-
-## Trộn đề và phiếu 12–4–6 ngang
-
-`exam-variant(bank, blueprint, seed:, ma-de:)` chọn đúng số câu theo từng phần, lọc theo loại câu, lớp, tiền tố ID, chủ đề, độ khó và tags, không lặp câu trong một mã đề và đảo đáp án trắc nghiệm cùng chỉ số đáp án. `exam-variants` nhận nhiều mã đề và ưu tiên câu ít dùng ở các mã trước; nhiều câu cùng mã phân loại vẫn được cân bằng riêng theo vị trí ổn định trong bank. Cùng bank, blueprint và seed sẽ cho kết quả lặp lại được. Khi thiếu câu hoặc mã đề trùng, hàm báo lỗi lúc biên dịch.
-
-```typ
-#let blueprint = (
-  (kind: QUESTION_MC, count: 12, title: [Phần I]),
-  (kind: QUESTION_TF, count: 4, title: [Phần II]),
-  (kind: QUESTION_SA, count: 6, title: [Phần III]),
-)
-#let ma-de = "0101"
-#let variant = exam-variant(bank, blueprint, seed: 2026, ma-de: ma-de)
-#render-exam-variant(variant)
-
-// In QR đáp án trên trang dành cho giáo viên.
-#exam-variant-qr(variant)
-
-// Trong file có thể truy cập phiếu OMR (ví dụ bên trong repo):
-#state("sbd").update("1001")
-#state("made").update(ma-de)
-#include "12-4-6ngang.typ"
-```
-
-Đặt file gọi `#include` cạnh phiếu hoặc đổi đường dẫn cho phù hợp. Ví dụ biên dịch hoàn chỉnh ở [`examples/exam-variant-omr.typ`](examples/exam-variant-omr.typ), tám preset phiếu có trong [`examples/omr/`](examples/omr/) và 20 file mẫu copy sẵn có trong [PR nguồn và HDSD](https://github.com/sangnhc87/conictypst/pull/3). QR trên phiếu là mã nhận diện bố cục `SMOMR`; `exam-variant-qr` xuất QR đáp án `SMKEY` riêng cho đúng mã đề. Dùng `exam-variant-qr-payload(variant)` để lấy chuỗi `SMKEY` khi cần xuất qua hệ thống khác. Giá trị state trống giữ phiếu chưa tô; SBD được thêm số 0 ở đầu đến sáu chữ số, mã đề đến bốn chữ số.
-
-Xem [`MIGRATION.md`](MIGRATION.md) để biết cách dùng song song hai API và [`docs/question-model.md`](docs/question-model.md) để tra đủ kiểu dữ liệu, chế độ render và quy tắc lọc. Phiên bản 1.1.0 trong README là mã nguồn chuẩn bị phát hành; import `@preview` sẽ hoạt động sau khi bản phát hành xuất hiện trên Typst Universe.
-
+`lib.typ` là cổng public duy nhất và hiện đã export cả template đề, template sách cùng các module CeTZ nâng cao. Người dùng không cần import đường dẫn nội bộ.
 
 ## Câu đúng/sai dạng bảng hoặc danh sách
 
@@ -119,59 +66,7 @@ chuyển nhanh sang danh sách bằng `use-table: false`:
 `use-table: false` tương đương `ds-style: "list"`. Cú pháp cũ
 `table: false` cũng được giữ để tương thích với các ví dụ đã lưu.
 
-## Sách Đề Cương & Biên Soạn Toàn Năng (preview 1.1.0)
-
-Soạn thảo toàn bộ tài liệu học tập, sách đề cương ôn tập hoặc hướng dẫn giải chi tiết chỉ với một lệnh show rule duy nhất:
-
-```typ
-#import "@local/sang-math:1.1.0": *
-
-#show: decuong-book.with(
-  title: "ĐỀ CƯƠNG TOÁN 10 HỌC KỲ I",
-  author: "Thầy Nguyễn Sang",
-  school: "TRƯỜNG THPT NGUYỄN HỮU CẢNH",
-  subject: "MÔN: TOÁN — LỚP 10",
-  year: "NĂM HỌC 2026–2027",
-  mode: "loigiai", // Đổi thành "dethi" là cả cuốn sách tự động ẩn hết lời giải!
-  show-cover: true, // Bìa màu chuẩn nhận diện
-  show-toc: true,   // Mục lục 3 cấp
-)
-
-#chuong("MỆNH ĐỀ VÀ TẬP HỢP", mau: C1)
-#bai("MỆNH ĐỀ TOÁN HỌC", mau: C1)
-
-#dang("Suy luận logic bằng bảng ma trận", mau: C1)
-#phuong-phap[Phương pháp loại trừ theo hàng và cột...]
-
-#bai-tap-tu-luan(mau: C1)[
-  #bt-item(1, [Đề bài tự luận...], loigiai: [Lời giải chi tiết...])
-]
-
-#bai-tap-trac-nghiem(mau: C1)
-#tn(dir: "ngang", [Câu hỏi trắc nghiệm...], (A, B, C, D), loigiai: [...])
-```
-
-### Soạn riêng lẻ 1 file bài tập (decuong-preview)
-
-Khi đang mở riêng 1 file bài trong IDE, dùng `decuong-preview` để xem trước trực tiếp mà không sinh ra trang bìa hay mục lục:
-
-```typ
-#import "@local/sang-math:1.1.0": *
-#show: decuong-preview.with(mode: "loigiai") // Hoặc "dethi"
-
-#dang("Dạng toán cụ thể", mau: C1)
-...
-```
-
-### Ký hiệu Ma Trận Logic
-
-Hỗ trợ trực tiếp các ký hiệu ma trận suy luận:
-- `#co`, `#yes` (✔ Có) và `#khong`, `#no` (✘ Không).
-- `#logic-check` (✔) và `#logic-cross` (✘).
-- `#matrix-table(headers: (...), rows: (...))` cho bảng suy luận logic nhiều chiều.
-
 ## Ví dụ đề thi
-
 
 ```typ
 #import "@preview/sang-math:1.1.0": *
@@ -202,13 +97,13 @@ Hỗ trợ trực tiếp các ký hiệu ma trận suy luận:
 
 ## Bộ mẫu để copy và sửa
 
-Thư mục [`examples/copy-ready`](examples/copy-ready) có các mẫu chạy sẵn cho
+Thư mục [`examples/copy-ready`](https://github.com/sangnhc87/conictypst/tree/14b296889533c8b1897e5bebbfec499de7c5a932/typst-pkg-sang-math/examples/copy-ready) có các mẫu chạy sẵn cho
 đề 15 phút, giữa kỳ hỗn hợp, cấu trúc THPT 12–4–6, đề tự luận có nháp, phiếu học
 tập và câu có bảng biến thiên/CeTZ. Xem bảng chọn mẫu tại
-[`examples/README.md`](examples/README.md).
+[`examples/README.md`](https://github.com/sangnhc87/conictypst/blob/14b296889533c8b1897e5bebbfec499de7c5a932/typst-pkg-sang-math/examples/README.md).
 
 Giáo viên dùng AI/OCR để tạo hoặc chuyển đề có thể sao chép bộ hướng dẫn tại
-[`PROMPT_AI_TAO_DE.md`](PROMPT_AI_TAO_DE.md). Prompt quy định đúng chữ ký
+[`PROMPT_AI_TAO_DE.md`](https://github.com/sangnhc87/conictypst/blob/14b296889533c8b1897e5bebbfec499de7c5a932/typst-pkg-sang-math/PROMPT_AI_TAO_DE.md). Prompt quy định đúng chữ ký
 `tn/ds/tln/tl`, ID ổn định, cú pháp toán Typst và bước tự kiểm tra đáp án.
 
 Các theme đề có thể lấy trực tiếp bằng `exam-template-names`; hiện gồm `classic`, `ocean`, `emerald`, `royal`, `violet`, `crimson`, `graphite`, `amber`, `teal-pro`, `sky`, `indigo-minimal`, `print-economy`, `aurora`, `lotus`, `navy-gold`, `jade`, `coral`, `plum`.
@@ -233,6 +128,60 @@ Các theme đề có thể lấy trực tiếp bằng `exam-template-names`; hi�
 ```
 
 Danh sách giao diện sách có sẵn nằm trong `book-template-names`.
+
+
+## QR Đáp án OMR (Chấm bài tự động qua Sang Math OMR)
+
+Từ phiên bản `1.0.6`, `sang-math` bổ sung hàm `sang-omr-qr` tự động đọc dữ liệu đáp án của đề thi (`tn`, `ds`, `tln`) và tạo mã QR nạp key cho ứng dụng chấm bài trực tiếp:
+
+```typ
+#import "@preview/sang-math:1.1.0": *
+
+#make-questions()
+
+#if in-qr-dap-an [
+  #pagebreak()
+  #align(center)[
+    #text(weight: "bold", size: 15pt, fill: accent)[QR ĐÁP ÁN OMR - BẢN GIÁO VIÊN]
+    #v(0.5em)
+    #text(size: 10pt)[Mã đề #ma-de. Mở Sang Math OMR, chọn “Quét QR trực tiếp” để nạp key và chấm bài.]
+    #v(1em)
+    #sang-omr-qr(ma-de: ma-de)
+  ]
+]
+
+#print-answer-key()
+```
+
+### Nâng cấp QR và phiếu ở 1.1.0
+
+Giữ nguyên các câu `#tn/#ds/#tln/#tl`. QR `SMKEY` đọc đáp án từ các câu đã in, dùng cho giáo viên nạp đáp án vào Sang Math OMR. Phiếu có QR `SMOMR` riêng để nhận dạng bố cục; mã này không chứa đáp án.
+
+```typ
+#let ma-de = "0101"
+// ... các câu #tn(...), #ds(...), #tln(...) như 1.0.6 ...
+#sang-omr-qr(ma-de: ma-de, profile: "12-4-6ngang")
+
+#pagebreak()
+#state("sbd").update("1001")
+#state("made").update(ma-de)
+#include "omr/12-4-6ngang.typ"
+```
+
+Đoạn trên cần file phiếu ở `examples/omr/` đặt cạnh file đề theo đúng đường dẫn `#include`. Xem [ví dụ đầy đủ biên dịch được](examples/qr-12-4-6.typ), không cần viết phần `...` khi dùng. `1001` sẽ in/tô thành `001001`; mã đề được đệm đủ bốn chữ số. Không đặt state thì các ô SBD/mã đề để trống.
+
+`profile:` là tùy chọn. Khi ghi tên phiếu, hàm QR kiểm số câu TN/ĐS/TLN đúng với phiếu và tự chọn khổ giấy. Bỏ `profile:` thì cách tạo QR của 1.0.6 được giữ nguyên. Các profile có sẵn:
+
+| Profile | TN | Đ/S | TLN | Khổ |
+|---|---:|---:|---:|---|
+| `12-4-6ngang` | 12 | 4 | 6 | A5 ngang |
+| `thptqg-toan-2025` | 12 | 4 | 6 | A4 |
+| `ds-12` | 0 | 12 | 0 | A4 |
+| `hybrid-28tn-12ds` | 28 | 12 | 0 | A4 |
+| `tln-10` | 0 | 0 | 10 | A4 |
+| `tn-40` / `tn-50` / `tn-60` | 40 / 50 / 60 | 0 | 0 | A4 |
+
+Tên, số câu và khổ của từng phiếu có thể xem bằng `sang-omr-profile("tn-40")`. Nội dung TLN có dấu nháy, gạch chéo hoặc xuống dòng được mã hóa đúng trong JSON của QR.
 
 ## Bảng biến thiên
 
@@ -261,7 +210,7 @@ Nội dung đề thi...
 
 Trang lẻ đặt vùng nháp bên phải, trang chẵn đặt vùng nháp bên trái. Lề nội dung
 dùng cơ chế `inside`/`outside` nên tự đảo đúng khi in hai mặt. Mẫu đầy đủ nằm tại
-[`examples/copy-ready/07-de-70-30-nhap-in-hai-mat.typ`](examples/copy-ready/07-de-70-30-nhap-in-hai-mat.typ).
+[`examples/copy-ready/07-de-70-30-nhap-in-hai-mat.typ`](https://github.com/sangnhc87/conictypst/blob/14b296889533c8b1897e5bebbfec499de7c5a932/typst-pkg-sang-math/examples/copy-ready/07-de-70-30-nhap-in-hai-mat.typ).
 
 
 ## Hình học CeTZ nâng cao
@@ -301,7 +250,7 @@ Gói `sang-math` cung cấp khung đề thi chuẩn Bộ GD&ĐT 2025, hoàn toà
 ```
 
 ## Tạo đề bằng AI (ChatGPT / Claude / Gemini)
-Để AI hỗ trợ soạn đề theo cú pháp `sang-math:1.0.6`, xem hướng dẫn và sao chép System Prompt tại [`PROMPT_AI_TAO_DE.md`](PROMPT_AI_TAO_DE.md). Luôn biên dịch và duyệt nội dung toán trước khi dùng.
+Để AI hỗ trợ soạn đề tự động đúng 100% cú pháp `sang-math:1.0.6`, xem hướng dẫn và sao chép System Prompt chuẩn tại [`PROMPT_AI_TAO_DE.md`](https://github.com/sangnhc87/conictypst/blob/14b296889533c8b1897e5bebbfec499de7c5a932/typst-pkg-sang-math/PROMPT_AI_TAO_DE.md).
 
 ## Phát triển và kiểm thử
 

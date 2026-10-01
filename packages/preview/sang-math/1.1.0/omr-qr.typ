@@ -3,7 +3,7 @@
 // A simple dictionary to JSON encoder (only handles the subset needed for OMR key)
 #let _se-json-encode(val) = {
   if type(val) == str {
-    "\"" + val + "\""
+    "\"" + val.replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t") + "\""
   } else if type(val) == int {
     str(val)
   } else if type(val) == array {
@@ -64,7 +64,26 @@
   }
 }
 
-#let sang-omr-qr(ma-de: "0001", paper: "a5", width: 3cm) = context {
+// Optional strict profiles for the eight bundled OMR forms. Omitting `profile`
+// preserves the 1.0.6 QR behavior for documents with arbitrary question counts.
+#let sang-omr-profile(name) = {
+  let profiles = (
+    "12-4-6ngang": (id: "12-4-6ngang", mcq: 12, tf: 4, tln: 6, paper: "a5"),
+    "thptqg-toan-2025": (id: "thptqg-toan-2025", mcq: 12, tf: 4, tln: 6, paper: "a4"),
+    "ds-12": (id: "ds-12", mcq: 0, tf: 12, tln: 0, paper: "a4"),
+    "hybrid-28tn-12ds": (id: "hybrid-28tn-12ds", mcq: 28, tf: 12, tln: 0, paper: "a4"),
+    "tln-10": (id: "tln-10", mcq: 0, tf: 0, tln: 10, paper: "a4"),
+    "tn-40": (id: "tn-40", mcq: 40, tf: 0, tln: 0, paper: "a4"),
+    "tn-50": (id: "tn-50", mcq: 50, tf: 0, tln: 0, paper: "a4"),
+    "tn-60": (id: "tn-60", mcq: 60, tf: 0, tln: 0, paper: "a4"),
+  )
+  if type(name) != str or not (name in profiles) {
+    panic("sang-math OMR: unknown profile " + repr(name))
+  }
+  profiles.at(name)
+}
+
+#let sang-omr-qr(ma-de: "0001", paper: auto, width: 3cm, profile: none) = context {
   let mcq-ans = state("se-mcq", ()).final()
   let tf-ans = state("se-tf", ()).final()
   let sh-ans = state("se-sh", ()).final()
@@ -73,6 +92,12 @@
   let mcq-len = mcq-ans.len()
   let tf-len = tf-ans.len()
   let sh-len = sh-ans.len()
+  let selected = if profile == none { none } else { sang-omr-profile(profile) }
+  if selected != none and (mcq-len != selected.mcq or tf-len != selected.tf or sh-len != selected.tln) {
+    panic("sang-math OMR: answer counts do not match profile " + profile)
+  }
+  let sheet-id = if selected == none { "12-4-6ngang" } else { selected.id }
+  let sheet-paper = if paper == auto { if selected == none { "a5" } else { selected.paper } } else { paper }
 
   let mcq-str = mcq-ans.map(x => x.ans).join()
   let tf-start = if tf-len > 0 { mcq-len + 1 } else { 0 }
@@ -87,11 +112,11 @@
       source: "ConicTypst",
       made: ma-de,
       omr: (
-        id: "12-4-6ngang",
+        id: sheet-id,
         mcq: mcq-len,
         tf: tf-len,
         tln: sh-len,
-        paper: paper
+        paper: sheet-paper
       )
     ),
     k: (

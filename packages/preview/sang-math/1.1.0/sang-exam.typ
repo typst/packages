@@ -2,10 +2,6 @@
 // SANG-EXAM.TYP v6.0 — Engine thi THPT chuẩn ex_test.sty
 // =========================================================
 
-#import "src/core/normalize.typ": legacy-mcq-to-question, legacy-tf-to-question, legacy-short-to-question, legacy-written-to-question
-#import "src/core/validate.typ": validate-question
-#import "src/render/common.typ": render-question-data
-
 // ── Beamer-mode flag (set by sang-beamer.typ to suppress print-only elements) ──
 #let _beamer-mode = state("_beamer-mode", false)
 #let set-beamer-mode() = { _beamer-mode.update(true) }
@@ -643,9 +639,6 @@
   ..args,
 ) = context {
   let loigiai = _resolve-loigiai(loigiai, args)
-  let q = legacy-mcq-to-question(stem, options, correct: correct, loigiai: loigiai, id: args.named().at("id", default: none), tags: tags)
-  let _ = validate-question(q, mode: "legacy-compatible")
-  let options = q.choices.map(c => (body: c.content, correct: c.correct))
   let q-state = _next-question-num(num: num)
   let num = q-state.num
   let labels = ("A", "B", "C", "D", "E", "F")
@@ -913,9 +906,6 @@
   ..args,
 ) = context {
   let loigiai = _resolve-loigiai(loigiai, args)
-  let q = legacy-tf-to-question(stem, statements, loigiai: loigiai, id: args.named().at("id", default: none), tags: tags)
-  let _ = validate-question(q, mode: "legacy-compatible")
-  let statements = q.choices.map(c => (body: c.content, correct: c.correct))
   let q-state = _next-question-num(num: num)
   let num = q-state.num
   let vis-ans = mode != "dethi"
@@ -1364,8 +1354,6 @@
   ..args,
 ) = context {
   let loigiai = _resolve-loigiai(loigiai, args)
-  let q = legacy-short-to-question(stem, answer, loigiai: loigiai, id: args.named().at("id", default: none), tags: tags)
-  let _ = validate-question(q, mode: "legacy-compatible")
   let q-state = _next-question-num(num: num)
   let num = q-state.num
 
@@ -1481,8 +1469,6 @@
   ..args,
 ) = context {
   let loigiai = _resolve-loigiai(loigiai, args)
-  let q = legacy-written-to-question(stem, loigiai: loigiai, id: args.named().at("id", default: none))
-  let _ = validate-question(q, mode: "legacy-compatible")
   let q-state = _next-question-num(num: num)
   let num = q-state.num
 
@@ -1545,26 +1531,6 @@
 #let tn = mcq
 #let ds = tf
 #let tln = short
-
-// Structured 1.1 API. Legacy macros above retain their layout and counters.
-#let render-question(q, mode: "student", ..args) = render-question-data(
-  q,
-  mcq,
-  tf,
-  short,
-  tl,
-  mode: mode,
-  ..args,
-)
-
-#let render-exam-variant(variant, mode: "student", reset: true) = {
-  if reset { resetexamstate() }
-  for section in variant.sections {
-    let title = section.at("title", default: none)
-    if title != none { heading(title, level: 2) }
-    for q in section.questions { render-question(q, mode: mode) }
-  }
-}
 
 // ── exam-mode ─────────────────────────────────────────────
 #let exam-mode(
@@ -1933,184 +1899,4 @@
 // ─────────────────────────────────────────────────────────
 // OMR QR CODE GENERATION (TỰ ĐỘNG TẠO MÃ QR ĐÁP ÁN CHO CHẤM THI)
 // ─────────────────────────────────────────────────────────
-#import "@preview/cades:0.3.1": qr-code
-
-// A simple dictionary to JSON encoder (only handles the subset needed for OMR key)
-#let _se-json-encode(val) = {
-  if type(val) == str {
-    "\"" + val.replace("\\", "\\\\").replace("\"", "\\\"").replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t") + "\""
-  } else if type(val) == int {
-    str(val)
-  } else if type(val) == array {
-    "[" + val.map(_se-json-encode).join(",") + "]"
-  } else if type(val) == dictionary {
-    "{" + val.pairs().map(pair => _se-json-encode(pair.at(0)) + ":" + _se-json-encode(pair.at(1))).join(",") + "}"
-  } else {
-    "null"
-  }
-}
-
-// A simple base64 encoder
-#let _se-base64-encode(s) = {
-  let b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-  let bytes = if type(s) == str { bytes(s) } else { s }
-  let len = bytes.len()
-  let out = ""
-  let i = 0
-  while i < len {
-    let b1 = bytes.at(i)
-    let b2 = if i + 1 < len { bytes.at(i + 1) } else { 0 }
-    let b3 = if i + 2 < len { bytes.at(i + 2) } else { 0 }
-
-    let enc1 = calc.quo(b1, 4)
-    let enc2 = calc.rem(b1, 4) * 16 + calc.quo(b2, 16)
-    let enc3 = calc.rem(b2, 16) * 4 + calc.quo(b3, 64)
-    let enc4 = calc.rem(b3, 64)
-
-    out += b64.at(enc1)
-    out += b64.at(enc2)
-
-    if i + 1 >= len {
-      out += "=="
-    } else if i + 2 >= len {
-      out += b64.at(enc3) + "="
-    } else {
-      out += b64.at(enc3)
-      out += b64.at(enc4)
-    }
-    i += 3
-  }
-  out
-}
-
-#let _content-to-str(c) = {
-  if type(c) == str {
-    c
-  } else if type(c) == int or type(c) == float {
-    str(c)
-  } else if type(c) == content and c.has("text") {
-    c.text
-  } else if type(c) == content and c.has("body") {
-    _content-to-str(c.body)
-  } else if type(c) == content and c.func() == [].func() {
-    c.children.map(_content-to-str).join()
-  } else if type(c) == content and c.func() == math.equation {
-    _content-to-str(c.body)
-  } else {
-    ""
-  }
-}
-
-#let sang-omr-qr(ma-de: "0001", paper: "a5", width: 3cm) = context {
-  let mcq-ans = _mcq-meta.final()
-  let tf-ans = _tf-meta.final()
-  let sh-ans = _sh-meta.final()
-  let tl-ans = _tl-meta.final()
-
-  let mcq-len = mcq-ans.len()
-  let tf-len = tf-ans.len()
-  let sh-len = sh-ans.len()
-
-  let mcq-str = mcq-ans.map(x => x.ans).join()
-  let tf-start = if tf-len > 0 { mcq-len + 1 } else { 0 }
-  let tf-str = tf-ans.map(x => x.ans.join()).join()
-
-  let sh-start = if sh-len > 0 { mcq-len + tf-len + 1 } else { 0 }
-  let sh-arr = sh-ans.map(x => _content-to-str(x.ans).trim().replace("−", "-"))
-
-  let payload = (
-    z: 1,
-    m: (
-      source: "ConicTypst",
-      made: ma-de,
-      omr: (
-        id: "12-4-6ngang",
-        mcq: mcq-len,
-        tf: tf-len,
-        tln: sh-len,
-        paper: paper
-      )
-    ),
-    k: (
-      (ma-de): (
-        mcq-str,
-        tf-start,
-        tf-str,
-        sh-start,
-        sh-arr
-      )
-    )
-  )
-
-  let json-str = _se-json-encode(payload)
-  let b64-str = _se-base64-encode(json-str)
-  let final-str = "SMKEY:1:" + b64-str
-
-  box(fill: white, inset: 8pt, radius: 4pt, qr-code(final-str, width: width))
-}
-
-#let exam-variant-qr-payload(
-  variant,
-  profile: (id: "12-4-6ngang", mcq: 12, tf: 4, tln: 6, paper: "a5"),
-) = {
-  if type(variant) != dictionary or type(variant.at("questions", default: none)) != array or type(variant.at("ma-de", default: none)) != str {
-    panic("sang-math: OMR variant must come from exam-variant")
-  }
-  if type(profile) != dictionary or type(profile.at("id", default: none)) != str or profile.id == "" or type(profile.at("paper", default: none)) != str or profile.paper == "" {
-    panic("sang-math: OMR profile needs nonempty id and paper strings")
-  }
-  for field in ("mcq", "tf", "tln") {
-    let value = profile.at(field, default: none)
-    if type(value) != int or value < 0 { panic("sang-math: OMR profile " + field + " must be a non-negative integer") }
-  }
-  let mcq-ans = ()
-  let tf-ans = ()
-  let sh-ans = ()
-  let group = 0
-  for q in variant.questions {
-    let next-group = if q.kind == "mcq" { 0 } else if q.kind == "true-false" { 1 } else if q.kind == "short-answer" { 2 } else { 3 }
-    if next-group < group { panic("sang-math: OMR questions must be grouped as MCQ, true-false, short-answer, written") }
-    group = next-group
-    if q.kind == "mcq" {
-      if q.choices.len() != 4 { panic("sang-math: OMR MCQ needs four choices") }
-      let marked = q.choices.enumerate().filter(((_, item)) => item.correct)
-      let ans = q.at("answer", default: none)
-      let index = if type(ans) == dictionary and ans.at("kind", default: none) == "choice" { ans.value } else if marked.len() == 1 { marked.first().at(0) + 1 } else { 0 }
-      if index < 1 or index > 4 { panic("sang-math: OMR MCQ has no unique answer") }
-      mcq-ans.push(("A", "B", "C", "D").at(index - 1))
-    } else if q.kind == "true-false" {
-      if q.choices.len() != 4 { panic("sang-math: OMR true-false needs four statements") }
-      let ans = q.at("answer", default: none)
-      let values = if type(ans) == array { ans } else { q.choices.map(item => item.correct) }
-      tf-ans.push(values.map(value => if value { "Đ" } else { "S" }).join())
-    } else if q.kind == "short-answer" {
-      let ans = q.at("answer", default: none)
-      let value = if type(ans) == dictionary { ans.at("value", default: none) } else { ans }
-      if value == none { panic("sang-math: OMR short-answer is missing its answer") }
-      let printed = _content-to-str(value).trim().replace("−", "-")
-      if printed == "" { panic("sang-math: OMR short-answer cannot be converted to text") }
-      sh-ans.push(printed)
-    }
-  }
-  if mcq-ans.len() != profile.mcq or tf-ans.len() != profile.tf or sh-ans.len() != profile.tln {
-    panic("sang-math: variant question counts do not match the OMR profile")
-  }
-  let payload = (
-    z: 1,
-    m: (source: "ConicTypst", made: variant.ma-de,
-      omr: (id: profile.id, mcq: profile.mcq, tf: profile.tf, tln: profile.tln, paper: profile.paper)),
-    k: ((variant.ma-de): (
-      mcq-ans.join(),
-      if tf-ans.len() > 0 { mcq-ans.len() + 1 } else { 0 },
-      tf-ans.join(),
-      if sh-ans.len() > 0 { mcq-ans.len() + tf-ans.len() + 1 } else { 0 },
-      sh-ans,
-    )),
-  )
-  "SMKEY:1:" + _se-base64-encode(_se-json-encode(payload))
-}
-
-#let exam-variant-qr(variant, profile: (id: "12-4-6ngang", mcq: 12, tf: 4, tln: 6, paper: "a5"), width: 3cm) = {
-  let encoded = exam-variant-qr-payload(variant, profile: profile)
-  box(fill: white, inset: 8pt, radius: 4pt, qr-code(encoded, width: width))
-}
+#import "omr-qr.typ": sang-omr-qr

@@ -1,52 +1,11 @@
-# Bộ mẫu copy-ready cho sang-math 1.1.0
+# Ví dụ QR và phiếu OMR
 
-Các file trong `copy-ready/` dùng API tương thích của sang-math 1.1.0. Giáo viên
-có thể tải một file, đổi phần **CẤU HÌNH NHANH**, thay nội dung câu hỏi và biên
-dịch ngay trên Typst.app, VS Code hoặc TypstConicHub.
+- [`qr-12-4-6.typ`](qr-12-4-6.typ): đề gõ bằng `#tn/#ds/#tln`, QR đáp án cho giáo viên và phiếu 12–4–6 nhận state SBD/mã đề.
+- [`omr/state-example.typ`](omr/state-example.typ): chỉ in phiếu 12–4–6 có SBD/mã đề tô sẵn.
+- `omr/` chứa tám preset có thể tải/copy để dùng với `#include`.
 
-| File | Dùng khi |
-|---|---|
-| `01-de-15-phut.typ` | Bài kiểm tra ngắn, 4 TN + 2 TLN |
-| `02-de-giua-ky-hon-hop.typ` | Đề có đủ TN, Đ/S, TLN và tự luận |
-| `03-de-thpt-12-4-6.typ` | Khung chuẩn 12 TN + 4 Đ/S + 6 TLN |
-| `04-de-tu-luan-co-nhap.typ` | Đề tự luận có dòng trống/vùng nháp |
-| `05-phieu-hoc-tap-chuyen-de.typ` | Chuyên đề, lý thuyết, ví dụ và bài tập |
-| `06-de-co-bbt-va-hinh-cetz.typ` | Câu có bảng biến thiên và hình vector CeTZ |
-| `07-de-70-30-nhap-in-hai-mat.typ` | Đề in hai mặt: 70% nội dung, 30% nháp đổi bên chẵn/lẻ |
-
-## Ví dụ trộn đề và phiếu OMR 1.1
-
-[`question-bank-demo.typ`](question-bank-demo.typ) dùng `bank-mode()` để giữ cách gõ `tn/ds/tln/tl`, chỉ thêm một ID từ `bank.json` cho mỗi câu. Hàm tự suy ra lớp/chương/độ khó, còn tên lệnh xác định loại câu. Có thể dùng chung mã phân loại cho nhiều câu; lọc theo chương bằng `id-prefix`.
-
-[`exam-variant-omr.typ`](exam-variant-omr.typ) ghép ma trận 12–4–6, đề học sinh, QR đáp án giáo viên và phiếu ngang nhận `state("sbd")`/`state("made")`. Khi chạy từ checkout `typst/packages`, `--package-path ../../..` trỏ về thư mục `packages`; sau khi gói phát hành có thể bỏ tùy chọn này. Tám preset OMR nằm trong [`omr/`](omr/) để ví dụ tự biên dịch từ thư mục gói. Biên dịch với Typst 0.15.1 từ thư mục gốc của gói:
+Biên dịch từ checkout `typst/packages`:
 
 ```bash
-typst compile --root . --package-path ../../.. examples/exam-variant-omr.typ
+typst compile --root . --package-path packages packages/preview/sang-math/1.1.0/examples/qr-12-4-6.typ /tmp/qr-12-4-6.pdf
 ```
-
-## Đổi đề học sinh sang bản lời giải
-
-Trong mỗi file đề, sửa:
-
-```typ
-#let profile = "dethi"
-```
-
-thành:
-
-```typ
-#let profile = "loigiai"
-```
-
-Hoặc giữ nguyên file và biên dịch bằng input:
-
-```bash
-typst compile --input profile=loigiai ten-file.typ
-```
-
-## Dùng AI tạo nội dung
-
-Sao chép prompt tại
-[`../PROMPT_AI_TAO_DE.md`](../PROMPT_AI_TAO_DE.md), điền chủ đề, mức độ và cấu
-trúc mong muốn. Yêu cầu AI chỉ thay vùng câu hỏi, giữ nguyên khối cấu hình đã
-biên dịch tốt.

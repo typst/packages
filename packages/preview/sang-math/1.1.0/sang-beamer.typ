@@ -4,7 +4,7 @@
 // ✅ Hỗ trợ offset riêng cho từng loại câu (mcq/tf/tln)
 // =========================================================
 
-#import "@preview/touying:0.8.0": *
+#import "@preview/touying:0.7.4": *
 #import themes.metropolis: *
 
 #import "sang-exam.typ": (
