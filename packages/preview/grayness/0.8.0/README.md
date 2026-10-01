@@ -26,7 +26,7 @@ Due to the way Typst interprets given paths, you cannot specify the path to a fi
 ## Examples
 
 Here are several functions applied to a WEBP image of [Arturo Nieto Dorantes](https://commons.wikimedia.org/wiki/File:Arturo_Nieto-Dorantes.webp) (CC-By-SA 4.0):
-![Example image manipulations](examples/example.png), more functions are shown in [the example PDF](exaples/examples.pdf).
+![Example image manipulations](examples/example.png), more functions are shown in [the example PDF](examples/examples.pdf).
 A detailed descriptions of all available functions is provided in the [manual](manual/manual.pdf).
 
 ## Limitations
