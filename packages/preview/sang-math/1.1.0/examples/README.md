@@ -16,6 +16,8 @@ dịch ngay trên Typst.app, VS Code hoặc TypstConicHub.
 
 ## Ví dụ trộn đề và phiếu OMR 1.1
 
+[`question-bank-demo.typ`](question-bank-demo.typ) dùng `bank-mode()` để giữ cách gõ `tn/ds/tln/tl`, chỉ thêm một ID từ `bank.json` cho mỗi câu. Hàm tự suy ra lớp/chương/độ khó, còn tên lệnh xác định loại câu. Có thể dùng chung mã phân loại cho nhiều câu; lọc theo chương bằng `id-prefix`.
+
 [`exam-variant-omr.typ`](exam-variant-omr.typ) ghép ma trận 12–4–6, đề học sinh, QR đáp án giáo viên và phiếu ngang nhận `state("sbd")`/`state("made")`. Khi chạy từ checkout `typst/packages`, `--package-path ../../..` trỏ về thư mục `packages`; sau khi gói phát hành có thể bỏ tùy chọn này. Tám preset OMR nằm trong [`omr/`](omr/) để ví dụ tự biên dịch từ thư mục gói. Biên dịch với Typst 0.15.1 từ thư mục gốc của gói:
 
 ```bash

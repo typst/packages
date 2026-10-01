@@ -1,24 +1,17 @@
 // Chạy từ thư mục gói: typst compile --root . examples/exam-variant-omr.typ
 #import "@preview/sang-math:1.1.0": *
 
-#let mcq-bank = range(12).map(i => question(
-  id: "MC-" + str(i + 1), kind: QUESTION_MC,
-  prompt: [Câu trắc nghiệm số #str(i + 1). Chọn đáp án đúng.],
-  choices: (choice([A]), choice([B], correct: true), choice([C]), choice([D])),
-  answer: answer("choice", 2),
-  grade: 12, topic: "on-tap", difficulty: 1,
+#let (tn, ds, tln, tl) = bank-mode()
+#let mcq-bank = range(12).map(i => tn(
+  [Câu minh họa số #str(i + 1). Chọn đáp án đúng.],
+  ([A], True([B]), [C], [D]), id: "2D1N1-1",
 ))
-#let tf-bank = range(4).map(i => question(
-  id: "TF-" + str(i + 1), kind: QUESTION_TF,
-  prompt: [Câu đúng sai số #str(i + 1).],
-  choices: (choice([Đúng], correct: true), choice([Sai]), choice([Đúng], correct: true), choice([Sai])),
-  grade: 12, topic: "on-tap", difficulty: 2,
+#let tf-bank = range(4).map(i => ds(
+  [Câu đúng/sai minh họa số #str(i + 1).],
+  (True([Đúng]), [Sai], True([Đúng]), [Sai]), id: "2D1H1-1",
 ))
-#let short-bank = range(6).map(i => question(
-  id: "SA-" + str(i + 1), kind: QUESTION_SA,
-  prompt: [Tính #str(i + 1) + 1.],
-  answer: answer("numeric", i + 2),
-  grade: 12, topic: "on-tap", difficulty: 3,
+#let short-bank = range(6).map(i => tln(
+  [Tính #str(i + 1) + 1.], i + 2, id: "2D1V1-1",
 ))
 #let bank = mcq-bank + tf-bank + short-bank
 #let blueprint = (

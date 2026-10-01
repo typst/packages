@@ -6,6 +6,7 @@ Các thay đổi đáng chú ý của `sang-math` được ghi tại đây. Gói
 
 ### Added
 
+- `bank-mode()` cho phép soạn ngân hàng bằng chính tên và thứ tự tham số `tn/ds/tln/tl`; một mã `bank.json` tự điền lớp, chương, chủ đề mã và độ khó. Nhiều câu cùng mã phân loại được trộn/cân bằng riêng theo vị trí trong bank. Bộ lọc và blueprint nhận `id-prefix`.
 - Unified Question Model cho MCQ, đúng/sai, trả lời ngắn và tự luận; metadata học tập tùy chọn, đáp án có kiểu và lời giải nhiều bước.
 - `validate-question` với thông báo lỗi theo ID câu hỏi; chế độ kiểm tra nghiêm cho API mới và tương thích cho API cũ.
 - `render-question` với các chế độ học sinh, giáo viên, lời giải và đáp án.

@@ -30,5 +30,6 @@
 
 // Structured question data, validation, and seeded bank operations (1.1).
 #import "src/core/question.typ": question, choice, answer, solution-step, QUESTION_MC, QUESTION_TF, QUESTION_SA, QUESTION_WRITTEN
+#import "src/core/compact.typ": bank-mode
 #import "src/core/validate.typ": validate-question
 #import "src/bank.typ": question-bank, bank-filter, bank-select, bank-shuffle-choices, exam-variant, exam-variants

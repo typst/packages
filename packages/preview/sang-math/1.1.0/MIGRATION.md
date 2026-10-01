@@ -10,7 +10,23 @@ Existing calls to `tn`, `ds`, `tln`, `tl`, `exam-mode`, exam profiles, answer ke
 #tn([Tính $1+1$.], ([$1$], True([$2$]), [$3$], [$4$]), loigiai: [$1+1=2$.])
 ```
 
-## Use structured questions when useful
+## Build a bank with the familiar `tn/ds/tln/tl` syntax
+
+`bank-mode()` changes the four function bindings to return question data. The call format stays familiar: stem, options or answer, `id`, and `loigiai`. Use a code from `bank.json`; it supplies class, chapter, topic code, and difficulty. The function name supplies the question kind. Multiple questions may share one catalogue code.
+
+```typ
+#let (tn, ds, tln, tl) = bank-mode()
+#let bank = question-bank(
+  tn([Đạo hàm của $x^2$ là gì?], ([$x$], True([$2x$]), [$x^2$], [$2$]), id: "1D7N2-1"),
+  tln([Tính $f'(2)$ với $f(x)=x^2$.], 4, id: "1D7H2-1"),
+)
+#let variant = exam-variant(bank, ((kind: QUESTION_MC, count: 1),), seed: 101)
+#render-exam-variant(variant)
+```
+
+Use `bank-filter(bank, id-prefix: "1D7")` or an `id-prefix` in a blueprint to select a chapter by code. Existing standalone `#tn/#ds/#tln/#tl` calls remain unchanged.
+
+## Use the advanced structured constructor when useful
 
 The new `question` constructor returns data. `render-question` places it in the document. `choice` stores one canonical option with a `correct` flag. The `answer` helper can carry typed answers; a one-based `choice` index is supported for MCQ. Set the `correct` flag consistently with the index when supplying both.
 

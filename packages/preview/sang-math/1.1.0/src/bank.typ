@@ -3,13 +3,16 @@
 
 #let question-bank(..questions) = questions.pos()
 
-#let bank-filter(bank, grade: none, topic: none, difficulty: none, kind: none, tags: ()) = {
+#let bank-filter(bank, grade: none, topic: none, id-prefix: none, difficulty: none, kind: none, tags: ()) = {
   if type(bank) != array { panic("sang-math: bank must be an array of questions") }
   if type(tags) != array or tags.any(tag => type(tag) != str) {
     panic("sang-math: bank-filter tags must be an array of strings")
   }
   if kind != none and not (QUESTION_MC, QUESTION_TF, QUESTION_SA, QUESTION_WRITTEN).contains(kind) {
     panic("sang-math: bank-filter kind is unsupported")
+  }
+  if id-prefix != none and (type(id-prefix) != str or id-prefix.len() == 0) {
+    panic("sang-math: bank-filter id-prefix must be a nonempty string")
   }
   if difficulty != none {
     let values = if type(difficulty) == array { difficulty } else { (difficulty,) }
@@ -21,15 +24,23 @@
   bank.filter(q => {
     let grade-ok = grade == none or q.at("grade", default: none) == grade
     let topic-ok = topic == none or q.at("topic", default: none) == topic
+    let prefix-ok = id-prefix == none or (type(q.id) == str and q.id.starts-with(id-prefix))
     let kind-ok = kind == none or q.at("kind", default: none) == kind
     let difficulty-ok = difficulty == none or (if type(difficulty) == array { difficulty.contains(q.at("difficulty", default: none)) } else { q.at("difficulty", default: none) == difficulty })
     let tags-ok = tags.all(tag => q.at("tags", default: ()).contains(tag))
-    grade-ok and topic-ok and kind-ok and difficulty-ok and tags-ok
+    grade-ok and topic-ok and prefix-ok and kind-ok and difficulty-ok and tags-ok
   })
 }
 
 // Park–Miller LCG; arithmetic stays in signed 64-bit range on Typst 0.14.
 #let _next-seed(seed) = calc.rem(seed * 48271, 2147483647)
+
+// A bank.json ID is a category code, so multiple compact questions can share
+// it. Their stable position in the supplied bank distinguishes them while the
+// public ID remains the category code.
+#let _question-key(q) = if "_sm-variant-index" in q {
+  repr((q.id, q.at("_sm-variant-index")))
+} else { repr(q.id) }
 
 #let bank-select(bank, count: none, seed: 1) = {
   if type(bank) != array { panic("sang-math: bank-select bank must be an array") }
@@ -72,11 +83,11 @@
   let result = ()
   let tier = 0
   while result.len() < count {
-    let least = rest.fold(2147483647, (minimum, q) => calc.min(minimum, usage.at(repr(q.id), default: 0)))
-    let eligible = rest.filter(q => usage.at(repr(q.id), default: 0) == least)
+    let least = rest.fold(2147483647, (minimum, q) => calc.min(minimum, usage.at(_question-key(q), default: 0)))
+    let eligible = rest.filter(q => usage.at(_question-key(q), default: 0) == least)
     let take = calc.min(count - result.len(), eligible.len())
     result += bank-select(eligible, count: take, seed: seed + tier * 1543)
-    rest = rest.filter(q => usage.at(repr(q.id), default: 0) > least)
+    rest = rest.filter(q => usage.at(_question-key(q), default: 0) > least)
     tier += 1
   }
   result
@@ -97,21 +108,30 @@
   while code.len() < 4 { code = "0" + code }
   for i in range(code.len()) { if not "0123456789".contains(code.at(i)) { panic("sang-math: ma-de must contain digits only") } }
 
-  let seen-ids = ()
-  for q in bank {
+  let seen-ids = (:)
+  let indexed-bank = ()
+  for (i, q) in bank.enumerate() {
     let _ = validate-question(q)
     if q.id != none {
-      if seen-ids.contains(q.id) { panic("sang-math: duplicate question ID " + str(q.id)) }
-      seen-ids.push(q.id)
+      let compact = q.at("metadata", default: (:)).at("bank-id", default: none) == q.id
+      let key = repr(q.id)
+      if key in seen-ids and (not compact or not seen-ids.at(key)) {
+        panic("sang-math: duplicate question ID " + str(q.id))
+      }
+      seen-ids.insert(key, compact)
+      if compact { indexed-bank.push((..q, _sm-variant-index: i)) }
+      else { indexed-bank.push(q) }
+    } else {
+      indexed-bank.push(q)
     }
   }
 
-  let remaining = bank
+  let remaining = indexed-bank
   let sections = ()
   let all = ()
   for (section-index, spec) in blueprint.enumerate() {
     if type(spec) != dictionary { panic("sang-math: blueprint section must be a dictionary") }
-    let allowed = ("count", "kind", "grade", "topic", "difficulty", "tags", "title")
+    let allowed = ("count", "kind", "grade", "topic", "id-prefix", "difficulty", "tags", "title")
     for key in spec.keys() {
       if not allowed.contains(key) {
         panic("sang-math: blueprint section " + str(section-index + 1) + " has unknown field " + key)
@@ -127,6 +147,7 @@
       remaining,
       grade: spec.at("grade", default: none),
       topic: spec.at("topic", default: none),
+      id-prefix: spec.at("id-prefix", default: none),
       difficulty: spec.at("difficulty", default: none),
       kind: kind,
       tags: spec.at("tags", default: ()),
@@ -166,7 +187,7 @@
     seen-codes.push(variant.ma-de)
     result.push(variant)
     for q in variant.questions {
-      let key = repr(q.id)
+      let key = _question-key(q)
       usage.insert(key, usage.at(key, default: 0) + 1)
     }
   }
