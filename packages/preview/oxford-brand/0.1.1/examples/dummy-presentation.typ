@@ -1,4 +1,4 @@
-#import "../lib.typ": presentation
+#import "@preview/oxford-brand:0.1.1": presentation
 
 #let slides = presentation(
   secondary-logo: "../assets/oxford-rse-square.svg",
