@@ -5,3 +5,7 @@ entrypoint = "lib.typ"
 authors = ["James Briant <james.briant@dtc.ox.ac.uk>"]
 description = "University of Oxford branding for Typst documents and presentations."
 license = "MIT"
+homepage = "https://github.com/jamesbriant/OU-typst/"
+repository = "https://github.com/jamesbriant/OU-typst/"
+keywords = ["Oxford", "Oxford University", "University of Oxford", "OU"]    
+categories = ["components", "layout", "presentation"]
