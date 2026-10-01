@@ -9,3 +9,4 @@ description = "Bộ macro đề thi THPT chuẩn BGD 2025 (Toán, Lý, Hóa), s�
 keywords = ["math", "exam", "vietnam", "thpt", "bbt", "physics", "chemistry"]
 homepage = "https://hdsd-conictypst.pages.dev"
 repository = "https://github.com/sangnhc87/conictypst"
+exclude = ["examples/qr-12-4-6.typ", "examples/omr/state-example.typ"]
