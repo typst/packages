@@ -149,6 +149,32 @@
 }
 #let observations(body) = declarations(body, "zettyp.note")
 
+// The body without its root heading, found as read-note finds it: through
+// sequences and styles only. Without the note's own label, it can be repeated
+// (in a preview, an expansion) without duplicating the label every link targets.
+#let without-root(body, id) = {
+  if type(body) != content { return body }
+  let fields = body.fields()
+  if "children" in fields {
+    return fields
+      .children
+      .filter(it => {
+        not (
+          it.func() == heading and it.at("label", default: none) == label(id)
+        )
+      })
+      .map(it => without-root(it, id))
+      .join()
+  }
+  if "child" in fields and "styles" in fields {
+    return (body.func())(without-root(fields.child, id), fields.styles)
+  }
+  if body.func() == heading and body.at("label", default: none) == label(id) {
+    return []
+  }
+  body
+}
+
 // Loading is explicit: importing this configuration never reads the manifest.
 #let load(manifest: "/.zettypst/source.toml") = {
   let paths = toml(manifest).at("paths", default: none)
@@ -319,21 +345,27 @@
     .filter(((id, edge)) => (
       project.state.values.edges.at(id).relation == colors.ref
     ))
-  let nodes = project.state.graph.nodes.map(id => (
-    id: id,
-    origin: project.origins.nodes.at(id),
-    definition: project.origins.nodes.at(id),
-    references: edges
-      .filter(pair => pair.at(1).target == id)
-      .map(pair => project.origins.edges.at(pair.at(0))),
-  ))
+  let incoming = (:)
+  for (edge-id, edge) in edges {
+    let occurrences = incoming.at(edge.target, default: ())
+    occurrences.push(project.origins.edges.at(edge-id))
+    incoming.insert(edge.target, occurrences)
+  }
+  let nodes = (:)
+  for id in project.state.graph.nodes {
+    nodes.insert(id, (
+      id: id,
+      origin: project.origins.nodes.at(id),
+      definition: project.origins.nodes.at(id),
+      references: incoming.at(id, default: ()),
+    ))
+  }
   // A reference inside a heading takes priority over the heading's range.
   (
     edges.map(((id, edge)) => (
-      nodes.find(node => node.id == edge.target)
-        + (origin: project.origins.edges.at(id))
+      nodes.at(edge.target) + (origin: project.origins.edges.at(id))
     ))
-      + nodes
+      + project.state.graph.nodes.map(id => nodes.at(id))
   )
 }
 
@@ -393,9 +425,12 @@
     ))
   }
   if final.status == "available" {
-    let notes = project-notes(project, final.value)
+    let notes = (:)
+    for note in project-notes(project, final.value) {
+      notes.insert(note.id, note)
+    }
     for target in targets {
-      let note = notes.find(note => note.id == target.id)
+      let note = notes.at(target.id)
       lsp.announce(lsp.effect-kinds.hover, lsp.hover(
         applies-to: target.origin,
         contents: (
@@ -498,4 +533,108 @@
   let final = final-observation(flow, execution)
   if editor { announce-editor(project, execution, final) }
   if export { announce-project(project, final) }
+}
+
+// ---- HTML publication (bundle export) ----------------------------------------
+// A route maps a note to its document path; none leaves it unpublished. Notes
+// sharing a route share one document. Typst resolves every href between
+// documents, so routes are the only addressing rule.
+#let route(note) = note.id + "/index.html"
+
+// A card lays out one note: id, title, body (with its root heading), main (the
+// body without it), metadata, backlinks and links. Its links are ordinary refs
+// to note labels.
+#let card(note) = {
+  note.body
+  if note.backlinks.len() > 0 [
+    Backlinks: #note.backlinks.map(it => ref(label(it.id))).join[, ]
+  ]
+}
+
+// The note whose card is being rendered: the source of the links inside it.
+#let rendering = state("zettypst.rendering", none)
+
+#let export-html(project, result, route: route, card: card) = {
+  let final = final-observation(result.flow, result.execution)
+  assert.eq(final.status, "available", message: "semantic evaluation failed")
+  let state = final.value
+  let bodies = project.notes.map(it => (it.local.node.id, it.body)).to-dict()
+  let notes = (:)
+  for note in project-notes(project, state) {
+    let path = route(note)
+    assert(
+      path == none
+        or path.ends-with(".html")
+          and path.split("/").all(part => part not in ("", ".", "..")),
+      message: "route must be a relative .html path or none: " + note.id,
+    )
+    notes.insert(note.id, note + (route: path))
+  }
+  // Endpoints of every relation colour, deduplicated, published and non-self.
+  let neighbours(id, from, to) = state
+    .graph
+    .edges
+    .values()
+    .filter(edge => edge.at(from) == id and edge.at(to) != id)
+    .map(edge => edge.at(to))
+    .dedup()
+    .map(it => notes.at(it))
+    .filter(it => it.route != none)
+
+  let published = notes.values().filter(it => it.route != none)
+  let documents = (:)
+  for note in published {
+    let full = (
+      note
+        + (
+          body: bodies.at(note.id),
+          main: without-root(bodies.at(note.id), note.id),
+          backlinks: neighbours(note.id, "target", "source"),
+          links: neighbours(note.id, "source", "target"),
+        )
+    )
+    documents.insert(
+      note.route,
+      documents.at(note.route, default: ()) + (full,),
+    )
+  }
+
+  // A reference to a note renders its edge: the link names both endpoints, so
+  // the site infers neither from URLs nor from where the link was moved to.
+  // Other references stay native.
+  show ref: it => {
+    let target = notes.at(str(it.target), default: none)
+    if target == none { return it }
+    let body = if it.supplement in (auto, none, []) { target.title } else {
+      it.supplement
+    }
+    if target.route == none { return html.span(class: "zk-unpublished", body) }
+    context html.elem(
+      "span",
+      attrs: (
+        class: "zk-link",
+        "data-zk-source": rendering.get(),
+        "data-zk-target": target.id,
+      ),
+      link(it.target, body),
+    )
+  }
+  for (path, group) in documents {
+    document(
+      path,
+      title: display-value(group.first().title),
+      group
+        .map(note => {
+          rendering.update(note.id)
+          html.elem("section", attrs: ("data-zk-node": note.id), card(note))
+        })
+        .join(),
+    )
+  }
+  // Titles for search and stack chrome; the page HTML carries everything else.
+  asset("zettypst.json", json.encode(published.map(note => (
+    id: note.id,
+    route: note.route,
+    title: display-value(note.title),
+  ))))
 }
