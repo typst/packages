@@ -15,8 +15,4 @@ categories = ["report"]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
-exclude = [
-    "template/document/",
-    "template/sources.bib",
-]
 
