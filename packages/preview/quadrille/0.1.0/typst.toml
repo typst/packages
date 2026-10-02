@@ -1,0 +1,13 @@
+[package]
+name = "quadrille"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nachum Getzel Elkind <@ngelkind>"]
+license = "MIT"
+description = "Plot functions, points and vectors on graph paper."
+repository = "https://github.com/ngelkind/quadrille"
+keywords = ["plot", "graph", "function", "math", "physics", "grid", "axes"]
+categories = ["visualization"]
+disciplines = ["mathematics", "physics", "education"]
+compiler = "0.15.0"
+exclude = ["examples/*.png"]

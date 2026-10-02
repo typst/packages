@@ -1,0 +1,13 @@
+[package]
+name = "contexture"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["David Hajage <dhajage@gmail.com>"]
+description = "Low-level backend for producing several cross-referencing documents (a source document plus authored or generated companions — a glossary, an index, a list of figures, a manuscript's satellites) from one bundle compile."
+license = "MIT"
+keywords = ["bundle", "multi-document", "cross-reference", "glossary", "index", "manuscript"]
+compiler = "0.15.0"
+categories = ["model", "scripting", "utility"]
+repository = "https://github.com/eusebe/typst-contexture"
+homepage = "https://eusebe.github.io/typst-contexture-site/contexture/"
+exclude = ["tests", "CLAUDE.md", "readme-assets", "*.pdf", "**/*.pdf", "**/*.png", ".gitignore", ".DS_Store"]
