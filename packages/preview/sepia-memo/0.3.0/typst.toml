@@ -10,7 +10,7 @@ repository = "https://github.com/ChennoShen239/sepia-memo"
 keywords = ["memo", "research", "vintage", "sepia", "notes"]
 categories = ["report"]
 compiler = "0.15.0"
-exclude = ["/.gitignore", "/.zed/", "/output/", "/*.pdf", "/thumbnail.png", "/preview-page-2.png", "/tests/", "/CONTEXT.md"]
+exclude = ["/.gitignore", "/.zed/", "/output/", "/*.pdf", "/preview-page-2.png", "/tests/", "/CONTEXT.md"]
 
 [template]
 path = "template"
