@@ -1,7 +1,7 @@
 #import "translated_terms.typ": *
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.10": *
-#import "@preview/ctheorems:1.1.3": thmrules
+#import "@preview/ctheorems:2.0.0": thm-rules
 
 #let template(
   title: "Lecture Notes Title",
@@ -49,7 +49,7 @@
   let text_color = rgb(text_color)
 
   // Show and Set
-  show: thmrules
+  show: thm-rules
   show: codly-init.with()
   codly(
     fill: rgb("#fafafa"),

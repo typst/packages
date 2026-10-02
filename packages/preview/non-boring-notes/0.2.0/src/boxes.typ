@@ -1,5 +1,5 @@
 #import "@preview/showybox:2.0.4": showybox
-#import "@preview/ctheorems:1.1.3": thmenv
+#import "@preview/ctheorems:2.0.0": thm
 #import "translated_terms.typ": *
 
 #let color-purple = rgb("#9a77cf")
@@ -22,11 +22,12 @@
   base-color,
   numbered: true,
   breakable: true,
-) = thmenv(
-  identifier,
-  boxcounting,
-  none,
-  (name, number, body, ..args) => {
+) = thm.with(
+  counter: identifier,
+  supplement: title,
+  base: boxcounting,
+  numbering: if numbered { boxnumbering } else { none },
+  fmt: thm-dict => {
     showybox(
       breakable: breakable,
       frame: (
@@ -37,18 +38,18 @@
         inset: (x: 12pt, y: 12pt),
       ),
       footer-style: (color: base-color),
-      ..args.named(),
+      ..thm-dict.args,
       [
         #text(fill: base-color, weight: "bold")[#title]
-        #if numbered [ #text(fill: base-color, weight: "bold")[#number] ]
-        #if name != none [ #text(fill: base-color.darken(20%), style: "italic")[ (#name)] ]
+        #if numbered and thm-dict.number != none [ #text(fill: base-color, weight: "bold")[ #thm-dict.number] ]
+        #if thm-dict.name != none [ #text(fill: base-color.darken(20%), style: "italic")[ (#thm-dict.name)] ]
         #text(fill: base-color, weight: "bold")[.]
         #h(0.4em)
-        #body
+        #thm-dict.body
       ],
     )
   },
-).with(numbering: boxnumbering)
+)
 
 #let theorem = box_thm("theorem", get_translation(translated_terms.theorem), color-purple)
 #let corollary = box_thm("corollary", get_translation(translated_terms.corollary), color-purple)
@@ -65,16 +66,16 @@
 #let solution = box_thm("solution", get_translation(translated_terms.solution), numbered: false, color-cyan)
 #let tip = box_thm("tip", get_translation(translated_terms.tip), numbered: false, color-pink)
 #let remark = box_thm("remark", get_translation(translated_terms.remark), numbered: false, color-gray)
-#let proof = thmenv(
-  "proof",
-  boxcounting,
-  none,
-  (name, number, body, ..args) => {
+#let proof = thm.with(
+  counter: "proof",
+  base: boxcounting,
+  numbering: none,
+  fmt: thm-dict => {
     block(
       width: 100%,
       breakable: true,
       inset: (top: 0.5em, bottom: 0.5em),
-      [*_#get_translation(translated_terms.proof)._*] + body + [#h(1fr) $qed$],
+      [*_#get_translation(translated_terms.proof)._*] + thm-dict.body + [#h(1fr) $qed$],
     )
   },
-).with(numbering: none)
+)
