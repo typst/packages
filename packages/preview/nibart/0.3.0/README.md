@@ -76,7 +76,7 @@ a fractal cherry tree, a dry-brush enso, an engraved sphere, guilloché, a map a
 
 | | | |
 |---|---|---|
-| ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-1.jpg) | ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-2.jpg) | ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-3.jpg) |
+| ![Dry-brush enso, pink cherry tree, engraved sphere, and guilloché medallion](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-1.jpg) | ![Interlaced knots, a musical score, neon nib sign, and embroidered flower](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-2.jpg) | ![Illustrated island map, shaded contour map, and hand-drawn workflow sketch](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-3.jpg) |
 
 The complete sources of these pictures are in [`examples/`](https://github.com/fergousA/nibart/tree/main/examples) (`galerie`, `exotique`, `boites`, `calligraphie`, `insolite`, `nibart`, `demo`, `chat`, `ile`, `ile-chat`, `podium`).
 In a clone of the repository, compile them with `typst compile --root . examples/galerie.typ`.
