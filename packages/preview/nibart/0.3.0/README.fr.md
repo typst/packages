@@ -8,7 +8,7 @@
 trait — dont le contour balayé exact est calculé pour vous. Calligraphie, lettrage, fioritures, schémas à main levée,
 figures techniques dans la tradition MetaPost : le tout sous forme de formes vectorielles ordinaires.
 
-![Galerie](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/gallery.jpg)
+![Galerie de chemins calligraphiques, d'ornements et de dessins décoratifs](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c/docs/img/gallery.jpg)
 
 ## Installation
 

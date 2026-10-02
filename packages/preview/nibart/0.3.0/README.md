@@ -8,7 +8,7 @@ and *pens* — circle, ellipse, broad-edged nib, polygon, or a nib that changes 
 exact swept outline is computed for you. Calligraphy, lettering, flourishes, hand-drawn diagrams, technical figures in the
 MetaPost tradition: all as plain vector shapes.
 
-![Gallery](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/gallery.jpg)
+![Gallery of calligraphic paths, ornaments, and decorative drawings](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/gallery.jpg)
 
 ## Installation
 
