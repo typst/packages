@@ -1,6 +1,6 @@
 # nibart
 
-**Une approche « à la MetaPost » pour promener une plume le long d'un chemin** — pour Typst 0.15+.  
+**Une approche « à la MetaPost » pour promener une plume le long d'un chemin** — pour Typst 0.15+.\
 [English](README.md) · [Manuel (FR)](https://github.com/fergousA/nibart/blob/main/docs/manual-fr.pdf) · [Manual (EN)](https://github.com/fergousA/nibart/blob/main/docs/manual-en.pdf) · [Galerie](https://github.com/fergousA/nibart/blob/main/docs/gallery-fr.pdf) · [Gallery](https://github.com/fergousA/nibart/blob/main/docs/gallery-en.pdf) · [Journal des modifications](https://github.com/fergousA/nibart/blob/main/CHANGELOG.md)
 
 `nibart` apporte à Typst le cœur de Metafont/MetaPost : des chemins lissés par l'algorithme de Hobby (directions, tensions,
@@ -96,7 +96,7 @@ lance les tests, `make docs` reconstruit le manuel, `make package` produit et va
 
 ## Licence
 
-Auteur : **FERGOUS Abdelhak** ([@fergousA](https://github.com/fergousA)) · dépôt : <https://github.com/fergousA/nibart>.  
+Auteur : **FERGOUS Abdelhak** ([@fergousA](https://github.com/fergousA)) · dépôt : <https://github.com/fergousA/nibart>.\
 [MIT](LICENSE). Crates tierces : [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). Inspiré de MetaPost (D. Knuth,
 J. D. Hobby) et du paquet `nibst` (B. Auguie) : les options calligraphiques reproduisent son comportement décrit ; aucun
 code de ces projets n'est inclus.

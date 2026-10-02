@@ -1,6 +1,6 @@
 # nibart
 
-**A MetaPost-like approach to running a pen along a path** — for Typst 0.15+.  
+**A MetaPost-like approach to running a pen along a path** — for Typst 0.15+.\
 [Français](README.fr.md) · [Manual (EN)](https://github.com/fergousA/nibart/blob/main/docs/manual-en.pdf) · [Manuel (FR)](https://github.com/fergousA/nibart/blob/main/docs/manual-fr.pdf) · [Gallery](https://github.com/fergousA/nibart/blob/main/docs/gallery-en.pdf) · [Galerie](https://github.com/fergousA/nibart/blob/main/docs/gallery-fr.pdf) · [Changelog](https://github.com/fergousA/nibart/blob/main/CHANGELOG.md)
 
 `nibart` brings the heart of Metafont/MetaPost to Typst: smooth paths described with Hobby's algorithm (directions, tensions, curls),
@@ -103,7 +103,7 @@ and validates the publishable directory in `dist/`.
 
 ## Licence
 
-Author: **FERGOUS Abdelhak** ([@fergousA](https://github.com/fergousA)) · repository: <https://github.com/fergousA/nibart>.  
+Author: **FERGOUS Abdelhak** ([@fergousA](https://github.com/fergousA)) · repository: <https://github.com/fergousA/nibart>.\
 [MIT](LICENSE). Third-party crates: see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 Inspired by MetaPost (D. Knuth, J. D. Hobby) and by the `nibst` package (B. Auguie): the calligraphic options reproduce
 its described behaviour; no code from either project is included.
