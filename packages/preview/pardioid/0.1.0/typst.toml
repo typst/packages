@@ -1,0 +1,11 @@
+[package]
+name = "pardioid"
+version = "0.1.0"
+entrypoint = "/src/imports.typ"
+authors = ["DevlinNul"]
+license = "MIT"
+description = "Draw on canvas using parametric curves."
+categories = ["visualization"]
+keywords = ["parametric curve", "canvas", "draw"]
+exclude = ["*.pdf", "/assets/", "/docs/", "gallery.typ"]
+repository = "https://github.com/DevlinNul/pardioid"
