@@ -46,6 +46,19 @@ Start writing your notes here...
 If you want some inspiration, an example using all the features can be found in
 [examples/showcase.typ](https://github.com/aruzdh/non-boring-notes/blob/311756828cf77b5c309ebc8d048e9156ccdbeab3/examples/showcase.typ).
 
+For a simpler ready-to-go configuration for assignments, this is another option:
+
+```typst
+#import "@preview/non-boring-notes:0.2.0": *
+
+#show: set_min_config.with(
+  title: [Document Title],
+  subtitle: [Optional Subtitle],
+)
+
+Start writing your notes here...
+```
+
 ## Configuration
 
 Configure the `template` function at the top of your document to suit your needs:
