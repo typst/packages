@@ -1,4 +1,4 @@
-#import "@preview/jufe-master-thesis:0.1.0": *
+#import "@preview/jiangcai-jufe-master-thesis:0.1.0": *
 
 //! 封面
 #cover(
