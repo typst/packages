@@ -1,4 +1,4 @@
-#import "@preview/ctheorems:1.1.3": thmrules
+#import "@preview/ctheorems:2.0.0": thm-rules
 
 #let quote-box(cite: none, body) = [
   #set text(size: 0.97em)
@@ -75,7 +75,7 @@
   paragraph_indent: 1em,
   body,
 ) = {
-  show: thmrules
+  show: thm-rules
   set text(lang: text_lang, size: font_size, font: text_font)
   show math.equation: set text(font: math_font)
   show raw: set text(font: code_font)
