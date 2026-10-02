@@ -60,7 +60,7 @@ exporte des noms génériques (`draw`, `cubic`, `reverse`, `pressure`…).
 
 Trèfle, anneaux olympiques et borroméens, tresses et entrelacs celtiques ; accolades calligraphiques ; plume copperplate ; parallèles, coins arrondis et repères le long d'un chemin — [`examples/nibart.typ`](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/examples/nibart.typ) (`--input lang=en` pour les légendes en anglais).
 
-![nibart](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/nibart.jpg)
+![Nœuds, entrelacs celtiques, accolades calligraphiques et ornements à la plume pointue](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/nibart.jpg)
 
 ### L'insolite
 

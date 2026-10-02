@@ -59,14 +59,14 @@ the package exports generic names (`draw`, `cubic`, `reverse`, `pressure`…).
 
 | | |
 |---|---|
-| ![Exotic](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/exotic.jpg) | ![Slides](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/slides.jpg) |
-| ![Calligraphy](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/calligraphy.jpg) | ![Flourishes](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/flourishes.jpg) |
+| ![Exotic collection of decorative illustrations and intricate patterns](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/exotic.jpg) | ![Presentation slides featuring calligraphic paths and pen effects](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c/docs/img/slides.jpg) |
+| ![Examples of calligraphic lettering drawn with varied nib shapes](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c/docs/img/calligraphy.jpg) | ![Decorative flourishes and ornamental pen strokes](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c/docs/img/flourishes.jpg) |
 
 ### nibart: knots, braces, pointed pen
 
 Trefoil, Olympic and Borromean rings, braids and Celtic interlace; calligraphic braces; a copperplate pen; offsets, rounded corners and frames along a path — [`examples/nibart.typ`](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/examples/nibart.typ) (`--input lang=en` for English captions).
 
-![nibart](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/nibart.jpg)
+![Knots, Celtic interlace, calligraphic braces, and pointed-pen ornaments](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/nibart.jpg)
 
 ### The unexpected
 
