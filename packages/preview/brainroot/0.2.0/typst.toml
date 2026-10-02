@@ -1,0 +1,15 @@
+[package]
+name = "brainroot"
+version = "0.2.0"
+entrypoint = "lib.typ"
+compiler = "0.14.0"
+exclude = ["*.pdf", ".DS_Store", "example.typ", "docs", "assets", ".github", ".gitignore", "ROADMAP.md"]
+
+description = "Mind maps from nested lists: seven layouts, twelve themes, hand-drawn mode"
+license = "MIT"
+repository = "https://github.com/Loewe1000/brainroot"
+homepage = "https://loewe1000.github.io/brainroot/"
+authors = ["Alexander Schulz <@Loewe1000>"]
+keywords = ["mindmap", "diagram", "tree", "cetz"]
+categories = ["visualization"]
+disciplines = ["education"]
