@@ -159,8 +159,8 @@ reflowed content.
 
 ## Documentation
 
-- [Manual (English)](https://raw.githubusercontent.com/sses7757/typst-riffle/main/doc/manual.pdf)
-- [手册（中文）](https://raw.githubusercontent.com/sses7757/typst-riffle/main/doc/manual-zh.pdf)
+- [Manual (English)](https://github.com/sses7757/typst-riffle/blob/a951a7758af0b9f2dc247141509fcdae68d6f80d/doc/manual.pdf)
+- [手册（中文）](https://github.com/sses7757/typst-riffle/blob/a951a7758af0b9f2dc247141509fcdae68d6f80d/doc/manual-zh.pdf)
 - [README（中文）](README.zh.md)
 
 The examples in the manuals are rendered on small pages with boundary guide
