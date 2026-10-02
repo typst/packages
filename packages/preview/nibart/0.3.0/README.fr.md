@@ -1,14 +1,14 @@
 # nibart
 
 **Une approche « à la MetaPost » pour promener une plume le long d'un chemin** — pour Typst 0.15+.\
-[English](README.md) · [Manuel (FR)](https://github.com/fergousA/nibart/blob/main/docs/manual-fr.pdf) · [Manual (EN)](https://github.com/fergousA/nibart/blob/main/docs/manual-en.pdf) · [Galerie](https://github.com/fergousA/nibart/blob/main/docs/gallery-fr.pdf) · [Gallery](https://github.com/fergousA/nibart/blob/main/docs/gallery-en.pdf) · [Journal des modifications](https://github.com/fergousA/nibart/blob/main/CHANGELOG.md)
+[English](README.md) · [Manuel (FR)](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/manual-fr.pdf) · [Manual (EN)](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/manual-en.pdf) · [Galerie](https://github.com/fergousA/nibart/tree/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/examples) · [Journal des modifications](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/CHANGELOG.md)
 
 `nibart` apporte à Typst le cœur de Metafont/MetaPost : des chemins lissés par l'algorithme de Hobby (directions, tensions,
 « curl »), et des *plumes* — cercle, ellipse, plume plate, polygone, ou plume dont la largeur et l'angle changent le long du
 trait — dont le contour balayé exact est calculé pour vous. Calligraphie, lettrage, fioritures, schémas à main levée,
 figures techniques dans la tradition MetaPost : le tout sous forme de formes vectorielles ordinaires.
 
-![Galerie](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/gallery.jpg)
+![Galerie](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/gallery.jpg)
 
 ## Installation
 
@@ -58,28 +58,28 @@ exporte des noms génériques (`draw`, `cubic`, `reverse`, `pressure`…).
 
 ### nibart : nœuds, accolades, plume pointue
 
-Trèfle, anneaux olympiques et borroméens, tresses et entrelacs celtiques ; accolades calligraphiques ; plume copperplate ; parallèles, coins arrondis et repères le long d'un chemin — [`examples/nibart.typ`](https://github.com/fergousA/nibart/blob/main/examples/nibart.typ) (`--input lang=en` pour les légendes en anglais).
+Trèfle, anneaux olympiques et borroméens, tresses et entrelacs celtiques ; accolades calligraphiques ; plume copperplate ; parallèles, coins arrondis et repères le long d'un chemin — [`examples/nibart.typ`](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/examples/nibart.typ) (`--input lang=en` pour les légendes en anglais).
 
-![nibart](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/nibart.jpg)
+![nibart](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/nibart.jpg)
 
 ### L'insolite
 
 Une partition aux liaisons effilées, des nœuds qui passent dessus/dessous (calculés avec `intersection-times`), une enseigne au néon,
 une broderie, un cerisier fractal, un enso au pinceau sec, une sphère gravée, un guilloché, une carte et un croquis à main levée —
-un seul fichier, [`examples/insolite.typ`](https://github.com/fergousA/nibart/blob/main/examples/insolite.typ) (`--input lang=en` pour les légendes en anglais).
+un seul fichier, [`examples/insolite.typ`](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/examples/insolite.typ) (`--input lang=en` pour les légendes en anglais).
 
 | | | |
 |---|---|---|
-| ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-1.jpg) | ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-2.jpg) | ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-3.jpg) |
+| ![](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/unexpected-1.jpg) | ![](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/unexpected-2.jpg) | ![](https://raw.githubusercontent.com/fergousA/nibart/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/img/unexpected-3.jpg) |
 
-Les sources complètes des images sont dans [`examples/`](https://github.com/fergousA/nibart/tree/main/examples) (`galerie`, `exotique`, `boites`, `calligraphie`, `insolite`, `nibart`, `demo`, `chat`, `ile`, `ile-chat`, `podium`).
+Les sources complètes des images sont dans [`examples/`](https://github.com/fergousA/nibart/tree/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/examples) (`galerie`, `exotique`, `boites`, `calligraphie`, `insolite`, `nibart`, `demo`, `chat`, `ile`, `ile-chat`, `podium`).
 Dans un clone du dépôt : `typst compile --root . examples/galerie.typ`.
-Les exemples que le manuel ne montre pas sont réunis, avec aperçu, description, fonctions utilisées et commande de construction, dans la galerie illustrée : [`gallery-fr.pdf`](https://github.com/fergousA/nibart/blob/main/docs/gallery-fr.pdf) / [`gallery-en.pdf`](https://github.com/fergousA/nibart/blob/main/docs/gallery-en.pdf) (reconstruction : `sh scripts/build-gallery.sh && make gallery`). La plupart des exemples sont bilingues : ajoutez `--input lang=en` ou `--input lang=fr`.
+Les exemples que le manuel ne montre pas sont réunis, avec aperçu, description, fonctions utilisées et commande de construction, dans une galerie illustrée générée avec `sh scripts/build-gallery.sh && make gallery`. La plupart des exemples sont bilingues : ajoutez `--input lang=en` ou `--input lang=fr`.
 
 ## Documentation
 
-Le manuel de référence (français et anglais ; chaque fonction avec son tableau de paramètres et un exemple détaillé, tous exécutés par le paquet lui-même) est dans [`docs/`](https://github.com/fergousA/nibart/tree/main/docs) :
-[`manual-fr.pdf`](https://github.com/fergousA/nibart/blob/main/docs/manual-fr.pdf), [`manual-en.pdf`](https://github.com/fergousA/nibart/blob/main/docs/manual-en.pdf). Pour le reconstruire :
+Le manuel de référence (français et anglais ; chaque fonction avec son tableau de paramètres et un exemple détaillé, tous exécutés par le paquet lui-même) est dans [`docs/`](https://github.com/fergousA/nibart/tree/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs) :
+[`manual-fr.pdf`](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/manual-fr.pdf), [`manual-en.pdf`](https://github.com/fergousA/nibart/blob/3ecc4ffd61ba743302bc9a7a4a96a1f80c77de0c/docs/manual-en.pdf). Pour le reconstruire :
 `typst compile --root . --input lang=fr docs/manual.typ`.
 
 ## Limites
