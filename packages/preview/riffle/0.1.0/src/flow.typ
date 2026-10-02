@@ -24,7 +24,7 @@
 /// position itself.
 ///
 /// ```typ
-/// #import "@preview/margin-reflow:0.1.0": column-flow
+/// #import "@preview/riffle:0.1.0": column-flow
 ///
 /// #lorem(60) // occupies the top of the current asymmetric page
 ///
@@ -172,7 +172,7 @@
 /// position itself.
 ///
 /// ```typ
-/// #import "@preview/margin-reflow:0.1.0": single-flow
+/// #import "@preview/riffle:0.1.0": single-flow
 ///
 /// #lorem(60) // occupies the top of the current asymmetric page
 ///
@@ -313,7 +313,7 @@
 /// itself.
 ///
 /// ```typ
-/// #import "@preview/margin-reflow:0.1.0": asymmetric-flow
+/// #import "@preview/riffle:0.1.0": asymmetric-flow
 ///
 /// #asymmetric-flow(
 ///   [
