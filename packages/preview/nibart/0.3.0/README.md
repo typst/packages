@@ -1,14 +1,14 @@
 # nibart
 
 **A MetaPost-like approach to running a pen along a path** — for Typst 0.15+.  
-[Français](README.fr.md) · [Manual (EN)](docs/manual-en.pdf) · [Manuel (FR)](docs/manual-fr.pdf) · [Gallery](https://github.com/fergousA/nibart/blob/main/docs/gallery-en.pdf) · [Galerie](https://github.com/fergousA/nibart/blob/main/docs/gallery-fr.pdf) · [Changelog](CHANGELOG.md)
+[Français](README.fr.md) · [Manual (EN)](https://github.com/fergousA/nibart/blob/main/docs/manual-en.pdf) · [Manuel (FR)](https://github.com/fergousA/nibart/blob/main/docs/manual-fr.pdf) · [Gallery](https://github.com/fergousA/nibart/blob/main/docs/gallery-en.pdf) · [Galerie](https://github.com/fergousA/nibart/blob/main/docs/gallery-fr.pdf) · [Changelog](https://github.com/fergousA/nibart/blob/main/CHANGELOG.md)
 
 `nibart` brings the heart of Metafont/MetaPost to Typst: smooth paths described with Hobby's algorithm (directions, tensions, curls),
 and *pens* — circle, ellipse, broad-edged nib, polygon, or a nib that changes width and angle along the stroke — whose
 exact swept outline is computed for you. Calligraphy, lettering, flourishes, hand-drawn diagrams, technical figures in the
 MetaPost tradition: all as plain vector shapes.
 
-![Gallery](docs/img/gallery.jpg)
+![Gallery](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/gallery.jpg)
 
 ## Installation
 
@@ -59,33 +59,33 @@ the package exports generic names (`draw`, `cubic`, `reverse`, `pressure`…).
 
 | | |
 |---|---|
-| ![Exotic](docs/img/exotic.jpg) | ![Slides](docs/img/slides.jpg) |
-| ![Calligraphy](docs/img/calligraphy.jpg) | ![Flourishes](docs/img/flourishes.jpg) |
+| ![Exotic](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/exotic.jpg) | ![Slides](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/slides.jpg) |
+| ![Calligraphy](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/calligraphy.jpg) | ![Flourishes](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/flourishes.jpg) |
 
 ### nibart: knots, braces, pointed pen
 
-Trefoil, Olympic and Borromean rings, braids and Celtic interlace; calligraphic braces; a copperplate pen; offsets, rounded corners and frames along a path — [`examples/nibart.typ`](examples/nibart.typ) (`--input lang=en` for English captions).
+Trefoil, Olympic and Borromean rings, braids and Celtic interlace; calligraphic braces; a copperplate pen; offsets, rounded corners and frames along a path — [`examples/nibart.typ`](https://github.com/fergousA/nibart/blob/main/examples/nibart.typ) (`--input lang=en` for English captions).
 
-![nibart](docs/img/nibart.jpg)
+![nibart](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/nibart.jpg)
 
 ### The unexpected
 
 A score with tapered slurs, knots that weave over and under (computed with `intersection-times`), a neon sign, embroidery,
 a fractal cherry tree, a dry-brush enso, an engraved sphere, guilloché, a map and a hand-drawn sketch — one file,
-[`examples/insolite.typ`](examples/insolite.typ) (`--input lang=en` for English captions).
+[`examples/insolite.typ`](https://github.com/fergousA/nibart/blob/main/examples/insolite.typ) (`--input lang=en` for English captions).
 
 | | | |
 |---|---|---|
-| ![](docs/img/unexpected-1.jpg) | ![](docs/img/unexpected-2.jpg) | ![](docs/img/unexpected-3.jpg) |
+| ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-1.jpg) | ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-2.jpg) | ![](https://raw.githubusercontent.com/fergousA/nibart/main/docs/img/unexpected-3.jpg) |
 
-The complete sources of these pictures are in [`examples/`](examples) (`galerie`, `exotique`, `boites`, `calligraphie`, `insolite`, `nibart`, `demo`, `chat`, `ile`, `ile-chat`, `podium`).
+The complete sources of these pictures are in [`examples/`](https://github.com/fergousA/nibart/tree/main/examples) (`galerie`, `exotique`, `boites`, `calligraphie`, `insolite`, `nibart`, `demo`, `chat`, `ile`, `ile-chat`, `podium`).
 In a clone of the repository, compile them with `typst compile --root . examples/galerie.typ`.
 The examples that the manual does not show are gathered, with a preview, a description, the functions they use and their build command, in the illustrated gallery: [`gallery-en.pdf`](https://github.com/fergousA/nibart/blob/main/docs/gallery-en.pdf) / [`gallery-fr.pdf`](https://github.com/fergousA/nibart/blob/main/docs/gallery-fr.pdf) (rebuild: `sh scripts/build-gallery.sh && make gallery`). Most examples are bilingual: add `--input lang=en` or `--input lang=fr`.
 
 ## Documentation
 
-The reference manual (English and French; every function with its parameters table and a detailed example, all executed by the package itself) is in [`docs/`](docs):
-[`manual-en.pdf`](docs/manual-en.pdf), [`manual-fr.pdf`](docs/manual-fr.pdf). Rebuild it with
+The reference manual (English and French; every function with its parameters table and a detailed example, all executed by the package itself) is in [`docs/`](https://github.com/fergousA/nibart/tree/main/docs):
+[`manual-en.pdf`](https://github.com/fergousA/nibart/blob/main/docs/manual-en.pdf), [`manual-fr.pdf`](https://github.com/fergousA/nibart/blob/main/docs/manual-fr.pdf). Rebuild it with
 `typst compile --root . docs/manual.typ` (add `--input lang=fr` for French).
 
 ## Limits
