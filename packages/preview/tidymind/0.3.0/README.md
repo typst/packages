@@ -373,7 +373,7 @@ unchanged: `style: "boxed"` renders exactly what 0.1.1 rendered.
 
 <a href="https://elitus.com.br"><picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/pierryangelo/tidymind/v0.3.0/img/elitus-dark.svg">
-  <img alt="Elitus" src="https://raw.githubusercontent.com/pierryangelo/tidymind/v0.3.0/img/elitus-light.svg" width="96">
+  <img alt="Elitus logo, the sponsor of tidymind" src="https://raw.githubusercontent.com/pierryangelo/tidymind/v0.3.0/img/elitus-light.svg" width="96">
 </picture></a>
 
 tidymind is developed with support from [Elitus](https://elitus.com.br)
