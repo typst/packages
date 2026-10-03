@@ -1,5 +1,4 @@
-
-#import "../../src/exports.typ" as dd
+#import "@preview/digidraw:0.9.4" as dd
 #import "../template.typ": manual-template, myraw, mylink, tidylink
 
 #show: manual-template

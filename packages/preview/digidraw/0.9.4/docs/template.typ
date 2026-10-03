@@ -1,5 +1,5 @@
 #import "@preview/digidraw:0.9.4" as dd
-#import "@preview/tableau-icons:0.344.0": ti-icon
+#import "@preview/tableau-icons:0.347.0": ti-icon
 #import "@preview/cetz:0.5.2"
 #import dd: wave
 

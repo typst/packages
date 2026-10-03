@@ -1,4 +1,4 @@
-#import "@preview/tableau-icons:0.344.0": ti-icon
+#import "@preview/tableau-icons:0.347.0": ti-icon
 #import "@preview/digidraw:0.9.4" as dd
 
 #let toml = toml("../typst.toml")

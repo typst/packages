@@ -1,5 +1,5 @@
 #import "@preview/cetz:0.5.2"
-#import "@preview/tableau-icons:0.344.0": ti-icon
+#import "@preview/tableau-icons:0.347.0": ti-icon
 #import "@preview/alertoni:1.0.0" as at
 #import "@preview/tiptoe:0.4.0" as tt
 #import "@preview/tidy:0.4.3"
