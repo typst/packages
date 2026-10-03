@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 66 70" width="66" height="70">
+  <!-- blockst logo: a hat block on a stack block, Scratch's notch geometry, about square. -->
+  <path d="M 4 34 H 8 c 2 0 3 1 4 2 l 4 4 c 1 1 2 2 4 2 h 12 c 2 0 3 -1 4 -2 l 4 -4 c 1 -1 2 -2 4 -2 H 60 a 4 4 0 0 1 4 4 V 56 a 4 4 0 0 1 -4 4 H 44 c -2 0 -3 1 -4 2 l -4 4 c -1 1 -2 2 -4 2 h -12 c -2 0 -3 -1 -4 -2 l -4 -4 c -1 -1 -2 -2 -4 -2 H 4 a 4 4 0 0 1 -4 -4 V 38 a 4 4 0 0 1 4 -4 Z" fill="#4c97ff" stroke="#3373cc" stroke-width="1"/>
+  <path d="M 0 12 c 17 -12 47 -12 64 0 V 30 a 4 4 0 0 1 -4 4 H 44 c -2 0 -3 1 -4 2 l -4 4 c -1 1 -2 2 -4 2 h -12 c -2 0 -3 -1 -4 -2 l -4 -4 c -1 -1 -2 -2 -4 -2 H 4 a 4 4 0 0 1 -4 -4 Z" fill="#ffbf00" stroke="#cc9900" stroke-width="1"/>
+</svg>

@@ -1,0 +1,73 @@
+unternehmensbewertung:
+  type: Book
+  author: ["Drukarczyk, Jochen", "Schüler, Andreas"]
+  title:
+    value: "Unternehmensberwertung"
+    short: "Unternehmensbewertung"
+  date: 2016
+  publisher:
+    name: "Vahlen"
+    location: "München"
+  edition: "7"
+
+personal:
+  type: Book
+  author: ["Scholz, Christian"]
+  title:
+    value: "Personalmanagement"
+    short: "Personal"
+  date: 2014
+  publisher:
+    name: "Vahlen"
+    location: "München"
+  edition: "6"
+
+wissenschaftliches_arbeiten:
+  type: Book
+  author: ["Theisen, Manuel R."]
+  title: 
+    value: "Wissenschaftliches Arbeiten - Erfolgreich bei Bachelor- und Masterarbeiten"
+    short: "Wissenschaftliches Arbeiten"
+  date: 2017
+  publisher: 
+    name: "Vahlen"
+    location: "München"
+  edition: "17"
+
+investment_banking:
+  type: Book
+  editor: ["Hockmann, Heinz-Josef", "Thießen, Friedrich"]
+  title: 
+    value: "Investment Banking"
+    short: "Banking"
+  date: 2012
+  publisher:
+    name: "Schäffer-Poeschel"
+    location: "Stuttgart"
+  edition: "3"
+  
+private_equity:
+  type: Chapter
+  author: ["Schuler, Armin"]
+  title: 
+    value: "Beratungs- und Finanzierungsgeschäfte"
+    short: "Private Equity"
+  parent:
+    title: "Investment Banking"
+    editor: ["Hockmann, Heinz-Josef", "Thießen, Friedrich"]
+  date: 2012
+  page-range: "277-294"
+
+
+lemons:
+  type: Article
+  author: ["Akerlof, George A."]
+  title:
+    value: "The Market for 'Lemons': Quality Uncertainty and the Market Mechanism"
+    short: "Lemons"
+  parent:
+    title: "QJ Econ"
+  date: 1970
+  volume: "84"
+  issue: "3"
+  page-range: "488-500"
