@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-GPLv3-green)
 [![Thesis manual](https://img.shields.io/badge/docs-thesis-red?logo=readthedocs)](docs/manual.pdf?raw=true)
 [![Presentation manual (EN)](https://img.shields.io/badge/docs-presentation%20%28en%29-red?logo=readthedocs)](docs/presentation-manual-en.pdf?raw=true)
-[![Presentation manual (IT)](https://img.shields.io/badge/docs-presentation%20%28it%29-red?logo=readthedocs)](docs/presentation-manual-it.pdf?raw=true)
+[![Presentation manual (IT)](https://img.shields.io/badge/docs-presentation%20%28it%29-red?logo=readthedocs)](docs/presentation-manual.pdf?raw=true)
 
 A simple [Typst](https://typst.app) thesis template for the University of Milan (UniMi). There are many templates available: this package has been built upon the [LIM LaTeX template](https://www.overleaf.com/project/641879675262cde2a670826b) (in Italian); while the the presentation is based on [this](https://www.overleaf.com/latex/templates/la-statale-universita-degli-studi-di-milano-unimi-presentation/ykkwvfdbqydr) LaTeX template. Both are licensed under the CC BY 4.0 license.
 
@@ -106,7 +106,7 @@ Built on [Touying](https://typst.app/universe/package/touying/), the structure i
 
 ```typ
 #import "@preview/simple-unimi-thesis:0.2.0": *
-#import "@preview/touying:0.7.4": *
+#import "@preview/touying:0.8.0": *
 
 #show: unimi-presentation.with(
   config-info(

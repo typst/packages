@@ -1,5 +1,5 @@
 #import "@preview/simple-unimi-thesis:0.2.0": *
-#import "@preview/touying:0.7.4": *
+#import "@preview/touying:0.8.0": *
 
 #show: unimi-presentation.with(
   config-info(
