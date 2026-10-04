@@ -3,6 +3,7 @@
 // Author     : Silvan Zahno
 //
 #import "constants.typ": *
+#import "i18n.typ": i18n
 
 /// Display some content with specific text style options
 ///
@@ -308,184 +309,81 @@
 /// - nbr-ex (int): number of exercises
 /// - pts (int): total number of points
 /// - lang (str): display language
+/// - box-size (length): size of the point boxes
 /// -> content
 #let exam-header(
   nbr-ex: 5+1,
   pts: 10,
-  lang: "en" // "de" "fr"
+  lang: "en", // "de" "fr"
+  box-size: 1cm
 ) = {
-  if nbr-ex == 0 {
-    table(
-      columns: (2cm, 90%),
-      align: center + top,
-      stroke: none,
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
+  let cells = ()
+
+  // Create exercice boxes (number, box, points)
+  for i in range(1, nbr-ex) {
+    let column = (
+      text(small, str(i)),
+      table.cell(stroke: 1pt)[],
+      text(small, [(#pts)])
     )
-  } else if nbr-ex == 1 {
+    cells.push(column)
+  }
+
+  let name-label = i18n("exam-name", lang: lang)
+  let widths = ()
+
+  // Create grade box
+  if nbr-ex > 0 {
+    widths = (box-size,) * (nbr-ex - 1)
+    let grade-label = i18n("exam-grade", lang: lang)
+
+    widths.push(1.3 * box-size)
+    cells.push((
+      text(small, grade-label),
+      table.cell(stroke: 2pt)[],
+      [],
+    ))
+  }
+
+  // Transpose columns -> rows
+  let (labels, boxes, points) = if cells.len() == 0 {
+    ((), (), ())
+  } else {
+    cells.first().zip(..cells.slice(1))
+  }
+
+  let columns = (2cm, 90%-widths.sum(default: 0pt), ..widths)
+
+  return {
+    v(-0.4cm)
     table(
-      columns: (2cm, 90%-1.3cm, 1.3cm),
-      align: center + top,
+      columns: columns,
+      rows: (0.6cm, box-size, 0.6cm),
+      align: (_, y) => center + (bottom, horizon, top).at(y),
       stroke: none,
-      [], [], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-    )
-  } else if nbr-ex == 2 {
-    table(
-      columns: (2cm, 90%-2.3cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [],
-    )
-  } else if nbr-ex == 3 {
-    table(
-      columns: (2cm, 90%-3.3cm, 1cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], [#v(-0.4cm)#text(small, "2")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [],
-    )
-  } else if nbr-ex == 4 {
-    table(
-      columns: (2cm, 90%-4.3cm, 1cm, 1cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], [#v(-0.4cm)#text(small, "2")], [#v(-0.4cm)#text(small, "3")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [],
-    )
-  } else if nbr-ex == 5 {
-    table(
-      columns: (2cm, 90%-5.3cm, 1cm, 1cm, 1cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], [#v(-0.4cm)#text(small, "2")], [#v(-0.4cm)#text(small, "3")], [#v(-0.4cm)#text(small, "4")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [],
-    )
-  } else if nbr-ex == 6 {
-    table(
-      columns: (2cm, 90%-6.3cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], [#v(-0.4cm)#text(small, "2")], [#v(-0.4cm)#text(small, "3")], [#v(-0.4cm)#text(small, "4")], [#v(-0.4cm)#text(small, "5")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [],
-    )
-  } else if nbr-ex == 7 {
-    table(
-      columns: (2cm, 90%-7.3cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], [#v(-0.4cm)#text(small, "2")], [#v(-0.4cm)#text(small, "3")], [#v(-0.4cm)#text(small, "4")], [#v(-0.4cm)#text(small, "5")], [#v(-0.4cm)#text(small, "6")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [],
-    )
-  } else if nbr-ex == 8 {
-    table(
-      columns: (2cm, 90%-8.3cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], [#v(-0.4cm)#text(small, "2")], [#v(-0.4cm)#text(small, "3")], [#v(-0.4cm)#text(small, "4")], [#v(-0.4cm)#text(small, "5")], [#v(-0.4cm)#text(small, "6")], [#v(-0.4cm)#text(small, "7")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [],
-    )
-  } else if nbr-ex == 9 {
-    table(
-      columns: (2cm, 90%-9.3cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], [#v(-0.4cm)#text(small, "2")], [#v(-0.4cm)#text(small, "3")], [#v(-0.4cm)#text(small, "4")], [#v(-0.4cm)#text(small, "5")], [#v(-0.4cm)#text(small, "6")], [#v(-0.4cm)#text(small, "7")], [#v(-0.4cm)#text(small, "8")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [],
-    )
-  } else if nbr-ex == 10 {
-    table(
-      columns: (2cm, 90%-10.3cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1cm, 1.3cm),
-      align: center + top,
-      stroke: none,
-      [], [], [#v(-0.4cm)#text(small, "1")], [#v(-0.4cm)#text(small, "2")], [#v(-0.4cm)#text(small, "3")], [#v(-0.4cm)#text(small, "4")], [#v(-0.4cm)#text(small, "5")], [#v(-0.4cm)#text(small, "6")], [#v(-0.4cm)#text(small, "7")], [#v(-0.4cm)#text(small, "8")], [#v(-0.4cm)#text(small, "9")], if lang == "en" {[#v(-0.4cm)#text(small, "Grade")]} else {[#v(-0.4cm)#text(small, "Note")]},
-      if lang == "en" or lang == "de" {[#text(large, "Name:")]} else {[#text(large, "Nom:")]
-      },
-      [#line(start: (0cm, 0.7cm), length:(100%), stroke:(dash:"loosely-dashed"))],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#square(size:1cm, stroke:1pt)],
-      [#v(-0.3cm)#rect(height:1cm, width:1.2cm, stroke:2pt)],
-      [], [], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [#v(-0.2cm)#text(small, [(#pts)])], [],
+
+      // First row
+      [], [], ..labels,
+
+      // Second row
+      text(large, name-label),
+      table.cell(
+        inset: (y: 0pt),
+        box(
+          stroke: (
+            bottom: (
+              paint: black,
+              dash: "loosely-dashed"
+            )
+          ),
+          width: 100%,
+          height: 100%,
+        )
+      ),
+      ..boxes,
+
+      // Third row
+      [], [], ..points,
     )
   }
 }

@@ -22,7 +22,10 @@
     "sdg-path": "img/sdg/sdg-en-",
 
     "degree-programme": "Degree Programme",
-    "major": "Major"
+    "major": "Major",
+
+    "exam-name": "Name:",
+    "exam-grade": "Grade:"
   },
   "fr": {
     "toc-title": "Contenu",
@@ -47,7 +50,10 @@
     "sdg-path": "img/sdg/sdg-fr-",
 
     "degree-programme": "Filière",
-    "major": "Orientation"
+    "major": "Orientation",
+
+    "exam-name": "Nom:",
+    "exam-grade": "Note:"
   },
   "de": {
     "toc-title": "Inhalt",
@@ -72,6 +78,9 @@
     "sdg-path": "img/sdg/sdg-de-",
 
     "degree-programme": "Studiengang",
-    "major": "Spezialisierung"
+    "major": "Spezialisierung",
+
+    "exam-name": "Name:",
+    "exam-grade": "Note:"
   }
 }

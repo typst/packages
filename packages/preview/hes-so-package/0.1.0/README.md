@@ -41,7 +41,7 @@ Template can be found in our [GitHub organization](https://github.com/HES-SO).
 ## Help
 
 If you need help writing your document look at the [Typst documentation](https://typst.app/docs/).
-For the package specifics, have a look at the Guide to Typst built from the [`guide/`](https://github.com/HES-SO/HES-SO-package/tree/0e3f33a804e9fb69c2be131f5fe70cdffd5316ca/guide) folder:
+For the package specifics, have a look at the Guide to Typst built from the [`guide/`](https://github.com/HES-SO/HES-SO-package/tree/665ba97061456da7589720eaba5fcb950ad007a7/guide) folder:
 [EN](https://github.com/HES-SO/HES-SO-package/releases/latest/download/guide-to-typst-en_minimal.pdf)
 [DE](https://github.com/HES-SO/HES-SO-package/releases/latest/download/guide-to-typst-de_minimal.pdf)
 [FR](https://github.com/HES-SO/HES-SO-package/releases/latest/download/guide-to-typst-fr_minimal.pdf).
