@@ -1,6 +1,6 @@
 # typed-scores
 
-See the [documentation](https://github.com/GeronimoCastano/typed-scores/blob/b74f43d77bb6e00ab9b737b87859c86beb395c7e/docs/documentation.pdf) for the complete reference.
+See the [documentation](https://github.com/GeronimoCastano/typed-scores/blob/d9b3df1/docs/documentation.pdf) for the complete reference.
 
 ![Chopin Nocturne Op. 9 No. 2 opening](assets/readme/chopin-opening.png)
 
@@ -84,7 +84,11 @@ Bar metadata belongs beside the staff content. `clef`, `key`, `time`, and
 `tempo` persist from the bar where they appear; `partial` validates an
 incomplete bar. For a multi-staff clef change, use a staff map such as
 `clef: (lower: "treble")`. Mid-system clefs are reduced; the active clefs at a
-new system are full-size.
+new system are full-size. To change clef within a bar, place `clef treble`
+inside that staff's note sequence; the new clef applies before the next event
+and persists through later bars. Inline changes require one voice on the staff,
+must be written on and followed by an event on that staff, and cannot
+immediately precede a grace group.
 
 `clef: "percussion"` draws the neutral percussion clef. Its lines and spaces
 read as a treble staff's do, so a drum kit writes the bass drum as `f4` and the
@@ -352,6 +356,7 @@ before the next bar. Set `bar-numbers` to
 | `s:q` | Invisible spacer: takes a quarter's time, draws nothing |
 | `_` | Rest filling the remaining measure duration |
 | `c2:e g2 @upper e4 g4` | Draw the following events on staff `upper` |
+| `c2:q clef treble (c4 e4 g4):q` | Change this staff's clef before the next event |
 | `(c3 g3 @upper e4 c5):h` | Split chord: one stem across two staves |
 | `~` | Tie the preceding event to the next event |
 | `/` | Break the automatic beam before the next event |
@@ -573,8 +578,9 @@ and MusicXML voices become voice strings, with cross-staff notes written as
 - chord symbols as `harmony`, and lyric verses with hyphens and extenders.
 
 `read-score` lists every conversion loss in `warnings` and the header of `source`. `import-score` reports those losses as an error; inspect the conversion with `read-score` before explicitly rendering its reviewed `arguments`. Conversion losses include ties joining only part of a chord or crossing staves, lyrics
-under a second voice, grace notes inside a tuplet, mid-bar clef changes (moved
-to the next barline), and the separate key signatures of transposing parts.
+under a second voice, grace notes inside a tuplet, imported mid-bar clef
+changes (moved to the next barline), and the separate key signatures of
+transposing parts.
 Breves, notes shorter than a thirty-second, and a bar holding more music than
 its meter stop the import with an error naming the bar. Imported scores use
 `scale: 0.7`; lower `scale` or `note-spacing` if a dense bar does not fit. Malformed numeric fields, zero durations or denominators, invalid pitches,
@@ -601,7 +607,7 @@ most 256 tied note values; divide longer values across shorter measures.
 - Dense markings or lyric verses may need `staff-gap`, `note-spacing`,
   `lyric-gap`, `verse-gap`, or `scale` adjustment.
 
-See the [user guide](https://github.com/GeronimoCastano/typed-scores/blob/b74f43d77bb6e00ab9b737b87859c86beb395c7e/docs/documentation.pdf)
+See the [user guide](https://github.com/GeronimoCastano/typed-scores/blob/d9b3df1/docs/documentation.pdf)
 for the complete reference. The
 [five-piece release showcase](https://github.com/GeronimoCastano/typed-scores/blob/b74f43d77bb6e00ab9b737b87859c86beb395c7e/examples/showcase.pdf)
 includes famous piano, string-score, solo-cello, and alto-saxophone excerpts;

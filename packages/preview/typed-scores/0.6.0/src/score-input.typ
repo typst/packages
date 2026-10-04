@@ -454,6 +454,7 @@
       )
     }
     let clef-change = measure-input.at("clef", default: none)
+    let measure-clef-changes = (:)
     if clef-change != none {
       if type(clef-change) == str {
         if staff-specs.len() != 1 {
@@ -465,10 +466,10 @@
             fix: "write clef: (staff-id: \"bass\")",
           )
         }
-        current-clefs.insert(
-          staff-specs.first().id,
-          checked-clef-change(staff-specs.first().id, clef-change, measure-label + " clef"),
-        )
+        let staff-id = staff-specs.first().id
+        let new-clef = checked-clef-change(staff-id, clef-change, measure-label + " clef")
+        current-clefs.insert(staff-id, new-clef)
+        measure-clef-changes.insert(staff-id, new-clef)
       } else if type(clef-change) == dictionary {
         if clef-change.len() == 0 {
           _score-error(
@@ -488,10 +489,13 @@
               fix: "use a declared staff ID",
             )
           }
-          current-clefs.insert(
+          let new-clef = checked-clef-change(
             staff-id,
-            checked-clef-change(staff-id, clef-change.at(staff-id), measure-label + " clef " + staff-id),
+            clef-change.at(staff-id),
+            measure-label + " clef " + staff-id,
           )
+          current-clefs.insert(staff-id, new-clef)
+          measure-clef-changes.insert(staff-id, new-clef)
         }
       } else {
         _score-error(
@@ -633,6 +637,7 @@
       staff-heights: staff-specs.map(_staff-height),
       staff-tabs: staff-specs.map(staff => staff.tab),
       staff-clefs: staff-specs.map(staff => (staff.id, current-clefs.at(staff.id))),
+      clef-changes: measure-clef-changes,
       staff-heads: staff-specs.map(staff => staff.heads),
       voices: measure-voices,
     ))
@@ -694,6 +699,23 @@
   let tab-carry = (:)
   for measure-index in range(normalized-measures.len()) {
     let normalized-measure = normalized-measures.at(measure-index)
+    let measure-clefs = (:)
+    if measure-index == 0 {
+      for (staff-id, clef) in normalized-measure.staff-clefs {
+        measure-clefs.insert(staff-id, clef)
+      }
+    } else {
+      for staff-id in previous-clefs.keys() {
+        measure-clefs.insert(staff-id, previous-clefs.at(staff-id))
+      }
+    }
+    for staff-id in normalized-measure.clef-changes.keys() {
+      measure-clefs.insert(staff-id, normalized-measure.clef-changes.at(staff-id))
+    }
+    let layout-staff-clefs = normalized-measure.staff-clefs.map(((staff-id, _)) => (
+      staff-id,
+      measure-clefs.at(staff-id),
+    ))
     let validation-time = normalized-measure.at("partial", default: none)
     if validation-time == none {
       validation-time = normalized-measure.time
@@ -710,10 +732,11 @@
           + ", staff " + voice.staff-id
           + ", voice " + str(voice.layer-index + 1)
       )
+      let voice-clef = measure-clefs.at(voice.staff-id, default: voice.clef)
       let layout-response = _layout-sequence(
         voice.notes,
         home-staff-id: voice.staff-id,
-        staff-clefs: normalized-measure.staff-clefs,
+        staff-clefs: layout-staff-clefs,
         staff-heads: normalized-measure.staff-heads,
         time: validation-time,
         anchor: pitch-anchors.at(voice.id, default: none),
@@ -721,17 +744,29 @@
         transposition: normalized-measure.transposition,
         location: voice-location,
       )
-      if voice.clef in ("tab", "percussion") and layout-response.layouts.any(layout => (
+      let has-inline-clef-change = layout-response.layouts.any(layout => (
+        layout.at("clef_change_before", default: false)
+      ))
+      if has-inline-clef-change and voice.layer-count != 1 {
+        _score-error(
+          voice-location + " clef",
+          "inline clef changes require a single voice on their staff",
+          value: voice.notes,
+          expected: "a clef change in a staff with one voice",
+          fix: "move the clef change to a bar boundary or combine the staff into one voice",
+        )
+      }
+      if voice-clef in ("tab", "percussion") and layout-response.layouts.any(layout => (
         layout.annotations.any(annotation => str(annotation).match(regex("^(8va|8vb|15ma|15mb)[()]$")) != none)
       )) {
         _score-error(
           voice-location,
           "ottava requires a pitched notation staff",
-          value: voice.clef,
+          value: voice-clef,
           fix: "place the ottava on the notation source staff or remove the octave markers",
         )
       }
-      if voice.clef == "tab" {
+      if voice-clef == "tab" {
         for layout in layout-response.layouts {
           if layout.annotations.any(annotation => not str(annotation).starts-with("string=")) or layout.pitches.any(pitch => pitch.at("head", default: "normal") != "normal") {
             _score-error(
@@ -777,9 +812,10 @@
         staff-index: voice.staff-index,
         layer-index: voice.layer-index,
         layer-count: voice.layer-count,
-        clef: voice.clef,
+        clef: voice-clef,
+        ending-clef: layout-response.ending_clef,
         show-clef: measure-index == 0
-          or voice.clef != previous-clefs.at(voice.staff-id, default: none),
+          or voice-clef != previous-clefs.at(voice.staff-id, default: none),
         label: voice.label,
         short-label: voice.short-label,
         tab: voice.tab,
@@ -871,7 +907,10 @@
       show-clef: prepared-voices.any(voice => voice.show-clef),
     ))
     for voice in prepared-voices {
-      previous-clefs.insert(voice.staff-id, voice.clef)
+      previous-clefs.insert(
+        voice.staff-id,
+        voice.at("ending-clef", default: voice.clef),
+      )
     }
     previous-key = normalized-measure.key
     previous-time = normalized-measure.time

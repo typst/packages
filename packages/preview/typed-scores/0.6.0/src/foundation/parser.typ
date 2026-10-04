@@ -55,16 +55,22 @@
   }
   let anchor = data.at("anchor", default: none)
   let duration-anchor = data.at("duration_anchor", default: none)
+  let ending-clef = data.at("ending_clef", default: none)
   if (
     (anchor != none and type(anchor) != str)
       or (duration-anchor != none and type(duration-anchor) != str)
-      or data.layouts.any(layout => type(layout) != dictionary)
+      or type(ending-clef) != str
+      or data.layouts.any(layout => (
+        type(layout) != dictionary
+          or type(layout.at("clef", default: none)) != str
+          or type(layout.at("clef_change_before", default: none)) != bool
+      ))
   ) {
     _score-error(
       location,
       "the parser returned malformed layout state",
       value: data,
-      expected: "dictionary layouts plus optional string anchors",
+      expected: "dictionary layouts, string clefs, and optional string anchors",
       fix: "rebuild or reinstall typed-scores so plugin.wasm matches the Typst sources",
     )
   }

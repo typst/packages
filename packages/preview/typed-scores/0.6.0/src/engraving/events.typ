@@ -3,8 +3,8 @@
 #import "../foundation/diagnostics.typ": _score-error
 #import "../foundation/meter.typ": _rational-add, _rational-lte
 #import "event-geometry.typ": _accidental-gap, _alternating-tremolo-strokes, _default-stem-length, _dot-gap-from-head, _dot-step, _dot-y, _draw-dots, _duration-base, _event-bottom-y, _event-notation-scale, _event-pitch-ys, _event-staff-index, _group-notation-scale, _head-half-width, _is-split-chord, _layout-stem-direction, _pitch-bottom-y, _pitch-head-shape, _pitch-staff-index, _single-tremolo-strokes, _small-beam-center-step, _small-beam-thickness, _small-notation-scale, _small-stem-length, _small-stem-length-fraction, _stem-direction, _uses-small-notation
-#import "signatures.typ": _key-default-accidental
-#import "spacing.typ": _accidental-plan, _cluster-offsets
+#import "signatures.typ": _draw-event-clef, _key-default-accidental
+#import "spacing.typ": _accidental-plan, _cluster-offsets, _event-prefix-width-before-notehead
 
 // ---------------------------------------------------------------------------
 // Drawing events
@@ -23,8 +23,21 @@
   paint: black,
 ) = {
   import cetz.draw: *
-  if layout.at("spacer", default: false) or layout.at("merged-rest", default: false) { return }
   let bottom-y = _event-bottom-y(layout, bottom-y)
+  let event-prefix-width = if layout.at("clef_change_before", default: false) {
+    _event-prefix-width-before-notehead(layout, key)
+  } else {
+    0
+  }
+  _draw-event-clef(
+    layout,
+    x,
+    event-prefix-width: event-prefix-width,
+    bottom-y: bottom-y,
+    unit: unit,
+    paint: paint,
+  )
+  if layout.at("spacer", default: false) or layout.at("merged-rest", default: false) { return }
   let notation-scale = _event-notation-scale(layout)
   if layout.rest {
     let rest-bottom = bottom-y + layout.at("rest-offset", default: 0)

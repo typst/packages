@@ -8,6 +8,7 @@
 #let _change-clef-scale = 0.72
 #let _change-clef-advance = 2.35
 #let _prologue-gap = 0.7
+#let _inline-clef-change-prefix-width = _change-clef-advance + _prologue-gap + 0.4
 #let _content-lead-in = 1.2
 #let _barline-clearance = 1.2
 #let _repeat-side-clearance = 0.3
@@ -328,6 +329,20 @@
       _inline-time-x(measure-start, key, show-key, reserve-clef: show-clef or reserve-clef, previous-key: previous-key),
       bottom-y: bottom-y,
       unit: unit,
+      paint: paint,
+    )
+  }
+}
+
+#let _draw-event-clef(layout, x, event-prefix-width: 0, bottom-y: 0, unit: 8pt, paint: black) = {
+  if layout.at("clef_change_before", default: false) {
+    let clef-x = x - _inline-clef-change-prefix-width - event-prefix-width
+    draw-clef(
+      layout.clef,
+      clef-x,
+      _clef-origin-y(layout.clef, bottom-y: bottom-y),
+      unit: unit,
+      scale: _change-clef-scale,
       paint: paint,
     )
   }

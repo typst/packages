@@ -1,6 +1,6 @@
 #import "primitives.typ": accidental-width, notehead-half-width, rest-width, stem-thickness
 #import "event-geometry.typ": _accidental-gap, _dot-gap-from-head, _dot-step, _duration-base, _grace-main-gap, _grace-note-step, _head-half-width, _min-onset-step, _pitch-head-shape, _pitch-vertical-rank, _stem-direction
-#import "signatures.typ": _barline-clearance, _key-alters-natural, _key-suppresses-accidental
+#import "signatures.typ": _barline-clearance, _inline-clef-change-prefix-width, _key-alters-natural, _key-suppresses-accidental
 #import "lyrics.typ": _add-lyric-spacing-demands
 #import "figured-bass.typ": _figure-stack-extent
 
@@ -133,15 +133,26 @@
 // accidentals, dots, flags, or seconds offsets.
 #let _is-tab-layout(layout) = layout.at("tab", default: false)
 
+#let _event-prefix-width-before-notehead(layout, key) = {
+  if _is-tab-layout(layout) { return 0 }
+  let cluster-pad = 0
+  if not layout.rest and layout.pitches.len() > 1 {
+    let offsets = _cluster-offsets(layout, _stem-direction(layout.pitches.map(p => p.staff_position)))
+    cluster-pad = -calc.min(..offsets, 0)
+  }
+  let arpeggio-pad = if layout.annotations.any(mark => str(mark) == "arpeggio" or str(mark).starts-with("arpeggio=")) { 0.95 } else { 0 }
+  cluster-pad + _accidental-plan(layout, key).total + arpeggio-pad
+}
+
 #let _left-pad(layout, key) = {
   if _is-tab-layout(layout) { return 0 }
   let pad = _head-half-width(layout) - notehead-half-width
-  if not layout.rest and layout.pitches.len() > 1 {
-    let offsets = _cluster-offsets(layout, _stem-direction(layout.pitches.map(p => p.staff_position)))
-    pad += -calc.min(..offsets, 0)
+  let clef-pad = if layout.at("clef_change_before", default: false) {
+    _inline-clef-change-prefix-width
+  } else {
+    0
   }
-  let arpeggio-pad = if layout.annotations.any(mark => str(mark) == "arpeggio" or str(mark).starts-with("arpeggio=")) { 0.95 } else { 0 }
-  pad + _accidental-plan(layout, key).total + arpeggio-pad
+  pad + _event-prefix-width-before-notehead(layout, key) + clef-pad
 }
 
 // Space the event's own ink needs to the right of the notehead center.
