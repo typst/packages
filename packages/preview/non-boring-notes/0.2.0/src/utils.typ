@@ -63,7 +63,7 @@
 
 #let mathnote(content) = align(center)[(#content)]
 
-#let set_min_config(
+#let minimal_template(
   title: "",
   subtitle: "",
   text_lang: "en",
