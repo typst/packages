@@ -102,7 +102,7 @@ The template also supports project documentation for a Modularbeit. Use `modular
 )
 ```
 
-Modularbeiten do not include the thesis declaration, abstract, or blocking notice. Lists of abbreviations, figures, listings, and tables can be disabled individually with the corresponding `print-*` parameters. A complete example is available in [`examples/modularbeit.typ`](https://github.com/fine-seat/hm-typst-template/blob/main/examples/modularbeit.typ).
+Modularbeiten do not include the thesis declaration, abstract, or blocking notice. Lists of abbreviations, figures, listings, and tables can be disabled individually with the corresponding `print-*` parameters. A complete example is available in [`examples/modularbeit.typ`](https://github.com/fine-seat/hm-typst-template/blob/v0.1.12/examples/modularbeit.typ).
 
 ### Hauptseminar
 
@@ -121,7 +121,7 @@ The template also supports Hauptseminar papers. Use `hauptseminar-paper` and pro
 )
 ```
 
-The seminar layout includes a dedicated title page for the paper and a course/major label. A complete example is available in [`examples/hauptseminar.typ`](https://github.com/fine-seat/hm-typst-template/blob/main/examples/hauptseminar.typ).
+The seminar layout includes a dedicated title page for the paper and a course/major label. A complete example is available in [`examples/hauptseminar.typ`](https://github.com/fine-seat/hm-typst-template/blob/v0.1.12/examples/hauptseminar.typ).
 
 The repository contains complete examples for all supported document types. Compile them from the `examples` directory with:
 
