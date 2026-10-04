@@ -4,7 +4,7 @@ A Typst template for Bachelor and Master theses at the Faculty of Mathematics an
 
 It follows the [Gestaltungshinweise zu Abschlussarbeiten an der Fakultät für Mathematik und Informatik](https://www.fmi.uni-jena.de/fmi_femedia/5973/gestaltungshinweise-abschlussarbeiten.pdf?nonactive=1&suffix=pdf). It creates the cover page(s) with all mandatory information, the page numbering, the table of contents, lists of figures, tables and listings, a list of abbreviations, the appendix and the declaration of academic integrity.
 
-![Cover page and first chapter](thumbnail.png)
+![Cover page and first chapter](preview.png)
 
 > **Warning:** This template is **not** affiliated with the University of Jena. The university logo is **not** included in this package, because it is the property of the University of Jena. See [Getting the logo](#getting-the-logo) for how to download it.
 
