@@ -174,16 +174,8 @@
     ))
     // remove first line indent if necessary and return
     let (amt, all) = _get-fli()
-    if (
-      not set-page-margin
-        and (
-          consumed > 0
-            and units-ori.len() > consumed
-            and not _ends-block(units-ori.at(consumed - 1))
-            and all
-            and amt != 0pt
-        )
-    ) {
+    let _is-end = _ends-block(units-ori.at(consumed - 1))
+    if consumed > 0 and units-ori.len() > consumed and not _is-end and all and amt != 0pt {
       units-ori = (h(-amt),) + units-ori.slice(consumed)
     } else {
       units-ori = units-ori.slice(consumed)
