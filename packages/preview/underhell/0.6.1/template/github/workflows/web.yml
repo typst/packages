@@ -1,0 +1,38 @@
+name: 构建静态网页并发布到 web 分支
+
+# 把 make web 的产物提交到 web 分支,供 Cloudflare Pages / EdgeOne Pages 绑定发布。
+# 本文件随模板一起分发(放在不带点的 github/ 里,Typst 打包会跳过隐藏目录)。
+# 启用时把 github/ 改名为 .github/,GitHub 才会识别这份工作流。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 安装 Typst
+        run: |
+          curl -fL https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-unknown-linux-musl.tar.xz -o /tmp/typst.tar.xz
+          tar -xf /tmp/typst.tar.xz -C /tmp
+          sudo mv /tmp/typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
+
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 构建网页(make web)
+        run: make web
+
+      - name: 推送到 web 分支
+        working-directory: dist
+        run: |
+          git init -q -b web
+          git config user.name "web-bot"
+          git config user.email "web-bot@users.noreply.github.com"
+          git add -A
+          git commit -q -m "网页构建:${GITHUB_SHA}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" web
