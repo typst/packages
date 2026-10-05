@@ -631,6 +631,10 @@
   /// -> int
   wave-layer: 0,
 
+  /// TODO: implement a bit better -> idea: trigger sequence changes at the beginning symbol by setting an "implicit" starting symbol
+  /// -> string
+  implicit-prev: none,
+
   /// This name can be used when referencing anchors from the diagram to attach `cetz` elements to it.
   /// -> string
   name: "wave",
@@ -774,7 +778,7 @@
       .map(x => {
         let (i, curr) = x
 
-        let prev = if i == 0 { none } else { processed-symbols.entries.at(i - 1).symbol }
+        let prev = if i == 0 { implicit-prev } else { processed-symbols.entries.at(i - 1).symbol }
         let next = processed-symbols.entries.at(i + 1, default: (symbol: none)).symbol
 
         (
