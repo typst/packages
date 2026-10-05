@@ -1,0 +1,28 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "htl-saalfelden-thesis-requirements"
+version = "0.1.4"
+entrypoint = "template/template.typ"
+authors = ["Johannes Höllwerth <johannes.hoellwerth@htl-saalfelden.at>"]
+license = "Unlicense"
+description = "Template for HTL Saalfelden thesis requirements specifications (Pflichtenheft)."
+repository = "https://github.com/htl-saalfelden/typst-thesis-requirements-template"
+keywords = ["thesis", "htl", "htl-saalfelden", "austria", "requirements", "pflichtenheft", "diploma", "template"]
+categories = ["thesis"]
+disciplines = ["education"]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "thumbnail-dark.svg",
+  "thumbnail-light.svg",
+]
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "img/thumbnail.png"
