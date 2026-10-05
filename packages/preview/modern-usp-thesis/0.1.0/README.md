@@ -149,6 +149,7 @@ The `usp-thesis` function accepts the following parameters. Only `title`, `autho
 | `version` | string | `"Original"` | `"Original"` or `"Corrigida"` (or `versions.original` / `versions.revised`), printed as "Versão Original". |
 | `nature` | string | `none` | Overrides the inferred "Dissertação" / "Tese". |
 | `lang` | string | `"pt"` | Main language, `"pt"` or `"en"` (or `langs.pt` / `langs.en`). |
+| `font` | string / array | `"New Computer Modern"` | Document font, or a list of fallback fonts. Applies to every page, cover included. |
 | `catalog-card` | content | `none` | Optional ficha catalográfica, printed at the foot of the page after the title page (e.g. `image("ficha.png")`). |
 | `abstract-pt` | content | `none` | Abstract in Portuguese (Resumo). |
 | `keywords-pt` | array | `()` | Keywords in Portuguese. |

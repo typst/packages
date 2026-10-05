@@ -16,7 +16,6 @@
 
   // Typography
   set text(
-    font: "New Computer Modern", 
     size: 12pt,
     lang: lang,
   )

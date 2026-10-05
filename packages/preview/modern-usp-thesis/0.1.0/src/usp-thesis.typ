@@ -17,6 +17,7 @@
 /// - version (string): "Original" or "Corrigida".
 /// - nature (string): Overrides the inferred "Dissertação" or "Tese".
 /// - lang (string): Main document language ("pt" or "en").
+/// - font (string or array): The document font, or a list of fallbacks (default: "New Computer Modern").
 /// - catalog-card (content): Optional ficha catalográfica (cataloging-in-publication
 ///   card), printed at the foot of the page after the title page. Pass the card the
 ///   library provides, e.g. `image("ficha.png", width: 12.5cm)`.
@@ -54,6 +55,7 @@
   version: "Original",
   nature: none, 
   lang: "pt",
+  font: "New Computer Modern",
   catalog-card: none,
   abstract-pt: none,
   keywords-pt: (),
@@ -72,8 +74,9 @@
   banca: (),
   body,
 ) = {
-  // Set global language for hyphenation and built-in terms (e.g. outline title)
-  set text(lang: lang)
+  // Set global language for hyphenation and built-in terms (e.g. outline title),
+  // and the font, before the cover so every page uses the same one.
+  set text(lang: lang, font: font)
 
   // Dictionary for custom localized strings
   let i18n = (
