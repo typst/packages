@@ -1,0 +1,11 @@
+[package]
+name = "convenient-karnaughs"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Timon Martins <@p-98>"]
+license = "GPL-3.0-only"
+repository = "https://github.com/p-98/convenient-karnaughs"
+description = "Conveniently draw Karnaugh maps utilizing the full power of typst."
+categories = ["visualization"]
+disciplines = ["computer-science"]
+exclude = ["docs/"]
