@@ -1,0 +1,17 @@
+[package]
+name = "risk-matrix"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["summoningshells"]
+license = "MIT"
+repository = "https://github.com/summoningshells/risk-matrix"
+description = "Compose risk assessments with EBIOS RM components."
+keywords = ["risk", "EBIOS", "cybersecurity", "ANSSI", "matrix"]
+categories = ["components", "visualization", "report"]
+compiler = "0.15.1"
+exclude = ["/tests/", "/scripts/", "/docs/", "/examples/", "/CHANGELOG.md", "/tmp/", "/output/", "/dist/", "/.github/", "/.gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

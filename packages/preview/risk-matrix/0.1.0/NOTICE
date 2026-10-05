@@ -1,0 +1,20 @@
+risk-matrix 0.1.0
+Author: summoningshells
+
+Original source code, presentation and fictional examples: MIT License.
+
+Methodological source:
+ANSSI, EBIOS Risk Manager, version 1.5, September 2024, ANSSI-PA-048.
+The source guide declares Licence Ouverte / Open Licence (Etalab V1).
+https://messervices.cyber.gouv.fr/guides/la-methode-ebios-risk-manager-le-guide
+https://messervices.cyber.gouv.fr/documents-guides/250129_np_anssi_guide_ebios_fr_final_collection_WEB.pdf
+Accessed 2026-10-05.
+
+Workshop terminology and scale labels are used with attribution to ANSSI.
+The original guide and its illustrations are not distributed with this package.
+The example acceptance policy, examples and implementation choices are not ANSSI
+prescriptions. This implementation is independent and is neither affiliated with
+nor labelled by ANSSI. EBIOS is a registered trademark of SGDSN.
+
+Additional official method sheets are referenced in docs/methodology.md.
+The MIT license for this package does not relicense those source documents.
