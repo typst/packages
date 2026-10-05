@@ -81,7 +81,7 @@
   ),
   seminar: (
     de: "Hauptseminar",
-    en: "Advanced Seminar in"
+    en: "Graduate Seminar in"
   )
 )
 
