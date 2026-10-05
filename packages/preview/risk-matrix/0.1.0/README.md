@@ -1,41 +1,16 @@
 # risk-matrix
 
-Compose risk assessments with reusable EBIOS Risk Manager components: risk
-matrices, workshop tables, scenario traceability and treatment plans. Written in
-pure Typst, with no third-party packages, network calls or external assets.
+Des matrices et des tableaux pour rédiger une analyse de risque EBIOS Risk Manager.
+Le modèle fourni réunit les cinq ateliers dans un rapport en français.
 
-**Version 0.1.0 · Author: summoningshells · Typst 0.15.1+ · MIT**
+Typst 0.15.0+ · Licence MIT · [Code source](https://github.com/summoningshells/risk-matrix)
 
-Independent implementation based on ANSSI's official guidance. This package is
-not an official ANSSI product and has not received an ANSSI label.
+![Aperçu du rapport](thumbnail.png)
 
-[Source code](https://github.com/summoningshells/risk-matrix)
+## Une matrice
 
-![Preview of the included French report](thumbnail.png)
-
-## Démarrage local
-
-Depuis le dépôt source, avec le compilateur [Typst](https://github.com/typst/typst)
-installé :
-
-```sh
-git clone https://github.com/summoningshells/risk-matrix.git
-cd risk-matrix
-typst compile --root . examples/minimal.typ
-python3 scripts/build.py
-python3 scripts/check.py
-```
-
-Le premier fichier utilise l'import relatif `../lib.typ`. Le script de build
-installe une copie **temporaire et locale** du package, initialise le modèle avec
-`typst init`, puis produit `output/pdf/ebios-demo.pdf` et `thumbnail.png`.
-Les scripts acceptent `--typst /chemin/vers/typst` et nécessitent Python 3.11+.
-Ils ne téléchargent rien.
-
-## Import Universe
-
-Cet import fonctionnera après acceptation et publication, ou avec une copie
-locale installée sous l'espace `preview`. Il est déjà testé localement par les scripts.
+L'import suivant nécessite la publication sur Universe ou une installation locale
+du package dans l'espace `preview`.
 
 ```typst
 #import "@preview/risk-matrix:0.1.0": risk, risk-matrix, example-policy
@@ -48,83 +23,56 @@ locale installée sous l'espace `preview`. Il est déjà testé localement par l
 #risk-matrix(risks, policy: example-policy)
 ```
 
-`example-policy` est une politique illustrative du package, à remplacer par celle
-de votre organisation. Sans `policy`, la matrice reste neutre et positionne les
-risques sans attribuer de classe. L'axe vertical est la **gravité**, croissante
-vers le haut ; l'axe horizontal est la **vraisemblance**, croissante vers la droite.
-Les identifiants de plusieurs risques dans une même case restent visibles.
+La gravité augmente vers le haut, la vraisemblance vers la droite. Les échelles
+et les couleurs sont configurables. Remplacez `example-policy` par les seuils
+retenus pour votre étude ; sans `policy`, la matrice affiche les risques sans
+leur attribuer de classe.
 
-## Cible et risque résiduel
+## Le rapport
 
-Une mesure planifiée ne réduit pas automatiquement le risque. Le statut
-`target` représente une cible ; `assessed` représente une réévaluation documentée
-et exige une date et une référence de preuve. L'acceptation reste une décision humaine.
+`template/main.typ` contient le rapport et `template/data.typ` les données du
+cas fictif « Atelier Boréal ». Pour démarrer une étude, adaptez ces données,
+les critères de cotation et la politique de classement.
 
-```typst
-#import "@preview/risk-matrix:0.1.0": risk, risk-matrix, risk-register, example-policy
-
-#let risks = (
-  risk("R1", "Arrêt des commandes", 3, 3,
-    owner: "Direction des opérations",
-    decision: "Réduire ; réévaluer après test de reprise.",
-    residual: (
-      gravity: 3, likelihood: 1,
-      status: "target",
-      rationale: "Niveau visé après mise en œuvre et vérification des mesures.",
-    ),
-  ),
-)
-
-#risk-matrix(risks, stage: "residual", policy: example-policy)
-#risk-register(risks, policy: example-policy)
-```
-
-Les risques sans cotation cible/résiduelle sont listés sous la matrice, sans
-réutilisation silencieuse de leur cotation initiale. Les repères **C** et **E**
-différencient les cibles des résiduels évalués.
-
-## Composants disponibles
+`risk-report` applique la mise en page avec une règle `show`. Les composants
+peuvent aussi être utilisés séparément dans un document existant.
 
 | Usage | Fonctions |
 | --- | --- |
 | Matrices et registre | `risk-matrix`, `risk-comparison`, `risk-register` |
 | Cadrage | `scope-card`, `assets-table`, `events-table`, `baseline-table` |
-| Sources et objectifs | `sources-table` |
+| Sources de risque | `sources-table` |
 | Écosystème et scénarios stratégiques | `stakeholders-table`, `strategic-table` |
 | Scénarios opérationnels | `operational-table`, `attack-path` |
-| Traitement et couverture | `treatment-table`, `coverage-table` |
+| Traitement | `treatment-table`, `coverage-table` |
 | Mise en page | `risk-report`, `workshop`, `data-table` |
-| Données et contrôles | `risk`, `risk-level`, `validate-risks`, `validate-study`, `coverage` |
+| Données | `risk`, `risk-level`, `validate-risks`, `validate-study`, `coverage` |
 
-L'import n'applique aucun style global. `risk-report` est une règle `show`
-facultative. Les tableaux ont des en-têtes répétés sur les pages suivantes.
-Le modèle fourni est en français ; le code expose une API en anglais.
-Le rapport utilise Libertinus Serif, des titres numérotés et des tableaux à
-traits fins. La couleur est réservée aux niveaux de risque. Le paramètre `font`
-permet de choisir une autre police.
+Les repères C et E distinguent les cibles (`target`) des risques résiduels évalués
+(`assessed`). Une réévaluation exige une justification, une date et une référence
+de preuve. Voir les [formats et exemples de l'API](docs/api.md).
 
-## Modèle complet
+## Essayer depuis les sources
 
-`template/main.typ` assemble les cinq ateliers à partir de `template/data.typ`.
-Toutes les données et les preuves du cas « Atelier Boréal » sont **fictives**.
-Le modèle contient volontairement un événement sans scénario pour montrer le
-suivi de couverture. Il faut remplacer les données, les critères de cotation,
-les seuils, les cycles de revue et les décisions avant un usage réel.
+Avec [Typst](https://github.com/typst/typst) et Python 3.11+ installés :
 
-Le validateur contrôle les identifiants, les références entre ateliers, la
-cohérence des cotations et les champs de justification des résiduels. Il ne
-certifie ni la conformité méthodologique ni l'exhaustivité d'une étude.
-Cette version représente des chemins séquentiels ; elle ne calcule pas de
-graphes d'attaque ET/OU, de vraisemblances standard/avancées ni de dangerosités.
+```sh
+git clone https://github.com/summoningshells/risk-matrix.git
+cd risk-matrix
+python3 scripts/build.py
+python3 scripts/check.py
+```
 
-## Documentation et références
+`build.py` initialise le modèle avec `typst init` dans un dossier temporaire,
+puis produit `output/pdf/ebios-demo.pdf` et la vignette. Les scripts acceptent
+`--typst /chemin/vers/typst`.
 
-- [API et formats des données](docs/api.md)
-- [Choix méthodologiques et sources ANSSI](docs/methodology.md)
-- [Préparation de la soumission Universe](docs/publishing.md)
-- [Guide officiel EBIOS Risk Manager et fiches méthodes](https://messervices.cyber.gouv.fr/guides/la-methode-ebios-risk-manager-le-guide)
+## Références
 
-Le guide consulté est la version **1.5, septembre 2024**, ANSSI-PA-048, sous
-Licence Ouverte Etalab V1. La page de ressources et les fiches ont été consultées
-le 5 octobre 2026. Le code, le style et les exemples originaux sont sous MIT ;
-voir [LICENSE](LICENSE) et [NOTICE](NOTICE). EBIOS est une marque du SGDSN.
+Le package s'appuie sur le [guide EBIOS Risk Manager de l'ANSSI](https://messervices.cyber.gouv.fr/guides/la-methode-ebios-risk-manager-le-guide),
+version 1.5, septembre 2024. C'est un projet indépendant, sans affiliation
+ni labellisation ANSSI.
+
+- [Conventions de cotation, limites et sources](docs/methodology.md)
+- [Publication sur Universe](docs/publishing.md)
+- [Licence MIT](LICENSE) et [attribution des sources](NOTICE)

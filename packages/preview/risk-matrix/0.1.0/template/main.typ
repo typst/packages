@@ -5,28 +5,27 @@
 
 #show: risk-report.with(
   title: "Analyse de risque cyber",
-  organization: "Atelier Boréal · Cas fictif",
+  organization: "Atelier Boréal",
   author: "summoningshells",
   date: "5 octobre 2026",
   version: "0.1.0",
-  classification: "DÉMONSTRATION · Données et preuves fictives",
+  classification: "Exemple fictif · Données et preuves de démonstration",
 )
 
-Cas fictif. Les cotations et les éléments de preuve illustrent l'utilisation du modèle.
-
-#v(8pt)
 #risk-matrix(study.risks, policy: example-policy, title: "Cartographie initiale", cell-height: 12mm)
 
 == Synthèse
 
-Deux risques documentés, trois mesures de traitement. L'événement ER3 reste à instruire.
+L'étude porte sur le portail de commandes et le CRM. Deux risques sont retenus :
+l'interruption des commandes par extorsion (R1) et le vol des dossiers clients (R2).
 
-La couleur représente une politique d'exemple propre à ce projet. Elle ne constitue
-pas un seuil imposé par l'ANSSI ni une décision d'acceptation. La matrice exprime
-deux échelles ordinales ; aucun produit gravité × vraisemblance n'est calculé.
+Le traitement de R1 reste à réaliser : renforcer les accès tiers et tester la
+restauration du portail. Pour R2, les exports ont été limités et les alertes
+vérifiées dans la simulation. L'acceptation doit encore être examinée en comité.
 
-*Fondement méthodologique :* guide EBIOS Risk Manager, ANSSI, version 1.5,
-septembre 2024. Implémentation indépendante, sans affiliation ni labellisation ANSSI.
+L'altération ponctuelle d'une commande (ER3) reste à instruire.
+
+Les couleurs suivent la politique de cet exemple, à adapter aux critères de l'étude.
 
 #pagebreak()
 #workshop(1, "Cadrage et socle de sécurité")[
@@ -37,7 +36,7 @@ septembre 2024. Implémentation indépendante, sans affiliation ni labellisation
     decision-maker: [Direction générale ; acceptation à consigner après revue.],
     strategic-cycle: [Revue de l'étude à 24 mois ou changement majeur.],
     operational-cycle: [Revue à 6 mois, après incident ou évolution significative.],
-    assumptions: [Entreprise fictive. Mesures et cotations à remplacer par les constats du terrain.],
+    assumptions: [Mode dégradé limité à deux jours ; accès de maintenance sans second facteur.],
   )
 
   == Valeurs métier et supports
@@ -86,8 +85,8 @@ septembre 2024. Implémentation indépendante, sans affiliation ni labellisation
   == Couverture des événements
   #coverage-table(study.events, study.risks)
 
-  ER3 reste visible même s'il n'est associé à aucun scénario dans cet exemple.
-  L'équipe doit justifier sa prise en charge par le socle ou compléter l'étude.
+  ER3 n'a pas de scénario associé. Vérifier sa prise en charge par le socle
+  de sécurité ou compléter l'étude.
 ]
 
 #pagebreak()
@@ -98,10 +97,9 @@ septembre 2024. Implémentation indépendante, sans affiliation ni labellisation
   #treatment-table(study.measures)
 
   == Décision et suivi
-  La direction statue sur l'acceptation ; le RSSI suit les mesures avec leurs
-  propriétaires. Le niveau visé de R1 demeure une cible jusqu'à vérification des
-  mesures et réévaluation. R2 illustre une réévaluation appuyée sur une preuve fictive.
-  La décision d'acceptation reste distincte de cette évaluation.
+  Le RSSI suit M1 et M2 avec les responsables infrastructure et exploitation.
+  R1 sera réévalué après leur vérification. La direction doit se prononcer sur
+  l'acceptation de R2 à partir du compte rendu PV-DEMO-03.
 ]
 
 #pagebreak()
@@ -109,23 +107,21 @@ septembre 2024. Implémentation indépendante, sans affiliation ni labellisation
 
 #risk-matrix(study.risks, stage: "residual", policy: example-policy)
 
-== Traçabilité des sources
+== Référence méthodologique
 
 #link("https://messervices.cyber.gouv.fr/guides/la-methode-ebios-risk-manager-le-guide")[
   ANSSI · Guide EBIOS Risk Manager et fiches méthodes
 ]
 
 Guide version 1.5, septembre 2024, ANSSI-PA-048, diffusé sous Licence Ouverte
-Etalab V1. Référence consultée le 5 octobre 2026. Les exemples, la présentation
-et la politique de classement sont propres à ce package. Aucun logo ANSSI n'est utilisé.
-
-Les fiches méthodes complètent notamment la justification des cotations, la
-caractérisation de l'écosystème et le suivi des mesures. Les seuils doivent être
-définis et approuvés pour chaque étude. EBIOS est une marque du SGDSN.
+Etalab V1. Consulté le 5 octobre 2026. Ce modèle est indépendant, sans affiliation
+ni labellisation ANSSI. EBIOS est une marque du SGDSN.
 
 == Utiliser ce modèle
 
-Modifier les données de `data.typ`, définir les critères de gravité et de
-vraisemblance avec les participants, puis remplacer `example-policy` par la
-politique retenue. La fonction `validate-study` signale les références rompues
-et les incohérences de cotation ; elle ne certifie pas la qualité de l'analyse.
+Remplacer les données de `data.typ`, définir les échelles avec les participants,
+puis remplacer `example-policy` par la politique retenue. La gravité et la
+vraisemblance restent deux cotations distinctes ; le modèle ne calcule pas leur produit.
+
+`validate-study` vérifie les références et la cohérence des cotations. La qualité
+des hypothèses, des preuves et des décisions relève de la revue de l'étude.

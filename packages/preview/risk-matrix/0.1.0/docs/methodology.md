@@ -3,7 +3,7 @@
 ## Référence principale
 
 [ANSSI, EBIOS Risk Manager, guide v1.5, septembre 2024, ANSSI-PA-048](https://messervices.cyber.gouv.fr/documents-guides/250129_np_anssi_guide_ebios_fr_final_collection_WEB.pdf),
-depuis la [page officielle fournie](https://messervices.cyber.gouv.fr/guides/la-methode-ebios-risk-manager-le-guide).
+disponible sur la [page des ressources EBIOS RM](https://messervices.cyber.gouv.fr/guides/la-methode-ebios-risk-manager-le-guide).
 Les numéros ci-dessous désignent les pages imprimées du guide, et non les index PDF.
 
 | Partie du package | Référence | Transposition |
@@ -18,13 +18,9 @@ Les numéros ci-dessous désignent les pages imprimées du guide, et non les ind
 | Traitement et revue | pp. 69-81 | Registre, mesures, cibles, résiduels et décisions |
 | Contrôle de couverture | p. 73 | ER sans risque lié signalés comme restant à instruire |
 
-Ces composants aident à formaliser une étude ; ils ne conduisent pas les ateliers
-à la place des participants. Les données de démonstration sont originales et fictives.
-
 ## Fiches complémentaires
 
-Consultées le **5 octobre 2026**. Leur date d'édition n'est pas déduite de celle
-du guide : ces documents peuvent évoluer indépendamment.
+Consultées le 5 octobre 2026.
 
 - [Gravité des événements redoutés, atelier 1](https://messervices.cyber.gouv.fr/documents-guides/Fiche_methode-Evaluer_la_gravite_des_evenements_redoute-atelier_1.pdf) : construction d'une échelle adaptée aux impacts métier.
 - [Sources de risque, atelier 2](https://messervices.cyber.gouv.fr/documents-guides/Fiche_methode-Identifier_et_caracteriser_les_sources_de_risque-atelier_2.pdf) : contexte, profils et sélection des couples ; aucune taxonomie figée dans le code.
@@ -55,7 +51,8 @@ Pas de calcul automatique de menace, de graphe ET/OU, d'agrégation de probabili
 d'inventaire de conformité réglementaire ni de moteur d'acceptation.
 Les biens supports sont des descriptions libres. La couverture signale les ER
 non reliés à des risques, mais ne prouve pas l'exhaustivité de l'analyse.
-Le package est une bibliothèque de composition et de validation structurelle.
+Le validateur contrôle la structure des données ; les hypothèses, les preuves
+et l'exhaustivité de l'étude restent à examiner en atelier.
 
 Le guide est crédité sous sa Licence Ouverte Etalab V1. Les libellés usuels sont
 repris pour assurer la cohérence du vocabulaire ; les explications et exemples

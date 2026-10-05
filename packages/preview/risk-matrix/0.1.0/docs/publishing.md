@@ -1,64 +1,39 @@
-# Soumission à Typst Universe
+# Publication sur Typst Universe
 
-Le code source est hébergé dans
-[summoningshells/risk-matrix](https://github.com/summoningshells/risk-matrix).
-Le nom du package Typst est `risk-matrix` ; son auteur est `summoningshells`.
-Les scripts préparent et vérifient les fichiers, sans effectuer de publication.
+[Code source](https://github.com/summoningshells/risk-matrix) ·
+[Première soumission : PR #6029](https://github.com/typst/packages/pull/6029)
 
-## Vérification et dossier à soumettre
+## Préparer les fichiers
 
 ```sh
-python3 scripts/build.py
-python3 scripts/check.py
 python3 scripts/package.py
 ```
 
-La dernière commande exécute les vérifications, teste à nouveau le modèle et
-produit `dist/preview/risk-matrix/0.1.0/` et une archive `.tar.gz` correspondante.
-Le contenu de ce dossier est destiné à
-`packages/preview/risk-matrix/0.1.0/` dans le dépôt `typst/packages`.
-Les rapports générés, les données de travail et les scripts ne sont pas ajoutés
-à l'archive. Seul le cas fictif fourni accompagne le modèle.
+Cette commande compile les exemples, vérifie les données invalides et teste le
+modèle avec `typst init`. Elle produit :
 
-Le manifeste comprend les métadonnées du composant et une section `[template]`.
-`template/main.typ` utilise l'import absolu `@preview/risk-matrix:0.1.0`.
-Le script de build exécute réellement `typst init` dans un répertoire isolé
-puis compile le document initialisé. La vignette provient de sa première page.
+- `dist/preview/risk-matrix/0.1.0/`, à copier dans le registre ;
+- `dist/risk-matrix-0.1.0.tar.gz`, qui contient les mêmes fichiers.
 
-## Procédure distante
+Le script accepte `--typst /chemin/vers/typst`. Les rapports générés et les scripts
+de développement restent hors de l'archive.
 
-1. Publier la version dans le dépôt source. Son URL figure dans le champ
-   `repository` de `typst.toml`.
-2. Vérifier une dernière fois la disponibilité du nom et des PR concurrentes.
-   Le nom `risk-matrix` est descriptif ; les règles du registre peuvent imposer
-   un nom plus distinctif lors de la revue.
-3. Forker `typst/packages`, y copier le dossier préparé dans l'emplacement
-   indiqué, puis ouvrir une pull request avec le titre proposé ci-dessous.
-4. Traiter les remarques des mainteneurs. L'import public devient disponible
-   après fusion et traitement par l'infrastructure du registre.
+## Soumettre une version
 
-Une présence dans Universe ne constitue pas une labellisation ANSSI.
+1. Mettre à jour la version dans le manifeste, les imports et le changelog.
+2. Exécuter `package.py`, puis vérifier le PDF et la vignette.
+3. Copier le dossier préparé dans `packages/preview/risk-matrix/0.1.0/` d'un fork
+   de `typst/packages` et ouvrir une PR intitulée `risk-matrix:0.1.0`.
+4. Répondre à la revue. L'import public devient disponible après fusion et
+   traitement par le registre.
 
-## Texte de PR proposé
+Le nom descriptif `risk-matrix` et la licence MIT du modèle sont signalés dans
+la PR pour revue. La licence MIT s'applique à tous les fichiers du projet.
 
-**Titre :** `risk-matrix:0.1.0`
+## Règles du registre
 
-> Add reusable components and a French report template for EBIOS Risk Manager
-> assessments: configurable risk matrices, workshop tables, scenario references,
-> coverage checks and treatment tracking. Targets and assessed residual risks are
-> distinguished explicitly. Based on ANSSI's published guidance; independently
-> developed and not affiliated with or labelled by ANSSI.
->
-> Pure Typst with no package dependencies. Verified on Typst 0.15.1 through
-> compilation checks, expected validation failures, an isolated `typst init`
-> build, and visual inspection of the resulting PDF and thumbnail. MIT license;
-> source attribution is included in NOTICE and the methodological documentation.
-
-## Références du registre
-
-- [Règles de soumission](https://github.com/typst/packages/blob/main/docs/README.md)
+- [Soumission](https://github.com/typst/packages/blob/main/docs/README.md)
 - [Manifeste, noms et vignettes](https://github.com/typst/packages/blob/main/docs/manifest.md)
-- [Fonctionnement des packages locaux](https://github.com/typst/packages#local-packages)
+- [Licences des packages et modèles](https://github.com/typst/packages/blob/main/docs/licensing.md)
 
-Règles consultées le 6 octobre 2026. Le champ `compiler` correspond à la version
-effectivement testée ; aucune compatibilité antérieure n'est revendiquée.
+Règles consultées le 6 octobre 2026.

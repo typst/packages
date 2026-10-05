@@ -66,6 +66,27 @@ non vides obligatoires ; utiliser une date ISO `AAAA-MM-JJ` et une référence d
 preuve. Le format de date et la réalité de la preuve ne sont pas vérifiés.
 Une hausse de la cotation résiduelle reste autorisée si la réévaluation le justifie.
 
+Exemple de cible après traitement :
+
+```typst
+#import "@preview/risk-matrix:0.1.0": risk, risk-matrix, risk-register, example-policy
+
+#let risks = (
+  risk("R1", "Arrêt des commandes", 3, 3,
+    owner: "Direction des opérations",
+    decision: "Réduire ; réévaluer après test de reprise.",
+    residual: (
+      gravity: 3, likelihood: 1,
+      status: "target",
+      rationale: "Niveau visé après mise en œuvre et vérification des mesures.",
+    ),
+  ),
+)
+
+#risk-matrix(risks, stage: "residual", policy: example-policy)
+#risk-register(risks, policy: example-policy)
+```
+
 `validate-risks(risks, severity: severity-scale, likelihood: likelihood-scale)`
 vérifie cette structure. Un tableau vide est accepté.
 

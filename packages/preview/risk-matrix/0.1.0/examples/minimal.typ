@@ -1,4 +1,4 @@
-#import "../lib.typ": risk, risk-matrix, example-policy
+#import "@preview/risk-matrix:0.1.0": risk, risk-matrix, example-policy
 #set page(paper: "a4", margin: 18mm)
 #set text(lang: "fr", font: "Libertinus Serif")
 

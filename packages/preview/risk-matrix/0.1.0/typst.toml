@@ -8,7 +8,7 @@ repository = "https://github.com/summoningshells/risk-matrix"
 description = "Compose risk assessments with EBIOS RM components."
 keywords = ["risk", "EBIOS", "cybersecurity", "ANSSI", "matrix"]
 categories = ["components", "visualization", "report"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 exclude = ["/tests/", "/scripts/", "/docs/", "/examples/", "/CHANGELOG.md", "/tmp/", "/output/", "/dist/", "/.github/", "/.gitignore"]
 
 [template]
