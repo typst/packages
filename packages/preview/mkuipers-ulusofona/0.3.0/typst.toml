@@ -1,6 +1,6 @@
 [package]
 name = "mkuipers-ulusofona"
-version = "0.2.1"
+version = "0.3.0"
 entrypoint = "lib.typ"
 authors = ["Martijn Kuipers <martijn.kuipers@ulusofona.pt>"]
 license = "MIT"

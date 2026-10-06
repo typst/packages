@@ -2,7 +2,7 @@
 // Writing a lab/course report instead? See main-report.typ — delete
 // whichever of the two you don't need, and remove the unused sample
 // chapters (chapters/chapter_0*.typ vs. chapters/showcase.typ).
-#import "@preview/mkuipers-ulusofona:0.2.1": *
+#import "@preview/mkuipers-ulusofona:0.3.0": *
 
 #show: ulthesis.with(
   title: "Título do Trabalho",

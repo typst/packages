@@ -786,8 +786,8 @@ figure(
   abstract-en: none,
   abstract-pt: none,
   copyright-phrase: "esta dissertação",
-  supplement-chapter: "Chapter",
-  supplement-part: "Part",
+  supplement-chapter: auto,
+  supplement-part: auto,
   toc-depth: 2,
   font-size: 10pt,
   part-style: 0,
@@ -952,6 +952,13 @@ figure(
       if pattern != none { numbering(pattern, ..nums) }
     }
   )
+
+  let supplement-chapter = if supplement-chapter == auto {
+    if lang == "pt" { "Capítulo" } else { "Chapter" }
+  } else { supplement-chapter }
+  let supplement-part = if supplement-part == auto {
+    if lang == "pt" { "Parte" } else { "Part" }
+  } else { supplement-part }
 
   show heading.where(level: 1): set heading(supplement: supplement-chapter)
 

@@ -3,7 +3,7 @@
 // whichever of the two you don't need (and rename this one to main.typ
 // if you keep it), and remove the unused sample chapters
 // (chapters/showcase.typ vs. chapters/chapter_0*.typ).
-#import "@preview/mkuipers-ulusofona:0.2.1": *
+#import "@preview/mkuipers-ulusofona:0.3.0": *
 
 #show: ulreport.with(
   title: "Relatório de Laboratório 3",

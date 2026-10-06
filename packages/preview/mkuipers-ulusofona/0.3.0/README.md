@@ -43,7 +43,7 @@ inclusion.
 ## Getting started
 
 ```sh
-typst init @preview/mkuipers-ulusofona:0.2.1 my-document
+typst init @preview/mkuipers-ulusofona:0.3.0 my-document
 ```
 
 This creates a new folder `my-document` with:
@@ -72,7 +72,7 @@ using the "Start from template" button.
 ## Usage: `ulthesis`
 
 ```typ
-#import "@preview/mkuipers-ulusofona:0.2.1": *
+#import "@preview/mkuipers-ulusofona:0.3.0": *
 
 #show: ulthesis.with(
   title: "My Thesis Title",
@@ -125,7 +125,7 @@ using the "Start from template" button.
 ## Usage: `ulreport`
 
 ```typ
-#import "@preview/mkuipers-ulusofona:0.2.1": *
+#import "@preview/mkuipers-ulusofona:0.3.0": *
 
 #show: ulreport.with(
   title: "Relatório de Laboratório 3",
