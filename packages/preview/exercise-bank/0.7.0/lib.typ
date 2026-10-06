@@ -162,6 +162,12 @@
   // Exercise titles
   "title-separator": [ -- ],     // Between "Exercise 1" and the title
   "title-format": auto,          // auto, or function (title) => content
+  "points-label": "pts",         // Unit after the points ("pts", "points")
+  "points-position": "below",    // "below" (under the badge or label), "right" (right end
+                                 // of the header line) or "badge" (next to the badge,
+                                 // without widening the label column)
+  "points-format": auto,         // auto, "score" ("…… / 4 pts", left blank for the mark),
+                                 // or function (points, label) => content
   "title-in-solutions": false,   // Repeat the title on solution/correction boxes
   // Header spacing (full-width styles and badge-position "above"; auto = style default)
   "underline-gap": auto,         // Header lower edge -> rule centre; auto follows header-rule-gap
@@ -322,6 +328,9 @@
   // Exercise titles
   title-separator: auto,   // Between "Exercise 1" and the title (auto = keep current)
   title-format: none,      // auto or function (title) => content
+  points-label: none,      // Unit after the points ("pts", "points")
+  points-position: none,   // "below", "right" or "badge"
+  points-format: none,     // auto, "score" or function (points, label) => content
   title-in-solutions: none, // Repeat the title on solution/correction boxes
   // Header spacing
   underline-gap: none,     // Header lower edge -> rule centre (auto = legacy option/default)
@@ -411,6 +420,15 @@
     if number-prefix-depth != none { new.number-prefix-depth = number-prefix-depth }
     if title-separator != auto { new.title-separator = title-separator }
     if title-format != none { new.title-format = title-format }
+    if points-label != none { new.points-label = points-label }
+    if points-position != none {
+      assert(
+        points-position in ("below", "right", "badge"),
+        message: "points-position must be \"below\", \"right\" or \"badge\"",
+      )
+      new.points-position = points-position
+    }
+    if points-format != none { new.points-format = points-format }
     if title-in-solutions != none { new.title-in-solutions = title-in-solutions }
     if underline-gap != none { new.underline-gap = underline-gap }
     if underline-below != none { new.underline-below = underline-below }
@@ -1053,6 +1071,9 @@
 #let style-margin(
   label, number, body, font-size, color, is-solution,
   qr: none,
+  sub: none,    // Line right under the side label (e.g. the points)
+  aside: none,  // Right end of the label line once folded, of the statement's
+                // first line otherwise (e.g. the points)
   label-width: 3.35cm,
   gutter: 0.55cm,
   fold-below: auto,
@@ -1072,13 +1093,15 @@
     ]
   } else {
     let side-label = text(size: font-size, weight: "bold", fill: color)[#label~#number:]
+    let folded-label = if aside == none { side-label } else { [#side-label#h(6pt)#aside] }
     let folded = {
       // Header line: the rule runs the whole measure, the label sits under it
       // on the right, the statement keeps the full width below
       block(width: 100%, breakable: false, {
         line(length: 100%, stroke: 0.45pt + color)
         v(-0.2em)
-        align(right, side-label)
+        align(right, folded-label)
+        if sub != none { block(above: 0.15em, width: 100%, align(right, sub)) }
         if qr != none { v(0.45em); align(right, qr) }
       })
       block(above: 0.35em, width: 100%, body)
@@ -1091,6 +1114,7 @@
         #line(length: 100%, stroke: 0.45pt + color)
         #v(-0.2em)
         #align(right)[#side-label]
+        #if sub != none { block(above: 0.15em, width: 100%, align(right, sub)) }
         #if qr != none {
           v(0.45em)
           align(right, qr)
@@ -1099,7 +1123,9 @@
       [
         #line(length: 0pt, stroke: 0.45pt + white)
         #v(-0.2em)
-        #body
+        #if aside == none { body } else {
+          grid(columns: (1fr, auto), column-gutter: 8pt, body, aside)
+        }
       ],
     )
     if fold == true {
@@ -1379,6 +1405,8 @@
 #let get-fullwidth-style(
   style, label, number, body, font-size, color, is-solution,
   qr: none,
+  margin-sub: none,
+  margin-aside: none,
   margin-label-width: 3.35cm,
   margin-label-gutter: 0.55cm,
   margin-fold-below: auto,
@@ -1389,6 +1417,8 @@
     style-margin(
       label, number, body, font-size, color, is-solution,
       qr: qr,
+      sub: margin-sub,
+      aside: margin-aside,
       label-width: margin-label-width,
       gutter: margin-label-gutter,
       fold-below: margin-fold-below,
@@ -1470,7 +1500,7 @@
   competencies: (),        // List of competencies
   show-competencies: false, // Whether to show competencies
   points: none,            // Points for exam mode
-  points-label: "pts",     // Label for points (e.g., "pts", "points")
+  points-label: auto,      // Label for points (auto = points-label of the configuration)
   label-marker: none,      // Optional marker displayed before the badge label
   badge-sub: none,         // Optional marker displayed right below the badge (e.g., difficulty)
   margin-content: none,    // Optional content below the badge (e.g., QR code, remarks)
@@ -1505,6 +1535,27 @@
   let title-strong = if title != none {
     if title-fmt == auto { strong(title) } else { title-fmt(title) }
   }
+
+  // Points: under the badge or label ("below"), at the right end of the header
+  // line ("right") or next to the badge ("badge")
+  let points-content = if points != none {
+    let unit = if points-label == auto { cfg.at("points-label", default: "pts") } else { points-label }
+    let fmt = cfg.at("points-format", default: auto)
+    if fmt == "score" {
+      // Blank for the mark, then the scale: "…… / 4 pts"
+      text(style: "italic", weight: "regular")[#box(width: 2.2em, repeat[.])~/~#points~#unit]
+    } else if fmt == auto and is-fullwidth-style(cfg.badge-style) {
+      // Full-width headers: same colour and size as the header text, so the
+      // points stay readable on a filled strip (header-card)
+      text(style: "italic", weight: "regular")[(#points #unit)]
+    } else if fmt == auto {
+      text(size: 9pt, fill: rgb("#555"), style: "italic")[(#points #unit)]
+    } else { fmt(points, unit) }
+  }
+  let points-position = cfg.at("points-position", default: "below")
+  let points-right = points-content != none and points-position == "right"
+  let points-next = points-content != none and points-position == "badge"
+  let points-below = points-content != none and not (points-right or points-next)
   let header-body-gap = cfg.at("header-body-gap", default: auto)
 
   // Determine the color based on box type
@@ -1593,6 +1644,12 @@
     } else {
       full-body = qr-attach-body(make-exo-qr(qr, cfg), full-body, cfg)
     }
+    // "margin": the side label is too narrow to carry the points next to it,
+    // "below" and "badge" both give them their own line under it (above the
+    // QR code, if any); "right" goes to the end of the label line once folded,
+    // to the right of the statement's first line otherwise (see style-margin)
+    let margin-in-body = cfg.badge-style == "margin" and not is-solution
+    let points-in-side = margin-in-body and (points-below or points-next)
     // The page reference (link-style "page") gets a right-aligned line of its
     // own above the statement: the full-width styles have no badge line to pin
     // it to, and wrapping the statement around it is what used to destabilise
@@ -1608,15 +1665,22 @@
     // statement there; the other styles carry it in their header line
     let number = number
     if title != none {
-      if cfg.badge-style == "margin" and not is-solution {
+      if margin-in-body {
         full-body = {
           block(spacing: 0pt, below: 0.6em, title-strong)
           full-body
         }
       } else {
+        if points-next { number = [#number#h(6pt)#points-content] }
         number = [#number#cfg.at("title-separator", default: [ -- ])#title-inline]
       }
+    } else if points-next and not margin-in-body {
+      number = [#number#h(6pt)#points-content]
     }
+    // Header line of the other full-width styles: points at its right end, or
+    // on a second line right under it (no gap, unlike a line of the statement)
+    if points-right and not margin-in-body { number = [#number#h(1fr)#points-content] }
+    if points-below and not margin-in-body { number = [#number\ #points-content] }
 
     block(
       above: space-above,
@@ -1633,6 +1697,8 @@
         actual-color,
         is-solution,
         qr: qr-block,
+        margin-sub: if points-in-side { points-content },
+        margin-aside: if margin-in-body and points-right { points-content },
         margin-label-width: cfg.at("margin-label-width", default: 3.35cm),
         margin-label-gutter: cfg.at("margin-label-gutter", default: 0.55cm),
         margin-fold-below: cfg.at("margin-fold-below", default: auto),
@@ -1662,12 +1728,6 @@
       metrics: badge-metrics(cfg),
     )
 
-    // Badge with optional points displayed inline after the box
-    let badge-with-points = if points != none {
-      box[#badge#h(6pt)#text(size: 9pt, fill: rgb("#555"), style: "italic")[(#points #points-label)]]
-    } else {
-      badge
-    }
 
     // ID display below badge (for badge styles)
     let id-block = if show-id and exercise-id != none {
@@ -1683,8 +1743,9 @@
       // costs one line, once.
       let header-left = {
         set text(hyphenate: false)
-        box[#badge-with-points]
+        box[#badge]
         if badge-sub != none { h(4pt); badge-sub }
+        if points-next { h(6pt); points-content }
         if title != none { h(6pt); title-strong }
         if show-id and exercise-id != none { id-block }
       }
@@ -1703,6 +1764,11 @@
         width: 100%,
         breakable: true,
       )[
+        #let header-right = if not points-right { header-right } else if header-right == none {
+          points-content
+        } else {
+          [#header-right#h(8pt)#points-content]
+        }
         #sticky-block(if header-right == none {
           header-left
         } else {
@@ -1714,6 +1780,7 @@
             header-right,
           )
         })
+        #if points-below { sticky-block(above: 2pt, points-content) }
         #if qr-block != none { sticky-block(above: 4pt, qr-block) }
         #if margin-content != none { sticky-block(above: 4pt, margin-content) }
         #block(above: if header-body-gap == auto { 4pt } else { header-body-gap }, width: 100%, breakable: true)[
@@ -1759,7 +1826,8 @@
       set text(hyphenate: false)
       block(width: label-col-min, height: 0pt, spacing: 0pt)
       align(right)[
-        #box[#badge-with-points]
+        #box[#badge]
+        #if points-below { block(above: 2pt, points-content) }
         #if badge-sub != none {
           block(above: 3pt, badge-sub)
         }
@@ -1797,10 +1865,23 @@
         )[
           #set par(first-line-indent: 0cm)
           #v(3pt)  // Align with badge text
+          // "badge": the points open the statement, right after the label
+          // column, which keeps its width (the badge does not move)
           #if title != none {
-            block(spacing: 0pt, below: if header-body-gap == auto { 0.6em } else { header-body-gap }, title-strong)
+            let title-line = if points-right {
+              [#title-strong#h(1fr)#points-content]
+            } else if points-next {
+              [#points-content#h(6pt)#title-strong]
+            } else { title-strong }
+            block(spacing: 0pt, below: if header-body-gap == auto { 0.6em } else { header-body-gap }, width: 100%, title-line)
           }
-          #content-body
+          // No title line to carry them: the points sit on the right of the
+          // statement's first line, in their own column
+          #if title == none and points-right {
+            grid(columns: (1fr, auto), column-gutter: 8pt, content-body, points-content)
+          } else if title == none and points-next {
+            grid(columns: (auto, 1fr), column-gutter: 6pt, points-content, content-body)
+          } else { content-body }
           #if show-competencies and competencies.len() > 0 { comp-block }
         ],
       )
@@ -2221,6 +2302,8 @@
   correction: none,
   id: auto,
   title: none,           // Optional title shown after "Exercise 1"
+  points: none,          // Points of the exercise, shown after the number or the title
+                         // (see points-position in exo-setup)
   worked: false,         // Worked example: always show the solution/correction
                          // right after the statement (even with display: "ex"
                          // or a deferred corr-loc)
@@ -2329,6 +2412,7 @@
       qr: qr,
       badge-color: ex-badge-color,
       title: title,
+      points: points,
     )
     // Worked example: its solution shows even in the exercises-only version
     if worked {
@@ -2388,6 +2472,7 @@
       badge-color: ex-badge-color,
       header-right: header-right,
       title: title,
+      points: points,
     )
 
     // Handle solution/correction display (per-type location)
