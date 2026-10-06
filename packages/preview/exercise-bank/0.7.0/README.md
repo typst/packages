@@ -1,7 +1,7 @@
 # exercise-bank
 
 [![exercise-bank on Typst Universe](https://img.shields.io/badge/Typst_Universe-v._0.7.0-239dad?labelColor=eee)](https://typst.app/universe/package/exercise-bank)
-[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-exercise-bank/blob/aca0d3d07fe2718345ec800a2d1772212ec72261/docs/manual.pdf)
+[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-exercise-bank/blob/e3110cdf59fdac18c32599cfba23eae2c6b60d1a/docs/manual.pdf)
 [![Distributed under the MIT license](https://img.shields.io/badge/License-MIT-333333?labelColor=eee)](LICENSE)
 
 A comprehensive Typst package for creating and managing exercises with solutions, metadata, filtering, and exercise banks. Perfect for teachers, textbook authors, and educational content creators.
@@ -28,8 +28,8 @@ Click on an image to see the source code.
 | Badge Position | Two-Column Layouts | Badge Size |
 | [![Exercise titles and a worked example whose solution stays visible in the student version](gallery/titles-worked.svg)](gallery/titles-worked.typ) | [![Exercises numbered per section with solutions printed before each new section](gallery/section-numbering.svg)](gallery/section-numbering.typ) | |
 | Titles and Worked Examples | Per-Section Numbering | |
-| [![Clickable exercise references with their page and originating beautitled part](gallery/references-1.svg)](gallery/references.typ) | | |
-| Exercise References | | |
+| [![Clickable exercise references with their page and originating beautitled part](gallery/references-1.svg)](gallery/references.typ) | [![A short test with the points of each exercise and a blank for the mark](gallery/points.svg)](gallery/points.typ) | |
+| Exercise References | Points | |
 
 ## Features
 
@@ -45,6 +45,7 @@ Click on an image to see the source code.
 - **Split solution/correction placement** - Short solution under the statement (epigraph-style), full correction at the end of the chapter
 - **Chapter-prefixed numbering** - Number exercises as "3.5" using the current heading number, "3.2.5" with two heading levels, or a series number of your choice (`number-prefix: 3`)
 - **Exercise titles** - "Exercise 1 – Pythagorean theorem" with `exo(title: ..)`
+- **Points** - `exo(points: 4)` shows the value of an exercise under the badge, at the end of the header line or next to the badge, optionally as "…… / 4 pts" for the mark
 - **Worked examples** - `exo(worked: true)` shows its solution right under the statement, even in the student version
 - **Compact headers** - `header-rule-gap` and `header-body-gap` tighten the space between the label, its rule and the statement
 - **Automatic end-of-chapter corrections** - `#show: exo-auto-chapter` prints pending corrections before each new chapter
@@ -657,6 +658,21 @@ The label column follows the badge as it is resized, so `badge-position: "margin
 
 The full-width styles (`border-accent`, `underline`, `rounded-box`, `header-card`) put the title in their header line after `title-separator` (default an en dash): "Exercice 1 – Calculer une longueur…". The badge styles show it in bold next to the badge, and `margin` opens the statement with it. `title-format` takes a function `(title) => content` to restyle it, and `title-in-solutions: true` repeats it on the solution and correction boxes. `exo-define` accepts `title` too.
 
+### Points
+
+```typst
+#exo-setup(points-position: "right", points-format: "score")
+#exo(title: [Théorème de Pythagore], points: 4, exercise: [Calculer $A C$.])
+```
+
+`points` shows the value of an exercise; solutions and corrections never repeat it. `points-position` places it:
+
+- `"below"` (default): on its own line under the badge, under the side label for `margin`, or right under the header text for the other full-width styles;
+- `"right"`: at the right end of the header line, or of the title line when the badge is in the margin (`margin` once folded: at the end of its label line);
+- `"badge"`: next to the badge, at the start of the statement when the badge is in the margin, so the label column keeps its width and the badge does not move (`margin` shows the points below its label).
+
+`points-label` sets the unit (`"pts"` by default). `points-format: "score"` prints "…… / 4 pts", leaving the mark to fill in; a function `(points, label) => content` replaces the whole rendering. By default the badge styles show the points in small grey italics, the full-width styles in the colour and size of their header.
+
 ### Header Spacing
 
 The header of the full-width styles and of `badge-position: "above"` can be tightened (or loosened):
@@ -1106,6 +1122,7 @@ Level 1M exercises: #exo-count(level: "1M")
 | `correction` | content | none | Correction content (teacher version) |
 | `id` | string/auto | auto | Unique exercise ID |
 | `title` | content | none | Title shown after "Exercise 1" |
+| `points` | number/content | none | Points of the exercise (see `points-position`) |
 | `worked` | bool | false | Worked example: always show the solution/correction right after the statement |
 | `sol-in-corr` | bool | false | If true, solution is in correction (show only correction, not both) |
 | `show-corr` | bool | false | If true, show correction in "mixed" mode |
@@ -1126,6 +1143,7 @@ Level 1M exercises: #exo-count(level: "1M")
 | `correction` | content | none | Correction content (teacher version) |
 | `id` | string/auto | auto | Unique exercise ID |
 | `title` | content | none | Title shown after "Exercise 1" |
+| `points` | number/content | none | Points of the exercise (see `points-position`) |
 | `worked` | bool | false | Worked example: always show the solution/correction right after the statement |
 | `competencies` | array | () | List of competency tags |
 | `sol-in-corr` | bool | false | If true, solution is in correction (show only correction) |
@@ -1187,6 +1205,9 @@ Level 1M exercises: #exo-count(level: "1M")
 | `number-separator` | string | "." | Separator for chapter-prefixed numbers |
 | `title-separator` | content | `[ -- ]` | Between "Exercise 1" and the title |
 | `title-format` | auto/function | auto | Restyle titles: (title) => content |
+| `points-label` | string/content | "pts" | Unit after the points of an exercise |
+| `points-position` | string | "below" | "below" (under the badge or header), "right" (end of the header line) or "badge" (next to the badge) |
+| `points-format` | auto/"score"/function | auto | "score" ("…… / 4 pts") or (points, label) => content |
 | `title-in-solutions` | bool | false | Repeat the title on solution/correction boxes |
 | `underline-gap` | length/auto | auto | underline only: title lower edge (normally baseline) → rule centre; overrides `header-rule-gap`; `none` keeps current value |
 | `underline-below` | length/auto | auto | underline only: rule centre → body top; overrides `header-body-gap`; `none` keeps current value |
@@ -1301,6 +1322,7 @@ MIT License - see LICENSE file for details.
 
 #### Added
 - **Exercise citations.** `exo-cite(id)` references the actual displayed number and page, optionally the beautitled part, with forward/backward links, occurrence selection and display-call labels. Works across included chapter files and filtered selections spanning pages. Based on [Arthur Meyer’s proposal in issue #2](https://github.com/nathan-ed/typst-package-exercise-bank/issues/2), extended to use individual display anchors.
+- **Points of an exercise.** `exo(points: ..)` shows its value on the statement: under the badge or header text (`points-position: "below"`, default), at the end of the header line (`"right"`) or next to the badge without widening the label column (`"badge"`). `points-label` sets the unit, `points-format: "score"` prints "…… / 4 pts" for the mark. The full-width styles now show the points of `exo-show` exams too.
 - **Underline spacing controls.** `underline-gap` (title lower edge, normally its baseline, to rule centre) and `underline-below` (rule centre to body top), with `none` leaving configuration unchanged and `auto` following the existing header settings; apply to exercises, solutions and corrections in every display mode.
 
 #### Fixed
