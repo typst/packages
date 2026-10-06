@@ -75,13 +75,13 @@ modern-jsu-thesis/
 #import "@preview/modern-jsu-thesis:0.1.0": template as jsu-thesis
 
 #show: jsu-thesis.with(
-  zh_title: "中文论文题目",
-  zh_keywords: ("关键词1", "关键词2", "关键词3"),
-  zh_abstract: [摘要内容……],
+  zh-title: "中文论文题目",
+  zh-keywords: ("关键词1", "关键词2", "关键词3"),
+  zh-abstract: [摘要内容……],
 
-  en_title: "English Title",
-  en_keywords: ("Keyword 1", "Keyword 2", "Keyword 3"),
-  en_abstract: [English abstract……],
+  en-title: "English Title",
+  en-keywords: ("Keyword 1", "Keyword 2", "Keyword 3"),
+  en-abstract: [English abstract……],
 
   college: [XX学院],
   class: [XX班],
@@ -96,12 +96,12 @@ modern-jsu-thesis/
 
 | 参数 | 类型 | 说明 | 默认值 |
 | --- | --- | --- | --- |
-| `zh_abstract` | content | 中文摘要正文 | `[中文摘要]` |
-| `zh_title` | str | 中文论文题目 | `"中文论文题目"` |
-| `zh_keywords` | array | 中文关键词（3–5 个） | `([key1], [key2], [key3])` |
-| `en_abstract` | content | 英文摘要正文 | `[English abstract]` |
-| `en_title` | str | 英文论文题目 | `"English title"` |
-| `en_keywords` | array | 英文关键词 | `([key1], [key2], [key3])` |
+| `zh-abstract` | content | 中文摘要正文 | `[中文摘要]` |
+| `zh-title` | str | 中文论文题目 | `"中文论文题目"` |
+| `zh-keywords` | array | 中文关键词（3–5 个） | `([key1], [key2], [key3])` |
+| `en-abstract` | content | 英文摘要正文 | `[English abstract]` |
+| `en-title` | str | 英文论文题目 | `"English title"` |
+| `en-keywords` | array | 英文关键词 | `([key1], [key2], [key3])` |
 | `college` | content | 学院名称 | `[学院]` |
 | `class` | content | 专业班级 | `[班级]` |
 | `author` | content | 学生姓名 | `[姓名]` |

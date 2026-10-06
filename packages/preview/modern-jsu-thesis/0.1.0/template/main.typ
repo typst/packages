@@ -13,15 +13,15 @@
 #import "@preview/modern-jsu-thesis:0.1.0": template as jsu-thesis
 
 #show: jsu-thesis.with(
-  zh_title: "中文论文题目",
-  zh_keywords: ("关键词1", "关键词2", "关键词3"),
-  zh_abstract: [
+  zh-title: "中文论文题目",
+  zh-keywords: ("关键词1", "关键词2", "关键词3"),
+  zh-abstract: [
     摘要是论文的内容不加注释和评论的简短陈述。
   ],
 
-  en_title: "English Title",
-  en_keywords: ("Keyword 1", "Keyword 2", "Keyword 3"),
-  en_abstract: [
+  en-title: "English Title",
+  en-keywords: ("Keyword 1", "Keyword 2", "Keyword 3"),
+  en-abstract: [
     This is the English abstract.
   ],
 

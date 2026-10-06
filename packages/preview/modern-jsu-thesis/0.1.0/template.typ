@@ -114,12 +114,12 @@
 
 #let template(
   body,
-  zh_abstract: [中文摘要],
-  zh_title: "中文论文题目",
-  zh_keywords: ([key1], [key2], [key3]),
-  en_abstract: [English abstract],
-  en_title: "English title",
-  en_keywords: ([key1], [key2], [key3]),
+  zh-abstract: [中文摘要],
+  zh-title: "中文论文题目",
+  zh-keywords: ([key1], [key2], [key3]),
+  en-abstract: [English abstract],
+  en-title: "English title",
+  en-keywords: ([key1], [key2], [key3]),
   college: [学院],
   class: [班级],
   author: [姓名],
@@ -370,10 +370,10 @@
 
     // 论文题目显示
     #align(center)[
-      #text(font: 字体.黑体, size: 字号.二号)[#zh_title]
+      #text(font: 字体.黑体, size: 字号.二号)[#zh-title]
     ]
     #align(center)[
-      #text(font: "Times New Roman", size: 字号.三号, weight: "bold")[#en_title]
+      #text(font: "Times New Roman", size: 字号.三号, weight: "bold")[#en-title]
     ]
     #set text(font: 字体.宋体, size: 字号.小四)
     #v(5.5em)
@@ -510,7 +510,7 @@
     #[//题目
       #v(2.2em)  
       #set text(font: 字体.黑体, size: 字号.三号)
-      #align(center)[#zh_title]
+      #align(center)[#zh-title]
     ]
     #[//基本信息
       #set text(font: 字体.宋体, size: 字号.小四)
@@ -528,13 +528,13 @@
     #[//摘要
       #v(0.5em)
       #text(font: 字体.黑体, size: 字号.四号)[摘要：]
-      #zh_abstract
+      #zh-abstract
     ]
     #v(2.5em)
     #[//关键词
       #h(-2em)
       #text(font: 字体.黑体, size: 字号.四号)[关键词：]
-      #text(font: 字体.宋体, size: 字号.小四)[#zh_keywords.map(it => it).join([；])]
+      #text(font: 字体.宋体, size: 字号.小四)[#zh-keywords.map(it => it).join([；])]
     ]
   ]
   
@@ -581,18 +581,18 @@
     #[//题目
       #v(1.7em)  
       #set text(font: "Times New Roman", size: 字号.四号, weight: "bold")
-      #align(center)[#en_title]
+      #align(center)[#en-title]
     ]
     #[//摘要
       #v(1.2em)
       #text(font: "Times New Roman", size: 字号.小四, weight: "bold")[ABSTRACT]
-      #en_abstract
+      #en-abstract
     ]
     #v(1.5em)
     #[//关键词
       #h(-1em)
       #text(font: 字体.黑体, size: 字号.小四, weight: "bold")[KEY WORDS:]
-      #text(font: 字体.宋体, size: 字号.小四)[#en_keywords.map(it => it).join([;])]
+      #text(font: 字体.宋体, size: 字号.小四)[#en-keywords.map(it => it).join([;])]
     ]
 
     /*目录*/
