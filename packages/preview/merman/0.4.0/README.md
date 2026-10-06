@@ -25,6 +25,8 @@ flowchart TD
 ")
 ```
 
+Upgrading from `0.3.0`? Mermaid 12 changed the default layout of flowcharts and several other graph families to ELK. To keep Dagre, see [Choose a Layout](#choose-a-layout); no custom plugin build is needed.
+
 ## Version Mapping
 
 | Typst package | merman source version | Typst plugin ABI | Notes |
@@ -41,7 +43,7 @@ The API and example sections below describe the `0.4.0` package.
 ## Upgrading from 0.3.0
 
 - The bundled renderer moves from Merman `0.8.0-alpha.6` to stable `0.8.0`, targeting Mermaid `12.1.0`. Agentflow and Usecase join the supported diagram families.
-- Mermaid 12 changes layout and appearance defaults. Flowchart, State, Class, ER, Requirement, Usecase, and Agentflow default to ELK; supported families adopt Redux/Neo presentation. Review existing diagrams for changed geometry, colors, and spacing. To request Dagre with the earlier theme and look, use `site-config: (layout: "dagre", theme: "default", look: "classic")`; this does not promise identical historical output.
+- Mermaid 12.0 changed layout and appearance defaults, and this package targets Mermaid 12.1. Flowchart, State, Class, ER, Requirement, Usecase, and Agentflow default to ELK; supported families adopt Redux/Neo presentation. Review existing diagrams for changed geometry, colors, and spacing. To request Dagre with the earlier theme and look, use `site-config: (layout: "dagre", theme: "default", look: "classic")`; this does not promise identical historical output.
 - Replace family-local `defaultRenderer` settings with top-level `layout`. The Typst diagnostic analysis payload remains at schema `1`; analysis facts elsewhere in Merman use schema `2`. The operation result envelope, binding options schema, and Typst plugin ABI have separate versions.
 - Embedded images still default to `resvg-safe`. Mathematical labels remain unsupported: this package does not include the `math` feature. `math-renderer: "ratex"` reports a missing capability.
 
@@ -50,6 +52,7 @@ The wrapper entry points remain unchanged. Layout uses deterministic Unicode-awa
 ## Examples
 
 - [basic.typ](examples/basic.typ): minimal `#mermaid(...)` usage.
+- [dagre.typ](examples/dagre.typ): use Dagre for individual diagrams and Mermaid raw blocks through a shared profile.
 - [document-context.typ](examples/document-context.typ): opt-in document typography and width bridging.
 - [elk.typ](examples/elk.typ): Mermaid's `layout: elk` frontmatter and the bundled ELK backend.
 - [profile.typ](examples/profile.typ): reusable renderer settings shared by direct calls and raw blocks.
@@ -62,19 +65,39 @@ The wrapper entry points remain unchanged. Layout uses deterministic Unicode-awa
 
 Package fixtures are grouped by behavior family under `distribution/typst/merman/tests` in the Merman source repository. They cover API, render environments, context, errors, figures, raw blocks, README examples, historical issues, and visual smoke coverage; test fixtures are not included in the published Typst package.
 
-## ELK Layout
+## Choose a Layout
 
-The `0.4.0` publish profile includes Mermaid's ELK layout backend. To select Dagre for a diagram without rebuilding the plugin, pass site configuration:
+The `0.4.0` package includes both Dagre and ELK. Mermaid 12.0 made ELK the default for Flowchart, State, Class, ER, Requirement, Usecase, and Agentflow when ELK is available; other diagram families keep their own layout behavior. `flowchart LR` sets the direction, not the layout algorithm.
+
+To use Dagre for one diagram, pass Mermaid site configuration. This does not require rebuilding the plugin:
 
 ```typst
-#mermaid("flowchart LR\n  Source --> Layout\n  Layout --> SVG", site-config: (layout: "dagre", theme: "default", look: "classic"))
+#mermaid(
+  "flowchart LR\n  Source --> Layout\n  Layout --> SVG",
+  site-config: (layout: "dagre"),
+)
 ```
 
-To select ELK explicitly in Mermaid source, use frontmatter:
+To use Dagre throughout a document, reuse a profile for direct calls and Mermaid raw blocks:
+
+```typst
+#import "@preview/merman:0.4.0": mermaid, mermaid-profile, show-mermaid-blocks
+
+#let dagre = mermaid-profile(site-config: (layout: "dagre"))
+#show raw.where(lang: "mermaid"): show-mermaid-blocks(profile: dagre)
+
+#mermaid("flowchart LR\n  Source --> Layout", profile: dagre)
+```
+
+If a call also passes `site-config`, that dictionary replaces the profile's entire `site-config`; include `layout: "dagre"` in the direct dictionary to keep Dagre.
+
+To also request the earlier appearance, add `theme: "default", look: "classic"` to the `site-config` dictionary. This does not guarantee pixel-identical output. To select ELK explicitly for one diagram, use Mermaid frontmatter:
 
 ```typst
 #mermaid("---\nconfig:\n  layout: elk\n---\nflowchart LR\n  Source --> Layout\n  Layout --> SVG\n")
 ```
+
+Use `site-config: (layout: "dagre")` to choose the Mermaid layout algorithm. The wrapper's top-level `layout:` parameter is a different setting for container geometry (such as `container_width`); it does not select Dagre or ELK. Choosing Dagre at runtime does not remove ELK from the bundled WASM.
 
 ELK is an embedded, modified Rust translation of Eclipse ELK. The wrapper and Merman-authored code remain under `MIT OR Apache-2.0`; the ELK-derived portion is under `EPL-2.0`. This is a component-level license boundary, not a relicensing of the whole package. When redistributing the package or a derivative artifact, preserve `THIRD_PARTY_NOTICES.md` and the matching files under `THIRD_PARTY_LICENSES/`.
 
