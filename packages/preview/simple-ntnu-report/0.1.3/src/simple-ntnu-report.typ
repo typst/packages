@@ -1,6 +1,6 @@
-#import "@preview/zero:0.5.0": set-num
+#import "@preview/zero:0.7.1": set-num
 #import "@preview/swank-tex:0.1.0": *
-#import "@preview/icu-datetime:0.2.0": fmt
+#import "@preview/icu-datetime:0.2.2": fmt
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.10": *
 
