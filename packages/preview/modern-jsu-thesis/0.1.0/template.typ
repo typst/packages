@@ -120,12 +120,12 @@
   en_abstract: [English abstract],
   en_title: "English title",
   en_keywords: ([key1], [key2], [key3]),
-  college-name: [学院],
-  class-name: [班级],
-  author-name: [姓名],
-  author-number: [学号],
-  instructor-name: [指导教师姓名],
-  instructor-post: [职称],
+  college: [学院],
+  class: [班级],
+  author: [姓名],
+  number: [学号],
+  instructor: [指导教师姓名],
+  post: [职称],
   year: [2026],
   month: [10],
 ) = {
@@ -388,22 +388,22 @@
         stroke: none,
         [学#h(1fr)院#h(1fr)名#h(1fr)称#h(1fr)：],
         table.hline(start: 1 ,stroke: 0.5pt),
-        [#college-name],
+        [#college],
         [专#h(1fr)业#h(1fr)班#h(1fr)级#h(1fr)：],
         table.hline(start: 1 ,stroke: 0.5pt),
-        [#class-name],
+        [#class],
         [学#h(1fr)生#h(1fr)姓#h(1fr)名#h(1fr)：],
         table.hline(start: 1 ,stroke: 0.5pt),
-        [#author-name],
+        [#author],
         [学#h(1fr)生#h(1fr)学#h(1fr)号#h(1fr)：],
         table.hline(start: 1 ,stroke: 0.5pt),
-        [#author-number],
+        [#number],
         [指#h(1fr)导#h(1fr)教#h(1fr)师#h(1fr)姓#h(1fr)名#h(1fr)：],
         table.hline(start: 1 ,stroke: 0.5pt),
-        [#instructor-name],
+        [#instructor],
         [指#h(1fr)导#h(1fr)教#h(1fr)师#h(1fr)职#h(1fr)称#h(1fr)：],
         table.hline(start: 1 ,stroke: 0.5pt),
-        [#instructor-post],
+        [#post],
       )
     )
 
@@ -520,8 +520,8 @@
           rows: 0.9cm,
           align: center+horizon,
           stroke: none,
-          [专业班级：],[#class-name],[学生姓名：],[#author-name],
-          [指导教师：],[#instructor-name],[职#h(2em)称：],[#instructor-post]
+          [专业班级：],[#class],[学生姓名：],[#author],
+          [指导教师：],[#instructor],[职#h(2em)称：],[#post]
         )
       )
     ]

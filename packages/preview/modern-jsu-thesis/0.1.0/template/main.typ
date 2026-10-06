@@ -25,12 +25,12 @@
     This is the English abstract.
   ],
 
-  college-name: [XX学院],     // 学院名称
-  class-name: [XX班],         // 班级
-  author-name: [XX],          // 姓名
-  author-number: [XXXX],      // 学号
-  instructor-name: [XX],      // 指导教师姓名
-  instructor-post: [XX],      // 指导教师职称
+  college: [XX学院],   // 学院名称
+  class: [XX班],          // 班级
+  author: [XX],               // 姓名
+  number: [XXXX],             // 学号
+  instructor: [XX],           // 指导教师姓名
+  post: [XX],                 // 指导教师职称
   year: [20XX],
   month: [X],
 )
