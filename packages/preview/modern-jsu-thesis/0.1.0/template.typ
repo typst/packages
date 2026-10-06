@@ -91,13 +91,13 @@
 }
 
 /*定义附录代码样式*/
-#let codeAppendix(code,caption:"")={
+#let code-appendix(code,caption:"")={
   figure(
     code,
     caption: caption,
     supplement: [附录],
     numbering: "1:",
-    kind: "codeAppendix"
+    kind: "code-appendix"
   )
 }
 
@@ -307,7 +307,7 @@
         it.body, //显示公式
         align(center + horizon, it.counter.display(it.numbering)), //显示编号
       )
-    } else if it.kind=="codeAppendix"{//附录代码
+    } else if it.kind=="code-appendix"{//附录代码
     table(
       columns: 100%,
       fill: (x,y)=>{if(x==0 and y==0){gray}},

@@ -30,7 +30,7 @@ cd my-thesis
 
 这会在 `my-thesis` 目录下创建一个干净的项目：
 
-```
+```text
 my-thesis/
 ├── main.typ        # 论文入口：填写信息、撰写正文
 ├── refs.bib        # BibTeX 参考文献库
@@ -52,7 +52,7 @@ cd modern-jsu-thesis
 
 本模板参照 Typst Universe 的通行做法，将**包入口**与**用户侧入口**分离：
 
-```
+```text
 modern-jsu-thesis/
 ├── typst.toml          # 包清单
 ├── template.typ        # 包入口（模板核心逻辑，用户通过 @preview 导入）
