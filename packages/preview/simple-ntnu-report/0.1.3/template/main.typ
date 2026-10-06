@@ -1,5 +1,5 @@
-#import "@preview/simple-ntnu-report:0.1.2": ntnu-report, un
-#import "@preview/zero:0.5.0": num
+#import "@preview/simple-ntnu-report:0.1.3": ntnu-report, un
+#import "@preview/zero:0.7.1": num
 
 #show: ntnu-report.with(
   length: "short",
@@ -47,6 +47,6 @@
 
 = Innhold <sec:innhold>
 Innholdet kan skrives enten direkte her eller i egne filer, husk å formatere tall med `num`, slik som $pi = e = num(3.0) approx 1$ for å få desimaltegn riktig.
-Husk og at enheter, slik som $5 un(V m/s)$, 
+Husk og at enheter, slik som $5 un(V m/s)$, ikke skal skrives i kursiv.
 
 Kryssreferanser til @sec:innhold og @ap:likninger kan gjøres enkelt og greit.
