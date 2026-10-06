@@ -1,8 +1,0 @@
-math {
-    font-family: "Lete Sans Math", "Lato", sans-serif;
-}
-
-math[display="block"] {
-    font-size: large;
-    width: max-content;
-}

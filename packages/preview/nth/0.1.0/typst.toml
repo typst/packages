@@ -1,7 +1,0 @@
-[package]
-name = "nth"
-version = "0.1.0"
-entrypoint = "nth.typ"
-authors = ["Pierre Marshall <pierre.marshall@gmail.com>"]
-license = "MIT-0"
-description = "Add english ordinals to numbers, eg. 1st, 2nd, 3rd, 4th."

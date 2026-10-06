@@ -1,2 +1,0 @@
-#import "../Configuration/universe.typ": *
-

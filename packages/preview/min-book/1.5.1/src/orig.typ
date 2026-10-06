@@ -1,1 +1,0 @@
-#let numbering = numbering

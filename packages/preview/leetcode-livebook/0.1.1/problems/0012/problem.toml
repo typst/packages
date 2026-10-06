@@ -1,4 +1,0 @@
-slug = "integer-to-roman"
-title = "Integer to Roman"
-difficulty = "medium"
-labels = ["hash-table", "math", "string"]

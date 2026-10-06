@@ -1,7 +1,0 @@
-[package]
-name = "drafting"
-version = "0.1.0"
-entrypoint = "drafting.typ"
-authors = ["Nathan Jessurun"]
-license = "Unlicense"
-description = "Helpful functions during document drafting"

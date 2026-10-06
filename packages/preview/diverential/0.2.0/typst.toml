@@ -1,8 +1,0 @@
-[package]
-name = "diverential"
-version = "0.2.0"
-entrypoint = "lib.typ"
-authors = ["Christopher Hecker"]
-license = "MIT"
-description = "Format differentials conveniently."
-exclude = ["examples"]

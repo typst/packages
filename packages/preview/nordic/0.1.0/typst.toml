@@ -1,9 +1,0 @@
-[package]
-name = "nordic"
-version = "0.1.0"
-authors = ["Jonas Pleyer<jonas.dev@pleyer.org>"]
-license = "MIT"
-description = "Nordic color theme."
-entrypoint = "nordic.typ"
-repository = "https://github.com/jonaspleyer/nordic-typst"
-categories = ["components"]

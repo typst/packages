@@ -1,9 +1,0 @@
-[package]
-name = "syntree"
-version = "0.2.1"
-repository = "https://github.com/lynn/typst-syntree"
-entrypoint = "lib.typ"
-authors = ["Lynn <https://github.com/lynn>"]
-license = "MIT"
-description = "Linguistics syntax/parse tree rendering"
-exclude = ["example.typ"]

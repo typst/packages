@@ -1,8 +1,0 @@
-[package]
-name = "leipzig-glossing"
-version = "0.1.0"
-entrypoint = "leipzig-gloss.typ"
-authors = ["Greg Shuflin", "Other open-source contributors"]
-license = "MIT"
-description = "Linguistic interlinear glosses according to the Leipzig Glossing rules"
-repository = "https://code.everydayimshuflin.com/greg/typst-lepizig-glossing"

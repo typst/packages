@@ -1,9 +1,0 @@
-[package]
-name = "babble-bubbles"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["Dimitri Belopopsky"]
-license = "MIT"
-description = "A package to create callouts."
-repository = "https://github.com/ShadowMitia/typst-babble-bubbles"
-exclude = [ "/examples/*"]

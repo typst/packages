@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <rect width="100" height="100" fill="none" stroke="black" stroke-width="2pt" />
-    <line x1="0" x2="100" y1="0" y2="100" stroke="black" stroke-width="1pt" />
-    <line x1="100" x2="0" y1="0" y2="100" stroke="black" stroke-width="1pt" />
-</svg>

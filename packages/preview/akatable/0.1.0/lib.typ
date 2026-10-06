@@ -1,1 +1,0 @@
-#import "src/akatable.typ": academic-table

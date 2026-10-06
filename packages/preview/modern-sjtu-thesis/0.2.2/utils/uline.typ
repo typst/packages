@@ -1,1 +1,0 @@
-#let uline(width, body) = box(body, width: width, stroke: (bottom: 0.5pt), outset: (bottom: 2pt))

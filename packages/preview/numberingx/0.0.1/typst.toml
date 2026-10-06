@@ -1,9 +1,0 @@
-[package]
-name        = "numberingx"
-version     = "0.0.1"
-description = "Extended numbering patterns using the CSS Counter Styles spec"
-license     = "MIT-0"
-authors     = ["Edhebi"]
-repository  = "https://github.com/edhebi/numberingx"
-entrypoint  = "numberingx.typ"
-exclude     = [".git*"]

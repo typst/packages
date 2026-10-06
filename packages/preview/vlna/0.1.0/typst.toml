@@ -1,9 +1,0 @@
-[package]
-name = "vlna"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["ShinoYumi"]
-license = "MIT"
-description = "First version of czech vlna from LaTeX. All characters with less than 3 letters are connected to the next word."
-repository = "https://github.com/ShinoYumi/typst-vlna/"
-exclude = ["./examples"]

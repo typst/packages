@@ -1,2 +1,0 @@
-= Conclusiones
-<sec:conclusiones>

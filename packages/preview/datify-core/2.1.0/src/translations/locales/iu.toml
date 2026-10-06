@@ -1,6 +1,0 @@
-[patterns]
-full = "EEEE, MMMM d, y"
-long = "MMMM d, y"
-medium = "MMM d, y"
-short = "MM/dd/y"
-

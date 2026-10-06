@@ -1,9 +1,0 @@
-[package]
-name = "chic-hdr"
-version = "0.2.0"
-entrypoint = "chic-hdr.typ"
-authors = ["Pablo González Calderón"]
-license = "MIT"
-description = "Typst package for creating elegant headers and footers"
-repository = "https://github.com/Pablo-Gonzalez-Calderon/chic-header-package"
-exclude = ["assets", "Chic-header's Manual.pdf"]
