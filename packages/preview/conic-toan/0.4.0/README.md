@@ -1765,7 +1765,10 @@ tiếp, thường kèm `cols:` cố định:
   chừng để đổi từ vị trí đó):
 
 ```typst
-#kieu-cau-hoi(mau: rgb("#e67e22"), hinh: "luc-giac", hien-o: true)
+#kieu-cau-hoi(
+  mau: rgb("#e67e22"), hinh: "luc-giac", hien-o: true,
+  cho-trong: true,
+)
 // hinh: "bo-tron" (mặc định) | "chu-nhat" | "luc-giac" | "khong-to"
 //   "khong-to": không tô nền, chỉ viền + chữ màu (tiết kiệm mực);
 //   riêng hồ sơ DETHI: bỏ luôn viền — "Câu 1." / "A." (ý ds: "a)")
@@ -1776,7 +1779,15 @@ tiếp, thường kèm `cols:` cố định:
 //   2 cột cũ từ vị trí này trở đi.
 // eq-trong-dong: false = giữ nguyên công thức khối `$ ... $` trong phương án
 //   (xem ngay dưới); mặc định true = ép thành công thức trong dòng.
+// cho-trong: true (mặc định) = ở bản dethi, hiện hàng chấm và
+//   chừa đúng chiều cao của `cho-trong:` khai trong từng câu.
+// cho-trong: false = bỏ đồng bộ cả hàng chấm lẫn khoảng trống
+//   trên toàn bài, không cần xoá `cho-trong:` ở từng câu.
 ```
+
+`cho-trong` trong `kieu-cau-hoi` là công tắc toàn cục cho cả
+`#tn`, `#ds`, `#tln`, `#tl` và các dạng hoạt động. Nó chỉ tác động
+ở hồ sơ `dethi`; `loigiai` và `beamer` không chèn chỗ làm bài.
 
 ### Công thức trong phương án luôn nằm TRONG DÒNG (mặc định BẬT)
 
