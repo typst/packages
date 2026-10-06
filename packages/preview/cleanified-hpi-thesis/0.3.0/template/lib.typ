@@ -172,12 +172,12 @@
   }
 
   // Mark inserted print pages so their headers and footers can be suppressed.
-  let section-pagebreak() = if lay.for-print {
+  let section-pagebreak(weak: false) = if lay.for-print {
     [#metadata(none) <empty-page-start>]
-    pagebreak(to: "odd")
+    pagebreak(to: "odd", weak: weak)
     [#metadata(none) <empty-page-end>]
   } else {
-    pagebreak()
+    pagebreak(weak: weak)
   }
 
   let page-footer = context {
@@ -225,7 +225,7 @@
   // Configure chapter headings (level 1).
   show heading.where(level: 1): set heading(supplement: l.at("chapter"))
   show heading.where(level: 1): it => {
-    if lay.chapter-pagebreak { pagebreak(weak: true) }
+    if lay.chapter-pagebreak { section-pagebreak(weak: true) }
     styled-heading(it, typo.heading-sizes.at("h1"), 5%, 1.5em)
   }
 
@@ -334,7 +334,7 @@
   // template's localized title and page-break behavior.
   set bibliography(title: l.at("bibliography"))
   show bibliography: it => {
-    pagebreak()
+    section-pagebreak(weak: true)
     it
   }
 
