@@ -3,7 +3,7 @@
 #import "math.typ": *
 
 // Re-exporting common packages for the user
-#import "@preview/unify:0.6.0": num, qty
+#import "@preview/unify:0.8.1": num, qty
 #import "@preview/subpar:0.2.2" as subpar
 
 // --- Constants (Pseudo-Enums) ---
