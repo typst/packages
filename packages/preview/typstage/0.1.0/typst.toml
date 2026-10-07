@@ -1,0 +1,49 @@
+[package]
+name = "typstage"
+version = "0.1.0"
+compiler = "0.15.0"
+entrypoint = "src/lib.typ"
+# Das Handle in spitzen Klammern, wie die Sammlung es vorsieht: "Each author can
+# provide an email address, homepage, or GitHub handle in angle brackets."
+authors = ["Alexander Schulz <@Loewe1000>"]
+license = "MIT"
+repository = "https://github.com/Loewe1000/typstage"
+homepage = "https://loewe1000.github.io/typstage/"
+# Ein englischer Satz, und ein kurzer: das hier ist die Zeile, die im Index der
+# Paketsammlung steht, und die Vorgabe nennt 40 bis 60 Zeichen. Was vorher hier
+# stand, waren 397 Zeichen Deutsch mit einem Absatz GeoGebra-Lizenzrecht am
+# Ende; das steht jetzt allein im README, wo es hingehoert.
+description = "Animated HTML talks and a PDF handout from one source."
+keywords = ["presentation", "slides", "animation", "html", "geogebra"]
+# Bis zu drei sind erlaubt. `integration` steht in der Liste der Sammlung für
+# "Integrations with third-party tools and formats" -- die Brücke in ein
+# eingebettetes Dokument und das GeoGebra-Applet sind genau das. `visualization`
+# wäre daneben: das Paket zeichnet keine Daten, es setzt Folien.
+categories = ["presentation", "integration"]
+disciplines = ["education", "mathematics"]
+
+# Nicht mitausliefern: die Beispieldateien sind zum Ausprobieren da,
+# nicht Teil des Pakets — und `example.typ` zieht CeTZ als Abhängigkeit nach.
+# `examples/` zeigt je eine kurze Präsentation zu jedem mitgelieferten Theme
+# und zwei zu GeoGebra.
+#
+# `assets/` steht hier mit seinen drei README-Bildern und nicht als ganzes
+# Verzeichnis. Gemeint waren immer die Bilder; das Verzeichnis auszuschließen
+# nähme dem ausgelieferten Paket auch die Laufzeitdateien -- Stilvorlage und
+# Skript liest `config.typ` beim Übersetzen, das Bootskript des Applets
+# `applet.typ`. Ein Paket ohne sie übersetzt überhaupt nicht mehr.
+#
+# `.github/` gehoert ebenso wenig ins Buendel: das sind Pruefskripte und
+# Bauwerkzeuge, allein `pruefe-decks.js` 112 KiB. Gemessen macht es den
+# Unterschied zwischen 0,97 MiB und 0,66 MiB.
+# `CONTRIBUTING.md` steht beim `.github`: es sagt, wie man am Paket arbeitet,
+# nicht wie man es benutzt. Wer das sucht, ist im Repo, nicht im Buendel.
+# `assets/logo.*` steht beim README und nicht beim Paket: gebraucht wird das
+# Zeichen von README, Handbuch und Rundgang, und die sind alle drei
+# ausgeschlossen. Ausgeschlossene Dateien bleiben auf Universe erreichbar, das
+# README zeigt es also weiterhin.
+exclude = ["example.typ", "examples", "docs", ".github", ".gitignore",
+           "CONTRIBUTING.md",
+           "assets/handout.png", "assets/slide.png", "assets/themes.png",
+           "assets/logo.typ", "assets/logo.svg", "assets/logo.png",
+           "assets/themes.typ"]

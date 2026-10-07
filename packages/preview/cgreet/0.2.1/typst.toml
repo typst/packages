@@ -1,0 +1,9 @@
+[package]
+name = "cgreet"
+version = "0.2.1"
+entrypoint = "typst/greet.typ"
+authors = ["Julian Y. Richard Corbet <@julian-corbet>"]
+license = "MIT OR Apache-2.0"
+description = "Compose formal German salutations with titles."
+keywords = ["salutation", "greeting", "german", "correspondence", "letter"]
+categories = ["text", "languages", "office"]

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="Georgia, 'Times New Roman', serif">
+  <rect x="1" y="1" width="798" height="448" fill="#f4f4f4" stroke="#c8c8c8" stroke-width="2" rx="6"/>
+  <line x1="1" y1="1" x2="799" y2="449" stroke="#e2e2e2" stroke-width="1.5"/>
+  <line x1="799" y1="1" x2="1" y2="449" stroke="#e2e2e2" stroke-width="1.5"/>
+  <text x="400" y="212" fill="#7a7a7a" font-size="34" text-anchor="middle">Placeholder figure</text>
+  <text x="400" y="252" fill="#9a9a9a" font-size="18" text-anchor="middle">replace with your own image</text>
+</svg>

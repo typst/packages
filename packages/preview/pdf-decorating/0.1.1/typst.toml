@@ -1,0 +1,12 @@
+[package]
+name = "pdf-decorating"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["HackYardo <https://github.com/hackyardo>"]
+license = "Apache-2.0"
+description = "PDF Web UI Library: CommonMark, GiHub Markup"
+repository = "https://github.com/hackyardo/pdf-decorating"
+keywords = ["beautify", "clarify", "markdown"]
+categories = ["components", "book", "report"]
+compiler = "0.12.0"
+exclude = ["example.png"]

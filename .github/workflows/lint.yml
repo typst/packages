@@ -25,10 +25,11 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           pr_head=$(/usr/bin/git log -1 --format=%H)
           git fetch origin ${{ github.base_ref }}
-          git checkout ${{ github.base_ref }}
-          git checkout $pr_head
-          git rebase ${{ github.base_ref }} -X ours
-      - uses: typst/package-check@5c72da4ea8e2ec50e65050e94ce71e3ad94d6cfa # v0.6.0
+          git branch ${{ github.base_ref }} origin/${{ github.base_ref }}
+          git reset --hard ${{ github.base_ref }}
+          git merge --squash $pr_head
+          git commit -m "squashed"
+      - uses: typst/package-check@dbdea7189458fd6c3b10291e79d934dfb04726c0 # v0.7.0
         with:
           installation-id: ${{ secrets.GH_INSTALLATION_ID }}
           app-id: ${{ secrets.GH_APP_ID }}

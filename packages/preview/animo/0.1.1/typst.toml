@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 Toon Verstraelen <Toon.Verstraelen@UGent.be>
+# SPDX-License-Identifier: Apache-2.0
+
+[package]
+name = "animo"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["Toon Verstraelen <Toon.Verstraelen@UGent.be>"]
+license = "Apache-2.0"
+description = "Build dynamic HTML and static PDF presentations."
+homepage = "https://reproducible-reporting.github.io/animo/"
+repository = "https://github.com/reproducible-reporting/animo"
+keywords = [
+  # snipwise.md BEGIN keywords
+  "animation",
+  "beamer",
+  "handout",
+  "HTML",
+  "presentation",
+  "reproducibility",
+  "reproducible research",
+  "slide",
+  "slides",
+  "slipshow",
+  "talk",
+  # snipwise.md END keywords
+]
+categories = ["presentation"]
+compiler = "0.15.0"

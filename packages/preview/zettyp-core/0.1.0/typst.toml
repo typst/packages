@@ -1,0 +1,17 @@
+[package]
+name = "zettyp-core"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Xinyu Xiang"]
+license = "MIT"
+repository = "https://github.com/Project-ZetTypst/ZetTypst"
+compiler = "0.14.2"
+exclude = ["**/tests/**"]
+description = "Model knowledge graphs with source-anchored states."
+keywords = ["zettelkasten", "knowledge", "graph", "semantics"]
+categories = ["model"]
+
+[template]
+path = "template"
+entrypoint = "index.typ"
+thumbnail = "thumbnail.png"
