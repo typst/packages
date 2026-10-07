@@ -9,7 +9,7 @@ This chapter shows how to start a thesis and how this example is organized. The 
   ```bash
   typst init @preview/earthrise-thesis:0.1.0 my-thesis
   ```
-+ Replace the placeholders in `thesis.typ`, the source of this document, and write your chapters.
++ Replace the example data in `thesis.typ`, the source of this document, and write your chapters.
 + Compile it: `typst watch --font-path fonts thesis.typ` recompiles whenever you save a change.
 
 `thesis.typ` applies the template by calling the function `thesis`. Its arguments fill in the content, such as the title, abstract or glossary, and adjust the style, such as the `accent` color or a logo on the cover. `thesis.typ` shows the usual arguments; the README of the template #footnote[see #link("https://github.com/AndrejOrsula/earthrise_thesis_template")] explains all of them.
@@ -42,6 +42,7 @@ Each chapter has its own file in `chapters/`, which `thesis.typ` includes, so th
       ├── figures
       │   ├── artwork/01_earthrise.svg, …
       │   ├── earthrise.jpg
+      │   ├── logo.svg
       │   ├── table.csv
       │   └── wondering_robot.svg
       ├── thesis.typ

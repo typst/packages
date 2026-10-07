@@ -9,10 +9,9 @@
 )
 
 #let epigraph = [
-  "The problem with object-oriented languages is they’ve got all this implicit \
-  environment that they carry around with them. You wanted a banana but \
-  what you got was a gorilla holding the banana and the entire jungle." \
-  --- Joe Armstrong
+  "We came all this way to explore the Moon, \
+  and the most important thing is that we discovered the Earth." \
+  --- William Anders, Apollo 8
 ]
 
 #let abstract = [_Replace this text with your abstract: `abstract` in `thesis.typ`._ #lorem(140)]
@@ -58,14 +57,25 @@
 )
 
 #show: thesis.with(
-  author: "<author>",
-  title: "<title>",
-  degree: "<degree>",
-  degree-subject: "<degree subject>",
-  doc-id: "<document ID>",
-  faculty: "<faculty>",
-  department: "<department>",
-  defense-location: "<defense location>",
+  author: "Jane Doe",
+  title: "Design for the Unknown",
+  subtitle: "Resilient Systems for Extreme Environments",
+  degree: "DOCTOR OF PHILOSOPHY",
+  degree-subject: "IN ENGINEERING",
+  doc-id: "PhD-FST-2026-042",
+  faculty: "Faculty of Science and Technology",
+  department: "Department of Engineering",
+  defense-location: "Houston",
+  front-img: place(top + center, dy: 2cm, grid(
+    columns: 2,
+    column-gutter: 8pt,
+    align: horizon + left,
+    image("figures/logo.svg", height: 1.7cm),
+    text(fill: accent-color, tracking: 1pt)[
+      #text(size: 14.5pt)[EARTHRISE] \
+      #text(size: 10pt, tracking: 2.9pt)[UNIVERSITY]
+    ],
+  )),
   supervisors: (
     (
       title: "Prof.",
@@ -101,7 +111,7 @@
   listing-index: true,
   glossary: glossary,
   publications: publications,
-  date: datetime(year: 2025, month: 6, day: 1),
+  date: datetime(year: 2026, month: 7, day: 20),
   bibliography: bibliography(
     "bibliography.bib",
     title: "Bibliography",

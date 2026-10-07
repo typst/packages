@@ -28,7 +28,7 @@ The template is not affiliated with any university. Before you submit, confirm w
    typst compile --font-path fonts --input edition=print thesis.typ thesis_print.pdf
    ```
 
-**Next:** replace the placeholders in `thesis.typ`, such as `<title>`. The [parameters](#parameters) below explain every argument.
+**Next:** replace the example data in `thesis.typ`, such as the title, the names and the logo on the cover. The [parameters](#parameters) below explain every argument.
 
 ## What it provides
 
@@ -57,10 +57,10 @@ Apply `thesis` with a show rule, then write the chapters below it:
 #import "@preview/earthrise-thesis:0.1.0": *
 
 #show: thesis.with(
-  title: "On Distant Worlds",
+  title: "Design for the Unknown",
   author: "Jane Doe",
-  degree: "Doctor of Philosophy",
-  degree-subject: "in Astronomy",
+  degree: "DOCTOR OF PHILOSOPHY",
+  degree-subject: "IN ENGINEERING",
   physical-copy: sys.inputs.at("edition", default: "digital") == "print",
 )
 
@@ -75,7 +75,7 @@ Every argument is optional. A default in angle brackets, such as `"<title>"`, is
 | -------------------------- | -------------------------------- | ----------------------------------------------------------------------- |
 | `title`, `subtitle` | `"<title>"`, `none` | Title and subtitle, also written to the PDF metadata |
 | `author`, `cover-author` | `"<author>"`, `none` | Author; `cover-author` replaces the name on the cover only |
-| `degree`, `degree-subject` | `"<degree>"`, `none` | Degree and subject, such as `"Doctor of Philosophy"` and `"in Physics"` |
+| `degree`, `degree-subject` | `"<degree>"`, `none` | Degree and subject, such as `"DOCTOR OF PHILOSOPHY"` and `"IN PHYSICS"` |
 | `department` | `"<department>"` | Printed in place of `degree-subject` when that is `none` |
 | `doc-id`, `faculty` | `"<document ID>"`, `"<faculty>"` | Document number and faculty, at the top of the cover |
 
