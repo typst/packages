@@ -47,7 +47,7 @@ The template comes with built-in support for:
 
 # Compile to Bundle
 
-- or compile the example.typ to bundle in the command line:
+- compile the example.typ to bundle in the command line:
 
 ```powershell
 cd path/to/your/example.typ
