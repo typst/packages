@@ -1,0 +1,24 @@
+[package]
+name = "rasko-europass"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["rasko-- <raskolny@gmail.com>"]
+license = "MIT"
+description = "Accessible, faithful Europass CV with CEFR language grid, PDF/UA-1 output and 24 EU languages."
+repository = "https://github.com/Raskolny/europass-cv"
+keywords = ["cv", "resume", "curriculum-vitae", "europass", "europe", "accessible", "pdf-ua", "i18n"]
+categories = ["cv"]
+compiler = "0.15.0"
+# Universe policy forbids shipping font binaries in a package, so `fonts` is
+# excluded from the bundle: the vendored Open Sans family (Apache-2.0, see the
+# repository's fonts/README.md and NOTICE.md) serves repository builds only,
+# while users install Open Sans themselves or pass the `font:` parameter.
+# The `[template]` thumbnail below is stripped from the archive automatically
+# and must not be referenced inside the package, so the README banner links to
+# the repository's copy over HTTPS instead of shipping a duplicate image.
+exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "sync-universe.sh", "examples/pdf", ".github", "fonts"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

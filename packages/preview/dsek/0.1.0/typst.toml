@@ -1,0 +1,13 @@
+[package]
+description = "Document types for the D-guild's various documents"
+name = "dsek"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["D-sektionen inom TLTH (cpu@dsek.se)"]
+license = "MIT"
+homepage = "https://dsek.se"
+repository = "https://github.com/Dsek-LTH/dsek-typst"
+categories = ["layout", "text"]
+disciplines = ["communication", "computer-science", "engineering"]
+keywords = ["minutes", "agenda", "motion", "policy", "guideline", "regulations"]
+exclude = ["/docs/", "/examples/"]

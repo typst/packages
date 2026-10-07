@@ -1,0 +1,18 @@
+[package]
+name = "weeklendar"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Corentin Wagner"]
+categories = ["visualization"]
+license = "MIT"
+description = "Draw flexible weekly calendars"
+disciplines = []
+repository = "https://github.com/Yesteeer/typst-weeklendar"
+keywords = ["timetable", "calendar", "week", "planner"]
+compiler = "0.14.0"
+exclude = [
+	"doc",
+	"tests",
+	"assets",
+    ".gitignore"
+]
