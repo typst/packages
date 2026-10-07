@@ -7,7 +7,6 @@
 ) = {
   asset("./assets/style.css", read("./assets/style.css"))
   asset("./assets/script.js", read("./assets/script.js"))
-  document(doc-title + ".pdf",title: doc-title, author: doc-author)[#body]
   document((doc-title + ".html"), title: doc-title, author: doc-author, {
     html.html(lang: lang, {
       html.head({
