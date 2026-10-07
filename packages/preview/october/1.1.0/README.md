@@ -10,7 +10,7 @@ as well as an optional argument for if Sunday or Monday should be considered the
 ```typst
 #show: calendar.with(
   year: 2026,
-  sunday_as_start: true
+  sunday-as-start: true
 )
 ```
 

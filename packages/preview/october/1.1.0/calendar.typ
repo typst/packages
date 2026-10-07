@@ -1,4 +1,4 @@
-#let calendar(year: "", sunday_as_start: false, body) = {
+#let calendar(year: "", sunday-as-start: false, body) = {
   set document(title: str(year) + " calendar")
 
   for month in range(1, 13) [
@@ -28,7 +28,7 @@
       ]
     ]
 
-    #let start_of_week = if sunday_as_start { "sunday" } else { "monday" }
+    #let start_of_week = if sunday-as-start { "sunday" } else { "monday" }
     #let first_day = int(monthly_days
       .first()
       .display("[weekday repr:" + start_of_week + "]"))
@@ -42,7 +42,7 @@
       [Saturday],
       [Sunday],
     )
-    #if sunday_as_start {
+    #if sunday-as-start {
       week_header.insert(0, week_header.pop())
     }
 
