@@ -1401,7 +1401,18 @@
       }
       pwd-x = start-x + syllable-positions.at(head-idx)
     } else if syllables.len() > 0 {
-      let target-idx = if foot == "L" { 0 } else { syllables.len() - 1 }
+      // If the user marked stress with ' (even without using feet), align
+      // the PWd node to that syllable instead of defaulting to L/R extremes.
+      let stressed-idx = none
+      for (idx, syll) in syllables.enumerate() {
+        if syll.stressed {
+          stressed-idx = idx
+          break
+        }
+      }
+      let target-idx = if stressed-idx != none {
+        stressed-idx
+      } else if foot == "L" { 0 } else { syllables.len() - 1 }
       pwd-x = start-x + syllable-positions.at(target-idx)
     }
 
@@ -2065,6 +2076,20 @@
         }
       }
       pwd-x = start-x + syllable-positions.at(target-syll-idx)
+    } else if syllables.len() > 0 {
+      // If the user marked stress with ' (even without using feet), align
+      // the PWd node to that syllable instead of defaulting to L/R extremes.
+      let stressed-idx = none
+      for (idx, syll) in syllables.enumerate() {
+        if syll.stressed {
+          stressed-idx = idx
+          break
+        }
+      }
+      let target-idx = if stressed-idx != none {
+        stressed-idx
+      } else if foot == "L" { 0 } else { syllables.len() - 1 }
+      pwd-x = start-x + syllable-positions.at(target-idx)
     }
 
     // Vertical level positions
