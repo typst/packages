@@ -38,6 +38,9 @@
 /// - abbreviations (content): Optional list of abbreviations.
 /// - symbols (content): Optional list of symbols.
 /// - banca (array): List of jury member dictionaries ((nome: "", instituicao: "")).
+/// - front-matter (bool): Whether to print the pre-textual elements (cover, title
+///   page, abstracts, lists, table of contents...). With false only the body is
+///   printed, in the same layout, numbered from page 1.
 /// - body (content): The document body.
 #let usp-thesis(
   title: [Título da Dissertação],
@@ -72,6 +75,7 @@
   abbreviations: none,
   symbols: none,
   banca: (),
+  front-matter: true,
   body,
 ) = {
   // Set global language for hyphenation and built-in terms (e.g. outline title),
@@ -199,155 +203,160 @@
   let reference-pt = if reference-pt == auto { make-reference("pt") } else { reference-pt }
   let reference-en = if reference-en == auto { make-reference("en") } else { reference-en }
 
-  // 1. Cover
-  // The cover has no heading: an invisible one gives it a PDF bookmark.
-  {
-    show heading: none
-    heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.cover]
-  }
-  cover(
-    institution: if lang == "pt" { "Universidade de São Paulo\n" + institute } else { "University of São Paulo\n" + institute },
-    author: author,
-    title: title,
-    subtitle: subtitle,
-    local: local,
-    year: year,
-  )
-
-  // Page numbering starts counting from title page (ABNT)
-  counter(page).update(1)
-
-  // 2. Title Page
-  title-page(
-    author: author,
-    title: title,
-    subtitle: subtitle,
-    version: version-text,
-    nature: nature-text,
-    institute: institute,
-    degree: degree,
-    program: program,
-    area: area,
-    area-label: i18n.area,
-    advisor: i18n.advisor + advisor,
-    coadvisor: if coadvisor != none { i18n.coadvisor + coadvisor } else { none },
-    local: local,
-    year: year,
-  )
-
-  // 2a. Catalog card (ficha catalográfica), on the page after the title page
-  if catalog-card != none {
-    page(margin: 3cm, {
-      v(1fr)
-      align(center, catalog-card)
-    })
-  }
-  
-  // Setup layout for pre-textual elements (margins and heading styles)
-  show: setup-layout.with(lang: lang)
-  
-  // Hide page numbering until Introduction
-  set page(numbering: none)
-
-  // 3. Errata (Optional)
-  if errata != none {
-    heading(level: 1, numbering: none, outlined: false)[#i18n.errata]
-    v(1cm)
-    errata
-    pagebreak()
-  }
-
-  // 4. Approval Sheet
-  if banca.len() > 0 {
-    approval-sheet(
+  // Without front matter only the body is printed, in the same layout.
+  if front-matter {
+    // 1. Cover
+    // The cover has no heading: an invisible one gives it a PDF bookmark.
+    {
+      show heading: none
+      heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.cover]
+    }
+    cover(
+      institution: if lang == "pt" { "Universidade de São Paulo\n" + institute } else { "University of São Paulo\n" + institute },
       author: author,
       title: title,
       subtitle: subtitle,
+      local: local,
+      year: year,
+    )
+
+    // Page numbering starts counting from title page (ABNT)
+    counter(page).update(1)
+
+    // 2. Title Page
+    title-page(
+      author: author,
+      title: title,
+      subtitle: subtitle,
+      version: version-text,
       nature: nature-text,
-      banca: banca,
-      labels: i18n.labels,
+      institute: institute,
+      degree: degree,
+      program: program,
+      area: area,
+      area-label: i18n.area,
+      advisor: i18n.advisor + advisor,
+      coadvisor: if coadvisor != none { i18n.coadvisor + coadvisor } else { none },
+      local: local,
+      year: year,
     )
-  }
 
-  // 5. Pre-textual elements
-  if dedication != none {
-    v(1fr)
-    align(right)[#box(width: 60%, dedication)]
-    pagebreak()
-  }
-
-  if acknowledgments != none {
-    heading(level: 1, numbering: none, outlined: false)[#i18n.acknowledgments]
-    v(1cm)
-    acknowledgments
-    pagebreak()
-  }
-
-  if epigraph != none {
-    v(1fr)
-    align(right)[#box(width: 60%, epigraph)]
-    pagebreak()
-  }
-
-  if abstract-pt != none {
-    abstract-page(
-      i18n.abstract-title,
-      abstract-pt,
-      keywords-list: keywords-pt,
-      keywords-label: if lang == "pt" { i18n.keywords } else { "Palavras-chave: " },
-      reference: reference-pt,
-    )
-  }
-
-  if abstract-en != none {
-    abstract-page(
-      i18n.abstract-title-en,
-      abstract-en,
-      keywords-list: keywords-en,
-      keywords-label: if lang == "en" { i18n.keywords } else { "Keywords: " },
-      reference: reference-en,
-    )
-  }
-  
-  // Lists (Conditional)
-  context {
-    let figures = query(figure.where(kind: image))
-    let tables = query(figure.where(kind: table))
-    
-    let show-figures = if list-of-figures == auto { figures.len() >= 5 } else { list-of-figures }
-    let show-tables = if list-of-tables == auto { tables.len() >= 5 } else { list-of-tables }
-    
-    if show-figures {
-      heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.figures]
-      outline(title: none, target: figure.where(kind: image))
-      pagebreak()
-    }
-    
-    if show-tables {
-      heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.tables]
-      outline(title: none, target: figure.where(kind: table))
-      pagebreak()
+    // 2a. Catalog card (ficha catalográfica), on the page after the title page
+    if catalog-card != none {
+      page(margin: 3cm, {
+        v(1fr)
+        align(center, catalog-card)
+      })
     }
   }
-  
-  if abbreviations != none {
-    heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.abbreviations]
-    v(1cm)
-    abbreviations
-    pagebreak()
-  }
-  
-  if symbols != none {
-    heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.symbols]
-    v(1cm)
-    symbols
-    pagebreak()
-  }
 
-  // Table of Contents (Sumário) - Must be the last pre-textual element
-  heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.summary-title]
-  outline(title: none, indent: auto)
-  pagebreak()
+  // Setup layout for pre-textual elements (margins and heading styles)
+  show: setup-layout.with(lang: lang)
+
+  if front-matter {
+    // Hide page numbering until Introduction
+    set page(numbering: none)
+
+    // 3. Errata (Optional)
+    if errata != none {
+      heading(level: 1, numbering: none, outlined: false)[#i18n.errata]
+      v(1cm)
+      errata
+      pagebreak()
+    }
+
+    // 4. Approval Sheet
+    if banca.len() > 0 {
+      approval-sheet(
+        author: author,
+        title: title,
+        subtitle: subtitle,
+        nature: nature-text,
+        banca: banca,
+        labels: i18n.labels,
+      )
+    }
+
+    // 5. Pre-textual elements
+    if dedication != none {
+      v(1fr)
+      align(right)[#box(width: 60%, dedication)]
+      pagebreak()
+    }
+
+    if acknowledgments != none {
+      heading(level: 1, numbering: none, outlined: false)[#i18n.acknowledgments]
+      v(1cm)
+      acknowledgments
+      pagebreak()
+    }
+
+    if epigraph != none {
+      v(1fr)
+      align(right)[#box(width: 60%, epigraph)]
+      pagebreak()
+    }
+
+    if abstract-pt != none {
+      abstract-page(
+        i18n.abstract-title,
+        abstract-pt,
+        keywords-list: keywords-pt,
+        keywords-label: if lang == "pt" { i18n.keywords } else { "Palavras-chave: " },
+        reference: reference-pt,
+      )
+    }
+
+    if abstract-en != none {
+      abstract-page(
+        i18n.abstract-title-en,
+        abstract-en,
+        keywords-list: keywords-en,
+        keywords-label: if lang == "en" { i18n.keywords } else { "Keywords: " },
+        reference: reference-en,
+      )
+    }
+
+    // Lists (Conditional)
+    context {
+      let figures = query(figure.where(kind: image))
+      let tables = query(figure.where(kind: table))
+
+      let show-figures = if list-of-figures == auto { figures.len() >= 5 } else { list-of-figures }
+      let show-tables = if list-of-tables == auto { tables.len() >= 5 } else { list-of-tables }
+
+      if show-figures {
+        heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.figures]
+        outline(title: none, target: figure.where(kind: image))
+        pagebreak()
+      }
+
+      if show-tables {
+        heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.tables]
+        outline(title: none, target: figure.where(kind: table))
+        pagebreak()
+      }
+    }
+
+    if abbreviations != none {
+      heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.abbreviations]
+      v(1cm)
+      abbreviations
+      pagebreak()
+    }
+
+    if symbols != none {
+      heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.symbols]
+      v(1cm)
+      symbols
+      pagebreak()
+    }
+
+    // Table of Contents (Sumário) - Must be the last pre-textual element
+    heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.summary-title]
+    outline(title: none, indent: auto)
+    pagebreak()
+  }
 
   // --- Start of Textual Elements ---
   

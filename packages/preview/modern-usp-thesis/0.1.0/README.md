@@ -165,6 +165,19 @@ The `usp-thesis` function accepts the following parameters. Only `title`, `autho
 | `abbreviations` | content | `none` | Optional list of abbreviations and acronyms. |
 | `symbols` | content | `none` | Optional list of symbols. |
 | `banca` | array | `()` | Jury members as `(nome: "", instituicao: "")` dictionaries. The approval sheet is only printed when this is not empty. |
+| `front-matter` | bool | `true` | Whether to print the pre-textual elements. `false` prints only the text (see below). |
+
+### Text only
+
+To compile only your chapters, e.g. to share a draft with your advisor, set `front-matter: false`. The cover, title page, abstracts, lists and table of contents are left out; the text keeps the same layout, chapter references and bibliography style, numbered from page 1. The other parameters can stay as they are.
+
+```typst
+#show: usp-thesis.with(
+  title: [Your Thesis Title],
+  // ...
+  front-matter: false,
+)
+```
 
 With the defaults above, the title page of an IME master's dissertation reads:
 
