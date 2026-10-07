@@ -15,7 +15,7 @@ The template comes with built-in support for:
 ```typst
 // example.typ
 #import "@preview/itemplate:0.2.0": *
-#show: contents => itemplate(doc-title: "example", doc-author: "Author", contents)
+#show: itemplate.with(doc-title: "example", doc-author: "Author")
 
 = #lorem(3)
 
@@ -47,19 +47,17 @@ The template comes with built-in support for:
 
 # Compile to Bundle
 
-- use tinymist to convert the document to bundle in VS Code.
-
 - or compile the example.typ to bundle in the command line:
 
 ```powershell
 cd path/to/your/example.typ
-typst compile example.typ --format bundle
+typst compile example.typ --features html,bundle --format bundle
 ```
 - or watch example.typ and auto-compile it to bundle in the command line:
 
 ```powershell
 cd path/to/your/example.typ
-typst watch example.typ --format bundle
+typst watch example.typ --features html,bundle --format bundle
 ```
 
 
