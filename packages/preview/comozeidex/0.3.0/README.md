@@ -9,13 +9,13 @@ optional table of contents.
 Start a new project from the template:
 
 ```
-typst init @preview/comozeidex:0.1.0 my-index
+typst init @preview/comozeidex:0.3.0 my-index
 ```
 
 This gives you a ready-to-edit `main.typ`:
 
 ```typ
-#import "@preview/comozeidex:0.1.0": *
+#import "@preview/comozeidex:0.3.0": *
 #show: doc.with(title: "My Index")
 #toc()                          // optional table of contents
 
