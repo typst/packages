@@ -5,6 +5,7 @@
   lang: "en",
   body,
 ) = {
+  context if target() == "bundle" {
   asset("./assets/style.css", read("./assets/style.css"))
   asset("./assets/script.js", read("./assets/script.js"))
   document((doc-title + ".html"), title: doc-title, author: doc-author, {
@@ -115,6 +116,7 @@
       })
     })
   })
+} else {
+  body
 }
-
-
+  }
