@@ -195,7 +195,10 @@
     v(0.5em)
   }
 
-  cetz.canvas(length: scale * 1cm, {
+  // Bind locally: inside the canvas closure `scale` resolves to Typst's built-in
+  let scale-factor = scale
+
+  cetz.canvas(length: scale-factor * 1cm, {
     import cetz.draw: *
     set-origin((0, 0))
 
@@ -208,7 +211,7 @@
         let y2 = (
           float((sonority-values.at(i + 1) - y-range.at(0))) / float((y-range.at(1) - y-range.at(0))) * float(height)
         )
-        line((x1, y1), (x2, y2), stroke: (thickness: 0.5pt, paint: gray, dash: "dashed"))
+        line((x1, y1), (x2, y2), stroke: (thickness: 0.5pt * scale-factor, paint: gray, dash: "dashed"))
       }
     }
 
@@ -233,13 +236,13 @@
         (x - box-size / 2, y - box-size / 2),
         (x + box-size / 2, y + box-size / 2),
         fill: box-fill,
-        stroke: 0.5pt + black,
+        stroke: (0.5pt * scale-factor) + black,
       )
 
       // Add phoneme label (always black now)
       content(
         (x, y),
-        context text(size: 10pt, font: phonokit-font.get(), fill: black)[#phoneme],
+        context text(size: 10pt * scale-factor, font: phonokit-font.get(), fill: black)[#phoneme],
         anchor: "center",
       )
     }
