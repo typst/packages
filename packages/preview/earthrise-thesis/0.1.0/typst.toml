@@ -9,7 +9,6 @@ repository = "https://github.com/AndrejOrsula/earthrise_thesis_template"
 keywords = ["thesis", "dissertation", "doctoral", "PhD", "print", "two-sided"]
 categories = ["thesis"]
 compiler = "0.15.0"
-exclude = ["/tools/"]
 
 [template]
 path = "template"

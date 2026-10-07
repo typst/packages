@@ -14,7 +14,7 @@ This chapter shows how to start a thesis and how this example is organized. The 
 
 `thesis.typ` applies the template by calling the function `thesis`. Its arguments fill in the content, such as the title, abstract or glossary, and adjust the style, such as the `accent` color or a logo on the cover. `thesis.typ` shows the usual arguments; the README of the template #footnote[see #link("https://github.com/AndrejOrsula/earthrise_thesis_template")] explains all of them.
 
-The template is set in EB Garamond, with Monaspace Argon for code. Without these fonts, Typst warns and uses its own. The README shows where to get them, and how `tools/build.py` builds both editions with the same fonts on every machine.
+The template is set in EB Garamond, with Monaspace Argon for code. Without these fonts, Typst warns and uses its own. The README shows where to get them.
 
 == Template Structure <subsec:template_structure>
 Each chapter has its own file in `chapters/`, which `thesis.typ` includes, so that no single file grows too long. @raw:file_structure shows the files of this example:
