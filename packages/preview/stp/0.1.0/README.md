@@ -115,14 +115,3 @@ Some formatting requirements cannot currently be implemented cleanly because of 
 
 In particular, Typst does not currently provide a suitable way to add paragraph indentation to individual bibliography entries. As a result, bibliography entries cannot be formatted with the required first-line indentation.
 
-## Roadmap
-
-The following features are planned for future versions:
-
-- [ ] Complete table heading formatting;
-- [ ] Implement complex list numbering;
-- [ ] Add references to individual list items;
-- [ ] Implement paragraph indentation for bibliography entries when possible;
-- [ ] Complete bibliography styling;
-- [ ] Improve compliance with the remaining STP 01-2024 formatting requirements.
-
