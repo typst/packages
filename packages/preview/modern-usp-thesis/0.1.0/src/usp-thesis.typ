@@ -1,5 +1,5 @@
 #import "layout.typ": setup-layout, quote-long
-#import "elements.typ": cover, title-page, approval-sheet, abstract-page
+#import "elements.typ": cover as cover-page, title-page as make-title-page, approval-sheet, abstract-page
 
 /// Main template function for USP theses and dissertations.
 /// - title (content): The title of the thesis (in the main language).
@@ -18,8 +18,11 @@
 /// - nature (string): Overrides the inferred "Dissertação" or "Tese".
 /// - lang (string): Main document language ("pt" or "en").
 /// - font (string or array): The document font, or a list of fallbacks (default: "New Computer Modern").
+/// - cover (bool): Whether to print the cover.
+/// - title-page (bool): Whether to print the title page.
 /// - catalog-card (content): Optional ficha catalográfica (cataloging-in-publication
-///   card), printed at the foot of the page after the title page. Pass the card the
+///   card), printed at the foot of the page after the title page (only with the
+///   title page). Pass the card the
 ///   library provides, e.g. `image("ficha.png", width: 12.5cm)`.
 /// - abstract-pt (content): The abstract in Portuguese (Mandatory).
 /// - keywords-pt (array): List of keywords in Portuguese (Mandatory).
@@ -35,12 +38,13 @@
 /// - errata (content): Optional errata content.
 /// - list-of-figures (bool or auto): Whether to include the list of figures (auto: show if >= 5).
 /// - list-of-tables (bool or auto): Whether to include the list of tables (auto: show if >= 5).
+/// - table-of-contents (bool): Whether to include the table of contents (Sumário).
 /// - abbreviations (content): Optional list of abbreviations.
 /// - symbols (content): Optional list of symbols.
 /// - banca (array): List of jury member dictionaries ((nome: "", instituicao: "")).
 /// - front-matter (bool): Whether to print the pre-textual elements (cover, title
 ///   page, abstracts, lists, table of contents...). With false only the body is
-///   printed, in the same layout, numbered from page 1.
+///   printed, in the same layout, numbered from page 1, whatever the other options.
 /// - body (content): The document body.
 #let usp-thesis(
   title: [Título da Dissertação],
@@ -59,6 +63,8 @@
   nature: none, 
   lang: "pt",
   font: "New Computer Modern",
+  cover: true,
+  title-page: true,
   catalog-card: none,
   abstract-pt: none,
   keywords-pt: (),
@@ -72,6 +78,7 @@
   errata: none,
   list-of-figures: auto,
   list-of-tables: auto,
+  table-of-contents: true,
   abbreviations: none,
   symbols: none,
   banca: (),
@@ -206,47 +213,51 @@
   // Without front matter only the body is printed, in the same layout.
   if front-matter {
     // 1. Cover
-    // The cover has no heading: an invisible one gives it a PDF bookmark.
-    {
-      show heading: none
-      heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.cover]
-    }
-    cover(
-      institution: if lang == "pt" { "Universidade de São Paulo\n" + institute } else { "University of São Paulo\n" + institute },
-      author: author,
-      title: title,
-      subtitle: subtitle,
-      local: local,
-      year: year,
-    )
+    if cover {
+      // The cover has no heading: an invisible one gives it a PDF bookmark.
+      {
+        show heading: none
+        heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.cover]
+      }
+      cover-page(
+        institution: if lang == "pt" { "Universidade de São Paulo\n" + institute } else { "University of São Paulo\n" + institute },
+        author: author,
+        title: title,
+        subtitle: subtitle,
+        local: local,
+        year: year,
+      )
 
-    // Page numbering starts counting from title page (ABNT)
-    counter(page).update(1)
+      // Page numbering starts counting from title page (ABNT)
+      counter(page).update(1)
+    }
 
     // 2. Title Page
-    title-page(
-      author: author,
-      title: title,
-      subtitle: subtitle,
-      version: version-text,
-      nature: nature-text,
-      institute: institute,
-      degree: degree,
-      program: program,
-      area: area,
-      area-label: i18n.area,
-      advisor: i18n.advisor + advisor,
-      coadvisor: if coadvisor != none { i18n.coadvisor + coadvisor } else { none },
-      local: local,
-      year: year,
-    )
+    if title-page {
+      make-title-page(
+        author: author,
+        title: title,
+        subtitle: subtitle,
+        version: version-text,
+        nature: nature-text,
+        institute: institute,
+        degree: degree,
+        program: program,
+        area: area,
+        area-label: i18n.area,
+        advisor: i18n.advisor + advisor,
+        coadvisor: if coadvisor != none { i18n.coadvisor + coadvisor } else { none },
+        local: local,
+        year: year,
+      )
 
-    // 2a. Catalog card (ficha catalográfica), on the page after the title page
-    if catalog-card != none {
-      page(margin: 3cm, {
-        v(1fr)
-        align(center, catalog-card)
-      })
+      // 2a. Catalog card (ficha catalográfica), on the page after the title page
+      if catalog-card != none {
+        page(margin: 3cm, {
+          v(1fr)
+          align(center, catalog-card)
+        })
+      }
     }
   }
 
@@ -353,9 +364,11 @@
     }
 
     // Table of Contents (Sumário) - Must be the last pre-textual element
-    heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.summary-title]
-    outline(title: none, indent: auto)
-    pagebreak()
+    if table-of-contents {
+      heading(level: 1, numbering: none, outlined: false, bookmarked: true)[#i18n.summary-title]
+      outline(title: none, indent: auto)
+      pagebreak()
+    }
   }
 
   // --- Start of Textual Elements ---

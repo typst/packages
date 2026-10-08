@@ -150,7 +150,9 @@ The `usp-thesis` function accepts the following parameters. Only `title`, `autho
 | `nature` | string | `none` | Overrides the inferred "Dissertação" / "Tese". |
 | `lang` | string | `"pt"` | Main language, `"pt"` or `"en"` (or `langs.pt` / `langs.en`). |
 | `font` | string / array | `"New Computer Modern"` | Document font, or a list of fallback fonts. Applies to every page, cover included. |
-| `catalog-card` | content | `none` | Optional ficha catalográfica, printed at the foot of the page after the title page (e.g. `image("ficha.png")`). |
+| `cover` | bool | `true` | Whether to print the cover. |
+| `title-page` | bool | `true` | Whether to print the title page. |
+| `catalog-card` | content | `none` | Optional ficha catalográfica, printed at the foot of the page after the title page (e.g. `image("ficha.png")`). Not printed without the title page. |
 | `abstract-pt` | content | `none` | Abstract in Portuguese (Resumo). |
 | `keywords-pt` | array | `()` | Keywords in Portuguese. |
 | `abstract-en` | content | `none` | Abstract in English. |
@@ -162,14 +164,17 @@ The `usp-thesis` function accepts the following parameters. Only `title`, `autho
 | `errata` | content | `none` | Optional errata. |
 | `list-of-figures` | bool / auto | `auto` | Whether to include the list of figures (auto: show if there are 5 or more). |
 | `list-of-tables` | bool / auto | `auto` | Whether to include the list of tables (auto: show if there are 5 or more). |
+| `table-of-contents` | bool | `true` | Whether to include the table of contents (Sumário). |
 | `abbreviations` | content | `none` | Optional list of abbreviations and acronyms. |
 | `symbols` | content | `none` | Optional list of symbols. |
 | `banca` | array | `()` | Jury members as `(nome: "", instituicao: "")` dictionaries. The approval sheet is only printed when this is not empty. |
-| `front-matter` | bool | `true` | Whether to print the pre-textual elements. `false` prints only the text (see below). |
+| `front-matter` | bool | `true` | Whether to print the pre-textual elements. `false` prints only the text, overriding the options above (see below). |
 
-### Text only
+### Leaving out pre-textual elements
 
-To compile only your chapters, e.g. to share a draft with your advisor, set `front-matter: false`. The cover, title page, abstracts, lists and table of contents are left out; the text keeps the same layout, chapter references and bibliography style, numbered from page 1. The other parameters can stay as they are.
+Most pre-textual elements are only printed when you pass them (abstracts, dedication, `banca`...). The cover, title page and table of contents are always printed unless you turn them off with `cover: false`, `title-page: false` or `table-of-contents: false`. Page numbering counts from the title page (ABNT), or from the first page printed when there is no title page.
+
+To compile only your chapters, e.g. to share a draft with your advisor, set `front-matter: false`. Every pre-textual element is left out, whatever the other parameters say, so they can stay as they are; the text keeps the same layout, chapter references and bibliography style, numbered from page 1.
 
 ```typst
 #show: usp-thesis.with(
