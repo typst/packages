@@ -1,0 +1,3 @@
+#import "@preview/sang-math:1.1.1": sang-omr-sheet
+#set page(paper: "a5", flipped: true, margin: 10mm, numbering: none)
+#sang-omr-sheet(profile: "new-12-4-0-a5", embed: false)
