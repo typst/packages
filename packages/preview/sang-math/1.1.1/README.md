@@ -8,6 +8,10 @@ Bộ macro Typst dành cho Toán THPT Việt Nam: đề thi bốn dạng câu h�
 
 Bản 1.1.1 giữ nguyên cách soạn đề của 1.0.6 và API 1.1.0; bổ sung thư viện 24 mẫu OMR A5/A4, điền SBD/mã đề bằng state và ghép phiếu vào đề. Xem [thư viện phiếu và cách sử dụng](omr/README.md).
 
+## Mẫu chuẩn soạn đề
+
+Dùng [examples/canonical-exam.typ](examples/canonical-exam.typ) và [AUTHORING.md](AUTHORING.md): một import, cấu hình đề/lời giải/phiếu/bảng đáp án/QR và JSON từ cùng state. Ý sai Đ/S để content thường, không khai báo lại macro của gói hay import engine cá nhân.
+
 ## Cài đặt
 
 ```typ
