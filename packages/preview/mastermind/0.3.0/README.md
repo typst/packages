@@ -12,10 +12,10 @@ Mastermind is a [Typst](https://typst.app/) package, built on [CeTZ](https://git
 - Generate diagrams from source files, supported languages are:
     - Java
     - C#
-    - PHP (it can also extract PHP classes from Livewire components!) — [PHP and Livewire example](examples/php-livewire.typ)
+    - PHP (it can also extract PHP classes from Livewire components!)
 - Manual diagrams: Create UML class diagrams directly in your Typst documents, with class names, attributes, and methods.
-- Layout: arrange classes in rows or columns and choose where relationships connect to keep diagrams readable. [See an example](examples/architecture.typ).
-- Beautiful themes: Pick a built-in visual theme or customize the colors, shapes, and lines to suit your document. [See an example](examples/custom-theme.typ).
+- Layout: arrange classes in rows or columns and choose where relationships connect to keep diagrams readable.
+- Beautiful themes: Pick a built-in visual theme or customize the colors, shapes, and lines to suit your document.
 
 See the `/docs` directory for the [manual](/docs/manual.pdf) and the [documentation](/docs/docs.pdf).
 
