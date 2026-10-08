@@ -1,4 +1,4 @@
-# Contributing to HES-SO-package
+# Contributing to HES-SO-core
 
 Thanks for your interest in improving the **HES-SO Typst Package**! ❤️
 We welcome all contributions — from typo fixes to feature suggestions and style refinements.
@@ -27,9 +27,9 @@ If you like the project but can’t contribute code right now, you can still hel
 
 Before opening a new issue, please:
 
-1. Check the [README](https://github.com/HES-SO/HES-SO-package/blob/main/README.md) and example files.
-2. Search [existing issues](https://github.com/HES-SO/HES-SO-package/issues).
-3. If none fit, open a new [issue](https://github.com/HES-SO/HES-SO-package/issues/new) with:
+1. Check the [README](https://github.com/HES-SO/Typst-HES-SO-core/blob/main/README.md) and example files.
+2. Search [existing issues](https://github.com/HES-SO/Typst-HES-SO-core/issues).
+3. If none fit, open a new [issue](https://github.com/HES-SO/Typst-HES-SO-core/issues/new) with:
    - A clear description of your question or problem
    - Steps to reproduce (if relevant)
    - Typst version and OS info
@@ -58,7 +58,7 @@ When reporting a bug:
 ## Suggesting Enhancements
 
 Have an idea to improve the package?
-Please open an [issue](https://github.com/HES-SO/HES-SO-package/issues/new) and include:
+Please open an [issue](https://github.com/HES-SO/Typst-HES-SO-core/issues/new) and include:
 
 - A short description of the feature
 - Why it’s useful (especially for students or supervisors)

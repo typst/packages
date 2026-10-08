@@ -1,5 +1,5 @@
 [package]
-name = "hes-so-package"
+name = "hes-so-core"
 version = "0.1.0"
 compiler = "0.15.0"
 authors = [
@@ -8,7 +8,7 @@ authors = [
   "Louis Heredero <https://github.com/LordBaryhobal>",
   "HES-SO <https://hes-so.ch>"
 ]
-repository = "https://github.com/HES-SO/HES-SO-package"
+repository = "https://github.com/HES-SO/Typst-HES-SO-core"
 homepage = "https://www.hes-so.ch/accueil"
 license = "MIT"
 description = "Common library for most HES-SO templates and packages."
