@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0">
+  <info>
+    <title>Russian GOST R 7.0.5-2008 numeric citations with aplhabetic sorting</title>
+      <id>http://www.zotero.org/styles/GOST-R-7.0.5-2008%20numeric%20alphabetic</id>
+      <link href="http://chetvericov.ru/stil-oformleniya-dlya-mendeley-i-zotero-csl-po-gost-r-705-2008/" rel="self"/>
+      <author>
+        <name>Roman Raspopov</name>
+        <email>romanraspopov@gmail.com</email>
+        <uri></uri>
+      </author>    
+      <category citation-format="numeric"/>
+      <category field="generic-base"/>
+      <updated>2013-05-24T01:12:50+00:00</updated>
+      <summary>
+      Russian GOST-2008 style.
+      
+      За основу были взяты стили Андрея Четверикова с разными видами сортировки (в порядке появления, в алфавитном порядке и с отображением фамилий вместо номеров ссылок), которые прекрасно работали, но не могли обеспечить многих требований ГОСТ 7.0.5-2008 "Библиографическая ссылка", ГОСТ 7.1-2003 "Библиографическая запись и описание" и ГОСТ 7.82-2001 "Библиографическая запись. Библиографическое описание электронных ресурсов". В данном стиле введен большой перечень усовершенствований, который позволил дополнить функционал стилей А. Четверикова.
+      
+      Теперь стиль решает следующие задачи в соответствии с требованиями ГОСТов:
+      - Сортировка библиографии: а) по языку (сначала русскоязычные источники, затем иностранные), а затем в алфавитном порядке, б) в порядке появления ссылок.
+      - Локализация стандартных обозначений ([et al.] / [и др.]; Vol. / Т.; P. / С. и другие), которые зависят от поля "Язык" ("Language"): для русскоязычных пусто, для иностранных "en" (без ковычек).
+      - 
+      - 
+
+      Примечания:
+      - Составитель (сост.) в Zotero обозначается как "Редактор серии" (Series Editor).
+        
+      Так как возможности локализации в текущей версии Zotero (4.0.8) довольно ограничены, иногда библиографическое описание источников оказывается вынужденно стандартизованным (не всегда можно учесть все нюансы оригинального библиографического описания), а также приходится идти на разного рода ухищрения при использовании полей в программе. Однако результат стоит того - в итоге список литературы автоматически формируется, сортируется и форматируется в соответствии с большинством требований ГОСТ. 
+      
+      Выражаю искреннюю благодарность Андрею Петровичу Фоту за его пособие с очень подробным описанием всех нюансов составления библиографических списков (Фот А.П. Оформление библиографических ссылок на использованные источники в научных работах : методические рекомендации соискателям ученых степеней. – Оренбург: ГОУ «ОГУ», 2005. – 24 с.), а также Андрею Четверикову за разработку основы стилей ГОСТ и их поддержку на сайте (http://chetvericov.ru/stil-oformleniya-dlya-mendeley-i-zotero-csl-po-gost-r-705-2008).
+
+      </summary>
+      <link href="http://protect.gost.ru/document.aspx?control=7&amp;id=173511" rel="documentation"/>
+      <rights>This work is licensed under a Creative Commons Attribution-Share Alike 3.0 Unported License  http://creativecommons.org/licenses/by-sa/3.0/</rights>
+  </info>  
+
+
+  <locale xml:lang="ru">
+    <terms>
+      <term name="et-al">[и др.]</term>
+      <term name="and others"></term>
+      <term name="page" form="short">с.</term>
+      <term name="number-of-pages" form="short">с.</term>
+      <term name="number-of-volumes" form="short">т.</term>
+      <term name="volume" form="short">т.</term>
+      <term name="issue" form="short">№</term>
+      <term name="editor" form="short">ред.</term>
+      <term name="translator" form="short">пер.</term>
+      <term name="collection-editor" form="short">сост.</term>
+    </terms>
+  </locale>
+
+  <locale>
+    <terms>
+      <term name="page-range-delimiter">–</term>
+    </terms>
+  </locale>
+
+  <!-- ============================== AUTHORS ============================== -->
+
+  <!-- First author: "Гук, М." -->
+  <macro name="primary-author">
+    <names variable="author">
+      <name name-as-sort-order="first"
+            sort-separator=", "
+            initialize="true"
+            initialize-with=". "
+            delimiter=", "
+            delimiter-precedes-last="always"
+            et-al-min="2"
+            et-al-use-first="1"
+            delimiter-precedes-et-al="never"/>
+      <et-al term="and others"/>
+      <substitute>
+        <names variable="editor">
+          <name initialize="true" initialize-with=". " delimiter=", "/>
+        </names>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <!-- Authors after slash: "М. О. Кузелин, Д. А. Кнышев, В. Ю. Зотов" -->
+  <macro name="secondary-authors">
+    <names variable="author">
+      <name initialize="true"
+            initialize-with=". "
+            delimiter=", "
+            delimiter-precedes-last="always"
+            et-al-min="4"
+            et-al-use-first="1"
+            delimiter-precedes-et-al="never"/>
+      <et-al term="et-al"/>
+    </names>
+  </macro>
+
+  <!-- Editors when there are no authors: "под ред. В. А. Шахнова" -->
+  <macro name="secondary-editors">
+    <group delimiter=" ">
+      <text value="под ред."/>
+      <names variable="editor">
+        <name initialize="true"
+              initialize-with=". "
+              delimiter=", "
+              delimiter-precedes-last="always"
+              et-al-min="4"
+              et-al-use-first="1"
+              delimiter-precedes-et-al="never"/>
+        <et-al term="et-al"/>
+      </names>
+    </group>
+  </macro>
+
+  <!-- Author before title, or just title when there is no author. -->
+  <macro name="author-title">
+    <choose>
+      <if variable="author">
+        <group delimiter=" ">
+          <text macro="primary-author"/>
+          <text variable="title"/>
+        </group>
+      </if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- Title first: used for articles/chapters, as in the supplied examples. -->
+  <macro name="title">
+    <text variable="title"/>
+  </macro>
+
+  <!-- ============================== DESCRIPTION ============================== -->
+
+  <!-- "В 2 т." -->
+  <macro name="number-of-volumes">
+    <choose>
+      <if variable="number-of-volumes">
+        <group delimiter=" ">
+          <text value="В"/>
+          <text variable="number-of-volumes"/>
+          <text value="т."/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- "Т. 1" -->
+  <macro name="volume">
+    <choose>
+      <if variable="volume">
+        <group delimiter=" ">
+          <text value="Т."/>
+          <text variable="volume"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- "№ 12" -->
+  <macro name="issue">
+    <choose>
+      <if variable="issue">
+        <group delimiter="&#160;">
+          <text value="№"/>
+          <text variable="issue"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- "С. 21–25" -->
+  <macro name="page">
+    <choose>
+      <if variable="page">
+        <group delimiter="&#160;">
+          <text value="С."/>
+          <text variable="page"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- "440 с." -->
+  <macro name="number-of-pages">
+    <choose>
+      <if variable="number-of-pages">
+        <group delimiter="&#160;">
+          <text variable="number-of-pages"/>
+          <text value="с."/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- "М. : Питер Ком, 1999" -->
+  <macro name="publisher">
+    <group delimiter=" : ">
+      <text variable="publisher-place"/>
+      <text variable="publisher"/>
+    </group>
+    <date variable="issued" prefix=", ">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <!-- ============================== ELECTRONIC RESOURCES ============================== -->
+
+  <macro name="electronic-mark">
+    <text value="[Электронный ресурс]"/>
+  </macro>
+
+  <macro name="access">
+    <choose>
+      <if variable="URL">
+        <group delimiter=" : ">
+          <text value="Режим доступа"/>
+          <text variable="URL"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- ============================== CITATION ============================== -->
+
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <text variable="citation-number"/>
+      <choose>
+        <if variable="locator">
+          <label variable="locator" form="short" prefix=",&#160;" suffix="&#160;"/>
+          <text variable="locator"/>
+        </if>
+      </choose>
+    </layout>
+  </citation>
+
+  <!-- ============================== BIBLIOGRAPHY ============================== -->
+
+  <bibliography et-al-min="4"
+                et-al-use-first="1"
+                delimiter-precedes-et-al="never">
+
+    <!-- References are numbered in order of appearance: [1], [2], ... -->
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+
+    <layout suffix=".">
+      <text variable="citation-number" prefix="[" suffix="] "/>
+
+      <choose>
+
+        <!-- ============================== BOOK ============================== -->
+        <if type="book">
+
+          <group delimiter=". – ">
+
+            <!-- Title / authors -->
+            <group delimiter=" / ">
+              <group delimiter=". ">
+
+                <!-- Author + title -->
+                <group delimiter=" : ">
+                  <text macro="author-title"/>
+                  <text variable="genre"/>
+                </group>
+
+                <!-- "В 2 т." -->
+                <text macro="number-of-volumes"/>
+
+              </group>
+
+              <!-- All authors after slash; if absent, editors -->
+              <choose>
+                <if variable="author">
+                  <text macro="secondary-authors"/>
+                </if>
+                <else-if variable="editor">
+                  <text macro="secondary-editors"/>
+                </else-if>
+              </choose>
+            </group>
+
+            <!-- Publisher -->
+            <text macro="publisher"/>
+
+            <!-- Volume of a multivolume edition -->
+            <text macro="volume"/>
+
+            <!-- Number of pages -->
+            <text macro="number-of-pages"/>
+
+            <!-- Medium, e.g. CD-ROM -->
+            <text variable="medium"/>
+
+          </group>
+
+        </if>
+
+        <!-- ============================== THESIS ============================== -->
+        <else-if type="thesis">
+
+          <group delimiter=". – ">
+            <group delimiter=" / ">
+              <group delimiter=" : ">
+                <text macro="author-title"/>
+                <text variable="genre"/>
+              </group>
+              <text macro="secondary-authors"/>
+            </group>
+            <text macro="publisher"/>
+            <text macro="number-of-pages"/>
+          </group>
+
+        </else-if>
+
+        <!-- ============================== CHAPTER / CONFERENCE ============================== -->
+        <else-if type="chapter paper-conference entry-encyclopedia" match="any">
+
+          <group delimiter=". – ">
+
+            <group delimiter=" // ">
+
+              <!-- "Название / Автор" -->
+              <group delimiter=" / ">
+                <text macro="title"/>
+                <choose>
+                  <if variable="author">
+                    <text macro="secondary-authors"/>
+                  </if>
+                  <else-if variable="editor">
+                    <text macro="secondary-editors"/>
+                  </else-if>
+                </choose>
+              </group>
+
+              <!-- Container title -->
+              <text variable="container-title"/>
+
+            </group>
+
+            <text macro="publisher"/>
+            <text macro="volume"/>
+            <text macro="issue"/>
+            <text macro="page"/>
+
+          </group>
+
+        </else-if>
+
+        <!-- ============================== JOURNAL ARTICLE ============================== -->
+        <else-if type="article-journal article-magazine" match="any">
+
+          <group delimiter=". – ">
+
+            <group delimiter=" // ">
+
+              <group delimiter=" / ">
+                <text macro="title"/>
+                <choose>
+                  <if variable="author">
+                    <text macro="secondary-authors"/>
+                  </if>
+                  <else-if variable="editor">
+                    <text macro="secondary-editors"/>
+                  </else-if>
+                </choose>
+              </group>
+
+              <text variable="container-title"/>
+
+            </group>
+
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+
+            <text macro="volume"/>
+            <text macro="issue"/>
+            <text macro="page"/>
+
+          </group>
+
+        </else-if>
+
+        <!-- ============================== NEWSPAPER ============================== -->
+        <else-if type="article-newspaper">
+
+          <group delimiter=". – ">
+
+            <group delimiter=" // ">
+              <group delimiter=" / ">
+                <text macro="title"/>
+                <text macro="secondary-authors"/>
+              </group>
+              <text variable="container-title"/>
+            </group>
+
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+
+            <text macro="page"/>
+
+          </group>
+
+        </else-if>
+
+        <!-- ============================== WEB PAGE ============================== -->
+        <else-if type="webpage">
+
+          <group delimiter=". – ">
+
+            <group delimiter=" ">
+              <group delimiter=" / ">
+                <text variable="title"/>
+                <choose>
+                  <if variable="author">
+                    <text macro="secondary-authors"/>
+                  </if>
+                </choose>
+              </group>
+              <text macro="electronic-mark"/>
+            </group>
+
+            <text macro="access"/>
+
+          </group>
+
+        </else-if>
+
+        <!-- ============================== OTHER ELECTRONIC RESOURCE ============================== -->
+        <else-if variable="URL">
+
+          <group delimiter=". – ">
+
+            <group delimiter=" ">
+              <group delimiter=" / ">
+                <text macro="title"/>
+                <choose>
+                  <if variable="author">
+                    <text macro="secondary-authors"/>
+                  </if>
+                  <else-if variable="editor">
+                    <text macro="secondary-editors"/>
+                  </else-if>
+                </choose>
+              </group>
+              <text macro="electronic-mark"/>
+            </group>
+
+            <text macro="access"/>
+
+          </group>
+
+        </else-if>
+
+        <!-- ============================== OTHER ============================== -->
+        <else>
+
+          <group delimiter=". – ">
+
+            <group delimiter=" / ">
+              <group delimiter=". ">
+                <group delimiter=" : ">
+                  <text macro="author-title"/>
+                  <text variable="genre"/>
+                </group>
+                <text macro="number-of-volumes"/>
+                <text macro="volume"/>
+              </group>
+
+              <choose>
+                <if variable="author">
+                  <text macro="secondary-authors"/>
+                </if>
+                <else-if variable="editor">
+                  <text macro="secondary-editors"/>
+                </else-if>
+              </choose>
+            </group>
+
+            <text macro="publisher"/>
+            <text macro="number-of-pages"/>
+
+          </group>
+
+        </else>
+
+      </choose>
+    </layout>
+  </bibliography>
+
+</style>
