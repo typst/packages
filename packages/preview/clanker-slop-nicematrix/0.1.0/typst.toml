@@ -1,0 +1,12 @@
+[package]
+name = "clanker-slop-nicematrix"
+version = "0.1.0"
+entrypoint = "nicematrix.typ"
+authors = ["ali <https://github.com/coder56765>"]
+license = "MIT"
+description = "Draw matrices with dotted leaders, blocks and rules."
+repository = "https://github.com/coder56765/clanker-slop-nicematrix"
+compiler = "0.15.0"
+categories = ["visualization", "layout"]
+keywords = ["matrix", "math", "nicematrix", "pavemat", "dots", "leaders", "array", "submatrix"]
+exclude = ["tests", "docs", "_typos.toml"]

@@ -1,0 +1,11 @@
+[package]
+name = "v-exam"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Kieu Quang Vu (@KieuQuangVu-NCP)"]
+license = "MIT"
+description = "A toolkit for composing exercises and shuffling multiple-choice or essay exams following Vietnamese MOET standards."
+repository = "https://github.com/KieuQuangVu-NCP/v-exam"
+keywords = ["exam", "test", "vietnam", "quiz", "education", "v-exam"]
+categories = ["office", "layout"]
+compiler = "0.11.0"
