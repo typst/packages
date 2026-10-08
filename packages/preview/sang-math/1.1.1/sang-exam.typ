@@ -37,6 +37,13 @@
   ink: black,
 )
 
+// Let each paragraph/grid cell reserve its actual first/last glyph bounds,
+// including inline math ascenders and descenders, while retaining the baseline.
+#let _math-flow(body) = {
+  set text(top-edge: "bounds", bottom-edge: "bounds")
+  body
+}
+
 // ── sang-setup: wrapper đặt show rules ───────────────────
 // Dùng: #show: sang-setup
 //       #show: sang-setup.with(math-color: accent)
@@ -44,6 +51,7 @@
   // Chỉ phóng riêng phân số. Không biến cả phương trình inline thành display:
   // làm vậy sẽ phá baseline và chiều cao dòng trong bảng/cột hẹp.
   show math.frac: math.display
+  show math.cases: math.display
   show math.equation: set text(fill: math-color)
 
   // Tự động chuyển C, A, P (những chữ số gán sub/sup) thành chữ đứng để in đúng C_n^k
@@ -296,7 +304,9 @@
 
 #let _question-frame(
   body,
+  above: auto,
   below: 1em,
+  breakable: true,
   boxed: false,
   fill: white,
   stroke: 0.6pt + palette.border,
@@ -304,9 +314,9 @@
   radius: 4pt,
 ) = {
   if boxed {
-    block(width: 100%, below: below, fill: fill, stroke: stroke, inset: inset, radius: radius)[#body]
+    block(width: 100%, above: above, below: below, breakable: breakable, fill: fill, stroke: stroke, inset: inset, radius: radius)[#_math-flow(body)]
   } else {
-    block(width: 100%, below: below)[#body]
+    block(width: 100%, above: above, below: below, breakable: breakable)[#_math-flow(body)]
   }
 }
 
@@ -617,6 +627,10 @@
   fig-width: 35%,
   cols: 0,
   row-gutter: auto,
+  options-gap: auto,
+  question-gap: auto,
+  option-leading: auto,
+  breakable: auto,
   opt-fig: false,
   opt-fig-cols: 2,
   opt-style: "plain",
@@ -669,18 +683,23 @@
   let _is-fig = opt-fig or opt-texts.any(t => repr(t).contains("layout("))
 
   let em-sz = text.size
-  let label-width = 1.6 * em-sz
-  let label-gap = 0.3 * em-sz
-  let option-top-gap = 0.16em
-  let option-indent = if _is-fig { 0pt } else { 1.1 * em-sz }
+  let compact = mode == "dethi"
+  let label-width = if compact and opt-style == "plain" { em-sz } else { 1.6 * em-sz }
+  let label-gap = if compact { 0.35 * em-sz } else { 0.3 * em-sz }
+  let option-top-gap = if options-gap != auto { options-gap } else if compact { 0.45em } else { 0.16em }
+  let option-indent = if _is-fig { 0pt } else if compact { em-sz } else { 1.1 * em-sz }
 
   // Đo inline width và height — BỎ QUA nếu options là hình
   let mw = 0pt
   let max-inline-h = 0pt
+  let option-ascents = ()
   let has-frac = false
   if not _is-fig {
     for t in opt-texts {
       let sz = measure(box[#t])
+      // Reserve a shared first-line ascent per row without wrapping equations
+      // or changing their native baseline/math style.
+      option-ascents.push(measure(box(text(top-edge: "bounds", bottom-edge: "baseline", t)), width: 100000pt).height)
       if sz.width > mw { mw = sz.width }
       if sz.height > max-inline-h { max-inline-h = sz.height }
       let rt = repr(t)
@@ -699,7 +718,11 @@
     }
   }
   let has-tall-math = max-inline-h > 1.45 * em-sz or has-frac
-  let option-leading = if has-tall-math { 1.8em } else { 0.95em }
+  // Grid rows already reserve the tallest cell. Do not add another full
+  // formula height as gutter/leading; wrapped options still need breathing room.
+  let calc-option-leading = if option-leading != auto { option-leading } else if compact {
+    0.5em
+  } else if has-tall-math { 1.8em } else { 0.95em }
 
   // ── Render options ──────────────────────────────────────
   let opts-r = if _is-fig {
@@ -755,9 +778,10 @@
         }
         chosen
       }
-      let column-gutter = if nc == 1 { 0pt } else if nc == 4 { 11pt } else { 13pt }
-      let calc-row-gutter = if row-gutter != auto { row-gutter } else if nc == 4 { 0.45em } else {
-        option-leading
+      let row-cols = if type(nc) == array { nc.len() } else { nc }
+      let column-gutter = if row-cols == 1 { 0pt } else if row-cols == 4 { 11pt } else { 13pt }
+      let calc-row-gutter = if row-gutter != auto { row-gutter } else if compact { 0.35em } else if row-cols == 4 { 0.45em } else {
+        calc-option-leading
       }
       grid(
         columns: if type(cols) == array { cols } else { (1fr,) * nc },
@@ -769,14 +793,21 @@
           .map(((i, t)) => {
             let hi = (mode == "loigiai" or mode == "solcolor") and opt-oks.at(i)
             let col = if hi { rgb("#cc2200") } else { black }
+            let row-start = calc.floor(i / row-cols) * row-cols
+            let row-ascent = calc.max(
+              measure(box(text(top-edge: "ascender", bottom-edge: "baseline")[A])).height,
+              ..option-ascents.slice(row-start, calc.min(row-start + row-cols, option-ascents.len())),
+            )
             // Hanging indent giữ nhãn A/B/C/D cùng baseline với phương án,
             // kể cả khi phương án bắt đầu bằng số mũ hoặc phân số cao.
             par(
               justify: false,
-              leading: option-leading,
+              leading: calc-option-leading,
               hanging-indent: label-width + label-gap,
             )[
-              #box(width: label-width)[#render-label(i, col)]#h(label-gap)#text(
+              // A zero-width first-line strut aligns labels across this row;
+              // it leaves wrapped lines and native math baselines untouched.
+              #box(width: 0pt, height: row-ascent, baseline: 0pt)#box(width: label-width)[#render-label(i, col)]#h(label-gap)#text(
                 fill: col,
                 weight: if hi { "bold" } else { "regular" },
               )[#t]
@@ -847,9 +878,17 @@
       [
         #_maybe-draft(
           [
+            // Explicit gaps replace inherited paragraph/block spacing only
+            // inside the printed MCQ; solutions retain their existing layout.
+            #if compact {
+              set par(spacing: 0pt)
+              set block(spacing: 0pt)
+              [#stem-row #v(option-top-gap) #pad(left: option-indent)[#opts-r]]
+            } else [
             #stem-row
             #v(option-top-gap)
             #pad(left: option-indent)[#opts-r]
+            ]
             #if lines > 0 { draw-lines(lines) }
             #if mode == "loigiai" and loigiai != none {
               v(0.7em)
@@ -863,7 +902,9 @@
           accent: accent,
         )
       ],
-      below: 1.05em,
+      above: if compact { 0pt } else { auto },
+      below: if question-gap != auto { question-gap } else if compact { 0.8em } else { 1.05em },
+      breakable: if breakable == auto { not compact } else { breakable },
       boxed: boxed,
       fill: box-fill,
       stroke: box-stroke,
@@ -1590,7 +1631,7 @@
 // ── exam-part ─────────────────────────────────────────────
 // Mặc định `reset-counter: false` để số câu chạy liên tục toàn đề.
 // Nếu muốn một phần bắt đầu lại từ Câu 1, dùng `reset-counter: true`.
-#let exam-part(title, count: auto, reset-counter: false) = {
+#let exam-part(title, count: auto, reset-counter: false, above: 0.65em, below: 0.6em) = {
   // In beamer mode: skip print-only section headers
   if sys.inputs.at("beamer", default: "0") == "1" { return }
   [
@@ -1599,9 +1640,11 @@
     }
     #_part-cnt.step()
     #metadata("part") <ep-marker>
-    #v(0.9em)
     #block(
       width: 100%,
+      above: above,
+      below: below,
+      sticky: true,
       fill: rgb("#e8f0fc"),
       stroke: (left: 4pt + palette.accent),
       inset: (left: 10pt, right: 8pt, top: 7pt, bottom: 7pt),
@@ -1632,7 +1675,6 @@
         }
       }
     ]
-    #v(0.5em)
   ]
 }
 
@@ -1656,6 +1698,8 @@
   header-font: "Times New Roman",
   body-font: "Times New Roman",
   body-size: 12pt,
+  identity-gap: 0.8em,
+  header-gap: 0.45em,
   // ── Font viết tay (tuỳ chọn) ──
   // Truyền tên font để dùng #hw[...] trong nội dung
   // Ví dụ: handwriting-font: "HP001 4 hàng"
@@ -1701,6 +1745,7 @@
   set text(font: body-font, size: body-size, lang: "vi")
   set par(justify: true, leading: 0.75em)
   show math.frac: math.display
+  show math.cases: math.display
 
   // ── Kích hoạt font viết tay toàn cục ─────────────────────
   // Hàm #hw[...] đã được export ở đầu sang-exam.typ
@@ -1755,7 +1800,7 @@
     ],
   )
 
-  v(1.4em)
+  v(identity-gap)
   grid(
     columns: (1fr, auto),
     column-gutter: 14pt,
@@ -1780,9 +1825,9 @@
       ]
     },
   )
-  v(0.9em)
+  v(0.55em)
   if header-border { line(length: 100%, stroke: 0.8pt + black) }
-  v(1em)
+  v(header-gap)
   body
 }
 

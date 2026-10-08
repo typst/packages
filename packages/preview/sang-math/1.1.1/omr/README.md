@@ -2,7 +2,7 @@
 
 24 cấu hình phiếu A5 ngang/A4 dọc dùng cùng tọa độ ô tô và mốc căn chỉnh
 với [Sang Math OMR](https://chamthi-conictypst.pages.dev/). Các hàm soạn đề,
-sách, bảng biến thiên, hình học và QR của 1.1.0 được giữ nguyên.
+sách, bảng biến thiên và hình học của 1.1.0 được giữ nguyên; bộ soạn đề được cải thiện khoảng cách công thức, QR mở rộng nhận dạng các mẫu mới.
 Yêu cầu Typst 0.15.0 trở lên, giống bản 1.1.0.
 
 ## Ghép phiếu A5 vào đề A4

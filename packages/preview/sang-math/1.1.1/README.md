@@ -277,3 +277,11 @@ MIT © Nguyễn Văn Sang
 ```
 
 SBD `1001` được ghi/tô ở bốn cột đầu; hai cột cuối để học sinh điền. Mã đề là `0101`. Không đặt state thì các ô định danh để trống. Phiếu A5 tự căn giữa trang A4 với lề 10–20 mm, giữ kích thước 190 × 140 mm và đủ 12 mốc; đặt trong vùng một cột rộng ít nhất 170 mm, không thu nhỏ phiếu. Hướng dẫn đầy đủ, danh sách 24 ID và các file include: [omr/README.md](omr/README.md).
+
+## Khoảng cách câu hỏi và công thức
+
+Bản 1.1.1 tự dành chỗ theo biên chữ/công thức trong câu dẫn, phương án và lời giải. Phân số và hệ dùng `show math.frac: math.display` / `show math.cases: math.display`; không thu nhỏ công thức hay đổi toàn bộ phương trình inline sang display. Các nhãn A–D trong cùng hàng có chung đường chân chữ; dòng phương án dài vẫn thụt treo.
+
+Đề thi dùng khoảng cách riêng giữa câu dẫn, phương án và câu kế tiếp để tránh cộng dồn khoảng cách đoạn. Không cần bọc mỗi `#tn` trong `#block` hay đặt `row-gutter` thủ công. Khi cần điều chỉnh, `mcq`/`tn` nhận `options-gap`, `question-gap`, `option-leading`, `row-gutter` và `breakable`; `exam-part` nhận `above`/`below`, `thpt-school-exam` nhận `identity-gap`/`header-gap`. `breakable: true` cho phép câu rất dài qua trang; mặc định đề thi giữ câu và phương án cùng trang. Số trang có thể tăng để giữ đủ chỗ cho công thức lớn.
+
+Xem [ví dụ phân số lồng, hệ và căn nhãn](examples/exam-spacing.typ).

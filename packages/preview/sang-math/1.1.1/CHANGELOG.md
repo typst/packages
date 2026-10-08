@@ -2,7 +2,9 @@
 
 ## 1.1.1
 
-- Thêm 24 cấu hình phiếu A5 ngang/A4 dọc; giữ nguyên các module và API 1.1.0/1.0.6.
+- Giãn dòng theo biên chữ/công thức thực trong câu hỏi và lời giải; giữ phân số/hệ lớn, căn nhãn phương án theo hàng, tránh đè phân số lồng. Đề thi dùng khoảng cách tường minh và giữ câu/phương án cùng trang; thêm các tùy chọn khoảng cách tương thích cú pháp cũ.
+
+- Thêm 24 cấu hình phiếu A5 ngang/A4 dọc; giữ API soạn đề 1.1.0/1.0.6.
 - `sang-omr-sheet` đọc SBD/mã đề tại vị trí hiện tại từ `state("sbd")` / `state("made")`, ghi số và tô đúng ô; SBD ngắn là tiền tố giữ ở các cột đầu, cột cuối để học sinh tự điền. Mã đề ngắn được đệm số 0.
 - Sửa cả tám file include 1.1.0: SBD `1001` điền/tô bốn cột đầu, để hai cột cuối trống; không đổi thành `001001`.
 - Phiếu A5 ghép vào đề A4 không thay khổ trang hay định dạng của đề; tọa độ ô và 12 mốc giữ nguyên kho phiếu trên web.
