@@ -29,9 +29,12 @@ khi sinh nhiều đề trong cùng tài liệu.
 Phiếu A5 tự căn giữa theo trang A4, kể cả khi đề dùng lề 10, 15 hoặc 20 mm
 hay lề trái/phải khác nhau. Nội dung phiếu giữ nguyên **190 × 140 mm**;
 vùng một cột của đề phải rộng ít nhất **170 mm** và đủ chỗ theo chiều dọc.
-Hàm không thay khổ trang, font hoặc định dạng đoạn của đề. Giữ tỷ lệ in
-100% và đủ 12 mốc cùng mốc nhận chiều. Không đưa vào cột hẹp hoặc dùng
-`scale`; trang hẹp hơn 210 mm hay vùng chứa hẹp hơn 170 mm sẽ báo lỗi.
+Hàm không thay khổ trang, font hoặc định dạng đoạn của đề. Ưu tiên in 100%
+và giữ đủ 12 mốc cùng mốc nhận chiều. Nếu máy in cần thêm lề, có thể chọn
+in đồng đều 96%, căn giữa A4: mốc ngoài cùng cách mép khoảng 9 mm.
+Bản thu nhỏ này đã qua kiểm tra chấm ảnh mô phỏng; nên thử một phiếu
+in–scan thật trước khi in cả lớp. Không co giãn riêng một chiều hoặc đưa
+vào cột hẹp; trang hẹp hơn 210 mm hay vùng chứa hẹp hơn 170 mm sẽ báo lỗi.
 
 Để dùng cách `#include`, tải [12-2-4.typ](../examples/omr/12-2-4.typ)
 đặt cạnh file đề rồi dùng:
