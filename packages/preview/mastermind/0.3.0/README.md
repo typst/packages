@@ -3,7 +3,6 @@
 [![Package version 0.3.0](https://img.shields.io/badge/package-v0.3.0-239dad?logo=typst)](https://typst.app)
 [![Gitlab Repo](https://img.shields.io/badge/gitlab-repo-blue?logo=gitlab)](https://gitlab.com/zani.manuel328/mastermind)
 [![License: GPLv3](https://img.shields.io/badge/license-GPLv3-green)](https://www.gnu.org/licenses/gpl-3.0.html)
-[![Manual](https://img.shields.io/badge/docs-manual.pdf-red?logo=readthedocs)](docs/manual.pdf?raw=true)
 
 Mastermind is a [Typst](https://typst.app/) package, built on [CeTZ](https://github.com/cetz-package/cetz), to draw UML diagrams, both directly within Typst or by parsing source code files.
 
