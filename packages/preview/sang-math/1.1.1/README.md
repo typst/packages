@@ -289,3 +289,5 @@ Bản 1.1.1 tự dành chỗ theo biên chữ/công thức trong câu dẫn, ph�
 Đề thi dùng khoảng cách riêng giữa câu dẫn, phương án và câu kế tiếp để tránh cộng dồn khoảng cách đoạn. Không cần bọc mỗi `#tn` trong `#block` hay đặt `row-gutter` thủ công. Khi cần điều chỉnh, `mcq`/`tn` nhận `options-gap`, `question-gap`, `option-leading`, `row-gutter` và `breakable`; `exam-part` nhận `above`/`below`, `thpt-school-exam` nhận `identity-gap`/`header-gap`. `breakable: true` cho phép câu rất dài qua trang; mặc định đề thi giữ câu và phương án cùng trang. Số trang có thể tăng để giữ đủ chỗ cho công thức lớn.
 
 Xem [ví dụ phân số lồng, hệ và căn nhãn](examples/exam-spacing.typ).
+
+Đ/S và TLN cũng hỗ trợ `options-gap`, `question-gap`, `breakable`; ở chế độ đề, câu dẫn được giữ cùng bảng/ô đáp số. Câu dài hơn một trang có thể đặt `breakable: true`.

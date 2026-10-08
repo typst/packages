@@ -923,6 +923,9 @@
   statements,
   loigiai: none,
   mode: "dethi",
+  options-gap: auto,
+  question-gap: auto,
+  breakable: auto,
   accent: palette.accent,
   fig: none,
   fig-pos: "right",
@@ -1279,8 +1282,12 @@
       [
         #_maybe-draft(
           [
+            #if mode == "dethi" {
+              set par(spacing: 0pt)
+              set block(spacing: 0pt)
+            }
             #stem-row
-            #v(0.6em)
+            #v(if options-gap == auto { 0.6em } else { options-gap })
             #pad(left: if style == "table" { 1.5em } else { 1em })[#statement-render]
             #if lines > 0 { draw-lines(lines) }
             #if mode == "loigiai" and loigiai != none {
@@ -1295,7 +1302,9 @@
           accent: accent,
         )
       ],
-      below: 1.4em,
+      above: if mode == "dethi" { 0pt } else { auto },
+      below: if question-gap == auto { 1.4em } else { question-gap },
+      breakable: if breakable == auto { mode != "dethi" } else { breakable },
       boxed: boxed,
       fill: box-fill,
       stroke: box-stroke,
@@ -1371,6 +1380,9 @@
   answer,
   loigiai: none,
   mode: "dethi",
+  options-gap: auto,
+  question-gap: auto,
+  breakable: auto,
   accent: palette.accent,
   fig: none,
   fig-pos: "right",
@@ -1456,9 +1468,13 @@
       [
         #_maybe-draft(
           [
+            #if mode == "dethi" {
+              set par(spacing: 0pt)
+              set block(spacing: 0pt)
+            }
             #stem-row
             #if show-boxes {
-              v(0.6em)
+              v(if options-gap == auto { 0.6em } else { options-gap })
               pad(left: 1.5em)[
                 #stack(dir: ltr, spacing: 6pt, text(weight: "bold")[Đáp số:], widget)
               ]
@@ -1476,7 +1492,9 @@
           accent: accent,
         )
       ],
-      below: 1.4em,
+      above: if mode == "dethi" { 0pt } else { auto },
+      below: if question-gap == auto { 1.4em } else { question-gap },
+      breakable: if breakable == auto { mode != "dethi" } else { breakable },
       boxed: boxed,
       fill: box-fill,
       stroke: box-stroke,

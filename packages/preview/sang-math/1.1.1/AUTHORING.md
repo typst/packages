@@ -16,3 +16,5 @@ typst query canonical-exam.typ '<sang-math-answer-key>' --field value --one > da
 Mặc định đề học sinh không có bảng/QR đáp án. Bảng đáp án hiện tự động ở chế độ giáo viên hoặc khi bật answer-table=1. JSON là metadata của mẫu lấy từ state câu hỏi, không phải một macro ghi file JSON. Không tạo bảng khóa thủ công riêng: bảng in, QR và JSON phải trùng nhau. Mỗi khi sửa True hay đáp án TLN, mọi đầu ra tự cập nhật khi biên dịch lại.
 
 Bản 1.0.6 vẫn đủ API soạn đề và QR 12–4–6, nhưng không hỗ trợ tham số profile của QR hay renderer phiếu mới; không ghép API mới vào đề import 1.0.6. Kiểm chứng cả dethi/loigiai, QR/JSON và PDF trước khi giao. Không tự thay câu đúng hoặc bịa khóa cho câu lỗi nguồn.
+
+TN, Đ/S và TLN nhận options-gap/question-gap/breakable. Ở mode dethi, Đ/S giữ câu dẫn và bảng/ý trả lời cùng trang; TLN giữ câu dẫn và ô đáp số cùng trang. Đặt breakable:true cho câu dài hơn một trang. Glyph bounds vẫn điều khiển chiều cao, nên giảm khoảng cách trắng không thu nhỏ phân số/hệ.
