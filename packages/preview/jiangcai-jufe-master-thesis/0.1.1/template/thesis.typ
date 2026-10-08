@@ -1,7 +1,7 @@
 //! 开发阶段用相对路径直接导入本地 lib.typ（改完即生效，无需同步 preview 缓存）；
 //! ⚠️ 提交 PR 前必须切换为下面注释中的 @preview 写法（已发布模板的标准写法）
-// #import "@preview/jiangcai-jufe-master-thesis:0.1.1": *
-#import "../lib.typ": *
+#import "@preview/jiangcai-jufe-master-thesis:0.1.1": *
+// #import "../lib.typ": *
 
 //! ============================================================
 //! 江西财经大学硕士学位论文 Typst 模板 —— 使用教程示例文档
