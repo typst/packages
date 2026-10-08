@@ -7,6 +7,10 @@
   mode: sys.inputs.at("mode", default: "dethi"), // dethi | loigiai | solcolor
   ma-de: sys.inputs.at("made", default: "1201"),
   accent: rgb("d97706"),
+  opt-style: "plain", // kiểu nhãn phương án
+  ds-style: "list", // list | table; list gọn cho đề có phiếu OMR
+  answer-boxes: true, // false nếu chỉ trả lời trên phiếu OMR
+  show-tags: false,
   school: "TRƯỜNG THPT NGUYỄN HỮU CẢNH",
   title: "ĐỀ KIỂM TRA MÔN TOÁN",
   subject: "TOÁN 12",
@@ -20,7 +24,10 @@
 )
 #assert(config.mode in ("dethi", "loigiai", "solcolor"), message: "mode: dethi, loigiai hoặc solcolor")
 #assert(config.answer-table in ("auto", "0", "1"), message: "answer-table: auto, 0 hoặc 1")
-#let (tn, ds, tln, tl) = exam-mode(mode: config.mode, accent: config.accent, show-tags: false)
+#let (tn, ds, tln, tl) = exam-mode(
+  mode: config.mode, accent: config.accent, opt-style: config.opt-style,
+  ds-style: config.ds-style, show-boxes: config.answer-boxes, show-tags: config.show-tags,
+)
 
 #show: thpt-school-exam.with(
   department: "SỞ GIÁO DỤC VÀ ĐÀO TẠO",
