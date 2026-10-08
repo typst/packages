@@ -276,4 +276,4 @@ MIT © Nguyễn Văn Sang
 #sang-omr-sheet(profile: "new-12-2-4-a5")
 ```
 
-SBD `1001` được ghi/tô ở bốn cột đầu; hai cột cuối để học sinh điền. Mã đề là `0101`. Không đặt state thì các ô định danh để trống. Phiếu A5 giữ đủ 12 mốc, cần vùng chứa rộng 190 mm và cao 140 mm; không thu nhỏ phiếu. Hướng dẫn đầy đủ, danh sách 24 ID và các file include: [omr/README.md](omr/README.md).
+SBD `1001` được ghi/tô ở bốn cột đầu; hai cột cuối để học sinh điền. Mã đề là `0101`. Không đặt state thì các ô định danh để trống. Phiếu A5 tự căn giữa trang A4 với lề 10–20 mm, giữ kích thước 190 × 140 mm và đủ 12 mốc; đặt trong vùng một cột rộng ít nhất 170 mm, không thu nhỏ phiếu. Hướng dẫn đầy đủ, danh sách 24 ID và các file include: [omr/README.md](omr/README.md).

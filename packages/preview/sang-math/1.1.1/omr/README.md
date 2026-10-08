@@ -26,10 +26,12 @@ Mã chứa chữ, số âm hoặc quá dài bị báo lỗi, không bị cắt m
 State được đọc tại vị trí từng phiếu; có thể đổi SBD/mã đề trước mỗi phiếu
 khi sinh nhiều đề trong cùng tài liệu.
 
-Phiếu A5 ghép vào đề cần vùng chứa rộng **190 mm**, cao **140 mm**, lề đủ
-giữ mốc ngoài hai bên (A4 lề 10 mm). Hàm không thay khổ trang, font hoặc
-định dạng đoạn của đề. Đặt phiếu trong vùng một cột, giữ tỷ lệ in 100% và
-đủ 12 mốc cùng mốc nhận chiều. Không đưa vào cột hẹp hoặc dùng `scale`.
+Phiếu A5 tự căn giữa theo trang A4, kể cả khi đề dùng lề 10, 15 hoặc 20 mm
+hay lề trái/phải khác nhau. Nội dung phiếu giữ nguyên **190 × 140 mm**;
+vùng một cột của đề phải rộng ít nhất **170 mm** và đủ chỗ theo chiều dọc.
+Hàm không thay khổ trang, font hoặc định dạng đoạn của đề. Giữ tỷ lệ in
+100% và đủ 12 mốc cùng mốc nhận chiều. Không đưa vào cột hẹp hoặc dùng
+`scale`; trang hẹp hơn 210 mm hay vùng chứa hẹp hơn 170 mm sẽ báo lỗi.
 
 Để dùng cách `#include`, tải [12-2-4.typ](../examples/omr/12-2-4.typ)
 đặt cạnh file đề rồi dùng:
@@ -91,7 +93,6 @@ trong PDF ghi ID mẫu/SBD/mã đề để công cụ tích hợp sử dụng; b
 
 File ví dụ dưới đây dùng `#import "@preview/sang-math:1.1.1"` và in phiếu
 riêng. Các mẫu A5 đều có thể ghép vào đề bằng `sang-omr-sheet` như trên.
-
 
 | ID mẫu | TN | Đ/S | TLN | Khổ giấy | File ví dụ |
 |---|---:|---:|---:|---|---|

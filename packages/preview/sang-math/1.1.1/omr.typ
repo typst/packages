@@ -1,4 +1,5 @@
 // Additive OMR API. Every coordinate comes from the measured print layouts.
+#import "omr/embed.typ": omr-embed
 #let _omr-profiles = json("omr/profiles.json")
 #let sang-omr-catalog = (:)
 #for (id, measured) in _omr-profiles {
@@ -53,9 +54,9 @@
     #sheet.render(sbd: pupil, ma-de: code)
   ]
   if embedded {
-    block(width: 190mm, height: 140mm, inset: (top: 6mm, bottom: 6mm))[
+    omr-embed(block(width: 190mm, height: 140mm, inset: (top: 6mm, bottom: 6mm))[
       #body
-    ]
+    ])
   } else {
     body
   }
