@@ -156,7 +156,6 @@ The priority order is: **per-call > per-notion > global**. A more specific style
 ```
 
 **Note:** In "paper" mode, color-related styles (`fill` and `stroke`) are automatically removed from global and per-notion styles, but per-call styles are preserved. This allows you to maintain color highlights for specific notions even in print mode. 
-```
 
 ### Rendering mode
 
