@@ -1,60 +1,128 @@
-# Проект представляет собой шаблон typst для оформления работ в соответствии СТП БГУИР 01-2024
+# STP BSUIR
 
-## На данный момент реализованы:
-- Общие положения;
-- Содержание;
-- Разделы, подразделы, пункты, подпункты;
-- Иллюстрации;
-- Формулы;
-- Сноски;
-- Приложения;
+An unofficial Typst template for preparing academic and technical documents according to the requirements of the Enterprise Standard of the Belarusian State University of Informatics and Radioelectronics (BSUIR), STP 01-2024 (БГУИР СТП 01-2024).
 
-## TODO:
-- Таблицы (заголовки);
-- Перечисления (сложные и ссылки на элементы перечисления);
-- Библиографический указатель (абзацные отступы);
-- Доделать стили библиографии
+The template is intended for documents such as term papers, laboratory reports, theses, and other academic documentation that must follow the BSUIR formatting requirements.
 
-## Нерешенные проблемы с typst:
-- Невозможность добавить в библиографический указатель абазацные отступы для источников
+## Features
 
-## Локальная установка
+The template currently provides support for:
 
-Создайте локальный package repository:
+- **Document structure**
+  - introduction;
+  - sections, subsections, paragraphs, and subparagraphs;
+  - appendices;
+  - table of contents;
+  - automatic heading numbering.
 
-```bash
-mkdir -p packages/local/stp
-```
+- **Text and layout**
+  - document margins and page layout;
+  - paragraph formatting;
+  - page numbering;
+  - document formatting according to STP 01-2024.
 
-Создайте символическую ссылку на каталог пакета:
+- **Figures**
+  - numbered figures;
+  - figure captions;
+  - references to figures;
+  - automatic figure numbering based on the current section.
 
-```bash
-ln -s /path/to/typstp packages/local/stp/0.1.0
-```
+- **Mathematical formulas**
+  - numbered and unnumbered formulas;
+  - formula formatting according to the document requirements.
 
-После этого пакет можно импортировать с помощью:
+- **Footnotes and references**
+  - footnotes;
+  - cross-references to document elements;
+  - citations using Typst's bibliography and citation mechanisms.
+
+- **Lists**
+  - numbered lists;
+  - bulleted lists;
+  - nested lists;
+  - Cyrillic letter numbering for lists;
+  - custom numbering for nested list levels.
+
+- **Tables**
+  - basic tables;
+  - table captions;
+  - table numbering.
+
+- **Appendices**
+  - automatic appendix lettering;
+  - appendix labels in the Приложение А format.
+
+## Usage
+
+Import the template package at the beginning of your document and apply show rule:
 
 ```typst
-#import "@local/typstp:0.1.0": *
+#import "@preview/stp:0.1.0": *
+
+#show: template
 ```
 
-При компиляции укажите созданный package repository:
+The package configures the document according to STP 01-2024. The document content can then be written using regular Typst syntax and the template's provided functions.
 
-```bash
-typst compile --package-path ./packages test.typ
+For example:
+
+```typst
+#import "@preview/stp:0.1.0": *
+
+#show: template
+
+
+#introduction
+
+This is the introduction of the document.
+
+= First Section
+
+This is the first section.
+
+== First Subsection
+
+Some text.
+
+#figure(
+  image("image.png"),
+  caption: [Example figure],
+)
+
+$ x^2 + y^2 = z^2 $
+
+#footnote[An example footnote.]
 ```
 
-Также можно добавить пакет в:
+See the included example document for a more complete example.
 
-```bash
-mkdir -p ~/.local/share/typst/packages/local/stp/
-```
+## Current limitations
 
-и 
+Some parts of STP 01-2024 are not fully implemented yet:
 
-```bash
-ln -s /path/to/typstp ~/.local/share/typst/packages/local/stp/0.1.0
-```
+- table headings and their formatting;
+- complex list numbering;
+- references to individual list items;
+- paragraph indentation in the bibliography;
+- some bibliography formatting requirements;
+- complete bibliography styling according to the standard.
 
-В таком случае указывать репозиторий при компиляции не требуется -- он находится сам.
- 
+Basic tables and lists are supported, but their formatting does not yet fully correspond to all STP requirements.
+
+## Known Typst limitations
+
+Some formatting requirements cannot currently be implemented cleanly because of limitations of Typst itself.
+
+In particular, Typst does not currently provide a suitable way to add paragraph indentation to individual bibliography entries. As a result, bibliography entries cannot be formatted with the required first-line indentation.
+
+## Roadmap
+
+The following features are planned for future versions:
+
+- [ ] Complete table heading formatting;
+- [ ] Implement complex list numbering;
+- [ ] Add references to individual list items;
+- [ ] Implement paragraph indentation for bibliography entries when possible;
+- [ ] Complete bibliography styling;
+- [ ] Improve compliance with the remaining STP 01-2024 formatting requirements.
+

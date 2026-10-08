@@ -11,6 +11,11 @@
     hyphenate: true,    // переносы
 
     lang: "ru",
+
+    costs: (
+      orphan: 0%,
+      widow: 0%,
+    )
   )
 
   // weak, чтобы перед первым разделом
@@ -471,6 +476,14 @@
   #set table(
     stroke: 0.75pt + black,
 
+    // Просто дефолтное значение, если есть желание
+    // можете менять в параметрах таблицы
+    inset: (
+      bottom: right-leadind + 2pt,
+      top: 2pt,
+      x: 3pt,
+    ),
+
   )
 
   // шапки таблицы повторяются
@@ -489,6 +502,7 @@
 
   #set footnote.entry(
     gap: right-leadind,
+    clearance: 0em,
   )
 
   #show footnote.entry: it => {
@@ -576,7 +590,7 @@
   // всегда 8, но это "Рекомендуется",
   // так что, наверное, можно
   #show math.equation.where(block: true): it => {
-    v(8pt, weak: true)
+    v(8pt + right-leadind, weak: true)
     it 
     v(8pt, weak: true)
   }
