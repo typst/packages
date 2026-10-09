@@ -12,7 +12,7 @@ Newt is a [Typst](https://typst.app/) package for typesetting numerical data.
 ### Numbers
 Numbers are to be typeset with the `number` element. The `number` element follows the definition :
 ```typ
-#let number(
+#number(
   value,
   e: none,
   pm: none,
@@ -42,7 +42,7 @@ Numbers are to be typeset with the `number` element. The `number` element follow
 # Units
 Units are to be typeset with the `unit` element. The `unit` element follows the definition :
 ```typ
-#let unit(
+#unit(
   value,
   per-mode: "^",
   product: " "
