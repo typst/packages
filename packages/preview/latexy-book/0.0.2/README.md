@@ -4,7 +4,7 @@ A LaTeX-style book template for Typst. Provides part/chapter/section structure,
 frontmatter/mainmatter/appendix/backmatter book parts, theorem environments,
 subfigures, citations, and bibliography.
 
-> **Version:** 0.0.2 · **Updated:** 2026-09-26
+> **Version:** 0.0.2 · **Updated:** 2026-10-10
 
 ## Quick Start
 
