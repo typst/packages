@@ -1,0 +1,547 @@
+{
+  "fallback": "en",
+  "locales": {
+    "de": {
+      "source_norms": "DIN 5008 (comma); honorific/title protocol shared across de-*",
+      "honorifics": {
+        "frau": {
+          "group": "f",
+          "display": "Frau"
+        },
+        "herr": {
+          "group": "m",
+          "display": "Herr"
+        },
+        "herrn": {
+          "group": "m",
+          "display": "Herr"
+        }
+      },
+      "titles": {
+        "dr": "Dr.",
+        "prof": "Professor",
+        "professor": "Professor",
+        "dipl-ing": "Dipl.-Ing.",
+        "dipling": "Dipl.-Ing.",
+        "mag": "Mag.",
+        "magister": "Mag.",
+        "dipl.-ing": "Dipl.-Ing.",
+        "dipl.ing": "Dipl.-Ing."
+      },
+      "sole_titles": [
+        "Professor"
+      ],
+      "filler": [
+        "ba",
+        "bsc",
+        "dipl-ing",
+        "dipl.-ing",
+        "dipl.ing",
+        "dipling",
+        "dr",
+        "frau",
+        "herr",
+        "herrn",
+        "ma",
+        "mag",
+        "magister",
+        "miss",
+        "mr",
+        "mrs",
+        "ms",
+        "msc",
+        "phd",
+        "prof",
+        "professor"
+      ],
+      "named": {
+        "m": "Sehr geehrter {honorific} {titles} {surname}",
+        "f": "Sehr geehrte {honorific} {titles} {surname}"
+      },
+      "formal": "Sehr geehrte Damen und Herren",
+      "comma": true
+    },
+    "de-ch": {
+      "source_norms": "SN 010130 (no comma); honorific/title protocol shared across de-*",
+      "honorifics": {
+        "frau": {
+          "group": "f",
+          "display": "Frau"
+        },
+        "herr": {
+          "group": "m",
+          "display": "Herr"
+        },
+        "herrn": {
+          "group": "m",
+          "display": "Herr"
+        }
+      },
+      "titles": {
+        "dr": "Dr.",
+        "prof": "Professor",
+        "professor": "Professor",
+        "dipl-ing": "Dipl.-Ing.",
+        "dipling": "Dipl.-Ing.",
+        "mag": "Mag.",
+        "magister": "Mag.",
+        "dipl.-ing": "Dipl.-Ing.",
+        "dipl.ing": "Dipl.-Ing."
+      },
+      "sole_titles": [
+        "Professor"
+      ],
+      "filler": [
+        "ba",
+        "bsc",
+        "dipl-ing",
+        "dipl.-ing",
+        "dipl.ing",
+        "dipling",
+        "dr",
+        "frau",
+        "herr",
+        "herrn",
+        "ma",
+        "mag",
+        "magister",
+        "miss",
+        "mr",
+        "mrs",
+        "ms",
+        "msc",
+        "phd",
+        "prof",
+        "professor"
+      ],
+      "named": {
+        "m": "Sehr geehrter {honorific} {titles} {surname}",
+        "f": "Sehr geehrte {honorific} {titles} {surname}"
+      },
+      "formal": "Sehr geehrte Damen und Herren",
+      "comma": false
+    },
+    "de-at": {
+      "source_norms": "DIN-oriented (comma; ÖNORM A 1080 withdrawn 2018); protocol shared across de-*",
+      "honorifics": {
+        "frau": {
+          "group": "f",
+          "display": "Frau"
+        },
+        "herr": {
+          "group": "m",
+          "display": "Herr"
+        },
+        "herrn": {
+          "group": "m",
+          "display": "Herr"
+        }
+      },
+      "titles": {
+        "dr": "Dr.",
+        "prof": "Professor",
+        "professor": "Professor",
+        "dipl-ing": "Dipl.-Ing.",
+        "dipling": "Dipl.-Ing.",
+        "mag": "Mag.",
+        "magister": "Mag.",
+        "dipl.-ing": "Dipl.-Ing.",
+        "dipl.ing": "Dipl.-Ing."
+      },
+      "sole_titles": [
+        "Professor"
+      ],
+      "filler": [
+        "ba",
+        "bsc",
+        "dipl-ing",
+        "dipl.-ing",
+        "dipl.ing",
+        "dipling",
+        "dr",
+        "frau",
+        "herr",
+        "herrn",
+        "ma",
+        "mag",
+        "magister",
+        "miss",
+        "mr",
+        "mrs",
+        "ms",
+        "msc",
+        "phd",
+        "prof",
+        "professor"
+      ],
+      "named": {
+        "m": "Sehr geehrter {honorific} {titles} {surname}",
+        "f": "Sehr geehrte {honorific} {titles} {surname}"
+      },
+      "formal": "Sehr geehrte Damen und Herren",
+      "comma": true
+    },
+    "de-li": {
+      "source_norms": "Swiss-style rendering (no comma); protocol shared across de-*",
+      "honorifics": {
+        "frau": {
+          "group": "f",
+          "display": "Frau"
+        },
+        "herr": {
+          "group": "m",
+          "display": "Herr"
+        },
+        "herrn": {
+          "group": "m",
+          "display": "Herr"
+        }
+      },
+      "titles": {
+        "dr": "Dr.",
+        "prof": "Professor",
+        "professor": "Professor",
+        "dipl-ing": "Dipl.-Ing.",
+        "dipling": "Dipl.-Ing.",
+        "mag": "Mag.",
+        "magister": "Mag.",
+        "dipl.-ing": "Dipl.-Ing.",
+        "dipl.ing": "Dipl.-Ing."
+      },
+      "sole_titles": [
+        "Professor"
+      ],
+      "filler": [
+        "ba",
+        "bsc",
+        "dipl-ing",
+        "dipl.-ing",
+        "dipl.ing",
+        "dipling",
+        "dr",
+        "frau",
+        "herr",
+        "herrn",
+        "ma",
+        "mag",
+        "magister",
+        "miss",
+        "mr",
+        "mrs",
+        "ms",
+        "msc",
+        "phd",
+        "prof",
+        "professor"
+      ],
+      "named": {
+        "m": "Sehr geehrter {honorific} {titles} {surname}",
+        "f": "Sehr geehrte {honorific} {titles} {surname}"
+      },
+      "formal": "Sehr geehrte Damen und Herren",
+      "comma": false
+    },
+    "fr": {
+      "source_norms": "French administrative correspondence norms (formule d'appel / formule de politesse); formal register, no 'Cher' in the default template (use override for cordial variants)",
+      "honorifics": {
+        "monsieur": {
+          "group": "m",
+          "display": "Monsieur"
+        },
+        "m": {
+          "group": "m",
+          "display": "Monsieur"
+        },
+        "madame": {
+          "group": "f",
+          "display": "Madame"
+        },
+        "mme": {
+          "group": "f",
+          "display": "Madame"
+        }
+      },
+      "titles": {
+        "professeur": "le Professeur",
+        "prof": "le Professeur",
+        "docteur": "le Docteur",
+        "dr": "le Docteur"
+      },
+      "sole_titles": [
+        "le Professeur"
+      ],
+      "filler": [
+        "docteur",
+        "dr",
+        "m",
+        "madame",
+        "mme",
+        "monsieur",
+        "prof",
+        "professeur"
+      ],
+      "named": {
+        "m": "{honorific} {titles} {surname}",
+        "f": "{honorific} {titles} {surname}"
+      },
+      "formal": "Madame, Monsieur",
+      "comma": true
+    },
+    "it": {
+      "source_norms": "Italian business correspondence (Post CH scrivere; standard manuals). Default register is Gentile; Egregio/Spett.le variants via explicit override",
+      "honorifics": {
+        "sig": {
+          "group": "m",
+          "display": "Sig."
+        },
+        "signor": {
+          "group": "m",
+          "display": "Sig."
+        },
+        "sig.ra": {
+          "group": "f",
+          "display": "Sig.ra"
+        },
+        "signora": {
+          "group": "f",
+          "display": "Sig.ra"
+        }
+      },
+      "titles": {
+        "prof": "Prof.",
+        "professore": "Prof.",
+        "prof.ssa": "Prof.ssa",
+        "professoressa": "Prof.ssa",
+        "dott": "Dott.",
+        "dottore": "Dott.",
+        "dott.ssa": "Dott.ssa",
+        "dottoressa": "Dott.ssa",
+        "avv": "Avv.",
+        "avvocato": "Avv.",
+        "ing": "Ing.",
+        "ingegnere": "Ing.",
+        "dr": "Dr."
+      },
+      "sole_titles": [
+        "Prof.",
+        "Prof.ssa"
+      ],
+      "filler": [
+        "avv",
+        "avvocato",
+        "dott",
+        "dott.ssa",
+        "dottore",
+        "dottoressa",
+        "dr",
+        "ing",
+        "ingegnere",
+        "prof",
+        "prof.ssa",
+        "professore",
+        "professoressa",
+        "sig",
+        "sig.ra",
+        "signor",
+        "signora"
+      ],
+      "named": {
+        "m": "Gentile {honorific} {titles} {surname}",
+        "f": "Gentile {honorific} {titles} {surname}"
+      },
+      "formal": "Gentili Signore, Egregi Signori",
+      "comma": true
+    },
+    "rm": {
+      "source_norms": "Rumantsch Grischun formal address attested in Lia Rumantscha and BAKOM administrative correspondence (Stimà signur / Stimada dunna; Stimadas dunnas, stimads signurs). Closing and academic-title coverage PENDING NATIVE REVIEW",
+      "review": "native-pending",
+      "honorifics": {
+        "signur": {
+          "group": "m",
+          "display": "signur"
+        },
+        "signura": {
+          "group": "f",
+          "display": "signura"
+        }
+      },
+      "titles": {},
+      "sole_titles": [],
+      "filler": [
+        "signur",
+        "signura"
+      ],
+      "named": {
+        "m": "Stimà {honorific} {surname}",
+        "f": "Stimada {honorific} {surname}"
+      },
+      "formal": "Stimadas dunnas, stimads signurs",
+      "comma": true
+    },
+    "en": {
+      "source_norms": "Standard English business correspondence",
+      "honorifics": {
+        "mr": {
+          "group": "m",
+          "display": "Mr"
+        },
+        "mrs": {
+          "group": "f",
+          "display": "Mrs"
+        },
+        "ms": {
+          "group": "f",
+          "display": "Ms"
+        },
+        "miss": {
+          "group": "f",
+          "display": "Miss"
+        }
+      },
+      "titles": {
+        "professor": "Professor",
+        "prof": "Professor",
+        "dr": "Dr"
+      },
+      "sole_titles": [
+        "Professor"
+      ],
+      "filler": [
+        "ba",
+        "bsc",
+        "dr",
+        "esq",
+        "ii",
+        "iii",
+        "iv",
+        "jr",
+        "ma",
+        "miss",
+        "mr",
+        "mrs",
+        "ms",
+        "msc",
+        "phd",
+        "prof",
+        "professor",
+        "sr"
+      ],
+      "named": {
+        "m": "Dear {honorific} {titles} {surname}",
+        "f": "Dear {honorific} {titles} {surname}"
+      },
+      "formal": "Dear Sir or Madam",
+      "comma": true
+    },
+    "en-gb": {
+      "source_norms": "Standard British business correspondence",
+      "honorifics": {
+        "mr": {
+          "group": "m",
+          "display": "Mr"
+        },
+        "mrs": {
+          "group": "f",
+          "display": "Mrs"
+        },
+        "ms": {
+          "group": "f",
+          "display": "Ms"
+        },
+        "miss": {
+          "group": "f",
+          "display": "Miss"
+        }
+      },
+      "titles": {
+        "professor": "Professor",
+        "prof": "Professor",
+        "dr": "Dr"
+      },
+      "sole_titles": [
+        "Professor"
+      ],
+      "filler": [
+        "ba",
+        "bsc",
+        "dr",
+        "esq",
+        "ii",
+        "iii",
+        "iv",
+        "jr",
+        "ma",
+        "miss",
+        "mr",
+        "mrs",
+        "ms",
+        "msc",
+        "phd",
+        "prof",
+        "professor",
+        "sr"
+      ],
+      "named": {
+        "m": "Dear {honorific} {titles} {surname}",
+        "f": "Dear {honorific} {titles} {surname}"
+      },
+      "formal": "Dear Sir or Madam",
+      "comma": true
+    },
+    "en-us": {
+      "source_norms": "Standard US cover-letter convention for unknown recipients",
+      "honorifics": {
+        "mr": {
+          "group": "m",
+          "display": "Mr"
+        },
+        "mrs": {
+          "group": "f",
+          "display": "Mrs"
+        },
+        "ms": {
+          "group": "f",
+          "display": "Ms"
+        },
+        "miss": {
+          "group": "f",
+          "display": "Miss"
+        }
+      },
+      "titles": {
+        "professor": "Professor",
+        "prof": "Professor",
+        "dr": "Dr"
+      },
+      "sole_titles": [
+        "Professor"
+      ],
+      "filler": [
+        "ba",
+        "bsc",
+        "dr",
+        "esq",
+        "ii",
+        "iii",
+        "iv",
+        "jr",
+        "ma",
+        "miss",
+        "mr",
+        "mrs",
+        "ms",
+        "msc",
+        "phd",
+        "prof",
+        "professor",
+        "sr"
+      ],
+      "named": {
+        "m": "Dear {honorific} {titles} {surname}",
+        "f": "Dear {honorific} {titles} {surname}"
+      },
+      "formal": "Dear Hiring Manager",
+      "comma": true
+    }
+  }
+}

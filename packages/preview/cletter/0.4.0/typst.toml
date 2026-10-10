@@ -1,0 +1,9 @@
+[package]
+name = "cletter"
+version = "0.4.0"
+entrypoint = "typst/letter.typ"
+authors = ["Julian Y. Richard Corbet"]
+license = "LGPL-3.0-only WITH LGPL-3.0-linking-exception"
+description = "Locale-correct business correspondence: composes cnice, cink and cdate. Mirrors the cletter Rust crate release line."
+repository = "https://github.com/corbet-labs/cletter"
+exclude = [".git", ".github", ".crow", "target", "dist", "js", "py", "tests", "scripts"]
