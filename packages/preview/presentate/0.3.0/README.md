@@ -326,7 +326,7 @@ Presentate now includes a suite of **structured themes** designed to automatical
 Structured themes are located in the `themes` namespace. They are applied via a `show` rule:
 
 ```typ
-#import "@preview/presentate:0.2.6": *
+#import "@preview/presentate:0.3.0": *
 #show: themes.sidebar.template.with(
   title: [My Presentation],
   author: [pacaunt],
