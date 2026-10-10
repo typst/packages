@@ -1,0 +1,50 @@
+#import "utils.typ"
+#import "indices.typ"
+#import "element.typ": getter, updater
+
+#let prefix = "_presentate"
+
+#let default-states = (
+  (
+    /// number of subslides required
+    steps: 1,
+    /// current number of subslides
+    subslide: 1,
+    /// modes
+    handout: false,
+    drafted: false,
+    /// frozen states and counters
+    freeze-states: true,
+    frozen-states-and-counters: (
+      counter(figure.where(kind: image)),
+      counter(figure.where(kind: table)),
+      counter(footnote),
+      counter(heading),
+      counter(math.equation),
+    ),
+    add-page-index: 0, // for pdfpc and BeamerPresenter.
+    logical-slide: true,
+    default-hider: hide,
+    waypoints: (:),
+    // States for determining display state of the elements.
+    pause-state: (
+      hider: hide,
+      hidden: false,
+    ),
+    uncover-state: (
+      hidden: false,
+    ),
+    hidden-leader: "pause",
+    parsing-state: (shown: false),
+  ),
+)
+
+#let states = state(prefix + "_states", default-states)
+
+#let set-options(..options) = {
+  options = options.named()
+  states.update(s => {
+    s.at(0) = utils.merge-dicts(base: s.at(0), options)
+    return s
+  })
+}
