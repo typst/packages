@@ -1,0 +1,11 @@
+[package]
+name = "monthweave"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Mateo Pedersen <@mateopedersen>"]
+license = "MIT"
+description = "Build printable month and year calendar layouts."
+repository = "https://github.com/mateopedersen/monthweave"
+keywords = ["calendar", "month", "year", "print", "ISO week"]
+categories = ["office"]
+compiler = "0.15.0"
