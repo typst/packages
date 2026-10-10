@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="88" viewBox="0 0 144 88">
+  <g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="2" d="M4 80C44 72 100 72 140 80"/>
+    <path stroke-width="2" d="M58 54L44 74.92M58 54L59 74.2M58 54L72 74.0"/>
+    <g transform="rotate(-30 58 50)">
+      <rect stroke-width="2" x="34" y="45" width="44" height="10" rx="1"/>
+      <rect stroke-width="2" x="78" y="43" width="12" height="14" rx="1"/>
+      <rect stroke-width="1.25" x="27" y="47.5" width="7" height="5"/>
+      <path stroke-width="1.25" d="M46 45V40H62V45"/>
+    </g>
+    <path stroke-width="2" d="M118 11A12 12 0 1 0 128 31A9.5 9.5 0 1 1 118 11Z"/>
+    <path stroke-width="1.25" d="M26 17.5Q26.99 21.01 30.5 22Q26.99 22.99 26 26.5Q25.01 22.99 21.5 22Q25.01 21.01 26 17.5Z"/>
+    <path stroke-width="1.25" d="M96 31Q96.66 33.34 99 34Q96.66 34.66 96 37Q95.34 34.66 93 34Q95.34 33.34 96 31Z"/>
+    <circle cx="88" cy="14" r="1.1" fill="#000000" stroke="none"/>
+    <circle cx="136" cy="50" r="1.1" fill="#000000" stroke="none"/>
+    <circle cx="14" cy="46" r="1.1" fill="#000000" stroke="none"/>
+    <circle cx="44" cy="12" r="1.1" fill="#000000" stroke="none"/>
+  </g>
+</svg>
