@@ -1,0 +1,16 @@
+[package]
+name = "hust-hw-report"
+version = "0.1.0"
+compiler = "0.14.2"
+entrypoint = "template.typ"
+authors = ["mi hang <https://github.com/YunHai121>"]
+license = "MIT"
+categories = ["report"]
+repository = "https://github.com/YunHai121/hust-hw-report"
+description = "An unofficial Typst template for the Hardware Comprehensive Training course design report at HUST, recreated from the official Word template."
+keywords = ["华中科技大学", "HUST", "硬件综合训练", "课程设计", "报告", "CPU"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
