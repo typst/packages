@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" default-locale="en-US" version="1.0" demote-non-dropping-particle="never">
+  <!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
+  <info>
+    <title>Universidade de São Paulo - Instituto de Matemática e Estatística</title>
+    <title-short>USP-IME</title-short>
+    <id>http://www.zotero.org/styles/universidade-de-sao-paulo-instituto-de-matematica-e-estatistica</id>
+    <link href="http://www.zotero.org/styles/universidade-de-sao-paulo-instituto-de-matematica-e-estatistica" rel="self"/>
+    <link href="http://www.zotero.org/styles/ecology" rel="template"/>
+    <link href="http://tese-exemplo.googlecode.com/files/tese-exemplo-plainnat-ime.pdf" rel="documentation"/>
+    <author>
+      <name>Igor Steinmacher</name>
+    </author>
+    <category citation-format="author-date"/>
+    <updated>2015-01-06T16:21:20-02:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+  <macro name="author">
+    <names variable="author">
+      <name and="text" sort-separator=", " initialize="false" initialize-with=". " delimiter=", " delimiter-precedes-last="never"/>
+      <label form="short" prefix=" (" suffix=".)" text-case="capitalize-first" strip-periods="true"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" and="text" delimiter=", " initialize-with=". "/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <choose>
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+            <text variable="title" form="short" font-style="italic"/>
+          </if>
+          <else>
+            <text variable="title" form="short" quotes="true"/>
+          </else>
+        </choose>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-ea">
+    <names variable="author">
+      <name form="short" and="text" initialize-with=". "/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <choose>
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+            <text variable="title" form="short" font-style="italic"/>
+          </if>
+          <else>
+            <text variable="title" form="short" quotes="true"/>
+          </else>
+        </choose>
+      </substitute>
+    </names>
+  </macro>
+  <!-- Bibliography macros (ABNT NBR 6023-like layout). The citation macros above are unchanged. -->
+  <macro name="author-bib">
+    <names variable="author">
+      <name name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter="; " delimiter-precedes-last="always">
+        <name-part name="family" text-case="uppercase"/>
+      </name>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="editor-bib">
+    <names variable="editor">
+      <name name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter="; " delimiter-precedes-last="always">
+        <name-part name="family" text-case="uppercase"/>
+      </name>
+      <label form="short" prefix=" (" suffix=")" strip-periods="false"/>
+    </names>
+  </macro>
+  <macro name="year-bib">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text value="[n.d.]"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="imprint">
+    <group delimiter=", ">
+      <group delimiter=": ">
+        <text variable="publisher-place"/>
+        <text variable="publisher"/>
+      </group>
+      <text macro="year-bib"/>
+    </group>
+  </macro>
+  <macro name="pages-bib">
+    <text variable="page" prefix="p. "/>
+  </macro>
+  <macro name="part-of-book">
+    <group delimiter=". ">
+      <text variable="title"/>
+      <group delimiter=" ">
+        <text value="In:"/>
+        <group delimiter=". ">
+          <text macro="editor-bib"/>
+          <text variable="container-title" font-style="italic"/>
+        </group>
+      </group>
+      <text macro="imprint"/>
+      <text macro="pages-bib"/>
+    </group>
+  </macro>
+  <macro name="access-bib">
+    <choose>
+      <if variable="DOI">
+        <text variable="DOI" prefix="DOI: "/>
+      </if>
+      <else-if variable="URL">
+        <group delimiter=". ">
+          <text variable="URL" prefix="Available at: "/>
+          <date variable="accessed" prefix="Accessed on: ">
+            <date-part name="day" suffix=" "/>
+            <date-part name="month" form="short" suffix=" "/>
+            <date-part name="year"/>
+          </date>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+  <macro name="issued-year">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="citation-locator">
+    <group delimiter=" ">
+      <label variable="locator" form="short"/>
+      <text variable="locator"/>
+    </group>
+  </macro>
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" collapse="year">
+    <sort>
+      <key variable="issued"/>
+      <key macro="author"/>
+    </sort>
+    <layout prefix="(" suffix=")" delimiter=", ">
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text macro="author-short"/>
+          <text macro="issued-year"/>
+        </group>
+        <text macro="citation-locator"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography et-al-min="4" et-al-use-first="1" hanging-indent="false" entry-spacing="1" line-spacing="1">
+    <sort>
+      <key macro="author-bib" names-min="1" names-use-first="1"/>
+      <key variable="issued"/>
+    </sort>
+    <layout suffix=".">
+      <group delimiter=". ">
+        <text macro="author-bib"/>
+        <choose>
+          <if type="article-journal article-magazine article-newspaper" match="any">
+            <text variable="title"/>
+            <group delimiter=", ">
+              <text variable="container-title" font-style="italic"/>
+              <text variable="volume" prefix="v. "/>
+              <choose>
+                <if is-numeric="issue">
+                  <text variable="issue" prefix="n. "/>
+                </if>
+              </choose>
+              <text macro="pages-bib"/>
+              <text macro="year-bib"/>
+            </group>
+          </if>
+          <else-if type="chapter paper-conference" match="any">
+            <text macro="part-of-book"/>
+          </else-if>
+          <else-if type="thesis">
+            <text variable="title" font-style="italic"/>
+            <text macro="year-bib"/>
+            <group delimiter=", ">
+              <group delimiter=" – ">
+                <group delimiter=" ">
+                  <text value="Tese"/>
+                  <text variable="genre" prefix="(" suffix=")"/>
+                </group>
+                <choose>
+                  <!-- Hayagriva exposes BibLaTeX "school" as "authority". -->
+                  <if variable="publisher">
+                    <text variable="publisher"/>
+                  </if>
+                  <else>
+                    <text variable="authority"/>
+                  </else>
+                </choose>
+              </group>
+              <text variable="publisher-place"/>
+              <text macro="year-bib"/>
+            </group>
+          </else-if>
+          <else-if type="report">
+            <text variable="title" font-style="italic"/>
+            <text macro="imprint"/>
+            <text variable="number" prefix="Technical Report "/>
+          </else-if>
+          <else-if type="book">
+            <text variable="title" font-style="italic"/>
+            <text variable="edition" suffix=" ed"/>
+            <text macro="imprint"/>
+          </else-if>
+          <else-if variable="container-title">
+            <!-- Hayagriva does not always type BibLaTeX @incollection as "chapter". -->
+            <text macro="part-of-book"/>
+          </else-if>
+          <else>
+            <text variable="title" font-style="italic"/>
+            <text macro="imprint"/>
+          </else>
+        </choose>
+        <text macro="access-bib"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>

@@ -1,0 +1,434 @@
+# ![Touying logo - a presentation slides package for Typst](https://github.com/user-attachments/assets/58a91b14-ae1a-49e2-a3e7-5e3a148e2ba5)
+
+[Touying](https://github.com/touying-typ/touying) (投影 in Chinese, /tóuyǐng/, meaning projection) is a user-friendly, powerful, and efficient package for creating presentation slides in [Typst](https://typst.app/).
+
+If you like it, consider [giving a star ⭐ on GitHub](https://github.com/touying-typ/touying). Touying is a community-driven project — feel free to suggest ideas and contribute!
+
+[![Typst Universe](https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Ftypst.app%2Funiverse%2Fpackage%2Ftouying&query=%2Fhtml%2Fbody%2Fdiv%2Fmain%2Fdiv%5B2%5D%2Faside%2Fsection%5B2%5D%2Fdl%2Fdd%5B3%5D&logo=typst&label=universe&color=%2339cccc)](https://typst.app/universe/package/touying)
+[![Book badge](https://img.shields.io/badge/docs-book-green)](https://touying-typ.github.io/)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/touying-typ/touying)
+[![Ask Zread for AI-assisted help with Touying](https://img.shields.io/badge/Ask_Zread-_.svg?style=flat&color=00b0aa&labelColor=000000&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuOTYxNTYgMS42MDAxSDIuMjQxNTZDMS44ODgxIDEuNjAwMSAxLjYwMTU2IDEuODg2NjQgMS42MDE1NiAyLjI0MDFWNC45NjAxQzEuNjAxNTYgNS4zMTM1NiAxLjg4ODEgNS42MDAxIDIuMjQxNTYgNS42MDAxSDQuOTYxNTZDNS4zMTUwMiA1LjYwMDEgNS42MDE1NiA1LjMxMzU2IDUuNjAxNTYgNC45NjAxVjIuMjQwMUM1LjYwMTU2IDEuODg2NjQgNS4zMTUwMiAxLjYwMDEgNC45NjE1NiAxLjYwMDFaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00Ljk2MTU2IDEwLjM5OTlIMi4yNDE1NkMxLjg4ODEgMTAuMzk5OSAxLjYwMTU2IDEwLjY4NjQgMS42MDE1NiAxMS4wMzk5VjEzLjc1OTlDMS42MDE1NiAxNC4xMTM0IDEuODg4MSAxNC4zOTk5IDIuMjQxNTYgMTQuMzk5OUg0Ljk2MTU2QzUuMzE1MDIgMTQuMzk5OSA1LjYwMTU2IDE0LjExMzQgNS42MDE1NiAxMy43NTk5VjExLjAzOTlDNS42MDE1NiAxMC42ODY0IDUuMzE1MDIgMTAuMzk5OSA0Ljk2MTU2IDEwLjM5OTlaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik0xMy43NTg0IDEuNjAwMUgxMS4wMzg0QzEwLjY4NSAxLjYwMDEgMTAuMzk4NCAxLjg4NjY0IDEwLjM5ODQgMi4yNDAxVjQuOTYwMUMxMC4zOTg0IDUuMzEzNTYgMTAuNjg1IDUuNjAwMSAxMS4wMzg0IDUuNjAwMUgxMy43NTg0QzE0LjExMTkgNS42MDAxIDE0LjM5ODQgNS4zMTM1NiAxNC4zOTg0IDQuOTYwMVYyLjI0MDFDMTQuMzk4NCAxLjg4NjY0IDE0LjExMTkgMS42MDAxIDEzLjc1ODQgMS42MDAxWiIgZmlsbD0iI2ZmZiIvPgo8cGF0aCBkPSJNNCAxMkwxMiA0TDQgMTJaIiBmaWxsPSIjZmZmIi8%2BCjxwYXRoIGQ9Ik00IDEyTDEyIDQiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K&logoColor=ffffff)](https://zread.ai/touying-typ/touying)
+[![Gallery badge](https://img.shields.io/badge/demo-gallery-red)](https://github.com/touying-typ/touying/wiki)
+![GitHub License](https://img.shields.io/github/license/touying-typ/touying)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/touying-typ/touying)
+![GitHub Repo stars](https://img.shields.io/github/stars/touying-typ/touying)
+![Themes badge](https://img.shields.io/badge/themes-6-aqua)
+
+
+## Why Touying?
+
+- **Beautiful themes** — [built-in themes](https://touying-typ.github.io/themes/) like Simple, Metropolis, Dewdrop, University, Aqua, Stargazer and [diverse themes on Typst Universe](https://typst.app/universe/search/?q=touying)
+- **Fast** — Typst compiles in milliseconds. Live previews update as you type, giving you the instant feedback.
+- **Rich animations** — `#pause`, `#meanwhile`, math equation animations, CeTZ & Fletcher support
+- **Heading-based slides** — write presentations like a document, no boilerplate
+- **Speaker notes** — dual-screen support via tools like PowerPoint, HTML or pympress
+- **Export** — built-in PDF export; experimental editable or visual-fidelity PPTX with speaker notes in [Tylina](https://tylina.github.io/); CLI PPTX and HTML via [touying-exporter](https://github.com/touying-typ/touying-exporter)
+- **Correct bookmarks** — proper PDF outline and page numbers out of the box
+- **End-to-end ecosystem** — generate and check complete decks with the [SeaSlides Skill](https://github.com/touying-typ/seaslides), then edit them WYSIWYG and present in [Tylina](https://tylina.github.io/)
+
+## Version 0.8.0 (yaaay)
+
+A big release, and the first that requires **Typst 0.15**.
+
+The main new feature is **article mode**: the same source file compiles either to slides or to a flowing prose document, with animations collapsed to their final state and images optionally floated to the side.
+
+**Two new animation** entry points come with it.
+- `touying-render` renders a piece of content at chosen animation stages, and
+- `animate` combines visibility and styling on one piece of content
+
+Other improvements:
+- animations are now fully supported in equations, even in functions like `frac` or `mat`.
+- `touying-recall` was extended from whole slides to any labelled element
+- `touying-fn-wrapper-raw` now parses and nests its body, so `#alert[.. #pause ..]` works, and much more besides
+- list animations are finally also layout-stable in item-by-item and when nontight bc of `parbreak` 
+- `.pdfpc` files can be written directly as bundle assets instead of through a separate `typst query` step
+- the footnote bibliography was rebuilt on real Typst bibliographies, and
+- the speaker-note panel is now a theme-supplied function with documentation to match.
+- a `measure` function that overrides typst's own one. Supports measuring animated content.
+- an improved `touying-reducer` making integration of other packages more straight-forward
+- `alpha-changing-cover` and `color-changing-cover` have been overhauled and are perfect cover functions now.
+- you may animate figures and captions now
+- and **many many** bug fixes
+
+Internally, `src/core.typ` (6288 lines) was split into modules and the content handling was unified and several functions (mainly out of utils) moved places.
+
+Things to watch when upgrading:
+- a `#pause` after `uncover`/`only`/`alternatives` no longer skips the subslides they reserve (they wrongfully did so in v0.7.x),
+- the footnote-bibliography config changed shape,
+- `semi-transparent-cover` is deprecated in favor of `alpha-changing-cover` and `color-changing-cover`, and
+- on a second screen the page background is confined to the slide half
+
+Most documentation pages were rewritten or corrected.
+
+For more information, a migration guide, and a separate one for theme authors, see the detailed [changelog](./changelog.md).
+
+## Documents & Help
+
+- **Recommended workflow:** [open the Touying example in Tylina Web](https://tylina.github.io/app/?repo=https%3A%2F%2Fgithub.com%2Ftouying-typ%2Ftouying&provider=github&ref=main&load=dependencies&main=examples%2Fsimple.typ&file=examples%2Fsimple.typ&view=slides) to edit, present, and export it—including experimental editable PPTX
+- [Full documentation and references](https://touying-typ.github.io/) (English & Chinese)
+- [Ask DeepWiki](https://deepwiki.com/touying-typ/touying) or [Ask Zread](https://zread.ai/touying-typ/touying) for AI-assisted help
+- [Gallery](https://github.com/touying-typ/touying/wiki) — slides made by the community
+- [Universe](https://typst.app/universe/search/?q=touying) — Diverse touying themes on Typst Universe
+- [SeaSlides Skill](https://github.com/touying-typ/seaslides) — AI-native deck generation, quality checks, and PDF/PNG/PPTX export
+- [Share slides instantly on GitHub](https://gistd.myriad-dreamin.com/touying-typ/touying/blob/main/examples/simple.typ?g-mode=slide) with [gistd](https://github.com/Myriad-Dreamin/gistd) or [export](https://github.com/touying-typ/touying-exporter) slides to PPTX and HTML formats and show presentation [online](https://touying-typ.github.io/touying-template/).
+
+
+## Quick Start
+
+Choose the workflow that fits how you want to work with Touying:
+
+- **Recommended:** [open this repository's simple example in Tylina Web](https://tylina.github.io/app/?repo=https%3A%2F%2Fgithub.com%2Ftouying-typ%2Ftouying&provider=github&ref=main&load=dependencies&main=examples%2Fsimple.typ&file=examples%2Fsimple.typ&view=slides). It loads dependencies on demand and opens directly in Slides view; no installation is required.
+- Use the [Typst Web App](https://typst.app/) to edit and compile in the browser.
+- Install [Typst](https://typst.app/) locally and use [Tinymist LSP](https://github.com/Myriad-Dreamin/tinymist)
+  in an editor with LSP support, including the [VS Code extension](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist),
+  for a source-focused development workflow.
+
+Then create a `.typ` file with the following content:
+
+```typst
+#import "@preview/touying:0.8.0": *
+#import themes.simple: *
+
+#show: simple-theme.with(aspect-ratio: "16-9")
+
+= Title
+
+== First Slide
+
+Hello, Touying!
+
+#pause
+
+Hello, Typst!
+```
+
+![Screenshot of a simple Touying slide showing Hello Touying and Hello Typst](https://github.com/touying-typ/touying/assets/34951714/f5bdbf8f-7bf9-45fd-9923-0fa5d66450b2)
+
+Congratulations on creating your first Touying slide! 🎉
+
+
+## Animations
+
+Touying supports incremental reveal with `#pause` and `#meanwhile`, math equation animations, and integrations with CeTZ and Fletcher:
+
+| Math equations | CeTZ & Fletcher |
+|:---:|:---:|
+| ![math animation](https://github.com/touying-typ/touying/assets/34951714/8640fe0a-95e4-46ac-b570-c8c79f993de4) | ![cetz fletcher animation](https://github.com/touying-typ/touying/assets/34951714/9ba71f54-2a5d-4144-996c-4a42833cc5cc) |
+
+For the full feature set — cover mode, callback-style animations, `#uncover`, `#only`, `#alternatives` — see the [documentation](https://touying-typ.github.io/docs/tutorials/dynamic/simple).
+
+
+## Full Example
+
+For a comprehensive example showcasing university theme, theorems, CeTZ/Fletcher animations, speaker notes, and more. You can also use the `#slide[..]` format to access more powerful features provided by Touying.
+
+```typst
+#import "@preview/touying:0.8.0": *
+#import themes.university: *
+#import "@preview/cetz:0.5.2"
+#import "@preview/fletcher:0.5.8" as fletcher: node, edge
+#import "@preview/numbly:0.1.0": numbly
+#import "@preview/theorion:0.6.0": *
+#import cosmos.clouds: *
+#show: show-theorion
+
+// cetz and fletcher bindings for touying
+#let cetz-canvas = touying-reduce.with(cetz)
+#let fletcher-diagram = touying-reduce.with(fletcher)
+
+#show: university-theme.with(
+  aspect-ratio: "16-9",
+  // align: horizon,
+  // config-common(handout: true),
+  config-common(frozen-counters: (theorem-counter,)),  // freeze theorem counter for animation
+  config-info(
+    title: [Title],
+    subtitle: [Subtitle],
+    author: [Authors],
+    date: datetime.today(),
+    institution: [Institution],
+    logo: emoji.school,
+  ),
+)
+
+#set heading(numbering: numbly("{1}.", default: "1.1"))
+
+#title-slide()
+
+== Outline <touying:hidden>
+
+#components.adaptive-columns(outline(title: none, indent: 1em))
+
+= Animation
+
+== Simple Animation
+
+We can use `#pause` to #pause display something later.
+
+#pause
+
+Just like this.
+
+#meanwhile
+
+Meanwhile, #pause we can also use `#meanwhile` to #pause display other content synchronously.
+
+#speaker-note[
+  + This is a speaker note.
+  + You won't see it unless you use `config-common(show-notes-on-second-screen: right)`
+]
+
+
+== Complex Animation
+
+At subslide #touying-get-config("subslide"), we can
+
+use #uncover("2-")[`#uncover` function] for reserving space,
+
+use #only("2-")[`#only` function] for not reserving space,
+
+#alternatives[call `#only` multiple times \u{2717}][use `#alternatives` function #sym.checkmark] for choosing one of the alternatives.
+
+
+== Callback Style Animation
+
+#slide(
+  repeat: 3,
+  self => [
+    #let (uncover, only, alternatives) = utils.methods(self)
+
+    At subslide #self.subslide, we can
+
+    use #uncover("2-")[`#uncover` function] for reserving space,
+
+    use #only("2-")[`#only` function] for not reserving space,
+
+    #alternatives[call `#only` multiple times \u{2717}][use `#alternatives` function #sym.checkmark] for choosing one of the alternatives.
+  ],
+)
+
+
+== Math Equation Animation
+
+Equation with `pause`:
+
+$
+  f(x) &= pause x^2 + 2x + 1 \
+  &= pause (x + 1)^2 \
+$
+
+#meanwhile
+
+Here, #pause we have the expression of $f(x)$.
+
+#pause
+
+By factorizing, we can obtain this result.
+
+
+== CeTZ Animation
+
+CeTZ Animation in Touying:
+
+#cetz-canvas({
+  import cetz.draw: *
+
+  rect((0, 0), (5, 5))
+
+  (pause,)
+
+  rect((0, 0), (1, 1))
+  rect((1, 1), (2, 2))
+  rect((2, 2), (3, 3))
+
+  (pause,)
+
+  line((0, 0), (2.5, 2.5), name: "line")
+})
+
+
+== Fletcher Animation
+
+Fletcher Animation in Touying:
+
+#fletcher-diagram(
+  node-stroke: .1em,
+  node-fill: gradient.radial(blue.lighten(80%), blue, center: (30%, 20%), radius: 80%),
+  spacing: 4em,
+  edge((-1, 0), "r", "-|>", `open(path)`, label-pos: 0, label-side: center),
+  node((0, 0), `reading`, radius: 2em),
+  edge((0, 0), (0, 0), `read()`, "--|>", bend: 130deg),
+  pause,
+  edge(`read()`, "-|>"),
+  node((1, 0), `eof`, radius: 2em),
+  pause,
+  edge(`close()`, "-|>"),
+  node((2, 0), `closed`, radius: 2em, extrude: (-2.5, 0)),
+  edge((0, 0), (2, 0), `close()`, "-|>", bend: -40deg),
+)
+
+
+= Theorems
+
+== Prime numbers
+
+#definition[
+  A natural number is called a #highlight[_prime number_] if it is greater
+  than 1 and cannot be written as the product of two smaller natural numbers.
+]
+#example[
+  The numbers $2$, $3$, and $17$ are prime.
+  @cor_largest_prime shows that this list is not exhaustive!
+]
+
+#theorem(title: "Euclid")[
+  There are infinitely many primes.
+]
+#pagebreak(weak: true)
+#proof[
+  Suppose to the contrary that $p_1, p_2, dots, p_n$ is a finite enumeration
+  of all primes. Set $P = p_1 p_2 dots p_n$. Since $P + 1$ is not in our list,
+  it cannot be prime. Thus, some prime factor $p_j$ divides $P + 1$. Since
+  $p_j$ also divides $P$, it must divide the difference $(P + 1) - P = 1$, a
+  contradiction.
+]
+
+#corollary[
+  There is no largest prime number.
+] <cor_largest_prime>
+#corollary[
+  There are infinitely many composite numbers.
+]
+
+#theorem[
+  There are arbitrarily long stretches of composite numbers.
+]
+
+#proof[
+  For any $n > 2$, consider $
+    n! + 2, quad n! + 3, quad ..., quad n! + n
+  $
+]
+
+
+= Others
+
+== Multiple columns
+
+#cols[
+  First column.
+][
+  Second column.
+]
+
+== Multiple columns with equal height blocks
+
+#cols(columns: (1fr, 1fr), gutter: 1em, lazy-layout: true)[
+  #emph-block[
+    First column with equal height: #lorem(10)
+    #lazy-v(1fr)
+  ]
+][
+  #emph-block[
+    Second column with equal height: : #lorem(15)
+    #lazy-v(1fr)
+  ]
+]
+
+
+== Multiple Pages
+
+#lorem(200)
+
+
+#show: appendix
+
+= Appendix
+
+== Appendix
+
+Please pay attention to the current slide number.
+```
+
+![Screenshot of a full example using the university theme with animations and theorems](https://github.com/user-attachments/assets/b1dfc4d9-e263-46ff-8588-a0635870e370)
+
+
+## You Might Also Like
+
+Touying provides the presentation engine and keeps the result in readable, portable Typst source.
+These companion projects add higher-level generation and editing workflows without replacing that
+source-first foundation.
+
+### SeaSlides Skill — AI-native deck generation
+
+[SeaSlides Skill](https://github.com/touying-typ/seaslides) is an AI-native presentation-generation
+skill and toolchain built around Touying. Give it a topic, document, URL, or Markdown file and it can
+plan the narrative, select or create a theme, author editable Typst/Touying source, add speaker
+notes, compile the deck, run quality checks, and export PDF, PNG, or PPTX. Quick Mode produces a
+fast first draft; Full Mode adds research, asset generation, a separate design specification, and
+deeper visual review.
+
+[Explore the SeaSlides Skill](https://github.com/touying-typ/seaslides)
+
+### Tylina — WYSIWYG Typst editing and presenting
+
+[Tylina](https://tylina.github.io/) is our recommended AI-native, document-first, WYSIWYG Typst
+editor and presenter, available in the browser and as a desktop app. The typeset page
+is the editor—not merely a preview: edit it directly, or open Source Lens or Split for source-level
+control. Its document-aware agents can edit, compile, and check the same canonical `.typ` workspace
+while every change remains reviewable. Tylina also manages slides and speaker notes, reorders pages,
+and presents the deck.
+
+<p align="center">
+  <strong><a href="https://tylina.github.io/app/?repo=https%3A%2F%2Fgithub.com%2Ftouying-typ%2Ftouying&amp;provider=github&amp;ref=main&amp;load=dependencies&amp;main=examples%2Fsimple.typ&amp;file=examples%2Fsimple.typ&amp;view=slides">Open the Touying example in Tylina Web</a> · <a href="https://tylina.github.io/download/">Download the desktop app</a></strong>
+</p>
+
+Tylina has two PowerPoint export modes, both preserving speaker notes:
+
+- **Editable (experimental):** text, simple inline math, supported images and shapes, and supported
+  links become native PowerPoint objects. Complex content remains in ordered vector fallback layers;
+  fonts and line wrapping can differ in PowerPoint, so this mode is not pixel-identical.
+- **Visual fidelity:** each slide is a rendered image, preserving the layout but not editable text.
+
+See the [Tylina integration guide](https://touying-typ.github.io/docs/external/tylina) for details.
+
+<p align="center">
+  <a href="https://tylina.github.io/app/?repo=https%3A%2F%2Fgithub.com%2Ftouying-typ%2Ftouying&amp;provider=github&amp;ref=main&amp;load=dependencies&amp;main=examples%2Fsimple.typ&amp;file=examples%2Fsimple.typ&amp;view=slides"><img src="./assets/readme/seaslides-tylina-slides.png" width="100%" alt="A Touying deck generated by the SeaSlides Skill and opened in the Tylina Slides workspace, with thumbnails, a WYSIWYG typeset canvas, and an ACP agent panel"></a><br>
+  <sub>Generate with the SeaSlides Skill, then inspect, edit, reorder, and present in Tylina.</sub>
+</p>
+
+<p align="center">
+  <a href="https://tylina.github.io/"><img src="./assets/readme/seaslides-tylina-templates.png" width="100%" alt="The Tylina template browser showing Tylina Slides and Typst Universe collections with a Touying presentation theme preview"></a><br>
+  <sub>Start from a curated presentation design or browse the wider Typst Universe without leaving Tylina.</sub>
+</p>
+
+
+## Acknowledgements
+
+Thanks to...
+
+- [@andreasKroepelin](https://github.com/andreasKroepelin) for the `polylux` package
+- [@zral0kh](https://github.com/zral0kh) for the waypoint feature and many improvements
+- [@enklht](https://github.com/enklht) for many fixes and improvements
+- [@Enivex](https://github.com/Enivex) for the `metropolis` theme
+- [@drupol](https://github.com/drupol) for the `university` theme
+- [@pride7](https://github.com/pride7) for the `aqua` theme
+- [@Coekjan](https://github.com/Coekjan) and [@QuadnucYard](https://github.com/QuadnucYard) for the `stargazer` theme
+- [@ntjess](https://github.com/ntjess) for contributing to `fit-to-height`, `fit-to-width` and `cover-with-rect`
+
+
+## Poster
+
+![Touying poster example](./assets/readme/poster.png)
+
+[View Code](https://github.com/touying-typ/touying-poster)
+
+## Star History
+
+<a href="https://star-history.dera.page/#touying-typ/touying&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=touying-typ/touying&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=touying-typ/touying&type=Date" />
+   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=touying-typ/touying&type=Date" />
+ </picture>
+</a>
