@@ -16,6 +16,7 @@
   _skeleton-hydrogen-label-distance,
   _stacked-hydrogen-side,
   _stacked-hydrogen-direction,
+  _stacked-hydrogen-offset,
   _charge-text,
   _abbreviation-label,
   _abbreviation-lone-pair-directions,
@@ -138,11 +139,20 @@
     }
   }
   let show-h-list = show-h-state.indices
-  let hydrogen-label(atom, index) = {
+  // Hydrogens written in an atom's label, or 0 when the label shows none.
+  let label-hydrogen-count(atom, index) = {
     let force = show-h-list.contains(index)
     let count = atom.hcount + _visible-implicit-h(atom, show-all-h: show-all-h, force: force)
     let count = calc.max(0, count - if atom.at("stereo_h", default: "none") != "none" { 1 } else { 0 })
-    if atom.at("abbrev", default: "") != "" or count == 0 or (_is-carbon(atom) and not (show-all-h or force)) {
+    if atom.at("abbrev", default: "") != "" or (_is-carbon(atom) and not (show-all-h or force)) {
+      0
+    } else {
+      count
+    }
+  }
+  let hydrogen-label(atom, index) = {
+    let count = label-hydrogen-count(atom, index)
+    if count == 0 {
       []
     } else if count == 1 {
       atom-label("H")
@@ -197,8 +207,7 @@
       return (px, py)
     }
 
-    let hetero-inline = degree == 1 and not _is-carbon(atom)
-    if hetero-inline {
+    if degree == 1 {
       let neighbor-index = first-neighbor(parent)
       if neighbor-index == none { return (px, py) }
       let neighbor-atom = placed-species.layout.atoms.at(neighbor-index)
@@ -247,7 +256,7 @@
       return (hydrogen-x, symbol-center.at(1))
     }
 
-    let stacked-h-side = if degree >= 2 and not _is-carbon(atom) {
+    let stacked-h-side = if degree >= 2 {
       _stacked-hydrogen-side(placed-species.layout, parent, placed-species.rotation)
     } else {
       none
@@ -256,8 +265,14 @@
       if fragment == "h" {
         let direction = _stacked-hydrogen-direction(stacked-h-side)
         return (
-          px - content-width(hydrogen-text) / 2 + content-width(atom-label("H")) / 2,
-          py + direction.y * label-margin * 0.95,
+          px,
+          py + direction.y * _stacked-hydrogen-offset(
+            stacked-h-side,
+            content-height(symbol-text),
+            content-height(atom-label("H")),
+            label-hydrogen-count(atom, parent),
+            font-size / canvas-scale,
+          ),
         )
       }
       return (px, py)
@@ -493,11 +508,7 @@
     )
     if not has-label(atom-index) {
       0.0
-    } else if (
-      displays-hydrogen
-        and atom-degree(atom-index) == 1
-        and not _is-carbon(atom)
-    ) {
+    } else if displays-hydrogen and atom-degree(atom-index) == 1 {
       0.06 * molecule-scale
     } else if (
       atom.at("abbrev", default: "") != ""

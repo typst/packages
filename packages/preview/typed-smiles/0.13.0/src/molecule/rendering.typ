@@ -119,17 +119,53 @@
 }
 
 #let _skeleton-hydrogen-label-distance = 0.88
-// Side of a heteroatom label that holds its stacked hydrogen ("above",
-// "below", "left", or "right"). The hydrogen faces away from the mean
-// direction of the atom's structural bonds in rendered space, so it lands on
-// the open side of the atom rather than inside a ring or across a bond.
-// Vertical sides win ties, and balanced surroundings keep the hydrogen above.
+
+// Unit screen direction from an atom toward its stacked-hydrogen side.
+#let _stacked-hydrogen-direction(side) = (
+  above: (x: 0.0, y: 1.0),
+  below: (x: 0.0, y: -1.0),
+  left: (x: -1.0, y: 0.0),
+  right: (x: 1.0, y: 0.0),
+).at(side)
+
+// Clear space between an atom symbol and a hydrogen stacked above or below
+// it, as a fraction of the label font size.
+#let _stacked-hydrogen-gap-ratio = 0.08
+
+// Depth of a hydrogen-count subscript below the H baseline, as a fraction of
+// the label font size. Measured text sizes stop at the baseline and omit it.
+#let _hydrogen-count-descent-ratio = 0.08
+
+// Distance from an atom symbol's center to the center of the hydrogen stacked
+// on the given side. Measured glyph heights keep a constant visible gap at any
+// font size, and a count subscript hanging toward the symbol from above gets
+// the same clearance as the H itself.
+#let _stacked-hydrogen-offset(side, symbol-height, hydrogen-height, hydrogen-count, font-size) = {
+  let subscript-clearance = if side == "above" and hydrogen-count > 1 {
+    font-size * _hydrogen-count-descent-ratio
+  } else {
+    0.0
+  }
+  (
+    symbol-height / 2
+      + hydrogen-height / 2
+      + font-size * _stacked-hydrogen-gap-ratio
+      + subscript-clearance
+  )
+}
+
+// Side of an atom label that holds its stacked hydrogen ("above", "below",
+// "left", or "right"). The hydrogen takes the side whose direction stays
+// farthest from every structural bond in rendered space, so it lands on the
+// open side of the atom rather than inside a ring or across a bond. Among
+// equally clear sides it faces away from the mean bond direction, vertical
+// sides win remaining ties, and an unbonded atom keeps the hydrogen above.
 #let _stacked-hydrogen-side(layout, atom-index, rotation) = {
   let atom-position = _rendered-atom-position(
     layout.atoms.at(atom-index),
     rotation,
   )
-  let bond-direction-sum = (x: 0.0, y: 0.0)
+  let bond-directions = ()
   for bond-output in layout.bonds {
     if bond-output.at("virtual_bond", default: false) { continue }
     let neighbor-index = if bond-output.from == atom-index {
@@ -148,31 +184,38 @@
     let offset-y = neighbor-position.y - atom-position.y
     let distance = calc.sqrt(offset-x * offset-x + offset-y * offset-y)
     if distance > 0.001 {
-      bond-direction-sum = (
-        x: bond-direction-sum.x + offset-x / distance,
-        y: bond-direction-sum.y + offset-y / distance,
-      )
+      bond-directions.push((x: offset-x / distance, y: offset-y / distance))
     }
   }
-  let free-x = -bond-direction-sum.x
-  let free-y = -bond-direction-sum.y
-  if calc.abs(free-x) < 0.05 and calc.abs(free-y) < 0.05 {
+  if bond-directions.len() == 0 {
     return "above"
   }
-  if calc.abs(free-x) > calc.abs(free-y) {
-    if free-x > 0 { "right" } else { "left" }
-  } else {
-    if free-y >= 0 { "above" } else { "below" }
-  }
-}
 
-// Unit screen direction from an atom toward its stacked-hydrogen side.
-#let _stacked-hydrogen-direction(side) = (
-  above: (x: 0.0, y: 1.0),
-  below: (x: 0.0, y: -1.0),
-  left: (x: -1.0, y: 0.0),
-  right: (x: 1.0, y: 0.0),
-).at(side)
+  let free-direction = bond-directions.fold(
+    (x: 0.0, y: 0.0),
+    (sum, direction) => (x: sum.x - direction.x, y: sum.y - direction.y),
+  )
+  // Cosine of the angle to the nearest bond: lower means more clearance.
+  let nearest-bond-alignment(side) = {
+    let side-direction = _stacked-hydrogen-direction(side)
+    calc.max(..bond-directions.map(direction => (
+      direction.x * side-direction.x + direction.y * side-direction.y
+    )))
+  }
+  let faces-free-direction(side) = {
+    let side-direction = _stacked-hydrogen-direction(side)
+    free-direction.x * side-direction.x + free-direction.y * side-direction.y
+  }
+  let candidate-sides = ("above", "below", "left", "right")
+  let best-alignment = calc.min(..candidate-sides.map(nearest-bond-alignment))
+  let clearest-sides = candidate-sides.filter(side => (
+    nearest-bond-alignment(side) < best-alignment + 0.02
+  ))
+  let best-facing = calc.max(..clearest-sides.map(faces-free-direction))
+  clearest-sides
+    .filter(side => faces-free-direction(side) > best-facing - 0.05)
+    .first()
+}
 
 // Choose displayed H geometry before page transforms. This keeps the existing
 // cardinal/electron-domain placement and rotates the entire skeleton together.
@@ -1258,17 +1301,21 @@
       count
     }
   }
-  let label-trim(atom, atom-index, direction-x, direction-y) = {
-    let displays-hydrogen = not show-skeleton-h and visible-hydrogen-count(atom-index) > 0 and (
-      show-all-h or forced-hydrogen(atom-index) or not _is-carbon(atom)
+  // Whether an atom's label writes its hydrogens beside the symbol (NH, OH,
+  // and carbon hydrogens selected through show-h).
+  let displays-label-hydrogens(atom-index) = {
+    let atom = layout.atoms.at(atom-index)
+    (
+      not show-skeleton-h
+        and visible-hydrogen-count(atom-index) > 0
+        and (show-all-h or forced-hydrogen(atom-index) or not _is-carbon(atom))
     )
+  }
+  let label-trim(atom, atom-index, direction-x, direction-y) = {
+    let displays-hydrogen = displays-label-hydrogens(atom-index)
     if not has-label(atom-index) {
       0.0
-    } else if (
-      displays-hydrogen
-        and atom-degree(atom-index) == 1
-        and not _is-carbon(atom)
-    ) {
+    } else if displays-hydrogen and atom-degree(atom-index) == 1 {
       0.06
     } else if (
       atom.at("abbrev", default: "") != ""
@@ -1628,7 +1675,7 @@
 
     // ── Lone-pair annotation ──────────────────────────────────────────────
     // Non-bonding electron pairs render as either two dots (the two electrons)
-    // or a single short line. Hydrogen-bearing heteroatom labels are laid out
+    // or a single short line. Hydrogen-bearing atom labels are laid out
     // in screen space so the pairs avoid the bond and the inline hydrogen; all
     // other labeled atoms use the layout directions supplied by the plugin.
 
@@ -1649,7 +1696,7 @@
       }
     }
 
-    // Cardinal screen directions for a hydrogen-bearing heteroatom, chosen
+    // Cardinal screen directions for a hydrogen-bearing atom label, chosen
     // greedily to stay clear of the bonds, the inline hydrogen, and one another.
     let inline-hydrogen-pair-directions(atom-index, count) = {
       let occupied = ()
@@ -1811,9 +1858,8 @@
           continue
         }
 
-        let has-inline-h = (
-          not _is-carbon(atom) and
-          visible-hydrogen-count(i) > 0
+        let has-inline-h = visible-hydrogen-count(i) > 0 and (
+          not _is-carbon(atom) or displays-label-hydrogens(i)
         )
 
         if not has-inline-h {
@@ -1964,12 +2010,12 @@
           ))
         }
 
-        // Terminal heteroatom with an inline H (e.g. -OH, -NH₂): center the heavy
+        // Terminal atom with an inline H (e.g. -OH, -NH₂, -CH₃): center the heavy
         // symbol on the bond terminus and hang the H off to one side, so the bond
-        // always meets the heteroatom and never the trailing H at any angle.
-        let hetero-inline = abbrev == "" and h-text != [] and degree == 1 and not _is-carbon(atom)
+        // always meets the heavy atom and never the trailing H at any angle.
+        let terminal-inline-hydrogen = abbrev == "" and h-text != [] and degree == 1
 
-        if hetero-inline {
+        if terminal-inline-hydrogen {
           let neighbor-index = first-neighbor(i)
           let neighbor-atom = layout.atoms.at(neighbor-index)
           let neighbor-position = atom-screen-position(neighbor-atom)
@@ -2066,7 +2112,7 @@
               vx > 0.05
             }
           }
-          let stacked-h-side = if h-text != [] and degree >= 2 and not _is-carbon(atom) {
+          let stacked-h-side = if h-text != [] and degree >= 2 {
             _stacked-hydrogen-side(layout, i, rotation)
           } else {
             none
@@ -2136,15 +2182,25 @@
             )
           }
 
-          let stacked-h-center = if stacked-h-vertical {
+          // A stacked H sits directly above or below the symbol; its count
+          // subscript trails to the right without shifting the H.
+          let stacked-h-letter-center = if stacked-h-vertical {
             let direction = _stacked-hydrogen-direction(stacked-h-side)
-            (x: px, y: py + direction.y * label-margin * 0.95)
+            let offset = _stacked-hydrogen-offset(
+              stacked-h-side,
+              measured-size(symbol-text).height,
+              measured-size(atom-label("H", fill: fill)).height,
+              h-count,
+              actual-font-size / canvas-scale,
+            )
+            (x: px, y: py + direction.y * offset)
           } else {
             none
           }
-          if stacked-h-center != none {
+          if stacked-h-letter-center != none {
+            let subscript-width = content-width(h-text) - content-width(atom-label("H", fill: fill))
             content(
-              (stacked-h-center.x, stacked-h-center.y),
+              (stacked-h-letter-center.x + subscript-width / 2, stacked-h-letter-center.y),
               h-text,
               anchor: "center",
               padding: 1pt,
@@ -2166,11 +2222,8 @@
               padding: 0pt,
               name: index-marker-name(i, "-sym"),
             )
-            let h-marker-position = if stacked-h-center != none {
-              (
-                stacked-h-center.x - content-width(h-text) / 2 + content-width(h-marker) / 2,
-                stacked-h-center.y,
-              )
+            let h-marker-position = if stacked-h-letter-center != none {
+              (stacked-h-letter-center.x, stacked-h-letter-center.y)
             } else {
               let h-prefix = if hydrogen-leads { [] } else { symbol-text }
               (label-left + content-width(h-prefix) + content-width(h-marker) / 2, py)
@@ -2526,13 +2579,9 @@
       atom-label("H") + sub(atom-label(str(visible-hydrogen-count)))
     }
     let degree = atom-degree(atom-index)
-    let terminal-heteroatom = (
-      hydrogen-content != []
-        and degree == 1
-        and not _is-carbon(atom)
-    )
+    let terminal-inline-hydrogen = hydrogen-content != [] and degree == 1
 
-    if terminal-heteroatom {
+    if terminal-inline-hydrogen {
       let neighbor-index = first-neighbor(atom-index)
       let neighbor-position = _rendered-atom-position(
         molecule-layout.atoms.at(neighbor-index),
@@ -2576,11 +2625,7 @@
       continue
     }
 
-    let stacked-hydrogen = (
-      hydrogen-content != []
-        and degree >= 2
-        and not _is-carbon(atom)
-    )
+    let stacked-hydrogen = hydrogen-content != [] and degree >= 2
     let stacked-hydrogen-side = if stacked-hydrogen {
       _stacked-hydrogen-side(molecule-layout, atom-index, rotation)
     } else {
@@ -2601,10 +2646,17 @@
         ))
       }
       let hydrogen-size = content-size(hydrogen-content)
+      let subscript-width = hydrogen-size.width - content-size(atom-label("H")).width
       let hydrogen-direction = _stacked-hydrogen-direction(stacked-hydrogen-side)
       visible-boxes.push(visual-box(
-        position.x,
-        position.y + hydrogen-direction.y * label-margin * 0.95,
+        position.x + subscript-width / 2,
+        position.y + hydrogen-direction.y * _stacked-hydrogen-offset(
+          stacked-hydrogen-side,
+          content-size(symbol-content).height,
+          content-size(atom-label("H")).height,
+          visible-hydrogen-count,
+          actual-font-size / canvas-scale,
+        ),
         hydrogen-size.width + 2 * padding,
         hydrogen-size.height + 2 * padding,
       ))
