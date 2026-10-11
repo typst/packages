@@ -1,0 +1,22 @@
+[package]
+name = "nibframe"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Decorative page frames and borders — arabesque, Celtic knotwork, banknote guilloché, Islamic stars, Greek key… — drawn with nibart."
+repository = "https://github.com/fergousA/nibframe"
+keywords = ["frame", "border", "page", "celtic", "arabesque", "guilloche", "banknote", "certificate", "decoration"]
+categories = ["visualization", "layout"]
+compiler = "0.15.0"
+exclude = [
+  "tests",
+  "scripts",
+  "*.zip",
+  "*.tar.gz",
+  "examples/*.pdf",
+  "docs/*.pdf",
+  "docs/*.typ",
+  "docs/catalogue",
+  "PUBLISHING.md",
+]
