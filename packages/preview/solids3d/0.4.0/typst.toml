@@ -1,0 +1,28 @@
+[package]
+name = "solids3d"
+version = "0.4.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "LGPL-3.0-or-later"
+repository = "https://github.com/fergousA/solids3d"
+description = "Draw 3D solids, meshes, and geometry diagrams."
+keywords = ["3d", "solids", "geometry", "drawing", "plot", "sketch", "noise", "mesh", "wireframe", "parametric", "education", "asymptote", "vintage", "pencil", "hatching", "engraving", "knots", "nibart"]
+categories = ["visualization", "components"]
+disciplines = ["drawing", "education", "mathematics"]
+compiler = "0.15.1"
+exclude = [
+  "docs/**",
+  "examples/**",
+  "tests/**",
+  "API.md",
+  "CHANGELOG.md",
+  "install.sh",
+  "install.ps1",
+  "make-editions.sh",
+  "INSTALL.md",
+  "UNIVERSE-SUBMISSION.md",
+  "*.pdf",
+  "*.zip",
+  "*.sha256",
+  "thumbnail.png",
+]
