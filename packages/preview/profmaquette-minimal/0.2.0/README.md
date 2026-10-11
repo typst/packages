@@ -16,11 +16,13 @@ titre, corrigés affichés ou non d'un seul réglage, et un mode « interro »
 ProfMaquette. See the [documentation, in French](https://amjmeyer.github.io/profmaquette-minimal/).*
 
 <p align="center">
-  <img src="docs/exemple-1.png" width="45%" alt="Feuille de route, puis énoncés : exercices encadrés, clé et haltère sur le filet, bloc Automatismes">
-  <img src="docs/exemple-2.png" width="45%" alt="Corrigés regroupés en fin de fiche">
+  <img src="docs/exemple-1.png" width="45%" alt="Page 1 du démarrage rapide ci-dessous : cartouche CH 02 Suites numériques 1 C, feuille de route, exercices encadrés avec clé et haltère, bloc Automatismes">
+  <img src="docs/exemple-2.png" width="45%" alt="Page 2 du démarrage rapide : corrigés regroupés en fin de fiche">
 </p>
 
 ## Démarrage rapide
+
+Le code ci-dessous donne exactement les deux pages ci-dessus.
 
 ```typ
 #import "@preview/profmaquette-minimal:0.2.0": maquette, exercice, corrige, afficher-fdr, thematique, seyes
