@@ -1,7 +1,7 @@
 // Galerie : portage des figures de https://asy.marris.fr/asymptote/Solides/
 // (fichiers fig_*.asy de G. Marris). Compiler avec :
 //     typst compile --root .. gallery.typ
-#import "../lib.typ": *
+#import "@preview/solids3d:0.4.0": *
 
 #set page(width: 21cm, height: auto, margin: 1cm)
 #set text(font: "New Computer Modern", size: 10pt)

@@ -1,7 +1,7 @@
 // Guide avancé (français) de solids3d — compiler avec :
 //   typst compile --root . docs/guide-avance-fr.typ docs/guide-avance-fr.pdf   [--input ns=local]
-#import "../lib.typ": *
-#import "../lib.typ" as solids3d-lib
+#import "@preview/solids3d:0.4.0": *
+#import "@preview/solids3d:0.4.0" as solids3d-lib
 
 #set page(
   width: 21cm,

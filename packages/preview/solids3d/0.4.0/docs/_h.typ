@@ -1,5 +1,5 @@
 // solids3d manual — shared helpers (language switch, API entry layout, live examples).
-#import "../lib.typ" as s3
+#import "@preview/solids3d:0.4.0" as s3
 
 #let lang = sys.inputs.at("lang", default: "en")
 #let T(en, fr) = if lang == "fr" { fr } else { en }
