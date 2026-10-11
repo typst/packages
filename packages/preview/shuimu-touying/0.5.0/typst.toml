@@ -1,0 +1,17 @@
+[package]
+name = "shuimu-touying"
+version = "0.5.0"
+compiler = "0.15.1"
+entrypoint = "lib.typ"
+authors = ["Mason Chen <https://github.com/JSB-Unscarred>"]
+license = "MIT"
+description = "Beamer-style Touying slides in Tsinghua purple"
+repository = "https://github.com/JSB-Unscarred/shuimu-touying"
+keywords = ["slides", "presentation", "touying", "beamer", "THU", "Tsinghua University"]
+categories = ["presentation"]
+exclude = ["assets/docs"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.webp"
