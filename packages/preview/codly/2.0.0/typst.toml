@@ -1,0 +1,17 @@
+[package]
+name = "codly"
+version = "2.0.0"
+entrypoint = "codly.typ"
+authors = [
+    "Dherse <https://github.com/Dherse>"
+]
+license = "MIT"
+description = "Code blocks for Typst with line numbers, annotations, themes, and syntax-aware diffs."
+repository = "https://github.com/Dherse/codly"
+exclude = [
+    ".github", ".agents", ".codex", ".aws", ".gitignore", ".gitattributes", ".gitmodules",
+    "tests", "example", "examples", "fonts", "assets",
+    "scripts", "Justfile", "bench", "docs", "CHANGELOG.md", "ATTRIBUTIONS.md",
+]
+compiler = "0.15.0"
+keywords = [ "code", "pretty", "template", "raw" ]
