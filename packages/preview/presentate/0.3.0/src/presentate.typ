@@ -93,9 +93,14 @@
     } else {
       subslide(states, total-steps, tree)
     }
-    // Caution!
+  }
+  // Caution!
+  context {
     let marks = query(<__presentate-mark__>)
-    assert(marks.len() == 0, message: "You cannot use presentate animations in unreachable contents, such as `context`. \nPlease try wrapping the container with `interface` or `bridge`.")
+    assert(
+      marks.len() == 0,
+      message: "You cannot use presentate animations in unreachable contents, such as `context`. \nPlease try wrapping the container with `interface` or `bridge` or cover the slide by specifying `body-fn` argument instead.",
+    )
   }
   // magic ???
   start-location.update(none)
