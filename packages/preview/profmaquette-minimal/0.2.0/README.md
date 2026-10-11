@@ -16,7 +16,7 @@ titre, corrigés affichés ou non d'un seul réglage, et un mode « interro »
 ProfMaquette. See the [documentation, in French](https://amjmeyer.github.io/profmaquette-minimal/).*
 
 <p align="center">
-  <img src="docs/exemple-1.png" width="45%" alt="Page 1 du démarrage rapide ci-dessous : cartouche CH 02 Second degré 1 C, feuille de route centrée, exercices encadrés avec clé, haltère, source, calculatrice barrée et zone Seyes avec sa réponse, bloc Automatismes">
+  <img src="docs/exemple-1.png" width="45%" alt="Page 1 du démarrage rapide ci-dessous : cartouche CH 02 Second degré 1 C, feuille de route centrée, exercices encadrés avec clé, haltère, source et calculatrice barrée, bloc Automatismes">
   <img src="docs/exemple-2.png" width="45%" alt="Page 2 du démarrage rapide : corrigés regroupés en fin de fiche">
 </p>
 
@@ -55,8 +55,6 @@ Le code ci-dessous donne exactement les deux pages ci-dessus.
 #thematique[Résoudre]
 #exercice(titre: "Équation produit")[
   Résoudre $(x - 3)(x + 3) = 0$.
-  #seyes(2, afficher: true)[Un produit est nul si l'un de ses facteurs l'est :
-    les solutions sont $-3$ et $3$.]
 ]
 
 #exercice(titre: "Pour aller plus loin", route: false)[
