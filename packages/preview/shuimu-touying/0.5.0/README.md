@@ -11,7 +11,7 @@ A Tsinghua-purple, Beamer-style slide theme for [Typst](https://typst.app), buil
 
 ## 快速开始
 
-需要 Typst 0.15.1 或更高版本。英文默认使用 Typst 内置的 Libertinus Serif；中文默认使用 Noto Serif CJK SC（思源宋体），本地编译前请先[下载安装](https://github.com/notofonts/noto-cjk/releases)，或用 `--font-path` 指定字体目录。
+需要 Typst 0.15.0 或更高版本。英文默认使用 Typst 内置的 Libertinus Serif；中文默认使用 Noto Serif CJK SC（思源宋体），本地编译前请先[下载安装](https://github.com/notofonts/noto-cjk/releases)，或用 `--font-path` 指定字体目录。
 
 从模板新建项目（在 typst.app 网页版中也可以通过 “Start from template” 选择本模板）：
 
