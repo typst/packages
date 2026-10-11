@@ -26,4 +26,15 @@ frame and the post-it fasteners.
 The *antique* vintage effect (`src/antique.typ`) draws its engraved strokes
 with the nibart package (MIT) and is MIT like the rest of the package.
 
+This MIT license applies to the original faboxyst source except for files
+that carry a separate license notice:
+
+- `src/pgfornament.typ` is derived from pgfornament and distributed under
+  LPPL 1.3c.
+- `src/tornpage.typ` is derived from a work distributed under CC BY-SA 4.0.
+- The demonstration SVGs in `examples/assets/` are distributed under MIT-0.
+
+Those files retain their respective license terms; they are not relicensed
+under MIT by this notice.
+
 No fonts are bundled. Use whatever faces are installed on the system.

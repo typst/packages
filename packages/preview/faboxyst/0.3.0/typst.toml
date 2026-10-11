@@ -3,8 +3,8 @@ name = "faboxyst"
 version = "0.3.0"
 entrypoint = "lib.typ"
 authors = ["FERGOUS Abdelhak <@fergousA>"]
-license = "MIT AND LPPL-1.3c AND MIT-0 AND CC-BY-SA-4.0"
-description = "RTL-aware boxes, paper components, frames and covers for Typst."
+license = "MIT"
+description = "Draw RTL-aware boxes, paper components, frames, and covers."
 repository = "https://github.com/fergousA/faboxyst"
 compiler = "0.15.1"
 categories = ["components", "layout"]
@@ -24,4 +24,5 @@ exclude = [
   "/FB_IMG_*",
   "/showcase/gen.py",
   "/thumbnail.typ",
+  "/tests/**",
 ]

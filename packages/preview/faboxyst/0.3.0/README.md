@@ -610,10 +610,11 @@ Regression sources: `tests/test-print-all.typ`, `test-print-rtl.typ`,
 
 ## Credits and licences
 
-The package follows the *tcolorbox* design tradition. The sketch engine draws
-on Rough.js/TikZ techniques. Third-party-derived files retain their own
-licences: the package is distributed with the SPDX expression in
-[`typst.toml`](typst.toml); see the headers of `src/pgfornament.typ`,
-`src/antique.typ`, `src/tornpage.typ`, and the assets for scope and attribution.
+The original faboxyst source is MIT-licensed. Third-party-derived files retain
+their own licences and notices: `src/pgfornament.typ` is derived from
+pgfornament and distributed under LPPL 1.3c; `src/tornpage.typ` is derived
+from a CC BY-SA 4.0 work; and the demonstration SVGs in `examples/assets/`
+are MIT-0. These file-specific terms do not change the MIT licence of the
+remaining source. See each file's header and [`LICENSE`](LICENSE) for details.
 
 FERGOUS Abdelhak
