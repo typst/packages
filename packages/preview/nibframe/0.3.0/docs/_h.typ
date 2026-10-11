@@ -1,5 +1,5 @@
 // nibframe manual — shared helpers (language switch, API entry layout, live examples).
-#import "../lib.typ" as nf
+#import "@preview/nibframe:0.3.0" as nf
 #import "@preview/nibart:0.3.0" as nib
 
 #let lang = sys.inputs.at("lang", default: "en")

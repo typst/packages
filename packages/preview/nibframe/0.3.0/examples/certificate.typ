@@ -1,6 +1,6 @@
 // A diploma: `certificate` frame with its corner flourishes and the guilloché rosette background.
 //   typst compile --root . examples/certificate.typ
-#import "../lib.typ": *
+#import "@preview/nibframe:0.3.0": *
 #set text(font: "Libertinus Serif", size: 13pt, fill: rgb("#1d2a44"))
 #set page(width: 297mm, height: 210mm)
 #show: framed.with(style: "certificate-ribbon", color: rgb("#2c4a9a"), accent: rgb("#7d8fd0"),

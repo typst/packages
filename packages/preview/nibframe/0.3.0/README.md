@@ -6,7 +6,7 @@ Pure vector geometry: no image, no font, and the frame adapts to any page size.
 
 [Manual (EN)](docs/manual-en.pdf) · [Manuel (FR)](docs/manual-fr.pdf) · [Français](README.fr.md) · [Changelog](CHANGELOG.md)
 
-![Frames](docs/img/frames.jpg)
+![Preview of decorative page-frame styles: Celtic knotwork, arabesque, guilloche, and geometric borders.](docs/img/frames.jpg)
 
 ## Installation
 
@@ -34,7 +34,7 @@ Put the show rule first. Options go after the style:
 
 `"classic"`, `"celtic"`, `"braid"`, `"chain"`, `"arabesque"`, `"islamic"`, `"greek"`, `"scallop"`, `"deco"`, `"braces"`, `"pearls"`, `"guilloche"`, `"banknote"`, `"baroque"`, `"triquetra"`, `"solomon"`, `"zellige"`, `"seigaiha"`, `"kilim"`, `"laurel"`, `"flowers"`, `"stamp"`, `"film"`, `"photo"`, `"neon"`, `"illumination"`, `"bill-lens"`, `"bill-fan"`, `"bill-ribbon"`, `"bill-shell"`, `"bill-wave"`, `"bill-frill"`, `"bill-net"`, `"bill-swell"`, `"bill-plait"`, `"bill-rosette"`, `"bill-wavy"`, `"bill-diploma"`, `"bill-lattice"`, `"bill-weave"`, `"airmail"`, `"checker"`, `"stars"`, `"hearts"`, `"eggdart"`, `"vitruvian"`, `"arches"`, `"tapa"`, `"stripes"`, `"herringbone"`, `"knot-cartouche"`, `"knot-eights"`, `"knot-lozenge"`, `"knot-ring"`, `"knot-rope"`, `"knot-triple"`, `"knot-weave"`, `"knot-blocks"`, `"daisy"`, `"sakura"`, `"lotus"`, `"palmette"`, `"ogee"`, `"rinceau"`, `"girih"`, `"hexastar"`, `"strap"`, `"certificate"`, `"certificate-ribbon"`, `"stepped"`, `"deckle"`, `"label"`, `"diamond-chain"`, `"lace-grid"`, `"diploma-shell"`, `"medallion"`, `"rosette-ribbon"`, `"fleur-edge"`, `"filigree"`, `"dedication"`, `"plank"`, `"torn"`, `"coil"` (list: `frame-styles`).
 
-![Gallery](docs/img/gallery.jpg)
+![Gallery of nibframe designs, showing varied ornamental borders and page-frame patterns.](docs/img/gallery.jpg)
 
 | Style | What it is |
 |---|---|

@@ -1,7 +1,7 @@
 // nibframe — gallery, part 2: the ten latest styles.
 //   typst compile --root . examples/gallery2.typ                  (français)
 //   typst compile --root . --input lang=en examples/gallery2.typ  (English)
-#import "../lib.typ": *
+#import "@preview/nibframe:0.3.0": *
 
 #let lang = sys.inputs.at("lang", default: "fr")
 #let T(fr, en) = if lang == "en" { en } else { fr }

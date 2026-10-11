@@ -1,7 +1,7 @@
 // nibframe — background textures and seal (options `texture:` and `seal:`).
 //   typst compile --root . examples/textures.typ                  (français)
 //   typst compile --root . --input lang=en examples/textures.typ  (English)
-#import "../lib.typ": *
+#import "@preview/nibframe:0.3.0": *
 
 #let lang = sys.inputs.at("lang", default: "fr")
 #let T(fr, en) = if lang == "en" { en } else { fr }
