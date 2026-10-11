@@ -153,7 +153,7 @@
   /// The content to get labeled.
   /// -> content
   body,
-  /// The label 
+  /// The label
   /// -> label
   name,
 ) = getter(s => {
@@ -262,12 +262,12 @@
     hider: auto,
   ),
 ) = {
-  // Hiding element mechanism 
+  // Hiding element mechanism
   //
-  // There are 3 states governing the hiding of an element. 
+  // There are 3 states governing the hiding of an element.
   // The first is `pause-state.hidden`, which is controlled by put a `#pause`, `#jump()`, or `#meanwhile` markers.
   // The second is `uncover-state.hidden` which is controlled by the animation functions such as `#uncover()`, `#only()`, `#alert()`, and others (except `#render()` and `#motion()`, since the inner function is not accessible.)
-  // The third is `hidden-leader`, which is like a decision maker that tells whether an element should be hidden because of applying `#pause` or `#uncover`.  
+  // The third is `hidden-leader`, which is like a decision maker that tells whether an element should be hidden because of applying `#pause` or `#uncover`.
   states.at(0).parsing-state.shown = false
 
   let hiding(s) = if s.at(0).hidden-leader == "pause" {
@@ -440,7 +440,12 @@
 
     // Only when the parent element does not contain any visible children will its
     // element be hidden.
-    if not s.at(0).parsing-state.shown and hiding(states) {
+    if (
+      not s.at(0).parsing-state.shown 
+      // Only content in `pause` mode is hidden here.
+      and states.at(0).hidden-leader == "pause" 
+      and states.at(0).pause-state.hidden
+    ) {
       hider(body)
     } else {
       normal(body)

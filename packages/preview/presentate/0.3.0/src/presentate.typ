@@ -81,9 +81,9 @@
     let total-steps = if steps == auto {
       animation-info.steps
     } else { steps }
-    // `steps` and `waypoints` are resolved first.
+    // `steps` and `markers` are resolved first.
     states.at(0).steps = total-steps
-    states.at(0).waypoints = animation-info.waypoints
+    states.at(0).markers = animation-info.markers
     // main slide content
     if not states.at(0).handout {
       for i in range(1, total-steps + 1) {
@@ -95,9 +95,8 @@
     }
     // Caution!
     let marks = query(<__presentate-mark__>)
-    assert(marks.len() == 0, message: "You cannot use presentate animations in unreachable contents, such as `context`. \nPlease try wrapping the container with `interface`, `custom`, or `applier`.")
+    assert(marks.len() == 0, message: "You cannot use presentate animations in unreachable contents, such as `context`. \nPlease try wrapping the container with `interface` or `bridge`.")
   }
-
   // magic ???
   start-location.update(none)
 }

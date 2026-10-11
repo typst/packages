@@ -25,7 +25,7 @@
     add-page-index: 0, // for pdfpc and BeamerPresenter.
     logical-slide: true,
     default-hider: hide,
-    waypoints: (:),
+    markers: (:),
     // States for determining display state of the elements.
     pause-state: (
       hider: hide,

@@ -8,7 +8,7 @@
 /// - dictionary: in the form `(rel: int, to: indices)`
 
 // resolve current index
-#let _resolve(idx, info: (pauses: 1, waypoints: (:))) = {
+#let _resolve(idx, info: (pauses: 1, markers: (:))) = {
   if type(idx) == int {
     return idx
   }
@@ -19,7 +19,7 @@
     return info.pauses
   }
   if type(idx) in (str, label) {
-    return info.waypoints.at(str(idx))
+    return info.markers.at(str(idx))
   }
   if type(idx) == dictionary {
     let ref = _resolve(idx.at("to", default: none), info: info)
@@ -29,16 +29,16 @@
   }
 }
 
-#let _get-pauses-max-waypoints(indices, info: (max: (1,), pauses: 1, waypoints: (:))) = {
+#let _get-pauses-max-markers(indices, info: (max: (1,), pauses: 1, markers: (:))) = {
   for idx in indices {
     if type(idx) == dictionary and "name" in idx.keys() {
-      info.waypoints.insert(str(idx.name), _resolve(idx.at("at", default: none), info: info))
+      info.markers.insert(str(idx.name), _resolve(idx.at("at", default: none), info: info))
     } else if type(idx) != array {
       idx = _resolve(idx, info: info)
       info.pauses = idx
       info.max.push(idx)
     } else {
-      let new-info = _get-pauses-max-waypoints(idx, info: info)
+      let new-info = _get-pauses-max-markers(idx, info: info)
       info.max = new-info.max
     }
   }
@@ -49,10 +49,10 @@
 #let resolve(s, ..inputs) = {
   let inputs = inputs.pos()
   let (_, ..idx) = s
-  let waypoints = s.at(0).at("waypoints", default: (:))
-  let info = (pauses: 1, max: (1,), waypoints: waypoints)
+  let markers = s.at(0).at("markers", default: (:))
+  let info = (pauses: 1, max: (1,), markers: markers)
 
-  let info = _get-pauses-max-waypoints(idx, info: info)
+  let info = _get-pauses-max-markers(idx, info: info)
 
   let results = inputs.map(_resolve.with(info: info))
 
@@ -60,7 +60,7 @@
     pauses: info.pauses,
     steps: calc.max(..info.max, ..results),
     results: results,
-    waypoints: info.waypoints,
+    markers: info.markers,
   )
 }
 

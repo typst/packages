@@ -1,6 +1,9 @@
 #import "../../presentate.typ" as p
-#import "../../store.typ": states, set-options
-#import "../../components/components.typ": progressive-outline, get-active-headings, structure-config, resolve-slide-title, is-role, render-transition, navigator-config
+#import "../../store.typ": set-options, states
+#import "../../components/components.typ": (
+  get-active-headings, is-role, navigator-config, progressive-outline, render-transition, resolve-slide-title,
+  structure-config,
+)
 #import "../../components/structure.typ": empty-slide
 #import "../../components/title.typ": slide-title
 #import "shared.typ": apply-heading-numbering, apply-transition-rule
@@ -11,7 +14,7 @@
 #let apply-layout(title: none, body) = context {
   let config = config-state.get()
   if config == none { return body }
-  
+
   let primary = config.primary
   let secondary = config.secondary
   let nav-style = config.navigation-style
@@ -20,16 +23,16 @@
   let subsec-align = config.subsection-align
   let show-num = config.show-heading-numbering
   let num-fmt = config.numbering-format
-  
+
   let header-size = 0.45em
   let footer-size = 0.4em
-  
+
   let mapping = structure-config.get().mapping
   let roles = ()
   if "part" in mapping and mapping.part != none { roles.push("part") }
   if "section" in mapping and mapping.section != none { roles.push("section") }
   if "subsection" in mapping and mapping.subsection != none { roles.push("subsection") }
-  
+
   let header-cols = config.header-columns
   if header-cols == (1fr, 1fr) and roles.len() == 3 {
     header-cols = (1fr, 1fr, 1fr)
@@ -49,12 +52,11 @@
     ..roles.map(role => {
       let lvl = mapping.at(role)
       let mode = if nav-style == "all" {
-        if role == "part" { "all" }
-        else if role == "section" { if "part" in mapping { "current-parent" } else { "all" } }
-        else if role == "subsection" { "current-parent" }
-        else { "all" }
+        if role == "part" { "all" } else if role == "section" {
+          if "part" in mapping { "current-parent" } else { "all" }
+        } else if role == "subsection" { "current-parent" } else { "all" }
       } else { "current" }
-      
+
       {
         set text(size: header-size, fill: white)
         progressive-outline(
@@ -65,8 +67,8 @@
             ("level-" + str(lvl)): (
               active: (weight: "bold", fill: white),
               inactive: (weight: "regular", fill: white.transparentize(40%)),
-              completed: (weight: "regular", fill: white.transparentize(40%))
-            )
+              completed: (weight: "regular", fill: white.transparentize(40%)),
+            ),
           ),
         )
       }
@@ -80,7 +82,7 @@
       columns: (1fr, 1fr, 1fr),
       block(fill: primary, width: 100%, inset: 0.6em, align(center, config.author)),
       block(fill: secondary, width: 100%, inset: 0.6em, align(center, config.title)),
-      block(fill: primary, width: 100%, inset: 0.6em, align(center, counter(page).display("1 / 1", both: true)))
+      block(fill: primary, width: 100%, inset: 0.6em, align(center, counter(page).display("1 / 1", both: true))),
     )
   })
 
@@ -97,7 +99,7 @@
       body
     }),
     v(1fr),
-    footer
+    footer,
   )
 }
 
@@ -105,9 +107,9 @@
   let pos = args.pos()
   let named = args.named()
   if pos.len() == 1 {
-    p.slide(..named, apply-layout(pos.at(0)))
+    p.slide(..named, body-fn: apply-layout, pos.at(0))
   } else {
-    p.slide(..named, apply-layout(title: pos.at(0), pos.at(1)))
+    p.slide(..named, body-fn: apply-layout.with(title: pos.at(0)), pos.at(1))
   }
 }
 
@@ -157,9 +159,9 @@
     c.use-short-title = use-short-title
     c.progressive-outline = p.utils.merge-dicts(
       (
-        spacing: (v-between-1-1: 0.4em, v-between-2-2: 0.4em, v-between-3-3: 0.4em)
+        spacing: (v-between-1-1: 0.4em, v-between-2-2: 0.4em, v-between-3-3: 0.4em),
       ),
-      base: c.at("progressive-outline", default: (:))
+      base: c.at("progressive-outline", default: (:)),
     )
     c
   })
@@ -184,18 +186,33 @@
   set text(size: text-size, font: text-font)
 
   show heading: set text(size: 1em, weight: "regular")
-  
+
   show: apply-heading-numbering.with(mapping, show-heading-numbering, numbering-format)
-  show heading: apply-transition-rule.with(mapping, transitions, show-all-sections-in-transition, on-part-change, on-section-change, on-subsection-change)
+  show heading: apply-transition-rule.with(
+    mapping,
+    transitions,
+    show-all-sections-in-transition,
+    on-part-change,
+    on-section-change,
+    on-subsection-change,
+  )
 
   // --- Title Slide ---
   empty-slide(fill: primary, text-size: text-size, text-font: text-font, {
     set std.align(center + horizon)
     set text(fill: white)
-    block(text(size: 2em, weight: "bold", title), inset: (bottom: 1.2em), stroke: (bottom: 2pt + white.transparentize(50%)))
+    block(
+      text(size: 2em, weight: "bold", title),
+      inset: (bottom: 1.2em),
+      stroke: (bottom: 2pt + white.transparentize(50%)),
+    )
     emph(subtitle)
     linebreak()
-    grid(columns: 2, author, grid.vline(), date, inset: (x: 0.5em))
+    grid(
+      columns: 2,
+      author, grid.vline(), date,
+      inset: (x: 0.5em),
+    )
   })
 
   if show-outline {
