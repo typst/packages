@@ -352,6 +352,31 @@
     "\\ej": "ʼ", // modifier letter apostrophe (ejective)
   )
 
+  // Below-diacritics clash with descenders (e.g., ŋ̩). IPA convention:
+  // place them above instead (ŋ̍, ŋ̊).
+  let above_alternates = (
+    "̩": "̍", // vertical line below -> vertical line above
+    "̥": "̊", // ring below -> ring above
+    "̪": "͆", // bridge below -> bridge above (dental)
+  )
+  let descenders = (
+    "g", "ɡ", "j", "p", "q", "y", "ç", "ŋ", "ɲ", "ɳ", "ɱ", "ɟ", "ʝ",
+    "ɣ", "ɰ", "ɽ", "ɻ", "ʐ", "ʂ", "ɖ", "ɭ", "ʈ", "ɠ", "ʄ", "ɥ",
+    "ʃ", "ʒ", "ʑ", "β", "ɸ", "ɧ",
+    "ɺ", // no descender, but marks read better above its long leg
+    "Q", // archiphoneme: its tail drops below the baseline
+    "ȷ", "ǰ", "ʞ", "ƞ", "ƥ", "ʠ", "ɼ", "ƿ", "þ", "ʆ", "ʓ", "ƫ", "ʤ", "ʧ", "ʥ",
+    "ʗ", // stretched c dips below the baseline
+    "ʖ", // inverted glottal stop: marks read better above
+  )
+  let attach = (base, diacritic) => {
+    if diacritic in above_alternates and base in descenders {
+      above_alternates.at(diacritic)
+    } else {
+      diacritic
+    }
+  }
+
   // Split by spaces and process each token
   let tokens = input.split(" ")
   let result = ""
@@ -374,7 +399,7 @@
         result += mappings.at(token)
         // Apply pending diacritic if any
         if pending_diacritic != none {
-          result += pending_diacritic
+          result += attach(mappings.at(token), pending_diacritic)
           pending_diacritic = none
         }
       } else {
@@ -384,21 +409,18 @@
       // No backslash, but the whole token is a mapping (e.g., "||")
       result += mappings.at(token)
       if pending_diacritic != none {
-        result += pending_diacritic
+        result += attach(mappings.at(token), pending_diacritic)
         pending_diacritic = none
       }
     } else {
       // No backslash: split into individual characters
       let chars = token.clusters()
       for (idx, char) in chars.enumerate() {
-        if char in mappings {
-          result += mappings.at(char)
-        } else {
-          result += char
-        }
+        let out = if char in mappings { mappings.at(char) } else { char }
+        result += out
         // Apply pending diacritic to first character only
         if idx == 0 and pending_diacritic != none {
-          result += pending_diacritic
+          result += attach(out, pending_diacritic)
           pending_diacritic = none
         }
       }
@@ -413,10 +435,73 @@
 // Main IPA function: converts tipa-style notation to IPA
 #import "_config.typ": phonokit-font
 
+// Spacing fixes tuned by eye for Charis; other fonts keep their native spacing
+#let charis-spacing(body) = {
+  // ʲ's tail curls left under the base glyph (pʲ, bʲ): nudge it right
+  show "ʲ": it => h(0.06em) + it
+  // f, ʃ, ʄ, ʎ, the hooked implosives and the rhotic vowels overhang to the
+  // right at the top and collide with superscripts
+  // Same for capitals (archiphonemes) whose serifed arms reach the right edge
+  show regex("[fʃʄʎɗɠʛɚɝƈƙʠƭƥʧTFVWY][ʰˠʲʷ]"): it => {
+    let (base, mark) = it.text.codepoints()
+    // The rhotic hook, ʧ and capital arms need less room, except before ʲ
+    let small = base in ("ɚ", "ɝ", "ʧ", "T", "F", "V", "W", "Y")
+    let gap = if small { 0.06em } else { 0.12em }
+    // ʲ already gets 0.06em from the rule above
+    if mark == "ʲ" and not small { gap -= 0.06em }
+    base + h(gap) + mark
+  }
+  // The unreleased mark (̚) collides with glyphs that reach the top right
+  // (f, ʃ, ʎ, hooks, glottals). It is combining, so it is re-hosted on a word
+  // joiner to be pushed right.
+  show regex("[fʃʄʎʔʕʡʢɓɗɠʛɦɧƈƙʠƭƥʖʧ]\u{031A}"): it => {
+    let (base, mark) = it.text.codepoints()
+    // Some reach further right than the rest
+    let gap = if base in ("ʄ", "ɗ", "ʛ") { 0.1em } else if base == "ʖ" { 0.07em } else { 0.05em }
+    base + h(gap) + "\u{2060}" + mark
+  }
+  // Ligatures anchor marks on their first letter; re-host them centered.
+  // Marks above are raised over the ascender. Widths are Charis advances.
+  let ligatures = (ʣ: 0.809, ʥ: 0.809, ʤ: 0.836, ʦ: 0.645, ʧ: 0.575, ʨ: 0.694, ƕ: 0.869)
+  show regex("[ʣʥʤʦʧʨƕ][\u{0303}\u{0325}\u{0329}\u{032A}\u{030A}\u{030D}\u{0346}]"): it => {
+    let (base, mark) = it.text.codepoints()
+    let above = mark in ("\u{0303}", "\u{030A}", "\u{030D}", "\u{0346}")
+    let shift = (0.272 - ligatures.at(base) / 2) * 1em
+    // ʦ and ʨ start with t, which is shorter than d, h or ʃ
+    let raise = if not above { 0em } else if base in ("ʦ", "ʨ") { 0.2em } else { 0.27em }
+    base + box(width: 0pt, baseline: -raise, move(dx: shift, "\u{2060}" + mark))
+  }
+  // Glyphs whose anchors sit too low: marks above touch the hook, long leg or
+  // top curve. Re-host the mark on a word joiner, raise it, and center it.
+  // A hosted mark draws ~0.272em (half an o) left of the pen.
+  // base: (Charis advance width, raise)
+  let low-anchors = (
+    ɧ: (0.555, 0.27em),
+    ɺ: (0.391, 0.33em), // stem top sits right under the mark
+    ʃ: (0.355, 0.25em),
+    ʆ: (0.355, 0.25em),
+  )
+  show regex("[ɧɺʃʆ][\u{0303}\u{030A}\u{030D}\u{0346}]"): it => {
+    let (base, mark) = it.text.codepoints()
+    // ɧ̃ is fine as is
+    if base == "ɧ" and mark == "\u{0303}" { return it }
+    let (width, raise) = low-anchors.at(base)
+    // Shift with move(), not h(): extra inline width lets the mark wrap onto
+    // its own line in narrow containers (e.g., table cells)
+    base + box(width: 0pt, baseline: -raise, move(dx: (0.272 - width / 2) * 1em, "\u{2060}" + mark))
+  }
+  body
+}
+
 #let ipa(input) = {
   let rendered = ipa-to-unicode(input)
   context {
     metadata(rendered)
-    text(font: phonokit-font.get(), rendered)
+    let font = phonokit-font.get()
+    // The font may be a name, a fallback list, or (name: .., covers: ..) dicts
+    let primary = if type(font) == array { font.first() } else { font }
+    if type(primary) == dictionary { primary = primary.name }
+    let body = text(font: font, rendered)
+    if lower(primary).starts-with("charis") { charis-spacing(body) } else { body }
   }
 }
