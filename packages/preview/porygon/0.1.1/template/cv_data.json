@@ -1,0 +1,239 @@
+{
+    "filename": "NOTHING",
+    "cv_langs": [ "en"],
+    "margin": {
+        "top": "0.5cm",
+        "bottom": "0cm"
+    },
+    "hobbies": {
+        "data": [
+            {
+                "ico": "\\faCode",
+                "name": {
+                    "en": "Code"
+                }
+            }
+        ],
+        "title": {
+            "en": "Hobbies"
+        }
+    },
+    "langs": {
+        "data": [
+            {
+                "level": {
+                    "en": "Native"
+                },
+                "name": {
+                    "en": "English"
+                }
+            }
+        ],
+        "title": {
+            "en": "Languages"
+        }
+    },
+    "languages": {
+        "data": [
+            {
+                "name": "Typst"
+            }
+        ],
+        "title": {
+            "en": "Programming Languages"
+        }
+    },
+    "me": {
+        "bio": {
+            "en": "I <3 Typst"
+        },
+        "driving": {
+            "en": "Driving Licence",
+            "icon": "\\faCar"
+        },
+        "firstname": "firstname",
+        "github": {
+            "link": "https://github.com/",
+            "name": "githubUsername"
+        },
+        "lastname": "lastname",
+        "linkedin": {
+            "link": "https://linkedin.com/in/",
+            "name": "linke"
+        },
+        "location": {
+            "en": "USA"
+        },
+        "mail": "mail@domain.com",
+        "phone": "+1 ",
+        "sidebar": "Contact",
+        "subtitle": {
+            "optional": true
+        },
+        "title": {
+            "en": "Software Engineer"
+        },
+        "website": "https://domain.com",
+        "keywords": ["Software"]
+    },
+    "personal": {
+        "data": [
+            {
+                "description": {
+                    "en": "Typst enjoyer"
+                }
+            },
+            {
+                "description": {
+                    "en": "Git enjoyer"
+                }
+            },
+            {
+                "description": {
+                    "en": "Linux enjoyer"
+                }
+            }
+        ],
+        "title": {
+            "en": "Personal experiences"
+        }
+    },
+    "project": {
+        "data": [
+            {
+                "description": {
+                    "en": "Playing with Typst"
+                }
+            },
+            {
+                "description": {
+                    "en": "Playing with Raspberry Pi"
+                }
+            }
+        ],
+        "title": {
+            "en": "Personal projects"
+        }
+    },
+    "school": {
+        "data": [
+            {
+                "date": {
+                    "en": "2012"
+                },
+                "description": {
+                    "en": "High honors"
+                },
+                "location": {
+                    "en": "New York"
+                },
+                "name": {
+                    "en": "High School"
+                }
+            },
+            {
+                "date": {
+                    "en": "2013"
+                },
+                "description": {
+                    "en": "Learning so much"
+                },
+                "location": {
+                    "en": "Antartica"
+                },
+                "name": {
+                    "en": "University"
+                }
+            }
+        ],
+        "title": {
+            "en": "Education"
+        }
+    },
+    "tools": {
+        "data": [
+            {
+                "name": "GIT"
+            },
+            {
+                "name": "Linux"
+            }
+        ],
+        "title": {
+            "en": "Development tools"
+        }
+    },
+    "work": {
+        "data": [
+            {
+                "date": {
+                    "en": "July 2020"
+                },
+                "description": {
+                    "en": "Typst coder"
+                },
+                "name": {
+                    "en": "Summer job"
+                }
+            },
+            {
+                "date": {
+                    "en": "July 2021"
+                },
+                "description": {
+                    "en": "Linux kernel stuff"
+                },
+                "name": {
+                    "en": "Summer job"
+                }
+            },
+            {
+                "date": {
+                    "en": "July 2022"
+                },
+                "description": {
+                    "en": "Driver kernel stuff"
+                },
+                "name": {
+                    "en": "Summer job"
+                }
+            },
+            {
+                "date": {
+                    "en": "July 2022"
+                },
+                "description": {
+                    "en": "Low level stuff"
+                },
+                "name": {
+                    "en": "Summer job"
+                }
+            },
+            {
+                "date": {
+                    "en": "July 2023"
+                },
+                "description": {
+                    "en": "High level stuff"
+                },
+                "name": {
+                    "en": "Summer job"
+                }
+            },
+            {
+                "date": {
+                    "en": "July 2021"
+                },
+                "description": {
+                    "en": "Linux kernel stuff"
+                },
+                "name": {
+                    "en": "Summer job"
+                }
+            }
+        ],
+        "title": {
+            "en": "Experience"
+        }
+    }
+}

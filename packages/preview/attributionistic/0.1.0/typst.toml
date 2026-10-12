@@ -1,0 +1,11 @@
+[package]
+name = "attributionistic"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Satakun Utama <https://github.com/lines-of-codes/>"]
+license = "MIT"
+description = "Gather attributed figures and create image attributions section"
+exclude = ["/imgs/*"]
+repository = "https://github.com/lines-of-codes/typst-attributionistic"
+keywords = ["attribution", "credit", "figure", "image"]
+categories = ["model"]

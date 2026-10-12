@@ -1,0 +1,89 @@
+{
+  "_comment": [
+    "Shared inputs for the geometry cross-check.",
+    "Text widths are stipulated, not measured: they are an input to both the",
+    "reference and the candidate, so that a mismatch can only come from the",
+    "geometry. Real widths depend on the reader's font and are checked",
+    "separately, by eye, on the comparison page."
+  ],
+  "widths": {
+    "Start": 33.0,
+    "  ": 6.116,
+    "Zeige": 38.0,
+    "Text ▾": 44.0,
+    "Bild ▾": 42.0,
+    "Schalte RGB LED an Farbe": 170.0,
+    "Taste": 36.0,
+    "A ▾": 22.0,
+    "gedrückt?": 62.0,
+    "Wiederhole unendlich oft": 168.0,
+    "mache": 40.0,
+    "Hallo": 33.0,
+    "0": 8.8,
+    "1": 8.8,
+    "2": 8.8,
+    "3": 8.8,
+    "4": 8.8,
+    "  1": 26.4,
+    "  2": 26.4,
+    "  3": 26.4,
+    "  4": 26.4,
+    "#": 8.8,
+    "Variable": 62.0,
+    "Punkte": 47.0,
+    ":": 5.0,
+    "Zahl ▾": 43.0,
+    "←": 15.0,
+    "wenn": 34.0
+  },
+  "cases": [
+    {
+      "id": "robControls_start",
+      "source": "Start"
+    },
+    {
+      "id": "mbedActions_display_text",
+      "source": "Zeige Text \"Hallo\""
+    },
+    {
+      "id": "mbedActions_display_text_empty",
+      "source": "Zeige Text"
+    },
+    {
+      "id": "actions_rgbLed_hidden_on_calliope",
+      "source": "Schalte RGB LED an Farbe (#ff0000)"
+    },
+    {
+      "id": "robSensors_key_getSample",
+      "source": "Taste A gedrückt?"
+    },
+    {
+      "id": "robControls_loopForever",
+      "source": "Wiederhole unendlich oft\n  Zeige Text \"Hallo\"\nEnde"
+    },
+    {
+      "id": "mbedImage_image",
+      "source": "Zeige Bild (.#.#.|.#.#.|.....|#...#|.###.)"
+    },
+    {
+      "id": "robGlobalVariables_declare",
+      "source": "Variable Punkte : Zahl = 0"
+    },
+    {
+      "id": "robControls_start_declare",
+      "source": "Start\n  Variable Punkte : Zahl = 0"
+    },
+    {
+      "id": "robControls_if",
+      "source": "wenn Taste A gedrückt?\n  Zeige Text \"Hallo\"\nEnde"
+    },
+    {
+      "id": "mbedImage_get_image",
+      "source": "Herz"
+    },
+    {
+      "id": "mbedActions_display_image",
+      "source": "Zeige Bild Herz"
+    }
+  ]
+}

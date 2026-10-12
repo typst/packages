@@ -1,0 +1,17 @@
+[package]
+name = "malos-book-style"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Malo <@MDLC01>"]
+license = "MIT"
+description = "A book template based on Malo's Presets."
+repository = "https://github.com/MDLC01/malos-book-style"
+keywords = ["malos-presets"]
+categories = ["book"]
+compiler = "0.15.0"
+exclude = ["/example/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
