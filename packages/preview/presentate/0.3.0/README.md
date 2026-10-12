@@ -1,6 +1,6 @@
 # Presentate
 **Presentate** is a package for creating presentation in Typst. It provides a framework for creating dynamic animation that is compatible with other packages. 
-For comprehensive usage, please refer to [manual.pdf](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/manual/manual.pdf)
+For comprehensive usage, please refer to [manual.pdf](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/manual/manual.pdf)
 
 ## Highlights (0.3.0)
 Compared to the last version (0.2.x), Presentate shipped with a lot of improvements.
@@ -36,7 +36,7 @@ The easiest is to type `#show: pause`. For example,
 ```
 which results in 
 
-![simple pause animation](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-simple-pause.png)
+![simple pause animation](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-simple-pause.png)
 
 You can style the slides as you would do with normal Typst document. For example, 
 
@@ -67,7 +67,7 @@ You can style the slides as you would do with normal Typst document. For example
 ]
 ```
 
-![example using Typst styling](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-styling.png)
+![example using Typst styling](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-styling.png)
 
 ### Relative Index Specification 
 You can use `none` and `auto`, or even `(rel: int)` to specify the index as *with previous animation*, *after previous animation*, or `int` subslides away from the current number of pauses.
@@ -98,7 +98,7 @@ You can use `none` and `auto`, or even `(rel: int)` to specify the index as *wit
 ]
 ```
 
-![relative index specification example](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-relative-indices.png)
+![relative index specification example](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-relative-indices.png)
 
 ### Varying Timeline
 You can specify the `update` argument of dynamic functions to tell if that function will update the current number of pause or not. If set to `true`, the number of pauses will set to that value. 
@@ -127,7 +127,7 @@ Since 0.3.0, the named index were introduced. You can name a step by using `#mar
   #only(<end>)[That's it.]
 ]
 ```
-![Example of using markers and relative indices to synchronize the animation](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-marker.png)
+![Example of using markers and relative indices to synchronize the animation](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-marker.png)
 
 ### Motion Control
 
@@ -160,7 +160,7 @@ You can have a precise control on what should be shown on each subslide relative
   )
 ]
 ```
-![motion function demonstration](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-motion.png)
+![motion function demonstration](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-motion.png)
 
 In this example, featured with CeTZ package, each element is drawn normally, while its animation is shown differently. The precise animation control is done by specifying the tagged names in `controls` argument of `#motion` function. Note that the way of showing and hiding stuff can be modified using `hider` argument of each function.
 
@@ -201,7 +201,7 @@ For example, Integration with [CeTZ](https://typst.app/universe/package/cetz) an
   )
 ]
 ```
-![Example of using CeTZ and Fletcher inegration by interface function.](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-cetz-interface.png)
+![Example of using CeTZ and Fletcher inegration by interface function.](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-cetz-interface.png)
 
 The nested scope can be accessed by using `bridge` function, for example, in [Alchemist](https://typst.app/universe/package/alchemist)'s cycle: 
 
@@ -230,7 +230,7 @@ The nested scope can be accessed by using `bridge` function, for example, in [Al
   })
 ]
 ```
-![Alchemist animation by using bridge and interface](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-alchemist-bridge.png)
+![Alchemist animation by using bridge and interface](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-alchemist-bridge.png)
 
 You can use the `render` function to create a workspace, and import the `animation` module of Presentate to create animation with other packages. 
 
@@ -268,7 +268,7 @@ You can use the `render` function to create a workspace, and import the `animati
 ```
 Results: 
 
-![CeTZ and fletcher integration example](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-cetz.png)
+![CeTZ and fletcher integration example](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-cetz.png)
 
 You can incrementally show the content from other package by wrap the functions in the `animate` function, with a modifiers that modifies the function's arguments to hide the content using `modifier`. 
 For example, this molecule animation is created compatible with [Alchemist](https://typst.app/universe/package/alchemist) package: 
@@ -307,7 +307,7 @@ For example, this molecule animation is created compatible with [Alchemist](http
 
 which results in 
 
-![incrementally show the molecule using alchemist package](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/features/example-alchemist.png)
+![incrementally show the molecule using alchemist package](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/features/example-alchemist.png)
 
 
 
@@ -344,14 +344,14 @@ Structured themes are located in the `themes` namespace. They are applied via a 
 
 ### Examples
 You can find full implementations of these themes in the `assets/examples/` directory:
-- [Sidebar demo](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/themes/example-sidebar.typ)
-- [Miniframes demo](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/themes/example-miniframes.typ)
-- [Split demo](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/themes/example-split.typ)
-- [Progressive-outline demo](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/themes/example-progressive-outline.typ)
-- [Minimal demo](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/themes/example-minimal.typ)
-- [Custom transition hooks demo](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/examples/themes/example-minimal-custom-transition.typ)
+- [Sidebar demo](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/themes/example-sidebar.typ)
+- [Miniframes demo](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/themes/example-miniframes.typ)
+- [Split demo](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/themes/example-split.typ)
+- [Progressive-outline demo](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/themes/example-progressive-outline.typ)
+- [Minimal demo](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/themes/example-minimal.typ)
+- [Custom transition hooks demo](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/examples/themes/example-minimal-custom-transition.typ)
 
-For detailed information on customization (colors, spacing, behavior), please refer to the [Structured Themes Guide](https://github.com/pacaunt/typst-presentate/blob/fdcb79fa21523967f5aa4e34bab195a9bf9433c1/assets/manual/themes-guide.pdf).
+For detailed information on customization (colors, spacing, behavior), please refer to the [Structured Themes Guide](https://github.com/pacaunt/typst-presentate/blob/fee2676ab3a93af2d5bef1eeb7597d0022a7e676/assets/manual/themes-guide.pdf).
 
 ## Versions
 ### 0.3.0 
