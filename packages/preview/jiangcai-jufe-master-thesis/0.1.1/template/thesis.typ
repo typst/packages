@@ -1,7 +1,7 @@
 //! 开发阶段用相对路径直接导入本地 lib.typ（改完即生效，无需同步 preview 缓存）；
 //! ⚠️ 提交 PR 前必须切换为下面注释中的 @preview 写法（已发布模板的标准写法）
-#import "@preview/jiangcai-jufe-master-thesis:0.1.1": *
-// #import "../lib.typ": *
+// #import "@preview/jiangcai-jufe-master-thesis:0.1.1": *
+#import "@local/jiangcai-jufe-master-thesis:0.1.1": *
 
 //! ============================================================
 //! 江西财经大学硕士学位论文 Typst 模板 —— 使用教程示例文档
@@ -44,51 +44,6 @@
 
 //! 目录（中文目录 / 英文目录 / 图、表、公式目录，均自动生成）
 #multi-outline()
-
-//! 缩略语对照表（前置部分可选页；如不需要，整段删除即可。
-//! 标题用 #en[...] 标注英文后，会同时进入中英文目录，页码延续罗马数字）
-#{
-  set page(
-    margin: (
-      top: 3.5cm,
-      bottom: 2.5cm,
-      left: 2.5cm,
-      right: 2.5cm,
-    ),
-    header-ascent: 0.5cm,
-    header: context [
-      #set par(spacing: 0.9em)
-      #set text(font: ("Times New Roman", "SimSun"), size: zh(5))
-      #set align(center + bottom)
-      #let is-odd = calc.odd(counter(page).get().at(0))
-      #let head-text = if is-odd {
-        context paper-title.get()
-      } else {
-        calc-headings(query(heading.where(level: 1))).at(here().page() - 1)
-      }
-      #head-text
-      #v(-6pt)
-      #line(length: 100%, stroke: 0.5pt)
-    ],
-    footer-descent: 0.5em,
-    footer: context [
-      #set text(font: "Times New Roman", size: zh(-5))
-      #set align(center + top)
-      #counter(page).display("I")
-    ],
-  )
-  show heading.where(level: 1): set align(center)
-  set heading(level: 1, numbering: none)
-  [
-    #heading(level: 1)[缩略语对照表 #en[List of Abbreviations]]
-    #v(0.5em)
-    //! 与正文三线表一致：数据维护在 tables/缩略语对照表.xlsx 中，用 tlt() 读取生成。
-    //! 前置部分的对照表不加 figure 题注，故不参与正文"表 X.X"编号，也不进入表目录
-    #align(center)[
-      #tlt(read("./tables/缩略语对照表.xlsx", encoding: none))
-    ]
-  ]
-}
 
 //! ==================== 正文（阿拉伯数字页码从 1 开始） ====================
 //? 各级标题旁用 #en[English Title] 标注英文标题，英文目录自动提取；

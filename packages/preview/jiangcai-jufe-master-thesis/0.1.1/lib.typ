@@ -465,7 +465,7 @@
     text(font: ("Times New Roman", "SimHei"), size: zh(4))[
       #distr(width: 4em, "导师")
     ],
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[#mentor],
+    text(font: "KaiTi", size: zh(-3))[#mentor],
     table.hline(stroke: 0.5pt, start: 1, end: 2),
     table.hline(stroke: 0.5pt, start: 4),
     text(font: ("Times New Roman", "SimHei"), size: zh(4))[
@@ -476,7 +476,7 @@
     text(font: ("Times New Roman", "SimHei"), size: zh(4))[
       #distr(width: 4em, "学院名称")
     ],
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[#academy],
+    text(font: "KaiTi", size: zh(-3))[#academy],
     table.hline(stroke: 0.5pt, start: 1, end: 2),
     table.hline(stroke: 0.5pt, start: 4),
     text(font: ("Times New Roman", "SimHei"), size: zh(4))[
