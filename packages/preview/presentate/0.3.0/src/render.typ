@@ -4,7 +4,26 @@
 #import "indices.typ"
 #import "animation.typ"
 
-#let jump(idx, hider: auto, mode: "content") = updater(mode: mode, s => {
+/// Jump the pause to the given index.
+/// 
+/// Example usage: 
+/// ```typst
+/// First #pause
+/// Second #jump(1)
+/// First // This becomes visible at subslide 1 
+/// ```
+/// -> marker
+#let jump(
+  /// Index to jump to.
+  /// -> index
+  idx,
+  /// Hider function, `auto` means use the current default hider.
+  /// -> function | auto
+  hider: auto,
+  /// Mode wrapper for joining with the surrounding elements.
+  /// -> "array" | "content"
+  mode: "content",
+) = updater(mode: mode, s => {
   s.push(idx)
   let (pauses,) = indices.resolve(s)
   if hider != auto { s.at(0).pause-state.hider = hider }
@@ -13,14 +32,35 @@
   return s
 })
 
+/// The pause marker, equivalent to `#jump(auto)`.
 #let pause = jump(auto)
-
+/// The meanwhile marker, the elements after this mark becomes visible immediately.
+/// Equivalent to `#jump(1)`.
 #let meanwhile = jump(1)
 
-#let marker(name, mode: "content", at: none) = updater(mode: mode, s => {
-  s + ((name: name, at: at),)
-})
-
+/// Name the subslide index with a label and use that label as index.
+/// -> none | content
+#let marker(
+  /// name of the index
+  /// -> label
+  name,
+  /// mode wrapping of the marker.
+  /// -> "content" | "array"
+  mode: "content",
+  /// the index to be named.
+  /// -> index
+  at: none,
+  /// Whether to allow exposing this marker's location. Useful for linking with the label.
+  /// When this is set to `true` and the marker is in `"content"` mode, it will return an empty content
+  /// with a label that can be located using `link()` or `locate()`.
+  /// -> bool
+  locatable: false,
+) = {
+  if locatable and mode == "content" { element.labeler([], name, at: at) }
+  updater(mode: mode, s => {
+    s + ((name: name, at: at),)
+  })
+}
 
 /// Reveal content on specific subslide, with space preserved.
 /// -> content

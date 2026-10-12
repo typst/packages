@@ -65,6 +65,8 @@
   v,
 )
 
+#let referenceables = (figure, heading, math.equation)
+
 #let containers = (
   sequence,
   styled,
@@ -156,9 +158,21 @@
   /// The label
   /// -> label
   name,
-) = getter(s => {
-  if s.at(0).subslide == s.at(0).steps { [#body#name] } else { body }
-})
+  /// The index to restore the label. Default: the last subslide.
+  /// `"all"` means attaching the label all the time, `"last"` means only on the last subslide,
+  /// and other index means attaching the label on that subslide.
+  /// -> index | "all" | "last"
+  at: "last",
+) = applier(
+  mode: "content",
+  body,
+  contextual: true,
+  (s, body) => {
+    if at == "all" { return [#body#name] }
+    let shown-idx = if at == "last" { s.at(0).steps } else { indices.resolve(s, at).results.last() }
+    if s.at(0).subslide == shown-idx { [#body#name] } else { body }
+  },
+)
 
 /// A custom interface that makes Presentate reach the content inside.
 /// -> function
@@ -245,7 +259,7 @@
   // restored element
   let restored = func(..pos, ..named)
   // returning phase...
-  if elem.at("mode", default: auto) != "content" { return restored }
+  if elem.at("mode", default: "content") != "content" { return restored }
   if label != none { return [#restored#label] }
 
   return restored
@@ -389,14 +403,14 @@
       states.at(0).parsing-state.shown = shown-tag
     }
     // filtering out the updater
-    new-tree = new-tree.filter(it => type-of(it) != "state-updater")
+    new-tree = new-tree.filter(it => type-of(it) != "empty")
 
     return (states, new-tree)
   }
 
   if type-of(tree) == "state-updater" {
     states = (tree.func)(states)
-    return (states, tree)
+    return (states, empty-object)
   }
 
   if type-of(tree) == "state-getter" {
@@ -441,10 +455,10 @@
     // Only when the parent element does not contain any visible children will its
     // element be hidden.
     if (
-      not s.at(0).parsing-state.shown 
-      // Only content in `pause` mode is hidden here.
-      and states.at(0).hidden-leader == "pause" 
-      and states.at(0).pause-state.hidden
+      not s.at(0).parsing-state.shown
+        // Only content in `pause` mode is hidden here.
+        and states.at(0).hidden-leader == "pause"
+        and states.at(0).pause-state.hidden
     ) {
       hider(body)
     } else {
@@ -457,9 +471,14 @@
   if tree.at("inner-hider", default: auto) != auto {
     scope.hider = tree.inner-hider
   }
+  // strip off the label of referenceable elements, and allow attach only on the last subslide.
+  if tree.func in referenceables and "label" in tree.fields.keys() {
+    if states.at(0).subslide != states.at(0).steps { tree.fields.label = none } 
+  }
 
   for (k, v) in tree.fields.pairs() {
     (states, v) = reconstruct(v, states: states, scope: scope)
+    if type-of(v) == "empty" { v = none }
     tree.fields.at(k) = v
   }
   // context provided to the element must be prior to its children.
@@ -552,7 +571,7 @@
     return (states, body)
   }
 
-  if body.func() in content-no-parse {
+  if body.func() in content-no-parse and not body.has("label") {
     let no-parse() = body
     return (states, element(no-parse))
   }

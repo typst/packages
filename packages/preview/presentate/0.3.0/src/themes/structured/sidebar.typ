@@ -75,7 +75,7 @@
     c.auto-title = auto-title
     c.show-heading-numbering = show-heading-numbering
     c.numbering-format = numbering-format
-    c.slide-func = empty-slide.with(text-size: text-size, text-font: text-font)
+    c.slide-func = empty-slide.with(animated: false, text-size: text-size, text-font: text-font)
     c.theme-colors = (primary: sidebar-color, accent: active-color)
     c.transitions = transitions
     c.max-length = max-length
