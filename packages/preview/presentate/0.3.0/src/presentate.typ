@@ -11,6 +11,10 @@
   s.at(0).pause-state.hidden = false
   s.at(0).parsing-state.shown = false
   s = s.slice(0, 1)
+  // freeze page number, tricks from minideck.
+  if i > 1 or not s.at(0).logical-slide {
+    counter(page).update(x => x - 1)
+  }
   // Touying x Polylux's originals
   {
     let body
@@ -20,10 +24,6 @@
   }
   // Prevent styling bugs in page footer
   v(0pt)
-  // freeze page number, tricks from minideck.
-  if i > 1 or not s.at(0).logical-slide {
-    counter(page).update(x => x - 1)
-  }
 
   pdfpc-slide-markers(s, i)
 
