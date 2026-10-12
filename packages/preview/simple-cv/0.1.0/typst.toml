@@ -1,0 +1,15 @@
+[package]
+name = "simple-cv"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Langxi Yuan <yuanlx27@mail2.sysu.edu.cn>"]
+license = "MIT"
+description = "A simple curriculum vitae."
+repository = "https://github.com/yuanlx27/simple-cv"
+keywords = ["cv", "resume"]
+categories = ["cv"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
