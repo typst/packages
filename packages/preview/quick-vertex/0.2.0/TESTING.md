@@ -6,8 +6,10 @@ Run all automated checks from the repository root:
 python3 tests/check.py
 ```
 
-Requires Python 3 (standard library only), Typst and `pdftotext` from Poppler.
-The script keeps compiler outputs in memory. Set `TYPST_BIN` to check another
+Requires Python 3.11 or newer (standard library only), Typst and `pdftotext`
+from Poppler. The script keeps compiler outputs in memory and prepares an
+isolated local package in `tests/rendered/packages`, so the examples' registry
+imports work before publication. Set `TYPST_BIN` to check another
 compiler version. It compiles the math assertions and the gallery/render
 battery, checks invalid inputs and rendered diagnostics, inspects SVG geometry,
 and compares 100 deterministic systems against an independent exact rational
@@ -65,6 +67,11 @@ Then check, page by page:
   `typst compile --root . --format png --ppi 150 gallery/examples.typ gallery/g{p}.png`
 - [ ] Spanish preview shows "Rectas de nivel: Z = k" and the arrow "min Z":
   `typst compile --root . --format png --ppi 150 gallery/g2-es.typ gallery/g2-es.png`
+
+Before the release is available in Universe, run `python3 tests/check.py`
+and add `--package-path tests/rendered/packages` to these gallery commands.
+All example sources use `@preview/quick-vertex:0.2.0`, so they can also be
+downloaded and compiled separately after publication.
 
 ## Additional render cases
 

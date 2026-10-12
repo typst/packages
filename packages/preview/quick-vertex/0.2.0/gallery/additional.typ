@@ -1,6 +1,6 @@
-// Additional README examples. Local imports allow testing before publication.
+// Additional README examples, also runnable as standalone downloaded files.
 // typst compile --root . gallery/additional.typ gallery/additional.pdf
-#import "../lib.typ": feasible-region, analyze
+#import "@preview/quick-vertex:0.2.0": feasible-region, analyze
 #set page(width: auto, height: auto, margin: 8pt, fill: white)
 
 // Level lines remain visible when the direction arrow is hidden.

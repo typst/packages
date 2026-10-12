@@ -1,6 +1,6 @@
 // Source for the README gallery images. Render with:
 //   typst compile --root . --format png --ppi 150 gallery/examples.typ gallery/g{p}.png
-#import "../lib.typ": feasible-region
+#import "@preview/quick-vertex:0.2.0": feasible-region
 #set page(width: auto, height: auto, margin: 8pt, fill: white)
 
 // g1 — bounded region, unique optimum; level lines and the max Z arrow
