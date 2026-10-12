@@ -1,0 +1,21 @@
+[package]
+name				= 'deep-dish'
+version				= '0.1.0'
+compiler			= '0.15.0'
+repository			= 'https://codeberg.org/boondoc/typst-deep-dish'
+license				= 'BSD-3-Clause'
+entrypoint			= 'exports.typ'
+description			= 'Dictionary deep merge operations with customisable rules.'
+authors				= [
+	'Nik Mennega',
+]
+categories			= [
+	'scripting',
+	'utility',
+]
+keywords			= [
+	'dictionary',
+	'deep',
+	'merge',
+]
+
