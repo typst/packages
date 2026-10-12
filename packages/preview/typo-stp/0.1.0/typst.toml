@@ -1,5 +1,5 @@
 [package]
-name = "stp"
+name = "typo-stp"
 version = "0.1.0"
 entrypoint = "lib.typ"
 

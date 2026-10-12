@@ -57,7 +57,7 @@ The template currently provides support for:
 Import the template package at the beginning of your document and apply show rule:
 
 ```typst
-#import "@preview/stp:0.1.0": *
+#import "@preview/typo-stp:0.1.0": *
 
 #show: template
 ```
@@ -67,7 +67,7 @@ The package configures the document according to STP 01-2024. The document conte
 For example:
 
 ```typst
-#import "@preview/stp:0.1.0": *
+#import "@preview/typo-stp:0.1.0": *
 
 #show: template
 
