@@ -2,7 +2,7 @@
 #import "metadata.typ": *
 
 #import "@preview/droplet:0.3.1": dropcap
-#import "@preview/wordometer:0.1.5": word-count, total-words
+#import "@preview/wordometer:0.1.6": word-count, total-words
 
 #show: popular-science-summary.with(
   summary-title:[The title should contain a maximum of 100 characters. #lorem(7)],
