@@ -1,4 +1,4 @@
-#import "@local/thesis-simple-uofg:0.1.0": thesis-template
+#import "@preview/thesis-simple-uofg:0.1.0": thesis-template
 
 #show: thesis-template
 
