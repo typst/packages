@@ -5,7 +5,7 @@
 
 #import "common.typ": colors, fonts
 #import "@preview/codly:1.3.0": codly, codly-init
-#import "@preview/codly-languages:0.1.1": codly-languages
+#import "@preview/codly-languages:0.1.10": codly-languages
 
 // Build the header and footer used on body pages. Two-sided.
 // Returns a dictionary suitable for `set page(header: ..., footer: ...)`.
