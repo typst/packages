@@ -4,7 +4,7 @@
 #import "vowels.typ": language-vowels, vowel-data
 
 // Vowels supported by the 3D chart (Ladefoged & Maddieson 1996, p. 283)
-#let vowels-3d-inventory = ("i", "e", "ɛ", "a", "u", "o", "ɔ", "ɑ", "ə")
+#let vowels-3d-inventory = ("i", "e", "ɛ", "a", "u", "o", "ɔ", "ɒ", "ə")
 
 // Distance between the unrounded (front) and rounded (back) faces; fixed by design
 #let vowels-3d-depth = 4
@@ -54,10 +54,10 @@
     message: "vowels-3d: expected at most one positional argument (the vowel string)")
   assert(args.named().len() == 0,
     message: "vowels-3d: unexpected named argument(s): " + args.named().keys().join(", "))
-  let vowel-string = args.pos().at(0, default: "ieEauoOA@")
+  let vowel-string = args.pos().at(0, default: "ieEauoO6@")
   let rotation = to-angle(rotation, "rotation")
   let tilt = to-angle(tilt, "tilt")
-  let supported = "i e ɛ a u o ɔ ɑ ə (tipa: i e E a u o O A @)"
+  let supported = "i e ɛ a u o ɔ ɒ ə (tipa: i e E a u o O 6 @)"
   assert(
     type(vowel-string) != str or lower(vowel-string) not in language-vowels,
     message: "vowels-3d: language names are not accepted (got \"" + str(vowel-string)

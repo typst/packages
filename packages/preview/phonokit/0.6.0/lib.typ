@@ -424,18 +424,18 @@
 /// following Ladefoged & Maddieson (1996, p. 283). The front face of the prism
 /// is unrounded and the back face is rounded. Front vowels sit on the left face,
 /// back vowels on the right face, at a depth set by their degree of rounding:
-/// /i/ is least rounded, /u/ most rounded, and the low vowels /a/ and /ɑ/ meet
+/// /i/ is least rounded, /u/ most rounded, and the low vowels /a/ and /ɒ/ meet
 /// halfway. Schwa is placed inside the prism. Edges hidden from the current
 /// viewpoint are drawn dashed, and are recomputed for every angle. Vowels
 /// farther from the viewer are drawn smaller (see `depth-cue`).
 ///
 /// Arguments:
 /// - vowel-string (string, optional): Vowels to plot in tipa-style IPA, passed
-///   positionally (e.g. `vowels-3d("ieau")`). Only i e E a u o O A @
-///   (i e ɛ a u o ɔ ɑ ə) are supported: either all nine or a subset of them.
+///   positionally (e.g. `vowels-3d("ieau")`). Only i e E a u o O 6 @
+///   (i e ɛ a u o ɔ ɒ ə) are supported: either all nine or a subset of them.
 ///   Any other symbol, and any language name (e.g. "english"), stops
 ///   compilation with an error listing the supported vowels
-///   (default: "ieEauoOA@", all nine vowels)
+///   (default: "ieEauoO6@", all nine vowels)
 /// - rotation (angle or number): Spin around the vertical axis. 0deg is a straight-on
 ///   view, in which depth edges point straight up; positive angles send the
 ///   rounded face to the left, negative angles to the right. A plain number is
@@ -463,7 +463,7 @@
 ///
 /// Examples:
 /// - `#vowels-3d()` - All nine vowels, Ladefoged & Maddieson view
-/// - `#vowels-3d("ieEauoOA")` - Peripheral vowels only, no schwa
+/// - `#vowels-3d("ieEauoO6")` - Peripheral vowels only, no schwa
 /// - `#vowels-3d("ieau@", rotation: -40deg, tilt: 35deg)` - Rotated view
 /// - `#vowels-3d(rotation: 0deg, tilt: 0deg)` - Flat front view, as in `#vowels()`
 /// - `#vowels-3d(depth-cue: false)` - All vowels at the same size
