@@ -12,6 +12,20 @@
   region: "BR",
 )
 
+// ## Icons. Ícones.
+
+#block()[
+  In order to render icons properly, you must *download* the most recent set of Tabler Icons from the project #link("https://iconify.design/", [*Iconify*]).
+
+  Access the #link("https://ecstrema.github.io/iconify-typst/", [*downloads*]) page from #link("https://typst.app/universe/package/iconify", [Iconify Typst]) project, and download the *Tabler* set.
+
+  It will download a JSON file named *`tabler.json`*.
+
+  Then, *replace* this file for the one with the same name in the *`/assets`* folder in this project.
+
+  When you do that, remove this block.
+]
+
 #provide-icons(
   json("assets/tabler.json"),
 )

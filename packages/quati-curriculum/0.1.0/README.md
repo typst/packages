@@ -30,7 +30,7 @@ Access the [**downloads**](https://ecstrema.github.io/iconify-typst/) page from 
 
 It will download a JSON file named `tabler.json`.
 
-Then, place this file in the `/assets` folder on this project.
+Then, **replace** this file for the one with the same name in the `/assets` folder in this project.
 
 ```txt
 .
