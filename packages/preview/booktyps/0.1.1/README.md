@@ -142,7 +142,7 @@ repeats its last entry. The rules run straight through the gutters. A stroke on
 the cells can't do that: it stops at every gutter and cuts the top rule into
 pieces.
 
-![Gutters](./assets/gutters.png)
+![Vertical Rule inside the Gutter](./assets/gutters.png)
 
 ```typst
 #table(
