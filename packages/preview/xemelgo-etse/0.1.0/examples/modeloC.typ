@@ -9,7 +9,7 @@
     (name: "Nombre de la cotutora o del cotutor"),
     // (name: "...", department: "Departamento de ..."),
   ),
-  // logo: image("logo_usc.pdf"),
+  // logo: none, // hide the USC logo, or pass your own image(..)
   // date: datetime(year: 2027, month: 3, day: 1),
   // lang: "gl",
   // certification: false,

@@ -17,10 +17,9 @@ A clone of the official LaTeX templates, in Spanish, Galician or English.
 1. Create the project: *Start from template* in the web app, or `typst init @preview/xemelgo-etse:0.1.0`.
 2. Choose your [model](#which-model): `modeloA`, `modeloB` or `modeloC` in `main.typ`.
 3. Fill in the [options](#options): title, authors (you first, then tutors)…
-4. Add the logo: [download it](https://www.usc.gal/gl/usc/institucional/imaxe-corporativa), then `logo: image("logo_usc.pdf")`.
-5. Write: `=` chapter, `==` section. Appendices go after `#show: apendices`.
-6. Cite with `@key` from `refs.bib`.
-7. Remove `#include "ejemplos.typ"` before submitting.
+4. Write: `=` chapter, `==` section. Appendices go after `#show: apendices`.
+5. Cite with `@key` from `refs.bib`.
+6. Remove `#include "ejemplos.typ"` before submitting.
 
 ## Which model?
 
@@ -41,7 +40,7 @@ See the [examples](#examples) for each model's chapters.
 | `title`            | `[Title]` | Title. |
 | `subtitle`         | `none`    | Subtitle. |
 | `authors`          | `()`      | Student, then tutors: `(name: "...")`. Tutors may add `department: "..."`. |
-| `logo`             | `none`    | Logo, e.g. `image("logo_usc.pdf")`. |
+| `logo`             | `auto`    | `auto` is the USC logo, `none` hides it, or pass an `image(..)`. |
 | `date`             | `auto`    | A `datetime`. `auto` is today. |
 | `lang`             | `"es"`    | `"es"`, `"gl"` or `"en"`. |
 | `i18n`             | `(:)`     | Change texts: `(es: (abstract: [Sinopsis]))`. Keys in [`src/i18n.typ`](src/i18n.typ). |
@@ -71,3 +70,5 @@ See the [examples](#examples) for each model's chapters.
 ## License
 
 Code: [MIT](LICENSE). Template files: [MIT-0](LICENSE-MIT-0), so your TFG needs no license notice.
+
+The USC logo (`assets/logo_usc.pdf`) is not covered by these licenses: it belongs to the USC, which allows its use in this template. See the [USC visual identity](https://www.usc.gal/gl/usc/institucional/imaxe-corporativa).

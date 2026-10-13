@@ -10,8 +10,7 @@
     (name: "Nombre de la cotutora o del cotutor"),
     // (name: "...", department: "Departamento de ..."),
   ),
-  // USC logo (not included): download it from https://www.usc.gal/gl/usc/institucional/imaxe-corporativa
-  // logo: image("logo_usc.pdf"),
+  // logo: none, // hide the USC logo, or pass your own image(..)
   // date: datetime(year: 2027, month: 3, day: 1),
   // lang: "gl", // "es", "gl" or "en"
   // i18n: (es: (abstract: [Sinopsis])), // change any fixed text

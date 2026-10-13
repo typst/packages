@@ -11,5 +11,5 @@
   ),
   course: [2026/2027],
   session: [Marzo 2027],
-  // logo: image("logo_usc.pdf"),
+  // logo: none, // hide the USC logo, or pass your own image(..)
 )

@@ -12,8 +12,10 @@
 
 #let capitalize(s) = upper(s.first()) + s.slice(s.first().len())
 
-// University logo passed by the user (e.g. `image("logo_usc.pdf")`), shown at `width`
-#let logo-at(logo, width) = if logo != none {
+// University logo shown at `width`: `auto` is the bundled USC logo, `none` hides it
+#let logo-at(logo, width) = if logo == auto {
+  image("/assets/logo_usc.pdf", width: width)
+} else if logo != none {
   set image(width: width)
   logo
 }
@@ -81,7 +83,7 @@
   date: auto,
   lang: "es",
   i18n: (:),
-  logo: none,
+  logo: auto,
   certification: true,
   acknowledgements: none,
   abstract: none,
@@ -366,7 +368,7 @@
   session: none,
   lang: "es",
   i18n: (:),
-  logo: none,
+  logo: auto,
 ) = {
   let t = i18n-for(lang, i18n)
   let (student, ..tutors) = if authors == () { ((name: none),) } else { authors }
