@@ -41,8 +41,10 @@ Each constraint is a 4-tuple `(a, b, c, op)` meaning `a·x + b·y op c`, where
 given as `(c1, c2)`.
 
 When working from a local checkout, import `"lib.typ"` instead of the registry
-package. Imports of `0.2.0` become available once its Typst Universe submission
-is accepted.
+package. The Typst Universe submission for `0.2.0` is
+[PR #6100](https://github.com/typst/packages/pull/6100). Registry imports become
+available after that PR is merged and the publication workflow completes.
+See the PR for its current review and publication status.
 
 ## Examples
 

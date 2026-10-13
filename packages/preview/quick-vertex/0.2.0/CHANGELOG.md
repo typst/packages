@@ -2,6 +2,10 @@
 
 ## 0.2.0 — 2026-10-12
 
+Typst Universe submission: [PR #6100](https://github.com/typst/packages/pull/6100).
+The date above records preparation of the version, not registry publication;
+the PR tracks acceptance and publication.
+
 - Replace angular sampling with analytic recession directions and normalize
   constraints/objectives before geometric comparisons.
 - Separate feasibility and optimization from the visible frame; support

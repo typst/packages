@@ -60,10 +60,13 @@ are covered by assertions and an independent exact projection oracle in tests.
   strips and other vertex-free regions now use the existing clipping renderer;
   a second rendering algorithm is unnecessary.
 
-## Before publishing to Typst Universe
+## Typst Universe publication
 
-- [x] Confirm the name `feasible-region` is free in the index.
-- [x] Final visual pass on the gallery images.
-- [x] Submit a PR to `typst/packages` (`packages/preview/quick-vertex/0.1.0/`, renamed from `feasible-region` per reviewer feedback).
+- [x] `0.1.0`: published through [#5336](https://github.com/typst/packages/pull/5336), renamed from `feasible-region` per reviewer feedback.
 - [x] `0.1.1`: equal aspect ratio and exterior-bisector vertex labels. Published through [#5391](https://github.com/typst/packages/pull/5391).
-- [ ] Publish `0.2.0` after Typst maintainers' review: correctness fixes, pure analysis, level-line legends and direction labels.
+- [x] `0.2.0`: submitted through [#6100](https://github.com/typst/packages/pull/6100), with correctness fixes, pure analysis, level-line legends and direction labels.
+- [x] `0.2.0`: lint, tests and package validation pass with 0 errors and 0 warnings.
+- [ ] `0.2.0`: merge and publish after Typst maintainers' review.
+
+Status checked on 2026-10-13: the PR is open, with no maintainer review or
+change requests yet. The remaining step is external review and approval.
