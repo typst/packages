@@ -1,5 +1,4 @@
-//#import "@preview/uniovi-epi-tfg:0.1.0": *
-#import "../lib.typ": *
+#import "@preview/uniovi-epi-tfg:0.1.0": *
 
 #show: template.with(
   school: "Escuela Politécnica de Ingeniería de Gijón",
