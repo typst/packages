@@ -1,0 +1,17 @@
+[package]
+name = "typtorial"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jonas Kaiser"]
+license = "MIT AND MIT-0"
+description = "Step-by-step code tutorials with automatic diff highlighting."
+keywords = ["tutorial", "code", "diff", "slides", "html"]
+categories = ["presentation"]
+compiler = "0.15.0"
+# Only shown in the README; not part of the download.
+exclude = ["docs"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

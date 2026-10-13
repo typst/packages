@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../theme.schema.json
+# "Signal" theme of typtorial: greys, square corners and headings in yellow
+# on a black bar. It ships with the package:
+#   #import "@preview/typtorial:0.1.0": tutorial, themes
+#   #show: tutorial.with(theme: themes.signal)
+# Settings that are missing here are taken from default.theme.yaml next to this file.
+
+fonts:
+  text: [Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]
+  code: [Menlo, Consolas, DejaVu Sans Mono]
+  brand: [Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]
+
+colors:
+  background: "#e6e6e6"
+  text: "#000000"
+  accent: "#ffff40"
+  heading: "#ffff40"        # sits on the black bar
+  heading-background: "#000000"
+  line: "#c5c5c5"
+  code-background: "#ffffff"
+  header: "#ffffff"
+  button: "#000000"
+  button-text: "#ffffff"
+
+brand:
+  text: typtorial
+
+layout:
+  dots: false
+  corner-radius: 0
+  title-underline: false
+  title-uppercase: true
+  text-position: top
+
+# Dark color scheme: the greys turned around, the heading bar becomes yellow
+# with black text.
+dark:
+  colors:
+    background: "#1d1d1d"
+    text: "#ffffff"
+    accent: "#ffff40"
+    heading: "#000000"      # sits on the yellow bar
+    heading-background: "#ffff40"
+    line: "#444444"
+    code-background: "#252525"
+    header: "#000000"
+    button: "#ffff40"
+    button-text: "#000000"
