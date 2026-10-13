@@ -40,10 +40,7 @@
 
   set document(
     title: title,
-    author: authors.map(a => a.name + " " + a.surname), 
-    supervisor: supervisor.map(a => a.name + " " + a.surname),
-    institution: get_translation(translated_terms.uniovi),
-    institution-link: institution-link
+    author: authors.map(a => a.name + " " + a.surname),
     )
 
   set text(font: text_font, size: 12pt, fill: text_color, lang: text_lang)
