@@ -41,7 +41,7 @@ Or copy this minimal template into your document:
 Aquí comienza el contenido del TFG...
 ```
 
-A full working example can be found in [template/main.typ](https://github.com/martincanga/uniovi-epi-tfg/blob/main/template/main.typ).
+A full working example can be found in [template/main.typ](https://github.com/typst/packages/blob/92855726cc35a9d051986e2beac4cef92c7e10d8/packages/preview/uniovi-epi-tfg/0.1.0/template/main.typ).
 
 ## Configuration
 
@@ -68,7 +68,7 @@ Configure the `template` function at the top of your document:
 | `heading_numbering` | `string` | `"1"` | Numbering pattern for headings. |
 | `bibliography_style` | `string` | `"ieee"` | Citation style for the bibliography. |
 
-All parameters and their defaults can be found in [src/template.typ](https://github.com/martincanga/uniovi-epi-tfg/blob/main/src/template.typ).
+All parameters and their defaults can be found in [src/template.typ](https://github.com/typst/packages/blob/92855726cc35a9d051986e2beac4cef92c7e10d8/packages/preview/uniovi-epi-tfg/0.1.0/src/template.typ).
 
 ## Features
 
@@ -107,7 +107,7 @@ Raw code blocks are rendered with a custom dark theme (`barf.tmTheme`):
 
 Set `lang: "es"` or `lang: "en"` to switch the interface language automatically. Labels in headers and the cover page (e.g. *Tutor* vs. *Thesis Advisor*, *Página* vs. *Page*) update accordingly.
 
-The full list of translatable terms is in [src/translated_terms.typ](https://github.com/martincanga/uniovi-epi-tfg/blob/main/src/translated_terms.typ).
+The full list of translatable terms is in [src/translated_terms.typ](https://github.com/typst/packages/blob/92855726cc35a9d051986e2beac4cef92c7e10d8/packages/preview/uniovi-epi-tfg/0.1.0/src/translated_terms.typ).
 
 ### Third-party Packages
 
