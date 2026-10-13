@@ -10,4 +10,4 @@ keywords = ["numbering", "figures", "equations", "subfigures"]
 categories = ["model", "utility"]
 disciplines = []
 compiler = "0.15.0"
-exclude = [".git", ".github", "tests"]
+exclude = [".git", ".github", "tests", "CONTRIBUTING.md"]
