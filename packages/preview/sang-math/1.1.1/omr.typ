@@ -45,13 +45,13 @@
   if embedded and spec.profile.paper != "a5" {
     panic("sang-math OMR: only an A5 profile can be embedded")
   }
-  import ("omr/layouts/" + profile + ".typ") as sheet
+  import ("omr/layouts/" + profile.replace(regex("-a[45]$"), "") + ".typ") as sheet
   metadata((kind: "sang-math-omr", version: "1.1.1", profile: profile, sbd: pupil, made: code))
   // Keep printed glyphs consistent with the measured library even when the
   // surrounding exam uses another font or bold text. This scope ends here.
   let body = [
     #set text(font: "Libertinus Serif", weight: "regular")
-    #sheet.render(sbd: pupil, ma-de: code)
+    #sheet.render(sbd: pupil, ma-de: code, paper: spec.profile.paper)
   ]
   if embedded {
     omr-embed(block(width: 190mm, height: 140mm, inset: (top: 6mm, bottom: 6mm))[

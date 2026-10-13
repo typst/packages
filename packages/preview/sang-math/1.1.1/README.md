@@ -6,6 +6,8 @@ Bộ macro Typst dành cho Toán THPT Việt Nam: đề thi bốn dạng câu h�
 - Mã nguồn: https://github.com/sangnhc87/conictypst
 - Yêu cầu bản 1.1: Typst 0.15.0 trở lên (do `touying 0.8.0`); đã thử trên 0.15.1.
 
+Bản 1.1.1 giữ nguyên API soạn đề 1.1.0/1.0.6; thêm lớp kiểu chữ toán chuẩn LaTeX `sang-typst` (chỉ chạy khi bật) và sửa `vec(1, 2, 3)`. Xem [Kiểu chữ toán chuẩn LaTeX](#kiểu-chữ-toán-chuẩn-latex-111).
+
 Bản 1.1.1 giữ nguyên cách soạn đề của 1.0.6 và API 1.1.0; bổ sung thư viện 24 mẫu OMR A5/A4, điền SBD/mã đề bằng state và ghép phiếu vào đề. Xem [thư viện phiếu và cách sử dụng](omr/README.md).
 
 ## Mẫu chuẩn soạn đề
@@ -253,8 +255,8 @@ Gói `sang-math` cung cấp khung đề thi chuẩn Bộ GD&ĐT 2025, hoàn toà
 ))
 ```
 
-## Tạo đề bằng AI (ChatGPT / Claude / Gemini)
-Để AI hỗ trợ soạn đề tự động đúng 100% cú pháp `sang-math:1.0.6`, xem hướng dẫn và sao chép System Prompt chuẩn tại [`PROMPT_AI_TAO_DE.md`](https://github.com/sangnhc87/conictypst/blob/14b296889533c8b1897e5bebbfec499de7c5a932/typst-pkg-sang-math/PROMPT_AI_TAO_DE.md).
+## Tạo đề bằng AI
+Để AI hỗ trợ soạn đề tự động chuẩn cú pháp `sang-math:1.1.1`, xem hướng dẫn và sao chép System Prompt chuẩn tại [`PROMPT_AI_TAO_DE.md`](https://github.com/sangnhc87/conictypst/blob/14b296889533c8b1897e5bebbfec499de7c5a932/typst-pkg-sang-math/PROMPT_AI_TAO_DE.md).
 
 ## Phát triển và kiểm thử
 
@@ -291,3 +293,35 @@ Bản 1.1.1 tự dành chỗ theo biên chữ/công thức trong câu dẫn, ph�
 Xem [ví dụ phân số lồng, hệ và căn nhãn](examples/exam-spacing.typ).
 
 Đ/S và TLN cũng hỗ trợ `options-gap`, `question-gap`, `breakable`; ở chế độ đề, câu dẫn được giữ cùng bảng/ô đáp số. Câu dài hơn một trang có thể đặt `breakable: true`.
+
+## Kiểu chữ toán chuẩn LaTeX (1.1.1)
+
+Không bật thì đề giữ y nguyên. Bật bằng một dòng, đặt **sau cùng** các show rule:
+
+```typst
+#import "@preview/sang-math:1.1.1": *
+#show: thpt-school-exam.with()
+#show math.frac: math.display
+#show math.cases: math.display
+#show: sang-typst                          // hoặc sang-typst.with(preset: "latex" | "times")
+```
+
+| Tính năng | `"chuan"` (mặc định) | `"latex"` | `"times"` |
+|---|---|---|---|
+| Dấu phẩy thập phân `$0,75$` không giãn (như `icomma`) | ✓ | ✓ | ✓ |
+| `$0.5$` in ra 0,5 (gõ trong `heva`/`hoac`, nơi dấu phẩy ngăn tham số) | ✓ | ✓ | ✓ |
+| Nhóm số dài `1 234 567` | — | ✓ | ✓ |
+| Bất đẳng thức ⩽ ⩾ (như `\leqslant`) | — | ✓ | ✓ |
+| Font | giữ nguyên | Latin Modern | Times + STIX Two Math |
+| Khoảng cách dòng đều 1,2em, đánh số chỉ PT có nhãn | — | ✓ | ✓ |
+
+Quy tắc dấu phẩy: `$0,75$` là số thập phân; `$1, 2$` (có khoảng trắng), `$(2,1,3)$` và cặp `$A(2,4)$` là liệt kê/tọa độ. Muốn số thập phân trong ngoặc hàm thì gõ `$f(0.5)$`. Phân số giữ cỡ to như hiện tại.
+
+Từng tùy chọn ghi đè preset: `decimal-comma`, `point-to-comma`, `group-digits`, `ineq` (`"keep"`/`"slant"`), `fonts` (`"keep"`/`"latex"`/`"times"`/`"stix"`), `leading` (`"keep"`/`"latex"`), `eq-number`, `display-skip`, `script-frac`. Lệnh kèm theo: `#num(1234567.25)`, `#qty(9.8, "m/s^2")`, `$tg x$`, `$cotg x$`, `$arctg x$`, `$arccotg x$`, `$cung(A B)$`, `$goc(A B C)$`.
+
+Phương trình có nhãn được giữ nguyên để không vỡ tham chiếu. Gói không đổi nội dung câu hỏi, khóa đáp án, QR hay JSON. Trong khung câu hỏi của `tn/ds/tln`, khoảng dòng do sang-math quản lý, nên `leading: "latex"` chỉ tác dụng ở phần văn bản ngoài câu hỏi.
+
+### Lưu ý tên dùng chung với Typst
+
+- `vec(x)` một tham số là vectơ mũi tên (như các bản trước); từ 1.1.1, `vec(1, 2, 3)` nhiều tham số trả về vectơ cột gốc của Typst.
+- `int` là ký hiệu ∫ (tương thích LaTeX) nên che kiểu số nguyên của Typst trong code; dùng `std.int("5")` khi cần đổi sang số nguyên.

@@ -75,6 +75,8 @@ eg)
 // Typst dùng `integral` trực tiếp trong math mode.
 // Nếu AI gõ `int` thay vì `integral`:
 #let int = sym.integral      // ∫  (LaTeX: \int)
+// Lưu ý: tên `int` này che kiểu số nguyên của Typst trong code.
+// Cần đổi chuỗi/số thực sang số nguyên thì dùng std.int(...), ví dụ std.int("5").
 #let iint = sym.integral.double   // ∬  (LaTeX: \iint)
 #let iiint = sym.integral.triple   // ∭  (LaTeX: \iiint)
 #let oint = sym.integral.cont     // ∮  (LaTeX: \oint)
@@ -134,7 +136,12 @@ eg)
 // LaTeX: \hat{x}   → Typst: $hat(x)$
 // Alias để tránh nhầm:
 #let overrightarrow(x) = math.arrow(x)  // \overrightarrow{AB} → overrightarrow(A B)
-#let vec(x) = math.arrow(x)             // \vec{v} → vec(v)    (override nếu cần)
+// \vec{v} → vec(v): MỘT tham số là vectơ mũi tên (như cũ).
+// Từ hai tham số trở lên trả về vectơ cột gốc của Typst: vec(1, 2, 3) (sửa ở 1.1.1).
+#let vec(..args) = {
+  let pos = args.pos()
+  if pos.len() == 1 and args.named().len() == 0 { math.arrow(pos.first()) } else { math.vec(..args) }
+}
 #let prod = sym.product                 // \prod → prod
 #let pmat = math.mat                    // \pmatrix / \pmat → mat
 #let Tr = math.op("Tr")                 // Trace of a matrix

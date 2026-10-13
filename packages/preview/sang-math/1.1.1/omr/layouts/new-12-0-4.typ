@@ -1,5 +1,5 @@
 // Original print geometry; identity fill only. See omr/README.md.
-#let render(sbd: "", ma-de: "") = [
+#let render(sbd: "", ma-de: "", paper: "a5") = [
 // ============================================================
 // PHIẾU OMR — 12 TN + 4 Đ/S VÀ 12 TN + 4 TLN
 //
@@ -1260,21 +1260,13 @@
   ]
 }
 
-// ============================================================
-// TRANG 1 — 12 TN + 4 Đ/S — A5 NGANG
-// ============================================================
-
-
-
-// ============================================================
-// TRANG 2 — 12 TN + 4 Đ/S — A4 DỌC
-// ============================================================
-
-#sheet(
-  sbd-digits: sbd-12tn4ds-a4,
-  second: "ds",
-  compact: false,
-)
-
-
+#if paper == "a5" {
+  sheet(sbd-digits: sbd-12tn4tln-a5,
+  second: "tln",
+  compact: true,)
+} else {
+  sheet(sbd-digits: sbd-12tn4tln-a4,
+  second: "tln",
+  compact: false,)
+}
 ]

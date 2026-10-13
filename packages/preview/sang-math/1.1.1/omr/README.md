@@ -86,9 +86,9 @@ Sau khi soạn đủ các câu bằng `tn`, `ds`, `tln`, dùng
 đúng cấu hình. Đặt QR ở vùng trống ngoài phiếu, tránh ô tô và mốc.
 Không truyền profile thì QR giữ hành vi cũ của 1.1.0.
 
-`sang-omr-catalog` chứa 24 mô tả. [profiles.json](profiles.json) kèm tọa độ
-ô/mốc, cấu trúc TLN, mẫu gốc và hash nguồn cho phần mềm nhận dạng; đây là
-schema đo từ bản in, không phải một bộ chấm ảnh độc lập. Metadata vô hình
+`sang-omr-catalog` chứa 24 mô tả (khổ giấy, số câu). [profiles.json](profiles.json) chỉ giữ
+phần gói cần để dựng phiếu; tọa độ đo từng ô/mốc cho phần mềm nhận dạng nằm ở
+kho mã nguồn của dự án, không đóng gói để giữ gói nhỏ. Metadata vô hình
 trong PDF ghi ID mẫu/SBD/mã đề để công cụ tích hợp sử dụng; bản scan vẫn
 được kiểm tra bằng mốc và vị trí ô tô.
 

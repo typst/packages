@@ -1,32 +1,30 @@
 // Original print geometry; identity fill only. See omr/README.md.
-#let render(sbd: "", ma-de: "") = [
+#let render(sbd: "", ma-de: "", paper: "a5") = [
 // ============================================================
-// PHIẾU OMR — 10 CÂU TRẢ LỜI NGẮN
+// PHIẾU OMR — 10 Đ/S VÀ 4 Đ/S + 6 TLN
 //
-// Trang 1: A5 ngang.
-// Trang 2: A4 dọc.
+// Trang 1: 10 Đ/S — A5 ngang.
+// Trang 2: 10 Đ/S — A4 dọc.
+// Trang 3: 4 Đ/S + 6 TLN — A5 ngang.
+// Trang 4: 4 Đ/S + 6 TLN — A4 dọc.
 //
-// SBD: 6 hoặc 8 chữ số.
-// Mã đề: 4 chữ số.
+// Mỗi câu Đ/S: 4 ý a, b, c, d.
 // Mỗi đáp án TLN: tối đa 4 ký tự.
 //
-// TLN:
-// Hàng 1: dấu âm, chỉ cột 1.
-// Hàng 2: dấu phẩy, chỉ cột 2 và 3.
-// Hàng 3–12: chữ số 0–9, cả 4 cột.
-//
-// Không sử dụng package, ảnh hoặc file phụ.
+// Không cần package, ảnh hoặc file phụ.
 // ============================================================
 
 // ------------------------------------------------------------
-// CẤU HÌNH — CHỈ NHẬP 6 HOẶC 8
+// CẤU HÌNH SBD: CHỈ NHẬP 6 HOẶC 8
 // ------------------------------------------------------------
 
-#let sbd-a5 = 6
-#let sbd-a4 = 6
+#let sbd-10ds-a5 = 6
+#let sbd-10ds-a4 = 6
+#let sbd-4ds6tln-a5 = 6
+#let sbd-4ds6tln-a4 = 6
 
 // ------------------------------------------------------------
-// THIẾT LẬP
+// THIẾT LẬP CHUNG
 // ------------------------------------------------------------
 
 #set text(size: 9pt, fill: black)
@@ -141,16 +139,55 @@
   ]
 }
 
+#let section(title, note, w, compact: false) = {
+  block(
+    width: w,
+    height: if compact { 6mm } else { 9mm },
+  )[
+    #at(
+      0mm,
+      0mm,
+      tx(
+        title,
+        size: if compact { 7.6pt } else { 10pt },
+        weight: "bold",
+        fill: accent,
+      ),
+    )
+
+    #at(
+      w - 76mm,
+      0.2mm,
+      righted(
+        76mm,
+        tx(
+          note,
+          size: if compact { 6.1pt } else { 8pt },
+          fill: muted,
+        ),
+      ),
+    )
+
+    #at(
+      0mm,
+      if compact { 4.5mm } else { 6.5mm },
+      line(length: w, stroke: 0.45pt + rule-color),
+    )
+  ]
+}
+
 // ------------------------------------------------------------
-// MỐC ĐỊNH VỊ
+// 12 MỐC CHÍNH + 1 MỐC NHẬN CHIỀU
 //
 // Vùng nội dung cách mép giấy 10 mm.
-// Mốc chính: 4 × 4 mm.
-// Mốc phụ nhận chiều: 2.5 × 2.5 mm.
 //
-// Tọa độ tâm mốc chính trên giấy:
+// Mốc chính: 4 × 4 mm.
+// Tâm trên giấy:
 // X = 10 mm + x + 2 mm
 // Y = 10 mm + y + 2 mm
+//
+// A5: vùng nội dung 190 × 128 mm.
+// A4: vùng nội dung 190 × 277 mm.
 // ------------------------------------------------------------
 
 #let registration(h) = {
@@ -202,7 +239,19 @@
 // TIÊU ĐỀ
 // ------------------------------------------------------------
 
-#let header(compact: false) = {
+#let header(mixed: false, compact: false) = {
+  let subtitle = if mixed {
+    "04 câu đúng / sai × 4 ý  ·  06 câu trả lời ngắn"
+  } else {
+    "10 câu đúng / sai × 4 ý  ·  Mỗi ý chọn Đ hoặc S"
+  }
+
+  let badge = if mixed {
+    "4 Đ/S + 6 TLN"
+  } else {
+    "10 CÂU Đ/S"
+  }
+
   block(
     width: 190mm,
     height: if compact { 11mm } else { 17mm },
@@ -211,7 +260,7 @@
       0mm,
       0.5mm,
       tx(
-        [PHIẾU TRẢ LỜI NGẮN],
+        [PHIẾU TRẢ LỜI],
         size: if compact { 14pt } else { 19pt },
         weight: "bold",
       ),
@@ -221,18 +270,18 @@
       0mm,
       if compact { 6mm } else { 9.5mm },
       tx(
-        [10 câu trả lời ngắn · Tối đa 4 ký tự mỗi đáp án],
+        subtitle,
         size: if compact { 7pt } else { 9pt },
         fill: muted,
       ),
     )
 
     #at(
-      158mm,
+      153mm,
       0.5mm,
       pill(
-        [10 CÂU TLN],
-        32mm,
+        badge,
+        37mm,
         if compact { 5mm } else { 6.5mm },
         size: if compact { 8pt } else { 10pt },
       ),
@@ -321,8 +370,7 @@
 }
 
 // ------------------------------------------------------------
-// THÔNG TIN A5 — CỘT TRÁI
-// Khối này đặt tại x = 0, y = 14 mm.
+// THÔNG TIN A5 — BÊN TRÁI
 // ------------------------------------------------------------
 
 #let candidate-a5(sbd-digits) = {
@@ -344,7 +392,6 @@
       )
     }
 
-    // SBD căn giữa trong vùng rộng 36 mm.
     #at(
       (36mm - sbd-w) / 2,
       35mm,
@@ -358,11 +405,7 @@
     #at(
       43mm,
       35mm,
-      identity(
-        [MÃ ĐỀ],
-        4,
-        compact: true,
-      ),
+      identity([MÃ ĐỀ], 4, compact: true),
     )
 
     #at(
@@ -387,8 +430,8 @@
 
         *HƯỚNG DẪN* \
         SBD #str(sbd-digits) số; mã đề 4 số. \
-        Tô đủ các chữ số 0 ở đầu, nếu có. \
-        TLN: viết trái → phải; cột dư để trống. \
+        Tô cả chữ số 0 ở đầu, nếu có. \
+        Đ/S: mỗi ý chỉ chọn 1 ô Đ hoặc S. \
         Tô kín bằng bút chì 2B; tẩy sạch khi sửa.
       ],
     )
@@ -397,7 +440,6 @@
 
 // ------------------------------------------------------------
 // THÔNG TIN A4 — PHÍA TRÊN
-// Khối này đặt tại x = 0, y = 22 mm.
 // ------------------------------------------------------------
 
 #let candidate-a4(sbd-digits) = {
@@ -441,7 +483,7 @@
         #set par(leading: 2pt)
 
         *LƯU Ý KHI LÀM BÀI* \
-        Tô kín ô bằng bút chì 2B; tẩy sạch khi sửa. \
+        Tô kín bằng bút chì 2B; tẩy sạch khi sửa. \
         SBD #str(sbd-digits) số; mã đề 4 số. \
         Tô đủ các chữ số 0 ở đầu, nếu có.
       ],
@@ -462,16 +504,74 @@
 }
 
 // ------------------------------------------------------------
-// CẤU TRÚC TLN
+// CARD ĐÚNG / SAI
 //
-// Chỉ số trong code bắt đầu từ 0.
+// 4 ý a, b, c, d.
+// Mỗi ý có 2 ô Đ và S.
+// ------------------------------------------------------------
+
+#let ds-card(question, w, compact: false) = {
+  let d = if compact { 3.2mm } else { 4.2mm }
+  let row-y = if compact { 10mm } else { 15mm }
+  let row-step = if compact { 7mm } else { 11mm }
+
+  let base-x = (w - 19mm) / 2
+  let items = ("a", "b", "c", "d")
+
+  block(
+    width: w,
+    height: if compact { 37mm } else { 56mm },
+  )[
+    #at(
+      0mm,
+      0mm,
+      pill(
+        [Câu #str(question)],
+        w,
+        if compact { 5mm } else { 7mm },
+        size: if compact { 7pt } else { 9pt },
+      ),
+    )
+
+    #for i in range(4) {
+      let y = row-y + i * row-step
+
+      at(
+        base-x,
+        y + 0.3mm,
+        tx(
+          items.at(i),
+          size: if compact { 7.5pt } else { 9pt },
+          weight: "bold",
+        ),
+      )
+
+      at(
+        base-x + 6mm,
+        y,
+        bubble("Đ", diameter: d),
+      )
+
+      at(
+        base-x + 14mm,
+        y,
+        bubble("S", diameter: d),
+      )
+    }
+  ]
+}
+
+// ------------------------------------------------------------
+// CARD TLN
 //
-// row = 0: dấu âm, chỉ col = 0.
-// row = 1: dấu phẩy, chỉ col = 1 hoặc 2.
-// row >= 2: chữ số 0–9, cả 4 cột.
+// row, col bắt đầu từ 0.
 //
-// Mỗi câu có 43 ô tô hợp lệ.
-// Vị trí không hợp lệ để trắng hoàn toàn.
+// row 0: dấu âm, chỉ col 0.
+// row 1: dấu phẩy, chỉ col 1 và col 2.
+// row 2–11: số 0–9, cả 4 cột.
+//
+// Mỗi câu có 43 ô hợp lệ.
+// Không vẽ vòng tròn tại vị trí không hợp lệ.
 // ------------------------------------------------------------
 
 #let tln-valid(row, col) = {
@@ -484,10 +584,9 @@
   }
 }
 
-#let short-card(question, compact: false) = {
-  let w = if compact { 22.8mm } else { 36mm }
-
-  let px = if compact { 4.7mm } else { 7mm }
+#let tln-card(question, compact: false) = {
+  let w = if compact { 19.5mm } else { 30mm }
+  let px = if compact { 4.4mm } else { 6mm }
   let py = if compact { 3.4mm } else { 5mm }
   let d = if compact { 3mm } else { 4mm }
 
@@ -514,7 +613,7 @@
         w,
         tx(
           [Câu #str(question)],
-          size: if compact { 7pt } else { 9pt },
+          size: if compact { 6.8pt } else { 9pt },
           weight: "bold",
         ),
       ),
@@ -522,9 +621,9 @@
 
     #for col in range(4) {
       at(
-        grid-x + col * px + 0.25mm,
+        grid-x + col * px + 0.2mm,
         box-y,
-        write-box(px - 0.5mm, box-h),
+        write-box(px - 0.4mm, box-h),
       )
 
       for row in range(symbols.len()) {
@@ -541,55 +640,53 @@
 }
 
 // ------------------------------------------------------------
-// TIÊU ĐỀ VÙNG TRẢ LỜI
+// KHUNG NHẮC CHO MẪU 10 Đ/S
 // ------------------------------------------------------------
 
-#let answer-heading(compact: false) = {
-  let w = if compact { 122mm } else { 190mm }
+#let reminder(w, compact: false) = {
+  let h = if compact { 16mm } else { 22mm }
 
-  block(width: w, height: 8mm)[
-    #at(
-      0mm,
-      0mm,
-      tx(
-        [PHẦN TRẢ LỜI],
-        size: if compact { 7.4pt } else { 10pt },
-        weight: "bold",
-        fill: accent,
-      ),
+  block(width: w, height: h)[
+    #rect(
+      width: w,
+      height: h,
+      inset: 0pt,
+      radius: 1mm,
+      fill: soft,
+      stroke: none,
     )
 
     #at(
-      if compact { 37mm } else { 70mm },
-      0.2mm,
-      righted(
-        if compact { 85mm } else { 120mm },
-        tx(
-          [Mỗi cột sử dụng chỉ tô 1 ô · Không bỏ trống xen giữa],
-          size: if compact { 6pt } else { 8pt },
-          fill: muted,
-        ),
-      ),
-    )
+      2mm,
+      2mm,
+      block(width: w - 4mm)[
+        #set text(
+          size: if compact { 7pt } else { 8.5pt },
+          fill: ink,
+        )
+        #set par(leading: 2pt)
 
-    #at(
-      0mm,
-      if compact { 4mm } else { 6mm },
-      line(length: w, stroke: 0.45pt + rule-color),
+        *KIỂM TRA TRƯỚC KHI NỘP* \
+        Mỗi ý chỉ tô một ô: Đ = đúng, S = sai. \
+        Kiểm tra SBD, mã đề; tẩy sạch các ô đã sửa.
+      ],
     )
   ]
 }
 
 // ------------------------------------------------------------
-// CHÂN PHIẾU
+// CHÂN PHIẾU / MÃ TEMPLATE
 // ------------------------------------------------------------
 
-#let footer(sbd-digits, compact: false) = {
+#let footer(sbd-digits, mixed: false, compact: false) = {
   let paper-id = if compact { "A5" } else { "A4" }
+  let model-id = if mixed { "4DS6TLN" } else { "10DS" }
 
   let template-id = (
     paper-id
-    + "-10TLN-S"
+    + "-"
+    + model-id
+    + "-S"
     + str(sbd-digits)
     + "-V1"
   )
@@ -601,42 +698,43 @@
     #at(
       0mm,
       0mm,
-      line(
-        length: 190mm,
-        stroke: 0.45pt + rule-color,
-      ),
+      line(length: 190mm, stroke: 0.45pt + rule-color),
     )
 
     #at(
       0mm,
       if compact { 0.8mm } else { 2mm },
-      block(width: 143mm)[
+      block(width: 138mm)[
         #set text(
           size: if compact { 5.8pt } else { 7.5pt },
           fill: muted,
         )
         #set par(leading: 1.2pt)
 
-        #if compact [
-          Dấu âm: cột 1. Dấu phẩy: cột 2 hoặc 3.
-          Không gấp phiếu hoặc làm bẩn mốc đen.
+        #if mixed [
+          TLN: dấu âm ở cột 1; dấu phẩy ở cột 2 hoặc 3.
+          Viết trái → phải; cột dư để trống.
         ] else [
-          Dấu âm chỉ ở cột 1; dấu phẩy chỉ ở cột 2 hoặc 3.
-          Cột không dùng để trống. \
-          Kiểm tra SBD và mã đề trước khi nộp.
-          Không gấp phiếu hoặc làm bẩn mốc đen.
+          Không gấp phiếu, không viết hoặc tô vào mốc định vị.
+          Tẩy sạch khi sửa đáp án.
+        ]
+
+        #if not compact [
+          \
+          Kiểm tra SBD và mã đề trước khi nộp bài.
+          Giữ phiếu sạch, phẳng.
         ]
       ],
     )
 
     #at(
-      145mm,
+      140mm,
       if compact { 0.8mm } else { 3mm },
       righted(
-        45mm,
+        50mm,
         tx(
           template-id,
-          size: if compact { 5.8pt } else { 7.5pt },
+          size: if compact { 5.8pt } else { 7.2pt },
           weight: "bold",
           fill: accent,
         ),
@@ -650,24 +748,22 @@
 //
 // A5:
 // Thông tin bên trái: x = 0, y = 14.
-// Vùng TLN: x = 68.
-// Câu 1–5: y = 20.
-// Câu 6–10: y = 73.
+// Vùng trả lời bên phải: x = 68, rộng 122 mm.
 //
 // A4:
 // Thông tin phía trên: x = 0, y = 22.
-// Câu 1–5: y = 106.
-// Câu 6–10: y = 186.
+// Vùng trả lời rộng 190 mm.
 //
-// Tâm ô TLN trong mỗi card:
-// X = grid-x + col * px + px / 2
-// Y = grid-y + row * py + d / 2
-//
-// Để có tọa độ trên giấy:
-// cộng vị trí card và lề giấy 10 mm.
+// Đánh số riêng từng phần:
+// - Phần Đ/S: câu 1–4 hoặc 1–10.
+// - Phần TLN: câu 1–6.
 // ------------------------------------------------------------
 
-#let sheet(sbd-digits: 6, compact: false) = {
+#let sheet(
+  sbd-digits: 6,
+  mixed: false,
+  compact: false,
+) = {
   assert(
     sbd-digits == 6 or sbd-digits == 8,
     message: "SBD chỉ được cấu hình 6 hoặc 8 chữ số.",
@@ -681,17 +777,20 @@
     #at(
       0mm,
       0mm,
-      header(compact: compact),
+      header(mixed: mixed, compact: compact),
     )
 
     #if compact {
+      // ------------------------------------------------------
+      // A5 NGANG
+      // ------------------------------------------------------
+
       at(
         0mm,
         14mm,
         candidate-a5(sbd-digits),
       )
 
-      // Đường phân tách thông tin và vùng trả lời.
       at(
         64.5mm,
         14mm,
@@ -704,30 +803,81 @@
 
       at(
         68mm,
-        13mm,
-        answer-heading(compact: true),
+        14mm,
+        section(
+          if mixed { [I. ĐÚNG / SAI] } else { [ĐÚNG / SAI] },
+          [Mỗi ý chọn một ô Đ hoặc S],
+          122mm,
+          compact: true,
+        ),
       )
 
-      for col in range(5) {
-        at(
-          68mm + col * 24.8mm,
-          20mm,
-          short-card(col + 1, compact: true),
-        )
+      if mixed {
+        // 4 câu Đ/S trên một hàng.
+        for q in range(4) {
+          at(
+            68mm + q * 31mm,
+            23mm,
+            ds-card(q + 1, 29mm, compact: true),
+          )
+        }
 
         at(
-          68mm + col * 24.8mm,
-          73mm,
-          short-card(col + 6, compact: true),
+          68mm,
+          62mm,
+          section(
+            [II. TRẢ LỜI NGẮN],
+            [Tối đa 4 ký tự / đáp án],
+            122mm,
+            compact: true,
+          ),
+        )
+
+        // 6 câu TLN trên một hàng.
+        for q in range(6) {
+          at(
+            68mm + q * 20.5mm,
+            71mm,
+            tln-card(q + 1, compact: true),
+          )
+        }
+      } else {
+        // 10 câu Đ/S: 2 hàng × 5 câu.
+        for q in range(5) {
+          at(
+            68mm + q * 24.8mm,
+            23mm,
+            ds-card(q + 1, 22.8mm, compact: true),
+          )
+
+          at(
+            68mm + q * 24.8mm,
+            67mm,
+            ds-card(q + 6, 22.8mm, compact: true),
+          )
+        }
+
+        at(
+          68mm,
+          106mm,
+          reminder(122mm, compact: true),
         )
       }
 
       at(
         0mm,
         125mm,
-        footer(sbd-digits, compact: true),
+        footer(
+          sbd-digits,
+          mixed: mixed,
+          compact: true,
+        ),
       )
     } else {
+      // ------------------------------------------------------
+      // A4 DỌC
+      // ------------------------------------------------------
+
       at(
         0mm,
         22mm,
@@ -737,50 +887,106 @@
       at(
         0mm,
         94mm,
-        answer-heading(compact: false),
-      )
-
-      for col in range(5) {
-        at(
-          col * 38.5mm,
-          106mm,
-          short-card(col + 1, compact: false),
-        )
-
-        at(
-          col * 38.5mm,
-          186mm,
-          short-card(col + 6, compact: false),
-        )
-      }
-
-      // Phân tách nhẹ giữa hai hàng câu.
-      at(
-        0mm,
-        182mm,
-        line(
-          length: 190mm,
-          stroke: 0.35pt + rule-color,
+        section(
+          if mixed { [I. ĐÚNG / SAI] } else { [ĐÚNG / SAI] },
+          [Mỗi ý chọn một ô: Đ = đúng, S = sai],
+          190mm,
         ),
       )
+
+      if mixed {
+        // 4 câu Đ/S.
+        for q in range(4) {
+          at(
+            q * 48mm,
+            107mm,
+            ds-card(q + 1, 46mm),
+          )
+        }
+
+        at(
+          0mm,
+          166mm,
+          section(
+            [II. TRẢ LỜI NGẮN],
+            [Tối đa 4 ký tự / đáp án · Viết từ trái sang phải],
+            190mm,
+          ),
+        )
+
+        // 6 câu TLN.
+        for q in range(6) {
+          at(
+            q * 32mm,
+            180mm,
+            tln-card(q + 1),
+          )
+        }
+
+        at(
+          0mm,
+          258mm,
+          tx(
+            [
+              Mỗi cột sử dụng chỉ tô 1 ô.
+              Cột dư để trống; không bỏ trống xen giữa đáp án.
+            ],
+            size: 8pt,
+            fill: muted,
+          ),
+        )
+      } else {
+        // 10 câu Đ/S: 2 hàng × 5 câu.
+        for q in range(5) {
+          at(
+            q * 38.5mm,
+            109mm,
+            ds-card(q + 1, 36mm),
+          )
+
+          at(
+            q * 38.5mm,
+            182mm,
+            ds-card(q + 6, 36mm),
+          )
+        }
+
+        at(
+          0mm,
+          173mm,
+          line(
+            length: 190mm,
+            stroke: 0.35pt + rule-color,
+          ),
+        )
+
+        at(
+          0mm,
+          242mm,
+          reminder(190mm),
+        )
+      }
 
       at(
         0mm,
         268mm,
-        footer(sbd-digits, compact: false),
+        footer(
+          sbd-digits,
+          mixed: mixed,
+          compact: false,
+        ),
       )
     }
   ]
 }
 
-// ============================================================
-// TRANG 1 — A5 NGANG
-// ============================================================
-
-#sheet(
-  sbd-digits: sbd-a5,
-  compact: true,
-)
-
-
+#if paper == "a5" {
+  sheet(sbd-digits: sbd-4ds6tln-a5,
+  mixed: true,
+  compact: true,)
+} else {
+  sheet(sbd-digits: sbd-4ds6tln-a4,
+  mixed: true,
+  compact: false,)
+}
 ]

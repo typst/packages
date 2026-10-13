@@ -1,5 +1,5 @@
 // Original print geometry; identity fill only. See omr/README.md.
-#let render(sbd: "", ma-de: "") = [
+#let render(sbd: "", ma-de: "", paper: "a5") = [
 // ============================================================
 // PHIẾU OMR — BẢN ĐẦY ĐỦ, KHÔNG CẦN PACKAGE HAY FILE PHỤ
 //
@@ -1164,19 +1164,13 @@
   ]
 }
 
-// ============================================================
-// TRANG 1 — 10 Đ/S — A5 NGANG
-// ============================================================
-
-
-
-// ============================================================
-// TRANG 8 — 6 Đ/S + 4 TLN — A4 DỌC
-// ============================================================
-
-#sheet(
-  sbd-digits: sbd-6ds4tln-a4,
-  ds-count: 6,
-  compact: false,
-)
+#if paper == "a5" {
+  sheet(sbd-digits: sbd-5ds5tln-a5,
+  ds-count: 5,
+  compact: true,)
+} else {
+  sheet(sbd-digits: sbd-5ds5tln-a4,
+  ds-count: 5,
+  compact: false,)
+}
 ]

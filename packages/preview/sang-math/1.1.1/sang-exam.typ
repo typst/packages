@@ -1320,58 +1320,7 @@
   show math.frac: f => f
   scale(x: 72%, y: 72%, origin: center + horizon, reflow: true, math.inline(math.frac(a, b)))
 }
-// ── Hệ thống STEP — tô màu từng bước lời giải ─────────────────
-// Dùng: #step[Bước...] #step[Bước...] #reset-step()
-#let _step-colors = (
-  rgb("#1565c0"),
-  rgb("#e65100"),
-  rgb("#2e7d32"),
-  rgb("#6a1b9a"),
-  rgb("#00838f"),
-  rgb("#c62828"),
-)
-#let _step-cnt = counter("se-step")
-#let _step-reveal-config = state("se-step-reveal-config", (before_nonfirst: none))
-#let configure-step-reveal(before_nonfirst: none) = [
-  #_step-reveal-config.update((before_nonfirst: before_nonfirst))
-]
-#let step(
-  body,
-  color: auto,
-  before_nonfirst: auto,
-  above: 0.55em,
-  below: 0.45em,
-) = {
-  _step-cnt.step()
-  context {
-    let n = _step-cnt.get().first()
-    let c = _step-colors.at(calc.rem(n - 1, _step-colors.len()))
-    let text-color = if color != auto { color } else { c.darken(10%) }
-    let border-color = if color != auto { color } else { c }
-    let reveal = if before_nonfirst != auto {
-      before_nonfirst
-    } else if n > 1 {
-      _step-reveal-config.get().at("before_nonfirst", default: none)
-    } else {
-      none
-    }
-    let step-block = block(
-      width: 100%,
-      stroke: (left: 1.5pt + border-color),
-      inset: (left: 8pt, right: 0pt, top: 1.5pt, bottom: 1.5pt),
-      below: below,
-      above: above,
-    )[
-      #text(fill: text-color, weight: "bold")[Bước #n.] #h(0.3em) #body
-    ]
-    if reveal == none {
-      step-block
-    } else {
-      [#reveal #step-block]
-    }
-  }
-}
-#let reset-step() = [#_step-cnt.update(0)]
+// Hệ thống STEP được định nghĩa một lần ở phần đầu file (bản lặp đã gỡ ở 1.1.1).
 // ─────────────────────────────────────────────────────────
 // SHORT — 4 ô trống / hiện đáp án
 // ─────────────────────────────────────────────────────────

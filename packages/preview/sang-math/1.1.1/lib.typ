@@ -1,5 +1,5 @@
 // ================================================================
-// SANG-MATH 1.1.1 — giữ API 1.0.6, bổ sung QR và phiếu OMR.
+// SANG-MATH 1.1.1 — giữ API 1.1.1, sửa xung đột vec, bổ sung sang-typst (tùy chọn).
 // Entry point: #import "@preview/sang-math:1.1.1": *
 // ================================================================
 
@@ -29,3 +29,6 @@
 #import "sang-beamer.typ" as beamer // Beamer presentation (slide, make-questions)
 
 #import "omr.typ": sang-omr-sheet, sang-omr-catalog, sang-omr-code
+
+// ── Kiểu chữ toán chuẩn LaTeX (1.1.1) — chỉ chạy khi bật #show: sang-typst ──
+#import "typo.typ": sang-typst, sfrac, num, qty, tg, cotg, arctg, arccotg, cung, goc

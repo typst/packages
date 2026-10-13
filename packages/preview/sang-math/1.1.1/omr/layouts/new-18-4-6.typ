@@ -1,5 +1,5 @@
 // Original print geometry; identity fill only. See omr/README.md.
-#let render(sbd: "", ma-de: "") = [
+#let render(sbd: "", ma-de: "", paper: "a4") = [
 // ============================================================
 // PHIẾU OMR A4 — MẪU 18–4–6 VÀ 24–4–0
 //
