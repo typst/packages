@@ -536,16 +536,17 @@
   ten: none,        // nhãn hàm (vd $y = x^2$)
   goc-ten: "above-right",   // vị trí nhãn: 4 góc hoặc toạ độ (x, y)
   luoi-o: false,
-  vach: false,      // true => vạch chia bước 1
+  vach: false,
+  buoc-x: auto, buoc-y: auto, buoc-luoi: auto,
   dan-x: 1, dan-y: 1,   // co/giãn cửa sổ quanh tâm (xem đầu file)
   them: none,       // ctx => nội dung vẽ thêm
 ) = {
-  let hh = if h == auto { w * 0.68 } else { h }
   let cs = _dan((xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax), dan-x, dan-y)
-  hinh(w: w, h: hh, xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax, ctx => {
-    if luoi-o { luoi(ctx) }
+  hinh(w: w, h: h, xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax,
+    toa-do-chu-nhat: true, ctx => {
+    if luoi-o { luoi(ctx, buoc: buoc-luoi, buoc-x: buoc-x, buoc-y: buoc-y) }
     truc(ctx)
-    if vach { vach-chia(ctx) }
+    if vach { vach-chia(ctx, buoc-x: buoc-x, buoc-y: buoc-y) }
     ve-ham(ctx, f, tu: tu, den: den, n: n, mau: mau, day: day,)
     _nhan-ten(ctx, ten, goc-ten, mau)
     if them != none { them(ctx) }
@@ -1057,11 +1058,12 @@
 #let ve-do-thi(
   f,
   mau: blue,
-  w: 8cm,
+  w: 8cm, h: auto,
   xmin: -4, xmax: 4,
   tu: auto, den: auto,
   ten: none, goc-ten: "above-right",
   vach: false, luoi-o: false,
+  buoc-x: auto, buoc-y: auto, buoc-luoi: auto,
   gioi-han-y: 12,   // bề cao tối đa của cửa sổ nhìn theo trục y
   giao-ox: none, giao-oy: none,
   day: 1.4pt,
@@ -1084,11 +1086,12 @@
   let dem = (hi - lo) * 0.1 + 0.35
   do-thi-ham(
     f,
-    w: w, xmin: xmin, xmax: xmax,
+    w: w, h: h, xmin: xmin, xmax: xmax,
     ymin: lo - dem, ymax: hi + dem,
     tu: a, den: b,
     mau: mau, day: day, n: 180,
     ten: ten, goc-ten: goc-ten, vach: vach, luoi-o: luoi-o,
+    buoc-x: buoc-x, buoc-y: buoc-y, buoc-luoi: buoc-luoi,
     them: them,
   )
 }

@@ -211,6 +211,8 @@
 /// BỎ TRỐNG xmin/xmax/ymin/ymax (hoặc để `auto`) thì gói TỰ ĐO phạm vi hình —
 /// kể cả bề rộng chữ của nhãn — rồi chọn cửa sổ vừa khít. Khai cạnh nào thì
 /// cạnh đó giữ nguyên theo ý người soạn.
+/// Với đồ thị vẽ bằng `ve-ham`, đặt `toa-do-chu-nhat: true` để chiều cao tự
+/// chặn trong `0.55w..0.82w`; mặc định false để hình học không bị méo.
 /// -> content
 #let hinh(
   w: 8cm,
@@ -220,12 +222,16 @@
   co-chu: 10pt,
   khung: false,   // vẽ viền khung (để căn chỉnh khi soạn)
   cat: false,     // cắt phần tràn ra ngoài khung
+  toa-do-chu-nhat: false, // true: chặn h/w trong [0.55, 0.82] cho đồ thị
   le: 0.03,       // lề chừa quanh hình khi TỰ DÒ (tỉ lệ cạnh lớn của hình)
   ve,
 ) = {
   // Khai đủ 4 cạnh -> đi thẳng đường CŨ, không dò, không tốn gì.
   if xmin != auto and xmax != auto and ymin != auto and ymax != auto {
-    let hh = if h == auto { w * (ymax - ymin) / (xmax - xmin) } else { h }
+    let ti-le = (ymax - ymin) / (xmax - xmin)
+    let hh = if h != auto { h } else if toa-do-chu-nhat {
+      w * calc.min(0.82, calc.max(0.55, ti-le))
+    } else { w * ti-le }
     return _hinh-lam(w, hh, xmin, xmax, ymin, ymax, co-chu, khung, cat, ve)
   }
   let cua = (xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax)
@@ -235,7 +241,10 @@
     let c = if c == none {
       (xmin: -5, xmax: 5, ymin: -4, ymax: 4) + cua.pairs().filter(q => q.at(1) != auto).to-dict()
     } else { c }
-    let hh = if h == auto { w * (c.ymax - c.ymin) / (c.xmax - c.xmin) } else { h }
+    let ti-le = (c.ymax - c.ymin) / (c.xmax - c.xmin)
+    let hh = if h != auto { h } else if toa-do-chu-nhat {
+      w * calc.min(0.82, calc.max(0.55, ti-le))
+    } else { w * ti-le }
     _hinh-lam(w, hh, c.xmin, c.xmax, c.ymin, c.ymax, co-chu, khung, cat, ve)
   }
 }

@@ -44,7 +44,7 @@ Function and parameter names are in unaccented Vietnamese (`doan`, `duong-tron`,
 **Quick start**
 
 ```typst
-#import "@preview/conic-toan:0.4.0": *
+#import "@preview/conic-toan:0.4.1": *
 
 #do-thi-bac-ba(1, 0, -3, 1)          // graph with exact extrema
 #bbt-bac-ba(1, 0, -3, 1)             // matching variation table
@@ -84,7 +84,7 @@ Thuần Typst, **không phụ thuộc package nào** — biên dịch offline đ
 ## Cài đặt
 
 ```typst
-#import "@preview/conic-toan:0.4.0": *
+#import "@preview/conic-toan:0.4.1": *
 ```
 
 Không cần tải gì thêm — Typst tự tải gói về khi biên dịch lần đầu.
@@ -763,6 +763,22 @@ Vẽ tay trong `#hinh`: `he-truc(ctx)` gộp lưới + trục + vạch chia + s�
   ve-ham(ctx, x => x*x - 2, mau: blue)
 })
 ```
+
+Với đồ thị tự do có cửa sổ rất cao/rộng, dùng `toa-do-chu-nhat: true` để
+`hinh` tự chặn `h/w` trong `0.55..0.82`. Công tắc này không bật mặc định cho
+mọi `hinh`, vì hình tròn và hình học cần giữ đơn vị hai trục bằng nhau:
+
+```typst
+#hinh(w: 5cm, xmin: -4, xmax: 4, ymin: -1, ymax: 20,
+  toa-do-chu-nhat: true, ctx => {
+    truc()
+    ve-ham(x => x*x + 10)
+  })
+```
+
+`do-thi-ham(...)` và `ve-do-thi(...)` tự bật chế độ chữ nhật này khi `h: auto`.
+Cả hai nhận `h:` để ghi đè chiều cao và nhận `buoc-x:`, `buoc-y:`,
+`buoc-luoi:` để điều khiển vạch/lưới như `mien-nghiem`.
 
 Hàm bất kỳ + vẽ chồng qua `them`:
 
