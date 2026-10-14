@@ -174,7 +174,7 @@ If `date`, `number`, or `due` is omitted, the corresponding invoice detail is om
 
 The `currency` parameter controls the currency name, symbol, decimal separator, thousands separator, and number of decimal places.
 
-```typst
+```typc
 currency: (
   name: "AUD",
   symbol: "$",
@@ -193,7 +193,7 @@ All currency options are optional:
 
 For example, an Australian dollar invoice can use:
 
-```typst
+```typc
 currency: (
   name: "AUD",
   symbol: "$",
@@ -226,7 +226,7 @@ which produces:
 
 For convenience, a currency can also be specified simply as a string:
 
-```typst
+```typc
 currency: "$",
 ```
 
