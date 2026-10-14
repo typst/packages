@@ -70,7 +70,7 @@
 /// Visualize sonority profiles based on Parker (2011)
 ///
 /// Generates a visual sonority profile for a given phonemic transcription.
-/// Phonemes are mapped to a vertical sonority axis (1-13) based on Parker's
+/// Phonemes are mapped to a vertical sonority axis (1-17) based on Parker's
 /// acoustic scale and connected to show the sonority contour of the word.
 ///
 /// Features:
@@ -84,7 +84,7 @@
 /// - stressed (int, optional): Index of stressed syllable (default: none)
 /// - box-size (float): Size of individual phoneme boxes (default: 0.8)
 /// - scale (float): Overall scale factor for the diagram (default: 1.0)
-/// - y-range (array): Vertical axis range for plotting (default: (0, 13), matching Parker's scale)
+/// - y-range (array): Vertical axis range for plotting (default: (0, 17), matching Parker's scale)
 /// - show-lines (bool): Connect phonemes with dashed lines (default: true)
 ///
 /// Returns: CeTZ drawing of the sonority profile
