@@ -85,9 +85,9 @@ To use this package just add the following code to your [Typst](https://github.c
 
 ## Examples
 
-Examples can be found inside of the [templates](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ea527d401d3e1c1a7a2e95ba27ad7969c9b6d500/templates) directory
+Examples can be found inside of the [templates](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ecb7bdafd45f2d16ab22e3ae4e577dfc5da34088/templates) directory
 
-- For Bachelor  theses see: [Bachelor thesis example](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ea527d401d3e1c1a7a2e95ba27ad7969c9b6d500/templates/bachelor-thesis/src)
-- For Master theses see: [Master thesis example](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ea527d401d3e1c1a7a2e95ba27ad7969c9b6d500/templates/master-thesis/src)
-- For reports see: [Report example](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ea527d401d3e1c1a7a2e95ba27ad7969c9b6d500/templates/report/src)
-- For exposés see: [Expose example](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ea527d401d3e1c1a7a2e95ba27ad7969c9b6d500/templates/expose/src)
+- For Bachelor  theses see: [Bachelor thesis example](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ecb7bdafd45f2d16ab22e3ae4e577dfc5da34088/templates/bachelor-thesis/src)
+- For Master theses see: [Master thesis example](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ecb7bdafd45f2d16ab22e3ae4e577dfc5da34088/templates/master-thesis/src)
+- For reports see: [Report example](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ecb7bdafd45f2d16ab22e3ae4e577dfc5da34088/templates/report/src)
+- For exposés see: [Expose example](https://github.com/LasseRosenow/HAW-Hamburg-Typst-Template/tree/ecb7bdafd45f2d16ab22e3ae4e577dfc5da34088/templates/expose/src)

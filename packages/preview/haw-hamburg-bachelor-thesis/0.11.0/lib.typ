@@ -1,1 +1,1 @@
-// This file is redundant, but required by the Typst packaging system
+// The template code is in the shared "@preview/haw-hamburg" package.
