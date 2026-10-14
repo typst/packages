@@ -4,10 +4,10 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Xinyu Xiang"]
 license = "MIT AND MIT-0"
-repository = "https://github.com/Project-ZetTypst/ZetTypst"
+repository = "https://github.com/project-zettypst/zettypst"
 compiler = "0.15.0"
 exclude = ["**/tests/**"]
-description = "Model knowledge graphs with source-anchored states."
+description = "A Typst-native Zettelkasten note system."
 keywords = ["zettelkasten", "knowledge", "graph", "semantics"]
 categories = ["model"]
 
