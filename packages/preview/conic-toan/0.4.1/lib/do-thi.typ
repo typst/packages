@@ -262,11 +262,19 @@
 
 // ---------- Hệ trục Oxy ----------
 #let truc(ctx, ten-x: $x$, ten-y: $y$, ten-goc: $O$, mau: black, day: 0.9pt) = {
-  mui-ten(ctx, (ctx.xmin, 0), (ctx.xmax, 0), mau: mau, day: day)
-  mui-ten(ctx, (0, ctx.ymin), (0, ctx.ymax), mau: mau, day: day)
-  nhan(ctx, (ctx.xmax, 0), ten-x, huong: "below", cach: 5pt)
-  nhan(ctx, (0, ctx.ymax), ten-y, huong: "left", cach: 5pt)
-  if ten-goc != none { nhan(ctx, (0, 0), ten-goc, huong: "below-left", cach: 4pt) }
+  let co-ox = ctx.ymin <= 0 and ctx.ymax >= 0
+  let co-oy = ctx.xmin <= 0 and ctx.xmax >= 0
+  if co-ox {
+    mui-ten(ctx, (ctx.xmin, 0), (ctx.xmax, 0), mau: mau, day: day)
+    nhan(ctx, (ctx.xmax, 0), ten-x, huong: "below", cach: 5pt)
+  }
+  if co-oy {
+    mui-ten(ctx, (0, ctx.ymin), (0, ctx.ymax), mau: mau, day: day)
+    nhan(ctx, (0, ctx.ymax), ten-y, huong: "left", cach: 5pt)
+  }
+  if ten-goc != none and co-ox and co-oy {
+    nhan(ctx, (0, 0), ten-goc, huong: "below-left", cach: 4pt)
+  }
 }
 
 // Bước chia "đẹp" 1/2/5·10^k, chọn theo cả miền số và chiều dài thật của trục.
@@ -1064,7 +1072,7 @@
   ten: none, goc-ten: "above-right",
   vach: false, luoi-o: false,
   buoc-x: auto, buoc-y: auto, buoc-luoi: auto,
-  gioi-han-y: 12,   // bề cao tối đa của cửa sổ nhìn theo trục y
+  gioi-han-y: auto, // số = ép bề cao tối đa; auto = chỉ cắt ngoại lệ thật lớn
   giao-ox: none, giao-oy: none,
   day: 1.4pt,
   them: none,
@@ -1074,14 +1082,29 @@
   let ys = lay-mau(f, a, b, n: 160).map(p => p.at(1)).sorted()
   let lo = ys.first()
   let hi = ys.last()
-  // gộp trục hoành vào cửa sổ nếu không làm cửa sổ quá cao
-  if lo > 0 and hi <= gioi-han-y { lo = 0 }
-  if hi < 0 and -lo <= gioi-han-y { hi = 0 }
-  // hàm biến thiên quá mạnh: thu cửa sổ quanh trung vị (đồ thị tự cắt nhánh)
-  if hi - lo > gioi-han-y {
-    let tv = ys.at(calc.floor(ys.len() / 2))
-    lo = calc.max(lo, tv - gioi-han-y / 2)
-    hi = calc.min(hi, tv + gioi-han-y / 2)
+  if gioi-han-y == auto {
+    // Chỉ cắt khi hai đuôi làm toàn miền cao hơn quá 3 lần phần 10%..90%.
+    // Parabol thông thường giữ trọn; exp/điểm vọt lớn được cắt theo phân vị.
+    let q10 = ys.at(calc.floor((ys.len() - 1) * 0.10))
+    let q90 = ys.at(calc.floor((ys.len() - 1) * 0.90))
+    let giua = calc.max(q90 - q10, 1e-9)
+    if hi - lo > 3 * giua {
+      lo = calc.max(lo, q10 - giua * 0.35)
+      hi = calc.min(hi, q90 + giua * 0.35)
+    }
+    // Đưa Ox vào nếu khoảng cách tới 0 không quá nửa bề cao dữ liệu.
+    let cao = calc.max(hi - lo, 1e-9)
+    if lo > 0 and lo <= cao * 0.5 { lo = 0 }
+    if hi < 0 and -hi <= cao * 0.5 { hi = 0 }
+  } else {
+    // Tương thích lối cũ khi người dùng truyền giới hạn số cụ thể.
+    if lo > 0 and hi <= gioi-han-y { lo = 0 }
+    if hi < 0 and -lo <= gioi-han-y { hi = 0 }
+    if hi - lo > gioi-han-y {
+      let tv = ys.at(calc.floor(ys.len() / 2))
+      lo = calc.max(lo, tv - gioi-han-y / 2)
+      hi = calc.min(hi, tv + gioi-han-y / 2)
+    }
   }
   let dem = (hi - lo) * 0.1 + 0.35
   do-thi-ham(

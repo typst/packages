@@ -780,6 +780,12 @@ mọi `hinh`, vì hình tròn và hình học cần giữ đơn vị hai trục 
 Cả hai nhận `h:` để ghi đè chiều cao và nhận `buoc-x:`, `buoc-y:`,
 `buoc-luoi:` để điều khiển vạch/lưới như `mien-nghiem`.
 
+Riêng `ve-do-thi`, `gioi-han-y: auto` dùng phân vị mẫu: giữ trọn biến thiên
+thông thường, chỉ cắt các đuôi thật sự vọt xa, và đưa Ox vào cửa sổ nếu khoảng
+cách tới 0 không quá lớn. Nếu Ox/Oy vẫn nằm ngoài cửa sổ thì `truc` bỏ đúng
+trục đó, không còn vẽ một trục rời ở xa hình. Truyền số vào `gioi-han-y:` để
+ép giới hạn tuyệt đối theo lối cũ.
+
 Hàm bất kỳ + vẽ chồng qua `them`:
 
 ```typst
