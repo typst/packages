@@ -464,8 +464,7 @@
         if aspirated-plosives-to-plot.contains(asp-plosive) {
           let info = aspirated-plosive-data.at(asp-plosive)
           if info.place not in used-places { used-places.push(info.place) }
-          // Aspirated plosives share manner 0 (Plosive row)
-          if 0 not in used-manners { used-manners.push(0) }
+          // Aspirated plosives have their own inserted row, no base manner to add
         }
       }
     }
@@ -518,7 +517,14 @@
   }
 
   // Filter deleted rows and build display-manners with optional row insertions
-  let kept-base-rows = range(manners.len()).filter(i => i not in delete-rows)
+  // Inserted rows are independent of base rows: deleting Plosive or Fricative
+  // must not drop aspirated plosives or affricates. With simplify, inserted
+  // rows are shown only if they have content.
+  let show-aspirated-plosive-row = aspirated and (not simplify or aspirated-plosives-to-plot != "")
+  let show-affricate-row = affricates and (not simplify or affricates-to-plot.replace("͡", "") != "")
+  let show-aspirated-affricate-row = (
+    aspirated and affricates and (not simplify or aspirated-affricates-to-plot != "")
+  )
   let display-manners = ()
   let manner-to-row = (:)
   let aspirated-plosive-row = -1
@@ -526,13 +532,15 @@
   let aspirated-affricate-row = -1
   let current-row = 0
 
-  for base-row in kept-base-rows {
-    display-manners.push(manner-labels.at(base-row))
-    manner-to-row.insert(str(base-row), current-row)
-    current-row += 1
+  for base-row in range(manners.len()) {
+    if base-row not in delete-rows {
+      display-manners.push(manner-labels.at(base-row))
+      manner-to-row.insert(str(base-row), current-row)
+      current-row += 1
+    }
 
     // Insert aspirated plosive row after Plosive (base 0)
-    if base-row == 0 and aspirated {
+    if base-row == 0 and show-aspirated-plosive-row {
       let asp-label = if abbreviate { labels.aspirated_plosive_short } else { labels.aspirated_plosive }
       display-manners.push(asp-label)
       aspirated-plosive-row = current-row
@@ -540,13 +548,15 @@
     }
 
     // Insert affricate rows after Fricative (base 4)
-    if base-row == 4 and affricates {
-      let affr-label = if abbreviate { labels.affricate_short } else { labels.affricate }
-      display-manners.push(affr-label)
-      affricate-row = current-row
-      current-row += 1
+    if base-row == 4 {
+      if show-affricate-row {
+        let affr-label = if abbreviate { labels.affricate_short } else { labels.affricate }
+        display-manners.push(affr-label)
+        affricate-row = current-row
+        current-row += 1
+      }
 
-      if aspirated {
+      if show-aspirated-affricate-row {
         let asp-affr-label = if abbreviate { labels.aspirated_affricate_short } else { labels.aspirated_affricate }
         display-manners.push(asp-affr-label)
         aspirated-affricate-row = current-row
