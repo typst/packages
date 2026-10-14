@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../theme.schema.json
+# "Coral" theme: warm peach tones, square corners and headings on a coral bar.
+
+fonts:
+  text: [Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]
+  code: [Menlo, Consolas, DejaVu Sans Mono]
+  brand: [Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]
+
+colors:
+  background: "#fff7f2"
+  text: "#2b1d16"
+  accent: "#f0603e"
+  heading: "#ffffff"        # sits on the coral bar
+  heading-background: "#f0603e"
+  line: "#f1dccf"
+  code-background: "#fdeee5"
+  button: "#f0603e"
+  button-text: "#ffffff"
+
+brand:
+  text: typtorial
+
+layout:
+  dots: false
+  corner-radius: 0
+  code-border: false
+  title-underline: false
+  title-uppercase: true
+  text-position: top
+
+dark:
+  colors:
+    background: "#1b1411"
+    text: "#f6e7de"
+    accent: "#ff8a6a"
+    heading: "#1b1411"      # sits on the coral bar
+    heading-background: "#ff8a6a"
+    line: "#3a2a23"
+    code-background: "#261c17"
+    button: "#ff8a6a"
+    button-text: "#1b1411"

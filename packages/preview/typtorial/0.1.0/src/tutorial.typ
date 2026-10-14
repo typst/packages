@@ -1,10 +1,5 @@
-// typtorial: step-by-step code tutorials as PDF slides or as a website.
-
-// Maps file names, extensions and languages to the icons in `icons/`
-// (Material Icon Theme, MIT license).
 #let icon-mapping = json("icons/mapping.json")
 
-// Icon matching the file name, falling back to the code block's language; `none` if nothing matches.
 #let file-icon(file, lang) = {
   let name = lower(file.split("/").last())
   let parts = name.split(".")
@@ -21,49 +16,74 @@
   if icon != none { image("icons/" + icon + ".svg", height: 1.1em) }
 }
 
-// Default theme: applies to every tutorial that does not pass its own `theme`.
-// The file must exist, but may be empty.
+// Typst has no base64 encoder, but a data URL needs one for binary images.
+#let base64(data) = {
+  let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+  let data = array(data)
+  range(0, data.len(), step: 3)
+    .map(i => {
+      let chunk = data.slice(i, calc.min(i + 3, data.len()))
+      let value = (chunk + (0, 0)).slice(0, 3).fold(0, (sum, byte) => sum * 256 + byte)
+      range(4)
+        .map(k => if k <= chunk.len() {
+          alphabet.at(value.bit-rshift(18 - 6 * k).bit-and(63))
+        } else { "=" })
+        .join()
+    })
+    .join()
+}
+
+// The image type of a favicon by its first bytes: PNG, ICO or else SVG.
+#let image-type(data) = {
+  let start = array(data.slice(0, calc.min(4, data.len())))
+  if start == (0x89, 0x50, 0x4E, 0x47) { "image/png" } else if start == (0, 0, 1, 0) {
+    "image/x-icon"
+  } else { "image/svg+xml" }
+}
+
+// Plain text of a title for the `<title>` of the website.
+#let plain-text(it) = if type(it) == str { it } else if it.has("text") {
+  plain-text(it.text)
+} else if it.has("children") { it.children.map(plain-text).join() } else if it.has("body") {
+  plain-text(it.body)
+} else if it.func() == [ ].func() { " " } else { "" }
+
 #let default-theme = yaml("../themes/default.theme.yaml")
 
-// Themes that ship with the package, e.g. `tutorial.with(theme: themes.paper)`.
 #let themes = (
   default: default-theme,
   paper: yaml("../themes/paper.theme.yaml"),
-  crimson: yaml("../themes/crimson.theme.yaml"),
-  signal: yaml("../themes/signal.theme.yaml"),
+  forest: yaml("../themes/forest.theme.yaml"),
+  indigo: yaml("../themes/indigo.theme.yaml"),
+  coral: yaml("../themes/coral.theme.yaml"),
 )
 
-// Markers that switch the diff highlighting off and on again in the middle of a tutorial:
-// write `#diff-off` before the code blocks that should be shown plainly, `#diff-on` after.
 #let diff-off = metadata((typtorial: "diff-off"))
 #let diff-on = metadata((typtorial: "diff-on"))
+// The download and theme buttons of the header, repeated inside the text. Only for the
+// documentation of typtorial; `lib.typ` does not export them.
+#let download-button = metadata((typtorial: "download-button"))
+#let theme-button = metadata((typtorial: "theme-button"))
 
-// Labels of the website's controls per language; English is the fallback.
 #let copy-labels = (
-  en: (copy: "Copy", copied: "Copied", step: "Step", theme: "Switch between light and dark", download: "Download source file", next: "Continue"),
-  de: (copy: "Kopieren", copied: "Kopiert", step: "Schritt", theme: "Zwischen hell und dunkel wechseln", download: "Quelldatei herunterladen", next: "Weiter"),
+  en: (
+    copy: "Copy",
+    copied: "Copied",
+    step: "Step",
+    theme: "Switch between light and dark",
+    download: "Download source file",
+    next: "Continue",
+  ),
+  de: (
+    copy: "Kopieren",
+    copied: "Kopiert",
+    step: "Schritt",
+    theme: "Zwischen hell und dunkel wechseln",
+    download: "Quelldatei herunterladen",
+    next: "Weiter",
+  ),
 )
 
-// `title`: title of the tutorial, shown at the top left of every page.
-// `lang`: language of the tutorial's text, e.g. "en" or "de".
-// `mode`: "light" or "dark"; picks the color scheme of the PDF. The website contains both
-//         and follows the reader's system setting, with a button to switch.
-// `abstract`: short summary shown before the first step, on its own page or below the title
-//             on the title page, depending on the theme.
-// `source`: text of the tutorial's source file, e.g. `read("my-tutorial.typ")`; the website
-//           then offers it as a download under the name `source-name`.
-// `diff`: compare each code block with the previous block of the same file and highlight
-//         the changes; `false` shows every block plainly, e.g. for unrelated excerpts.
-//         While it is on, `#diff-off` and `#diff-on` in the text switch it for a stretch.
-// `show-removed`: show removed code lines highlighted in red; `false` drops them.
-// `logo`: image shown at the top right, e.g. `image("logo.svg")`; `logo-dark` is the variant
-//         for the dark color scheme and defaults to `logo`.
-// `theme`: fonts, colors, brand text and layout, e.g. `yaml("my.theme.yaml")`.
-//           Each setting is looked up there first, then in the package's
-//           `themes/default.theme.yaml` and finally in the built-in defaults below. A `dark`
-//           section with its own `colors` holds the values for the dark color scheme.
-// `fonts`, `sizes`, `colors`, `brand`, `layout`, `dark`: the same settings as in a theme file, given
-//           directly, e.g. `colors: (accent: "#239dad")`. They override the theme file.
 #let tutorial(
   title: none,
   lang: "en",
@@ -75,6 +95,7 @@
   show-removed: true,
   logo: none,
   logo-dark: auto,
+  favicon: auto,
   theme: (:),
   fonts: (:),
   sizes: (:),
@@ -84,8 +105,14 @@
   dark: (:),
   body,
 ) = {
-  // Settings passed directly rank above the theme file.
-  let overrides = (fonts: fonts, sizes: sizes, colors: colors, brand: brand, layout: layout, dark: dark)
+  let overrides = (
+    fonts: fonts,
+    sizes: sizes,
+    colors: colors,
+    brand: brand,
+    layout: layout,
+    dark: dark,
+  )
   // A package cannot open files of the document that uses it, so a file name is not enough.
   assert(
     type(theme) == dictionary,
@@ -93,11 +120,16 @@
   )
   let builtin = (
     fonts: (
-      text: ("Hanken Grotesk", "Helvetica Neue", "Arial", "Liberation Sans", "DejaVu Sans"),
+      text: (
+        "Hanken Grotesk",
+        "Helvetica Neue",
+        "Arial",
+        "Liberation Sans",
+        "DejaVu Sans",
+      ),
       code: "DejaVu Sans Mono",
       brand: "Libertinus Serif",
     ),
-    // Font sizes in pt; the website scales its own sizes by the same proportions.
     sizes: (text: 14, heading: 15, title: 17, title-page: 30, brand: 20, code: 10.9),
     colors: (
       background: "#fdfdfd",
@@ -167,9 +199,10 @@
     }
   }
   // A dark scheme exists if the theme brings one or leaves the colors to the defaults.
-  let has-dark = dark-of(theme) != none or dark != (:) or theme.at("colors", default: none) == none
+  let has-dark = (
+    dark-of(theme) != none or dark != (:) or theme.at("colors", default: none) == none
+  )
 
-  // All colors and the logo of one color scheme.
   let scheme(dark) = {
     let color(name) = {
       let value = setting("colors", name, dark: dark)
@@ -184,38 +217,41 @@
       accent: color("accent"),
       heading: color("heading"),
       code-background: color("code-background"),
-      // Without its own color the header lets the background (including the gradient) show through.
       header: color("header"),
-      // Text colors for header and code panel, in case their background needs a different one.
       header-text: or-text(color("header-text")),
       code-text: or-text(color("code-text")),
-      // With a second color the background fades into it from top left to bottom right.
       gradient-end: color("background-gradient"),
-      // With this color a step's heading sits on a bar.
       heading-bar: color("heading-background"),
       button: color("button"),
       button-text: color("button-text"),
-      // Title page and abstract page may have their own background and text color.
       title-background: color("title-background"),
       title-text: or-text(color("title-text")),
       abstract-background: color("abstract-background"),
       abstract-text: or-text(color("abstract-text")),
       logo: if dark and logo-dark != auto { logo-dark } else { logo },
-      // Background and bar of added and removed code lines.
+      // (background, bar)
       diff: if dark {
-        (added: (rgb("#21372a"), rgb("#57a64a")), removed: (rgb("#45262a"), rgb("#d9634f")))
+        (
+          added: (rgb("#21372a"), rgb("#57a64a")),
+          removed: (rgb("#45262a"), rgb("#d9634f")),
+        )
       } else {
-        (added: (rgb("#e6f4de"), rgb("#6cbf4b")), removed: (rgb("#fbe3de"), rgb("#e8705c")))
+        (
+          added: (rgb("#e6f4de"), rgb("#6cbf4b")),
+          removed: (rgb("#fbe3de"), rgb("#e8705c")),
+        )
       },
     )
   }
   let light-scheme = scheme(false)
   let dark-scheme = scheme(true)
-  // A theme without a dark scheme stays light even if dark mode is requested.
   let dark-pdf = mode == "dark" and has-dark
   let colors = if dark-pdf { dark-scheme } else { light-scheme }
 
   let margin = 1.5cm
+  let page-width = 297mm
+  let page-height = 185.6mm
+  let header-height = 1.9cm
   let background = colors.background
   let text-color = colors.text
   let line-color = colors.line
@@ -233,13 +269,12 @@
   let code-border = setting("layout", "code-border")
   let title-underline = setting("layout", "title-underline")
   let title-uppercase = setting("layout", "title-uppercase")
-  // Heading and explanation of a step sit in the vertical center or at the top.
   let text-top = setting("layout", "text-position") == "top"
-  // Pages before the first step: a title page, and the abstract on it or on a page of its own.
   let has-title-page = setting("layout", "title-page") and title != none
-  let abstract-on-title = has-title-page and abstract != none and setting("layout", "abstract") == "with-title"
+  let abstract-on-title = (
+    has-title-page and abstract != none and setting("layout", "abstract") == "with-title"
+  )
   let has-abstract-page = abstract != none and not abstract-on-title
-  // A font is one family or a list of fallbacks; Typst uses the first one that is installed.
   let font-list(name) = {
     let value = setting("fonts", name)
     if type(value) == str { (value,) } else { value }
@@ -252,8 +287,13 @@
   // because a browser only knows the fonts installed on the reader's machine.
   let css-fonts(fonts, generic: auto) = {
     let first = lower(fonts.first())
-    let serif = not first.contains("sans") and first.contains(regex("serif|times|georgia|garamond|modern|libertinus"))
-    let generic = if generic != auto { generic } else if serif { "serif" } else { "sans-serif" }
+    let serif = (
+      not first.contains("sans")
+        and first.contains(regex("serif|times|georgia|garamond|modern|libertinus"))
+    )
+    let generic = if generic != auto { generic } else if serif { "serif" } else {
+      "sans-serif"
+    }
     (fonts.map(font => "\"" + font + "\"") + (generic,)).join(",")
   }
   let brand-text = setting("brand", "text")
@@ -261,8 +301,8 @@
 
   set document(title: title) if title != none
   set page(
-    width: 297mm,
-    height: 185.6mm,
+    width: page-width,
+    height: page-height,
     margin: 0pt,
     fill: if gradient-end != none {
       gradient.linear(background, gradient-end, angle: 32deg)
@@ -275,12 +315,10 @@
   show raw: set text(font: code-font, size: size("code") * 1pt)
   show raw.where(block: true): set text(fill: code-text)
 
-  // Build the document: `web` selects between website (HTML) and pages (PDF).
   let build(web) = {
     // Syntax colors for a dark code panel; the website recolors them with CSS instead.
     set raw(theme: "assets/dark.tmTheme") if not web and dark-pdf
 
-    // Step heading: accent dot on the left, small dots for the steps before and after.
     let step-heading(step: 1, total: 1, it) = if web {
       let dot(target) = html.elem("a", attrs: (
         href: "#step-" + str(target),
@@ -291,10 +329,18 @@
           html.elem("nav", {
             html.elem("div", attrs: (class: "before"), range(1, step).map(dot).join())
             html.elem("span", attrs: (class: "current"))
-            html.elem("div", attrs: (class: "after"), range(step + 1, total + 1).map(dot).join())
+            html.elem(
+              "div",
+              attrs: (class: "after"),
+              range(step + 1, total + 1).map(dot).join(),
+            )
           })
         }
-        html.elem("span", attrs: (class: if heading-bar != none { "bar" } else { "" }), it.body)
+        html.elem(
+          "span",
+          attrs: (class: if heading-bar != none { "bar" } else { "" }),
+          it.body,
+        )
       })
     } else {
       block(below: 0.8em, {
@@ -321,7 +367,6 @@
           fill: heading-color,
           it.body,
         )
-        // With a bar color: every line of the heading gets its own bar.
         if heading-bar != none {
           set par(leading: 0.95em)
           pad(left: 0.45em, y: 0.3em, highlight(
@@ -337,7 +382,6 @@
       })
     }
 
-    // Brand at the top right: logo and text.
     let brand-mark(fill) = stack(
       dir: ltr,
       spacing: 0.4cm,
@@ -353,14 +397,21 @@
         )
       },
       ..if brand-text != "" {
-        (align(horizon, text(font: brand-font, size: size("brand") * 1pt, weight: "medium", fill: fill, brand-text)),)
+        (
+          align(horizon, text(
+            font: brand-font,
+            size: size("brand") * 1pt,
+            weight: "medium",
+            fill: fill,
+            brand-text,
+          )),
+        )
       },
     )
 
-    // Header with the tutorial title and the brand.
     let header = block(
       width: 100%,
-      height: 1.9cm,
+      height: header-height,
       inset: (x: margin),
       fill: header-fill,
       stroke: (bottom: 0.75pt + line-color),
@@ -368,7 +419,9 @@
         columns: (1fr, auto),
         align: horizon,
         if title != none {
-          let content = if title-uppercase { text(tracking: 0.04em, upper(title)) } else { title }
+          let content = if title-uppercase { text(tracking: 0.04em, upper(title)) } else {
+            title
+          }
           text(size: size("title") * 1pt, fill: header-text, if title-underline {
             underline(stroke: 1.5pt + accent, offset: 0.3em, content)
           } else {
@@ -412,25 +465,29 @@
       changes
     }
 
-    // Typeset a code block with line numbers and highlight the diff to the previous state (`old`):
-    // changed lines get a bar on the left edge and a light background.
-    let with-diff(code, old, new) = {
+    // The lines of a block with their kind and line number, compared with `old` if given.
+    let diff-lines(old, new) = {
       let changes = if old == none or not diff {
         new.map(line => ("same", line))
       } else {
         line-diff(old, new).filter(((kind, line)) => kind != "removed" or show-removed)
       }
-      // Per displayed line: kind of highlight and line number in the source file.
-      // Removed lines have no number, blank lines are not highlighted.
       let lines = ()
       let number = 0
       for (kind, line) in changes {
         if kind != "removed" { number += 1 }
         lines.push((
           kind: if line.trim() == "" { "same" } else { kind },
+          line: line,
           number: if kind == "removed" { "" } else { str(number) },
         ))
       }
+      lines
+    }
+
+    // A code block of the lines from `start` to `end`; the PDF splits long blocks this way.
+    let with-diff(lang, lines, start: 0, end: none) = {
+      let lines = lines.slice(start, end)
       show raw.line: it => {
         let (kind, number) = lines.at(it.number - 1)
         if web {
@@ -443,17 +500,19 @@
             stroke: if bar != none { (left: 2.5pt + bar) },
             outset: (y: 0.3em),
             {
-              box(width: 2em, align(right, text(fill: code-text.transparentize(55%), number)))
+              box(width: 2em, align(right, text(
+                fill: code-text.transparentize(55%),
+                number,
+              )))
               h(1em)
               it.body
             },
           )
         }
       }
-      raw(changes.map(((kind, line)) => line).join("\n"), lang: code.lang, block: true)
+      raw(lines.map(line => line.line).join("\n"), lang: lang, block: true)
     }
 
-    // Typeset a step as a section of the website.
     let section(number, text, code) = html.elem(
       "section",
       attrs: (
@@ -466,14 +525,16 @@
       },
     )
 
-    // Typeset a page: text on the left, code (if any) in the panel on the right.
     let slide(text, code) = grid(
       rows: (auto, 1fr),
       header,
       grid(
         columns: if code.len() == 0 { (1fr,) } else { (1fr, 1fr) },
         rows: 100%,
-        align(if text-top { top } else { horizon }, pad(left: margin + 1em, right: margin, y: margin, text)),
+        align(
+          if text-top { top } else { horizon },
+          pad(left: margin + 1em, right: margin, y: margin, text),
+        ),
         ..if code.len() > 0 {
           (
             block(
@@ -482,7 +543,11 @@
               inset: (left: 0.5cm, rest: 0.8cm),
               fill: code-background,
               stroke: if code-border {
-                (left: 0.75pt + line-color, top: 0.75pt + line-color, bottom: 0.75pt + line-color)
+                (
+                  left: 0.75pt + line-color,
+                  top: 0.75pt + line-color,
+                  bottom: 0.75pt + line-color,
+                )
               },
               radius: (top-left: corner-radius * 1cm, bottom-left: corner-radius * 1cm),
               code.join(v(1em)),
@@ -492,14 +557,12 @@
       ),
     )
 
-    // Round button with an arrow that leads on to `target`.
     let next-button(target, arrow-fill) = link(label(target), circle(
       radius: 0.75cm,
       fill: accent,
       align(center + horizon, text(size: 26pt, fill: arrow-fill, sym.arrow.b)),
     ))
 
-    // Title page: large centered title, optionally with the abstract below it.
     let title-slide(target) = {
       let fill = colors.title-background
       block(width: 100%, height: 100%, fill: fill, {
@@ -517,7 +580,6 @@
       })
     }
 
-    // Abstract page: the regular header above the abstract in a centered column.
     let abstract-slide = {
       let fill = colors.abstract-background
       grid(
@@ -525,19 +587,25 @@
         header,
         block(width: 100%, height: 100%, fill: fill, {
           set text(fill: colors.abstract-text)
-          align(center + horizon, block(width: 60%, align(left, text(size: 1.07em, abstract))))
+          align(center + horizon, block(width: 60%, align(left, text(
+            size: 1.07em,
+            abstract,
+          ))))
         }),
       )
     }
 
-    // The same pages as sections of the website; with a `target` an arrow button leads on to it.
     let intro-section(id, class, target, content) = html.elem(
       "section",
       attrs: (id: id, class: "intro " + class),
       {
         content
         if target != none {
-          html.elem("a", attrs: (class: "next", href: "#" + target, aria-label: labels.next))
+          html.elem("a", attrs: (
+            class: "next",
+            href: "#" + target,
+            aria-label: labels.next,
+          ))
         }
       },
     )
@@ -547,7 +615,10 @@
       el.value.at("typtorial", default: none)
     }
     let is-empty(content) = content.all(item => {
-      item.el.func() in (parbreak, [ ].func()) or marker(item.el) != none
+      (
+        item.el.func() in (parbreak, [ ].func())
+          or marker(item.el) in ("diff-on", "diff-off")
+      )
     })
 
     // Set and show rules written in the tutorial wrap everything after them in a `styled`
@@ -562,7 +633,6 @@
       }
     }
 
-    // Split the document into steps at every level-1 heading.
     let steps = ()
     let current = ()
     for item in flatten(body, it => it) {
@@ -574,72 +644,267 @@
     }
     if not is-empty(current) { steps.push(current) }
 
-    // Compare every code block with the previous state of the same file, across steps as well.
-    // The file name optionally follows the language: ```typst my-tutorial.typ
     // Blocks shown while the diff is switched off are left out of the comparison, so the next
     // block after `#diff-on` is compared with the last one shown before `#diff-off`.
+    // Blocks are only compared with earlier steps, never with blocks of their own step.
     let diffing = true
     let previous = (:)
     let output = ()
     for (number, content) in steps.enumerate(start: 1) {
-      let code = ()
+      // Code blocks in order of appearance.
+      let blocks = ()
+      let earlier = previous
+      // Blocks without a file name are compared by their position among those of the step.
+      let unnamed = 0
       for item in content {
-        let el = item.el
-        if marker(el) != none { diffing = marker(el) == "diff-on" }
-        if not is-code(el) { continue }
-        let lines = el.text.split("\n")
-        // Typst delivers the file name as the first code line; it only counts as a name if it
-        // looks like one (a single word with an extension, e.g. `src/main.py`).
-        let file = ""
-        if lines.first().match(regex("^[\w./-]*\.\w+$")) != none {
-          file = lines.remove(0)
+        let kind = marker(item.el)
+        if kind in ("diff-on", "diff-off") { diffing = kind == "diff-on" }
+        if is-code(item.el) {
+          let el = item.el
+          let lines = el.text.split("\n")
+          // Typst delivers the file name as the first code line; it only counts as a name if it
+          // looks like one (a single word with an extension, e.g. `src/main.py`).
+          let file = ""
+          if lines.first().match(regex("^[\w./-]*\.\w+$")) != none {
+            file = lines.remove(0)
+          }
+          let key = file
+          if file == "" {
+            key = "#" + str(unnamed)
+            unnamed += 1
+          }
+          let changes = diff-lines(if diffing { earlier.at(key, default: none) }, lines)
+          if diffing { previous.insert(key, lines) }
+          blocks.push((
+            name: if file != "" { file } else if el.lang != none { el.lang } else { "" },
+            icon: file-icon(file, el.lang),
+            lines: lines,
+            lang: el.lang,
+            changes: changes,
+            restyle: item.restyle,
+            body: (item.restyle)(with-diff(el.lang, changes)),
+          ))
         }
-        let restyle = item.restyle
-        let block = restyle(with-diff(el, if diffing { previous.at(file, default: none) }, lines))
-        if diffing { previous.insert(file, lines) }
-        // Above the code: the file name, or the language if there is none; preceded by the icon.
-        let name = if file != "" { file } else if el.lang != none { el.lang } else { "" }
-        let icon = file-icon(file, el.lang)
-        // On the website a button copies the code exactly as written in the source file.
-        code.push(if web {
-          html.elem("div", attrs: (class: "block"), {
-            html.elem(
-              "button",
-              attrs: (
-                type: "button",
-                data-code: lines.join("\n"),
-                data-copy: labels.copy,
-                data-copied: labels.copied,
-              ),
-              labels.copy,
-            )
-            if name != "" { html.elem("div", attrs: (class: "filename"), icon + name) }
-            block
-          })
-        } else if name != "" {
-          std.block(below: 1.2em, text(font: code-font, size: size("code") * 0.87pt, fill: code-text.transparentize(40%), {
-            if icon != none { box(baseline: 0.22em, icon) + h(0.45em) }
-            name
-          }))
-          block
-        } else {
-          block
-        })
       }
-      let text = {
+      // All blocks of a step form one entry; several of them are shown as tabs.
+      let entries = if blocks.len() > 0 { ((blocks: blocks),) } else { () }
+      let tab-name(block, index) = if block.name != "" { block.name } else {
+        str(index + 1)
+      }
+      let head(block) = std.block(below: 1.2em, text(
+        font: code-font,
+        size: size("code") * 0.87pt,
+        fill: code-text.transparentize(40%),
+        {
+          if block.icon != none { box(baseline: 0.22em, block.icon) + h(0.45em) }
+          block.name
+        },
+      ))
+      let web-block(block) = html.elem("div", attrs: (class: "block"), {
+        html.elem(
+          "button",
+          attrs: (
+            type: "button",
+            data-code: block.lines.join("\n"),
+            data-copy: labels.copy,
+            data-copied: labels.copied,
+          ),
+          labels.copy,
+        )
+        if block.name != "" {
+          html.elem("div", attrs: (class: "filename"), block.icon + block.name)
+        }
+        block.body
+      })
+      // The PDF shows one tab per page; the tab bar marks which one.
+      let tab-bar(blocks, active) = std.block(
+        width: 100%,
+        below: 1.2em,
+        stroke: (bottom: 0.75pt + line-color),
+        {
+          set text(font: code-font, size: size("code") * 0.87pt)
+          blocks
+            .enumerate()
+            .map(((index, block)) => box(
+              inset: (x: 0.7em, top: 0.2em, bottom: 0.7em),
+              stroke: if index == active { (bottom: 2pt + accent) },
+              text(
+                fill: code-text.transparentize(if index == active { 0% } else { 55% }),
+                {
+                  if block.icon != none { box(baseline: 0.22em, block.icon) + h(0.45em) }
+                  tab-name(block, index)
+                },
+              ),
+            ))
+            .join(h(0.3em))
+        },
+      )
+      let text-items = content.filter(item => not is-code(item.el))
+      let text-of(items) = {
         show heading.where(level: 1): step-heading.with(step: number, total: steps.len())
-        // Links in the explanation are underlined in the accent color.
-        show link: it => if web { it } else { underline(stroke: 1pt + accent, offset: 0.2em, it) }
-        content.filter(item => not is-code(item.el)).map(item => (item.restyle)(item.el)).join()
+        show metadata: it => {
+          let kind = marker(it)
+          let button = (
+            "download-button": if source != none { ("download", labels.download, "\u{2913}") },
+            "theme-button": if has-dark { ("theme-toggle", labels.theme, "\u{25D0}") },
+          ).at(kind, default: none)
+          if button == none { it } else if web {
+            let (class, label, _) = button
+            html.elem("button", attrs: (
+              type: "button",
+              class: "header-button inline " + class,
+              aria-label: label,
+              title: label,
+            ))
+          } else {
+            // Without a header button in the PDF the icon only stands for the one on the website.
+            // Placed, so the circle does not push the lines apart.
+            box(width: 1.1em, height: 0.7em, place(center + horizon, circle(
+              radius: 0.55em,
+              stroke: 0.75pt + accent,
+              align(center + horizon, text(size: 0.75em, button.last())),
+            )))
+          }
+        }
+        show link: it => if web { it } else {
+          underline(stroke: 1pt + accent, offset: 0.2em, it)
+        }
+        items.map(item => (item.restyle)(item.el)).join()
       }
       output.push(if web {
-        section(number, text, code)
+        section(number, text-of(text-items), entries.map(entry => if entry.blocks.len() == 1 {
+          web-block(entry.blocks.first())
+        } else {
+          html.elem("div", attrs: (class: "tabs"), {
+            html.elem(
+              "div",
+              attrs: (class: "tab-bar", role: "tablist"),
+              entry
+                .blocks
+                .enumerate()
+                .map(((index, block)) => {
+                  html.elem(
+                    "button",
+                    attrs: (type: "button", role: "tab", class: "tab"),
+                    block.icon + tab-name(block, index),
+                  )
+                })
+                .join(),
+            )
+            entry
+              .blocks
+              .map(block => html.elem(
+                "div",
+                attrs: (class: "tab-panel", role: "tabpanel"),
+                web-block(block),
+              ))
+              .join()
+          })
+        }))
       } else {
-        [#metadata(none)#label("step-" + str(number))] + slide(text, code)
+        // One view with every tab group on its first tab, then a view for each further tab.
+        let views = ((0,) * entries.len(),)
+        for (k, entry) in entries.enumerate() {
+          for active in range(1, entry.blocks.len()) {
+            let view = (0,) * entries.len()
+            view.at(k) = active
+            views.push(view)
+          }
+        }
+        let content-height = page-height - header-height
+
+        // Text longer than a page continues on the next one, split between paragraphs. A
+        // heading stays with the paragraph after it.
+        let text-width = (if entries.len() > 0 { page-width / 2 } else { page-width }) - 2 * margin - 1em
+        let fits-text(items) = {
+          measure(block(width: text-width, text-of(items))).height <= content-height - 2 * margin
+        }
+        let chunks = ()
+        let chunk = ()
+        for item in text-items {
+          chunk.push(item)
+          if item.el.func() == parbreak {
+            chunks.push(chunk)
+            chunk = ()
+          }
+        }
+        chunks.push(chunk)
+        let text-pages = ()
+        let page-items = ()
+        for chunk in chunks {
+          if page-items.len() > 0 and not is-empty(chunk) and not fits-text(page-items + chunk) {
+            text-pages.push(page-items)
+            page-items = ()
+          }
+          page-items += chunk
+        }
+        text-pages.push(page-items)
+
+        // Code longer than a page continues on the next one, split between lines; the file
+        // name or tab bar is repeated above the rest.
+        let code-of(parts) = parts.map(part => {
+          part.top
+          (part.block.restyle)(with-diff(part.block.lang, part.block.changes, start: part.start, end: part.end))
+        })
+        let fits-code(parts) = {
+          measure(block(width: page-width / 2 - 1.3cm, code-of(parts).join(v(1em)))).height <= content-height - 1.6cm
+        }
+        let code-pages = ()
+        for view in views {
+          let parts = ()
+          for (entry, active) in entries.zip(view) {
+            let block = entry.blocks.at(active)
+            let top = if entry.blocks.len() > 1 { tab-bar(entry.blocks, active) } else if block.name != "" { head(block) }
+            let part(start, end) = (top: top, block: block, start: start, end: end)
+            let total = block.changes.len()
+            let start = 0
+            while start < total {
+              if fits-code(parts + (part(start, total),)) {
+                parts.push(part(start, total))
+                start = total
+                continue
+              }
+              // The most lines that still fit: `low` fits, `high` does not.
+              let (low, high) = (start, total)
+              while high - low > 1 {
+                let middle = calc.div-euclid(low + high, 2)
+                if fits-code(parts + (part(start, middle),)) { low = middle } else { high = middle }
+              }
+              if low == start {
+                if parts.len() > 0 {
+                  code-pages.push(parts)
+                  parts = ()
+                  continue
+                }
+                // A single line taller than the page: show it anyway.
+                low = start + 1
+              }
+              parts.push(part(start, low))
+              code-pages.push(parts)
+              parts = ()
+              start = low
+            }
+          }
+          if parts.len() > 0 or entries.len() == 0 { code-pages.push(parts) }
+        }
+
+        // Text and code advance together; the shorter one stays on its last page.
+        range(calc.max(text-pages.len(), code-pages.len()))
+          .map(index => {
+            let text = text-of(text-pages.at(calc.min(index, text-pages.len() - 1)))
+            let code = code-of(code-pages.at(calc.min(index, code-pages.len() - 1)))
+            if index == 0 {
+              [#metadata(none)#label("step-" + str(number))] + slide(text, code)
+            } else {
+              // The repeated heading must not show up a second time in the PDF outline.
+              set heading(outlined: false, bookmarked: false)
+              slide(text, code)
+            }
+          })
+          .join(pagebreak())
       })
     }
 
-    // Title page and abstract page come before the steps.
     let intro = ()
     if has-title-page {
       let target = if has-abstract-page { "abstract" } else { "step-1" }
@@ -654,7 +919,11 @@
     }
     if has-abstract-page {
       intro.push(if web {
-        intro-section("abstract", "abstract-page", none, html.elem("div", attrs: (class: "abstract"), abstract))
+        intro-section("abstract", "abstract-page", none, html.elem(
+          "div",
+          attrs: (class: "abstract"),
+          abstract,
+        ))
       } else {
         [#metadata(none)#label("abstract")] + abstract-slide
       })
@@ -662,119 +931,160 @@
     let output = intro + output
 
     if web {
-      html.elem("style", read("assets/web.css"))
-      // The settings from `theme` override the stylesheet's defaults.
-      let variables(scheme, dark) = (
-        background: scheme.background.to-hex(),
-        text: scheme.text.to-hex(),
-        line: scheme.line.to-hex(),
-        accent: scheme.accent.to-hex(),
-        heading: scheme.heading.to-hex(),
-        code-background: scheme.code-background.to-hex(),
-        header: if scheme.header != none {
-          scheme.header.to-hex()
-        } else {
-          "linear-gradient(122deg, var(--background), var(--gradient-end)) fixed"
-        },
-        header-text: scheme.header-text.to-hex(),
-        code-text: scheme.code-text.to-hex(),
-        gradient-end: if scheme.gradient-end != none { scheme.gradient-end } else { scheme.background }.to-hex(),
-        heading-bar: if scheme.heading-bar != none { scheme.heading-bar.to-hex() } else { "transparent" },
-        // Copy button: a color that stands out from the code panel needs no visible border.
-        button: if scheme.button != none { scheme.button } else { scheme.code-background }.to-hex(),
-        button-border: if scheme.button != none and scheme.button != scheme.code-background {
-          scheme.button
-        } else {
-          scheme.line
-        }.to-hex(),
-        button-text: if scheme.button-text != none { scheme.button-text } else { scheme.code-text }.to-hex(),
-        code-border: if code-border { scheme.line.to-hex() } else { "transparent" },
-        added: scheme.diff.added.at(0).to-hex(),
-        added-bar: scheme.diff.added.at(1).to-hex(),
-        removed: scheme.diff.removed.at(0).to-hex(),
-        removed-bar: scheme.diff.removed.at(1).to-hex(),
-        // The syntax colors are made for a light panel; in the dark scheme they get inverted.
-        syntax-filter: if dark { "invert(1) hue-rotate(180deg)" } else { "none" },
-        title-background: if scheme.title-background != none {
-          scheme.title-background.to-hex()
-        } else {
-          "transparent"
-        },
-        title-text: scheme.title-text.to-hex(),
-        abstract-background: if scheme.abstract-background != none {
-          scheme.abstract-background.to-hex()
-        } else {
-          "transparent"
-        },
-        abstract-text: scheme.abstract-text.to-hex(),
-        logo-light: if dark { "none" } else { "block" },
-        logo-dark: if dark { "block" } else { "none" },
-      ).pairs().map(((name, value)) => "--" + name + ":" + value + ";").join()
-      html.elem("style", {
-        ":root {"
-        variables(light-scheme, false)
-        "--corner-radius:" + str(corner-radius * 1.5) + "rem;"
-        "--text-position:" + if text-top { "start" } else { "center" } + ";"
-        // The stylesheet's sizes belong to the default sizes; scale them in proportion.
-        "--size-text:" + str(calc.round(1.125 * size("text") / 14, digits: 3)) + "rem;"
-        "--size-heading:" + str(calc.round(1.2 * size("heading") / 15, digits: 3)) + "rem;"
-        "--size-title:" + str(calc.round(1.35 * size("title") / 17, digits: 3)) + "rem;"
-        "--size-title-page:" + str(calc.round(2.6 * size("title-page") / 30, digits: 3)) + "rem;"
-        "--size-brand:" + str(calc.round(1.6 * size("brand") / 20, digits: 3)) + "rem;"
-        "--size-code:" + str(calc.round(0.8 * size("code") / 10.9, digits: 3)) + "rem;"
-        "--font-text:" + css-fonts(text-font) + ";"
-        "--font-code:" + css-fonts(code-font, generic: "monospace") + ";"
-        "--font-brand:" + css-fonts(brand-font) + ";"
-        "}"
-        // Dark scheme: chosen explicitly with the button, or by the system unless light is chosen.
-        if has-dark {
-          ":root[data-theme=\"dark\"] {" + variables(dark-scheme, true) + "}"
-          "@media (prefers-color-scheme: dark) { :root:not([data-theme=\"light\"]) {"
-          variables(dark-scheme, true)
-          "} }"
-        }
-      })
-      html.elem("header", {
-        html.elem(
-          "span",
-          attrs: (
-            class: "title"
-              + if title-underline { "" } else { " no-underline" }
-              + if title-uppercase { " uppercase" } else { "" },
-          ),
-          title,
-        )
-        html.elem("span", attrs: (class: "brand"), {
-          if source != none {
-            html.elem("button", attrs: (
-              type: "button",
-              class: "header-button download",
-              aria-label: labels.download,
-              title: labels.download,
-              data-source: source,
-              data-name: source-name,
+      // An own root element, as Typst only builds the head itself when there is none; the
+      // favicon could not go in there otherwise.
+      let icon = if favicon == auto { read("assets/favicon.svg", encoding: none) } else {
+        favicon
+      }
+      html.elem("html", attrs: (lang: lang), {
+        html.elem("head", {
+          html.elem("meta", attrs: (charset: "utf-8"))
+          html.elem("meta", attrs: (
+            name: "viewport",
+            content: "width=device-width, initial-scale=1",
+          ))
+          if title != none { html.elem("title", plain-text(title)) }
+          if icon != none {
+            html.elem("link", attrs: (
+              rel: "icon",
+              href: "data:" + image-type(icon) + ";base64," + base64(icon),
             ))
           }
-          if has-dark {
-            html.elem("button", attrs: (
-              type: "button",
-              class: "header-button theme-toggle",
-              aria-label: labels.theme,
-              title: labels.theme,
-            ))
-          }
-          // Both logos are embedded; the stylesheet shows the one matching the color scheme.
-          if light-scheme.logo != none {
-            html.elem("span", attrs: (class: "logo-light"), light-scheme.logo)
-          }
-          if dark-scheme.logo != none {
-            html.elem("span", attrs: (class: "logo-dark"), dark-scheme.logo)
-          }
-          brand-text
+              html.elem("style", read("assets/web.css"))
+              let variables(scheme, dark) = (
+                background: scheme.background.to-hex(),
+                text: scheme.text.to-hex(),
+                line: scheme.line.to-hex(),
+                accent: scheme.accent.to-hex(),
+                heading: scheme.heading.to-hex(),
+                code-background: scheme.code-background.to-hex(),
+                header: if scheme.header != none {
+                  scheme.header.to-hex()
+                } else {
+                  "linear-gradient(122deg, var(--background), var(--gradient-end)) fixed"
+                },
+                header-text: scheme.header-text.to-hex(),
+                code-text: scheme.code-text.to-hex(),
+                gradient-end: if scheme.gradient-end != none { scheme.gradient-end } else {
+                  scheme.background
+                }.to-hex(),
+                heading-bar: if scheme.heading-bar != none { scheme.heading-bar.to-hex() } else {
+                  "transparent"
+                },
+                // Copy button: a color that stands out from the code panel needs no visible border.
+                button: if scheme.button != none { scheme.button } else {
+                  scheme.code-background
+                }.to-hex(),
+                button-border: if scheme.button != none
+                  and scheme.button != scheme.code-background {
+                  scheme.button
+                } else {
+                  scheme.line
+                }.to-hex(),
+                button-text: if scheme.button-text != none { scheme.button-text } else {
+                  scheme.code-text
+                }.to-hex(),
+                code-border: if code-border { scheme.line.to-hex() } else { "transparent" },
+                added: scheme.diff.added.at(0).to-hex(),
+                added-bar: scheme.diff.added.at(1).to-hex(),
+                removed: scheme.diff.removed.at(0).to-hex(),
+                removed-bar: scheme.diff.removed.at(1).to-hex(),
+                // The syntax colors are made for a light panel; in the dark scheme they get inverted.
+                syntax-filter: if dark { "invert(1) hue-rotate(180deg)" } else { "none" },
+                title-background: if scheme.title-background != none {
+                  scheme.title-background.to-hex()
+                } else {
+                  "transparent"
+                },
+                title-text: scheme.title-text.to-hex(),
+                abstract-background: if scheme.abstract-background != none {
+                  scheme.abstract-background.to-hex()
+                } else {
+                  "transparent"
+                },
+                abstract-text: scheme.abstract-text.to-hex(),
+                logo-light: if dark { "none" } else { "block" },
+                logo-dark: if dark { "block" } else { "none" },
+              )
+                .pairs()
+                .map(((name, value)) => "--" + name + ":" + value + ";")
+                .join()
+              html.elem("style", {
+                ":root {"
+                variables(light-scheme, false)
+                "--corner-radius:" + str(corner-radius * 1.5) + "rem;"
+                "--text-position:" + if text-top { "start" } else { "center" } + ";"
+                // The stylesheet's sizes belong to the default sizes; scale them in proportion.
+                "--size-text:" + str(calc.round(1.125 * size("text") / 14, digits: 3)) + "rem;"
+                (
+                  "--size-heading:"
+                    + str(calc.round(1.2 * size("heading") / 15, digits: 3))
+                    + "rem;"
+                )
+                "--size-title:" + str(calc.round(1.35 * size("title") / 17, digits: 3)) + "rem;"
+                (
+                  "--size-title-page:"
+                    + str(calc.round(2.6 * size("title-page") / 30, digits: 3))
+                    + "rem;"
+                )
+                "--size-brand:" + str(calc.round(1.6 * size("brand") / 20, digits: 3)) + "rem;"
+                "--size-code:" + str(calc.round(0.8 * size("code") / 10.9, digits: 3)) + "rem;"
+                "--font-text:" + css-fonts(text-font) + ";"
+                "--font-code:" + css-fonts(code-font, generic: "monospace") + ";"
+                "--font-brand:" + css-fonts(brand-font) + ";"
+                "}"
+                if has-dark {
+                  ":root[data-theme=\"dark\"] {" + variables(dark-scheme, true) + "}"
+                  "@media (prefers-color-scheme: dark) { :root:not([data-theme=\"light\"]) {"
+                  variables(dark-scheme, true)
+                  "} }"
+                }
+              })
+        })
+        html.elem("body", {
+              html.elem("header", {
+                html.elem(
+                  "span",
+                  attrs: (
+                    class: "title"
+                      + if title-underline { "" } else { " no-underline" }
+                      + if title-uppercase { " uppercase" } else { "" },
+                  ),
+                  title,
+                )
+                html.elem("span", attrs: (class: "brand"), {
+                  if source != none {
+                    html.elem("button", attrs: (
+                      type: "button",
+                      class: "header-button download",
+                      aria-label: labels.download,
+                      title: labels.download,
+                      data-source: source,
+                      data-name: source-name,
+                    ))
+                  }
+                  if has-dark {
+                    html.elem("button", attrs: (
+                      type: "button",
+                      class: "header-button theme-toggle",
+                      aria-label: labels.theme,
+                      title: labels.theme,
+                    ))
+                  }
+                  // Both logos are embedded; the stylesheet shows the one matching the color scheme.
+                  if light-scheme.logo != none {
+                    html.elem("span", attrs: (class: "logo-light"), light-scheme.logo)
+                  }
+                  if dark-scheme.logo != none {
+                    html.elem("span", attrs: (class: "logo-dark"), dark-scheme.logo)
+                  }
+                  brand-text
+                })
+              })
+              html.elem("main", output.join())
+              html.elem("script", read("assets/web.js"))
         })
       })
-      html.elem("main", output.join())
-      html.elem("script", read("assets/web.js"))
     } else {
       output.join(pagebreak())
     }
