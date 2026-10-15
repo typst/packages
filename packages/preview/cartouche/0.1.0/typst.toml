@@ -2,7 +2,7 @@
 name = "cartouche"
 version = "0.1.0"
 entrypoint = "lib.typ"
-authors = ["Paul Müller <muellerpaul2000@live.de>"]
+authors = ["Paulmue0 <https://github.com/Paulmue0>"]
 license = "MIT"
 description = "Place styled epigraphs anywhere on the page."
 repository = "https://github.com/Paulmue0/cartouche"
