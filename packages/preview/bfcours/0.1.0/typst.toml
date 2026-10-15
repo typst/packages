@@ -9,7 +9,7 @@ repository = "https://forge.apps.education.fr/romaindeschamps/bfcours-typst"
 keywords = ["maths", "education", "teaching", "exercises", "worksheet", "lesson", "french", "cours"]
 categories = ["layout", "components", "report"]
 disciplines = ["mathematics", "education"]
-compiler = "0.14.0"
+compiler = "0.15.0"
 exclude = ["/examples/*.png"]
 
 [template]

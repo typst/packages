@@ -9,7 +9,7 @@
 // classe de mots 2). Le cadre (coins arrondis en diagonale, onglet de titre) est dessiné ici : codly n'accepte
 // qu'un seul rayon pour tous les coins.
 
-#import "@preview/codly:1.3.0": codly-init, local
+#import "@preview/codly:2.0.0" as codly
 
 /// Thème de coloration (format TextMate, octets) pour `raw(theme: …)`.
 ///
@@ -63,34 +63,27 @@
 ///   de lignes), `couleur-surlignage`.
 /// -> content
 #let _code-codly(texte, r) = {
-  let numero = if r.numeros == false { none } else {
-    n => text(size: r.taille-numeros, fill: r.couleur-numeros, str(n))
-  }
+  let numero = n => text(size: r.taille-numeros, fill: r.couleur-numeros, str(n))
   let decalage = if r.numeros == false { 0 } else { r.numeros - 1 }
-  show: codly-init
-  local(
-    display-icon: false,
-    display-name: false,
-    number-format: numero,
-    number-align: right,
-    offset: decalage,
-    stroke: none,
-    fill: none,
-    zebra-fill: none,
-    radius: 0pt,
-    inset: (x: 0.4em, y: 0.22em),
-    smart-indent: false,
-    highlighted-lines: r.surligner,
-    highlighted-default-color: r.couleur-surlignage,
-    highlight-radius: 0pt,
-    highlight-inset: (x: 0pt, y: 0pt),
-    {
-      set text(size: r.taille)
-      set text(font: r.police) if r.police != auto
-      set par(justify: false)
-      raw(texte, lang: "python", block: true, theme: r.theme, tab-size: r.tabsize)
-    },
-  )
+  let surlignees = r.surligner.map(n => (n, r.couleur-surlignage))
+  {
+    set text(size: r.taille)
+    set text(font: r.police) if r.police != auto
+    set par(justify: false)
+    show: codly.line-set_(fill: none, stroke: none, radius: 0pt, inset: (x: 0.4em, y: 0.22em))
+    show: codly.number-set_(numbering: (..n) => numero(n.pos().first()), align: right + top)
+    codly.new(
+      raw(texte, lang: "python", block: true, theme: r.theme, tab-size: r.tabsize),
+      file: none,
+      lang-position: none,
+      number-enabled: r.numeros != false,
+      offset: decalage,
+      radius: 0pt,
+      padding: 0pt,
+      smart-indent: false,
+      highlighted: surlignees,
+    )
+  }
 }
 
 /// Boîte de code Python : cadre, titre (onglet en haut à droite ou bandeau pleine largeur), numéros de ligne.

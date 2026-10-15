@@ -3,7 +3,7 @@
 //
 // (`nombre` → `num`, `unite` → `unit` et `qty`, `regler-nombres` → `sisetup`).
 
-#import "@preview/zero:0.7.0" as _zero
+#import "@preview/zero:0.7.1" as _zero
 #import "../../socle/lib.typ": interne as _socle
 #import _socle: reglages-resoudre
 #import "reglages.typ": _N, vers-zero
