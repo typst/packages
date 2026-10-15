@@ -1,5 +1,5 @@
 
-#let get_translation(translations) = {
+#let get-translation(translations) = {
   if type(translations) != dictionary {
     return translations
   }
@@ -24,7 +24,7 @@
   }
 }
 
-#let translated_terms = (
+#let translated-terms = (
   area: (
     es: "Área de",
     en: "Area of",

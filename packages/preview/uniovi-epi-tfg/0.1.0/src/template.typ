@@ -1,4 +1,4 @@
-#import "translated_terms.typ": *
+#import "translated-terms.typ": *
 
 #let template(
   school: "",
@@ -9,29 +9,29 @@
   supervisor: (),
 
 
-  paper_size: "a4",
-  paper_color: "#ffffff",
-  text_color: "#000000",
-  text_font: "New Computer Modern",
-  text_lang: "es",
+  paper-size: "a4",
+  paper-color: "#ffffff",
+  text-color: "#000000",
+  text-font: "New Computer Modern",
+  text-lang: "es",
   justify: true,
 
   heading_numbering: "1",
-  show_prefix: true,
-  show_numbering: true,
+  show-prefix: true,
+  show-numbering: true,
 
   date: none,
   institution-link: "https://www.uniovi.es",
   subject: none,
   lang: "es",
-  bibliography_style: "ieee",
+  bibliography-style: "ieee",
 
   body,
 ) = {
 
-  let paper_color = rgb(paper_color)
-  let text_color = rgb(text_color)
-  let line_color = rgb("00000060")
+  let paper-color = rgb(paper-color)
+  let text-color = rgb(text-color)
+  let line-color = rgb("00000060")
 
   
   // ==========================================
@@ -43,7 +43,7 @@
     author: authors.map(a => a.name + " " + a.surname),
     )
 
-  set text(font: text_font, size: 12pt, fill: text_color, lang: text_lang)
+  set text(font: text-font, size: 12pt, fill: text-color, lang: text-lang)
 
   set par(
   justify: true,
@@ -62,7 +62,7 @@
       v(0.9cm)
       stack(
         spacing: 8pt,
-        line(length: 100%, stroke: 0.5pt + line_color),
+        line(length: 100%, stroke: 0.5pt + line-color),
         align(
           center,
           authors.map(author => author.name + " " + author.surname).join(", ")
@@ -102,7 +102,7 @@
         D. #author.surname, #author.name
       ]),
       ..supervisor.map(supervisor => align(center)[
-        #get_translation(translated_terms.supervisor): #supervisor.name #supervisor.surname
+        #get-translation(translated-terms.supervisor): #supervisor.name #supervisor.surname
       ]),
     ),
   )
@@ -125,14 +125,14 @@
   // ==========================================
 
 
-  set text(font: text_font, size: 12pt, fill: text_color, lang: text_lang)
+  set text(font: text-font, size: 12pt, fill: text-color, lang: text-lang)
   
-  set bibliography(style: bibliography_style)
+  set bibliography(style: bibliography-style)
 
   set page(
     header: {
       set text(8.5pt)
-      let separator = get_translation(translated_terms.of)
+      let separator = get-translation(translated-terms.of)
 
       grid(
         columns: (2cm, 1fr),
@@ -145,9 +145,9 @@
           )
         ],
         [
-          #get_translation(translated_terms.uniovi) - #school \
-          #get_translation(translated_terms.tfg) (#title) -
-          #get_translation(translated_terms.page)
+          #get-translation(translated-terms.uniovi) - #school \
+          #get-translation(translated-terms.tfg) (#title) -
+          #get-translation(translated-terms.page)
           #context {
             let current = counter(page).get().first()
             let total = counter(page).final().first()
@@ -156,7 +156,7 @@
         ],
       )
 
-      line(length: 100%, stroke: 0.5pt + line_color)
+      line(length: 100%, stroke: 0.5pt + line-color)
       v(0.1cm)
     },
   )

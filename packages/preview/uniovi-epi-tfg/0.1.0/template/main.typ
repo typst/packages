@@ -7,7 +7,7 @@
   title: "Título del Trabajo de Fin de Grado",
 
   authors: (
-    (surname: "Apellidos", name: "Nombre", email: "uo00000@uniovi.es"),
+    (surname: "Apellidos", name: "Nombre", email: "uo000000@uniovi.es"),
   ),
   supervisor: (
     (surname: "Apellidos", name: "Nombre", email: ""),
@@ -18,7 +18,7 @@
   subject: "Trabajo de Fin de Grado",
 
   lang: "es",
-  bibliography_style: "ieee"
+  bibliography-style: "ieee"
 )
 
 
