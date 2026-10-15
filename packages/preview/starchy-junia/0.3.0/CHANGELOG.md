@@ -38,6 +38,7 @@ Version de remise à plat : un seul modèle, une bibliothèque séparée du sque
 - Dès qu'une entrée du lexique était citée, la compilation pouvait ne pas converger (« layout did not converge ») : l'affichage du lexique dépendait de citations dont le rendu change d'une passe à l'autre. Il repose désormais sur un repère invisible et stable posé à chaque citation (`@cle`, `gls`, `glspl`).
 
 #### Maintenance
+- Licence MIT-0 (MIT No Attribution) au lieu de MIT : les rapports créés à partir du modèle peuvent être diffusés sans mention de copyright, comme le recommande Typst Universe pour les templates.
 - Suite de tests fonctionnels (`tests/`, exclue du paquet) : 62 cas couvrant chaque fonction, les messages de migration et la convergence de la compilation, vérifiés sur Typst 0.15.0 et 0.15.1.
 
 #### Note de migration 0.2.x → 0.3.0
@@ -98,6 +99,7 @@ This release flattens the template: a single model, a library separated from the
 - **AI assistant guide** (optional): `docs/AGENTS.md`, available in the Codeberg repository and not included in projects, describes how the template works.
 
 #### Maintenance
+- MIT-0 (MIT No Attribution) license instead of MIT: reports created from the template can be distributed without any copyright notice, as Typst Universe recommends for templates.
 - Functional test suite (`tests/`, excluded from the package): 62 cases covering every function, migration messages and compilation convergence, checked on Typst 0.15.0 and 0.15.1.
 
 #### Fixes

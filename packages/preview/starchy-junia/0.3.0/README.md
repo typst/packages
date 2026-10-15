@@ -68,6 +68,8 @@ Ouvrir `squelette.typ` et remplir la section `CONFIGURATION` :
 
 ### 4. Compiler
 
+> **Police** : le modèle utilise *New Computer Modern Sans*, disponible d'office dans la Web App Typst. En local, l'installer sur le système (paquet `fonts-newcomputermodern` ou équivalent, ou [téléchargement](https://ctan.org/pkg/newcomputermodern)) ou la désigner avec `typst compile --font-path <dossier>`. Sans elle, Typst utilise une police de remplacement ; une autre police peut aussi être choisie avec `police: (famille: "...")`.
+
 **Via Typst Web App** : la compilation est automatique.
 
 **Via CLI** :
@@ -218,7 +220,7 @@ Citer dans le texte avec `@dupont2023`. La bibliographie s'affiche automatiqueme
 > Le style par défaut est IEEE. Pour changer, modifier l'appel `#bibliography(...)` dans `squelette.typ` :
 > ```typst
 > #bibliography(
->   (...),
+>   ("ressources/bibliographie.yml", "ressources/bibliographie.bib"),
 >   style: "apa",
 > )
 > ```
@@ -311,7 +313,7 @@ Toutes les options s'ajoutent dans le bloc `modele-junia.with(...)` de `squelett
 
 ## Architecture des dossiers
 
-```
+```text
 squelette.typ                  ← point d'entrée : configuration et ordre des fiches
 │
 ├── fiches/                    ← contenu du document (à rédiger ici)
@@ -345,6 +347,6 @@ Le moteur du modèle (fonctions, modèles, mise en page) vit dans le paquet `sta
 
 ## Licence
 
-MIT — MathYeiv
+[MIT-0](./LICENSE) (MIT No Attribution) — MathYeiv : le modèle et les documents créés à partir de lui peuvent être utilisés, modifiés et diffusés sans obligation de mention ni de copie de la licence.
 
 Dépôt : [codeberg.org/MathYeiv/starchy-junia](https://codeberg.org/MathYeiv/starchy-junia)
