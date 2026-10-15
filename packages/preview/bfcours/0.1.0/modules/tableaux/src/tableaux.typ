@@ -4,7 +4,7 @@
 //
 // Le style par défaut suit celui des tableaux bfcours (tcbtab) : cadre bleu nuit à coins arrondis et ombre
 // légère, filets fins, texte rouge sombre, bandeau de titre bleu nuit à texte blanc. Les couleurs sont les
-// couleurs nommées de bfcours (`currentTableFrameColor`…), lues au rendu : `CouleursTabular` et `setbfcolors`
+// couleurs nommées de bfcours (`currentTableFrameColor`…), lues au rendu : `couleurs-tabular` et `setbfcolors`
 // les changent (paquet bfcours-socle).
 //
 // Les noms du moteur (interne.typ) ne changent pas : ici on importe le moteur sous alias (`m`) et on
@@ -40,7 +40,7 @@
 /// `couleurs: "secondaire"`).
 ///
 /// Priorité : clé locale, puis style nommé, puis réglage du type, puis réglage global, puis défaut. Les
-/// couleurs par défaut sont les couleurs nommées de bfcours : `setbfcolors` (ou `CouleursTabular`) les change
+/// couleurs par défaut sont les couleurs nommées de bfcours : `setbfcolors` (ou `couleurs-tabular`) les change
 /// pour tout le document ; ce setter les remplace pour les seuls tableaux.
 ///
 /// ```typ
@@ -111,17 +111,17 @@
 /// - style (str, array): nom (ou noms) de style défini par `setbftableaux(definir: …)`.
 /// - entete (bool, int): colore la première rangée (les `n` premières si on donne un entier) : fond et texte du titre, texte gras (défaut : `false`).
 /// - entete-colonne (bool): met la première colonne en valeur : gras, fond teinté (défaut : `false`).
-/// - couleurs (str): jeu de couleurs courantes : `"primaire"` (`CouleursTabular`) ou `"secondaire"` (`CouleursSecondaryTabular`, avec leurs réglages : filets de `0.5mm`, `arraystretch: 1.4`, titre agrandi) (défaut : `"primaire"`).
+/// - couleurs (str): jeu de couleurs courantes : `"primaire"` (`couleurs-tabular`) ou `"secondaire"` (`couleurs-secondary-tabular`, avec leurs réglages : filets de `0.5mm`, `arraystretch: 1.4`, titre agrandi) (défaut : `"primaire"`).
 /// - colframe (color, str): couleur du cadre (défaut : `currentTableFrameColor`, bleu nuit).
 /// - colback (color, str): fond du tableau (défaut : `currentTableColbackColor`, blanc ; sans cadre, aucun fond).
-/// - colbacktitle (color, str): fond du bandeau de titre (défaut : `currentTableColbackTitleColor`, bleu nuit).
-/// - coltitle (color, str): couleur du texte du titre (défaut : `currentTableColTitleColor`, blanc).
+/// - colbacktitle (color, str): fond du bandeau de titre (défaut : `current-table-colback-title-color`, bleu nuit).
+/// - coltitle (color, str): couleur du texte du titre (défaut : `current-table-col-title-color`, blanc).
 /// - colupper (color, str, none): couleur du texte des cellules (défaut : `currentTableColupperColor`, rouge sombre) ; `none` garde la couleur du texte courant.
 /// - entete-fond (color, str): fond de l'en-tête (défaut : celui du titre).
 /// - entete-texte (color, str): texte de l'en-tête (défaut : celui du titre).
 /// - entete-colonne-fond (color, str): fond de la première colonne mise en valeur (défaut : teinte pâle du cadre).
 /// - rowcolors (bool, color, array): rangées alternées : `true` colore une rangée sur deux en teinte pâle du cadre ; une couleur colore une rangée sur deux ; `(c1, c2)` alterne `c1`, `c2` à partir de la première rangée du corps ; `(n, impaires, paires)` : rangées numérotées depuis 1, colorées à partir de la `n`-ième (défaut : `false`).
-/// - arrayrulecolor (color, str): couleur des filets (défaut : celle de `CouleursTabular`, noire).
+/// - arrayrulecolor (color, str): couleur des filets (défaut : celle de `couleurs-tabular`, noire).
 /// - arrayrulewidth (length): épaisseur des filets (défaut : `0.4pt`).
 /// - arraystretch (float): interligne des rangées (défaut : `1.5`, valeur de bfcours).
 /// - tabcolsep (length, auto): espace de part et d'autre du contenu d'une cellule (défaut : `6pt`, celui de `marges`).
@@ -314,11 +314,11 @@
 /// MI, MF, MS, TBM colorées, suivie d'un filet. Renvoie des cellules : à étaler avec `..`.
 ///
 /// ```typ
-/// #tableaurecapsequence(hline(), ..enteteContenu(), [Fractions], [], [], [], [], hline())
+/// #tableaurecapsequence(hline(), ..entete-contenu(), [Fractions], [], [], [], [], hline())
 /// ```
 ///
 /// -> array
-#let enteteContenu() = (
+#let entete-contenu() = (
   m.cellule(align: center)[*Contenu de la séquence*],
   cellcolor("red!30!white")[*MI*],
   cellcolor("orange!30!white")[*MF*],
@@ -329,10 +329,10 @@
 
 /// Tableau de bilan de séquence, une colonne large (0,68 de la largeur du
 /// texte) et quatre colonnes étroites (MI, MF, MS, TBM). Les rangées se donnent comme celles de `tcbtab`
-/// (utiliser `hline()`, `enteteContenu()`, `competence`…).
+/// (utiliser `hline()`, `entete-contenu()`, `competence`…).
 ///
 /// ```typ
-/// #tableaurecapsequence(hline(), ..enteteContenu(), [Calculer], [], [], [], [], hline())
+/// #tableaurecapsequence(hline(), ..entete-contenu(), [Calculer], [], [], [], [], hline())
 /// ```
 ///
 /// Syntaxe environnement : `#begin(tableaurecapsequence)` puis un contenu par item `-`, puis
@@ -344,7 +344,7 @@
 #let tableaurecapsequence(..cellules-brutes) = {
   let (pos, corps) = _separer-corps(cellules-brutes.pos())
   let cellules = if corps == none { cellules-brutes } else {
-    let rangees = (hline(), ..enteteContenu(), ..pos)
+    let rangees = (hline(), ..entete-contenu(), ..pos)
     for it in corps { rangees += (it, [], [], [], [], hline()) }
     arguments(..rangees, ..cellules-brutes.named())
   }
@@ -375,12 +375,12 @@
 /// Renvoie des cellules : à étaler avec `..`.
 ///
 /// ```typ
-/// #tableaurecapsequence(hline(), ..recapHeures(12))
+/// #tableaurecapsequence(hline(), ..recap-heures(12))
 /// ```
 ///
 /// - heures (int, content): nombre d'heures de la séquence.
 /// -> array
-#let recapHeures(heures) = (
+#let recap-heures(heures) = (
   m.cellule(align: center)[*Nombre d'heures*],
   multicolumn(4, "c")[#heures heures],
   hline(),

@@ -7,7 +7,7 @@
 // Phase 2 (06/10/2026) : ajouts SEULEMENT (les noms existants sont stables, interne.typ) :
 // svgnames, couleurs nommées des autres modules, macros d'état complètes (`bf-couleurs-courantes`,
 // `bf-couleur-courante`, `bf-regler-couleur-courante`), analyse STRICTE (`bf-xcolor`, `bf-definecolor`).
-// Les noms publics LaTeX (`CouleursTabular`…) sont dans publique.typ.
+// Les noms publics LaTeX (`couleurs-tabular`…) sont dans publique.typ.
 
 #import "svgnames.typ": svgnames
 
@@ -540,12 +540,12 @@
 // =====================================================================
 // Une couleur nommée de bfcours (`thm`, `defi`, `monrose`, `geo`…) a une valeur d'origine (`couleurs`)
 // et une valeur COURANTE : celle de `bf-couleurs-perso` si `setbfcolors` (ou `colorlet`, `definecolor`)
-// l'a changée. Les macros d'état (`currentAccentColor`…) ont leur propre état (plus haut).
+// l'a changée. Les macros d'état (`current-accent-color`…) ont leur propre état (plus haut).
 // Doc : ../REGLAGES.md, section « Couleurs nommées ».
 
 /// Les couleurs nommées de bfcours que `setbfcolors` change (palette `couleurs` sans ses noms internes
 /// `lien-interne`, `item-base`, `base` : les deux premiers se règlent par les macros `lienInterneColor`
-/// et `itemBaseColor`).
+/// et `item-base-color`).
 #let bf-noms-couleurs-nommees = couleurs.keys().filter(k => k not in ("lien-interne", "item-base", "base"))
 
 /// Valeur COURANTE d'une couleur nommée, d'une macro d'état ou d'une expression xcolor qui en contient

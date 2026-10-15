@@ -1,4 +1,4 @@
-// lignes.typ (bfcours-tabvar) — les lignes d'un tableau : `tkzTabLine` (signes) et `tkzTabVar` (variations).
+// lignes.typ (bfcours-tabvar) — les lignes d'un tableau : `tkz-tab-line` (signes) et `tkz-tab-var` (variations).
 //
 // Ces fonctions ne dessinent rien : elles valident leurs arguments et rendent une description de ligne
 // (un dictionnaire marqué `bf-tabvar-ligne`) que `tabvar` met en page.
@@ -59,7 +59,7 @@
   } else if type(spec) == array {
     spec
   } else {
-    panic("tkzTabLine : la description des signes attend une chaîne (\",-,z,+,\") ou un tableau ; reçu : " + repr(spec) + ".")
+    panic("tkz-tab-line : la description des signes attend une chaîne (\",-,z,+,\") ou un tableau ; reçu : " + repr(spec) + ".")
   }
 }
 
@@ -86,7 +86,7 @@
 /// virgules : les valeurs de x aux rangs impairs, les intervalles aux rangs pairs.
 /// Éléments : « » (vide), `+`, `-`, `z` (zéro), `t` (trait pointillé), `d` (double barre),
 /// `|` (trait plein), `h` (hachures, intervalle seulement), ou une formule.
-#let tkzTabLine(nom, spec, h: 1, a-completer: auto) = {
+#let tkz-tab-line(nom, spec, h: 1, a-completer: auto) = {
   _verifier-h("tkzTabLine", h)
   _verifier-ac("tkzTabLine", a-completer)
   (
@@ -114,7 +114,7 @@
   }
   let (repere, ..vals) = brut
   if type(repere) != str {
-    panic("tkzTabVar : le repère de l'élément n° " + str(i) + " doit être une chaîne ; reçu : " + repr(repere) + ".")
+    panic("tkz-tab-var : le repère de l'élément n° " + str(i) + " doit être une chaîne ; reçu : " + repr(repere) + ".")
   }
   let repere = repere.trim().replace("−", "-")
   if repere not in _reperes-var {
@@ -170,7 +170,7 @@
 /// - `("+D-", gauche, droite)`, `("-D+", …)`, `("D-", droite)`, `("+D", gauche)`… : valeur interdite,
 ///   double barre, limites de part et d'autre ;
 /// - `("im", val)` : image intermédiaire posée sur la flèche, à l'abscisse de cette colonne.
-#let tkzTabVar(nom, ..items, h: 2, a-completer: auto) = {
+#let tkz-tab-var(nom, ..items, h: 2, a-completer: auto) = {
   _verifier-h("tkzTabVar", h)
   _verifier-ac("tkzTabVar", a-completer)
   if items.named().len() > 0 {

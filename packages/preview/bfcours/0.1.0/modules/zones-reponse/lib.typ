@@ -15,7 +15,7 @@
 // rdcrep : réglage, zones de réponse, boîtes dérivées, texte de correction
 #import "src/reponses.typ": (
   setrdcrep, crep, tccrep, tcfillcrep, repsim, tcfraccrep, seyesrep, assosbox, seyesfig, dembox, crepbox,
-  CorrectionBox, crepcorrectionfont,
+  correction-box, crepcorrectionfont,
 )
 // rdcrep : tableaux Seyès
 #import "src/tableaux-seyes.typ": seyestab, seyesarray

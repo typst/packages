@@ -245,7 +245,7 @@
 /// `style` : "bac" (défaut) ou "brevet" (\chapitreBrevet).
 #let bf-chapitreBac(style: "bac", ..cles, doc) = {
   if style not in ("bac", "brevet") {
-    panic("chapitreBac : valeur invalide pour la clé « style » : " + repr(style) + ". Valeurs possibles : \"bac\" ou \"brevet\".")
+    panic("chapitre-bac : valeur invalide pour la clé « style » : " + repr(style) + ". Valeurs possibles : \"bac\" ou \"brevet\".")
   }
   let locales = cles.named()
   context {

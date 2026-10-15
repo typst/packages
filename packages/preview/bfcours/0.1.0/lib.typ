@@ -2,91 +2,91 @@
 //
 //   #import "@preview/bfcours:0.1.0": *
 //   #show: modele("cours", niveau: "2nde", theme: [Les vecteurs], correction: false)
-//   #Definition[Vecteur][…]
+//   #definition[Vecteur][…]
 //
 // Ce fichier n'exporte QUE des noms publics, par imports nominatifs (ni `interne` ni moteur). Chaque nom
 // vient d'une seule façade : aucune collision entre paquets.
 
 // Socle : version prof/élève, couleurs nommées, réglages communs (bfcours-socle)
 #import "modules/socle/lib.typ": (
-  ifcorrection, begin, end, environnements, alias, oe, OE, euro, definir-style, setbfcolors, setbfsocle, CouleurTexteAccent, CouleursSecondaryTabular,
-  CouleursTabular, ResetCouleurTexteAccent, ResetCouleursSecondaryTabular, ResetCouleursTabular, colorlet,
-  couleurItem, definecolor, resetItemBaseColor, textcolor, xcolor, currentAccentColor, currentTableColTitleColor,
-  currentTableColbackTitleColor, itemBaseColor,
+  ifcorrection, begin, end, environnements, alias, oe, oe-maj, euro, definir-style, setbfcolors, setbfsocle, couleur-texte-accent, couleurs-secondary-tabular,
+  couleurs-tabular, reset-couleur-texte-accent, reset-couleurs-secondary-tabular, reset-couleurs-tabular, colorlet,
+  couleur-item, definecolor, reset-item-base-color, textcolor, xcolor, current-accent-color, current-table-col-title-color,
+  current-table-colback-title-color, item-base-color,
 )
 
 // Environnements didactiques, sections, sommaire, vocabulaire (bfcours-didactique)
 #import "modules/didactique/lib.typ": (
-  Activite, Aide, ContreExemple, Definition, Demonstration, Exemple, Histoire, Methode, None, Notation,
-  Propriete, Remarque, Solution, Theoreme, Vocabulaire, bfEnv, bfbox, boite, boiteFigure, cracked,
-  NewBfdPalette, bfdActivatePalette, bfdActivateVariant, bfset, setbfenvironments, setbfskins, bfskin, coloredsquare,
-  dimcoloredsquare, liencontent, setbfsections, tableofcontents, printvocindex, tableauVocabulaireSommaire, voc,
+  activite, aide, contre-exemple, definition, demonstration, exemple, histoire, methode, neutre, notation,
+  propriete, remarque, solution, theoreme, vocabulaire, bf-env, bfbox, boite, boite-figure, cracked,
+  new-bfd-palette, bfd-activate-palette, bfd-activate-variant, bfset, setbfenvironments, setbfskins, bfskin, coloredsquare,
+  dimcoloredsquare, liencontent, setbfsections, tableofcontents, printvocindex, tableau-vocabulaire-sommaire, voc,
   vocref,
 )
 
 // Modèle de document, en-têtes, pied de page (bfcours-modele)
 #import "modules/modeles/lib.typ": (
-  bfcours, SequenceItem, chapEval, chapitre, pied-de-page, modele, choiceFontsDys, setbfmodele,
+  bfcours, sequence-item, chap-eval, chapitre, pied-de-page, modele, choice-fonts-dys, setbfmodele,
 )
 
 // Maths, texte, connecteurs, nombres et unités (bfcours-maths)
 #import "modules/maths/lib.typ": (
-  setbfmaths, sisetup, CrochetD, CrochetG, Coordonnees, DD, Rep, Vecteur, intervalle, affiche, acc, encadrer,
-  frquote, lien, needspace, outilcours, pascalc, surligner, Alors, Car, Donc, Et, Mais, Puisque, SSI, Si, np,
+  setbfmaths, sisetup, crochetd, crochetg, coordonnees, dd, rep, vect, intervalle, affiche, acc, encadrer,
+  frquote, lien, needspace, outilcours, pascalc, surligner, alors, car, donc, et, mais, puisque, ssi, si, np,
   num, qty, unit,
 )
 
 // Énumérations et colonnage (bfcours-enum)
 #import "modules/enumerations/lib.typ": (
-  setbfenum, MultiColonnes, tcbitem, tcbraster, enumerate, itemize, tcbenumerate, bfdEnumLabel, bfdEnumLevel,
-  bfdEnumNum,
+  setbfenum, multi-colonnes, tcbitem, tcbraster, enumerate, itemize, tcbenumerate, bfd-enum-label, bfd-enum-level,
+  bfd-enum-num,
 )
 
 // Tableaux (bfcours-tableaux)
 #import "modules/tableaux/lib.typ": (
-  tcbtab, hline, cline, multicolumn, multirow, cellcolor, tableaurecapsequence, enteteContenu, recapHeures,
+  tcbtab, hline, cline, multicolumn, multirow, cellcolor, tableaurecapsequence, entete-contenu, recap-heures,
   setbftableaux,
 )
 
 // Zones de réponse, cases à cocher (bfcours-crep)
 #import "modules/zones-reponse/lib.typ": (
   setrdcrep, crep, tccrep, tcfillcrep, repsim, tcfraccrep, seyesrep, assosbox, seyesfig, dembox, crepbox,
-  CorrectionBox, crepcorrectionfont, seyestab, seyesarray, checkbox, tcbcheckbox, tccheckbox, tccheckboxlist, cb,
+  correction-box, crepcorrectionfont, seyestab, seyesarray, checkbox, tcbcheckbox, tccheckbox, tccheckboxlist, cb,
   ccb, mysquare,
 )
 
 // Exercices, corrections, points, évaluation (bfcours-exo)
-#import "modules/exo/lib.typ": (
-  EXO, EXOEVAL, setrdexo, rdexoSkin, rdexostars, rdexocorrection, exocorrection, tcblower, rdexofilter, rdexoresetfilter, rdexohlist,
-  rdexotikzlist, rdexocountlist, thenumexo, rdexonumexo, thescore, theScore, rdexoscore, thelevel, theexotitle,
-  theExotitle, rdexotitlefont, thetags, thelabel, rdexotags, TFNumexo, TFScore, TFLevel, TFTitle, TFTags,
-  rdexoEnonceLabel, rdexoSolutionLabel, rdifficulty, rdexoMod, rdexoinclude, itempoint,
+#import "modules/exercices/lib.typ": (
+  exo, exo-eval, setrdexo, rdexo-skin, rdexostars, rdexocorrection, exocorrection, tcblower, rdexofilter, rdexoresetfilter, rdexohlist,
+  rdexotikzlist, rdexocountlist, thenumexo, rdexonumexo, thescore, thescore-libelle, rdexoscore, thelevel, theexotitle,
+  theexotitle-style, rdexotitlefont, thetags, thelabel, rdexotags, tf-numexo, tf-score, tf-level, tf-title, tf-tags,
+  rdexo-enonce-label, rdexo-solution-label, rdifficulty, rdexo-mod, rdexoinclude, itempoint,
   infotcbitempoint, displayitempoints, baremepoint, displaybaremepoints, getinfoexopoint, getsavedtotalpoints,
-  getsavedinfototalpoints, competence, tableaucompetence, tableaucompetenceEval, printcompindex, tableauEval,
-  tableauProjetEval, tableauPresenteEvalSixieme, chrono, overlaychrono, mi, mf, ms, tbm, chapitreBac,
-  chapitreBrevet, styleExoBac, styleExoBrevet, styleQuestionsBac, styleExercicesBac, numeroterBac, partieBac,
-  consigneBac, encadreBac, encadreBacEtroit, corrigeBac, bfexobacUline, exolombards, styleExoLombards,
-  correctionsLombards, corrigeLombards, exolombardsEtiquette, exolombardsTitre, exolombardsBareme,
-  exolombardsMotCorrection,
+  getsavedinfototalpoints, competence, tableaucompetence, tableaucompetence-eval, printcompindex, tableau-eval,
+  tableau-projet-eval, tableau-presente-eval-sixieme, chrono, overlaychrono, mi, mf, ms, tbm, chapitre-bac,
+  chapitre-brevet, style-exo-bac, style-exo-brevet, style-questions-bac, style-exercices-bac, numeroter-bac, partie-bac,
+  consigne-bac, encadre-bac, encadre-bac-etroit, corrige-bac, bfexobac-uline, exolombards, style-exo-lombards,
+  corrections-lombards, corrige-lombards, exolombards-etiquette, exolombards-titre, exolombards-bareme,
+  exolombards-mot-correction,
 )
 
 // QCM et vrai/faux (bfcours-qcm)
-#import "modules/qcm/lib.typ": Mcq, McqQuest, setrdmcq, affirmation, vrai-faux
+#import "modules/qcm/lib.typ": mcq, mcq-quest, setrdmcq, affirmation, vrai-faux
 
 // Film, code Python, habillage de figures, icônes (bfcours-extras)
 #import "modules/extras/lib.typ": (
-  setbfextras, ClipImage, ColoredSmallBox, filmbox, filmt, whitebox, BFCodePython, habiller, icone,
+  setbfextras, clip-image, colored-small-box, filmbox, filmt, whitebox, bf-code-python, habiller, icone,
 )
 
 // Extraits LaTeX (bfcours-latex)
 #import "modules/extraits-latex/lib.typ": latex, latex-avec, setbflatex
 
 // Tableaux de signes et de variations (bfcours-tabvar)
-#import "modules/variations/lib.typ": tabvar, tkzTabLine, tkzTabVar, setbftabvar
+#import "modules/variations/lib.typ": tabvar, tkz-tab-line, tkz-tab-var, setbftabvar
 
 // Figures de géométrie plane sur cetz : repère, courbes, objets, codages, constructions (bfcours-geom)
 #import "modules/geom/lib.typ": (
-  geo, figure-geo, setbfgeom, repere, courbe, point, segment, droite, demi-droite, vecteur, vecteur-de, cercle,
+  geo, figure-geo, setbfgeom, repere, courbe, point, segment, droite, demi-droite, fleche, fleche-de, cercle,
   arc, polygone, triangle, codage-segment, angle-droit, angle-marque, codage-parallele, mediatrice, bissectrice,
   hauteur, milieu, projete, intersection, distance,
 )
@@ -105,7 +105,7 @@
 
 // Arithmétique : décompositions, diviseurs, PGCD (rdarithm)
 #import "modules/rd-arithm/lib.typ": (
-  setrdarithm, ListeFP, DecompFP, ListeDiviseurs, TabDiviseurs, pgcd, ppcm, TabPGCD, RowPGCD, DecompFrac,
+  setrdarithm, liste-fp, decomp-fp, liste-diviseurs, tab-diviseurs, pgcd, ppcm, tab-pgcd, row-pgcd, decomp-frac,
   fracirr, dfracirr,
 )
 
@@ -122,20 +122,20 @@
 
 // Tableaux de numération (rdtabnum)
 #import "modules/rd-tabnum/lib.typ": (
-  rdtabnum, rdtnplace, rdtnconvert, rdtnemptyline, rdtnArrow, rdtnsurcouche, setrdtabnum, rdtabnumarrowcol,
+  rdtabnum, rdtnplace, rdtnconvert, rdtnemptyline, rdtn-arrow, rdtnsurcouche, setrdtabnum, rdtabnumarrowcol,
   rdtnpurple,
 )
 
 // Chaque partie de la suite est aussi un module, pour n'importer que ce dont on a besoin :
-//   #import "@preview/bfcours:0.1.0": exo
-//   #import exo: *
+//   #import "@preview/bfcours:0.1.0": exercices
+//   #import exercices: *
 // Un module expose la façade de son paquet (et `interne`, réservé aux autres modules).
 #import "modules/socle/lib.typ" as socle
 #import "modules/didactique/lib.typ" as didactique
 #import "modules/enumerations/lib.typ" as enumerations
 #import "modules/tableaux/lib.typ" as tableaux
 #import "modules/zones-reponse/lib.typ" as zones-reponse
-#import "modules/exo/lib.typ" as exo
+#import "modules/exercices/lib.typ" as exercices
 #import "modules/qcm/lib.typ" as qcm
 #import "modules/maths/lib.typ" as maths
 #import "modules/modeles/lib.typ" as modeles

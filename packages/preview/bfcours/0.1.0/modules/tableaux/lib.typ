@@ -13,6 +13,6 @@
 // Tableau, aides de cellules, récapitulatif de séquence, setter
 #import "src/tableaux.typ": (
   tcbtab, hline, cline, multicolumn, multirow, cellcolor,
-  tableaurecapsequence, enteteContenu, recapHeures,
+  tableaurecapsequence, entete-contenu, recap-heures,
   setbftableaux,
 )

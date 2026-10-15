@@ -169,11 +169,11 @@
   let res = (:)
   for (k, v) in cles {
     if k == "left" {
-      if v == true { res.insert("pos", "left") } else if v != false { panic("rdtnArrow : la clé « left » attend true ou false ; reçu : " + repr(v) + ".") }
+      if v == true { res.insert("pos", "left") } else if v != false { panic("rdtn-arrow : la clé « left » attend true ou false ; reçu : " + repr(v) + ".") }
     } else if k == "right" {
-      if v == true { res.insert("pos", "right") } else if v != false { panic("rdtnArrow : la clé « right » attend true ou false ; reçu : " + repr(v) + ".") }
+      if v == true { res.insert("pos", "right") } else if v != false { panic("rdtn-arrow : la clé « right » attend true ou false ; reçu : " + repr(v) + ".") }
     } else if k == "shift" {
-      if type(v) != length { panic("rdtnArrow : la clé « shift » attend une longueur ; reçu : " + repr(v) + ".") }
+      if type(v) != length { panic("rdtn-arrow : la clé « shift » attend une longueur ; reçu : " + repr(v) + ".") }
       res.insert("shift-start", v)
       res.insert("shift-end", -v)
     } else {
@@ -545,7 +545,7 @@
   let dessus = ()
   for it in elements {
     if type(it) != dictionary or "rdtn" not in it {
-      panic(commande + " : le contenu d'un tableau se compose de rdtnplace, rdtnconvert, rdtnemptyline, rdtnArrow et rdtnsurcouche ; reçu : " + repr(it) + ".")
+      panic(commande + " : le contenu d'un tableau se compose de rdtnplace, rdtnconvert, rdtnemptyline, rdtn-arrow et rdtnsurcouche ; reçu : " + repr(it) + ".")
     }
     if it.rdtn == "place" {
       lignes.push(_ligne-place(it, n, start, act, masque))
@@ -929,7 +929,7 @@
       let corr = if explicite { a.correction } else { r.correction }
       if (f.etoile or explicite) and corr and not doc-corr { continue }
       if f.depart < 1 or f.depart > nl or f.arrivee < 1 or f.arrivee > nl {
-        panic("rdtnArrow : les lignes de départ et d'arrivée vont de 1 à " + str(nl) + " (nombre de lignes de données) ; reçu : " + str(f.depart) + " et " + str(f.arrivee) + ".")
+        panic("rdtn-arrow : les lignes de départ et d'arrivée vont de 1 à " + str(nl) + " (nombre de lignes de données) ; reçu : " + str(f.depart) + " et " + str(f.arrivee) + ".")
       }
       let droite = a.pos == "right"
       let coef = if droite { 1 } else { -1 }

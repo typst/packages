@@ -12,10 +12,10 @@
 #import "src/regler.typ": setbfextras
 
 // Pellicule de film
-#import "src/film.typ": ClipImage, ColoredSmallBox, filmbox, filmt, whitebox
+#import "src/film.typ": clip-image, colored-small-box, filmbox, filmt, whitebox
 
 // Code Python mis en forme
-#import "src/python.typ": BFCodePython
+#import "src/python.typ": bf-code-python
 
 // Habillage de figure (wrap-it), icônes (ficons)
 #import "src/habillage.typ": habiller

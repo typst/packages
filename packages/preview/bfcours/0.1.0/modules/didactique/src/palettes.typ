@@ -27,43 +27,43 @@
 /// valeur au moment de l'activation. Valeurs : couleur Typst ou expression xcolor (`"blue!70!cyan"`).
 ///
 /// ```example
-/// #NewBfdPalette("foret", thm: "olive", defi: "teal", prop: rgb("#2e7d32"))
-/// #bfdActivatePalette("foret")
-/// #Propriete[Verte][Texte.]
+/// #new-bfd-palette("foret", thm: "olive", defi: "teal", prop: rgb("#2e7d32"))
+/// #bfd-activate-palette("foret")
+/// #propriete[Verte][Texte.]
 /// ```
 ///
 /// - nom (str): nom de la palette.
 /// - couleurs (color, str): `thm`, `defi`, `prop`, `demo`, `meth`, `act`, `rem`, `nota`, `ex`.
 /// -> content
-#let NewBfdPalette(nom, ..couleurs) = {
-  if type(nom) != str { panic("NewBfdPalette : le nom d'une palette est une chaîne ; reçu : " + repr(nom) + ".") }
-  if couleurs.pos().len() > 0 { panic("NewBfdPalette : les couleurs s'écrivent en arguments nommés (thm: …, defi: …).") }
+#let new-bfd-palette(nom, ..couleurs) = {
+  if type(nom) != str { panic("new-bfd-palette : le nom d'une palette est une chaîne ; reçu : " + repr(nom) + ".") }
+  if couleurs.pos().len() > 0 { panic("new-bfd-palette : les couleurs s'écrivent en arguments nommés (thm: …, defi: …).") }
   for (k, v) in couleurs.named() {
     if k not in _semantiques {
-      panic("NewBfdPalette : couleur inconnue « " + k + " ». Couleurs possibles : " + reglages-liste(_semantiques) + ".")
+      panic("new-bfd-palette : couleur inconnue « " + k + " ». Couleurs possibles : " + reglages-liste(_semantiques) + ".")
     }
     if type(v) not in (color, str) {
-      panic("NewBfdPalette : valeur invalide pour « " + k + " » : " + repr(v) + ". Valeurs possibles : une couleur Typst ou un nom xcolor.")
+      panic("new-bfd-palette : valeur invalide pour « " + k + " » : " + repr(v) + ". Valeurs possibles : une couleur Typst ou un nom xcolor.")
     }
   }
   _palettes.update(p => p + ((nom): couleurs.named()))
 }
 
 /// Active une palette (`\bfdActivatePalette{nom}`) : `default`, `ocean`, `vintage` ou une palette
-/// déclarée par `NewBfdPalette`. Les environnements suivants prennent ses couleurs.
+/// déclarée par `new-bfd-palette`. Les environnements suivants prennent ses couleurs.
 ///
 /// ```example
-/// #bfdActivatePalette("ocean")
-/// #Theoreme[Bleu][Texte.]
-/// #bfdActivatePalette("default")
+/// #bfd-activate-palette("ocean")
+/// #theoreme[Bleu][Texte.]
+/// #bfd-activate-palette("default")
 /// ```
 ///
 /// - nom (str): nom de la palette.
 /// -> content
-#let bfdActivatePalette(nom) = context {
+#let bfd-activate-palette(nom) = context {
   let p = _palettes.get()
   if nom not in p {
-    panic("bfdActivatePalette : palette inconnue « " + str(nom) + " ». Palettes possibles : " + reglages-liste(p.keys()) + ".")
+    panic("bfd-activate-palette : palette inconnue « " + str(nom) + " ». Palettes possibles : " + reglages-liste(p.keys()) + ".")
   }
   for (k, v) in p.at(nom) { _definecolor(k, v) }
 }
@@ -74,16 +74,16 @@
 /// `setbfenvironments(variant: …)`.
 ///
 /// ```example
-/// #bfdActivateVariant("sidebar")
-/// #Definition[Barre latérale][Texte.]
-/// #bfdActivateVariant("lignes")
+/// #bfd-activate-variant("sidebar")
+/// #definition[Barre latérale][Texte.]
+/// #bfd-activate-variant("lignes")
 /// ```
 ///
 /// - variante (str): `"lignes"`, `"minimal"` ou `"sidebar"`.
 /// -> content
-#let bfdActivateVariant(variante) = {
+#let bfd-activate-variant(variante) = {
   if variante not in _variantes {
-    panic("bfdActivateVariant : variante inconnue « " + str(variante) + " ». Variantes possibles : " + reglages-liste(_variantes) + ".")
+    panic("bfd-activate-variant : variante inconnue « " + str(variante) + " ». Variantes possibles : " + reglages-liste(_variantes) + ".")
   }
   reglages-regler(_R, commande: "bfdActivateVariant", variant: variante)
 }
@@ -92,16 +92,16 @@
 ///
 /// ```example
 /// #bfset(palette: "vintage", variant: "minimal")
-/// #Methode[Ton chaud][Texte.]
+/// #methode[Ton chaud][Texte.]
 /// #bfset(palette: "default", variant: "lignes")
 /// ```
 ///
-/// - palette (str, none): palette à activer (voir `bfdActivatePalette`). Défaut : `none` (inchangée).
-/// - variant (str, none): variante à activer (voir `bfdActivateVariant`). Défaut : `none` (inchangée).
+/// - palette (str, none): palette à activer (voir `bfd-activate-palette`). Défaut : `none` (inchangée).
+/// - variant (str, none): variante à activer (voir `bfd-activate-variant`). Défaut : `none` (inchangée).
 /// -> content
 #let bfset(palette: none, variant: none) = {
-  if palette != none { bfdActivatePalette(palette) }
-  if variant != none { bfdActivateVariant(variant) }
+  if palette != none { bfd-activate-palette(palette) }
+  if variant != none { bfd-activate-variant(variant) }
 }
 
 /// Règle les environnements didactiques pour la suite du document : le setter de bfcours-didactique
@@ -134,11 +134,11 @@
 /// #setbfenvironments(sommaire: false)
 /// #setbfenvironments(pour: "Definition", numero: true, couleur: "teal")
 /// #setbfenvironments(definir: "sobre", drop-shadow: false, variant: "minimal")
-/// #Propriete(style: "sobre")[Sobre][Texte.]
+/// #propriete(style: "sobre")[Sobre][Texte.]
 /// #setbfenvironments(pour: "anki", paquet: "Maths - 2nde", etiquettes: ("vecteurs",))
 /// ```
 ///
-/// - pour (str, array, none): type d'environnement (nom LaTeX exact : `Definition`, `Exemple`, `bfEnv`,
+/// - pour (str, array, none): type d'environnement (nom LaTeX exact : `definition`, `exemple`, `bf-env`,
 ///   `boite`…), tableau de types, ou `"anki"` ; `none` : réglage global.
 /// - reinitialiser (bool, str): `true`, `false` ou `"tout"`.
 /// - definir (str, none): nom d'un style à définir ; les clés qui suivent en forment le contenu.

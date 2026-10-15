@@ -136,7 +136,7 @@
 )
 
 /// Registre de \setrdmcq. Les formats globaux (Boston, Paris…) sont des styles nommés prédéfinis :
-/// `Mcq(style: "Boston")` est l'équivalent de `\begin{Mcq}[Boston]`.
+/// `mcq(style: "Boston")` est l'équivalent de `\begin{Mcq}[Boston]`.
 #let registre-mcq = {
   reglages-paquet("mcq", mcq-defauts, controles: _controles-mcq, commande: "setrdmcq", styles: mcq-formats-globaux)
 }
@@ -290,7 +290,7 @@
 #let _courant(commande) = {
   let g = bf-mcq-courant.get()
   if g == none {
-    panic(commande + " : à placer dans un environnement Mcq, par exemple #Mcq[#" + commande + "(…)].")
+    panic(commande + " : à placer dans un environnement mcq, par exemple #mcq[#" + commande + "(…)].")
   }
   g
 }
@@ -314,7 +314,7 @@
       )
     }
     if p == "answer" and r.orientation not in f.answer.at(nom) {
-      panic("Mcq : le format de réponses « " + nom + " » n'existe pas en orientation " + r.orientation + ".")
+      panic("mcq : le format de réponses « " + nom + " » n'existe pas en orientation " + r.orientation + ".")
     }
   }
   let g = r + (correction: if r.correction == auto { est-correction() } else { r.correction })

@@ -214,7 +214,7 @@
 #let bf-rdexoSkin(nom, tcbox: none, tcolorbox: none, correction: none, cadre: none, cadre-correction: none, couleurs: (:)) = {
   for (cle, f) in (cadre: cadre, cadre-correction: cadre-correction) {
     if f != none and type(f) != function {
-      panic("rdexoSkin : valeur invalide pour « " + cle + " » : " + repr(f) + ". Valeurs possibles : none ou une fonction (info, contenu) => contenu.")
+      panic("rdexo-skin : valeur invalide pour « " + cle + " » : " + repr(f) + ". Valeurs possibles : none ou une fonction (info, contenu) => contenu.")
     }
   }
   bf-skins-perso.update(d => {
@@ -277,8 +277,8 @@
 // Exercice : environnement `exo` (et EXO, EXOEVAL)
 // =====================================================================
 
-/// Moteur UNIQUE des exercices : `EXO`, `EXOEVAL` et `rdexoinclude` passent tous par lui (un seul chemin de
-/// code, l'environnement `exo` de rdexo et `EXO` de bfcours étant la même chose). `nature` : "EXO" ou
+/// Moteur UNIQUE des exercices : `exo`, `exo-eval` et `rdexoinclude` passent tous par lui (un seul chemin de
+/// code, l'environnement `exo` de rdexo et `exo` de bfcours étant la même chose). `nature` : "EXO" ou
 /// "EXOEVAL", types du registre « exo » (réglages `setrdexo(pour: "EXOEVAL", …)`).
 ///   enonce        : contenu de la boîte haute ;
 ///   tcblower      : contenu de la boîte basse (\tcblower) ;
@@ -297,7 +297,7 @@
 ) = context {
   // \rdexoinclude* : options du fichier (file@options), appliquées après les clés locales
   let cles = cles + bf-exo-options-fichier.get()
-  // clés de couleur du thème, propres à CET exercice (`EXO(skin: "pooja", score-bg-color: red)`)
+  // clés de couleur du thème, propres à CET exercice (`exo(skin: "pooja", score-bg-color: red)`)
   let cles-skin = cles.pairs().filter(((k, v)) => k in bf-cles-skin).to-dict()
   let cles = cles.pairs().filter(((k, v)) => k not in bf-cles-skin).to-dict()
   let r = reglages-resoudre(bf-exo-registre, pour: nature, local: cles, commande: nature)
@@ -887,7 +887,7 @@
 // =====================================================================
 
 /// Les marqueurs `tcblower` et `exocorrection` (\tcblower, \exocorrection de bfcours) : des repères
-/// invisibles déposés dans le corps d'`EXO` / `EXOEVAL`, qui le coupent en énoncé, partie basse (affichée
+/// invisibles déposés dans le corps d'`exo` / `exo-eval`, qui le coupent en énoncé, partie basse (affichée
 /// dans la boîte) et correction (rejouée par `rdexocorrection`). Hors d'un exercice, ils n'affichent rien.
 /// S'écrivent sans parenthèses : `#tcblower`, `#exocorrection`.
 #let bf-tcblower = metadata((bf-marqueur: "tcblower"))
@@ -1016,7 +1016,7 @@
 
 /// \rdexoinclude[options]{fichier} (rdexo.sty l. 1147-1160) : en Typst, le fichier est lu par
 /// l'appelant (`include "f.typ"`), car un paquet ne peut pas lire les fichiers du document. Sans
-/// étoile : un exercice (le même moteur qu'`EXO`) qui contient le fichier ; avec `etoile: true` : le fichier
+/// étoile : un exercice (le même moteur qu'`exo`) qui contient le fichier ; avec `etoile: true` : le fichier
 /// contient déjà ses exercices, qui reçoivent les options (file@options).
 #let bf-rdexoinclude(contenu, etoile: false, ..cles) = {
   if etoile {

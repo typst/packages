@@ -79,7 +79,7 @@
     if type(it) == dictionary {
       let autres = it.options.keys().filter(k => k != "number")
       if autres.len() > 0 {
-        panic(nom + " : `tcbitem` n'existe que dans tcbenumerate, MultiColonnes et tcbraster ; écrire simplement « " + puce + " » devant l'item.")
+        panic(nom + " : `tcbitem` n'existe que dans tcbenumerate, multi-colonnes et tcbraster ; écrire simplement « " + puce + " » devant l'item.")
       }
       if i == 0 and "number" in it.options { depart = it.options.number }
       items.push(it.corps)

@@ -1,6 +1,6 @@
 // style-rd.typ (bfcours-didactique) — le style « rd » des environnements didactiques.
 //
-// `setbfenvironments(style: "rd")` (ou `Definition(style: "rd")`, ou la clé `rendu: "rd"`) fait rendre
+// `setbfenvironments(style: "rd")` (ou `definition(style: "rd")`, ou la clé `rendu: "rd"`) fait rendre
 // chaque environnement par la boîte de `rdboites` qui lui correspond (paquet `rdboites`, module `rd`),
 // à la place du rendu de bfcours (style « bf », le défaut). Sans autre réglage, le style « rd » garde les
 // couleurs et les cotes de `rdboites` (exception de la convention 2).
@@ -112,7 +112,7 @@
 }
 
 /// Un constructeur par type : (r, numero, titre, corps, extra) → contenu. À appeler dans un `context`.
-/// `extra.nom` est le libellé du type (« Définition »), ou le titre pour `bfEnv` et `cracked` ;
+/// `extra.nom` est le libellé du type (« Définition »), ou le titre pour `bf-env` et `cracked` ;
 /// `extra.explicites` : les clés de bfcours réglées par l'utilisateur (`auto` sinon).
 #let _construire-rd = (
   Theoreme: (r, numero, titre, corps, extra) => rd.cours(

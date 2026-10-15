@@ -1,11 +1,11 @@
-// python.typ (bfcours-extras) — façade publique du code Python mis en forme : `BFCodePython`.
+// python.typ (bfcours-extras) — façade publique du code Python mis en forme : `bf-code-python`.
 //
 // Une seule commande : `numeros:` pour les numéros de ligne, `style:` pour l'apparence (`"classique"` par
 // défaut : fond vert pâle, onglet de titre ; `"sobre"` : cadre fin, bandeau de titre ; ou un style défini par
 // `setbfextras(definir: …)`). Les lignes et leur numérotation sont composées par codly (vendor/codly).
 // Les couleurs `CouleurVertForet`, `pythonkeyword`, `pythonstring`, `pythoncomment`, `pythonnumber` sont des
 // couleurs nommées de bfcours : `setbfcolors(pythonkeyword: orange)` les change.
-// Réglages : `setbfextras` (src/regler.typ), type `BFCodePython`.
+// Réglages : `setbfextras` (src/regler.typ), type `bf-code-python`.
 
 #import "../../socle/lib.typ": interne as _socle
 #import _socle: xcouleur, taille-latex, bf-metriques, bf-espacement-tcb, environnements
@@ -14,7 +14,7 @@
 
 #let _sequence = [a#h(1pt)b].func()
 
-/// Le code d'un `BFCodePython` : une chaîne, un bloc `raw`, ou un corps `[…]` / `#begin … #end` qui contient
+/// Le code d'un `bf-code-python` : une chaîne, un bloc `raw`, ou un corps `[…]` / `#begin … #end` qui contient
 /// ce bloc `raw` (les espaces et sauts de ligne autour sont ignorés). Passé par `environnements` d'abord.
 #let _corps-code(code) = {
   if type(code) != content { return code }
@@ -46,19 +46,19 @@
 /// bande grisée derrière les numéros.
 ///
 /// ````typ
-/// #BFCodePython(```python
+/// #bf-code-python(```python
 /// def carre(x):
 ///     # le carré de x
 ///     return x * x
 /// ```)
-/// #BFCodePython(numeros: 3, title: "Boucle", style: "sobre", ```python
+/// #bf-code-python(numeros: 3, title: "Boucle", style: "sobre", ```python
 /// for i in range(3):
 ///     print(i)
 /// ```)
 /// ````
 ///
-/// La syntaxe environnement donne le même résultat : `#begin(BFCodePython, numeros: 3)`, le bloc `raw`, puis
-/// `#end(BFCodePython)`.
+/// La syntaxe environnement donne le même résultat : `#begin(bf-code-python, numeros: 3)`, le bloc `raw`, puis
+/// `#end(bf-code-python)`.
 ///
 /// - code (str, content): le code, en bloc `raw` (```` ```python … ``` ````) ou en chaîne.
 /// - numeros (auto, bool, int): `false` : sans numéros ; `true` : numérotées à partir de 1 ; un entier : numéro de
@@ -73,7 +73,7 @@
 ///   `pythonkeyword`, `pythonstring`, `pythoncomment`, `pythonnumber`, `keywordstyle2`, `numeros-fond`,
 ///   `numeros-fond-largeur`, `surligner` (tableau de numéros de lignes), `couleur-surlignage`.
 /// -> content
-#let BFCodePython(code, numeros: auto, ..options) = context {
+#let bf-code-python(code, numeros: auto, ..options) = context {
   let code = _corps-code(code)
   let local = options.named()
   if numeros != auto { local.insert("numeros", numeros) }

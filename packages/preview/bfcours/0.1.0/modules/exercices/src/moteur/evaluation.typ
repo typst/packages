@@ -2,7 +2,7 @@
 // tableauPresenteEvalSixieme), chronomètres (chrono, overlaychrono), niveaux de maîtrise
 // (mi, mf, ms, tbm) et tableaux de compétences (competence, tableaucompetence, tableaucompetenceEval
 // et l'index). Valeurs réglables par le registre « exo-divers » de `setrdexo` : types `competences`,
-// `tableauEval`, `tableauProjetEval`, `tableauPresenteEvalSixieme`, `chrono`, `overlaychrono`.
+// `tableau-eval`, `tableau-projet-eval`, `tableau-presente-eval-sixieme`, `chrono`, `overlaychrono`.
 
 #import "../../../socle/lib.typ": interne as _socle
 #import _socle: *
@@ -89,7 +89,7 @@
     ([*#p.duree* #h(1fr)#bf-overlaychrono(duree)#h(1fr)#hide[AA]], bf-resoudre-tcb(bf-tcb-defaut, _boite-eval(p), (boxrule: p.boxrule, top: ptl(2), valign: "center"))),
   )
   // cartouche posé comme un tcbraster (raster before/after skip de 0,5 \baselineskip) : espaces faibles,
-  // qui se confondent avec celui que `chapEval` laisse déjà sous son bandeau au lieu de s'y ajouter
+  // qui se confondent avec celui que `chap-eval` laisse déjà sous son bandeau au lieu de s'y ajouter
   block(width: 100%, above: 0.5 * bs, below: 0.5 * bs, layout(taille => bf-raster(
     elements,
     n,

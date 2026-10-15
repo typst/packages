@@ -13,7 +13,7 @@
 ///
 /// Types : `"filmbox"` (mode `"image"`), `"filmbox-rogne"` (mode `"rogne"`), `"filmbox-texte"` (mode `"texte"`),
 /// `"filmt"`, `"BFCodePython"`, `"habiller"`, `"icone"`. Le groupe `"film"` vise les quatre types de film d'un
-/// coup : chacun reçoit celles des clés qu'il connaît. Styles prédéfinis de `BFCodePython` : `"classique"`,
+/// coup : chacun reçoit celles des clés qu'il connaît. Styles prédéfinis de `bf-code-python` : `"classique"`,
 /// `"sobre"`.
 ///
 /// ```typ

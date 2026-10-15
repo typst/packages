@@ -7,7 +7,7 @@
 
 #import "src/moteur/listes.typ": (
   bf-registre-enum, tcbitem, bf-lire-item, bf-largeurs-colonnes, bf-grille-egale, bf-enum-niveau,
-  bf-enum-compteurs, bf-enum-numero, bfdEnumLevel, bfdEnumNum, bfdEnumLabel, bf-badge-enum,
+  bf-enum-compteurs, bf-enum-numero, bfd-enum-level, bfd-enum-num, bfd-enum-label, bf-badge-enum,
   tcbenumerate-cles, bf-liste-niveau, bf-etiquette-enum, itemize, enumerate, puces, regles-listes,
 )
 #import "src/moteur/colonnes.typ": (

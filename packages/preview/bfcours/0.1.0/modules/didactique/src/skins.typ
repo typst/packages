@@ -51,7 +51,7 @@
 ///   #smallcaps(d.nom)#if d.numero != none [ #d.numero]#if d.titre != none [ — #d.titre] \ #d.corps
 /// ]
 /// #setbfskins(filet: filet)
-/// #Definition(rendu: "filet")[Vecteur][Direction, sens et norme.]
+/// #definition(rendu: "filet")[Vecteur][Direction, sens et norme.]
 /// ```
 ///
 /// - reinitialiser (bool): `true` oublie d'abord tous les skins enregistrés.
@@ -182,7 +182,7 @@
 /// ```example
 /// #setbfskins(cle-rouge: bfskin("suspendu", icone: "cle", epaisseur: 1.6pt))
 /// #setbfenvironments(pour: "Theoreme", rendu: "cle-rouge")
-/// #Definition(rendu: bfskin("manchette", icone: "fanion"))[Vecteur][Direction, sens et norme.]
+/// #definition(rendu: bfskin("manchette", icone: "fanion"))[Vecteur][Direction, sens et norme.]
 /// ```
 ///
 /// - base (str, function): skin de départ, par son nom ou sa fonction.

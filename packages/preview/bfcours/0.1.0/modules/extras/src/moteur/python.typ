@@ -97,7 +97,7 @@
 /// -> content
 #let bf-python-boite(code, r) = {
   let texte = if type(code) == str { code } else if type(code) == content and code.func() == raw { code.text } else {
-    panic("BFCodePython : une chaîne ou un bloc ```python … ``` est attendu, reçu : " + repr(code) + ".")
+    panic("bf-code-python : une chaîne ou un bloc ```python … ``` est attendu, reçu : " + repr(code) + ".")
   }
   let texte = texte.trim("\n", at: end)
   let corps = _code-codly(texte, r)

@@ -8,12 +8,12 @@
 
 /// Théorème : énoncé central du cours, en banderole de la couleur `thm`.
 ///
-/// Syntaxe : `#Theoreme[Titre][Corps]` ou `#Theoreme[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#theoreme[Titre][Corps]` ou `#theoreme[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Theoreme", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1529.
 ///
 /// ```example
-/// #Theoreme[Pythagore][Dans un triangle rectangle, $a^2 + b^2 = c^2$.]
+/// #theoreme[Pythagore][Dans un triangle rectangle, $a^2 + b^2 = c^2$.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -32,9 +32,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "thm" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `false`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"coeur"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -53,7 +53,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Theoreme(
+#let theoreme(
   label: none,
   version: auto,
   rendu: auto,
@@ -100,12 +100,12 @@
 
 /// Définition d'un mot ou d'une notion, en banderole de la couleur `defi`.
 ///
-/// Syntaxe : `#Definition[Titre][Corps]` ou `#Definition[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#definition[Titre][Corps]` ou `#definition[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Definition", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1563.
 ///
 /// ```example
-/// #Definition[Vecteur][Un vecteur est défini par une direction, un sens et une norme.]
+/// #definition[Vecteur][Un vecteur est défini par une direction, un sens et une norme.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -124,9 +124,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "defi" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `false`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"cle"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -145,7 +145,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Definition(
+#let definition(
   label: none,
   version: auto,
   rendu: auto,
@@ -192,12 +192,12 @@
 
 /// Propriété à retenir, en banderole de la couleur `prop`.
 ///
-/// Syntaxe : `#Propriete[Titre][Corps]` ou `#Propriete[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#propriete[Titre][Corps]` ou `#propriete[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Propriete", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1564.
 ///
 /// ```example
-/// #Propriete[Relation de Chasles][$arrow(A B) + arrow(B C) = arrow(A C)$.]
+/// #propriete[Relation de Chasles][$arrow(A B) + arrow(B C) = arrow(A C)$.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -216,9 +216,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "prop" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `false`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"roue"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -237,7 +237,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Propriete(
+#let propriete(
   label: none,
   version: auto,
   rendu: auto,
@@ -284,12 +284,12 @@
 
 /// Démonstration, en banderole de la couleur `demo` ; cadre tracé à la craie par défaut.
 ///
-/// Syntaxe : `#Demonstration[Titre][Corps]` ou `#Demonstration[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#demonstration[Titre][Corps]` ou `#demonstration[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Demonstration", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1565.
 ///
 /// ```example
-/// #Demonstration[Chasles][On décompose $arrow(A C)$ en passant par $B$.]
+/// #demonstration[Chasles][On décompose $arrow(A C)$ en passant par $B$.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -308,9 +308,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "demo" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `true`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"equerre"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -329,7 +329,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Demonstration(
+#let demonstration(
   label: none,
   version: auto,
   rendu: auto,
@@ -376,12 +376,12 @@
 
 /// Méthode de résolution, en banderole de la couleur `meth`.
 ///
-/// Syntaxe : `#Methode[Titre][Corps]` ou `#Methode[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#methode[Titre][Corps]` ou `#methode[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Methode", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1566.
 ///
 /// ```example
-/// #Methode[Résoudre une équation][Isoler l'inconnue.]
+/// #methode[Résoudre une équation][Isoler l'inconnue.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -400,9 +400,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "meth" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `false`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"auto"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -421,7 +421,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Methode(
+#let methode(
   label: none,
   version: auto,
   rendu: auto,
@@ -468,12 +468,12 @@
 
 /// Activité de découverte, en banderole de la couleur `act` ; sécable par défaut.
 ///
-/// Syntaxe : `#Activite[Titre][Corps]` ou `#Activite[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#activite[Titre][Corps]` ou `#activite[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Activite", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1567.
 ///
 /// ```example
-/// #Activite[Découverte][Tracer deux vecteurs de même direction.]
+/// #activite[Découverte][Tracer deux vecteurs de même direction.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -492,9 +492,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "act" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `true`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `false`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"fanion"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -513,7 +513,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Activite(
+#let activite(
   label: none,
   version: auto,
   rendu: auto,
@@ -560,12 +560,12 @@
 
 /// Encadré de vocabulaire, en banderole de la couleur `nota`.
 ///
-/// Syntaxe : `#Vocabulaire[Titre][Corps]` ou `#Vocabulaire[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#vocabulaire[Titre][Corps]` ou `#vocabulaire[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Vocabulaire", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1568.
 ///
 /// ```example
-/// #Vocabulaire[Hypoténuse][Côté opposé à l'angle droit.]
+/// #vocabulaire[Hypoténuse][Côté opposé à l'angle droit.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -584,9 +584,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "nota" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `false`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"auto"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -605,7 +605,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Vocabulaire(
+#let vocabulaire(
   label: none,
   version: auto,
   rendu: auto,
@@ -652,12 +652,12 @@
 
 /// Solution d'un exercice ou d'une activité, en banderole verte.
 ///
-/// Syntaxe : `#Solution[Titre][Corps]` ou `#Solution[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#solution[Titre][Corps]` ou `#solution[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Solution", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1570.
 ///
 /// ```example
-/// #Solution[Question 1][On trouve $x = 3$.]
+/// #solution[Question 1][On trouve $x = 3$.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -676,9 +676,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "green" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `false`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"coche"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -697,7 +697,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Solution(
+#let solution(
   label: none,
   version: auto,
   rendu: auto,
@@ -744,12 +744,12 @@
 
 /// Exemple, dans le cadre à équerre de bfcours.
 ///
-/// Syntaxe : `#Exemple[Titre][Corps]` ou `#Exemple[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#exemple[Titre][Corps]` ou `#exemple[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Exemple", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1617.
 ///
 /// ```example
-/// #Exemple[Avec des entiers][$3 + 4 = 7$.]
+/// #exemple[Avec des entiers][$3 + 4 = 7$.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -767,7 +767,7 @@
 /// - nameref (content, auto): Texte affiché par `@étiquette` quand l'environnement n'est pas numéroté. `auto` : le titre, sinon le nom du type. Défaut : `auto`. LaTeX : `nameref`.
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : `auto`. LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"fleche"`. LaTeX : ajout.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `auto`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
@@ -778,7 +778,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Exemple(
+#let exemple(
   label: none,
   version: auto,
   rendu: auto,
@@ -814,12 +814,12 @@
 
 /// Contre-exemple, dans le cadre à équerre rouge.
 ///
-/// Syntaxe : `#ContreExemple[Titre][Corps]` ou `#ContreExemple[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#contre-exemple[Titre][Corps]` ou `#contre-exemple[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "ContreExemple", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1640.
 ///
 /// ```example
-/// #ContreExemple[Une fonction][$x |-> |x|$ n'est pas dérivable en $0$.]
+/// #contre-exemple[Une fonction][$x |-> |x|$ n'est pas dérivable en $0$.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -837,7 +837,7 @@
 /// - nameref (content, auto): Texte affiché par `@étiquette` quand l'environnement n'est pas numéroté. `auto` : le titre, sinon le nom du type. Défaut : `auto`. LaTeX : `nameref`.
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : `auto`. LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"attention"`. LaTeX : ajout.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `auto`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
@@ -848,7 +848,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let ContreExemple(
+#let contre-exemple(
   label: none,
   version: auto,
   rendu: auto,
@@ -884,12 +884,12 @@
 
 /// Remarque en marge, avec le crayon et la barre en serpentin. Le titre éventuel n'est pas affiché (il sert au sommaire et aux cartes Anki).
 ///
-/// Syntaxe : `#Remarque[Titre][Corps]` ou `#Remarque[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#remarque[Titre][Corps]` ou `#remarque[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Remarque", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1581.
 ///
 /// ```example
-/// #Remarque[Cette égalité reste vraie pour des vecteurs nuls.]
+/// #remarque[Cette égalité reste vraie pour des vecteurs nuls.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -907,7 +907,7 @@
 /// - nameref (content, auto): Texte affiché par `@étiquette` quand l'environnement n'est pas numéroté. `auto` : le titre, sinon le nom du type. Défaut : `auto`. LaTeX : `nameref`.
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : `auto`. LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `true`. LaTeX : `breakable`.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `auto`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `auto`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"loupe"`. LaTeX : ajout.
 /// - fonttitle (str, length): Taille du titre : nom de taille LaTeX (`"large"`, `"Large"`…) ou longueur. Défaut : `"large"`. LaTeX : `fonttitle`.
 /// - couleur-accent (color, str, auto): Couleur d'accent du corps (`acc`, `voc`…). `auto` : celle du type. Défaut : `auto`. LaTeX : `\CouleurTexteAccent` du corps.
@@ -916,7 +916,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Remarque(
+#let remarque(
   label: none,
   version: auto,
   rendu: auto,
@@ -950,12 +950,12 @@
 
 /// Notation, dans un cadre déchiré à étiquette inclinée de la couleur `defi`.
 ///
-/// Syntaxe : `#Notation[Titre][Corps]` ou `#Notation[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#notation[Titre][Corps]` ou `#notation[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Notation", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1680.
 ///
 /// ```example
-/// #Notation[Vecteur][On note $arrow(u)$ un vecteur.]
+/// #notation[Vecteur][On note $arrow(u)$ un vecteur.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -988,7 +988,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Notation(
+#let notation(
   label: none,
   version: auto,
   rendu: auto,
@@ -1028,12 +1028,12 @@
 
 /// Coup de pouce, dans un cadre déchiré à étiquette inclinée de la couleur `nota`.
 ///
-/// Syntaxe : `#Aide[Titre][Corps]` ou `#Aide[Corps]` (titre facultatif : l'argument optionnel LaTeX).
+/// Syntaxe : `#aide[Titre][Corps]` ou `#aide[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Aide", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1687.
 ///
 /// ```example
-/// #Aide[Pense à factoriser.]
+/// #aide[Pense à factoriser.]
 /// ```
 ///
 /// - label (label, none): Rend l'environnement référençable : avec `label: <chasles>`, `@chasles` affiche « Propriété 2.3 » s'il est numéroté, sinon son titre. Propre à chaque objet. LaTeX : `label`.
@@ -1066,7 +1066,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre (facultatif) puis le corps.
 /// -> content
-#let Aide(
+#let aide(
   label: none,
   version: auto,
   rendu: auto,
@@ -1106,12 +1106,12 @@
 
 /// Encart « Un peu d'histoire » : onglet sépia, titre (premier contenu, obligatoire) et auteur facultatif.
 ///
-/// Syntaxe : `#Histoire[Titre][Corps]` (titre obligatoire, comme en LaTeX).
+/// Syntaxe : `#histoire[Titre][Corps]` (titre obligatoire, comme en LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "Histoire", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:2610.
 ///
 /// ```example
-/// #Histoire(auteur: [D'après Euclide])[Les Éléments][Euclide rédige les *Éléments* vers 300 avant notre ère.]
+/// #histoire(auteur: [D'après Euclide])[Les Éléments][Euclide rédige les *Éléments* vers 300 avant notre ère.]
 /// ```
 ///
 /// - auteur (content, none): Auteur ou source, en italique sous le titre. Défaut : `none`. LaTeX : `[auteur]` (2e argument, optionnel).
@@ -1137,7 +1137,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre puis le corps.
 /// -> content
-#let Histoire(
+#let histoire(
   auteur: none,
   label: none,
   version: auto,
@@ -1170,12 +1170,12 @@
 
 /// Environnement didactique à couleur libre : le titre (premier contenu, obligatoire) est le texte de la banderole.
 ///
-/// Syntaxe : `#bfEnv[Titre][Corps]` (titre obligatoire, comme en LaTeX).
+/// Syntaxe : `#bf-env[Titre][Corps]` (titre obligatoire, comme en LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "bfEnv", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:2139.
 ///
 /// ```example
-/// #bfEnv(sous-titre: [à retenir], couleur: "meth")[Bilan][Ce qu'il faut retenir.]
+/// #bf-env(sous-titre: [à retenir], couleur: "meth")[Bilan][Ce qu'il faut retenir.]
 /// ```
 ///
 /// - sous-titre (content, none): Sous-titre, dans le nœud à droite de la banderole. Défaut : `none`. LaTeX : `[sous-titre]`.
@@ -1195,9 +1195,9 @@
 /// - couleur (color, str, auto): Teinte de l'environnement : couleur Typst ou nom xcolor (`"thm"`, `"red!50!black"`). Par défaut, la couleur nommée de bfcours propre au type, lue au moment du rendu : `setbfcolors(thm: …)`, `definecolor` et les palettes la changent. Défaut : la couleur nommée "prop" (lue au rendu : suit `setbfcolors`). LaTeX : ajout (en LaTeX : palette `\bfset`, `\bfdSetColors`).
 /// - breakable (bool): Autorise la coupure entre deux pages. Défaut : `false`. LaTeX : `breakable`.
 /// - craie (bool): Cadre « à la craie » (replié sur le cadre net si l'environnement se coupe). Défaut : `false`. LaTeX : ajout.
-/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `Remarque` : option bclogo `logo`.
+/// - icone (content, none, auto): Pictogramme devant le nom dans la banderole (à la place du crayon pour la remarque). Défaut : `none`. LaTeX : ajout ; sur `\begin{Remarque}` : option bclogo `logo`.
 /// - embleme (str, function, content, none, auto): Icône préférentielle du type pour les skins (`"auto"` ou `none` : l'icône propre au skin) : nom d'une icône du jeu commun, fonction `couleur => contenu` ou contenu. Passe après la clé `icone` et l'option `icone` du skin, avant l'icône propre du skin. Sans effet sur le rendu `"bf"` (la clé `icone` règle celui-ci) et sur le style `"rd"`. Défaut : `"auto"`. LaTeX : ajout.
-/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfdActivateVariant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
+/// - variant (str): Habillage des bords : `"lignes"` (filets gauche et bas), `"minimal"` (fin filet gauche, sans sous-titre), `"sidebar"` (bande pleine à gauche). Se règle pour tout le document par `bfd-activate-variant` ou `bfset(variant: …)`. Défaut : `"lignes"`. LaTeX : `\bfdActivateVariant`, `\bfset{variant=…}`.
 /// - colback (color, str, auto): Couleur du fond. Défaut : `white`. LaTeX : `colback`.
 /// - colframe (color, str, auto): Couleur des filets et du cadre du sous-titre. `auto` : couleur!50. Défaut : `auto`. LaTeX : `colframe`.
 /// - colbacktitle (color, str, auto): Couleur du ruban (ou du bandeau) de titre. `auto` : la couleur de l'environnement. Défaut : `auto`. LaTeX : `colbacktitle`.
@@ -1216,7 +1216,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre puis le corps.
 /// -> content
-#let bfEnv(
+#let bf-env(
   sous-titre: none,
   label: none,
   version: auto,
@@ -1262,7 +1262,7 @@
   (sous-titre: sous-titre,)
 )
 
-/// Cadre à bord déchiré et étiquette inclinée (base de `Notation` et `Aide`). Le titre de l'étiquette est le premier contenu (facultatif, « Propriété » par défaut). Couleur par défaut : orange.
+/// Cadre à bord déchiré et étiquette inclinée (base de `notation` et `aide`). Le titre de l'étiquette est le premier contenu (facultatif, « Propriété » par défaut). Couleur par défaut : orange.
 ///
 /// Syntaxe : `#cracked[Titre][Corps]` ou `#cracked[Corps]` (titre facultatif : l'argument optionnel LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "cracked", …)`,
@@ -1344,12 +1344,12 @@
 
 /// Conteneur neutre : ni cadre, ni fond, ni marge. (Distinct du mot-clé `none` de Typst.)
 ///
-/// Syntaxe : `#None[Corps]`.
+/// Syntaxe : `#neutre[Corps]`.
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "None", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:2113.
 ///
 /// ```example
-/// #None[Contenu groupé.]
+/// #neutre[Contenu groupé.]
 /// ```
 ///
 /// - version (str): `"toutes"`, `"prof"` ou `"eleve"` : n'affiche l'objet que dans la version indiquée du document. Défaut : `"toutes"`. LaTeX : ajout.
@@ -1362,7 +1362,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le corps.
 /// -> content
-#let None(
+#let neutre(
   version: auto,
   rendu: auto,
   rd: auto,
@@ -1510,12 +1510,12 @@
 
 /// Cadre de figure légendée : étiquette noire (premier contenu) dans l'angle supérieur gauche, contenu centré.
 ///
-/// Syntaxe : `#boiteFigure[Titre][Corps]` (titre obligatoire, comme en LaTeX).
+/// Syntaxe : `#boite-figure[Titre][Corps]` (titre obligatoire, comme en LaTeX).
 /// Toutes les clés se règlent aussi pour le document : `setbfenvironments(pour: "boiteFigure", …)`,
 /// ou par un style nommé (`setbfenvironments(definir: "nom", …)`, clé `style`). Source LaTeX : NBE:1608.
 ///
 /// ```example
-/// #boiteFigure[Figure 1][Un schéma.]
+/// #boite-figure[Figure 1][Un schéma.]
 /// ```
 ///
 /// - version (str): `"toutes"`, `"prof"` ou `"eleve"` : n'affiche l'objet que dans la version indiquée du document. Défaut : `"toutes"`. LaTeX : ajout.
@@ -1534,7 +1534,7 @@
 /// - style (str, array, auto): style(s) nommé(s) à appliquer (sous les clés écrites ici).
 /// - args (content): le titre puis le corps.
 /// -> content
-#let boiteFigure(
+#let boite-figure(
   version: auto,
   rendu: auto,
   rd: auto,

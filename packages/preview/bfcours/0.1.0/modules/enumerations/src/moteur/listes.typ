@@ -123,11 +123,11 @@
 }
 
 /// \bfdEnumLevel : profondeur d'imbrication courante (1, 2, 3… ; 0 hors liste).
-#let bfdEnumLevel() = context str(bf-enum-niveau.get())
+#let bfd-enum-level() = context str(bf-enum-niveau.get())
 
 /// \bfdEnumNum (et \bfdEnumNumI/II/III : clé `niveau`) : numéro brut de l'item courant, au niveau `niveau`
 /// (`auto` : le niveau courant). 0 hors liste ou si le niveau n'est pas ouvert.
-#let bfdEnumNum(niveau: auto) = context {
+#let bfd-enum-num(niveau: auto) = context {
   let k = if niveau == auto { bf-enum-niveau.get() } else { niveau }
   str(bf-enum-numero(k))
 }
@@ -135,7 +135,7 @@
 /// \bfdEnumLabel (et \bfdEnumLabelI/II/III : clés `niveau` et `format`) : étiquette de l'item du niveau `niveau`
 /// (`auto` : le niveau courant), sans le point. `format: auto` : le format de la liste (forcé ou auto) ;
 /// un motif Typst (`"1"`, `"a"`, `"i"`) impose le format, comme \arabic, \alph, \roman.
-#let bfdEnumLabel(niveau: auto, format: auto) = context {
+#let bfd-enum-label(niveau: auto, format: auto) = context {
   let n = if niveau == auto { bf-enum-niveau.get() } else { niveau }
   let cs = bf-enum-compteurs.get()
   if n == 0 or n < 1 or n > cs.len() or bf-enum-niveau.get() == 0 { "0" } else {

@@ -1,15 +1,15 @@
 // maths.typ — façade des maths : ensemble DD, vecteurs, coordonnées, intervalles, crochets, repère.
 //
-//   $ Vecteur(A B) = Coordonnees(3, -1) $
+//   $ vect(A B) = coordonnees(3, -1) $
 //   $ x in intervalle(-2, +oo, forme: "of") $
 //
 // Habille `moteur/maths.typ`. Source LaTeX : bfcours-mathsCommands.sty. Les noms exposés s'emploient aussi
-// bien dans une formule que dans le texte (`#Vecteur($A B$)`). Aucun nom d'une seule lettre n'est exporté :
+// bien dans une formule que dans le texte (`#vect($A B$)`). Aucun nom d'une seule lettre n'est exporté :
 // les anciens `R`, `N`, `Z`, `Q`, `C`, `D` du moteur auraient masqué les variables d'une formule ; Typst
-// fournit `NN`, `ZZ`, `QQ`, `RR`, `CC`, et `DD` est ajouté ici.
+// fournit `NN`, `ZZ`, `QQ`, `RR`, `CC`, et `dd` est ajouté ici.
 // Tout ce qui n'est pas un nom public de lib.typ commence par « _ ».
 //
-// `Vecteur`, `coordonnees` → `Coordonnees`, `repere` → `Rep`) et rendu réglable par `setbfmaths`.
+// `vect`, `coordonnees` → `coordonnees`, `repere` → `rep`) et rendu réglable par `setbfmaths`.
 
 #import "moteur/maths.typ" as m
 #import "../../socle/lib.typ": interne as _socle
@@ -22,14 +22,14 @@
 
 /// L'ensemble des nombres décimaux, noté 𝔻 comme `RR` note ℝ : à employer dans une formule (le `\D` de LaTeX,
 /// repli de nom : une lettre seule est lue comme une lettre en mode maths).
-/// Typst fournit déjà `NN`, `ZZ`, `QQ`, `RR` et `CC` ; seul `DD` est ajouté.
+/// Typst fournit déjà `NN`, `ZZ`, `QQ`, `RR` et `CC` ; seul `dd` est ajouté.
 ///
 /// ```typ
-/// $ NN subset ZZ subset DD subset QQ subset RR $
+/// $ NN subset ZZ subset dd subset QQ subset RR $
 /// ```
 ///
 /// -> content
-#let DD = $bb(D)$
+#let dd = $bb(D)$
 
 // =====================================================================
 // Vecteurs, coordonnées, repère
@@ -38,13 +38,13 @@
 /// Vecteur : le nom (ou les deux points) surmonté d'une flèche qui s'étire avec lui (`\overrightarrow`).
 ///
 /// ```typ
-/// $ Vecteur(A B) + Vecteur(B C) = Vecteur(A C) $
+/// $ vect(A B) + vect(B C) = vect(A C) $
 /// ```
 ///
 /// - nom (content): ce qu'on surmonte de la flèche : `A B`, `u`…
 /// - accent (symbol): l'accent (`math.arrow` par défaut ; `math.harpoon`, `math.tilde`…).
 /// -> content
-#let Vecteur(nom, accent: math.arrow) = math.accent(nom, accent)
+#let vect(nom, accent: math.arrow) = math.accent(nom, accent)
 
 /// Valeurs résolues d'une pastille : boîte grise des coordonnées.
 #let _pastille(contenu, r) = m.pastille-avec(
@@ -58,16 +58,16 @@
 /// espacé à la française (`\Coordonnees[A]{x}{y}`). Deux valeurs dans le plan, trois dans l'espace.
 ///
 /// ```typ
-/// $ Coordonnees(3, -1, nom: A) $
-/// $ Coordonnees(1, 2, 3, colback: "yellow!30", arc: #4pt) $
+/// $ coordonnees(3, -1, nom: A) $
+/// $ coordonnees(1, 2, 3, colback: "yellow!30", arc: #4pt) $
 /// ```
 ///
 /// - ..args (content): les coordonnées, dans l'ordre : `x`, `y` (et `z`) ; les clés nommées de la boîte : `colback`, `colframe`, `arc`, `boxsep`, `boxrule`, `left`, `right`, `top`, `bottom`, `separateur`.
 /// - nom (content, none): nom du point, écrit devant la parenthèse : `A(3 ; -1)`.
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
 /// -> content
-#let Coordonnees(..args, nom: none, style: auto) = {
-  assert(args.pos().len() >= 2, message: "Coordonnees : donner au moins deux coordonnées, par exemple Coordonnees(3, -1).")
+#let coordonnees(..args, nom: none, style: auto) = {
+  assert(args.pos().len() >= 2, message: "coordonnees : donner au moins deux coordonnées, par exemple coordonnees(3, -1).")
   context {
     let r = reglages-resoudre(
       _M, pour: "Coordonnees", commande: "Coordonnees", local: args.named() + (style: style),
@@ -81,11 +81,11 @@
 /// Le repère orthonormé (O ; I ; J) (le `\Rep` de LaTeX).
 ///
 /// ```typ
-/// $ "Dans le repère" Rep $
+/// $ "Dans le repère" rep $
 /// ```
 ///
 /// -> content
-#let Rep = m.rep
+#let rep = m.rep
 
 // =====================================================================
 // Intervalles et crochets
@@ -142,23 +142,23 @@
 /// (elle remplace l'ancien `CrochetGSize`).
 ///
 /// ```typ
-/// $ CrochetG(1/2) ; CrochetD(3/4) $
-/// $ CrochetG() 0 ; 1 CrochetD() $
-/// #CrochetG(taille: "Large") x ; y #CrochetD(taille: "Large")
+/// $ crochetg(1/2) ; crochetd(3/4) $
+/// $ crochetg() 0 ; 1 crochetd() $
+/// #crochetg(taille: "Large") x ; y #crochetd(taille: "Large")
 /// ```
 ///
 /// - ..args (content): au plus un contenu (positionnel), dont le crochet prend la hauteur et qu'il précède ; sans contenu : crochet seul. Clés nommées : `taille` (crochet seul : nom LaTeX comme `"large"`, ou longueur ; `auto` : celle du contexte), `style` (style défini par `setbfmaths(definir: …)`), cotes du crochet (`trait`, `patte`, `marge`, `ecart`, `approche`, `ex` : longueur d'un « ex »).
 /// -> content
-#let CrochetG(..args) = _crochet(false, "CrochetG", args)
+#let crochetg(..args) = _crochet(false, "CrochetG", args)
 
 /// Crochet droit « ] » (le `\CrochetD` de LaTeX), à taille adaptative selon le contenu : avec un argument,
-/// il se place juste après ce contenu et en prend la hauteur. Sans argument : crochet seul (voir `CrochetG`).
+/// il se place juste après ce contenu et en prend la hauteur. Sans argument : crochet seul (voir `crochetg`).
 ///
 /// ```typ
-/// $ CrochetG(1/2) ; CrochetD(3/4) $
-/// $ CrochetG() 0 ; 1 CrochetD() $
+/// $ crochetg(1/2) ; crochetd(3/4) $
+/// $ crochetg() 0 ; 1 crochetd() $
 /// ```
 ///
-/// - ..args (content): au plus un contenu (positionnel), dont le crochet prend la hauteur et qu'il suit ; sans contenu : crochet seul. Mêmes clés nommées que `CrochetG`.
+/// - ..args (content): au plus un contenu (positionnel), dont le crochet prend la hauteur et qu'il suit ; sans contenu : crochet seul. Mêmes clés nommées que `crochetg`.
 /// -> content
-#let CrochetD(..args) = _crochet(true, "CrochetD", args)
+#let crochetd(..args) = _crochet(true, "CrochetD", args)

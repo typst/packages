@@ -536,7 +536,7 @@
   mydoc: (:),
   schemamainleveetyle: (:),
   designboxstyle: (:),
-  // sans `top` : la marge haute de 3,5 mm faisait passer la première ligne sous la pastille « Exemple(s) »
+  // sans `top` : la marge haute de 3,5 mm faisait passer la première ligne sous la pastille « exemple(s) »
   exemplewithinterior: (colback: white, opacityback: 60%),
   br: (juste: true),
 )

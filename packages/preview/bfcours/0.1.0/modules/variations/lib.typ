@@ -4,8 +4,8 @@
 //
 //   #tabvar(
 //     ("-oo", "0", "+oo"),
-//     tkzTabLine($f'(x)$, ",-,z,+,"),
-//     tkzTabVar($f(x)$, ("+", "+oo"), ("-", "-1"), ("+", "+oo")),
+//     tkz-tab-line($f'(x)$, ",-,z,+,"),
+//     tkz-tab-var($f(x)$, ("+", "+oo"), ("-", "-1"), ("+", "+oo")),
 //   )
 //
 //   #setbftabvar(espcl: 1.8cm)                       // réglage global ; style nommé : definir: "nom"
@@ -17,5 +17,5 @@
 #import "interne.typ"
 
 #import "src/reglages.typ": setbftabvar
-#import "src/lignes.typ": tkzTabLine, tkzTabVar
+#import "src/lignes.typ": tkz-tab-line, tkz-tab-var
 #import "src/moteur.typ": tabvar

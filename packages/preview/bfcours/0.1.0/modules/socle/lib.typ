@@ -18,17 +18,17 @@
 #import "src/alias.typ": alias
 
 // Caractères : œ, Œ, €
-#import "src/publique.typ": oe, OE, euro
+#import "src/publique.typ": oe, oe-maj, euro
 
 // Réglages du socle, couleurs nommées, styles nommés communs
 #import "src/publique.typ": definir-style, setbfcolors, setbfsocle
 
 // Couleurs (bfcours-colors.sty) et commandes xcolor
 #import "src/publique.typ": (
-  CouleurTexteAccent, CouleursSecondaryTabular, CouleursTabular, ResetCouleurTexteAccent,
-  ResetCouleursSecondaryTabular, ResetCouleursTabular, colorlet, couleurItem, definecolor, resetItemBaseColor,
+  couleur-texte-accent, couleurs-secondary-tabular, couleurs-tabular, reset-couleur-texte-accent,
+  reset-couleurs-secondary-tabular, reset-couleurs-tabular, colorlet, couleur-item, definecolor, reset-item-base-color,
   textcolor, xcolor,
 )
 
 // Macros d'état de couleur lues dans les cours (lecture, dans un `context`) ; les autres : xcolor("<macro>")
-#import "src/publique.typ": currentAccentColor, currentTableColTitleColor, currentTableColbackTitleColor, itemBaseColor
+#import "src/publique.typ": current-accent-color, current-table-col-title-color, current-table-colback-title-color, item-base-color

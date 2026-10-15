@@ -123,12 +123,12 @@
 /// d'écrire une réponse « en rose » au milieu d'un énoncé sans zone de réponse.
 ///
 /// ```example
-/// Le périmètre vaut #CorrectionBox[12 cm] et l'aire #CorrectionBox[$9 "cm"^2$].
+/// Le périmètre vaut #correction-box[12 cm] et l'aire #correction-box[$9 "cm"^2$].
 /// ```
 ///
 /// - corps (content): le texte (ou la formule) de correction.
 /// -> content
-#let CorrectionBox(corps) = m.correction-box(corps)
+#let correction-box(corps) = m.correction-box(corps)
 
 /// La police de correction seule, sans sa couleur (`\crepcorrectionfont`), dans les deux
 /// versions : pour écrire un texte comme une réponse (grand, gras par défaut) sans la colorer.

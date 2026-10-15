@@ -16,7 +16,7 @@
 #import _didactique: tableofcontents, bf-appliquer-environnements as _appliquer-environnements, bf-appliquer-jeu-titres as _appliquer-jeu-titres
 #import "moteur/modele.typ": bfcours-page, bfcours-texte, bfcours-valeurs
 #import "moteur/reglages.typ": modele-reglages as _R, champs-identite as _champs-identite
-#import "entetes.typ": _types-effectifs, chapEval, chapitre
+#import "entetes.typ": _types-effectifs, chap-eval, chapitre
 
 // Clés du bandeau que le modèle accepte aussi (ajout 11/10/2026) : identité, rendu de l'en-tête, séparateur et
 // libellés des types. Les autres clés du bandeau (hauteur, couleurs…) restent refusées ici : elles se règlent
@@ -45,7 +45,7 @@
 /// - dys (bool): variante dys de `bfcours-fonts` : police sans empattement (`police-dys`), 14 pt, interligne × 1,2, espaces élargis, texte non justifié. Défaut : `false`.
 /// - niveau (str, content): niveau du bandeau. Écritures courtes : `"6e"`, `"5e"`, `"4e"`, `"3e"`, `"2nde"`, `"1ère"` (ou `"1re"`), `"Tle"` (exposant ajouté) ; tout autre texte ou contenu est affiché tel quel.
 /// - theme (content, str): titre du chapitre, dans le bandeau et le pied de page.
-/// - type-document ("cours" | "exercices" | "activite" | "fiche" | "evaluation" | content): nature du document. `"evaluation"` pose le bandeau d'évaluation `chapEval` (cases Classe et Date) ; un contenu quelconque sert de libellé libre sur un bandeau ordinaire. Les types et leurs libellés se règlent par la clé `libelles-types` (`"tp"` s'emploie après `libelles-types: (tp: [TP])`). Défaut : `"cours"`.
+/// - type-document ("cours" | "exercices" | "activite" | "fiche" | "evaluation" | content): nature du document. `"evaluation"` pose le bandeau d'évaluation `chap-eval` (cases Classe et Date) ; un contenu quelconque sert de libellé libre sur un bandeau ordinaire. Les types et leurs libellés se règlent par la clé `libelles-types` (`"tp"` s'emploie après `libelles-types: (tp: [TP])`). Défaut : `"cours"`.
 /// - cycle (content, str): cycle, à droite du pied de page. Défaut : « Lycée ».
 /// - etablissement (content, str): établissement, à droite du pied de page.
 /// - zone-droite (content): contenu libre à droite du bandeau (hors évaluation).
@@ -72,7 +72,7 @@
 /// - decalage (length): décalage vertical de 2,5 pt TeX des documents bfcours (`\headheight` porté à 14,5 pt après geometry). Défaut : `2.5pt` TeX.
 /// - avec-page (bool): `false` : ne règle ni le format de page ni le pied de page, seulement le style du texte (aperçus encadrés, documentation). Défaut : `true`.
 /// - pied (bool): `false` : pas de pied de page (voir `pied-de-page()` pour le poser soi-même). Défaut : `true`.
-/// - police-dys (str, dictionary): famille dys : `"Fira"` (défaut), `"lmodern"`, `"tgheros"` ou `(texte: (…), maths: (…))` (voir `choiceFontsDys`).
+/// - police-dys (str, dictionary): famille dys : `"Fira"` (défaut), `"lmodern"`, `"tgheros"` ou `(texte: (…), maths: (…))` (voir `choice-fonts-dys`).
 /// - police (array, auto): polices du texte, par ordre de préférence. Défaut : `auto` (`("Erewhon", "Libertinus Serif")`).
 /// - police-maths (array, auto): polices des formules. Défaut : `auto` (`("Erewhon Math", "New Computer Modern Math")`).
 /// - etirement-interligne (float, auto): facteur d'interligne (`\setstretch`). Défaut : `auto` (1 ; 1,2 en dys).
@@ -166,7 +166,7 @@
       _appliquer-jeu-titres(r.titres)
       if a-bandeau {
         if est-evaluation {
-          chapEval(niveau: niveau, theme: theme, cycle: cycle, etablissement: etablissement, type: td, ..cles-style, ..vers-bandeau)
+          chap-eval(niveau: niveau, theme: theme, cycle: cycle, etablissement: etablissement, type: td, ..cles-style, ..vers-bandeau)
         } else {
           chapitre(
             niveau: niveau,

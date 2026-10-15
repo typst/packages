@@ -34,7 +34,7 @@
   }
 }
 
-/// Une case d'un `MultiColonnes`, d'un `tcbenumerate` ou d'un `tcbraster`, avec ses réglages
+/// Une case d'un `multi-colonnes`, d'un `tcbenumerate` ou d'un `tcbraster`, avec ses réglages
 /// propres : elle peut occuper plusieurs colonnes (`raster-multicolumn`), avoir son fond (`colback`), son cadre
 /// (`colframe` et `boxrule`), son alignement, un titre. Une clé absente reprend le réglage de la disposition
 /// qui contient la case. Sans réglage propre, un simple contenu `[…]` suffit.
@@ -47,7 +47,7 @@
 /// et le compteur n'avance pas. Elle se combine avec `raster-multicolumn` (case sur toute la largeur).
 ///
 /// ```typ
-/// #MultiColonnes(3)[
+/// #multi-colonnes(3)[
 ///   #tcbitem(raster-multicolumn: 2)[Énoncé, sur deux colonnes]
 ///   #tcbitem(colback: yellow.lighten(80%))[Remarque]
 /// ]
@@ -144,11 +144,11 @@
 /// l'emporte sur le style nommé, qui l'emporte sur le réglage du type, qui l'emporte sur le réglage global.
 ///
 /// ```typ
-/// #MultiColonnes(2)[
+/// #multi-colonnes(2)[
 ///   - Un énoncé.
 ///   - Sa figure.
 /// ]
-/// #MultiColonnes(largeurs: (3, 2), filets: 0.5pt + gray)[
+/// #multi-colonnes(largeurs: (3, 2), filets: 0.5pt + gray)[
 ///   - Énoncé
 ///   - Figure
 /// ]
@@ -178,7 +178,7 @@
 /// - style (str, array): style(s) nommé(s) à appliquer (voir `setbfenum(definir: …)`).
 /// - cases (content): le corps : une case par `-`, ou `#tcbitem(…)[…]`.
 /// -> content
-#let MultiColonnes(..args) = {
+#let multi-colonnes(..args) = {
   let pos = args.pos()
   let cles = args.named()
   let n = auto
@@ -187,7 +187,7 @@
     pos = pos.slice(1)
   }
   if "columns" in cles {
-    if n != auto { panic("MultiColonnes : le nombre de colonnes est donné deux fois (entier en tête et `columns`).") }
+    if n != auto { panic("multi-colonnes : le nombre de colonnes est donné deux fois (entier en tête et `columns`).") }
     n = cles.remove("columns")
   }
   let pos = items-boites("MultiColonnes", pos, "-").items
@@ -195,14 +195,14 @@
     let r = reglages-resoudre(registre-enum, pour: "MultiColonnes", local: cles, commande: "MultiColonnes")
     let largeurs = r.largeurs
     if largeurs != auto and type(largeurs) != array {
-      panic("MultiColonnes : `largeurs` doit être un tableau, par exemple (3, 2) ou (4cm, 1fr) ; reçu : " + repr(largeurs) + ".")
+      panic("multi-colonnes : `largeurs` doit être un tableau, par exemple (3, 2) ou (4cm, 1fr) ; reçu : " + repr(largeurs) + ".")
     }
     let nb = if n != auto { n } else if largeurs != auto { largeurs.len() } else { 2 }
     if type(nb) != int or nb < 1 {
-      panic("MultiColonnes : le nombre de colonnes doit être un entier à partir de 1 ; reçu : " + repr(nb) + ".")
+      panic("multi-colonnes : le nombre de colonnes doit être un entier à partir de 1 ; reçu : " + repr(nb) + ".")
     }
     if largeurs != auto and largeurs.len() != nb {
-      panic("MultiColonnes : `largeurs` donne " + str(largeurs.len()) + " largeurs pour " + str(nb) + " colonnes.")
+      panic("multi-colonnes : `largeurs` donne " + str(largeurs.len()) + " largeurs pour " + str(nb) + " colonnes.")
     }
     let cols = if largeurs == auto { (1fr,) * nb } else { largeurs.map(_largeur-colonne) }
     let coul(v) = mc.bf-couleur-tcb(v)

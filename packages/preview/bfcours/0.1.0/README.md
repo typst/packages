@@ -18,11 +18,11 @@ fiches d'exercices, évaluations), avec une version professeur et une version é
 
 = Résoudre une équation
 
-#Definition[Équation][Une équation est une égalité qui contient une inconnue, souvent notée $x$.]
+#definition[Équation][Une équation est une égalité qui contient une inconnue, souvent notée $x$.]
 
-#Exemple[Un premier calcul][Pour $2 x + 1 = 7$, on obtient $x = 3$.]
+#exemple[Un premier calcul][Pour $2 x + 1 = 7$, on obtient $x = 3$.]
 
-#EXO(level: 1)[Une équation][
+#exo(level: 1)[Une équation][
   Résoudre dans $RR$ l'équation $3 x + 5 = 17$.
 
   #crep(extra-lines: 2)[$3 x = 12$, donc $x = 4$.]
@@ -47,18 +47,18 @@ Everything at once:
 #import "@preview/bfcours:0.1.0": *
 ```
 
-Or one part at a time. Each part of the suite is also a module (`socle`, `didactique`, `exo`, `qcm`, `maths`,
+Or one part at a time. Each part of the suite is also a module (`socle`, `didactique`, `exercices`, `qcm`, `maths`,
 `modeles`, `geom`…), so that only the names you need are brought into scope:
 
 ```typ
-#import "@preview/bfcours:0.1.0": modeles, exo, zones-reponse
+#import "@preview/bfcours:0.1.0": modeles, exercices, zones-reponse
 #import modeles: modele
-#import exo: EXO
+#import exercices: exo
 #import zones-reponse: crep
 
 #show: modele("cours", niveau: "2nde", theme: [Essai], type-document: "cours", sommaire: false)
 
-#EXO(level: 1)[Une équation][
+#exo(level: 1)[Une équation][
   Résoudre $3 x + 5 = 17$.
 
   #crep[$x = 4$]
@@ -69,10 +69,10 @@ Or one part at a time. Each part of the suite is also a module (`socle`, `didact
 |---|---|
 | `socle` | Fondations des paquets bfcours-* : version prof/élève, couleurs courantes, mesures, police, français, points, mécanisme générique de réglages |
 | `didactique` | Environnements didactiques de bfcours (Définition, Théorème, Propriété…), couleurs, sectionnement, sommaire, vocabulaire, Anki |
-| `enumerations` | Énumérations et colonnage de bfcours : tcbenumerate, MultiColonnes, Colonnes, listes |
+| `enumerations` | Énumérations et colonnage de bfcours : tcbenumerate, multi-colonnes, Colonnes, listes |
 | `tableaux` | Tableaux de bfcours : tcbtab (tableau encadré), aides de filets et de cellules, tableau de bilan de séquence, setbftableaux |
 | `zones-reponse` | Zones de réponse : crep, tccrep, tcfillcrep, lignes et tableaux Seyès, cases à cocher |
-| `exo` | Exercices de bfcours (EXO, rdexo) : corrections différées, points, barème, compétences, évaluation |
+| `exercices` | Exercices de bfcours (exo, rdexo) : corrections différées, points, barème, compétences, évaluation |
 | `qcm` | QCM de bfcours (rdmcq) et vrai/faux |
 | `maths` | Commandes de maths et de texte de bfcours : ensembles, intervalles, coordonnées, mise en valeur, connecteurs, nombres et unités |
 | `modeles` | Modèle de document bfcours (bfcours, modele, chapitre, chapEval, SequenceItem, pied de page, jeux de titres, variante dys) avec réglages globaux, par type et styles nommés |
@@ -122,5 +122,5 @@ Author: Romain Deschamps. The answer boxes, exercise, multiple-choice and `rd*` 
 author's agreement, the LaTeX packages of Régis Deleuze.
 
 Third-party code is loaded from Typst Universe (`cetz`, `zero`, `codly`, `wrap-it`, `ficons`, `ankify`),
-except `chalks`, which is bundled (see "Vendored dependency" above). The emoji of `modules/exo/src/moteur/emoji/` are Twemoji graphics, licensed
+except `chalks`, which is bundled (see "Vendored dependency" above). The emoji of `modules/exercices/src/moteur/emoji/` are Twemoji graphics, licensed
 CC BY 4.0.

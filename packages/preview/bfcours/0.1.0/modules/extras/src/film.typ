@@ -1,7 +1,7 @@
 // film.typ (bfcours-extras) — façade publique de la pellicule de film.
 //
 // Noms publics : `filmbox` (une seule commande, `n:` vignettes par rangée, `mode:` image / rogne / texte),
-// `filmt` (vignette bicolore), `ClipImage`, `whitebox`, `ColoredSmallBox` (pièces pour composer une bande à la
+// `filmt` (vignette bicolore), `clip-image`, `whitebox`, `colored-small-box` (pièces pour composer une bande à la
 // main). Les images se passent en CONTENU (`image("a.png")`) : un chemin écrit en chaîne serait lu depuis le
 // dossier du paquet, pas depuis celui du document.
 // Réglages : `setbfextras` (src/regler.typ), types `filmbox`, `filmbox-rogne`, `filmbox-texte`, `filmt`
@@ -44,18 +44,18 @@
   h(1fr)
 }
 
-/// Une perforation de la couleur de la clé `ColoredSmallBox` (blanche par défaut ; se règle par
+/// Une perforation de la couleur de la clé `colored-small-box` (blanche par défaut ; se règle par
 /// `setbfextras(pour: "film", ColoredSmallBox: …)`), entre deux ressorts `h(1fr)`.
 ///
 /// ```typ
 /// #setbfextras(pour: "film", ColoredSmallBox: "orange")
-/// #box(width: 4cm, fill: black, height: 6mm)[#ColoredSmallBox()#whitebox()#ColoredSmallBox()]
+/// #box(width: 4cm, fill: black, height: 6mm)[#colored-small-box()#whitebox()#colored-small-box()]
 /// #setbfextras(reinitialiser: true)
 /// ```
 ///
-/// - ..options (any): clés du type `filmbox` : `ColoredSmallBox`, `perforation-largeur`, `perforation-hauteur`, `style`.
+/// - ..options (any): clés du type `filmbox` : `colored-small-box`, `perforation-largeur`, `perforation-hauteur`, `style`.
 /// -> content
-#let ColoredSmallBox(..options) = context {
+#let colored-small-box(..options) = context {
   let r = _couleurs(_resoudre("filmbox", options, commande: "ColoredSmallBox"), "ColoredSmallBox")
   h(1fr)
   box(width: r.perforation-largeur, height: r.perforation-hauteur, fill: r.ColoredSmallBox, baseline: -1mm)
@@ -66,17 +66,17 @@
 /// (le coin haut gauche est conservé).
 ///
 /// ```typ
-/// #ClipImage(2cm, 3cm, rect(width: 4cm, height: 3cm, fill: gradient.linear(red, blue))[A])
+/// #clip-image(2cm, 3cm, rect(width: 4cm, height: 3cm, fill: gradient.linear(red, blue))[A])
 /// ```
 ///
-/// La syntaxe environnement donne le même résultat : `#begin(ClipImage, 2cm, 3cm)`, l'image, puis
-/// `#end(ClipImage)`.
+/// La syntaxe environnement donne le même résultat : `#begin(clip-image, 2cm, 3cm)`, l'image, puis
+/// `#end(clip-image)`.
 ///
 /// - largeur (length): largeur de la zone.
 /// - hauteur (length): hauteur de la zone.
 /// - image (content): l'image, en contenu (`image("a.png")`).
 /// -> content
-#let ClipImage(largeur, hauteur, image) = {
+#let clip-image(largeur, hauteur, image) = {
   let image = if type(image) == content { environnements(image) } else { image }
   m.bf-film-clip(largeur, hauteur, image)
 }
@@ -124,8 +124,8 @@
 ///
 /// Trois modes :
 /// - `"image"` (défaut) : cadre de 3,2 cm, image à 3 cm de large (proportions conservées) ;
-/// - `"rogne"` : l'image est rognée à 3 × 3 cm (`ClipImage`) et la bande haute alterne perforations colorées
-///   (`ColoredSmallBox`) et blanches ;
+/// - `"rogne"` : l'image est rognée à 3 × 3 cm (`clip-image`) et la bande haute alterne perforations colorées
+///   (`colored-small-box`) et blanches ;
 /// - `"texte"` : cadre de 4,5 cm autour d'un contenu quelconque, centré. Le texte noir sur le fond noir est
 ///   invisible : posez-le sur un fond clair (`box(fill: white)[…]`) ou réglez `couleur-texte: white`.
 ///
@@ -155,7 +155,7 @@
 /// - mode (str): `"image"`, `"rogne"` ou `"texte"`.
 /// - ..options (any): clés locales : `largeur` (3,2 cm ; 4,5 cm en mode texte), `image-largeur` (3 cm),
 ///   `image-hauteur` (3 cm, mode rogne), `fond` (noir), `perforations` (9), `perforation-largeur` (1,8 mm),
-///   `perforation-hauteur` (2,8 mm), `perforation-couleur` (blanc), `ColoredSmallBox` (blanc, modes rogne et
+///   `perforation-hauteur` (2,8 mm), `perforation-couleur` (blanc), `colored-small-box` (blanc, modes rogne et
 ///   texte), `marge` (1 mm), `ecart-haut` (3,83 pt), `ecart-bas` (4,02 pt), `couleur-texte`, `style`.
 /// -> content
 #let filmbox(..contenus, n: auto, mode: "image") = {
@@ -191,7 +191,7 @@
 /// - ..options (any): clés locales : `largeur` (4,7 cm), `hauteur` (6 cm), `colback` (blanc), `colbacklower` (`gray!50`),
 ///   `colframe` (noir), `boxrule` (0,5 mm), `arc` (1 mm), `boxsep` (1 mm), `left`, `right`, `top`, `bottom` (4 pt) ;
 ///   et celles du cadre de film : `fond`, `perforations`, `perforation-largeur`, `perforation-hauteur`,
-///   `perforation-couleur`, `ColoredSmallBox`, `marge`, `ecart-haut`, `ecart-bas`, `couleur-texte`, `style`.
+///   `perforation-couleur`, `colored-small-box`, `marge`, `ecart-haut`, `ecart-bas`, `couleur-texte`, `style`.
 /// -> content
 #let filmt(haut, bas, ..options) = context {
   let r = _resoudre("filmt", options)

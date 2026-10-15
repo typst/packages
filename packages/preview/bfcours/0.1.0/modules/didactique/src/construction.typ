@@ -5,7 +5,7 @@
 // - `_construire` : un constructeur par type (nom LaTeX exact), qui traduit les réglages résolus en
 //   appel du moteur ;
 // - couleurs : une couleur `auto` prend la teinte de la palette COURANTE (nom LaTeX `thm`, `defi`…,
-//   lu dans les couleurs définies par `definecolor` / `bfdActivatePalette`).
+//   lu dans les couleurs définies par `definecolor` / `bfd-activate-palette`).
 // Rien ici n'est public : lib.typ n'exporte que les noms de didactique.typ et des autres façades.
 
 #import "moteur/didactique.typ" as m
@@ -374,7 +374,7 @@
     corps,
     .._banderole(r, numero, "prop"),
   ),
-  None: (r, numero, titre, corps, extra) => m.None(corps, breakable: r.breakable, .._espaces(r)),
+  None: (r, numero, titre, corps, extra) => m.neutre(corps, breakable: r.breakable, .._espaces(r)),
   boite: (r, numero, titre, corps, extra) => _boite(r, titre, corps),
   bfbox: (r, numero, titre, corps, extra) => _boite(r, titre, corps),
   boiteFigure: (r, numero, titre, corps, extra) => m.boitefigure(

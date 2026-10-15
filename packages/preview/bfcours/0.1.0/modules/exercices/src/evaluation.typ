@@ -1,6 +1,6 @@
 // evaluation.typ (bfcours-exo) — FAÇADE publique des compétences et de l'évaluation
 // (bfcours-competencies.sty, bfcours-commands.sty, bfcours-exoplus.sty). Moteur : moteur/evaluation.typ.
-// Tous les réglages passent par `setrdexo` (types `competences`, `tableauEval`, `chrono`…, clé `emoji`).
+// Tous les réglages passent par `setrdexo` (types `competences`, `tableau-eval`, `chrono`…, clé `emoji`).
 
 #import "../../socle/lib.typ": interne as _socle
 #import _socle: environnements, decouper-items, item-corps
@@ -51,10 +51,10 @@
 /// Tableau « Compétences évaluées » (\tableaucompetenceEval).
 ///
 /// ```example
-/// #tableaucompetenceEval(competence[Calculer], competence(code: "C2")[Raisonner])
+/// #tableaucompetence-eval(competence[Calculer], competence(code: "C2")[Raisonner])
 /// ```
 /// -> content
-#let tableaucompetenceEval(..items) = _m.tableaucompetenceeval(.._lignes(items))
+#let tableaucompetence-eval(..items) = _m.tableaucompetenceeval(.._lignes(items))
 
 /// Index des compétences du document (\printcompindex) : un tableau « Compétences évaluées » dont les
 /// lignes sont les compétences inscrites par les exercices (titres des EXO, étiquettes des EXOEVAL),
@@ -73,32 +73,32 @@
 /// Cartouche d'évaluation (\tableauEval{durée}) : « Nom / Prénom » sur 3/4, « Durée » et chronomètre sur 1/4.
 ///
 /// ```example
-/// #tableauEval(55)
+/// #tableau-eval(55)
 /// ```
 ///
 /// - duree (int): durée en minutes.
 /// - colback, colframe (color, str), boxrule, arc (length), nom, prenom, duree (content), raster-columns (int), raster-column-skip, raster-row-skip (length): réglables (`setrdexo(pour: "tableauEval", …)`).
 /// -> content
-#let tableauEval(duree, ..cles) = _m.bf-tableauEval(duree, ..cles)
+#let tableau-eval(duree, ..cles) = _m.bf-tableauEval(duree, ..cles)
 
 /// Cartouche de projet (\tableauProjetEval{date}) : case de droite « Date de rendu : ».
 ///
 /// ```example
-/// #tableauProjetEval[12 octobre]
+/// #tableau-projet-eval[12 octobre]
 /// ```
 /// -> content
-#let tableauProjetEval(date, ..cles) = _m.bf-tableauProjetEval(date, ..cles)
+#let tableau-projet-eval(date, ..cles) = _m.bf-tableauProjetEval(date, ..cles)
 
 /// Cartouche de sixième (\tableauPresenteEvalSixieme{…}{note max}) : « Nom / Prénom » et « Bilan : ▢ / note ▢ ».
 ///
 /// ```example
-/// #tableauPresenteEvalSixieme([], 20)
+/// #tableau-presente-eval-sixieme([], 20)
 /// ```
 ///
 /// - inutilise (any): premier argument LaTeX (sans effet).
 /// - note (int, content): note maximale.
 /// -> content
-#let tableauPresenteEvalSixieme(inutilise, note, ..cles) = _m.bf-tableauPresenteEvalSixieme(inutilise, note, ..cles)
+#let tableau-presente-eval-sixieme(inutilise, note, ..cles) = _m.bf-tableauPresenteEvalSixieme(inutilise, note, ..cles)
 
 /// Chronomètre encadré « Durée : » (\chrono{minutes}).
 ///

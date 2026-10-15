@@ -1,8 +1,8 @@
 // couleurs.typ (bfcours-didactique) — carrés de couleur (\coloredsquare, \dimcoloredsquare).
 //
 // La façade des COULEURS n'est plus ici (épurage du 08/10/2026, convention 2) : elle est celle de
-// bfcours-socle (`setbfcolors`, `definecolor`, `colorlet`, `CouleursTabular`, `CouleurTexteAccent`,
-// `couleurItem`, `Reset…`, `textcolor`). Il ne reste que ces deux commandes de légende, qui lisent la
+// bfcours-socle (`setbfcolors`, `definecolor`, `colorlet`, `couleurs-tabular`, `couleur-texte-accent`,
+// `couleur-item`, `Reset…`, `textcolor`). Il ne reste que ces deux commandes de légende, qui lisent la
 // couleur au rendu (nom xcolor ou couleur nommée de bfcours, donc sensibles à `setbfcolors`).
 
 #import "../../socle/lib.typ": interne as _socle

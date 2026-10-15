@@ -57,7 +57,7 @@
 // Code Python
 // ---------------------------------------------------------------------
 
-/// Défauts de `BFCodePython` = style « classique » : fond vert très pâle, cadre vert forêt, onglet de titre.
+/// Défauts de `bf-code-python` = style « classique » : fond vert très pâle, cadre vert forêt, onglet de titre.
 #let _python-classique = (
   title: "Code Python",
   titre-position: "onglet",

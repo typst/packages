@@ -126,7 +126,7 @@
 /// - couleur (auto, str, color): couleur. Défaut : `auto`.
 /// - epaisseur (auto, length): épaisseur du trait. Défaut : `auto` (clé `epaisseur-forte`).
 /// - style (str): `"plein"`, `"tirets"`, `"pointilles"` ou `"mixte"`. Défaut : `"plein"`.
-#let vecteur(a, b, nom: none, pos: auto, couleur: auto, epaisseur: auto, style: "plein") = elem("vecteur", (g, ctx) => {
+#let fleche(a, b, nom: none, pos: auto, couleur: auto, epaisseur: auto, style: "plein") = elem("vecteur", (g, ctx) => {
   verifier-point(a, "vecteur", "a")
   verifier-point(b, "vecteur", "b")
   _vecteur(g, ctx, "vecteur", a, b, nom, pos, couleur, epaisseur, style)
@@ -141,7 +141,7 @@
 /// - couleur (auto, str, color): couleur. Défaut : `auto`.
 /// - epaisseur (auto, length): épaisseur du trait. Défaut : `auto`.
 /// - style (str): style du trait. Défaut : `"plein"`.
-#let vecteur-de(a, v, nom: none, pos: auto, couleur: auto, epaisseur: auto, style: "plein") = elem("vecteur-de", (g, ctx) => {
+#let fleche-de(a, v, nom: none, pos: auto, couleur: auto, epaisseur: auto, style: "plein") = elem("vecteur-de", (g, ctx) => {
   verifier-point(a, "vecteur-de", "a")
   verifier-point(v, "vecteur-de", "v")
   _vecteur(g, ctx, "vecteur-de", a, ajouter(a, v), nom, pos, couleur, epaisseur, style)

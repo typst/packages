@@ -9,7 +9,7 @@
   bf-avec-couleurs, bf-entree-sommaire, bf-nom-banniere, bf-polygone, bf-craie, bf-craie-allegement,
   bf-craie-teinte, bf-environnement, theoreme, definition, propriete, demonstration, methode, activite,
   vocabulaire, solution, bf-exemple, exemple, contreexemple, contre-exemple, remarque, bf-graine-cracked,
-  cracked, notation, aide, bfenv, bf-boitecouleur, bfbox, bf-boite, boitefigure, None, none-env,
+  cracked, notation, aide, bfenv, bf-boitecouleur, bfbox, bf-boite, boitefigure, neutre, none-env,
   couleur-histoire, histoire, bfd-hook-theoreme, bfd-hook-definition,
 )
 #import "src/moteur/sectionnement.typ": (

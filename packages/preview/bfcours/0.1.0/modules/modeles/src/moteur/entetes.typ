@@ -545,7 +545,7 @@
 
 /// Une ligne de progression : forme en chevron (texte blanc) suivie d'une boîte à deux volets
 /// (description à gauche, commentaire à droite, dont le fond est plus clair).
-#let SequenceItem(forme, description, commentaire, ..options) = context {
+#let sequence-item(forme, description, commentaire, ..options) = context {
   let r = _resoudre("SequenceItem", options.named())
   let c = bf-resoudre-couleur(r.couleur)
   let w = r.largeur-forme

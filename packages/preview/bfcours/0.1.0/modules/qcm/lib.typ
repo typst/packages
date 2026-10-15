@@ -12,5 +12,5 @@
 // Noms du moteur (pour les autres paquets bfcours-*)
 #import "interne.typ"
 
-#import "src/rdmcq.typ": Mcq, McqQuest, setrdmcq
+#import "src/rdmcq.typ": mcq, mcq-quest, setrdmcq
 #import "src/vrai-faux.typ": affirmation, vrai-faux

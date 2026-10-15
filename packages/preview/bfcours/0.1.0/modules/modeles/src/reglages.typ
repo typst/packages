@@ -36,7 +36,7 @@
 ///
 /// Identité et en-tête : les champs d'identité (`etablissement`, `cycle`, `professeur`, `academie`,
 /// `annee`, `classe`, `matiere`, `logo`, `mentions`) se règlent par `pour: "identite"` (bandeaux et pied
-/// de page à la fois) ; le dessin des bandeaux par `pour: "entete"` (`chapitre` et `chapEval`) : clé
+/// de page à la fois) ; le dessin des bandeaux par `pour: "entete"` (`chapitre` et `chap-eval`) : clé
 /// `rendu` (`"bf"`, `"rd"`, `"sobre"`, `"encadre"` ou une fonction), `champs`, couleurs, polices, filets,
 /// logo ; le pied par `pour: "pied-de-page"`. Un document reprend la main pour lui seul en passant les
 /// mêmes clés à `modele("cours", …)` ou à `chapitre`, ou en rappelant `setbfmodele`.
@@ -62,10 +62,10 @@
 /// quand `dys: true` (clé de `bfcours`). Écrire avant `#show: bfcours`.
 ///
 /// ```typ
-/// #choiceFontsDys("lmodern")
+/// #choice-fonts-dys("lmodern")
 /// #show: bfcours.with(dys: true)
 /// ```
 ///
 /// - nom (str): `"Fira"` (Fira Sans et Fira Math), `"lmodern"` (Latin Modern Sans) ou `"tgheros"` (TeX Gyre Heros).
 /// -> content
-#let choiceFontsDys(nom) = reglages-regler(_R, pour: "bfcours", commande: "choiceFontsDys", police-dys: nom)
+#let choice-fonts-dys(nom) = reglages-regler(_R, pour: "bfcours", commande: "choiceFontsDys", police-dys: nom)

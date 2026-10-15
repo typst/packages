@@ -14,19 +14,19 @@
 //
 // Ce fichier n'exporte QUE les noms publics (noms LaTeX exacts) et le module `interne` (noms du moteur,
 // seul point d'entrée des autres paquets). Les COULEURS (`setbfcolors`, `definecolor`, `colorlet`,
-// `CouleursTabular`, `CouleurTexteAccent`, `couleurItem`…) sont dans bfcours-socle.
+// `couleurs-tabular`, `couleur-texte-accent`, `couleur-item`…) sont dans bfcours-socle.
 
 // Noms du moteur (pour les autres paquets bfcours-*)
 #import "interne.typ"
 
 // Environnements didactiques et boîtes (src/didactique.typ est Fichier généré)
 #import "src/didactique.typ": (
-  Activite, Aide, ContreExemple, Definition, Demonstration, Exemple, Histoire, Methode, None, Notation, Propriete,
-  Remarque, Solution, Theoreme, Vocabulaire, bfEnv, bfbox, boite, boiteFigure, cracked,
+  activite, aide, contre-exemple, definition, demonstration, exemple, histoire, methode, neutre, notation, propriete,
+  remarque, solution, theoreme, vocabulaire, bf-env, bfbox, boite, boite-figure, cracked,
 )
 
 // Réglages des environnements (styles nommés, style « rd », Anki), palettes et variantes
-#import "src/palettes.typ": NewBfdPalette, bfdActivatePalette, bfdActivateVariant, bfset, setbfenvironments
+#import "src/palettes.typ": new-bfd-palette, bfd-activate-palette, bfd-activate-variant, bfset, setbfenvironments
 
 // Skins : rendus des environnements fournis par des fonctions d => contenu (contrat : skins/CONTRAT.md)
 #import "src/skins.typ": bfskin, setbfskins
@@ -38,4 +38,4 @@
 #import "src/sommaire.typ": liencontent, setbfsections, tableofcontents
 
 // Vocabulaire
-#import "src/vocabulaire.typ": printvocindex, tableauVocabulaireSommaire, voc, vocref
+#import "src/vocabulaire.typ": printvocindex, tableau-vocabulaire-sommaire, voc, vocref

@@ -2,7 +2,7 @@
 // (\chapEval), pied de page et ligne de progression (\SequenceItem).
 //
 //   #chapitre(niveau: "2nde", theme: [Les vecteurs], cycle: [Lycée], etablissement: [Lycée du Parc])
-//   #chapEval(niveau: "2nde", theme: [Les vecteurs], type: [Contrôle])
+//   #chap-eval(niveau: "2nde", theme: [Les vecteurs], type: [Contrôle])
 //
 // Noms et clés de LaTeX : les six arguments de \chapitre[niveau]{thème}{cycle}{établissement}{zone droite}{type}
 // se donnent par leur nom (`niveau:`, `theme:`…) OU, comme en LaTeX, par position dans l'ordre
@@ -78,7 +78,7 @@
 /// - espace-type-theme (length): largeur de l'espace entre le type et le thème. Défaut : `0.39em`. Sans effet quand `separateur-type` est réglé.
 /// - separateur-type (content, auto): ce qui s'écrit entre le libellé du type et le thème. `auto` (défaut) : « : » (« Cours : Les vecteurs »), sauf si le libellé du type finit déjà par deux-points (libellé libre `[Cours :]`) : l'espace d'origine, de largeur `espace-type-theme`, est alors conservée. Pour retrouver l'ancien rendu « Cours Les vecteurs », écrire `[ ]`. Un contenu remplace le séparateur : `[ : ]` donne « Cours : Les vecteurs », `" - "` « Cours - Les vecteurs » (un tiret simple s'écrit en chaîne : `[ - ]` serait lu comme une puce de liste) ; de même `[ – ]` (demi-cadratin) ou `[ -- ]`.Les espaces autour du signe s'écrivent dans le contenu ; `[]` colle le type au thème. Sans type ou sans thème, le séparateur n'est pas affiché. Le pied de page reprend ce séparateur pour son « type thème ». Se règle une fois pour toutes : `setbfmodele(separateur-type: [ : ])`.
 /// - libelles-types (dictionary): libellés des types de document : `(cours: [Leçon], exercices: [Entraînement], tp: [TP])`. Les types non cités gardent leur libellé (`cours`, `exercices`, `activite`, `fiche`, `evaluation`) ; un type nouveau (`tp`) s'emploie ensuite par `type: "tp"` ou `type-document: "tp"`. Les types connus gardent leur nature de bandeau (seul `evaluation` pose le bandeau d'évaluation) ; un type nouveau a un bandeau ordinaire. Se règle une fois pour toutes : `setbfmodele(libelles-types: (cours: [Leçon]))` ; un nouvel appel remplace le dictionnaire précédent. Défaut : `(:)`.
-/// - espace-apres (length): espace après le bandeau. Défaut : `9.47pt` (`7.25pt` pour `chapEval`).
+/// - espace-apres (length): espace après le bandeau. Défaut : `9.47pt` (`7.25pt` pour `chap-eval`).
 /// - rendu ("bf" | "rd" | "sobre" | "encadre" | function): dessin de l'en-tête. `"bf"` : ce bandeau (défaut) ; `"rd"` : le bandeau `rd.entete` du paquet rdboites (filets et fond dégradés), réutilisé tel quel ; `"sobre"` : une ligne sur fond blanc et un filet fin dessous ; `"encadre"` : un cadre fin à trois cases (identité, titre, niveau et année) ; une fonction `d => contenu` : votre propre dessin (champs de `d` ci-dessous). Numérotation du pied, espace après et contenu `apres` restent assurés. Défaut : `"bf"`.
 /// - skin (dictionary): options du rendu, lues par une fonction dans `d.options` ; pour `"rd"`, clés de `rd.entete` (`colframe`, `colback`, `rule-width`…). Défaut : `(:)`.
 /// - champs (dictionary, auto): ce que montre chaque zone : `(gauche: (…), centre: (…), droite: (…))`, une liste par zone (les zones absentes gardent celles du rendu, `none` vide une zone). Un élément est un nom de champ (`"niveau"`, `"type"`, `"theme"`, `"titre"` = type et thème, `"zone"` = `zone-droite` ou cases d'évaluation, `"cycle"`, `"etablissement"`, `"professeur"`, `"academie"`, `"annee"`, `"classe"`, `"matiere"`, `"logo"`, `"mentions"`), un contenu libre ou une fonction `d => contenu`. Les champs sont empilés, un par ligne ; un `"logo"` cité en premier se place à gauche des autres. Défaut : `auto` (`"bf"` et `"rd"` : niveau, titre, zone ; `"sobre"` : niveau, titre, établissement et année ; `"encadre"` : logo, établissement, professeur | type, thème | niveau, classe, année).
@@ -137,7 +137,7 @@
 /// les positionnels sont `theme, cycle, etablissement, apres, type`.
 ///
 /// ```typ
-/// #chapEval(niveau: "3e", theme: [Théorème de Thalès], type: [Contrôle n° 2])
+/// #chap-eval(niveau: "3e", theme: [Théorème de Thalès], type: [Contrôle n° 2])
 /// ```
 ///
 /// - niveau (str, content): niveau de la classe (voir `chapitre`).
@@ -149,9 +149,9 @@
 /// - style (str, array): style(s) nommé(s).
 /// - hauteur (length): hauteur du bandeau (autres clés : voir `chapitre`). Défaut : `1.5cm`.
 /// - colonnes-titre (int): colonnes occupées par le titre. Défaut : `4`.
-/// - espace-apres (length): espace entre le bandeau et `apres` (le cartouche `tableauEval`, qui s'y confond sans s'y ajouter). Défaut : `7.25pt`.
+/// - espace-apres (length): espace entre le bandeau et `apres` (le cartouche `tableau-eval`, qui s'y confond sans s'y ajouter). Défaut : `7.25pt`.
 /// -> content
-#let chapEval(
+#let chap-eval(
   niveau: auto,
   theme: auto,
   cycle: auto,
@@ -182,7 +182,7 @@
 
 /// Pied de page de bfcours : filet, « type thème » à gauche, « cycle établissement » à droite, numéro
 /// de page dans un disque gris. Il lit les textes posés par le dernier `chapitre` ou
-/// `chapEval` rencontré, et ne montre rien avant le premier (sauf si `gauche`, `centre` ou `droite`
+/// `chap-eval` rencontré, et ne montre rien avant le premier (sauf si `gauche`, `centre` ou `droite`
 /// sont donnés). Quand deux bandeaux sont posés sur la même page, le pied de cette page porte le
 /// second, comme celui des pages suivantes qui n'ont pas de bandeau.
 ///
@@ -245,7 +245,7 @@
 /// bloc, qui s'empile. Les options de `[…]` (couleur de la forme) sont des clés nommées.
 ///
 /// ```typ
-/// #SequenceItem([Séance 1], [Découvrir les vecteurs], [Prérequis : repère du plan])
+/// #sequence-item([Séance 1], [Découvrir les vecteurs], [Prérequis : repère du plan])
 /// ```
 ///
 /// - forme (content, str): libellé dans le chevron.
@@ -266,7 +266,7 @@
 /// - ombre (bool): ombre portée. Défaut : `true`.
 /// - retrait (length): retrait à gauche. Défaut : `0pt`.
 /// -> content
-#let SequenceItem(forme, description, commentaire, style: auto, ..options) = m.SequenceItem(
+#let sequence-item(forme, description, commentaire, style: auto, ..options) = m.sequence-item(
   forme,
   description,
   commentaire,

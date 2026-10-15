@@ -16,7 +16,7 @@
 //
 // Un thème peut aussi fournir, facultatives, `cadre` et `cadre-correction` : fonctions `(info, contenu) => contenu`
 // qui habillent l'exercice entier / chaque bloc de correction. Les thèmes intégrés n'en ont pas : on les pose par
-// la clé `cadre` de `setrdexo` ou d'`EXO` (voir exo.typ). `info` reçoit alors en plus `couleur`, `fond`, `breakable`
+// la clé `cadre` de `setrdexo` ou d'`exo` (voir exo.typ). `info` reçoit alors en plus `couleur`, `fond`, `breakable`
 // et `correction`.
 
 #import "../../../socle/lib.typ": interne as _socle

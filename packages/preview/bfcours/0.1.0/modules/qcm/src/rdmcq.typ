@@ -1,8 +1,8 @@
 // rdmcq.typ (bfcours-qcm, façade) — noms publics du portage de rdmcq.sty (Régis Deleuze) et du format
-// BFCours (rdmcq.bfcours.format.sty) : `Mcq`, `McqQuest` et le setter unique `setrdmcq`. Clés = options
+// BFCours (rdmcq.bfcours.format.sty) : `mcq`, `mcq-quest` et le setter unique `setrdmcq`. Clés = options
 // /rdmcq/, /rdmcqcb/, /rdmcqrb/ (espaces → tirets). Le moteur est dans moteur/ (exporté par interne.typ).
 //
-// Les formats se choisissent par la clé `style:` (ou `format:`) de `Mcq` et de `setrdmcq`.
+// Les formats se choisissent par la clé `style:` (ou `format:`) de `mcq` et de `setrdmcq`.
 
 #import "../../socle/lib.typ": interne as _socle
 #import _socle: reglages-regler, reglages-reinitialiser, reglages-definir-style, reglages-verifier, environnements
@@ -18,7 +18,7 @@
 #let _registres = (Mcq: registre-mcq, rdmcqcb: registre-rdmcqcb, rdmcqrb: registre-rdmcqrb, "vrai-faux": registre-vrai-faux)
 
 /// Setter unique du paquet (`\setrdmcq{…}`, `\setrdmcqcb{…}`, `\setrdmcqrb{…}` de rdmcq, plus le réglage de
-/// `vrai-faux`). `pour:` choisit ce qu'on règle : `"Mcq"` (défaut : les clés /rdmcq/ de `Mcq`), `"rdmcqcb"`
+/// `vrai-faux`). `pour:` choisit ce qu'on règle : `"Mcq"` (défaut : les clés /rdmcq/ de `mcq`), `"rdmcqcb"`
 /// (cases à cocher des formats), `"rdmcqrb"` (boutons radio des formats) ou `"vrai-faux"`. Les appels
 /// s'ajoutent clé par clé. Un format se choisit par `style: "Boston"` (ou `format: "Boston"`, qui pose les deux
 /// formats partiels d'un coup) : formats `"default"`, `"Troyes"`, `"Tokyo"`, `"Boston"`, `"Miami"`, `"Reims"`,
@@ -34,8 +34,8 @@
 ///
 /// - pour (str, none): `"Mcq"`, `"rdmcqcb"`, `"rdmcqrb"` ou `"vrai-faux"` ; `none` : `"Mcq"` (et, pour `reinitialiser`, les quatre). Défaut `none`.
 /// - reinitialiser (bool, str): `true` : repart des défauts de rdmcq avant d'appliquer les clés (styles nommés gardés) ; `"tout"` : ramène aussi les styles nommés aux formats prédéfinis. Défaut `false`.
-/// - definir (str, none): nom d'un style à définir avec les clés données (`pour: "Mcq"` ou `"vrai-faux"`) ; on l'appelle ensuite par `style: "nom"` (dans `Mcq`, `setrdmcq`, `vrai-faux`). Défaut `none`.
-/// - cles (any): pour `"Mcq"` : clés /rdmcq/ (`orientation`, `question-width`, `row-sep`, `format`, `style`…, voir `Mcq`) ; pour `"rdmcqcb"` et `"rdmcqrb"` : `size`, `color`, `raise`, `check-symbol`, `check-color`, `checked`, `background-color` (défauts `0.9em`/`1.3em`, `black`, `red`) ; pour `"vrai-faux"` : voir `vrai-faux`.
+/// - definir (str, none): nom d'un style à définir avec les clés données (`pour: "Mcq"` ou `"vrai-faux"`) ; on l'appelle ensuite par `style: "nom"` (dans `mcq`, `setrdmcq`, `vrai-faux`). Défaut `none`.
+/// - cles (any): pour `"Mcq"` : clés /rdmcq/ (`orientation`, `question-width`, `row-sep`, `format`, `style`…, voir `mcq`) ; pour `"rdmcqcb"` et `"rdmcqrb"` : `size`, `color`, `raise`, `check-symbol`, `check-color`, `checked`, `background-color` (défauts `0.9em`/`1.3em`, `black`, `red`) ; pour `"vrai-faux"` : voir `vrai-faux`.
 /// -> content
 #let setrdmcq(pour: none, reinitialiser: false, definir: none, ..cles) = {
   if cles.pos().len() > 0 { panic("setrdmcq : seuls des arguments nommés sont acceptés ; reçu : " + repr(cles.pos().first()) + ".") }
@@ -72,13 +72,13 @@
 // Environnement et commandes
 // =====================================================================
 
-/// Questionnaire à choix multiples (`\begin{Mcq}[…] … \end{Mcq}`) : contient des `McqQuest`. Version
+/// Questionnaire à choix multiples (`\begin{Mcq}[…] … \end{Mcq}`) : contient des `mcq-quest`. Version
 /// professeur : les bonnes réponses (`br`) sont mises en valeur selon le format. La teinte des bonnes
 /// réponses du format `"BFCours"` est une couleur nommée de bfcours (`prop`) : `setbfcolors` la change.
 ///
 /// ```example
-/// #Mcq(question-width: 6cm)[
-///   #McqQuest(br: 2)[Combien font $2 + 2$ ?][3][4][5]
+/// #mcq(question-width: 6cm)[
+///   #mcq-quest(br: 2)[Combien font $2 + 2$ ?][3][4][5]
 /// ]
 /// ```
 ///
@@ -126,12 +126,12 @@
 /// - counter-format (function): présentation du numéro de question (`\renewcommand{\rdmcqCounterFormat}`). Défaut : pastille noire.
 /// - corps (content): les questions.
 /// -> content
-#let Mcq(..args) = {
+#let mcq(..args) = {
   let pos = args.pos()
   if pos.len() != 1 {
-    panic("Mcq : un seul contenu est attendu, par exemple #Mcq(…)[#McqQuest(br: 1)[Question][A][B]] ; reçu : " + str(pos.len()) + " contenus.")
+    panic("mcq : un seul contenu est attendu, par exemple #mcq(…)[#mcq-quest(br: 1)[Question][A][B]] ; reçu : " + str(pos.len()) + " contenus.")
   }
-  // le corps passe par `environnements` : `#begin(Mcq) … #end(Mcq)` et les environnements imbriqués fonctionnent
+  // le corps passe par `environnements` : `#begin(mcq) … #end(mcq)` et les environnements imbriqués fonctionnent
   mcq-environnement(mcq-raccourcis(args.named()), environnements(pos.first()))
 }
 
@@ -142,8 +142,8 @@
 /// des clés tcb de la zone externe de la question.
 ///
 /// ```example
-/// #Mcq(same-width: true)[
-///   #McqQuest(br: (1, 3), answer: ("2": (colback: luma(220))))[Quels nombres sont pairs ?][2][3][4]
+/// #mcq(same-width: true)[
+///   #mcq-quest(br: (1, 3), answer: ("2": (colback: luma(220))))[Quels nombres sont pairs ?][2][3][4]
 /// ]
 /// ```
 ///
@@ -155,9 +155,9 @@
 /// - question (content): la question.
 /// - reponses (content, array): les réponses possibles.
 /// -> content
-#let McqQuest(..args) = {
+#let mcq-quest(..args) = {
   let pos = args.pos()
-  if pos.len() < 1 { panic("McqQuest : la question est attendue, par exemple #McqQuest(br: 1)[Question][A][B].") }
+  if pos.len() < 1 { panic("mcq-quest : la question est attendue, par exemple #mcq-quest(br: 1)[Question][A][B].") }
   let question = pos.first()
   let reps = pos.slice(1)
   if reps.len() == 1 and type(reps.first()) == array { reps = reps.first() }
@@ -168,7 +168,7 @@
   let points = o.remove("points", default: none)
   let boite = o.remove("boite", default: auto)
   if not (type(br) == int or (type(br) == array and br.all(x => type(x) == int))) {
-    panic("McqQuest : valeur invalide pour la clé « br » : " + repr(br) + ". Valeurs possibles : un entier ou un tableau d'entiers (numéros des bonnes réponses).")
+    panic("mcq-quest : valeur invalide pour la clé « br » : " + repr(br) + ". Valeurs possibles : un entier ou un tableau d'entiers (numéros des bonnes réponses).")
   }
   // clés restantes : clés tcb de la zone question (le message d'erreur liste aussi les clés propres)
   let controles = (:)
@@ -176,7 +176,7 @@
   let _ = reglages-verifier("McqQuest", o, controles + mcq-tcb-controles)
   mcq-verifier-style("McqQuest (answer-zone)", zone)
   if styles != none {
-    if type(styles) != dictionary { panic("McqQuest : la clé « answer » attend un dictionnaire (\"n\": style tcb).") }
+    if type(styles) != dictionary { panic("mcq-quest : la clé « answer » attend un dictionnaire (\"n\": style tcb).") }
     for (n, s) in styles { mcq-verifier-style("McqQuest (answer \"" + n + "\")", s) }
   }
   let justes = if type(br) == int { if br > 0 { (br,) } else { () } } else { br }

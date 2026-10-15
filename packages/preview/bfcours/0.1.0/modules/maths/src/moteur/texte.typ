@@ -202,20 +202,11 @@
     ) ]
 }
 
-#let Si(couleur: "red") = _connecteur([Si], couleur, "large")
-#let Alors(couleur: "blue") = _connecteur([Alors], couleur, "large")
-#let Donc(couleur: "purple") = _connecteur([Donc], couleur, "large")
-#let Et(couleur: "green") = _connecteur([Et], couleur, "large")
-#let Mais(couleur: "red") = _connecteur([Mais], couleur, "large")
-#let Car(couleur: "green") = _connecteur([Car], couleur, "large")
-#let Puisque(couleur: "purple") = _connecteur([Puisque], couleur, "large")
-#let SSI(couleur: "purple") = _connecteur([si et seulement si], couleur, "normalsize")
-// noms en minuscules (convention d'API.md)
-#let si = Si
-#let alors = Alors
-#let donc = Donc
-#let et = Et
-#let mais = Mais
-#let car = Car
-#let puisque = Puisque
-#let ssi = SSI
+#let si(couleur: "red") = _connecteur([Si], couleur, "large")
+#let alors(couleur: "blue") = _connecteur([Alors], couleur, "large")
+#let donc(couleur: "purple") = _connecteur([Donc], couleur, "large")
+#let et(couleur: "green") = _connecteur([Et], couleur, "large")
+#let mais(couleur: "red") = _connecteur([Mais], couleur, "large")
+#let car(couleur: "green") = _connecteur([Car], couleur, "large")
+#let puisque(couleur: "purple") = _connecteur([Puisque], couleur, "large")
+#let ssi(couleur: "purple") = _connecteur([si et seulement si], couleur, "normalsize")

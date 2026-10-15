@@ -44,17 +44,17 @@
 /// - rule (auto, dictionary, function, array, none): style du trait horizontal (draw, line-width, dash). Défaut : `none`.
 /// - special-cell (auto, dictionary, function, array, none): style des cellules barrées. Défaut : `(stroke-out: (line-width: 0.8pt, color: "red", shadowed: "black"))`.
 /// - result (auto, dictionary, function, array, none): style de la ligne du résultat. Défaut : `none`.
-/// - result-H (auto, dictionary, function, array, none): style des heures du résultat. Défaut : `none`.
-/// - result-Min (auto, dictionary, function, array, none): style des minutes du résultat. Défaut : `none`.
-/// - result-Sec (auto, dictionary, function, array, none): style des secondes du résultat. Défaut : `none`.
+/// - result-h (auto, dictionary, function, array, none): style des heures du résultat. Défaut : `none`.
+/// - result-min (auto, dictionary, function, array, none): style des minutes du résultat. Défaut : `none`.
+/// - result-sec (auto, dictionary, function, array, none): style des secondes du résultat. Défaut : `none`.
 /// - first-number (auto, dictionary, function, array, none): style de la ligne du premier terme. Défaut : `none`.
-/// - first-number-H (auto, dictionary, function, array, none): style des heures du premier terme. Défaut : `none`.
-/// - first-number-Min (auto, dictionary, function, array, none): style des minutes du premier terme. Défaut : `none`.
-/// - first-number-Sec (auto, dictionary, function, array, none): style des secondes du premier terme. Défaut : `none`.
+/// - first-number-h (auto, dictionary, function, array, none): style des heures du premier terme. Défaut : `none`.
+/// - first-number-min (auto, dictionary, function, array, none): style des minutes du premier terme. Défaut : `none`.
+/// - first-number-sec (auto, dictionary, function, array, none): style des secondes du premier terme. Défaut : `none`.
 /// - second-number (auto, dictionary, function, array, none): style de la ligne du second terme. Défaut : `none`.
-/// - second-number-H (auto, dictionary, function, array, none): style des heures du second terme. Défaut : `none`.
-/// - second-number-Min (auto, dictionary, function, array, none): style des minutes du second terme. Défaut : `none`.
-/// - second-number-Sec (auto, dictionary, function, array, none): style des secondes du second terme. Défaut : `none`.
+/// - second-number-h (auto, dictionary, function, array, none): style des heures du second terme. Défaut : `none`.
+/// - second-number-min (auto, dictionary, function, array, none): style des minutes du second terme. Défaut : `none`.
+/// - second-number-sec (auto, dictionary, function, array, none): style des secondes du second terme. Défaut : `none`.
 /// - intermediary (auto, dictionary, function, array, none): style des calculs intermédiaires. Défaut : `none`.
 /// - labels (auto, dictionary, function, array, none): style des trois libellés d'unités. Défaut : `none`.
 /// - hours-label (auto, dictionary, function, array, none): style du libellé des heures. Défaut : `none`.
@@ -89,17 +89,17 @@
   rule: auto,
   special-cell: auto,
   result: auto,
-  result-H: auto,
-  result-Min: auto,
-  result-Sec: auto,
+  result-h: auto,
+  result-min: auto,
+  result-sec: auto,
   first-number: auto,
-  first-number-H: auto,
-  first-number-Min: auto,
-  first-number-Sec: auto,
+  first-number-h: auto,
+  first-number-min: auto,
+  first-number-sec: auto,
   second-number: auto,
-  second-number-H: auto,
-  second-number-Min: auto,
-  second-number-Sec: auto,
+  second-number-h: auto,
+  second-number-min: auto,
+  second-number-sec: auto,
   intermediary: auto,
   labels: auto,
   hours-label: auto,
@@ -118,11 +118,11 @@
     hour-label: hour-label, min-label: min-label, sec-label: sec-label, minus-sign: minus-sign,
     plus-sign: plus-sign, name: name, baseline: baseline, display-intermediary: display-intermediary,
     visible: visible, mode-correctif: mode-correctif, correction: correction, matrix: matrix, nodes: nodes,
-    sign: sign, rule: rule, special-cell: special-cell, result: result, result-H: result-H,
-    result-Min: result-Min, result-Sec: result-Sec, first-number: first-number,
-    first-number-H: first-number-H, first-number-Min: first-number-Min, first-number-Sec: first-number-Sec,
-    second-number: second-number, second-number-H: second-number-H, second-number-Min: second-number-Min,
-    second-number-Sec: second-number-Sec, intermediary: intermediary, labels: labels,
+    sign: sign, rule: rule, special-cell: special-cell, result: result, result-h: result-h,
+    result-min: result-min, result-sec: result-sec, first-number: first-number,
+    first-number-h: first-number-h, first-number-min: first-number-min, first-number-sec: first-number-sec,
+    second-number: second-number, second-number-h: second-number-h, second-number-min: second-number-min,
+    second-number-sec: second-number-sec, intermediary: intermediary, labels: labels,
     hours-label: hours-label, minutes-label: minutes-label, seconds-label: seconds-label,
     text-height: text-height, text-depth: text-depth, rule-width: rule-width, matrix-inset: matrix-inset,
     style: style,

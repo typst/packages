@@ -14,7 +14,7 @@
 #import "src/regler.typ": setbfmaths, sisetup
 
 // Maths : ensemble DD, vecteurs, coordonnées, repère, intervalles, crochets
-#import "src/maths.typ": CrochetD, CrochetG, Coordonnees, DD, Rep, Vecteur, intervalle
+#import "src/maths.typ": crochetd, crochetg, coordonnees, dd, rep, vect, intervalle
 
 // Nombre relatif entre parenthèses
 #import "src/aff.typ": affiche
@@ -23,7 +23,7 @@
 #import "src/texte.typ": acc, encadrer, frquote, lien, needspace, outilcours, pascalc, surligner
 
 // Connecteurs logiques
-#import "src/connecteurs.typ": Alors, Car, Donc, Et, Mais, Puisque, SSI, Si
+#import "src/connecteurs.typ": alors, car, donc, et, mais, puisque, ssi, si
 
 // Nombres et unités (zero, noms de siunitx ; `np` = alias de `num`)
 #import "src/nombres.typ": np, num, qty, unit

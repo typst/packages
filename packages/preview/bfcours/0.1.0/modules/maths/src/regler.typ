@@ -18,7 +18,7 @@
 /// #setbfmaths(pour: "connecteurs", fond: 20)
 /// #setbfmaths(pour: "Si", couleur: "orange")
 /// #setbfmaths(pour: "encadrer", couleur: "green")
-/// #Si() $x > 0$, #Alors() $sqrt(x)$ existe : #encadrer[$a^2 + b^2$].
+/// #si() $x > 0$, #alors() $sqrt(x)$ existe : #encadrer[$a^2 + b^2$].
 /// ```
 ///
 /// - pour (none, str, array): type visé : `"acc"`, `"encadrer"`, `"surligner"`, `"Si"`, `"Alors"`, `"Donc"`, `"Et"`, `"Mais"`, `"Car"`, `"Puisque"`, `"SSI"`, `"connecteurs"` (les huit), `"Coordonnees"`, `"intervalle"`, `"Crochet"`, `"outilcours"`, `"lien"`, `"affiche"`, `"pascalc"`, `"frquote"` ; `none` : réglage global (toutes les commandes qui ont la clé).

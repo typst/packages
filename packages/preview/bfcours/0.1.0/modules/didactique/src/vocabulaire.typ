@@ -57,12 +57,12 @@
 /// `\vocabulaireSommaire{mot}` de LaTeX deviennent simplement les mots.)
 ///
 /// ```example
-/// #tableauVocabulaireSommaire[hypoténuse][cathète]
+/// #tableau-vocabulaire-sommaire[hypoténuse][cathète]
 /// ```
 ///
 /// - mots (content): un contenu par mot de vocabulaire.
 /// -> content
-#let tableauVocabulaireSommaire(..mots) = {
+#let tableau-vocabulaire-sommaire(..mots) = {
   parbreak()
   [Dans le tableau suivant, remplir les cases pour t'aider dans tes révisions.]
   parbreak()

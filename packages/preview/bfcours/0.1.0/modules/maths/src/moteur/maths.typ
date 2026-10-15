@@ -111,7 +111,7 @@
 
 /// Une coordonnée sur son fond, à longueurs et couleurs imposées (les clés tcolorbox de `\tcbox`) :
 /// garde = `boxsep` + marge + `boxrule`, bord arrondi de `arc` + `boxrule`. Si `colframe` vaut `none` ou
-/// `colback`, une seule boîte (pastille grise de `Coordonnees`) ; sinon un filet de `boxrule` d'une autre couleur.
+/// `colback`, une seule boîte (pastille grise de `coordonnees`) ; sinon un filet de `boxrule` d'une autre couleur.
 #let pastille-avec(corps, colback: xcolor("gray!15"), colframe: none, arc: ptl(2), boxsep: ptl(1),
     gauche: ptl(1), droite: ptl(1), haut: ptl(1), bas: ptl(1), boxrule: 0.5mm) = {
   if colframe == none or colframe == colback {

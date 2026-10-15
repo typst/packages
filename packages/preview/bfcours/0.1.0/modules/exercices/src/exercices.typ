@@ -21,20 +21,20 @@
   (cles, competence)
 }
 
-/// Marqueur facultatif `#tcblower` : dans le corps d'un `EXO` ou `EXOEVAL`, ce qui le suit est la partie basse de l'exercice (zone de réponse, `crep`), affichée dans sa boîte.
+/// Marqueur facultatif `#tcblower` : dans le corps d'un `exo` ou `exo-eval`, ce qui le suit est la partie basse de l'exercice (zone de réponse, `crep`), affichée dans sa boîte.
 ///
 /// ```example
-/// #EXO[Un calcul][Calculer $3 times 4$. #tcblower $3 times 4 = 12$.]
+/// #exo[Un calcul][Calculer $3 times 4$. #tcblower $3 times 4 = 12$.]
 /// ```
 ///
 /// À écrire sans parenthèses, une seule fois, au premier niveau du corps, avant `#exocorrection`. Hors d'un exercice, il n'affiche rien.
 /// -> content
 #let tcblower = _m.bf-tcblower
 
-/// Marqueur `#exocorrection` (le `\exocorrection` de LaTeX) : dans le corps d'un `EXO` ou `EXOEVAL`, ce qui le suit est la correction de l'exercice. Elle n'est pas affichée à cet endroit : `rdexocorrection` la rejoue plus loin.
+/// Marqueur `#exocorrection` (le `\exocorrection` de LaTeX) : dans le corps d'un `exo` ou `exo-eval`, ce qui le suit est la correction de l'exercice. Elle n'est pas affichée à cet endroit : `rdexocorrection` la rejoue plus loin.
 ///
 /// ```example
-/// #EXO[Une équation][
+/// #exo[Une équation][
 ///   Résoudre $2 x + 1 = 7$.
 ///   #exocorrection
 ///   $2 x = 6$, donc $x = 3$.
@@ -68,7 +68,7 @@
 /// couleur d'un thème (`bg-color`, `score-bg-color`…) s'emploient aussi localement, pour ce seul exercice.
 ///
 /// ```example
-/// #EXO(tags: "équations", level: 2)[Une équation][
+/// #exo(tags: "équations", level: 2)[Une équation][
 ///   #itempoint(2)[Résoudre $2 x + 1 = 7$.]
 ///   #exocorrection
 ///   $2 x = 6$, donc $x = 3$.
@@ -88,7 +88,7 @@
 /// - numexo (int, auto): numéro de CET exercice (les suivants continuent à partir de lui).
 /// - ..args (content): titre (facultatif), puis le corps : énoncé, éventuellement `#tcblower` et la partie basse, `#exocorrection` et la correction ; trois positionnels : titre, étiquettes, corps.
 /// -> content
-#let EXO(..args) = {
+#let exo(..args) = {
   let (cles, competence) = _separer("EXO", args)
   let (titre, tags, corps) = _positionnels("EXO", args.pos())
   let corps = environnements(corps) // begin/end dans le corps, avant le découpage aux marqueurs
@@ -101,7 +101,7 @@
 /// d'auto-évaluation MI / MF / MS / TBM ; ses étiquettes (`tags`) entrent dans l'index des compétences.
 ///
 /// ```example
-/// #EXOEVAL(tags: "Résoudre une équation")[Équations][
+/// #exo-eval(tags: "Résoudre une équation")[Équations][
 ///   #itempoint(1.5)[Résoudre $2 x + 1 = 7$.]
 ///   #exocorrection
 ///   $2 x = 6$, donc $x = 3$.
@@ -114,7 +114,7 @@
 /// - competence (content, str, auto): entrée de l'index. Défaut : les étiquettes.
 /// - ..args (content): titre (facultatif), puis le corps : énoncé, éventuellement `#tcblower` et la partie basse, `#exocorrection` et la correction.
 /// -> content
-#let EXOEVAL(..args) = {
+#let exo-eval(..args) = {
   let (cles, competence) = _separer("EXOEVAL", args)
   let (titre, tags, corps) = _positionnels("EXOEVAL", args.pos())
   let corps = environnements(corps)
@@ -194,8 +194,8 @@
 /// règlent ensuite par `setrdexo(pour: "<nom>", …)`.
 ///
 /// ```example
-/// #rdexoSkin("simple", tcolorbox: info => block(stroke: (bottom: 1pt), [*#info.label #info.n* -- #info.titre]))
-/// #EXO(skin: "simple", exotitle: [Essai])[Énoncé.]
+/// #rdexo-skin("simple", tcolorbox: info => block(stroke: (bottom: 1pt), [*#info.label #info.n* -- #info.titre]))
+/// #exo(skin: "simple", exotitle: [Essai])[Énoncé.]
 /// ```
 ///
 /// - nom (str): nom du thème.
@@ -206,7 +206,7 @@
 /// - cadre-correction (function, none): même forme, pour chaque bloc de `rdexocorrection` (`info.correction` vaut true, `breakable` vaut true). Défaut : aucun cadre.
 /// - couleurs (dictionary): couleurs du thème (clés de `setrdexo(pour: "<thème>")`).
 /// -> content
-#let rdexoSkin(nom, tcbox: none, tcolorbox: none, correction: none, cadre: none, cadre-correction: none, couleurs: (:)) = _m.bf-rdexoSkin(nom, tcbox: tcbox, tcolorbox: tcolorbox, correction: correction, cadre: cadre, cadre-correction: cadre-correction, couleurs: couleurs)
+#let rdexo-skin(nom, tcbox: none, tcolorbox: none, correction: none, cadre: none, cadre-correction: none, couleurs: (:)) = _m.bf-rdexoSkin(nom, tcbox: tcbox, tcolorbox: tcolorbox, correction: correction, cadre: cadre, cadre-correction: cadre-correction, couleurs: couleurs)
 
 /// Étoiles de niveau (\rdexostars[options]{niveau}{total}) ; un niveau décimal remplit une étoile en partie.
 /// Les défauts se règlent par `setrdexo(pour: "rdexostars", …)`.
@@ -312,7 +312,7 @@
 /// Numéro de l'exercice en cours (\thenumexo[*][avant][après]) ; `etoile` : seulement si `display-numexo`.
 ///
 /// ```example
-/// #EXO(exotitle: [Essai])[Je suis l'exercice #thenumexo().]
+/// #exo(exotitle: [Essai])[Je suis l'exercice #thenumexo().]
 /// ```
 ///
 /// - etoile (bool): forme étoilée.
@@ -323,7 +323,7 @@
 /// Valeur du compteur d'exercices (\rdexonumexo = `\value{rdexo@numexo}`) ; `f` reçoit l'entier, pour calculer avec.
 ///
 /// ```example
-/// #EXO(exotitle: [Essai])[Le suivant portera le numéro #rdexonumexo(f: n => n + 1).]
+/// #exo(exotitle: [Essai])[Le suivant portera le numéro #rdexonumexo(f: n => n + 1).]
 /// ```
 ///
 /// - f (function, none): fonction appliquée à l'entier. Défaut : none (affiche le numéro).
@@ -333,7 +333,7 @@
 /// Score de l'exercice en cours (\thescore[*][avant][après]), à la française.
 ///
 /// ```example
-/// #EXO(score: 2.5)[Barème : #thescore().]
+/// #exo(score: 2.5)[Barème : #thescore().]
 /// ```
 /// -> content
 #let thescore(etoile: false, avant: [], apres: []) = _m.bf-thescore(etoile: etoile, avant: avant, apres: apres)
@@ -341,15 +341,15 @@
 /// Score avec son libellé (\theScore[*][avant][après]) : « 2,5 points ».
 ///
 /// ```example
-/// #EXO(score: 1)[Barème : #theScore().]
+/// #exo(score: 1)[Barème : #thescore-libelle().]
 /// ```
 /// -> content
-#let theScore(etoile: false, avant: [], apres: []) = _m.bf-theScore(etoile: etoile, avant: avant, apres: apres)
+#let thescore-libelle(etoile: false, avant: [], apres: []) = _m.bf-theScore(etoile: etoile, avant: avant, apres: apres)
 
 /// Valeur brute du score de l'exercice en cours (\rdexoscore).
 ///
 /// ```example
-/// #EXO(score: 4)[Valeur brute : #rdexoscore().]
+/// #exo(score: 4)[Valeur brute : #rdexoscore().]
 /// ```
 /// -> content
 #let rdexoscore() = _m.bf-rdexoscore()
@@ -357,7 +357,7 @@
 /// Niveau (nombre d'étoiles) de l'exercice en cours (\thelevel).
 ///
 /// ```example
-/// #EXO(level: 2)[Niveau : #thelevel().]
+/// #exo(level: 2)[Niveau : #thelevel().]
 /// ```
 /// -> content
 #let thelevel() = _m.bf-thelevel()
@@ -365,7 +365,7 @@
 /// Titre de l'exercice en cours (\theexotitle[*][avant][après]).
 ///
 /// ```example
-/// #EXO(exotitle: [Pythagore])[Rappel du titre : #theexotitle().]
+/// #exo(exotitle: [Pythagore])[Rappel du titre : #theexotitle().]
 /// ```
 /// -> content
 #let theexotitle(etoile: false, avant: [], apres: []) = _m.bf-theexotitle(etoile: etoile, avant: avant, apres: apres)
@@ -373,10 +373,10 @@
 /// Titre dans sa police et sa couleur (\theExotitle[*][avant][après]).
 ///
 /// ```example
-/// #EXO(exotitle: [Pythagore])[Titre mis en forme : #theExotitle().]
+/// #exo(exotitle: [Pythagore])[Titre mis en forme : #theexotitle-style().]
 /// ```
 /// -> content
-#let theExotitle(etoile: false, avant: [], apres: []) = _m.bf-theExotitle(etoile: etoile, avant: avant, apres: apres)
+#let theexotitle-style(etoile: false, avant: [], apres: []) = _m.bf-theExotitle(etoile: etoile, avant: avant, apres: apres)
 
 /// Applique au texte la police des titres d'exercice (\rdexotitlefont) : celle de l'exercice en cours,
 /// sinon celle du réglage `exotitle-font`.
@@ -390,7 +390,7 @@
 /// Étiquettes de l'exercice en cours, au style du thème (\thetags[*][max cols]).
 ///
 /// ```example
-/// #EXO(tags: "calcul, fractions")[Étiquettes : #thetags()]
+/// #exo(tags: "calcul, fractions")[Étiquettes : #thetags()]
 /// ```
 ///
 /// - etoile (bool): seulement si `display-tags` les montre.
@@ -409,7 +409,7 @@
 /// Étiquettes de l'exercice en cours, séparées par des virgules (\rdexotags).
 ///
 /// ```example
-/// #EXO(tags: "calcul, fractions")[#rdexotags()]
+/// #exo(tags: "calcul, fractions")[#rdexotags()]
 /// ```
 /// -> content
 #let rdexotags() = _m.bf-rdexotags()
@@ -417,58 +417,58 @@
 /// `oui` si le numéro de l'exercice en cours est affiché, `non` sinon (\TFNumexo{oui}{non}).
 ///
 /// ```example
-/// #EXO[#TFNumexo[Numéro affiché][Numéro masqué]]
+/// #exo[#tf-numexo[Numéro affiché][Numéro masqué]]
 /// ```
 /// -> content
-#let TFNumexo(oui, non) = _m.bf-TFNumexo(oui, non)
+#let tf-numexo(oui, non) = _m.bf-TFNumexo(oui, non)
 
 /// `oui` si le score de l'exercice en cours est affiché, `non` sinon (\TFScore{oui}{non}).
 ///
 /// ```example
-/// #EXO(score: 2)[#TFScore[Score affiché][Score masqué]]
+/// #exo(score: 2)[#tf-score[Score affiché][Score masqué]]
 /// ```
 /// -> content
-#let TFScore(oui, non) = _m.bf-TFScore(oui, non)
+#let tf-score(oui, non) = _m.bf-TFScore(oui, non)
 
 /// `oui` si le niveau de l'exercice en cours est affiché, `non` sinon (\TFLevel{oui}{non}).
 ///
 /// ```example
-/// #EXO(level: 2)[#TFLevel[Étoiles affichées][Étoiles masquées]]
+/// #exo(level: 2)[#tf-level[Étoiles affichées][Étoiles masquées]]
 /// ```
 /// -> content
-#let TFLevel(oui, non) = _m.bf-TFLevel(oui, non)
+#let tf-level(oui, non) = _m.bf-TFLevel(oui, non)
 
 /// `oui` si le titre de l'exercice en cours est affiché, `non` sinon (\TFTitle{oui}{non}).
 ///
 /// ```example
-/// #EXO(exotitle: [Essai])[#TFTitle[Titre affiché][Titre masqué]]
+/// #exo(exotitle: [Essai])[#tf-title[Titre affiché][Titre masqué]]
 /// ```
 /// -> content
-#let TFTitle(oui, non) = _m.bf-TFTitle(oui, non)
+#let tf-title(oui, non) = _m.bf-TFTitle(oui, non)
 
 /// `oui` si les étiquettes de l'exercice en cours sont affichées (`display-tags`), `non` sinon (\TFTags{oui}{non}).
 ///
 /// ```example
-/// #EXO(tags: "calcul", display-tags: true)[#TFTags[Étiquettes affichées][Étiquettes masquées]]
+/// #exo(tags: "calcul", display-tags: true)[#tf-tags[Étiquettes affichées][Étiquettes masquées]]
 /// ```
 /// -> content
-#let TFTags(oui, non) = _m.bf-TFTags(oui, non)
+#let tf-tags(oui, non) = _m.bf-TFTags(oui, non)
 
 /// Texte cliquable vers la solution de l'exercice n (\rdexoEnonceLabel{n}{texte}).
 ///
 /// ```example
-/// #rdexoEnonceLabel(1)[voir la solution de l'exercice 1]
+/// #rdexo-enonce-label(1)[voir la solution de l'exercice 1]
 /// ```
 /// -> content
-#let rdexoEnonceLabel(n, corps) = _m.bf-rdexoEnonceLabel(n, corps)
+#let rdexo-enonce-label(n, corps) = _m.bf-rdexoEnonceLabel(n, corps)
 
 /// Texte cliquable vers l'énoncé de l'exercice n (\rdexoSolutionLabel{n}{texte}).
 ///
 /// ```example
-/// #rdexoSolutionLabel(1)[retour à l'énoncé 1]
+/// #rdexo-solution-label(1)[retour à l'énoncé 1]
 /// ```
 /// -> content
-#let rdexoSolutionLabel(n, corps) = _m.bf-rdexoSolutionLabel(n, corps)
+#let rdexo-solution-label(n, corps) = _m.bf-rdexoSolutionLabel(n, corps)
 
 /// Niveau par défaut des exercices suivants (\def\rdifficulty{n}) ; équivaut à `setrdexo(level: n)`.
 ///
@@ -483,12 +483,12 @@
 /// Modulo (\rdexoMod{a}{b}) : `a - b ⌊a / b⌋`.
 ///
 /// ```example
-/// #rdexoMod(17, 5) et #rdexoMod(-3, 5)
+/// #rdexo-mod(17, 5) et #rdexo-mod(-3, 5)
 /// ```
 ///
 /// - a, b (int, float): dividende et diviseur.
 /// -> int, float
-#let rdexoMod(a, b) = _m.bf-rdexoMod(a, b)
+#let rdexo-mod(a, b) = _m.bf-rdexoMod(a, b)
 
 /// Inclut un exercice rangé dans un fichier (\rdexoinclude[*][options]{fichier}). Le fichier est lu par
 /// le document (`include "fichier.typ"`) : un paquet Typst ne peut pas lire les fichiers de l'utilisateur.

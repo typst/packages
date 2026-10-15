@@ -9,5 +9,5 @@
   bfcours-valeurs, bfcours-page, bfcours-texte, bfcours,
 )
 #import "src/moteur/entetes.typ": (
-  modele-reglages, chapitre, chapeval, pied-de-page, SequenceItem,
+  modele-reglages, chapitre, chapeval, pied-de-page, sequence-item,
 )

@@ -4,9 +4,9 @@
 // - Version professeur / élève : `ifcorrection` (bfcours-use_rdexo_rdcrep.sty:285 ; trois formes).
 // - Réglages : `setbfsocle` (version, style des corrections), `setbfcolors` (couleurs nommées de
 //   bfcours et macros d'état), `definir-style` (styles nommés communs à tous les paquets).
-// - Couleurs : port fidèle de bfcours-colors.sty (`CouleursTabular`, `CouleursSecondaryTabular`,
-//   `ResetCouleursTabular`, `ResetCouleursSecondaryTabular`, `CouleurTexteAccent`,
-//   `ResetCouleurTexteAccent`, `couleurItem`, `resetItemBaseColor`, les 4 macros d'état lues dans les
+// - Couleurs : port fidèle de bfcours-colors.sty (`couleurs-tabular`, `couleurs-secondary-tabular`,
+//   `reset-couleurs-tabular`, `reset-couleurs-secondary-tabular`, `couleur-texte-accent`,
+//   `reset-couleur-texte-accent`, `couleur-item`, `reset-item-base-color`, les 4 macros d'état lues dans les
 //   cours en lecture), plus `definecolor`, `colorlet`, `textcolor` de xcolor et l'ajout `xcolor`
 //   (expression → couleur, qui lit aussi toute macro d'état : `xcolor("currentFrameColor")`).
 //
@@ -58,7 +58,7 @@
 ///   zones de réponse de bfcours-crep et par les objets rd (`\setrdcrep{correction color=…, correction font=…}`) ;
 ///   `setrdcrep(correction-color: …)` les remplace pour les zones de réponse et recopie sa valeur ici.
 ///
-/// Les couleurs (macros d'état `currentAccentColor`…, couleurs nommées `thm`…) se règlent par
+/// Les couleurs (macros d'état `current-accent-color`…, couleurs nommées `thm`…) se règlent par
 /// `setbfcolors`.
 ///
 /// ```example
@@ -119,20 +119,20 @@
 /// `setbfcolors(thm: …)` recolore partout ce qui suit. Le setter d'un paquet peut ensuite les remplacer
 /// pour lui seul (`setrdcrep(correction-color: red)`).
 ///
-/// Comme en LaTeX, `defi` colore à la fois `Definition` et `Notation`, `nota` `Vocabulaire` et `Aide`,
-/// `act` `Activite`, `BaseColor` les bandeaux de section. Les valeurs sont évaluées tout de suite (comme
+/// Comme en LaTeX, `defi` colore à la fois `definition` et `notation`, `nota` `vocabulaire` et `aide`,
+/// `act` `activite`, `BaseColor` les bandeaux de section. Les valeurs sont évaluées tout de suite (comme
 /// `\colorlet`) : `setbfcolors(defi: "thm")` copie la valeur actuelle de `thm`. `boitecouleur: auto` rend
 /// à `boite` la couleur d'accent.
 ///
 /// ```example
 /// #setbfcolors(thm: "teal", currentAccentColor: "red!60!black")
-/// #textcolor("thm")[Théorème], #context text(fill: currentAccentColor())[accent].
+/// #textcolor("thm")[Théorème], #context text(fill: current-accent-color())[accent].
 /// #setbfcolors(reinitialiser: true)
 /// #textcolor("thm")[Théorème d'origine.]
 /// ```
 ///
 /// - reinitialiser (bool): ramène d'abord toutes les couleurs nommées et toutes les macros d'état à leur valeur d'origine, puis applique les autres clés. Défaut : `false`.
-/// - ..couleurs (color, str): un argument nommé par couleur nommée (`defi`, `thm`, `prop`, `ex`, `nota`, `rem`, `demo`, `act`, `meth`, `monrose`, `nombres`, `geo`…) ou par macro d'état (`currentAccentColor`, `itemBaseColor`, `currentTableFrameColor`, `boitecouleur`…) ; valeur : couleur Typst ou expression xcolor. Un nom inconnu liste les noms possibles.
+/// - ..couleurs (color, str): un argument nommé par couleur nommée (`defi`, `thm`, `prop`, `ex`, `nota`, `rem`, `demo`, `act`, `meth`, `monrose`, `nombres`, `geo`…) ou par macro d'état (`current-accent-color`, `item-base-color`, `currentTableFrameColor`, `boitecouleur`…) ; valeur : couleur Typst ou expression xcolor. Un nom inconnu liste les noms possibles.
 /// -> content
 #let setbfcolors(reinitialiser: false, ..couleurs) = _c.bf-regler-couleurs(commande: "setbfcolors", reinitialiser: reinitialiser, ..couleurs)
 
@@ -169,14 +169,14 @@
 /// la couleur du cadre. Les environnements didactiques les règlent eux-mêmes à leur ouverture.
 ///
 /// ```example
-/// #CouleursTabular("defi", "defi", "white", "defi!5", "black")
+/// #couleurs-tabular("defi", "defi", "white", "defi!5", "black")
 /// #context {
-///   let (titre, fond) = (currentTableColbackTitleColor(), xcolor("currentTableColbackColor"))
+///   let (titre, fond) = (current-table-colback-title-color(), xcolor("currentTableColbackColor"))
 ///   table(columns: 2, stroke: xcolor("currentTableFrameColor"), fill: (x, y) => if y == 0 { titre } else { fond },
-///     text(fill: currentTableColTitleColor())[$x$], text(fill: currentTableColTitleColor())[$f(x)$],
+///     text(fill: current-table-col-title-color())[$x$], text(fill: current-table-col-title-color())[$f(x)$],
 ///     [1], [3])
 /// }
-/// #ResetCouleursTabular()
+/// #reset-couleurs-tabular()
 /// ```
 ///
 /// - cadre (color, str): `\currentTableFrameColor` et filets. Défaut LaTeX : `"blue!50!black"`.
@@ -185,7 +185,7 @@
 /// - fond (color, str): `\currentTableColbackColor`. Défaut : `"white"`.
 /// - texte (color, str): `\currentTableColupperColor`. Défaut : `"red!50!black"`.
 /// -> content
-#let CouleursTabular(cadre, fond-titre, texte-titre, fond, texte) = context {
+#let couleurs-tabular(cadre, fond-titre, texte-titre, fond, texte) = context {
   _c.couleurstabular(.._resoudre-toutes("CouleursTabular", cadre, fond-titre, texte-titre, fond, texte))
 }
 
@@ -193,10 +193,10 @@
 /// SECONDAIRES (`tcbtabx`) pour la suite du document.
 ///
 /// ```example
-/// #CouleursSecondaryTabular("prop", "prop!30!white", "black", "prop!5", "prop")
+/// #couleurs-secondary-tabular("prop", "prop!30!white", "black", "prop!5", "prop")
 /// #context box(fill: xcolor("currentSecondaryTableColbackTitleColor"), inset: 4pt,
 ///   stroke: xcolor("currentSecondaryTableFrameColor"))[Titre secondaire]
-/// #ResetCouleursSecondaryTabular()
+/// #reset-couleurs-secondary-tabular()
 /// ```
 ///
 /// - cadre (color, str): `\currentSecondaryTableFrameColor`. Défaut : `"red!50!black"`.
@@ -205,7 +205,7 @@
 /// - fond (color, str): `\currentSecondaryTableColbackColor`. Défaut : `"yellow!10!white"`.
 /// - texte (color, str): `\currentSecondaryTableColupperColor`. Défaut : `"red!50!black"`.
 /// -> content
-#let CouleursSecondaryTabular(cadre, fond-titre, texte-titre, fond, texte) = context {
+#let couleurs-secondary-tabular(cadre, fond-titre, texte-titre, fond, texte) = context {
   _c.couleurssecondarytabular(.._resoudre-toutes("CouleursSecondaryTabular", cadre, fond-titre, texte-titre, fond, texte))
 }
 
@@ -213,37 +213,37 @@
 /// `white`, `white`, `red!50!black`) et filets noirs (`couleur_theme`).
 ///
 /// ```example
-/// #CouleursTabular("thm", "thm", "white", "white", "thm")
-/// #ResetCouleursTabular()
+/// #couleurs-tabular("thm", "thm", "white", "white", "thm")
+/// #reset-couleurs-tabular()
 /// #textcolor("currentTableFrameColor")[Cadre par défaut.]
 /// ```
 ///
 /// -> content
-#let ResetCouleursTabular() = _c.resetcouleurstabular()
+#let reset-couleurs-tabular() = _c.resetcouleurstabular()
 
 /// `\ResetCouleursSecondaryTabular` : couleurs des tableaux secondaires par défaut (`red!50!black`,
 /// `Salmon!30!white`, `black`, `yellow!10!white`, `red!50!black`).
 ///
 /// ```example
-/// #ResetCouleursSecondaryTabular()
+/// #reset-couleurs-secondary-tabular()
 /// #context box(fill: xcolor("currentSecondaryTableColbackColor"), inset: 4pt)[Fond secondaire par défaut.]
 /// ```
 ///
 /// -> content
-#let ResetCouleursSecondaryTabular() = _c.resetcouleurssecondarytabular()
+#let reset-couleurs-secondary-tabular() = _c.resetcouleurssecondarytabular()
 
 /// `\CouleurTexteAccent{couleur}` : couleur d'accent du texte (`\currentAccentColor`, lue par `acc`,
 /// `voc`…) ET couleur des boîtes `boite`/`bfbox` (`\boitecouleur`), pour la suite du document.
 ///
 /// ```example
-/// #CouleurTexteAccent("meth")
-/// #context text(fill: currentAccentColor())[Mot accentué.]
-/// #ResetCouleurTexteAccent()
+/// #couleur-texte-accent("meth")
+/// #context text(fill: current-accent-color())[Mot accentué.]
+/// #reset-couleur-texte-accent()
 /// ```
 ///
 /// - couleur (color, str): couleur Typst ou expression xcolor.
 /// -> content
-#let CouleurTexteAccent(couleur) = context {
+#let couleur-texte-accent(couleur) = context {
   let (c,) = _resoudre-toutes("CouleurTexteAccent", couleur)
   _c.couleurtexteaccent(c)
 }
@@ -251,25 +251,25 @@
 /// `\ResetCouleurTexteAccent` : accent noir et `\boitecouleur` = `gray!75!black`.
 ///
 /// ```example
-/// #ResetCouleurTexteAccent()
+/// #reset-couleur-texte-accent()
 /// #textcolor("boitecouleur")[Couleur des boîtes par défaut.]
 /// ```
 ///
 /// -> content
-#let ResetCouleurTexteAccent() = _c.resetcouleurtexteaccent()
+#let reset-couleur-texte-accent() = _c.resetcouleurtexteaccent()
 
 /// `\couleurItem{couleur}` : couleur des pastilles numérotées (`\itemBaseColor`) de `tcbenumerate` et
 /// des énumérations, pour la suite du document.
 ///
 /// ```example
-/// #couleurItem("geo")
-/// #context circle(radius: 6pt, fill: itemBaseColor())
-/// #resetItemBaseColor()
+/// #couleur-item("geo")
+/// #context circle(radius: 6pt, fill: item-base-color())
+/// #reset-item-base-color()
 /// ```
 ///
 /// - couleur (color, str): couleur Typst ou expression xcolor.
 /// -> content
-#let couleurItem(couleur) = context {
+#let couleur-item(couleur) = context {
   let (c,) = _resoudre-toutes("couleurItem", couleur)
   _c.couleuritem(c)
 }
@@ -277,12 +277,12 @@
 /// `\resetItemBaseColor` : pastilles en `gray!80!black`.
 ///
 /// ```example
-/// #resetItemBaseColor()
-/// #context circle(radius: 6pt, fill: itemBaseColor())
+/// #reset-item-base-color()
+/// #context circle(radius: 6pt, fill: item-base-color())
 /// ```
 ///
 /// -> content
-#let resetItemBaseColor() = _c.resetitembasecolor()
+#let reset-item-base-color() = _c.resetitembasecolor()
 
 /// `\definecolor{nom}{modèle}{valeur}` (xcolor) : définit une couleur nommée, utilisable ensuite dans toute
 /// expression xcolor (`"macouleur!30!white"`) de tous les paquets bfcours-*.
@@ -349,34 +349,34 @@
 /// `\currentAccentColor` : couleur d'accent courante (noir hors environnement didactique). Dans un `context`.
 ///
 /// ```example
-/// #context text(fill: currentAccentColor())[Accent courant.]
+/// #context text(fill: current-accent-color())[Accent courant.]
 /// ```
 /// -> color
-#let currentAccentColor() = _c.bf-couleur-courante("currentAccentColor")
+#let current-accent-color() = _c.bf-couleur-courante("currentAccentColor")
 
 /// `\currentTableColbackTitleColor` : fond du titre des tableaux primaires (`blue!50!black`). Dans un `context`.
 ///
 /// ```example
-/// #context box(fill: currentTableColbackTitleColor(), inset: 3pt, text(fill: white)[Titre])
+/// #context box(fill: current-table-colback-title-color(), inset: 3pt, text(fill: white)[Titre])
 /// ```
 /// -> color
-#let currentTableColbackTitleColor() = _c.bf-couleur-courante("currentTableColbackTitleColor")
+#let current-table-colback-title-color() = _c.bf-couleur-courante("currentTableColbackTitleColor")
 
 /// `\currentTableColTitleColor` : texte du titre des tableaux primaires (`white`). Dans un `context`.
 ///
 /// ```example
-/// #context box(fill: black, inset: 3pt, text(fill: currentTableColTitleColor())[Titre])
+/// #context box(fill: black, inset: 3pt, text(fill: current-table-col-title-color())[Titre])
 /// ```
 /// -> color
-#let currentTableColTitleColor() = _c.bf-couleur-courante("currentTableColTitleColor")
+#let current-table-col-title-color() = _c.bf-couleur-courante("currentTableColTitleColor")
 
 /// `\itemBaseColor` : couleur des pastilles numérotées (`gray!80!black`). Dans un `context`.
 ///
 /// ```example
-/// #context circle(radius: 6pt, fill: itemBaseColor())
+/// #context circle(radius: 6pt, fill: item-base-color())
 /// ```
 /// -> color
-#let itemBaseColor() = _c.bf-couleur-courante("itemBaseColor")
+#let item-base-color() = _c.bf-couleur-courante("itemBaseColor")
 
 // =====================================================================
 // Caractères (\oe, \OE, \euro de LaTeX) : un source en ASCII
@@ -386,11 +386,11 @@
 /// (ou l'écrire entre parenthèses), sinon Typst lit `#oeur` comme un seul nom.
 ///
 /// ```example
-/// Le c#oe;ur du n#oe;ud, une #OE;uvre, un b#(oe)uf.
+/// Le c#oe;ur du n#oe;ud, une #oe-maj;uvre, un b#(oe)uf.
 /// ```
 /// -> str
 #let oe = "\u{153}"
-#let OE = "\u{152}"
+#let oe-maj = "\u{152}"
 
 /// Symbole euro € (`\euro`, `\texteuro` de LaTeX). Dans une formule, il s'écrit sans `#` : `$12 euro$`.
 ///

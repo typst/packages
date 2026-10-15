@@ -126,7 +126,7 @@
   // en fin d'item : deux espaces de 0,3 em (7 pt pour 11,7 pt) ; hors `context` et avant la mise à jour de l'état,
   // sinon l'espacement faible ne disparaît plus en début de paragraphe
   if corps == none { h(0.6em, weak: true) }
-  // repère invisible : en tête d'un énoncé, `EXO` classe son début d'après le texte de l'item
+  // repère invisible : en tête d'un énoncé, `exo` classe son début d'après le texte de l'item
   // (en LaTeX, \tcbitempoint est un nœud flottant : le premier paragraphe reste un paragraphe)
   if corps != none [#metadata((bf-debut-point: corps))]
   pose

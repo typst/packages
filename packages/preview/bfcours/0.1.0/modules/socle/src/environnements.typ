@@ -49,7 +49,7 @@
 )
 
 /// Ouvre un environnement : `#begin(f, ..options)` ; ferme-le par `#end(f)`.
-/// `f` est la fonction elle-même (`tcbenumerate`, `EXO`…), pas son nom.
+/// `f` est la fonction elle-même (`tcbenumerate`, `exo`…), pas son nom.
 ///
 /// - f (function): la fonction de l'environnement.
 /// - options (arguments): options et blocs fixes (un titre, par exemple) passés à `f` avant le corps.

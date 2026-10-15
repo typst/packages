@@ -72,7 +72,7 @@
         let impair = calc.odd(i)
         let k = calc.quo(i - 1, 2)
         if impair and it.genre == "h" {
-          panic("tkzTabLine (" + nom-txt + ") : les hachures « h » se placent dans un intervalle (rang pair), pas au rang " + str(i) + ".")
+          panic("tkz-tab-line (" + nom-txt + ") : les hachures « h » se placent dans un intervalle (rang pair), pas au rang " + str(i) + ".")
         }
         if not impair and it.genre in ("z", "t", "d", "barre") {
           panic(
@@ -393,12 +393,12 @@
   }
   let lignes = args.pos()
   if lignes.len() == 0 {
-    panic("tabvar : au moins une ligne est attendue (tkzTabLine ou tkzTabVar).")
+    panic("tabvar : au moins une ligne est attendue (tkz-tab-line ou tkz-tab-var).")
   }
   for (j, l) in lignes.enumerate() {
     if type(l) != dictionary or "bf-tabvar-ligne" not in l {
       panic(
-        "tabvar : l'argument n° " + str(j + 2) + " n'est pas une ligne ; utiliser tkzTabLine(…) ou tkzTabVar(…). Reçu : "
+        "tabvar : l'argument n° " + str(j + 2) + " n'est pas une ligne ; utiliser tkz-tab-line(…) ou tkz-tab-var(…). Reçu : "
           + repr(l) + ".",
       )
     }

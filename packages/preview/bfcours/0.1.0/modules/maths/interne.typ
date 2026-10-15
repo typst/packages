@@ -10,6 +10,5 @@
 )
 #import "src/moteur/texte.typ": (
   bf-texte-brut, acc, frquote, pascalc, vspace, hspace, needspace, coloredsquare, dimcoloredsquare,
-  boite-en-ligne, encadrer, surligner, Si, Alors, Donc, Et, Mais, Car, Puisque, SSI, si, alors, donc, et,
-  mais, car, puisque, ssi,
+  boite-en-ligne, encadrer, surligner, si, alors, donc, et, mais, car, puisque, ssi,
 )

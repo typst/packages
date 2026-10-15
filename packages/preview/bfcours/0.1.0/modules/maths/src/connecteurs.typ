@@ -1,6 +1,6 @@
 // connecteurs.typ — connecteurs logiques : Si, Alors, Donc, Et, Mais, Car, Puisque, SSI (bfcours-commands.sty).
 //
-//   #Si() un triangle est rectangle, #Alors() son hypoténuse est son plus grand côté.
+//   #si() un triangle est rectangle, #alors() son hypoténuse est son plus grand côté.
 //
 // Le mot, coloré, sur un fond pâle de la même teinte. Les huit noms sont des noms de premier niveau : la
 // majuscule évite le conflit avec les variables `si`, `et`, `car` (c'est pourquoi l'ancien paquet les rangeait
@@ -26,104 +26,104 @@
 /// Connecteur « Si » : le mot, coloré, sur un fond pâle de la même teinte (rouge par défaut).
 ///
 /// ```typ
-/// #Si() $x > 0$, #Alors() $sqrt(x)$ existe.
-/// #Si(couleur: "orange") ou #Si(mot: "Supposons que")
+/// #si() $x > 0$, #alors() $sqrt(x)$ existe.
+/// #si(couleur: "orange") ou #si(mot: "Supposons que")
 /// ```
 ///
 /// - couleur (auto, color, str): couleur du connecteur : couleur Typst ou expression xcolor (`"red"`).
-/// - mot (auto, content): le mot affiché (`Si`).
+/// - mot (auto, content): le mot affiché (`si`).
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
 /// - ..options (any): clés de la boîte : `fontupper` (taille du mot, `"large"`), `colback`, `colframe`, `colupper`, `fond`, `filet`, `texte` (pourcentages de `couleur`), `arc`, `boxsep`, `boxrule`, `left`, `right`, `top`, `bottom`, `espace-apres` (`true` : espace après le mot).
 /// -> content
-#let Si(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Si", couleur, mot, style, options)
+#let si(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Si", couleur, mot, style, options)
 
 /// Connecteur « Alors » (bleu par défaut).
 ///
 /// ```typ
-/// #Si() $x > 0$, #Alors() $sqrt(x)$ existe.
+/// #si() $x > 0$, #alors() $sqrt(x)$ existe.
 /// ```
 ///
 /// - couleur (auto, color, str): couleur du connecteur.
-/// - mot (auto, content): le mot affiché (`Alors`).
+/// - mot (auto, content): le mot affiché (`alors`).
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
-/// - ..options (any): mêmes clés que `Si`.
+/// - ..options (any): mêmes clés que `si`.
 /// -> content
-#let Alors(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Alors", couleur, mot, style, options)
+#let alors(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Alors", couleur, mot, style, options)
 
 /// Connecteur « Donc » (violet par défaut).
 ///
 /// ```typ
-/// $A B C$ est rectangle en $A$, #Donc() $B C^2 = A B^2 + A C^2$.
+/// $A B C$ est rectangle en $A$, #donc() $B C^2 = A B^2 + A C^2$.
 /// ```
 ///
 /// - couleur (auto, color, str): couleur du connecteur.
-/// - mot (auto, content): le mot affiché (`Donc`).
+/// - mot (auto, content): le mot affiché (`donc`).
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
-/// - ..options (any): mêmes clés que `Si`.
+/// - ..options (any): mêmes clés que `si`.
 /// -> content
-#let Donc(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Donc", couleur, mot, style, options)
+#let donc(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Donc", couleur, mot, style, options)
 
 /// Connecteur « Et » (vert par défaut).
 ///
 /// ```typ
-/// $x > 0$ #Et() $x < 5$.
+/// $x > 0$ #et() $x < 5$.
 /// ```
 ///
 /// - couleur (auto, color, str): couleur du connecteur.
-/// - mot (auto, content): le mot affiché (`Et`).
+/// - mot (auto, content): le mot affiché (`et`).
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
-/// - ..options (any): mêmes clés que `Si`.
+/// - ..options (any): mêmes clés que `si`.
 /// -> content
-#let Et(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Et", couleur, mot, style, options)
+#let et(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Et", couleur, mot, style, options)
 
 /// Connecteur « Mais » (rouge par défaut).
 ///
 /// ```typ
-/// Il est positif, #Mais() pas nul.
+/// Il est positif, #mais() pas nul.
 /// ```
 ///
 /// - couleur (auto, color, str): couleur du connecteur.
-/// - mot (auto, content): le mot affiché (`Mais`).
+/// - mot (auto, content): le mot affiché (`mais`).
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
-/// - ..options (any): mêmes clés que `Si`.
+/// - ..options (any): mêmes clés que `si`.
 /// -> content
-#let Mais(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Mais", couleur, mot, style, options)
+#let mais(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Mais", couleur, mot, style, options)
 
 /// Connecteur « Car » (vert par défaut).
 ///
 /// ```typ
-/// $x = 2$ #Car() $2 x = 4$.
+/// $x = 2$ #car() $2 x = 4$.
 /// ```
 ///
 /// - couleur (auto, color, str): couleur du connecteur.
-/// - mot (auto, content): le mot affiché (`Car`).
+/// - mot (auto, content): le mot affiché (`car`).
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
-/// - ..options (any): mêmes clés que `Si`.
+/// - ..options (any): mêmes clés que `si`.
 /// -> content
-#let Car(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Car", couleur, mot, style, options)
+#let car(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Car", couleur, mot, style, options)
 
 /// Connecteur « Puisque » (violet par défaut).
 ///
 /// ```typ
-/// #Puisque() $x = 2$, $x^2 = 4$.
+/// #puisque() $x = 2$, $x^2 = 4$.
 /// ```
 ///
 /// - couleur (auto, color, str): couleur du connecteur.
-/// - mot (auto, content): le mot affiché (`Puisque`).
+/// - mot (auto, content): le mot affiché (`puisque`).
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
-/// - ..options (any): mêmes clés que `Si`.
+/// - ..options (any): mêmes clés que `si`.
 /// -> content
-#let Puisque(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Puisque", couleur, mot, style, options)
+#let puisque(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("Puisque", couleur, mot, style, options)
 
 /// Connecteur « si et seulement si » (violet par défaut, taille normale).
 ///
 /// ```typ
-/// $a b = 0$ #SSI() $a = 0$ ou $b = 0$.
+/// $a b = 0$ #ssi() $a = 0$ ou $b = 0$.
 /// ```
 ///
 /// - couleur (auto, color, str): couleur du connecteur.
 /// - mot (auto, content): le mot affiché (`si et seulement si`).
 /// - style (auto, str, array): nom d'un style de `setbfmaths(definir: …)`.
-/// - ..options (any): mêmes clés que `Si`.
+/// - ..options (any): mêmes clés que `si`.
 /// -> content
-#let SSI(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("SSI", couleur, mot, style, options)
+#let ssi(couleur: auto, mot: auto, style: auto, ..options) = _connecteur("SSI", couleur, mot, style, options)

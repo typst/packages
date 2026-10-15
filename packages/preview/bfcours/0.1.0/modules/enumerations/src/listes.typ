@@ -52,7 +52,7 @@
 /// - colback (color, str, none): fond de chaque question (`none`).
 /// - arc (length): rayon des coins des boîtes (3 pt).
 /// - boxsep (length): espace entre le bord d'une boîte et la question (3 pt).
-/// - couleur-badge (color, str, auto): couleur des pastilles (défaut : la couleur nommée `itemBaseColor`, que `couleurItem` et `setbfcolors(itemBaseColor: …)` règlent ; `auto` : idem).
+/// - couleur-badge (color, str, auto): couleur des pastilles (défaut : la couleur nommée `item-base-color`, que `couleur-item` et `setbfcolors(itemBaseColor: …)` règlent ; `auto` : idem).
 /// - ecart-badge (length, auto): espace entre la pastille et le texte. `auto` : 3 pt TeX.
 /// - rayon-badge (length, auto): rayon des coins de la pastille. `auto` : 2 pt TeX.
 /// - format-auto (array, auto): motifs de `format: "auto"` aux niveaux 1, 2, 3 (`("1", "a", "i")`).
@@ -83,38 +83,38 @@
 // =====================================================================
 
 /// Numéro de la question courante d'un `tcbenumerate` (`\bfdEnumNum`), à placer dans le texte d'une
-/// question : « (réponse à la question #bfdEnumNum()) ». La clé `niveau` donne le numéro d'un niveau précis
+/// question : « (réponse à la question #bfd-enum-num()) ». La clé `niveau` donne le numéro d'un niveau précis
 /// (`niveau: 1`, `2`, `3` : les `\bfdEnumNumI`, `II`, `III` de LaTeX) ; 0 hors liste.
 ///
 /// ```typ
-/// #tcbenumerate[Question #bfdEnumNum() #tcbenumerate[Sous-question #bfdEnumNum(niveau: 1).#bfdEnumNum(niveau: 2)]]
+/// #tcbenumerate[Question #bfd-enum-num() #tcbenumerate[Sous-question #bfd-enum-num(niveau: 1).#bfd-enum-num(niveau: 2)]]
 /// ```
 ///
 /// - niveau (int, auto): niveau de la liste (1, 2, 3…) ; `auto` : le niveau courant.
 /// -> content
-#let bfdEnumNum(niveau: auto) = m.bfdEnumNum(niveau: niveau)
+#let bfd-enum-num(niveau: auto) = m.bfd-enum-num(niveau: niveau)
 
 /// Étiquette de la question courante (`\bfdEnumLabel`), au format du niveau, sans le point : « b » pour la
 /// deuxième sous-question. La clé `niveau` choisit le niveau ; la clé `format` impose un motif (`"1"`, `"a"`,
-/// `"i"`, ou `"alph"`, `"roman"`…) : `bfdEnumLabel(niveau: 2, format: "a")` est le `\bfdEnumLabelII` de LaTeX,
+/// `"i"`, ou `"alph"`, `"roman"`…) : `bfd-enum-label(niveau: 2, format: "a")` est le `\bfdEnumLabelII` de LaTeX,
 /// qui garde son format quel que soit celui de la liste.
 ///
 /// ```typ
-/// #tcbenumerate(format: "Alph")[Voir la question #bfdEnumLabel().]
+/// #tcbenumerate(format: "Alph")[Voir la question #bfd-enum-label().]
 /// ```
 ///
 /// - niveau (int, auto): niveau de la liste ; `auto` : le niveau courant.
 /// - format (str, auto): motif de numérotation ; `auto` : celui de la liste.
 /// -> content
-#let bfdEnumLabel(niveau: auto, format: auto) = m.bfdEnumLabel(niveau: niveau, format: format)
+#let bfd-enum-label(niveau: auto, format: auto) = m.bfd-enum-label(niveau: niveau, format: format)
 
 /// Profondeur d'imbrication courante des `tcbenumerate` (`\bfdEnumLevel`) : 1, 2, 3… (0 hors liste).
 ///
 /// ```typ
-/// #tcbenumerate[Niveau #bfdEnumLevel() #tcbenumerate[Niveau #bfdEnumLevel()]]
+/// #tcbenumerate[Niveau #bfd-enum-level() #tcbenumerate[Niveau #bfd-enum-level()]]
 /// ```
 /// -> content
-#let bfdEnumLevel = m.bfdEnumLevel
+#let bfd-enum-level = m.bfd-enum-level
 
 // =====================================================================
 // itemize, enumerate
@@ -192,7 +192,7 @@
 /// - label (str, function, array, auto): motif de numérotation (`"a)"`) ou fonction `n => contenu` ; un tableau donne un motif par niveau. `auto` : pastille bfcours.
 /// - start (int, auto): numéro du premier item (1).
 /// - leftmargini (length, auto): retrait au niveau 1 (27,37 pt). Idem `leftmarginii` à `leftmarginvi`.
-/// - couleur-etiquette (color, str, auto): couleur de la pastille (défaut : la couleur nommée `itemBaseColor` ; `auto` : idem).
+/// - couleur-etiquette (color, str, auto): couleur de la pastille (défaut : la couleur nommée `item-base-color` ; `auto` : idem).
 /// - motifs (array, auto): motifs de la pastille par niveau (`("1", "a", "i", "A")`).
 /// - style (str, array): style(s) nommé(s) (voir `setbfenum(definir: …)`).
 /// - items (content): le corps, un item par `+`.

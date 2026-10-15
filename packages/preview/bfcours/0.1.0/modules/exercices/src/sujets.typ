@@ -16,8 +16,8 @@
 /// modèle : `#show: chapitreBac.with(…)` (en LaTeX, une commande de préambule).
 ///
 /// ```example
-/// #show: chapitreBac.with(session: 2026, code: "26-MATJ1ME1", garde: false)
-/// #EXO(score: 5)[Suites][Énoncé de l'exercice.]
+/// #show: chapitre-bac.with(session: 2026, code: "26-MATJ1ME1", garde: false)
+/// #exo(score: 5)[Suites][Énoncé de l'exercice.]
 /// ```
 ///
 /// - style (str): "bac" (défaut) ou "brevet".
@@ -30,115 +30,115 @@
 /// - famille (str, array, none): police du document. Défaut : TeX Gyre Heros (substitut d'Arial).
 /// - garde, sans-serif, mise-en-page, skin (bool): page de garde, police, retraits nuls, skin. Défaut : true.
 /// -> content
-#let chapitreBac(..cles, doc) = _b.bf-chapitreBac(..cles, environnements(doc))
+#let chapitre-bac(..cles, doc) = _b.bf-chapitreBac(..cles, environnements(doc))
 
 /// Sujet du DNB (\chapitreBrevet[clés] = \chapitreBac[style=brevet, …]).
 ///
 /// ```example
-/// #show: chapitreBrevet.with(session: 2026, code: "26GENMATMEAG1", garde: false)
-/// #EXO(score: 2.5)[Statistiques][Énoncé.]
+/// #show: chapitre-brevet.with(session: 2026, code: "26GENMATMEAG1", garde: false)
+/// #exo(score: 2.5)[Statistiques][Énoncé.]
 /// ```
 /// -> content
-#let chapitreBrevet(..cles, doc) = _b.bf-chapitreBrevet(..cles, environnements(doc))
+#let chapitre-brevet(..cles, doc) = _b.bf-chapitreBrevet(..cles, environnements(doc))
 
 /// Active le skin « exobac » (\styleExoBac[clés rdexo]) : « Exercice n » souligné, « (5 points) » en gras.
 ///
 /// ```example
-/// #styleExoBac()
-/// #EXO(score: 5)[Probabilités][Énoncé.]
+/// #style-exo-bac()
+/// #exo(score: 5)[Probabilités][Énoncé.]
 /// ```
 /// -> content
-#let styleExoBac(..cles) = _b.bf-styleExoBac(..cles)
+#let style-exo-bac(..cles) = _b.bf-styleExoBac(..cles)
 
 /// Active le skin « exobrevet » (\styleExoBrevet[clés rdexo]) : « Exercice n : titre (X points) » en gras.
 ///
 /// ```example
-/// #styleExoBrevet()
-/// #EXO(score: 2.5)[Géométrie][Énoncé.]
+/// #style-exo-brevet()
+/// #exo(score: 2.5)[Géométrie][Énoncé.]
 /// ```
 /// -> content
-#let styleExoBrevet(..cles) = _b.bf-styleExoBrevet(..cles)
+#let style-exo-brevet(..cles) = _b.bf-styleExoBrevet(..cles)
 
 /// Partie « Questions » (\styleQuestionsBac[*][clés]) : items « Question n » sans barème ni titre,
 /// numérotés à partir de 1 (`etoile: true` : la numérotation continue).
 ///
 /// ```example
-/// #styleExoBac()
-/// #styleQuestionsBac()
-/// #EXO[Calculer $2^10$.]
+/// #style-exo-bac()
+/// #style-questions-bac()
+/// #exo[Calculer $2^10$.]
 /// ```
 /// -> content
-#let styleQuestionsBac(etoile: false, ..cles) = _b.bf-styleQuestionsBac(etoile: etoile, ..cles)
+#let style-questions-bac(etoile: false, ..cles) = _b.bf-styleQuestionsBac(etoile: etoile, ..cles)
 
 /// Partie « Exercices » (\styleExercicesBac[*][clés]) : « Exercice n (X points) », titre affiché.
 ///
 /// ```example
-/// #styleExercicesBac()
+/// #style-exercices-bac()
 /// ```
 /// -> content
-#let styleExercicesBac(etoile: false, ..cles) = _b.bf-styleExercicesBac(etoile: etoile, ..cles)
+#let style-exercices-bac(etoile: false, ..cles) = _b.bf-styleExercicesBac(etoile: etoile, ..cles)
 
 /// Le prochain exercice portera le numéro n + 1 (\numeroterBac[n]).
 ///
 /// ```example
-/// #numeroterBac(n: 3)
+/// #numeroter-bac(n: 3)
 /// ```
 ///
 /// - n (int): décalage. Défaut : 0.
 /// -> content
-#let numeroterBac(n: 0) = _b.bf-numeroterBac(n: n)
+#let numeroter-bac(n: 0) = _b.bf-numeroterBac(n: n)
 
 /// Titre de partie centré et gras (\partieBac[*]{titre}) ; sans étoile, entrée de sommaire.
 ///
 /// ```example
-/// #partieBac[PREMIÈRE PARTIE : AUTOMATISMES]
+/// #partie-bac[PREMIÈRE PARTIE : AUTOMATISMES]
 /// ```
 /// -> content
-#let partieBac(titre, etoile: false) = _b.bf-partieBac(titre, etoile: etoile)
+#let partie-bac(titre, etoile: false) = _b.bf-partieBac(titre, etoile: etoile)
 
 /// Cadre de consignes en gras italique centré (\consigneBac[*]{texte}) ; `etoile` : gras au fil du texte.
 ///
 /// ```example
-/// #consigneBac[Pour chaque question, une seule réponse est exacte.]
+/// #consigne-bac[Pour chaque question, une seule réponse est exacte.]
 /// ```
 /// -> content
-#let consigneBac(texte, etoile: false) = _b.bf-consigneBac(texte, etoile: etoile)
+#let consigne-bac(texte, etoile: false) = _b.bf-consigneBac(texte, etoile: etoile)
 
 /// Petit cadre pleine largeur (\encadreBac[titre]{contenu}).
 ///
 /// ```example
-/// #encadreBac(titre: [Aide au calcul.])[$2^10 = 1024$]
+/// #encadre-bac(titre: [Aide au calcul.])[$2^10 = 1024$]
 /// ```
 /// -> content
-#let encadreBac(corps, titre: none) = _b.bf-encadreBac(environnements(corps), titre: titre)
+#let encadre-bac(corps, titre: none) = _b.bf-encadreBac(environnements(corps), titre: titre)
 
 /// Même cadre, à la largeur du contenu (\encadreBacEtroit[titre]{contenu}).
 ///
 /// ```example
-/// #encadreBacEtroit(titre: [Rappel :])[$e^0 = 1$]
+/// #encadre-bac-etroit(titre: [Rappel :])[$e^0 = 1$]
 /// ```
 /// -> content
-#let encadreBacEtroit(corps, titre: none) = _b.bf-encadreBacEtroit(environnements(corps), titre: titre)
+#let encadre-bac-etroit(corps, titre: none) = _b.bf-encadreBacEtroit(environnements(corps), titre: titre)
 
 /// Clôt le sujet et ouvre le corrigé, à pagination séparée (\corrigeBac[*][titre=CORRIGÉ]) ;
 /// rejoue toutes les corrections, sauf avec `etoile: true`.
 ///
 /// ```example
-/// #corrigeBac()
+/// #corrige-bac()
 /// ```
 /// -> content
-#let corrigeBac(titre: [CORRIGÉ], etoile: false) = _b.bf-corrigeBac(titre: titre, etoile: etoile)
+#let corrige-bac(titre: [CORRIGÉ], etoile: false) = _b.bf-corrigeBac(titre: titre, etoile: etoile)
 
 /// Souligne exactement la largeur du texte (\bfexobacUline{texte}).
 ///
 /// ```example
-/// #bfexobacUline[*Exercice 1*] #bfexobacUline(depth: 3pt, width: 1pt)[*épais*]
+/// #bfexobac-uline[*Exercice 1*] #bfexobac-uline(depth: 3pt, width: 1pt)[*épais*]
 /// ```
 ///
 /// - depth (length): profondeur du filet sous la ligne de base. Défaut : 2,4 pt.
 /// - width (length): épaisseur du filet. Défaut : 0,5 pt.
 /// -> content
-#let bfexobacUline(corps, ..cles) = _s.bf-bfexobacUline(corps, ..cles)
+#let bfexobac-uline(corps, ..cles) = _s.bf-bfexobacUline(corps, ..cles)
 
 // =====================================================================
 // bfcours-exolombards-skin
@@ -151,7 +151,7 @@
 ///
 /// ```example
 /// #show: exolombards.with(pied: true, auteur: [M. Dupont])
-/// #EXO(score: 5)[Fonctions][L'énoncé démarre sur la ligne de l'étiquette.]
+/// #exo(score: 5)[Fonctions][L'énoncé démarre sur la ligne de l'étiquette.]
 /// ```
 ///
 /// - auto (bool): active le skin. Défaut : true.
@@ -165,57 +165,57 @@
 /// Active le skin « exolombards » (\styleExoLombards[clés rdexo]) : « [Exercice n] » encadré en ligne.
 ///
 /// ```example
-/// #styleExoLombards()
-/// #EXO(score: 3)[Suites][Énoncé sur la même ligne.]
+/// #style-exo-lombards()
+/// #exo(score: 3)[Suites][Énoncé sur la même ligne.]
 /// ```
 /// -> content
-#let styleExoLombards(..cles) = _l.bf-styleExoLombards(..cles)
+#let style-exo-lombards(..cles) = _l.bf-styleExoLombards(..cles)
 
 /// Change le mode des corrections (\correctionsLombards{auto|suite|separee}).
 ///
 /// ```example
-/// #correctionsLombards("separee")
+/// #corrections-lombards("separee")
 /// ```
 /// -> content
-#let correctionsLombards(mode) = _l.bf-correctionsLombards(mode)
+#let corrections-lombards(mode) = _l.bf-correctionsLombards(mode)
 
 /// Corrigé n à la manière du document de correction d'origine (\corrigeLombards[réf.]{n}),
 /// ou « Pas de corrigé disponible pour cet exercice. ».
 ///
 /// ```example
-/// #corrigeLombards(1, reference: "PO020")
+/// #corrige-lombards(1, reference: "PO020")
 /// ```
 /// -> content
-#let corrigeLombards(n, reference: none) = _l.bf-corrigeLombards(n, reference: reference)
+#let corrige-lombards(n, reference: none) = _l.bf-corrigeLombards(n, reference: reference)
 
 /// Étiquette encadrée en gras (\exolombardsEtiquette{texte}).
 ///
 /// ```example
-/// #exolombardsEtiquette[Exercice 1]
+/// #exolombards-etiquette[Exercice 1]
 /// ```
 /// -> content
-#let exolombardsEtiquette(texte) = _l.bf-exolombardsEtiquette(texte)
+#let exolombards-etiquette(texte) = _l.bf-exolombardsEtiquette(texte)
 
 /// Titre discret en italique (\exolombardsTitre{titre}).
 ///
 /// ```example
-/// #exolombardsTitre[Suites géométriques]
+/// #exolombards-titre[Suites géométriques]
 /// ```
 /// -> content
-#let exolombardsTitre(texte) = _l.bf-exolombardsTitre(texte)
+#let exolombards-titre(texte) = _l.bf-exolombardsTitre(texte)
 
 /// Barème entre parenthèses (\exolombardsBareme{points}).
 ///
 /// ```example
-/// #exolombardsBareme[5 points]
+/// #exolombards-bareme[5 points]
 /// ```
 /// -> content
-#let exolombardsBareme(texte) = _l.bf-exolombardsBareme(texte)
+#let exolombards-bareme(texte) = _l.bf-exolombardsBareme(texte)
 
 /// Mot placé devant une correction (\exolombardsMotCorrection) : « Correction : ».
 ///
 /// ```example
-/// #exolombardsMotCorrection()
+/// #exolombards-mot-correction()
 /// ```
 /// -> content
-#let exolombardsMotCorrection() = _l.bf-exolombardsMotCorrection()
+#let exolombards-mot-correction() = _l.bf-exolombardsMotCorrection()

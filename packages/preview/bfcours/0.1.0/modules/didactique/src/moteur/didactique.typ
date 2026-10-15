@@ -744,7 +744,7 @@
 #let contre-exemple = contreexemple
 
 // =====================================================================
-// Remarque (bclogo : crayon, titre « Remarque(s) : », barre en serpentin)
+// Remarque (bclogo : crayon, titre « remarque(s) : », barre en serpentin)
 // =====================================================================
 
 #let _R = (
@@ -1196,14 +1196,14 @@
 }
 
 /// \begin{None}[options] … \end{None} : boîte sans cadre ni fond ni marges.
-#let None(tcb: none, corps, avant: _balance, apres: _balance, breakable: false) = block(
+#let neutre(tcb: none, corps, avant: _balance, apres: _balance, breakable: false) = block(
   width: 100%,
   above: avant,
   below: apres,
   breakable: breakable,
   corps,
 )
-#let none-env = None
+#let none-env = neutre
 
 // ---------- Histoire (skin « syBrisse ») ----------
 

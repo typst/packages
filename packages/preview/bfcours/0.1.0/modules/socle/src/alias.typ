@@ -17,7 +17,7 @@
 /// (titre, corps, nombre de colonnes…) passent tels quels.
 ///
 /// ```example
-/// #let mc = alias(MultiColonnes, nom: "mc", cles: (columns: "nb"), nb: 3)
+/// #let mc = alias(multi-colonnes, nom: "mc", cles: (columns: "nb"), nb: 3)
 /// #mc[
 ///   - un
 ///   - deux
@@ -29,7 +29,7 @@
 /// #end(mc)
 /// ```
 ///
-/// - pour (function): la commande d'origine (`MultiColonnes`, `EXO`, `crep`…), la fonction elle-même, pas son nom.
+/// - pour (function): la commande d'origine (`multi-colonnes`, `exo`, `crep`…), la fonction elle-même, pas son nom.
 /// - nom (none, str): nom de l'alias, repris dans les messages d'erreur. Défaut : `none` (« alias »).
 /// - cles (dictionary): renommage des clés, `(clé d'origine: "nouveau nom", …)`. Défaut : `(:)`.
 /// - ..defauts (any): valeurs par défaut, sous les nouveaux noms ou les noms d'origine.

@@ -18,12 +18,12 @@
 
 = Première section
 
-#Definition[Notion][Énoncé de la définition.]
+#definition[Notion][Énoncé de la définition.]
 
-#Propriete[Nom][Énoncé de la propriété.]
+#propriete[Nom][Énoncé de la propriété.]
 
-#Exemple[Un exemple][Corps de l'exemple.]
+#exemple[Un exemple][Corps de l'exemple.]
 
 = Deuxième section
 
-#Methode[Titre][Étapes de la méthode.]
+#methode[Titre][Étapes de la méthode.]

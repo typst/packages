@@ -21,7 +21,7 @@
 #import "src/repere.typ": courbe, repere
 
 // Objets
-#import "src/objets.typ": arc, cercle, demi-droite, droite, point, polygone, segment, triangle, vecteur, vecteur-de
+#import "src/objets.typ": arc, cercle, demi-droite, droite, point, polygone, segment, triangle, fleche, fleche-de
 
 // Codages
 #import "src/codages.typ": angle-droit, angle-marque, codage-parallele, codage-segment

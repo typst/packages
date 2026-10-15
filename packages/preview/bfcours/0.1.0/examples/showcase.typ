@@ -34,44 +34,44 @@
 
 = Définition et premières propriétés
 
-#Definition[Fonction affine][
+#definition[Fonction affine][
   Une fonction $f$ définie sur $RR$ est #acc[affine] s'il existe deux réels $m$ et $p$ tels que,
   pour tout réel $x$, #box($f(x) = m x + p$). Le réel $m$ est le #acc[coefficient directeur], $p$ l'#acc[ordonnée à l'origine].
 ]
 
-#MultiColonnes(2)[
-  - #Remarque[Cas particuliers][
+#multi-colonnes(2)[
+  - #remarque[Cas particuliers][
       - si $p = 0$, $f(x) = m x$ : $f$ est #acc[linéaire] ;
       - si $m = 0$, $f(x) = p$ : $f$ est #acc[constante].
     ]
-  - #Propriete[Taux d'accroissement][
+  - #propriete[Taux d'accroissement][
       Pour tous réels $a != b$ :
       #align(center, encadrer($m = display((f(b) - f(a)) / (b - a))$))
     ]
 ]
 
-#Propriete[Sens de variation][
-  #MultiColonnes(2)[
+#propriete[Sens de variation][
+  #multi-colonnes(2)[
     - Si $m > 0$, $f$ est croissante sur $RR$.
-      #align(center, tabvar(("-oo", "+oo"), tkzTabVar($f(x)$, "-", "+", h: 1.4)))
+      #align(center, tabvar(("-oo", "+oo"), tkz-tab-var($f(x)$, "-", "+", h: 1.4)))
     - Si $m < 0$, $f$ est décroissante sur $RR$.
-      #align(center, tabvar(("-oo", "+oo"), tkzTabVar($f(x)$, "+", "-", h: 1.4)))
+      #align(center, tabvar(("-oo", "+oo"), tkz-tab-var($f(x)$, "+", "-", h: 1.4)))
   ]
 ]
 
 = Représentation graphique
 
-#Propriete[Une droite][
+#propriete[Une droite][
   Dans un repère, la courbe représentative de $x |-> m x + p$ est une #acc[droite] non parallèle à l'axe des ordonnées :
   elle coupe cet axe au point de coordonnées $(0 ; p)$, et quand $x$ augmente de $1$, $y$ varie de $m$.
 ]
 
-#Methode[Retrouver $f$ à partir de deux points][
+#methode[Retrouver $f$ à partir de deux points][
   On calcule $m$ par le taux d'accroissement, puis $p$ en écrivant que l'un des points est sur la droite.
 ]
 
-#Exemple[La droite $(A B)$ avec $A(1 ; 3)$ et $B(3 ; -1)$][
-  #MultiColonnes(largeurs: (3, 2))[
+#exemple[La droite $(A B)$ avec $A(1 ; 3)$ et $B(3 ; -1)$][
+  #multi-colonnes(largeurs: (3, 2))[
     - $m = display((-1 - 3) / (3 - 1)) = display((-4) / 2) = -2$. Puis $f(1) = 3$ donne $-2 times 1 + p = 3$, soit $p = 5$.
 
       #tcbtab(6, entete-colonne: true, align: center,
@@ -97,7 +97,7 @@
 #pagebreak()
 #chapitre(niveau: "2nde", theme: [Fonctions affines], type: "exercices")
 
-#EXO(level: 1, correction-as-lower: true)[Reconnaître une fonction affine][
+#exo(level: 1, correction-as-lower: true)[Reconnaître une fonction affine][
   Pour chaque fonction définie sur $RR$, dire si elle est affine ; si oui, donner $m$ et $p$.
   #tcbenumerate(columns: 2)[
     + $f(x) = 3 x - 2$ #tcfillcrep[affine : $m = 3$, $p = -2$]
@@ -109,8 +109,8 @@
   $k(x) = x^2 + 2 x + 1 - x^2 = 2 x + 1$ : le terme en $x^2$ disparaît, $k$ est affine.
 ]
 
-#EXO(level: 2)[Déterminer une expression][
-  #MultiColonnes(largeurs: (3, 2))[
+#exo(level: 2)[Déterminer une expression][
+  #multi-colonnes(largeurs: (3, 2))[
     - $f$ est une fonction affine telle que $f(-2) = 2$ et $f(4) = 5$.
       #tcbenumerate[
         + Calculer le coefficient directeur $m$.
@@ -132,17 +132,17 @@
   ]
 ]
 
-#EXO(level: 1)[QCM][
+#exo(level: 1)[QCM][
   Pour chaque question, cocher la bonne réponse.
-  #Mcq(style: "Troyes", question-width: 8.5cm)[
-    #McqQuest(br: 1)[Coefficient directeur de $f(x) = 5 - 3 x$ :][$-3$][$5$][$3$]
-    #McqQuest(br: 2)[Sens de variation de $x |-> -0","5 x + 4$ :][croissante][décroissante][constante]
-    #McqQuest(br: 1)[$f$ affine, $f(2) = 7$, $f(5) = 13$ ; $m$ vaut :][$2$][$6$][$3$]
-    #McqQuest(br: 2)[La fonction $x |-> 2 x - 6$ s'annule en :][$-6$][$3$][$-3$]
+  #mcq(style: "Troyes", question-width: 8.5cm)[
+    #mcq-quest(br: 1)[Coefficient directeur de $f(x) = 5 - 3 x$ :][$-3$][$5$][$3$]
+    #mcq-quest(br: 2)[Sens de variation de $x |-> -0","5 x + 4$ :][croissante][décroissante][constante]
+    #mcq-quest(br: 1)[$f$ affine, $f(2) = 7$, $f(5) = 13$ ; $m$ vaut :][$2$][$6$][$3$]
+    #mcq-quest(br: 2)[La fonction $x |-> 2 x - 6$ s'annule en :][$-6$][$3$][$-3$]
   ]
 ]
 
-#EXO(level: 2)[Vrai ou faux][
+#exo(level: 2)[Vrai ou faux][
   Pour chaque affirmation, cocher #frquote[Vrai] ou #frquote[Faux], puis justifier.
   #vrai-faux(
     lignes-justification: 1,
@@ -161,15 +161,15 @@
 // Page 3 : l'interrogation
 // =====================================================================
 #pagebreak()
-#chapEval(niveau: "2nde", theme: [Fonctions affines], type: [Interrogation :], apres: tableauEval(30))
+#chap-eval(niveau: "2nde", theme: [Fonctions affines], type: [Interrogation :], apres: tableau-eval(30))
 #displayitempoints(true)
 #setrdexo(numexo: 0)   // l'interrogation repart de l'exercice 1
 
-#EXOEVAL(tags: "Modéliser une situation")[Location de vélos][
+#exo-eval(tags: "Modéliser une situation")[Location de vélos][
   Une ville propose deux formules : #acc[A] coûte $2","50$ € par heure ; #acc[B] coûte $6$ € d'abonnement plus $1","50$ € par heure.
   On note $x$ la durée de location en heures, $f_A (x)$ et $f_B (x)$ les prix correspondants.
 
-  #MultiColonnes(largeurs: (3, 2))[
+  #multi-colonnes(largeurs: (3, 2))[
     - #tcbenumerate[
         + #itempoint(2)[Exprimer $f_A (x)$ et $f_B (x)$ en fonction de $x$.]
           #crep[$f_A (x) = 2","5 x$ (linéaire) et $f_B (x) = 1","5 x + 6$.]
@@ -189,8 +189,8 @@
   ]
 ]
 
-#EXO[Lecture graphique][
-  #MultiColonnes(largeurs: (2, 3))[
+#exo[Lecture graphique][
+  #multi-colonnes(largeurs: (2, 3))[
     - #align(center, geo(unite: 0.45cm, {
         repere(x: (0, 5), y: (-2, 5), pas-graduation: (1, 2))
         droite((0, -1), (2, 3), couleur: "bleu")
@@ -208,7 +208,7 @@
   ]
 ]
 
-#MultiColonnes(largeurs: (4, 1))[
+#multi-colonnes(largeurs: (4, 1))[
   - #tableaucompetence(
       competence(code: "C1")[Reconnaître une fonction affine],
       competence(code: "C2")[Lire $m$ et $p$ sur un graphique],

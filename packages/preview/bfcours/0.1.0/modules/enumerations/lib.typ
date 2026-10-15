@@ -16,10 +16,10 @@
 #import "src/reglages.typ": setbfenum
 
 // Colonnage : MultiColonnes, tcbraster, tcbitem
-#import "src/colonnes.typ": MultiColonnes, tcbitem, tcbraster
+#import "src/colonnes.typ": multi-colonnes, tcbitem, tcbraster
 
 // Énumérations : tcbenumerate, itemize, enumerate
 #import "src/listes.typ": enumerate, itemize, tcbenumerate
 
 // Compteurs de tcbenumerate : \bfdEnumNum, \bfdEnumLabel, \bfdEnumLevel (clé `niveau` pour les variantes I/II/III)
-#import "src/listes.typ": bfdEnumLabel, bfdEnumLevel, bfdEnumNum
+#import "src/listes.typ": bfd-enum-label, bfd-enum-level, bfd-enum-num

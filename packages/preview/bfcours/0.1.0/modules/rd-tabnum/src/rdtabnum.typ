@@ -1,5 +1,5 @@
 // rdtabnum.typ (façade) — le tableau `rdtabnum`, ses éléments (`rdtnplace`, `rdtnconvert`, `rdtnemptyline`,
-// `rdtnArrow`, `rdtnsurcouche`) et le réglage `setrdtabnum`.
+// `rdtn-arrow`, `rdtnsurcouche`) et le réglage `setrdtabnum`.
 
 #import "moteur/rdtabnum.typ" as _m
 
@@ -7,7 +7,7 @@
 /// éléments.
 ///
 /// Les ÉLÉMENTS sont les arguments positionnels : `rdtnplace` (un nombre), `rdtnconvert` (une
-/// conversion d'unité), `rdtnemptyline` (lignes vides), `rdtnArrow` (une flèche latérale) et
+/// conversion d'unité), `rdtnemptyline` (lignes vides), `rdtn-arrow` (une flèche latérale) et
 /// `rdtnsurcouche` (un tracé libre). Les lignes de données se numérotent à partir de 1, dans l'ordre
 /// d'écriture. Les options sont les clés nommées ; chacune se règle aussi globalement par `setrdtabnum`.
 ///
@@ -24,7 +24,7 @@
 /// - width (auto, length, ratio): largeur du tableau ; les colonnes ont la même largeur, sauf si une cellule fusionnée (libellé de classe, « Partie décimale ») est plus large que les colonnes qu'elle recouvre : celles-ci s'élargissent alors. Défaut : `100%`.
 /// - show-parts (auto, bool): ajoute en haut la rangée « Partie entière » et « Partie décimale ». Défaut : `false`.
 /// - show-initial-comma (auto, bool): une conversion garde la virgule de départ, barrée. Défaut : `false`.
-/// - correction (auto, bool): le tableau suit la version du document : `rdtnplace(etoile: true)`, `rdtnconvert` et `rdtnArrow(etoile: true)` n'apparaissent qu'en version professeur (la place reste réservée) et, dans ce cas, prennent la couleur et la police des corrections. `auto` et `true` suivent la version choisie par `--input correction` (comme `ifcorrection`) ; `false` : le tableau ne dépend pas de la version, tout reste visible. Défaut : `auto`.
+/// - correction (auto, bool): le tableau suit la version du document : `rdtnplace(etoile: true)`, `rdtnconvert` et `rdtn-arrow(etoile: true)` n'apparaissent qu'en version professeur (la place reste réservée) et, dans ce cas, prennent la couleur et la police des corrections. `auto` et `true` suivent la version choisie par `--input correction` (comme `ifcorrection`) ; `false` : le tableau ne dépend pas de la version, tout reste visible. Défaut : `auto`.
 /// - tblr-options (auto, dictionary, none): réglages de la grille : `rowsep` (marge verticale des cellules), `cells` (style de toutes les cellules) ; `colsep` (marge horizontale, 6pt) fixe la largeur minimale des cellules fusionnées. Défaut : `none`.
 /// - classes-style (auto, dictionary, function, array, none): style des cellules « Classe des … ». Défaut : `none`.
 /// - cdu-style (auto, dictionary, function, array, none): style des cellules « c », « d », « u ». Défaut : `none`.
@@ -53,7 +53,7 @@
 /// - cell-base-style (auto, dictionary, function, array, none): style de base de chaque cellule de données (`text-height`, `text-depth`, `min-width`, `seyes`…), appliqué après `inset: 0pt, min-width: 1em`. Défaut : `none`.
 /// - row-cell-style (auto, dictionary, array, none): styles ciblés par ligne de données : un dictionnaire dont les clés sont des sélecteurs (`"1"`, `"1-3"`, `"2-"`, `"-2"`, `"1, 3"`, `"odd"`, `"even"`) et les valeurs des styles, appliqués dans l'ordre après `cell-base-style`. Défaut : `none`.
 /// - style (auto, str, array): style(s) nommé(s) défini(s) par `setrdtabnum(definir: …)`. Défaut : `auto`.
-/// - ..elements (any): les éléments du tableau, dans l'ordre : `rdtnplace`, `rdtnconvert`, `rdtnemptyline`, `rdtnArrow`, `rdtnsurcouche` (ou des tableaux de ces éléments).
+/// - ..elements (any): les éléments du tableau, dans l'ordre : `rdtnplace`, `rdtnconvert`, `rdtnemptyline`, `rdtn-arrow`, `rdtnsurcouche` (ou des tableaux de ces éléments).
 /// -> content
 #let rdtabnum(
   start: auto,
@@ -185,8 +185,8 @@
 /// ```example
 /// #rdtabnum(width: 6.5cm, stop: "dixiemes",
 ///   rdtnplace("3,5"), rdtnplace(350), rdtnplace(3500),
-///   rdtnArrow(1, 2, $times 100$),
-///   rdtnArrow(3, 2, $div 10$, left: true))
+///   rdtn-arrow(1, 2, $times 100$),
+///   rdtn-arrow(3, 2, $div 10$, left: true))
 /// ```
 ///
 /// - depart (int): ligne de départ.
@@ -209,7 +209,7 @@
 /// - correction (auto, bool, str): `"auto"`, `true` ou `false` (voir ci-dessus). Défaut : `"auto"`.
 /// - style (auto, str, array): style(s) nommé(s) défini(s) par `setrdtabnum(pour: "rdtnArrow", definir: …)`. Défaut : `auto`.
 /// -> dictionary
-#let rdtnArrow(
+#let rdtn-arrow(
   depart,
   arrivee,
   libelle,
@@ -237,11 +237,11 @@
     )
   }
   if autres.pos().len() > 0 {
-    panic("rdtnArrow : trois arguments positionnels (ligne de départ, ligne d'arrivée, libellé) ; reçu en plus : " + repr(autres.pos().first()) + ".")
+    panic("rdtn-arrow : trois arguments positionnels (ligne de départ, ligne d'arrivée, libellé) ; reçu en plus : " + repr(autres.pos().first()) + ".")
   }
-  if type(etoile) != bool { panic("rdtnArrow : la clé « etoile » attend true ou false ; reçu : " + repr(etoile) + ".") }
+  if type(etoile) != bool { panic("rdtn-arrow : la clé « etoile » attend true ou false ; reçu : " + repr(etoile) + ".") }
   if type(depart) != int or type(arrivee) != int {
-    panic("rdtnArrow : les lignes de départ et d'arrivée sont des entiers ; reçu : " + repr(depart) + " et " + repr(arrivee) + ".")
+    panic("rdtn-arrow : les lignes de départ et d'arrivée sont des entiers ; reçu : " + repr(depart) + " et " + repr(arrivee) + ".")
   }
   let cles = (
     pos: pos, left: left, right: right, shift-start: shift-start, shift-end: shift-end, shift: shift, arm: arm,
@@ -290,7 +290,7 @@
 /// Le réglage de `rdtabnum`, sous ses quatre formes (mêmes clés que `rdtabnum`).
 ///
 /// - `setrdtabnum(cle: v, …)` : réglage global, pour la suite du document ; les appels s'ajoutent clé par clé.
-/// - `setrdtabnum(pour: "rdtnArrow", cle: v, …)` : réglage des flèches (clés de `rdtnArrow`).
+/// - `setrdtabnum(pour: "rdtnArrow", cle: v, …)` : réglage des flèches (clés de `rdtn-arrow`).
 /// - `setrdtabnum(definir: "nom", cle: v, …)` : définit le style nommé « nom », appelé ensuite par `style: "nom"` (avec `pour: "rdtnArrow"` : style de flèche).
 /// - `setrdtabnum(reinitialiser: true)` : oublie les réglages (styles gardés) ; avec des clés, repart des défauts puis les applique. `reinitialiser: "tout"` oublie aussi les styles.
 ///
@@ -303,7 +303,7 @@
 /// - pour (none, str): `none` (le tableau) ou `"rdtnArrow"` (les flèches). Défaut : `none`.
 /// - reinitialiser (bool, str): `true` : oublie les réglages ; `"tout"` : oublie aussi les styles. Défaut : `false`.
 /// - definir (none, str): nom du style à définir avec les clés données. Défaut : `none`.
-/// - ..cles (any): clés de `rdtabnum` (ou de `rdtnArrow`) et `style:`.
+/// - ..cles (any): clés de `rdtabnum` (ou de `rdtn-arrow`) et `style:`.
 /// -> content
 #let setrdtabnum(pour: none, reinitialiser: false, definir: none, ..cles) = {
   if cles.pos().len() > 0 {

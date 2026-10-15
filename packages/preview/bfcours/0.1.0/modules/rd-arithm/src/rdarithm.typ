@@ -1,5 +1,5 @@
 // rdarithm.typ (façade) — setrdarithm, ListeFP, DecompFP, ListeDiviseurs, TabDiviseurs, pgcd, ppcm,
-// TabPGCD, RowPGCD, DecompFrac, fracirr, dfracirr. `DecompFP(mise-en-page:)` choisit la présentation de
+// TabPGCD, RowPGCD, DecompFrac, fracirr, dfracirr. `decomp-fp(mise-en-page:)` choisit la présentation de
 // la décomposition ; `pgcd()` et `ppcm()` sans argument écrivent l'opérateur seul.
 //
 // Les commandes graphiques prennent toutes les clés de `setrdarithm` en options (`..options`) : la liste
@@ -73,9 +73,9 @@
 ///
 /// ```example
 /// #setrdarithm(colors: ("red", "green", "blue"))
-/// #DecompFP(mise-en-page: "etapes", 1260)
+/// #decomp-fp(mise-en-page: "etapes", 1260)
 /// #setrdarithm(definir: "monstyle", cell-append-style: (radius: 2pt), prime-append-style: (fill-opacity: 1))
-/// #DecompFP(mise-en-page: "arbre", style: "monstyle", 126)
+/// #decomp-fp(mise-en-page: "arbre", style: "monstyle", 126)
 /// #setrdarithm(reinitialiser: "tout")
 /// ```
 ///
@@ -93,14 +93,14 @@
 /// `\ListeFP[options]{n}` : liste des facteurs premiers de n.
 ///
 /// ```example
-/// Facteurs premiers de 210 : #ListeFP(210). Autre séparateur : #ListeFP(separator: [~-~], 210).
+/// Facteurs premiers de 210 : #liste-fp(210). Autre séparateur : #liste-fp(separator: [~-~], 210).
 /// ```
 ///
 /// - n (int): entier à décomposer.
 /// - separator (auto, content): séparateur. Défaut : `[,~]`.
 /// - style (auto, str, array): style(s) nommé(s). Défaut : `auto`.
 /// -> content
-#let ListeFP(separator: auto, style: auto, n) = _avec(arguments(separator: separator, style: style), "ListeFP", r => _m.ra-listefp(r, _entier(n, "ListeFP")))
+#let liste-fp(separator: auto, style: auto, n) = _avec(arguments(separator: separator, style: style), "ListeFP", r => _m.ra-listefp(r, _entier(n, "ListeFP")))
 
 /// `\DecompFP[options]{n}` : décomposition de n en facteurs premiers, dans la mise en page choisie par la
 /// clé `mise-en-page`. Elle remplace `\DecompFP` (produit), `\DecompFPA`, `\DecompFPB` et `\DecompFPC`.
@@ -114,17 +114,17 @@
 /// `suffix-label`, `cell-style`, `prime-style`, `cell`, `stop`, `crep`, `overlay`).
 ///
 /// ```example
-/// $126 = #DecompFP(126) = #DecompFP(powers: true, 126)$
+/// $126 = #decomp-fp(126) = #decomp-fp(powers: true, 126)$
 ///
-/// #DecompFP(mise-en-page: "etapes", 1260) #h(5mm) #DecompFP(mise-en-page: "arbre", 126)
-/// #h(5mm) #DecompFP(mise-en-page: "tableau", label: true, prefix-label: [Décomposition de~], 105)
+/// #decomp-fp(mise-en-page: "etapes", 1260) #h(5mm) #decomp-fp(mise-en-page: "arbre", 126)
+/// #h(5mm) #decomp-fp(mise-en-page: "tableau", label: true, prefix-label: [Décomposition de~], 105)
 /// ```
 ///
 /// - n (int): entier à décomposer.
 /// - mise-en-page (str): `"produit"`, `"etapes"`, `"arbre"` ou `"tableau"`. Défaut : `"produit"`.
 /// - ..options (any): clés de `setrdarithm` (celles qui n'ont pas de sens pour la mise en page choisie sont sans effet).
 /// -> content
-#let DecompFP(mise-en-page: "produit", ..options, n) = {
+#let decomp-fp(mise-en-page: "produit", ..options, n) = {
   let cmd = "DecompFP"
   let mises = ("produit", "etapes", "arbre", "tableau")
   if mise-en-page not in mises {
@@ -143,26 +143,26 @@
 /// `\ListeDiviseurs[options]{n}` : liste ordonnée des diviseurs de n.
 ///
 /// ```example
-/// Les diviseurs de 40 : #ListeDiviseurs(40).
+/// Les diviseurs de 40 : #liste-diviseurs(40).
 /// ```
 ///
 /// - n (int): entier.
 /// - separator (auto, content): séparateur. Défaut : `[,~]`.
 /// - style (auto, str, array): style(s) nommé(s). Défaut : `auto`.
 /// -> content
-#let ListeDiviseurs(separator: auto, style: auto, n) = _avec(arguments(separator: separator, style: style), "ListeDiviseurs", r => _m.ra-listediviseurs(r, _entier(n, "ListeDiviseurs")))
+#let liste-diviseurs(separator: auto, style: auto, n) = _avec(arguments(separator: separator, style: style), "ListeDiviseurs", r => _m.ra-listediviseurs(r, _entier(n, "ListeDiviseurs")))
 
 /// `\TabDiviseurs[options]{n}` : diviseurs rangés par paires dans un tableau à deux colonnes. Mêmes clés
-/// que `DecompFP(mise-en-page: "tableau")`, plus `cf`, `cf-style` et `gcd-style` (diviseurs communs avec `cf`, PGCD).
+/// que `decomp-fp(mise-en-page: "tableau")`, plus `cf`, `cf-style` et `gcd-style` (diviseurs communs avec `cf`, PGCD).
 ///
 /// ```example
-/// #TabDiviseurs(label: true, prefix-label: [Diviseurs de ], level-distance: 5mm, cf: 75, 60)
+/// #tab-diviseurs(label: true, prefix-label: [Diviseurs de ], level-distance: 5mm, cf: 75, 60)
 /// ```
 ///
 /// - n (int): entier.
 /// - ..options (any): clés de `setrdarithm`.
 /// -> content
-#let TabDiviseurs(..options, n) = _avec(options, "TabDiviseurs", r => _m.ra-tabdiviseurs(r, _entier(n, "TabDiviseurs")))
+#let tab-diviseurs(..options, n) = _avec(options, "TabDiviseurs", r => _m.ra-tabdiviseurs(r, _entier(n, "TabDiviseurs")))
 
 /// `\pgcd{a}{b}` : écrit PGCD(a ; b) ; `\pgcd*{a}{b}` (`etoile: true`) : renvoie la valeur (entier).
 /// Sans argument, `pgcd()` écrit l'opérateur « PGCD » seul.
@@ -204,16 +204,16 @@
 /// `line-width`, `level-distance`, `cell-style`, `gcd-style`, `cell`, `picture-style`, `overlay`, `crep`.
 ///
 /// ```example
-/// #TabPGCD(420, 126)
+/// #tab-pgcd(420, 126)
 ///
-/// Ainsi $#pgcd(420, 126) = #DecompFP(pgcd(420, 126, etoile: true)) = #pgcd(420, 126, etoile: true)$
+/// Ainsi $#pgcd(420, 126) = #decomp-fp(pgcd(420, 126, etoile: true)) = #pgcd(420, 126, etoile: true)$
 /// ```
 ///
 /// - a (int): premier entier.
 /// - b (int): second entier.
 /// - ..options (any): clés de `setrdarithm`.
 /// -> content
-#let TabPGCD(..options, a, b) = layout(taille => _avec(options, "TabPGCD", r => {
+#let tab-pgcd(..options, a, b) = layout(taille => _avec(options, "TabPGCD", r => {
   // forced-width relatif (100% = \linewidth) : résolu sur la largeur disponible
   let fw = r.forced-width
   if type(fw) == ratio { fw = fw * taille.width } else if type(fw) == relative { fw = fw.ratio * taille.width + fw.length.to-absolute() } else { fw = fw.to-absolute() }
@@ -226,22 +226,22 @@
 /// `line-style`, `to`, `cell` (`"1-k"`, `"2-k"`), `crep`.
 ///
 /// ```example
-/// #RowPGCD(cf-style: (inset: 1.5pt), colors: ("arithmcol1!50", "arithmcol2!50", "arithmcol3!50"), 420, 126)
+/// #row-pgcd(cf-style: (inset: 1.5pt), colors: ("arithmcol1!50", "arithmcol2!50", "arithmcol3!50"), 420, 126)
 /// #h(1cm)
-/// #RowPGCD(cf-style: (inset: 1.5pt, fill: "arithmcol"), link: "line", 420, 126)
+/// #row-pgcd(cf-style: (inset: 1.5pt, fill: "arithmcol"), link: "line", 420, 126)
 /// ```
 ///
 /// - a (int): premier entier.
 /// - b (int): second entier.
 /// - ..options (any): clés de `setrdarithm`.
 /// -> content
-#let RowPGCD(..options, a, b) = _avec(options, "RowPGCD", r => _m.ra-rowpgcd(r, _entier(a, "RowPGCD"), _entier(b, "RowPGCD")))
+#let row-pgcd(..options, a, b) = _avec(options, "RowPGCD", r => _m.ra-rowpgcd(r, _entier(a, "RowPGCD"), _entier(b, "RowPGCD")))
 
 /// `\DecompFrac[options]{a}{b}` : fraction a/b, numérateur et dénominateur décomposés, facteurs communs
 /// mis en valeur par `cf-style` (`"arithmcol"` : couleur du couple). `frac-mode: "frac"` : fraction en ligne.
 ///
 /// ```example
-/// $105/273 = #DecompFrac(cf-style: (shape: "circle", inset: 1.5pt, fill: "arithmcol"),
+/// $105/273 = #decomp-frac(cf-style: (shape: "circle", inset: 1.5pt, fill: "arithmcol"),
 ///   colors: ("arithmcol1!50", "arithmcol2!50"), 105, 273) = #dfracirr(105, 273)$
 /// ```
 ///
@@ -249,7 +249,7 @@
 /// - b (int): dénominateur.
 /// - ..options (any): clés de `setrdarithm`.
 /// -> content
-#let DecompFrac(..options, a, b) = _avec(options, "DecompFrac", r => _m.ra-decompfrac(r, _entier(a, "DecompFrac"), _entier(b, "DecompFrac")))
+#let decomp-frac(..options, a, b) = _avec(options, "DecompFrac", r => _m.ra-decompfrac(r, _entier(a, "DecompFrac"), _entier(b, "DecompFrac")))
 
 /// `\fracirr{a}{b}` : fraction irréductible égale à a/b (taille du texte).
 ///

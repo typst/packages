@@ -1,7 +1,7 @@
 // reglages.typ (bfcours-exo) — registres de réglages du paquet, par le mécanisme générique du socle.
 //
 // Cinq registres, tous réglés par l'unique setter `setrdexo` (voir exo.typ) :
-// - « exo »          : clés des exercices, types `EXO`, `EXOEVAL` ;
+// - « exo »          : clés des exercices, types `exo`, `exo-eval` ;
 // - « exo-skins »    : couleurs (et cotes) de chaque thème, un type par thème ;
 // - « rdexostars »   : clés des étoiles ;
 // - « exo-divers »   : boîtes de points, tableaux de compétences, cartouches d'évaluation, chronomètre,
@@ -352,14 +352,14 @@
 )
 
 /// Noms des clés de couleur et de cote d'un thème (adressées par `setrdexo(pour: "<thème>", …)` ou, pour
-/// un seul exercice, par les clés locales d'`EXO`).
+/// un seul exercice, par les clés locales d'`exo`).
 #let bf-cles-skin = bf-skins-communs.keys()
 
 /// Thèmes déclarés par l'utilisateur (\rdexoSkin) : nom → (tcbox: fonction, tcolorbox: fonction, couleurs: dict).
 #let bf-skins-perso = state("bf-exo-skins-perso", (:))
 
 /// Couleurs effectives d'un thème, résolues en couleurs Typst. À appeler dans un `context`.
-/// `local` : clés de couleur propres à UN exercice (`EXO(skin: "pooja", score-bg-color: red)`) ; elles
+/// `local` : clés de couleur propres à UN exercice (`exo(skin: "pooja", score-bg-color: red)`) ; elles
 /// l'emportent sur les réglages de `setrdexo(pour: "<thème>", …)`.
 #let bf-skin-couleurs(nom, local: (:)) = {
   let brutes = if nom in bf-skins-defauts { reglages-resoudre(bf-skins-registre, pour: nom, local: local, commande: "EXO") } else {
