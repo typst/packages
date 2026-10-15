@@ -55,8 +55,9 @@
 // Apply all global thesis styling. Returns a closure that takes body content
 // and wraps it with the right `set`/`show` rules. body-font is "sans"
 // (default, Helvetica everywhere) or "serif" (Latin Modern body with sans
-// headings, matching the LaTeX KOMA-Script default).
-#let apply-style(body, body-font: "sans", sans-font: fonts.sans) = {
+// headings, matching the LaTeX KOMA-Script default). heading-rule draws a
+// thin mittelblau rule below every chapter-level heading.
+#let apply-style(body, body-font: "sans", sans-font: fonts.sans, heading-rule: false) = {
   // A4, two-sided. Inside (binding) margin is larger to leave the bound edge
   // clear; outside is the margin away from the binding.
   set page(
@@ -121,7 +122,8 @@
 
   // Chapter-level (level 1) heading. New right-opening page with the chapter
   // number rendered inline next to the title at the same size, all in black,
-  // followed by a thin mittelblau rule below. Hyphenation is disabled so
+  // optionally followed by a thin mittelblau rule below. The spacing to the
+  // text is the same with and without the rule. Hyphenation is disabled so
   // long words like "enumerated" stay intact when the title wraps.
   show heading.where(level: 1): it => {
     pagebreak(to: "odd", weak: true)
@@ -141,7 +143,9 @@
       hyphenate: false,
     )[#prefix#it.body]
     v(4mm)
-    line(length: 100%, stroke: 1pt + colors.mittelblau)
+    if heading-rule {
+      line(length: 100%, stroke: 1pt + colors.mittelblau)
+    }
     v(1.5cm)
   }
 

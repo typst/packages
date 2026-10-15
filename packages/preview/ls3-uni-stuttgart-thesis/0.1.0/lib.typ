@@ -33,6 +33,8 @@
 //                        top left. Cropped automatically, the institute
 //                        and chair lines are set below it.
 //   chair-logo           auto (bundled LS3 logo), none, or content, cover disc
+//   heading-rule         false (default), or true for a thin mittelblau rule
+//                        below every chapter-level heading
 
 #import "src/common.typ": branding as default-branding
 
@@ -85,12 +87,14 @@
   sans-font: auto,
   university-logo: auto,
   chair-logo: auto,
+  heading-rule: false,
   body,
 ) = {
   // Validate language and degree early.
   assert(language == "english" or language == "german", message: "language must be 'english' or 'german'")
   assert(degree == "bachelor" or degree == "master", message: "degree must be 'bachelor' or 'master'")
   assert(body-font == "sans" or body-font == "serif", message: "body-font must be 'sans' or 'serif'")
+  assert(type(heading-rule) == bool, message: "heading-rule must be true or false")
 
   let resolved-sans = if sans-font == auto { default-branding.fonts.sans } else { sans-font }
   let resolved-cover-title = if cover-title == auto { title } else { cover-title }
@@ -128,7 +132,11 @@
   )
 
   // Apply body styles from here on.
-  show: apply-style.with(body-font: body-font, sans-font: resolved-sans)
+  show: apply-style.with(
+    body-font: body-font,
+    sans-font: resolved-sans,
+    heading-rule: heading-rule,
+  )
 
   // Declaration. Unnumbered. Scoped page settings disable header, footer,
   // and numbering for declaration pages only; subsequent pages revert to the

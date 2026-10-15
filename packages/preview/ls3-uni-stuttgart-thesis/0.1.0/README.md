@@ -79,6 +79,7 @@ with `sans-font`. Liberation Sans is a close match.
 | `institute`, `chair` | `auto` | Institute and chair, on the cover and the title page |
 | `university-logo` | `auto` | Bundled university logo, an official logo PDF, or `none` |
 | `chair-logo` | `auto` | Bundled LS3 logo in the white disc, any image, or `none` |
+| `heading-rule` | `false` | `true` draws a thin blue rule below every chapter heading |
 
 ## License
 
@@ -95,4 +96,5 @@ thesis carries no license obligations.
 First release on Typst Universe. Logos are not bundled and are passed with
 `university-logo` and `chair-logo`. The cover crops the official
 university logo and sets the institute and chair lines in Typst. A
-different sans font can be set with `sans-font`.
+different sans font can be set with `sans-font`. Chapter headings have
+no rule below them by default, `heading-rule: true` adds one.
