@@ -742,12 +742,18 @@ Các hình hoàn chỉnh, nét khuất tự vẽ đứt theo quy ước SGK:
 #do-thi-mu(2)   #do-thi-log(2)
 #do-thi-sin()   #do-thi-cos()   #do-thi-tan()   // nhãn π/2, π, 2π
 #do-thi-can()
+#do-thi-can-tam-thuc-bac-hai(1, 0, -4) // y = √(x²−4), tự tách hai nhánh
 ```
 
 Mọi đồ thị dựng sẵn đều nhận `luoi-o: true` (lưới ô vuông mờ) và `vach: true`
 (vạch chia + số trên hai trục; riêng sin/cos/tan chỉ có `luoi-o` vì trục hoành
 đã ghi theo π). Khi bật `vach`, nên đặt `giao-ox: none, giao-oy: none` để nhãn
 giao trục không chồng lên số vạch.
+
+Nhãn gốc `$O$` mặc định ở góc dưới-trái như trước. Đổi bằng
+`huong-goc: "above-left" | "above-right" | "below-left" | "below-right"`.
+Tham số có ở `truc`, `he-truc`, các hàm đồ thị tự do và các đồ thị dựng sẵn
+bậc hai, bậc ba, trùng phương, phân thức, hữu tỉ.
 
 Từ 0.4.1, bước vạch mặc định là `auto`: thư viện chọn riêng cho từng trục theo
 dãy đẹp `1, 2, 5 × 10^k` và theo chiều dài thật của trục, nên miền từ vài phần

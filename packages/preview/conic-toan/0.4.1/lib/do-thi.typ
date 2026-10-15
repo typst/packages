@@ -261,7 +261,10 @@
 }
 
 // ---------- Hệ trục Oxy ----------
-#let truc(ctx, ten-x: $x$, ten-y: $y$, ten-goc: $O$, mau: black, day: 0.9pt) = {
+#let truc(
+  ctx, ten-x: $x$, ten-y: $y$, ten-goc: $O$,
+  huong-goc: "below-left", mau: black, day: 0.9pt,
+) = {
   let co-ox = ctx.ymin <= 0 and ctx.ymax >= 0
   let co-oy = ctx.xmin <= 0 and ctx.xmax >= 0
   if co-ox {
@@ -273,7 +276,7 @@
     nhan(ctx, (0, ctx.ymax), ten-y, huong: "left", cach: 5pt)
   }
   if ten-goc != none and co-ox and co-oy {
-    nhan(ctx, (0, 0), ten-goc, huong: "below-left", cach: 4pt)
+    nhan(ctx, (0, 0), ten-goc, huong: huong-goc, cach: 4pt)
   }
 }
 
@@ -340,6 +343,7 @@
 #let he-truc(
   ctx,
   ten-x: $x$, ten-y: $y$, ten-goc: $O$,
+  huong-goc: "below-left",
   luoi-o: true, buoc-luoi: auto,
   vach: true, so: true, buoc-x: auto, buoc-y: auto,
   mau: black, day: 0.9pt, mau-luoi: luma(87%),
@@ -347,7 +351,8 @@
   if luoi-o {
     luoi(ctx, buoc: buoc-luoi, buoc-x: buoc-x, buoc-y: buoc-y, mau: mau-luoi)
   }
-  truc(ctx, ten-x: ten-x, ten-y: ten-y, ten-goc: ten-goc, mau: mau, day: day)
+  truc(ctx, ten-x: ten-x, ten-y: ten-y, ten-goc: ten-goc,
+    huong-goc: huong-goc, mau: mau, day: day)
   if vach { vach-chia(ctx, buoc-x: buoc-x, buoc-y: buoc-y, so: so) }
 }
 
@@ -543,6 +548,7 @@
   mau: blue, day: 1.4pt, n: 150,
   ten: none,        // nhãn hàm (vd $y = x^2$)
   goc-ten: "above-right",   // vị trí nhãn: 4 góc hoặc toạ độ (x, y)
+  huong-goc: "below-left",  // vị trí nhãn O quanh gốc
   luoi-o: false,
   vach: false,
   buoc-x: auto, buoc-y: auto, buoc-luoi: auto,
@@ -553,7 +559,7 @@
   hinh(w: w, h: h, xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax,
     toa-do-chu-nhat: true, ctx => {
     if luoi-o { luoi(ctx, buoc: buoc-luoi, buoc-x: buoc-x, buoc-y: buoc-y) }
-    truc(ctx)
+    truc(ctx, huong-goc: huong-goc)
     if vach { vach-chia(ctx, buoc-x: buoc-x, buoc-y: buoc-y) }
     ve-ham(ctx, f, tu: tu, den: den, n: n, mau: mau, day: day,)
     _nhan-ten(ctx, ten, goc-ten, mau)
@@ -595,6 +601,7 @@
 #let do-thi-bac-hai(
   a, b, c,
   w: 7.6cm, mau: blue, ten: none, goc-ten: "above-right",
+  huong-goc: "below-left",
   dinh: auto,        // gióng đỉnh: auto | none | (x: "below", y: "left")
   giao-ox: auto, giao-oy: auto,
   truc-dx: false,    // trục đối xứng
@@ -624,7 +631,8 @@
   do-thi-ham(
     f,
     w: w, xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax,
-    mau: mau, ten: ten, goc-ten: goc-ten, luoi-o: luoi-o, vach: vach,
+    mau: mau, ten: ten, goc-ten: goc-ten, huong-goc: huong-goc,
+    luoi-o: luoi-o, vach: vach,
     them: ctx => {
       if truc-dx and calc.abs(xv) > 0.001 {
         doan(ctx, (xv, cs.ymin), (xv, cs.ymax), mau: red, day: 0.8pt, dut: true)
@@ -647,11 +655,83 @@
   )
 }
 
+// ---------- Căn bậc hai của tam thức: y = √(ax² + bx + c) ----------
+// Tự xét dấu tam thức và tách đúng 0/1/2 nhánh miền xác định.
+#let _tam-thuc-bac-hai(a, b, c) = {
+  let ax2 = if a == 1 { $x^2$ } else if a == -1 { $-x^2$ } else { $#so-dep(a) x^2$ }
+  let bx = if b == 0 { [] } else if b > 0 {
+    if b == 1 { $+ x$ } else { $+ #so-dep(b) x$ }
+  } else {
+    if b == -1 { $- x$ } else { $- #so-dep(-b) x$ }
+  }
+  let cc = if c == 0 { [] } else if c > 0 { $+ #so-dep(c)$ } else { $- #so-dep(-c)$ }
+  $y = sqrt(#ax2 #bx #cc)$
+}
+
+#let do-thi-can-tam-thuc-bac-hai(
+  a, b, c,
+  w: 8cm, h: auto,
+  xmin: -6, xmax: 6, ymin: -1, ymax: 6,
+  mau: blue, day: 1.4pt,
+  ten: auto, goc-ten: "above-right",
+  huong-goc: "below-left",
+  giao-ox: true, giao-oy: true,
+  luoi-o: true, vach: true,
+  buoc-x: auto, buoc-y: auto, buoc-luoi: auto,
+  them: none,
+) = {
+  if a == 0 { panic("Hệ số a phải khác 0 để biểu thức dưới căn là tam thức bậc hai.") }
+  let delta = b * b - 4 * a * c
+  let q = x => a * x * x + b * x + c
+  let f = x => calc.sqrt(calc.max(0, q(x)))
+  let nghiem = ()
+  let doan-x = ()
+  if delta < -1e-10 {
+    if a > 0 { doan-x = ((xmin, xmax),) }
+  } else if calc.abs(delta) <= 1e-10 {
+    let x0 = -b / (2 * a)
+    nghiem = (x0,)
+    if a > 0 { doan-x = ((xmin, xmax),) }
+  } else {
+    let cd = calc.sqrt(delta)
+    let rr = (((-b - cd) / (2 * a)), ((-b + cd) / (2 * a))).sorted()
+    let (x1, x2) = (rr.at(0), rr.at(1))
+    nghiem = (x1, x2)
+    if a > 0 { doan-x = ((xmin, x1), (x2, xmax)) }
+    else { doan-x = ((x1, x2),) }
+  }
+  hinh(
+    w: w, h: h, xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax,
+    toa-do-chu-nhat: true,
+    ctx => {
+      if luoi-o { luoi(ctx, buoc: buoc-luoi, buoc-x: buoc-x, buoc-y: buoc-y) }
+      truc(ctx, huong-goc: huong-goc)
+      if vach { vach-chia(ctx, buoc-x: buoc-x, buoc-y: buoc-y) }
+      for d in doan-x {
+        let l = calc.max(d.at(0), xmin)
+        let r = calc.min(d.at(1), xmax)
+        if l < r { ve-ham(ctx, f, tu: l, den: r, n: 180, mau: mau, day: day) }
+      }
+      if giao-ox {
+        for x in nghiem {
+          if x >= xmin and x <= xmax { diem(ctx, (x, 0), mau: mau) }
+        }
+      }
+      if giao-oy and xmin <= 0 and xmax >= 0 and q(0) >= 0 {
+        diem(ctx, (0, f(0)), mau: mau)
+      }
+      _nhan-ten(ctx, if ten == auto { _tam-thuc-bac-hai(a, b, c) } else { ten }, goc-ten, mau)
+      if them != none { them(ctx) }
+    },
+  )
+}
+
 // ---------- Bậc ba: y = ax³ + bx² + cx + d ----------
 // Cửa sổ tự tính từ 2 cực trị (nếu có) hoặc điểm uốn (nếu không).
 #let do-thi-bac-ba(
   a, b, c, d,
   w: 7.6cm, mau: blue, ten: none, goc-ten: "above-right",
+  huong-goc: "below-left",
   cuc-tri: auto,     // gióng 2 điểm cực trị (nếu có)
   diem-uon: none,    // gióng điểm uốn: none | auto | (x:.., y:..)
   giao-ox: none, giao-oy: none,
@@ -691,7 +771,8 @@
   do-thi-ham(
     f,
     w: w, xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax,
-    mau: mau, ten: ten, goc-ten: goc-ten, n: 180, luoi-o: luoi-o, vach: vach,
+    mau: mau, ten: ten, goc-ten: goc-ten, huong-goc: huong-goc,
+    n: 180, luoi-o: luoi-o, vach: vach,
     them: ctx => {
       if x1 != none {
         // giá trị cực trị CHÍNH XÁC (phân số/căn thức) thay vì số thập phân
@@ -716,6 +797,7 @@
 #let do-thi-trung-phuong(
   a, b, c,
   w: 7.6cm, mau: blue, ten: none, goc-ten: "above-right",
+  huong-goc: "below-left",
   cuc-tri: auto,
   giao-ox: none, giao-oy: none,
   luoi-o: false, vach: false,
@@ -747,7 +829,8 @@
   do-thi-ham(
     f,
     w: w, xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax,
-    mau: mau, ten: ten, goc-ten: goc-ten, n: 180, luoi-o: luoi-o, vach: vach,
+    mau: mau, ten: ten, goc-ten: goc-ten, huong-goc: huong-goc,
+    n: 180, luoi-o: luoi-o, vach: vach,
     them: ctx => {
       if cuc-tri != none {
         if co-3ct {
@@ -781,6 +864,7 @@
 #let do-thi-phan-thuc(
   a, b, c, d,
   w: 7.6cm, mau: blue, ten: none, goc-ten: "above-right",
+  huong-goc: "below-left",
   giao-ox: none, giao-oy: none,
   huong-x0: "below-left", huong-y0: "above-left",   // hướng nhãn 2 tiệm cận
   luoi-o: false, vach: false,
@@ -799,7 +883,7 @@
     xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax,
     ctx => {
       if luoi-o { luoi(ctx) }
-      truc(ctx)
+      truc(ctx, huong-goc: huong-goc)
       if vach { vach-chia(ctx) }
       // tiệm cận + nhãn trên trục
       doan(ctx, (x0, cs.ymin), (x0, cs.ymax), mau: red, day: 0.9pt, dut: true)
@@ -827,6 +911,7 @@
 #let do-thi-huu-ti(
   a, b, c, d, e,
   w: 7.6cm, mau: blue, ten: none, goc-ten: "above-right",
+  huong-goc: "below-left",
   dan-x: 1, dan-y: 1,
   cuc-tri: auto,
   tam: auto,         // gióng tâm đối xứng I(x0, px0+q) + nhãn:
@@ -877,7 +962,7 @@
     xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax,
     ctx => {
       if luoi-o { luoi(ctx) }
-      truc(ctx)
+      truc(ctx, huong-goc: huong-goc)
       if vach { vach-chia(ctx) }
       // tiệm cận đứng (khi gióng tâm thì nhãn x0 do gióng đảm nhiệm, tránh ghi 2 lần)
       doan(ctx, (x0, cs.ymin), (x0, cs.ymax), mau: red, day: 0.9pt, dut: true)
@@ -1070,6 +1155,7 @@
   xmin: -4, xmax: 4,
   tu: auto, den: auto,
   ten: none, goc-ten: "above-right",
+  huong-goc: "below-left",
   vach: false, luoi-o: false,
   buoc-x: auto, buoc-y: auto, buoc-luoi: auto,
   gioi-han-y: auto, // số = ép bề cao tối đa; auto = chỉ cắt ngoại lệ thật lớn
@@ -1113,7 +1199,8 @@
     ymin: lo - dem, ymax: hi + dem,
     tu: a, den: b,
     mau: mau, day: day, n: 180,
-    ten: ten, goc-ten: goc-ten, vach: vach, luoi-o: luoi-o,
+    ten: ten, goc-ten: goc-ten, huong-goc: huong-goc,
+    vach: vach, luoi-o: luoi-o,
     buoc-x: buoc-x, buoc-y: buoc-y, buoc-luoi: buoc-luoi,
     them: them,
   )
@@ -1146,6 +1233,7 @@
   w: 8cm, h: auto,
   xmin: -4, xmax: 4, ymin: -3, ymax: 3,
   vach: false, luoi-o: false,
+  huong-goc: "below-left",
   giao-diem: none,   // auto = chấm đỏ tại giao điểm của từng cặp đồ thị
   dan-x: 1, dan-y: 1,
   them: none,
@@ -1155,7 +1243,7 @@
   let hh = if h == auto { w * 0.68 } else { h }
   hinh(w: w, h: hh, xmin: cs.xmin, xmax: cs.xmax, ymin: cs.ymin, ymax: cs.ymax, ctx => {
     if luoi-o { luoi(ctx) }
-    truc(ctx)
+    truc(ctx, huong-goc: huong-goc)
     if vach { vach-chia(ctx) }
     for hs in ds {
       let a = if hs.tu == auto { cs.xmin } else { hs.tu }
@@ -1262,6 +1350,7 @@
   buoc-gach: 6.5pt, goc-gach: 45deg,
   vach: false, luoi-o: false,
   buoc-x: auto, buoc-y: auto, buoc-luoi: auto,
+  huong-goc: "below-left",
   them: none,
 ) = {
   let ds = cac-bpt.pos()
@@ -1294,7 +1383,7 @@
         gach-mien(ctx, loai, goc: gg, buoc: bg, mau: mg)
       }
     }
-    truc(ctx)
+    truc(ctx, huong-goc: huong-goc)
     if vach { vach-chia(ctx, buoc-x: buoc-x, buoc-y: buoc-y) }
     // đường biên (đứt nếu BPT ngặt) + nhãn
     for d in ds {
@@ -1370,6 +1459,7 @@
   mau-f: blue, mau-g: red, day: 1.3pt,
   ten-f: none, ten-g: none,
   huong-ten-f: "above", huong-ten-g: "below",
+  huong-goc: "below-left",
   mau-to: rgb(70, 90, 200, 70),
   ten-a: auto, ten-b: auto,          // nhãn cận trên Ox; none = bỏ
   giong-ab: true,                    // đường đứt x = a, x = b
@@ -1393,7 +1483,7 @@
     for i in range(moc.len() - 1) {
       to-vung-2-ham(ctx, f, g, moc.at(i), moc.at(i + 1), mau: mau-to)
     }
-    truc(ctx)
+    truc(ctx, huong-goc: huong-goc)
     ve-ham(ctx, f, tu: aa - m, den: bb + m, mau: mau-f, day: day)
     ve-ham(ctx, g, tu: aa - m, den: bb + m, mau: mau-g, day: day)
     if giong-ab {
