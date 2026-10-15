@@ -97,4 +97,5 @@ First release on Typst Universe. Logos are not bundled and are passed with
 `university-logo` and `chair-logo`. The cover crops the official
 university logo and sets the institute and chair lines in Typst. A
 different sans font can be set with `sans-font`. Chapter headings have
-no rule below them by default, `heading-rule: true` adds one.
+no rule below them by default, `heading-rule: true` adds one. Code
+listings use codly 2.0.0, so the template needs Typst 0.15.0 or newer.

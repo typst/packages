@@ -4,7 +4,7 @@
 // Used by lib.typ. Not a public-facing module.
 
 #import "common.typ": colors, fonts
-#import "@preview/codly:1.3.0": codly, codly-init
+#import "@preview/codly:2.0.0" as codly
 #import "@preview/codly-languages:0.1.10": codly-languages
 
 // Build the header and footer used on body pages. Two-sided.
@@ -117,8 +117,8 @@
 
   // Block code. Delegate to codly for line numbers and language-aware styling.
   // Defaults from @preview/codly with the language map from codly-languages.
-  show: codly-init.with()
-  codly(languages: codly-languages)
+  show: codly.lang-set_(languages: codly-languages)
+  show raw.where(block: true): codly.new
 
   // Chapter-level (level 1) heading. New right-opening page with the chapter
   // number rendered inline next to the title at the same size, all in black,
