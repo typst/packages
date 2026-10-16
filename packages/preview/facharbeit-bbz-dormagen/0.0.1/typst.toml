@@ -1,0 +1,14 @@
+[package]
+name = "facharbeit-bbz-dormagen"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Wm", "AI Assistant"]
+description = "Template for research papers (Wm)"
+license = "MIT"
+compiler = "0.15.1"
+categories = ["thesis", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
