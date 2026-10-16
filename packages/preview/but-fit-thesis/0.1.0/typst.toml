@@ -1,0 +1,29 @@
+[package]
+name = "but-fit-thesis"
+version = "0.1.0"
+compiler = "0.15.0"
+entrypoint = "lib.typ"
+authors = ["Vladimír Veselý", "Michal Koutenský"]
+license = "MIT-0"
+description = "Theses at FIT, Brno University of Technology."
+repository = "https://github.com/nesfit/fit-typst-template"
+keywords = [
+  "Brno University of Technology",
+  "Faculty of Information Technology",
+  "BUT",
+  "FIT",
+  "VUT",
+  "VUT FIT",
+  "thesis",
+  "bachelor",
+  "master",
+  "dissertation",
+]
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering"]
+exclude = ["docs"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"
