@@ -1,0 +1,16 @@
+[package]
+name = "readable-classic"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Super Lede <https://readableresume.com>"]
+license = "MIT AND MIT-0"
+description = "Serif one-page resume with centered section headings."
+homepage = "https://readableresume.com/templates/classic"
+keywords = ["resume", "cv", "ats", "one-page", "serif", "student"]
+categories = ["cv"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
