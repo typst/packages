@@ -1,6 +1,5 @@
 // Dot Product tests for kalt bindings
 
-#import "../../lib.typ": comp, map
 #import "../utils.typ": binary_operation
 
 #binary_operation(
@@ -13,17 +12,17 @@
   (
     v1: $3$,
     v2: $mat(1, 2; 3, 4)$,
-    e: $comp(mat(3, 6; 9, 12))$,
+    e: $mat(3, 6; 9, 12)$,
   ),
   (
     v1: $mat(1, 2; 3, 4)$,
     v2: $3$,
-    e: $comp(mat(3, 6; 9, 12))$,
+    e: $mat(3, 6; 9, 12)$,
   ),
   (
     v1: $mat(1, 2; 3, -4)$,
     v2: $mat(1i, 2 + 1i; -3, 4)$,
-    e: $comp(mat(1i - 6, 10 + i; 12 + 3i, -10 + 3i))$,
+    e: $mat(1i - 6, 10 + i; 12 + 3i, -10 + 3i)$,
   ),
   // expected failure: incompatible matrix dimensions
   (

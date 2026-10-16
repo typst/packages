@@ -1,6 +1,5 @@
 // Power tests for kalt bindings
 
-#import "../../lib.typ": comp
 #import "../utils.typ": binary_operation, unary_operation
 
 #binary_operation(

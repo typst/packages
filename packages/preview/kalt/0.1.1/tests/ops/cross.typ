@@ -1,6 +1,5 @@
 // Cross Product tests for kalt bindings
 
-#import "../../lib.typ": comp, map
 #import "../utils.typ": binary_operation
 
 #binary_operation(

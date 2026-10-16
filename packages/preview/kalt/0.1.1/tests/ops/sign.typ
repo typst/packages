@@ -1,6 +1,5 @@
 // Sign/negation tests for bindings
 
-#import "../../lib.typ": comp
 #import "../utils.typ": unary_operation
 
 #unary_operation(

@@ -1,6 +1,5 @@
 // Ceil tests for kalt bindings
 
-#import "../../lib.typ": comp, map
 #import "../utils.typ": unary_operation
 
 #unary_operation(

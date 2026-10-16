@@ -1,6 +1,5 @@
 // Conjugate tests for kalt bindings
 
-#import "../../lib.typ": comp, map
 #import "../utils.typ": unary_operation
 
 #unary_operation(
@@ -14,7 +13,7 @@
   (v: $(-3.5i)$, e: $3.5i$),
   (
     v: $mat(-1.23, 4.56 + i; 2-3.2i, 5.78)$,
-    e: $comp(mat(-1.23, 4.56 - i; 2+3.2i, 5.78))$,
+    e: $mat(-1.23, 4.56 - i; 2+3.2i, 5.78)$,
   ),
   (v: $0$, e: $0$),
   (v: $1+i$, e: $1-i$),
@@ -26,6 +25,6 @@
   c1 => { $ #c1^H $ },
   (
     v: $mat(-1.23, 4.56 + i; 2-3.2i, 5.78)$,
-    e: $comp(mat(-1.23, 4.56 - i; 2+3.2i, 5.78))$,
+    e: $mat(-1.23, 4.56 - i; 2+3.2i, 5.78)$,
   ),
 )

@@ -1,6 +1,5 @@
 // Floor tests for kalt bindings
 
-#import "../../lib.typ": comp, map
 #import "../utils.typ": unary_operation
 
 #unary_operation(
@@ -16,6 +15,6 @@
   (v: $-3.5 - 7.25i$, e: $-4 -8i$),
   (
     v: $mat(-1.23, 4.56; 3.2i, 5.78)$,
-    e: $comp(mat(-2, 4; 3i, 5))$,
+    e: $mat(-2, 4; 3i, 5)$,
   ),
 )
