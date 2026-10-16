@@ -38,7 +38,7 @@ typst --version
 Минимальный файл отчета (`report.typ`) может выглядеть так:
 
 ```typst
-#import "@preview/vvsu-report:1.0.0": *
+#import "@preview/carrot-vvsu-report:1.0.0": *
 
 #show: vvsu.with()
 
@@ -60,6 +60,10 @@ typst --version
 == Подраздел
 
 Будущий текст отчета в подразделе.
+
+#conclusion[
+  В ходе выполнения работы...
+]
 ```
 
 Сборка PDF файла:
