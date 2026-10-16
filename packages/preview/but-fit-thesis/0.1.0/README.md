@@ -112,7 +112,7 @@ before you submit the final version. To check, run `typst fonts` (add
 
 ## Documentation
 
-The [guide](https://github.com/nesfit/fit-typst-template/blob/main/docs/guide.md)
+The [guide](GUIDE.md)
 covers Typst for LaTeX users, figures, tables, listings, notes, the
 bibliography (Hayagriva, BibTeX, Zotero) and common pitfalls. The faculty's
 thesis rules are at <https://www.fit.vut.cz/study/theses/>.
