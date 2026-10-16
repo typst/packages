@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../theme.schema.json
+# "Forest" theme: sage tones, a deep green accent and a framed code panel.
+
+fonts:
+  text: [Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]
+  code: [Menlo, Consolas, DejaVu Sans Mono]
+  brand: [Georgia, Libertinus Serif]
+
+colors:
+  background: "#f3f5f0"
+  text: "#1d2a22"
+  accent: "#2f7d4f"
+  heading: "#2f7d4f"
+  line: "#d3dacd"
+  code-background: "#ffffff"
+  button: "#2f7d4f"
+  button-text: "#ffffff"
+
+brand:
+  text: typtorial
+
+layout:
+  dots: false
+  corner-radius: 0.75
+  code-border: true
+  title-underline: true
+  title-uppercase: false
+
+dark:
+  colors:
+    background: "#111915"
+    text: "#e1e8df"
+    accent: "#6fcf97"
+    heading: "#6fcf97"
+    line: "#2a3a30"
+    code-background: "#17221c"
+    button: "#2f7d4f"
+    button-text: "#ffffff"
