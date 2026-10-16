@@ -119,13 +119,11 @@ thesis rules are at <https://www.fit.vut.cz/study/theses/>.
 
 ## License
 
-The files that `typst init` copies into your project (the `template/` folder)
-are licensed under [MIT-0](https://opensource.org/license/mit-0), so you can use
-them for your thesis without any conditions. The rest of the package is
-licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-See [LICENSE](LICENSE).
+This package is licensed under [MIT-0](https://opensource.org/license/mit-0),
+so you can use it for your thesis without any conditions. See
+[LICENSE](LICENSE).
 
-Not covered by these licenses:
+Not covered by this license:
 
 - `src/assets/vut-logo-*.svg`: the logo of Brno University of Technology, a
   trademark of the university, included for the title page of theses written
