@@ -1,0 +1,177 @@
+
+# Cryptable
+
+The package `cryptable` provides a simple and convenient way to create crosswords in the style of the London Times.
+
+## Getting started
+
+```typst
+typst init @preview/cryptable
+```
+
+## Configuration
+
+```typst
+#import "@preview/cryptable:0.1.0": *
+```
+
+### Defining the grid of the puzzle
+
+The first step to creating a puzzle is to come up with a grid for the letters to be entered into.
+The `size` of the puzzle can be chosen variably, the default is 13.
+Times puzzles are usually square, so this means that the grid will be of size $13 times 13$.
+We then need to decide where the blank (black) squares go, where no letter may be entered.
+This is done as an array containing the indices of the black squares row-by-row:
+```typst
+#let positions = (
+    7,
+    14, 16, 18, 20, 22, 24,
+    29,
+    40, 42, 44, 46, 48, 50, 51,
+    60,
+    66, 67, 68, 70, 72, 74, 76,
+    84
+)
+```
+The last number entered here, 84, is the very center square of the puzzle.
+Times crosswords are usually rotationally symmetric, so that we only need to define half of the black squares.
+The full array can then be arranged using
+```typst
+#let pos = (..positions, ..positions.map(i => size * size - i - 1))
+```
+
+## Display the puzzle
+
+At this point, we can already display the puzzle:
+
+```typst
+
+#let (puzzle, clues) = create-puzzle(
+    solution: false,
+    13,
+    pos,
+)
+
+= My Beautiful Crossword
+\ \ 
+#align(center, puzzle)
+\ \ 
+#align(center, clues)
+```
+
+This results in the following document being created.
+Observe that all the numbers in the grid are already placed correctly, and the table of clues has been placed with the respective length of each answer.
+
+![image](example/empty.png)
+
+## Fill the grid
+
+At this point, we can fill in the puzzle with letters.
+For this we create arrays of the across and down words, following the respective numbering of the clues.
+For example:
+
+```typst
+#let across-words = (
+    "BELOVED",
+    "POSSE",
+    "NAG",
+    "REDUNDANT",
+    "MOTHERLY",
+    "REED",
+    "AERIAL",
+    "CORPUS",
+    "SHUN",
+    "SUSPENSE",
+    "CRITICISE",
+    "PAT",
+    "BAYOU",
+    "SPOILER"
+)
+
+#let down-words = (
+    "BYNOMEANS",
+    "LEGIT",
+    "VARIETAL",
+    "DODDLE",
+    "PANT",
+    "SHAKEUP",
+    "ENT",
+    "DISSENTER",
+    "SORPRESO",
+    "REUNIFY",
+    "PUPILS",
+    "NEPAL",
+    "LIEU",
+    "CUB"
+)
+```
+
+In this steps, following the laws of logic and crosswords, the across and down words have to match each other's checking letters.
+
+We similarly create arrays of the across and down clues, respectively:
+
+```typst
+#let across-clues = (
+    "Precious",
+    "Gang",
+    "Scold",
+    "Useless",
+    "Overly protective",
+    "Shallow-water grass",
+    "In the air",
+    "Body",
+    "Avoid with intention",
+    "Excitement",
+    "Express disapproval of",
+    "Touch with affection",
+    "Marsh",
+    "Structure on a sports car"
+)
+
+#let down-clues = (
+    ("Not at all!", "2,2,5"),
+    "Truthful",
+    "Showing character",
+    "That was easy!",
+    "Breathe quickly",
+    ("Fundamental change", "5,2"),
+    "Tree creatures in The Lord of the Rings",
+    "One who disagrees with hostility",
+    "Surprise in Italy!",
+    "Bring together again",
+    "Students",
+    "Country with the Mount Everest",
+    "Fox baby",
+    "Instead"
+)
+```
+
+Observe that we can customise how the answer length is displayed, for example, the phrase "by no means" (the answer to 1 down) consists of three separate words of lengths 2, 2, and 5, respectively.
+We therefore give this information together with the clue.
+If we simply provide a string for the clue instead, the answer will be assumed to be a single word, and the length will be computed automatically.
+
+These four arrays need to be defined before the call of `create-puzzle` in the document.
+Assembling everything, we may replace the previous call to `create-puzzle` by
+
+```typst
+#let (puzzle, clues) = create-puzzle(
+    solution: true,
+    size,
+    pos,
+    across-words: across-words,
+    down-words: down-words,
+    across-clues: across-clues,
+    down-clues: down-clues,
+)
+
+= My Beautiful Crossword
+\ \ 
+#align(center, puzzle)
+\ \ 
+#align(center, clues)
+```
+
+Here, we set the argument `solution` to true so that the letters are actually displayed in the grid.
+This argument is set to `false` by default.
+The result of the above is the puzzle shown in `main.png` in the folder containing the main library file `lib.typ`.
+
