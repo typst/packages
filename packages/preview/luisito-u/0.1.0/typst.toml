@@ -1,0 +1,17 @@
+[package]
+name = "luisito-u"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.13.0"
+authors = ["Jesús Manuel González Meneses"]
+license = "MIT"
+repository = "https://github.com/13Stokes31/luisito-u"
+description = "Unofficial template for Spanish baccalaureate research projects submitted to science contests // Plantilla no oficial para proyectos de investigación de Bachillerato presentados a premios de ciencia."
+categories = ["report", "thesis"]
+keywords = ["proyecto", "investigación", "bachillerato", "premio", "spanish", "research", "Saint Louis University Madrid"]
+exclude = ["ROADMAP.md", "TESTING.md", "tests"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
