@@ -53,7 +53,7 @@
     columns: 2,
     column-gutter: 1em,
     align: horizon + center,
-    
+
     block(
       height: 100%,
       width: 100%,
@@ -64,7 +64,7 @@
       #set text(fill: white)
       #content1
     ],
-    
+
     block(
       height: 100%,
       width: 100%,
@@ -90,7 +90,7 @@
     grid(
       columns: 2,
       column-gutter: 1em,
-      
+
       content,
 
       block(
@@ -125,7 +125,7 @@
     columns: (1fr,) * 4,
     column-gutter: 1em,
     align: top + left,
-    
+
     ..contents.pos().enumerate().map(((index, content)) => {
       let lightness = 20% * index
       grid-item(colour.primary.lighten(lightness))[

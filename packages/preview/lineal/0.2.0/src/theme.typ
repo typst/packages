@@ -57,7 +57,7 @@
         utils.call-or-display(self, self.store.header-right)
       ),
     )
-    
+
   }
   let footer(self) = {
     set align(bottom)
