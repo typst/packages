@@ -5,7 +5,7 @@
 A broad library of **Typst boxes, paper components, frames, ornaments,
 infographics and full-page covers**, inspired by LaTeX's *tcolorbox*, with
 first-class **right-to-left (Arabic)** support. Version **0.3.0**, Typst **0.15.1+**.
-Manuals: [English](docs/faboxyst-0.3.0-manual-en.pdf) · [Français](docs/faboxyst-0.3.0-manual-fr.pdf)
+Manuals: [English](https://github.com/fergousA/faboxyst/blob/bb1dd9faa4c8aaa72ed38b02fc77e9bed2dc8c90/docs/faboxyst-0.3.0-manual-en.pdf) · [Français](https://github.com/fergousA/faboxyst/blob/bb1dd9faa4c8aaa72ed38b02fc77e9bed2dc8c90/docs/faboxyst-0.3.0-manual-fr.pdf)
 (every function with its full parameter table and a live example).
 
 ```typst
@@ -37,24 +37,6 @@ page size or margins.
 Typst downloads `@preview/cetz:0.5.2` and `@preview/nibart:0.3.0` by itself.
 The *local edition* of this package (separate archive) is imported as
 `@local/faboxyst:0.3.0` and needs `@local/nibart:0.3.0`.
-
-### Compile the sources
-
-From the package directory in the Typst packages repository, use `--package-path ../../..` so the examples resolve the package import against this checkout:
-
-```sh
-TYPST_PACKAGE_PATH=../../.. python3 docs/build-manual.py both   # needs pypdf; builds chapter by chapter
-typst compile examples/quickstart.typ --root . --package-path ../../..
-typst compile examples/rtl-boxes.typ --root . --package-path ../../..
-typst compile examples/print-mode.typ --root . --package-path ../../..
-```
-
-The package depends on `@preview/cetz:0.5.2`, fetched by Typst when needed, and
-`@preview/nibart:0.3.0` (broad-nib strokes of the antique register). There is no
-WebAssembly and no binary asset: the sketch engine is pure Typst. No fonts
-are bundled. Arabic examples prefer installed Arabic faces when available and
-fall back to DejaVu; the optional Latin/display faces include xkcd Script,
-Bevan and Comic Neue.
 
 ## Changes since 0.1.0
 
@@ -520,7 +502,7 @@ and `bound-page` remain here.
 
 ## Manual, examples and tests
 
-The bilingual manuals are shipped as PDF in `docs/` ([EN](docs/faboxyst-0.3.0-manual-en.pdf), [FR](docs/faboxyst-0.3.0-manual-fr.pdf)); rebuild them with `python3 docs/build-manual.py both`. They cover the public API, setup,
+The bilingual manuals are shipped as PDF in `docs/` ([EN](https://github.com/fergousA/faboxyst/blob/bb1dd9faa4c8aaa72ed38b02fc77e9bed2dc8c90/docs/faboxyst-0.3.0-manual-en.pdf), [FR](https://github.com/fergousA/faboxyst/blob/bb1dd9faa4c8aaa72ed38b02fc77e9bed2dc8c90/docs/faboxyst-0.3.0-manual-fr.pdf)); rebuild them with `python3 docs/build-manual.py both`. They cover the public API, setup,
 themes, RTL behavior, local components and print mode. The most useful
 starting points are:
 
