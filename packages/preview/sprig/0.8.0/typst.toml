@@ -1,0 +1,12 @@
+[package]
+name = "sprig"
+version = "0.8.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Content-sized mind maps in six layouts with custom shapes and text bounds."
+repository = "https://github.com/fergousA/sprig"
+keywords = ["mindmap", "diagram", "blossom", "concept-map", "sticky-notes", "buzan", "rtl", "education", "shapes", "sizing"]
+compiler = "0.15.0"
+categories = ["visualization"]
+exclude = ["docs/*.pdf", "examples/*.pdf", "gallery/*.pdf", "/gallery/cover.png", "/gallery/cover.typ"]
