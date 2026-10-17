@@ -1,0 +1,17 @@
+[package]
+name = "pg-thesis"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Stanisław Nieradko <@KanarekLife>"]
+license = "MIT-0"
+description = "Diploma thesis following the Gdańsk University of Technology (Politechnika Gdańska) guidelines."
+repository = "https://github.com/KanarekLife/pg-thesis-typst"
+keywords = ["thesis", "diploma", "Politechnika Gdańska", "Gdańsk University of Technology", "PG", "Polish"]
+categories = ["thesis"]
+compiler = "0.14.0"
+exclude = [".github", "docs", "examples", "scripts", "tests", "Makefile", "CHANGELOG.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
