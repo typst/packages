@@ -150,7 +150,7 @@ Changelog:
   let bp = book-part.at(loc)
   if bp in ("mainmatter", "appendix") {
     let eq-num = if nums != none { nums.at(0) } else {
-      counter(math.equation).at(loc).first()
+      counter(math.equation).at(loc).first() + 1   // equation numbering starts from 1
     }
     let pattern = if bp == "appendix" { "(A.1)" } else { "(1.1)" }
     numbering(pattern, chapter-counter.at(loc).first(), eq-num)
@@ -237,6 +237,8 @@ Changelog:
   width-cache: (:),
 ) = {
   let cc = chapter-counter.at(location).first()
+  
+  // Horizontal gap between number column and title
   let mid-gap = 0.5em
   if book-part in ("frontmatter", "backmatter") and level == 1 { mid-gap = 0em }
 
@@ -247,6 +249,7 @@ Changelog:
     if is-chapter { bp + "|" + str(lvl) } else { bp + "|" + str(c) + "|" + str(lvl) }
   }
 
+  // ===== Calculate left margin (indentation) =====
   let left-margin = 0em
   if book-part == "frontmatter" and level >= 2 {
     for pl in range(1, level) {
@@ -270,12 +273,14 @@ Changelog:
     }
   }
 
+  // ===== Align numbers within the same level =====
   let number-fill = 0em
   if book-part in ("mainmatter", "appendix") {
     let key = cache-key(book-part, level, cc)
     number-fill = width-cache.at(key, default: measure([#number]).width) - measure([#number]).width
   }
 
+  // ===== Text styling =====
   let text-size = if book-part == "mainmatter" and level == 1 { 1.2em } else { 1.0em }
   let text-weight = if (book-part == "mainmatter" and level <= 2) or (book-part != "mainmatter" and level == 1) {
     "bold"
@@ -285,6 +290,7 @@ Changelog:
     if level <= 2 { 0.5em } else { 0em }
   } else if book-part != "mainmatter" and level == 1 { 0.5em } else { 0em }
 
+  // ===== Render the row =====
   set par(first-line-indent: 0pt)
   set text(size: text-size, fill: rgb("#0000FF"), weight: text-weight)
   box(width: 100%, inset: (left: left-margin, top: spacing-top, bottom: 0em))[
@@ -292,11 +298,14 @@ Changelog:
       columns: (auto, 1fr, auto),
       column-gutter: 0pt,
       align: (left + top, left + top, right + bottom),
+      // Column 1: number + padding + gap → right-aligned before mid-gap
       [#number#h(number-fill)#h(mid-gap)],
+      // Column 2: clickable title link + dotted leader + flexible space
       [#set par(leading: 1em, justify: true)
         #link(location, title)
         #box(width: 1fr)[#repeat(text(fill: black)[#text-fill])]
       ],
+      // Column 3: page number → right-aligned
       [#h(4pt)#text(fill: black)[#page]],
     )
   ]
@@ -346,6 +355,7 @@ Changelog:
       )[
         #set par(first-line-indent: 0pt, leading: leading, justify: true)
         #if header == true {
+          // language
           let raw-elem = {
             if body.func() == raw { body }
             else if body.has("children") {
@@ -358,6 +368,7 @@ Changelog:
             let lang = raw-elem.lang
             lang-label = if lang == none { none } else { upper(lang.at(0)) + lang.slice(1) }
           }
+          // header
           block(
             width: 100%,
             fill: box-color,
@@ -369,6 +380,7 @@ Changelog:
             #text(weight: "bold", fill: black)[#header-text #h(1fr)]
             #text(weight: "regular", fill: black)[#lang-label]
           ]
+          // main body
           block(
             inset: (left: 0.5em, right: 0.75em, y: 0.75em),
             above: 0pt,
@@ -388,7 +400,8 @@ Changelog:
             } else { body }
           ]
         } else {
-          block(width: 100%, inset: (x: 0.75em, y: 1em))[
+          // main body
+            block(width: 100%, inset: (x: 0.75em, y: 1em))[
             #text(weight: "bold", fill: black)[#header-text]
             #body
           ]
@@ -457,6 +470,7 @@ Changelog:
     ]
     #body
     #h(1fr) $square$
+    #v(1em)
   ]
 }
 
@@ -547,11 +561,22 @@ Changelog:
   show smartquote: set text(font: "Libertinus Serif")
 
   // --- Math ---
-  show math.equation.where(block: true): set math.equation(
-    numbering: (..nums) => context {
-      equation-numbering-string(here(), nums: nums)
-    },
-  )
+  show math.equation.where(block: true): it => {
+    let fields = it.fields()
+  
+    if "label" in fields {
+      math.equation(
+        block: true,
+        numbering: (..nums) => context {
+          equation-numbering-string(here(), nums: nums)
+        },
+      )[
+        #it.body
+      ]
+    } else {
+      it
+    }
+  }
     
   // --- Headings ---
   set heading(
@@ -575,23 +600,34 @@ Changelog:
   }
   
   // --- Outline ---
+  // State dictionary storing the max measured width of heading numbers per (book-part, chapter, level) key
+  // Used by outline-row() to align numbers across the same outline level
   let level-max-width = state("level-max-width", (:))
   context {
     let cache = (:)
+    // Iterate every heading in the document (Typst provides query(heading) for tree traversal)
     for h in query(heading) {
       let hloc = h.location()
       let hnumber = heading-numbering-string(hloc)
       if hnumber != none {
         let bp = book-part.at(hloc)
         let cc = chapter-counter.at(hloc).first()
+        // Chapter-level headings span multiple chapters — their number width is shared
+        // mainmatter level 2 = chapter (e.g. "3"), appendix level 1 = chapter (e.g. "A")
         let is-chapter = (bp == "mainmatter" and h.level == 2) or (bp == "appendix" and h.level == 1)
+        // Cache key design:
+        //   Chapter-level:     "mainmatter|2"  — no chapter number, shared across all chapters
+        //   Non-chapter-level: "mainmatter|3|4" — unique per chapter, because "3.1" and "4.1" differ
         let key = if is-chapter { bp + "|" + str(h.level) } else { bp + "|" + str(cc) + "|" + str(h.level) }
         let w = measure([#hnumber]).width
+        // Keep the MAX width seen so far for each key — wider numbers (e.g. "10.1" > "3.1") dominate
         if w > cache.at(key, default: 0em) { cache.insert(key, w) }
       }
     }
     level-max-width.update(cache)
   }
+
+
   set outline(depth: 6)
   show outline.entry: it => {
     let loc = it.element.location()
@@ -640,15 +676,19 @@ Changelog:
     set par(leading: 1em)
     it
   }
+
   set enum(full: true, numbering: (..nums) => {
     let n = nums.pos()
     let level = n.len()
-    if level == 1 { numbering("1.", n.at(0)) } else if level == 2 { numbering("(1)", n.at(1)) } else if level == 3 {
-      numbering("a.", n.at(2))
-    } else if level == 4 { numbering("(a)", n.at(3)) } else if level == 5 { numbering("i.", n.at(4)) } else if (
-      level == 6
-    ) { numbering("(i)", n.at(5)) } else { numbering("1.", n.last()) }
+    if level == 1 { numbering("1.", n.at(0)) }
+    else if level == 2 { numbering("(1)", n.at(1)) }
+    else if level == 3 { numbering("a.", n.at(2)) }
+    else if level == 4 { numbering("(a)", n.at(3)) }
+    else if level == 5 { numbering("i.", n.at(4)) }
+    else if level == 6 { numbering("(i)", n.at(5)) }
+    else { numbering("1.", n.last()) }
   })
+
   set list(marker: ([•], [--], [◦]))
   
   // --- References ---
