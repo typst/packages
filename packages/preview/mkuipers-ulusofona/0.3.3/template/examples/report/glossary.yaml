@@ -1,0 +1,12 @@
+STA: String Type Acronym
+PFT:
+  - Package For Typst
+  - Packages For Typst
+AJT: Amicale des Joyeux Typistes
+ada:
+  short: ADA
+  short-pl: ADAs
+  long: Advanced Definition Acronym
+  long-pl: Advanced Definitions Acronyms
+TEA:
+  - The Extra Acronym

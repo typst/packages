@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../theme.schema.json
+# "Indigo" theme: a cool indigo gradient, progress dots and a white code panel.
+
+fonts:
+  text: [Avenir Next, Segoe UI, Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]
+  code: [Menlo, Consolas, DejaVu Sans Mono]
+  brand: [Avenir Next, Segoe UI, Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]
+
+colors:
+  background: "#f4f5fc"
+  background-gradient: "#e3e6fb"
+  text: "#1b1c33"
+  accent: "#5b54e8"
+  heading: "#4a42d6"
+  line: "#d9dbf2"
+  code-background: "#ffffff"
+  button: "#5b54e8"
+  button-text: "#ffffff"
+
+brand:
+  text: typtorial
+
+layout:
+  dots: true
+  corner-radius: 1
+  code-border: false
+  title-underline: false
+  title-uppercase: false
+
+dark:
+  colors:
+    background: "#0e0f22"
+    background-gradient: "#1d1f45"
+    text: "#e5e6f7"
+    accent: "#8f8bff"
+    heading: "#a9a6ff"
+    line: "#2b2d55"
+    code-background: "#161834"
+    button: "#5b54e8"
+    button-text: "#ffffff"
