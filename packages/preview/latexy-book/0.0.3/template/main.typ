@@ -345,7 +345,7 @@ regress y x
 
 Section @sec:figure, Chapter @sec:chapter1, Part @sec:partI. 
 
-Eq. @eq:math-1-1, Eq. @eq:math-1-2. 
+Eq. @eq:math-1-1, Eq. @eq:math-1-2, Eq. @eq:equation-B-1, Eq. @eq:equation-B-2.
 
 Definition @def:definition-1-2, Definition @def:definition-2-2.
 
@@ -561,7 +561,16 @@ Commands defined in `latexy-book`:
 == Appendix B.1
 #lorem(50)
 
+$
+  f(x) = x^2
+$<eq:equation-B-1>
+
+
 == Appendix B.2
+
+$
+  f(x) = x^2 + x
+$<eq:equation-B-2>
 
 #figure(
   caption: "Table B.1",
