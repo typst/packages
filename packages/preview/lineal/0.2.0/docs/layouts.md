@@ -82,7 +82,11 @@ colours, slide behaviour and page layout without a second import.
 ```
 
 Theme options include `header`, `header-right`, `footer-left`, `footer-right`,
-`footer-progress` and `logo`. `logo: auto` keeps the logo in `config-info`;
+`footer-progress`, `logo`, `section-depth` and `section-numbered`.
+`section-depth: 2` limits automatic section outlines to heading levels one and
+two. Use `section-depth: 1` for a shorter section list. Oversized automatic
+outlines raise an error instead of clipping. `section-numbered: false` excludes
+section cards from the logical slide count. `logo: auto` keeps the logo in `config-info`;
 explicit content overrides it for the title and footer. Set a running header or
 footer field to `none` to omit it. Theme colours configure the slide frame.
 Individual content components accept local colours so they can also work in

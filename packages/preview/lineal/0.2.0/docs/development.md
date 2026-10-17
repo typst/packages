@@ -30,6 +30,8 @@ resources without replacing a globally cached or installed package.
   values, and `error` as the expected assertion-message substring.
 
 Compilation tests catch broken imports, missing assets and invalid inputs.
+Successful fixtures must also compile without warnings; non-converging layouts
+and missing fonts fail the check even when Typst produces a PDF.
 Render new layouts and inspect their PDF output before merging visual changes.
 
 ## Packaging
@@ -47,6 +49,11 @@ local package with the same name and version. Neither command installs into the
 global `@preview` namespace.
 
 ## Publishing
+
+Lineal currently pins Touying 0.7.4 to retain Typst 0.13.1 compatibility. Touying
+0.8.0 requires Typst 0.15.0. Upgrading the presentation engine therefore needs
+an explicit compiler-support change and the navigation/overlay regression suite.
+The registry's older-import notices reflect this compatibility choice.
 
 1. Update `typst.toml`, documented imports and the package fixtures together.
 2. Run `./scripts/check` with both supported compiler versions and inspect the demo.

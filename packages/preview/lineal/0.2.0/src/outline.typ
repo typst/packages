@@ -1,221 +1,99 @@
-#import "@preview/touying:0.5.3": *
+#import "navigation/heading-model.typ": get-heading-model, current-heading, headings-context
 
-#import "brand.typ": colour
-#import "progress.typ": lineal-progress-bar
-
-#let current-heading(level: auto, outlined: true) = {
-  let here = here()
-  query(heading.where(outlined: outlined).before(inclusive: false, here))
-    .at(-1, default: none)
+#let navigation-options(depth, indent, gap, size, ink, accent, fill, page-numbering) = {
+  assert(depth == none or (type(depth) == int and depth > 0), message: "navigation: depth must be a positive integer or none")
+  assert(indent >= 0pt and gap >= 0pt and size > 0pt, message: "navigation: size must be positive and spacing must be non-negative")
+  let ink = if ink == auto { text.fill } else { ink }
+  let accent = if accent == auto { ink } else { accent }
+  assert(type(ink) == color and type(accent) == color, message: "navigation: ink and accent must be colours or auto")
+  assert(type(page-numbering) in (str, function), message: "navigation: page-numbering must be a string or function")
+  (indent: indent, gap: gap, size: size, ink: ink, accent: accent, fill: fill, page-numbering: page-numbering)
 }
 
-#let headings-context(target: heading.where(outlined: true)) = {
-  let current-heading = current-heading()
-  
-  let headings = query(target)
-  let path = ()
-  let level = 0
-  let current-heading-idx = none
-
-  let result = ()
-
-  for hd in headings {
-    let diff = hd.level - level
-    if diff > 0 {
-      for _ in range(diff) {
-        path.push(1)
-      }
-    } else {
-      for _ in range(-diff) {
-        let _ = path.pop()
-      }
-      path.at(-1) = path.at(-1) + 1
-    }
-
-    result.push((
-      path: path,
-      heading: hd
-    ))
-
-    if current-heading != none and hd.location() == current-heading.location() { // matching on location, otherwise this will be `true` for an identical heading at another location
-      current-heading-idx = result.len() - 1
-    }
-    
-    level = hd.level
-  }
-
-  return (
-    current-heading: current-heading,
-    current-heading-idx: current-heading-idx,
-    headings: result
+#let navigation-row(entry, options, transform, base, right-aligned: false, page-numbers: false) = {
+  let active = entry.is-active or (entry.relation != none and entry.relation.parent)
+  let label = text(
+    weight: if active or entry.level == 1 { "semibold" } else { "regular" },
+    fill: if active { options.accent } else { options.ink },
+    transform(entry, entry.heading.body),
   )
+  let body = if page-numbers {
+    let number = context numbering(options.page-numbering, ..counter(page).at(entry.loc))
+    label + h(.75em) + box(width: 1fr, if options.fill == none { [] } else { options.fill }) + h(.75em) + number
+  } else { label }
+  block(width: 100%, breakable: false, above: 0pt, below: options.gap, {
+    set align(if right-aligned { right } else { left })
+    pad(left: if right-aligned { 0pt } else { (entry.depth - base) * options.indent }, link(entry.loc, body))
+  })
 }
 
-
-
-#let lineal-outline(
-  filter: hd => true,
-  transform: (_, it) => it,
-  target: heading.where(outlined: true),
-  ..args
-) = context {
-  let cx = headings-context(target: target)
-  let idx = cx.at("current-heading-idx", default: none)
-  let scope-path = if idx != none {
-    cx.headings.at(idx).path
+#let navigation-rows(entries, options, transform, right-aligned: false, page-numbers: false, group-roots: true) = {
+  if entries.len() == 0 { return [] }
+  let roots = if group-roots { entries.map(entry => entry.root-id).dedup() } else { (none,) }
+  for (index, root) in roots.enumerate() {
+    let group = if group-roots { entries.filter(entry => entry.root-id == root) } else { entries }
+    let base = calc.min(..group.map(entry => entry.depth))
+    if index > 0 { v(options.gap * .75) }
+    for entry in group {
+      navigation-row(entry, options, transform, base, right-aligned: right-aligned, page-numbers: page-numbers)
+    }
   }
+}
 
-  let headings = cx.headings.map(hd => {
-    let level = hd.path.len()
+#let navigation-content(title, options, body) = {
+  set text(size: options.size, fill: options.ink)
+  set par(spacing: .5em, leading: .35em)
+  if title != none {
+    let title = if title == auto { [Contents] } else { title }
+    block(above: 0pt, below: .8em, text(size: 1.2em, weight: "bold", title))
+  }
+  body
+}
 
-    let relation = if scope-path != none {
-      let path-len = calc.min(level, scope-path.len())
-      let common-path = hd.path.slice(0, path-len) == scope-path.slice(0, path-len)
-
-      let same = hd.path == scope-path
-      let parent = not same and common-path and level < scope-path.len()
-      let child = not same and common-path and level > scope-path.len()
-      let sibling = not same and level == scope-path.len() and hd.path.slice(0, path-len - 1) == scope-path.slice(0, path-len - 1)
-
-      (
-        same: same,
-        parent: parent,
-        child: child,
-        sibling: sibling,
-        unrelated: not same and not parent and not child and not sibling,
+/// Contextual section navigation. Selection changes visibility, never ancestry.
+#let lineal-outline(
+  title: none, target: heading.where(outlined: true), depth: none,
+  filter: entry => true, transform: (_, body) => body,
+  columns: (1fr, 2fr), gutter: 2em,
+  indent: 1.1em, gap: .45em, size: 1em,
+  ink: auto, accent: auto, page-numbers: false, page-numbering: "1", fill: none,
+) = context {
+  assert(type(columns) == array and columns.len() == 2, message: "lineal-outline: columns must contain two widths")
+  assert(gutter >= 0pt, message: "lineal-outline: gutter must be non-negative")
+  assert(type(filter) == function and type(transform) == function, message: "navigation: filter and transform must be functions")
+  assert(type(page-numbers) == bool, message: "navigation: page-numbers must be a boolean")
+  let options = navigation-options(depth, indent, gap, size, ink, accent, fill, page-numbering)
+  let model = get-heading-model(target: target, depth: depth, filter: filter)
+  let sections = model.visible.filter(entry => entry.level == 1)
+  let has-sections = model.entries.any(entry => entry.level == 1)
+  let body = if model.current == none or not has-sections or model.section == none {
+    navigation-rows(model.visible, options, transform, page-numbers: page-numbers)
+  } else {
+    let current = model.visible.filter(entry => entry.root-id == model.section.id)
+    if sections.len() == 0 {
+      navigation-rows(current, options, transform, page-numbers: page-numbers)
+    } else {
+      grid(columns: columns, column-gutter: gutter, align: top,
+        navigation-rows(sections, options, transform, right-aligned: true, page-numbers: page-numbers, group-roots: false),
+        navigation-rows(current, options, transform, page-numbers: page-numbers),
       )
     }
-    
-    (
-      here-path: scope-path,
-      here-level: if scope-path != none { scope-path.len() },
-      level: level,
-      path: hd.path,
-      relation: relation,
-      loc: hd.heading.location(),
-      heading: hd.heading
-    )
-  }).filter(filter)
-
-  if headings == () {
-    let nonsense-target = selector(<P>).and(<NP>)
-    outline(target: nonsense-target, ..args)
-    return
   }
+  navigation-content(title, options, body)
+}
 
-  let find-heading(location) = {
-    for x in headings { // forgive me :(
-      if x.loc == location {
-        return x
-      }
-    }
-  }
-
-  place(
-    top,
-    move(
-      dy: -15%,
-      block(width: 100%)[
-        #grid(
-          align: top,
-          columns: (1fr, 2fr),
-          column-gutter: 2em,
-          {
-            // Left column: all section headings
-            show outline.entry: it => {
-              let hd = find-heading(it.element.location())
-              if hd.relation != none and hd.relation.same {
-                // Active section - mark its position
-                box(width: 100%)[
-                  #set align(right)
-                  #h(1em)
-                  #link(
-                    it.element.location(),
-                    transform(hd, it.body()),
-                  )
-                ]
-              } else {
-                // Regular section
-                box(width: 100%)[
-                  #set align(right)
-                  #h(1em)
-                  #link(
-                    it.element.location(),
-                    transform(hd, it.body()),
-                  )
-                ]
-              }
-            }
-            
-            let all_sections = headings.filter(hd => hd.level == 1)
-            let section_selector = if all_sections != () {
-              let sel = selector(all_sections.at(0).loc)
-              for idx in range(1, all_sections.len()) {
-                sel = sel.or(all_sections.at(idx).loc)
-              }
-              sel
-            } else {
-              selector(<P>).and(<NP>)
-            }
-            
-            outline(target: section_selector, indent: 0em, ..args)
-          },
-          {
-            // Right column: current section and its subsections
-            show outline.entry: it => {
-              let hd = find-heading(it.element.location())
-              if hd.level == 1 {
-                // Section heading
-                box(width: 100%)[
-                  #link(
-                    it.element.location(),
-                    transform(hd, it.body()),
-                  )
-                  #v(-0.25em)
-                  #box(width: 100%)[
-                    #let pages-in-section = headings.filter(h => h.level == 1).len() - 1
-                    #let section-ratio = (hd.path.at(0) - 1) / (if pages-in-section > 0 { pages-in-section } else { 1 })
-                    #lineal-progress-bar(variant: "broad")
-                  ]
-                  #v(0.5em)
-                ]
-              } else {
-                // Subsection heading with hyphen
-                box(width: 100%)[
-                  #set list(marker: text(fill: colour.neutral-dark.transparentize(60%))[---])
-                  - #link(
-                    it.element.location(),
-                    transform(hd, it.body()),
-                  )
-                ]
-              }
-            }
-            
-            let current_section = if scope-path != none {
-              // Find the root section for current heading
-              let root_path = scope-path.slice(0, 1)
-              headings.filter(hd => 
-                hd.path.slice(0, 1) == root_path and 
-                (hd.level == 1 or hd.relation.child or hd.relation.same)
-              )
-            } else {
-              ()
-            }
-            
-            let section_selector = if current_section != () {
-              let sel = selector(current_section.at(0).loc)
-              for idx in range(1, current_section.len()) {
-                sel = sel.or(current_section.at(idx).loc)
-              }
-              sel
-            } else {
-              selector(<P>).and(<NP>)
-            }
-            
-            outline(target: section_selector, ..args)
-          }
-        )
-      ]
-    )
+/// A complete, linked hierarchy that flows across normal document pages.
+#let lineal-toc(
+  title: [Contents], target: heading.where(outlined: true), depth: none,
+  filter: entry => true, transform: (_, body) => body,
+  indent: 1.1em, gap: .45em, size: 1em,
+  ink: auto, accent: auto, page-numbers: false, page-numbering: "1", fill: none,
+) = context {
+  assert(type(filter) == function and type(transform) == function, message: "navigation: filter and transform must be functions")
+  assert(type(page-numbers) == bool, message: "navigation: page-numbers must be a boolean")
+  let options = navigation-options(depth, indent, gap, size, ink, accent, fill, page-numbering)
+  let model = get-heading-model(target: target, depth: depth, filter: filter)
+  navigation-content(title, options,
+    navigation-rows(model.visible, options, transform, page-numbers: page-numbers),
   )
 }
