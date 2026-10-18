@@ -19,6 +19,9 @@ Its slide snapshots are bundled, so ordinary compilation needs no preview-genera
 
 [Browse the demo](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/demo.pdf) · [See linked slide previews](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/slide-previews.pdf)
 
+[Browse the API](https://inspiros.github.io/touying-ambrosia/v0.1.0/api.html) · [Draft with an agent](https://inspiros.github.io/touying-ambrosia/v0.1.0/agent-skill.html)
+using the optional Ambrosia skill.
+
 ## Start A Presentation
 
 ```typst
