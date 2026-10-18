@@ -1,0 +1,18 @@
+[package]
+name = "stellar-springer-nature"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Sharif Haason <@sharifhsn>"]
+license = "MIT-0"
+description = "Springer Nature journal article submission (sn-jnl class)."
+repository = "https://github.com/sharifhsn/stellar-springer-nature"
+keywords = ["springer", "nature", "journal", "academic", "springer-nature", "sn-jnl"]
+categories = ["paper"]
+disciplines = ["biology", "mathematics", "physics", "chemistry", "medicine", "computer-science", "engineering"]
+compiler = "0.14.0"
+exclude = ["docs/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

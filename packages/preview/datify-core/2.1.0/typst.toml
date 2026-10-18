@@ -1,0 +1,11 @@
+
+[package]
+name = "datify-core"
+version = "2.1.0"
+entrypoint = "src/main.typ"
+authors = ["Jeomhps"]
+license = "MIT"
+description = "Localization data and date formatting patterns, powered by CLDR. Backend for Datify, reusable in any project."
+repository = "https://github.com/Jeomhps/datify-core"
+compiler = "0.13.1"
+exclude = ["tests*", "tools*"]

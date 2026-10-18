@@ -1,0 +1,16 @@
+[package]
+name = "magic-cubes"
+version = "0.1.0"
+entrypoint = "src/exports.typ"
+authors = ["Rodrigo Alcántara <@RodAlc24>"]
+license = "MIT"
+description = "Represent Rubik's cubes of arbitrary size and apply algorithms to them"
+repository = "https://github.com/RodAlc24/magic-cubes"
+categories = ["visualization", "components", "fun"]
+keywords = [
+	"Rubik",
+	"cubes",
+	"puzzles",
+	"algorithms",
+]
+exclude = ["docs/"]

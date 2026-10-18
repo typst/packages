@@ -1,0 +1,9 @@
+[package]
+name = "ea-nasir"
+version = "0.1.0"
+authors = ["Fiona Runge <https://runjak.codes>"]
+license = "MIT"
+description = "Plaintext accounting: manage accounts and transactions for multiple currencies and create reports from that. Parse and process beancount files."
+keywords = ["plaintext", "accounting", "ledger", "transaction", "report", "beancount"]
+entrypoint = "lib.typ"
+repository = "https://codeberg.org/runjak/ea-nasir"

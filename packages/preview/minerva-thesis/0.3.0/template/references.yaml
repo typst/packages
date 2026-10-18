@@ -1,0 +1,66 @@
+AaBbb2026:
+  type: article
+  title: The Article Title
+  author:
+  - Bbb, Aa
+  - Dddd, Cc
+  date: 2026
+  page-range: 25-37
+  parent:
+    type: periodical
+    title: The Journal of Some Discipline
+    issue: 1
+    volume: 1
+  serial-number:
+    doi: 10.xxxx/yyyy.zzz
+
+CcDdd2026:
+  type: article
+  title: The Paper Title
+  author:
+  - Fff, Ee
+  - Hhh, Gg
+  - Kkk, Ii-Jj
+  date: 2026-03
+  page-range: 1-6
+  parent:
+    type: proceedings
+    title: The Conference on Some Topic
+    publisher:
+      name: null
+      location: The City, The Country
+  serial-number:
+    doi: 10.rrrr/ssss.ttt
+
+EeFff2026:
+  type: book
+  title: The Book Title
+  author: Mmm, Ll
+  publisher:
+    name: The Publisher
+    location: The City
+  date: 2026-05
+
+GgHhh2026:
+  type: Chapter
+  title: The Chapter Title
+  author:
+  - Ooo, Nn
+  - Qqq, Pp
+  parent:
+    type: book
+    title: The Book Title
+    editor: 
+    - Sss, Rr
+    - Uuu, Tt
+    date: 2026
+    publisher:
+      name: The Publisher
+      location: The City
+  
+IiJjj2026:
+  type: web
+  title: Some online document
+  url: 
+    value: https://some.url
+    date: 2026-06-25

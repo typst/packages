@@ -1,0 +1,17 @@
+[package]
+name = "catiche"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Thibault Tisserand"]
+description = "Unofficial template for University of Lille internship reports"
+license = "MIT"
+repository = "https://github.com/gzordrai/catiche"
+keywords = ["Lille", "Internship", "Stage", "Report", "Rapport"]
+categories = ["report"]
+disciplines = ["computer-science", "education", "engineering"]
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/ulille.png"

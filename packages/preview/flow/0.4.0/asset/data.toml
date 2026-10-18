@@ -1,0 +1,14 @@
+# This file is shared with my system config,
+# hence it is external.
+
+[date]
+short = '%Y-%m-%d'
+long = '%Y-%m-%d %H:%M:%S'
+
+[task]
+# Possible checkbox fills, sorted by priority.
+fills = '! >:o-?x/'
+
+[regex]
+list = '^\s*[-+/*] '
+checkbox = '\[(.)\]'

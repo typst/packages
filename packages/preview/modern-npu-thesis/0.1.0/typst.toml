@@ -1,0 +1,19 @@
+# Copyright (c) 2024 OrangeX4
+# Copyright (c) 2026 Jiayi Yan
+[package]
+name = "modern-npu-thesis"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["OrangeX4", "Jiayi Yan"]
+license = "MIT"
+description = "西北工业大学学位论文模板。Modern Northwestern Polytechnical University Thesis."
+repository = "https://github.com/1195343015/modern-npu-thesis"
+keywords = ["Northwestern Polytechnical University", "NPU", "thesis"]
+categories = ["thesis"]
+exclude = [".github", ".typst", ".vscode", "dist", "fonts", "template/thesis.pdf", "thesis.typ"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

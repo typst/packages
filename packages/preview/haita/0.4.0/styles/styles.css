@@ -1,0 +1,28 @@
+:root {
+    scroll-behavior: smooth;
+}
+
+figure > :first-child {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#toc-current-page:focus-visible {
+    outline: none;
+    outline-offset: -2px;
+    box-shadow: inset -0.8rem -0.15rem 0
+        color-mix(in oklab, currentColor 20%, transparent);
+}
+
+.toc-entry-other-page:focus-visible {
+    outline-offset: -3px;
+}
+
+figcaption {
+    text-align: center;
+}
+
+figure > div > pre,
+figure > p {
+    margin-bottom: 0.85em !important;
+}

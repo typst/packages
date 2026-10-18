@@ -1,0 +1,9 @@
+[package]
+name = "ornamentalyst"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["thuiop"]
+license = "LPPL-1.3c"
+description = "Draw vector ornaments."
+repository = "https://codeberg.org/thuiop/ornamentalyst"
+exclude = ["manual.typ","manual.pdf"]

@@ -1,0 +1,5 @@
+# README assets directory
+/assets/
+
+# Typst compilation artifacts
+*.pdf

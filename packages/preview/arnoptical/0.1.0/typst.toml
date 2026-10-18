@@ -1,0 +1,25 @@
+[package]
+name = "arnoptical"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Adam Laszlo Rocska <@adam-rocska>"]
+license = "MIT"
+description = "Select Arno Pro optical text faces by point size."
+repository = "https://github.com/adam-rocska/arno-pro-optical-text-typst"
+keywords = ["arno-pro", "adobe", "font", "optical-sizing", "typography"]
+categories = ["text"]
+disciplines = ["design"]
+compiler = "0.14.0"
+exclude = [
+  "/.github/",
+  "/.gitignore",
+  "/.typos.toml",
+  "/CHANGELOG.md",
+  "/CONTRIBUTING.md",
+  "/Makefile",
+  "/PUBLISHING.md",
+  "/SECURITY.md",
+  "/examples/",
+  "/scripts/",
+  "/tests/",
+]

@@ -1,0 +1,25 @@
+[package]
+name = "azubinachweis"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Andrii Malyshkin <@AyloRyd>"]
+license = "MIT"
+description = "Ausbildungsnachweis — German apprenticeship report sheet."
+repository = "https://github.com/AyloRyd/azubinachweis"
+keywords = [
+  "ausbildungsnachweis",
+  "berichtsheft",
+  "wochenbericht",
+  "tagesbericht",
+  "ausbildung",
+  "azubi",
+  "german",
+]
+categories = ["report", "office"]
+compiler = "0.15.0"
+exclude = ["examples/*.pdf", "images/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

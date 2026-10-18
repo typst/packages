@@ -1,0 +1,15 @@
+[package]
+name = "unofficial-hso-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Markus Portugall"]
+license = "MIT AND MIT-0"
+description = "Bachelor's, Master's, or seminar thesis at Hochschule Offenburg."
+keywords = ["hochschule", "offenburg", "hso", "thesis", "bachelor", "master", "seminar"]
+categories = ["thesis", "report"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

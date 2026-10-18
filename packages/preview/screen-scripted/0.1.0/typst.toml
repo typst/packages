@@ -1,0 +1,20 @@
+[package]
+name = "screen-scripted"
+version = "0.1.0"
+authors = [ "carlxw <https://www.carlxw.dev>" ]
+description = "Write screenplays with automatic dialogue continuation."
+entrypoint = "lib.typ"
+compiler = "0.14.2"
+
+categories = [ "layout" ]
+disciplines = [ "film", "theater" ]
+keywords = ["film", "movie", "screenplay", "script", "tv", "show"]
+
+repository = "https://www.github.com/carlxw/screenplay-scripted"
+license = "MIT-0"
+exclude = [ "/img/preview.png" ]
+
+[template]
+path = "template"
+thumbnail = "img/screen-scripted.png"
+entrypoint = "example.typ"

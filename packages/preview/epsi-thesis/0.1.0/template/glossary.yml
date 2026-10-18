@@ -1,0 +1,28 @@
+# Glossário
+# Formato: cada entrada tem 'term' (o termo técnico) e 'definition' (a definição)
+# Mantém a ordem alfabética para facilitar a consulta
+
+- term: Algoritmo
+  definition: Sequência finita de instruções bem definidas para resolver um problema ou realizar uma tarefa específica.
+
+- term: Base de Dados
+  definition: Coleção organizada de dados estruturados, geralmente armazenada e acedida eletronicamente a partir de um sistema informático.
+
+- term: Framework
+  definition: Estrutura de suporte definida em que um projeto de software pode ser organizado e desenvolvido, fornecendo funcionalidades genéricas que podem ser alteradas seletivamente.
+
+- term: Interface
+  definition: Ponto de interação entre componentes de software ou entre software e utilizador, definindo métodos de comunicação entre diferentes partes de um sistema.
+
+- term: Machine Learning
+  definition: Subcampo da inteligência artificial que permite aos sistemas aprenderem e melhorarem automaticamente a partir da experiência sem serem explicitamente programados.
+
+- term: Middleware
+  definition: Software que atua como ponte entre diferentes aplicações, sistemas operativos ou bases de dados, facilitando a comunicação e gestão de dados.
+
+- term: Protocolo
+  definition: Conjunto de regras que governam a comunicação entre dispositivos ou sistemas, definindo o formato e a ordem das mensagens trocadas.
+
+# Adiciona aqui os teus termos técnicos seguindo o mesmo formato
+# - term: Nome do Termo
+#   definition: Definição completa do termo técnico.

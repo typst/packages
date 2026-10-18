@@ -1,0 +1,17 @@
+[package]
+name = "stux-assignment"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["StuxH4X <@StuxnetH4X>"]
+license = "MIT-0"
+description = "Themed assignment sheets with problem boxes and multi-author support."
+repository = "https://github.com/StuxnetH4X/stux-assignment"
+keywords = ["assignment", "homework", "problem-set", "course", "university"]
+categories = ["components", "report"]
+compiler = "0.13.0"
+exclude = ["examples/*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

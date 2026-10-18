@@ -1,0 +1,12 @@
+[package]
+name = "mise-en-place"
+version = "0.1.0"
+compiler = "0.15.0"
+entrypoint = "lib.typ"
+authors = ["Kulpas <@jan-Kulpas>"]
+license = "MIT"
+description = "Cooking recipe diagram generator based on the recipe format from https://www.cookingforengineers.com/"
+repository = "https://github.com/jan-Kulpas/mise-en-place"
+exclude = ["/test.typ", "/example.typ", "/example.pdf", "/images/*"]
+keywords = ["cooking", "recipe", "diagram", "tree"]
+categories = ["fun", "visualization"]

@@ -1,0 +1,14 @@
+[package]
+name = "fy-docs-i18n"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = [
+  "Fengyang-Conglomerate <https://github.com/Fengyang-Conglomerate>",
+  "fengyangsi <https://github.com/fengyangsi>",
+]
+repository = "https://github.com/Fengyang-Conglomerate/fy-docs-typst-i18n"
+license = "MIT OR Apache-2.0"
+description = "Query multilingual text with configurable language matching."
+compiler = "0.15.1"
+keywords = ["i18n", "localization", "multilingual"]
+exclude = ["/tests/", "/.github/", "/.git/", "/__pycache__/", "*.pyc"]

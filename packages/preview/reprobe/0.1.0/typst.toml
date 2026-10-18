@@ -1,0 +1,18 @@
+[package]
+name = "reprobe"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Isaac H. Lopez Diaz <isaac@ih1d.com>"]
+license = "MIT"
+description = "A two-column computer science technical report"
+repository = "https://github.com/ih1d/reprobe"
+keywords = ["technical report", "lab report", "megaprobe", "two-column"]
+categories = ["report"]
+disciplines = ["computer-science"]
+compiler = "0.13.0"
+exclude = ["/.gitignore", "*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

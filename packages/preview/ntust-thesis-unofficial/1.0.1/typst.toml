@@ -1,0 +1,17 @@
+[package]
+name = "ntust-thesis-unofficial"
+version = "1.0.1"
+entrypoint = "src/lib.typ"
+authors = ["8LWXpg"]
+compiler = "0.14.0"
+description = "臺灣科技大學論文模板。Thesis template for National Taiwan University of Science and Technology"
+license = "MIT"
+repository = "https://github.com/8LWXpg/ntust-thesis-unofficial-typst"
+keywords = ["ntust"]
+categories = ["thesis"]
+disciplines = ["education"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

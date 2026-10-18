@@ -1,6 +1,7 @@
 /// Validate that this is a Typst universe discipline.
 pub fn validate_discipline(discipline: &str) -> anyhow::Result<()> {
     match discipline {
+        "accounting" => {}
         "agriculture" => {}
         "anthropology" => {}
         "archaeology" => {}
@@ -18,6 +19,7 @@ pub fn validate_discipline(discipline: &str) -> anyhow::Result<()> {
         "environment" => {}
         "fashion" => {}
         "film" => {}
+        "finance" => {}
         "geography" => {}
         "geology" => {}
         "history" => {}

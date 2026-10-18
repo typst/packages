@@ -1,0 +1,11 @@
+[package]
+name = "lemming"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["fgolke"]
+license = "LGPL-3.0-only"
+description = "Math environments working similar to native elements."
+repository = "https://codeberg.org/fgolke/typst-lemming"
+categories = ["components"]
+compiler = "0.14.0"
+exclude = ["/gallery/*"]

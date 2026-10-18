@@ -1,0 +1,10 @@
+[package]
+name = "maquette"
+version = "0.1.0"
+entrypoint = "maquette.typ"
+authors = ["Bernstein <https://github.com/bernsteining>"]
+license = "MIT"
+description = "Render 3D models (PLY, STL, OBJ) as SVG or PNG images in Typst."
+keywords = ["3D", "STL", "OBJ", "PLY", "scanner", "model", "blender", "AR", "LiDAR", "scan", "render", "SVG", "PNG", "CAD", "CAO"]
+categories = ["visualization"]
+compiler = "0.14.2"

@@ -1,0 +1,16 @@
+[package]
+name = "clean-ualberta-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Samarium <https://github.com/Samarium150>"]
+license = "MIT"
+description = "Unofficial graduate theses at the University of Alberta."
+keywords = ["University of Alberta", "thesis", "dissertation"]
+categories = ["thesis"]
+compiler = "0.15.0"
+exclude = ["build/", "example.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

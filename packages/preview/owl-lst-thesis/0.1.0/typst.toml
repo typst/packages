@@ -1,0 +1,29 @@
+[package]
+name = "owl-lst-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alexander Koller <koller@lst.uni-saarland.de>"]
+license = "MIT-0"
+description = "Thesis in the LST department at Saarland University."
+repository = "https://github.com/coli-saar/typst-lst-template"
+keywords = [
+  "Saarland University",
+  "Language Science and Technology",
+  "LST",
+  "thesis",
+]
+categories = ["thesis"]
+disciplines = ["computer-science", "linguistics"]
+compiler = "0.15.0"
+exclude = [
+  "/tmp/",
+  "/custom.bib",
+  "/main.typ",
+  "/main.pdf",
+  ".DS_Store",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

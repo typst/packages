@@ -1,0 +1,16 @@
+[package]
+name = "uepg-tcc-unofficial"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Enzo Serenato"]
+license = "MIT"
+description = "Unofficial ABNT-compliant monograph template for UEPG undergraduate theses"
+keywords = ["monografia", "uepg", "abnt", "tcc", "academic"]
+compiler = "0.12.0"
+categories = ["thesis"]
+repository = "https://github.com/ekspy/uepg-tcc-unofficial"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

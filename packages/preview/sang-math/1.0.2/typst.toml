@@ -1,0 +1,11 @@
+[package]
+name = "sang-math"
+version = "1.0.2"
+entrypoint = "lib.typ"
+authors = ["Sang Nguyen <sangnhc87@gmail.com>"]
+compiler = "0.14.0"
+license = "MIT"
+description = "Bộ macro Toán THPT: đề thi, sách/chuyên đề, BBT và hình học CeTZ"
+keywords = ["math", "exam", "vietnam", "thpt", "bbt"]
+homepage = "https://hdsd-conictypst.pages.dev"
+repository = "https://github.com/sangnhc87/conictypst"

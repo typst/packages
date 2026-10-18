@@ -1,0 +1,13 @@
+[package]
+name = "comozeidex"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Comozeidam <@Comozeidam>"]
+license = "MIT"
+description = "Styled headings and helpers for building a hierarchical index or binder — areas, categories, IDs, and notes."
+categories = ["office", "layout"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

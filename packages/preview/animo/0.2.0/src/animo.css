@@ -1,0 +1,241 @@
+/*
+SPDX-FileCopyrightText: 2026 Toon Verstraelen <Toon.Verstraelen@UGent.be>
+SPDX-License-Identifier: Apache-2.0
+*/
+
+/*
+  The stylesheet of an animo deck.
+  The geometry of each deck is appended to this file as custom properties on `:root`,
+  so everything below is the same for every deck.
+*/
+
+/*
+  A reader who asked for less motion gets none, whatever the deck or the timeline asks for.
+
+  The time that motion takes defaults to the settings of the deck.
+  `--animo-primitive-duration`, `--animo-transition-duration` and `--animo-easing` are
+  written from the `primitive-duration:`, `transition-duration:` and `easing:` arguments of
+  the show rule, into the `:root` block that is appended to this file.
+  The runtime reads them at every step, so a value reaches every operation that asked for
+  nothing, and an operation that states a duration takes that one instead.
+
+  A media query cannot reach a number written in a typst source, so zeroing the defaults
+  would leave every stated duration moving. The reader's preference is a property of its
+  own instead, and the runtime snaps every step while it is `none`, which is what a deep
+  link and a reload get in any case.
+
+  A stylesheet added to the page comes after this rule, so the declaration here is
+  `!important` and the guard wins by cascade weight rather than by source order.
+  Measured in chromium 151 and firefox 153, a later `:root` declaration of the same property
+  outranks this query without it.
+*/
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --animo-motion: none !important;
+  }
+}
+
+/*
+  The surround the slide is centred on, which is not part of any slide.
+  It is a declaration on the root elements of the page rather than on the stage below.
+  The stage isolates the blend that crossfades two slides, and the ground of the isolating
+  element is inside the group it isolates, so a surround written there would be summed into
+  both slides.
+  Measured with a white surround, which shifted the midpoint of a crossfade by 239/255 in
+  chromium 151 and firefox 153. A black surround adds zero and hides the mistake.
+  See *Findings*.
+*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+}
+
+/*
+  The window: the stage, centred on the surround.
+  It carries no background and no isolation.
+  Controls that belong to the window rather than to a slide are children of the deck beside
+  the stage, because a corner of the window can lie outside the stage.
+*/
+.animo-deck {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/*
+  The stage: the rectangle the current slide fills, and the element everything that belongs
+  to the visible slide attaches to.
+  It is as large as the window allows at the deck's aspect ratio, and it clips,
+  because content outside it belongs to the canvas and is reached by panning, and a slide
+  that is entering or leaving is clipped at it as well.
+
+  It isolates, so that `plus-lighter` on the slides sums the two of a crossfade against a
+  transparent backdrop and not against the page. It carries no background for the reason
+  the surround above gives.
+*/
+.animo-stage {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  width: var(--animo-viewport);
+  aspect-ratio: var(--animo-aspect);
+}
+
+/*
+  A slide: one container in the stage, as large as the stage.
+  It clips as well, because the canvas inside it is larger than the stage when the slide
+  pans.
+
+  Two slides are laid out at a time and never more: the one being shown, and the one a
+  boundary is crossing from, which keeps its layout until the deck moves again so that
+  stepping back over the same boundary needs no layout.
+  Every other slide is `display: none`, which keeps the layout of a long deck small.
+  Laying every slide out for the whole session doubled the first paint of a sixty-slide
+  deck, as the design document records.
+
+  Slides are stacked in document order, so the one being left would be above the one being
+  shown and take its pointer events.
+  Only the current slide takes events, which leaves the slide being left laid out and
+  inert to the pointer. The runtime sets `inert` on it as well, for the keyboard and for
+  assistive technology.
+
+  `plus-lighter` makes the crossfade between two slides add rather than cover, and
+  it is on every slide rather than only on the two a boundary involves, so that a slide
+  rasterises the same whether or not it is in a transition. A single slide added to the
+  transparent backdrop of the isolated stage is that slide, so this changes nothing outside
+  a boundary.
+  A push, a cover, an uncover and a wipe overlap two opaque slides,
+  which have to cover rather than add, so the runtime writes `mix-blend-mode: normal` on the two slides they cross, and a single
+  slide renders the same under that blend as well. See *Findings*.
+*/
+.animo-slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #ffffff;
+  mix-blend-mode: plus-lighter;
+}
+
+.animo-slide[data-animo-current],
+.animo-slide[data-animo-leaving] {
+  display: block;
+}
+
+.animo-slide:not([data-animo-current]) {
+  pointer-events: none;
+}
+
+/*
+  The canvas: what the body is laid out on, at least as large as the viewport.
+  It sits at the viewport's origin and is sized in `--animo-unit`, one typst point as the
+  window currently renders it, so a typst point is the unit of everything inside it at any
+  window size.
+  Sizing rather than scaling leaves both `translate` and `scale` free on this element.
+  The runtime writes a pan as its `translate`, and nothing writes its `scale`.
+  The canvas holds one frame, and that frame holds the body of the slide with an epoch stack
+  in every region that sits in no other region, once the slide has two epochs.
+*/
+.animo-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*
+  The two outer layers, one behind the canvas and one in front of it.
+  Each is the size of the viewport and belongs to it rather than to the canvas, so a pan
+  moves the canvas between them and leaves both where they are.
+  Both are frames of the slide rather than renderings inside the canvas's frame, which keeps
+  them out of every epoch stack and independent of the number of epochs.
+  A slide with four epochs still carries one of each.
+  The three are positioned elements without a z-index, so they paint in document
+  order, which is the order the slide emits them in.
+  A layer that is a color rather than content needs no frame.
+  The background color is a declaration on the slide container, which is already behind the
+  canvas, and an overlay color is one on the element below, which is already in front of it.
+*/
+.animo-background,
+.animo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.animo-background > svg,
+.animo-overlay > svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/*
+  The frame fills the canvas exactly, because the canvas is the size animo computed and
+  the frame's viewBox is that same rectangle in typst points.
+  `html.frame` writes the frame's size as an inline style in `em`, against the text size
+  of the document rather than against the font size of the page, so a plain rule loses to
+  it and the frame comes out a few percent too large. Overriding an inline style that
+  animo does not control is what `!important` is for.
+*/
+.animo-canvas > svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/*
+  Each kind of stack states here which of its renderings a page whose script never ran shows,
+  which is the first one, and how the others are hidden.
+  `stack.typ` labels the renderings, and `stacks.js` chooses between them.
+
+  An epoch stack shows one rendering of its region at a time, so a deck whose script never ran
+  still shows a slide.
+  The renderings are groups placed at one point of the region's footprint in the slide's
+  single frame, so that typst's deduplicator, whose scope is the frame, defines each glyph
+  they share once between them. See *Findings*.
+  The renderings are hidden with visibility rather than display, because visibility hides
+  the ink without taking the layout away, so a group in a rendering that is not shown still
+  reports the geometry a morph reads.
+
+  No rendering blends and no container of renderings isolates, also while a transition runs.
+  The runtime hands a region over with opacity alone, as `handOver` in `boundaries.js`
+  describes, because a blend or an isolation on a stack made firefox 155 several times slower
+  on every frame of a transition. See *Performance*.
+  Chromium 153 and firefox 155 therefore draw a stack as the same content without a stack.
+  Webkit 26.6 draws a group beside a hidden sibling differently from a lone group at some
+  positions. See *A Blended or Isolated Group at Rest* in *Findings*.
+*/
+.animo-canvas [data-typst-label^="animo-epoch-"] {
+  visibility: hidden;
+}
+
+.animo-canvas [data-typst-label="animo-epoch-0"] {
+  visibility: visible;
+}
+
+/*
+  A subslide stack holds one rendering of a `per-subslide` per state of the slide, of which
+  the runtime shows the one belonging to the state the deck is on.
+  A number finer than a slide number is made of these renderings, because one frame covers
+  every state of a slide, so the value cannot be ink chosen when the frame is rendered and
+  every value is rendered instead.
+  The renderings are hidden with opacity rather than visibility,
+  because a stack in a region sits inside an epoch rendering,
+  and a rendering that is not being shown is hidden with `visibility`, which a descendant may
+  take back.
+  A rendering that took its visibility back would then paint out of an epoch rendering nobody
+  is watching, where one at opacity 1 inside a hidden one stays hidden.
+*/
+.animo-slide [data-typst-label^="animo-subslide-"] {
+  opacity: 0;
+}
+
+.animo-slide [data-typst-label="animo-subslide-0"] {
+  opacity: 1;
+}

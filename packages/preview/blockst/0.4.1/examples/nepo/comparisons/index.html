@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEPO-Prototyp — Vergleich</title>
+<script src="reference.js"></script>
+<style>
+  :root {
+    --bg: #fbfbfa; --panel: #fff; --ink: #1c1b19; --muted: #6b6a66;
+    --line: #e3e1dc; --accent: #EB6A0A; --ok: #179C7D; --warn: #E2001A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  header { padding: 32px 28px 20px; border-bottom: 1px solid var(--line); }
+  h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: -0.01em; }
+  header p { margin: 0; max-width: 62ch; color: var(--muted); font-size: 14px; }
+  main { padding: 24px 28px 64px; }
+  section { margin-bottom: 34px; }
+  h2 { font-size: 15px; margin: 0 0 12px; letter-spacing: 0.01em; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap;
+    gap: 18px; align-items: center; padding: 12px 28px;
+    background: rgba(251,251,250,.93); backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line); font-size: 13px;
+  }
+  .toolbar label { display: flex; gap: 7px; align-items: center; color: var(--muted); }
+  .toolbar input[type=range] { width: 130px; }
+  .toolbar input[type=number] { width: 62px; padding: 3px 5px; border: 1px solid var(--line); border-radius: 5px; font: inherit; }
+  button {
+    font: inherit; font-size: 13px; padding: 4px 11px; border: 1px solid var(--line);
+    border-radius: 6px; background: var(--panel); cursor: pointer;
+  }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+
+  .row {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    margin-bottom: 14px; overflow: hidden;
+  }
+  .row > h3 {
+    margin: 0; padding: 10px 14px; font-size: 13px; font-weight: 600;
+    border-bottom: 1px solid var(--line); display: flex; justify-content: space-between;
+    align-items: baseline; gap: 12px;
+  }
+  .row > h3 code { font-size: 11px; color: var(--muted); font-weight: 400; }
+  .cells { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .cell { padding: 14px; border-right: 1px solid var(--line); min-height: 150px; }
+  .cell:last-child { border-right: 0; }
+  .cell h4 {
+    margin: 0 0 10px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--muted); font-weight: 600;
+  }
+  .stage { position: relative; display: inline-block; min-width: 60px; }
+  .stage img { display: block; max-width: 100%; }
+  .stage.overlay img.ref { position: absolute; left: 0; top: 0; transform-origin: top left; }
+
+  .drop {
+    border: 1.5px dashed var(--line); border-radius: 8px; padding: 18px 12px;
+    text-align: center; color: var(--muted); font-size: 12.5px; cursor: pointer;
+  }
+  .drop:hover, .drop.over { border-color: var(--accent); color: var(--accent); }
+  .drop input { display: none; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 13px; background: var(--panel); }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  td.num { font-variant-numeric: tabular-nums; }
+  .swatch { display: inline-block; width: 13px; height: 13px; border-radius: 3px; vertical-align: -2px; margin-right: 6px; }
+  .note { font-size: 13px; color: var(--muted); max-width: 78ch; }
+  .note code { background: #f0efec; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>NEPO-Prototyp — Vergleich mit Open Roberta</h1>
+  <p>
+    Links die Referenz aus Open Roberta Lab, in der Mitte die Ausgabe von Blockst,
+    rechts beides übereinander. Die Referenzspalte ist absichtlich leer:
+    Bild hineinziehen oder anklicken, dann liegt es sofort in der Überlagerung.
+    Abgelegte Bilder bleiben im Browser gespeichert.
+  </p>
+</header>
+
+<div class="toolbar">
+  <label>Deckkraft Referenz
+    <input id="opacity" type="range" min="0" max="100" value="50">
+    <span id="opacityValue">50 %</span>
+  </label>
+  <label>Skalierung <input id="scale" type="number" value="100" step="1" min="10" max="400">%</label>
+  <label>Versatz X <input id="dx" type="number" value="0" step="1"></label>
+  <label>Y <input id="dy" type="number" value="0" step="1"></label>
+  <button id="reset">Zurücksetzen</button>
+  <button id="clear">Referenzen löschen</button>
+</div>
+
+<main>
+  <section>
+    <h2>Die sechs Blöcke</h2>
+    <div id="rows"></div>
+  </section>
+
+  <section>
+    <h2>Geometrie gegen die Blockly-Konstanten</h2>
+    <p class="note">
+      Zweite, unabhängige Transkription von
+      <code>core/block_render_svg.js</code> in JavaScript, gegen die
+      Rust-Umsetzung geprüft. Textbreiten sind für beide Seiten festgesetzt,
+      damit ein Unterschied nur aus der Geometrie stammen kann.
+      Erzeugt von <code>examples/nepo/references/blockly-reference.mjs</code>,
+      automatisch geprüft in <code>tests/test_geometry.rs</code>.
+    </p>
+    <table id="geometry"></table>
+  </section>
+
+  <section>
+    <h2>Farben</h2>
+    <p class="note">
+      Direkt aus <code>Blockly.CAT_*_RGB</code> und <code>Blockly.DATA_TYPE</code>
+      übernommen, nicht nachgemischt.
+    </p>
+    <table id="colours"></table>
+  </section>
+
+  <section>
+    <h2>Konstanten</h2>
+    <table id="constants"></table>
+  </section>
+</main>
+
+<script>
+const BLOCKS = [
+  { file: 'candidates/block-01.svg', id: 'robControls_start',
+    label: 'Start', source: 'Start' },
+  { file: 'candidates/block-02.svg', id: 'mbedActions_display_text',
+    label: 'Zeige Text', source: 'Zeige Text "Hallo"' },
+  { file: 'candidates/block-03.svg', id: 'actions_rgbLed_hidden_on_calliope',
+    label: 'Schalte RGB LED an', source: 'Schalte RGB LED an (#ff0000)' },
+  { file: 'candidates/block-04.svg', id: 'robSensors_key_getSample',
+    label: 'Taste gedrückt?', source: 'Taste A gedrückt?' },
+  { file: 'candidates/block-05.svg', id: 'robControls_loopForever',
+    label: 'Wiederhole unendlich oft', source: 'Wiederhole unendlich oft …' },
+  { file: 'candidates/block-06.svg', id: 'mbedImage_image',
+    label: 'Zeige Bild (5×5-Matrix)', source: 'Zeige Bild (.#.#.|…)' },
+  { file: 'candidates/block-07.svg', id: 'robControls_wait_time',
+    label: 'Warte ms', source: 'Warte ms 1 + 2' },
+  { file: 'candidates/block-08.svg', id: 'robControls_wait_for',
+    label: 'Warte bis', source: 'Warte bis Taste A gedrückt? und wahr' },
+  { file: 'candidates/block-09.svg', id: 'robSensors_gesture_getSample',
+    label: 'Lagesensor', source: 'gib geschüttelt Lage' },
+  { file: 'candidates/block-10.svg', id: 'mbedActions_play_note',
+    label: 'Spiele Note', source: 'Spiele Viertelnote C4' },
+  { file: 'candidates/block-11.svg', id: 'mbedImage_get_image',
+    label: 'Zeige Bild (Auswahl)', source: 'Zeige Bild Herz' },
+  { file: 'candidates/block-12.svg', id: 'robGlobalVariables_declare',
+    label: 'Variable anlegen', source: 'Start / Variable Punkte : Zahl ← 0' },
+  { file: 'candidates/block-13.svg', id: 'variables_set',
+    label: 'Variable schreiben', source: 'Schreibe Punkte 0' },
+  { file: 'candidates/block-14.svg', id: 'robMath_change',
+    label: 'Variable erhöhen', source: 'erhöhe Punkte um 1' },
+  { file: 'candidates/block-15.svg', id: 'robLists_create_with',
+    label: 'Liste erzeugen', source: 'Liste : Zahl ← 1 2 3' },
+  { file: 'candidates/block-16.svg', id: 'robLists_getIndex',
+    label: 'Listenelement holen', source: 'von der Liste Werte nimm #tes 2' },
+];
+
+const COLOURS = [
+  ['activity',  '#E2001A', 'Blockly.CAT_ACTIVITY_RGB', 'Start'],
+  ['action',    '#F29400', 'Blockly.CAT_ACTION_RGB',   'Zeige Text, RGB LED, Zeige Bild'],
+  ['control',   '#EB6A0A', 'Blockly.CAT_CONTROL_RGB',  'Wiederhole unendlich oft'],
+  ['sensor',    '#8FA402', 'Blockly.CAT_SENSOR_RGB',   'Taste gedrückt?'],
+  ['colour',    '#EBC300', 'Blockly.CAT_COLOUR_RGB',   'Farbwähler'],
+  ['image',     '#DF01D7', 'Blockly.CAT_IMAGE_RGB',    'Bildblock'],
+  ['text',      '#BACC1E', 'Blockly.CAT_TEXT_RGB',     'Textblock'],
+  ['math',      '#005A94', 'Blockly.CAT_MATH_RGB',     'Zahlen, Rechnen, erhöhe'],
+  ['logic',     '#33B8CA', 'Blockly.CAT_LOGIC_RGB',    'wahr/falsch, Vergleich, und/oder'],
+  ['variable',  '#9085BA', 'Blockly.CAT_VARIABLE_RGB', 'Variable lesen und schreiben'],
+  ['list',      '#39378B', 'Blockly.CAT_LIST_RGB',     'Listenblöcke'],
+];
+
+const DATA_TYPES = [
+  ['String',  '#BACC1E'], ['Number', '#005A94'], ['Boolean', '#33B8CA'],
+  ['Colour',  '#EBC300'], ['Image',  '#DF01D7'],
+];
+
+const CONSTANTS = [
+  ['SEP_SPACE_X', 10, 'Abstand zwischen Feldern'],
+  ['SEP_SPACE_Y', 10, 'Luft über und unter einem Blockmund'],
+  ['INLINE_PADDING_Y', 5, 'Feld gegen Zeilenoberkante'],
+  ['MIN_BLOCK_Y', 25, 'Mindesthöhe einer Zeile'],
+  ['TAB_HEIGHT', 20, 'Höhe des Wertanschlusses'],
+  ['TAB_WIDTH', 8, 'Breite des Wertanschlusses'],
+  ['NOTCH_WIDTH', 30, 'Nase inklusive linkem Rand'],
+  ['CORNER_RADIUS', 2, 'Eckenradius — Scratch rundet mit 4'],
+  ['Field.size_.height', 25, 'Zeilenhöhe eines Feldes'],
+  ['borderRect height', 16, 'Weiße Feldbox'],
+  ['Icon.SIZE', 17, 'Mutator-Icon, plus SEP_SPACE_X Abstand'],
+  ['FieldDropdownImage size_', 34, 'Bild 24 plus Pfeil und INLINE_PADDING_Y'],
+  ['.blocklyText', '11pt', 'Beschriftung, sans-serif'],
+];
+
+const store = {
+  get(id) { try { return localStorage.getItem('nepo-ref-' + id); } catch { return null; } },
+  set(id, value) { try { localStorage.setItem('nepo-ref-' + id, value); } catch {} },
+  clear() {
+    try {
+      Object.keys(localStorage)
+        .filter(k => k.startsWith('nepo-ref-'))
+        .forEach(k => localStorage.removeItem(k));
+    } catch {}
+  },
+};
+
+function buildRows() {
+  const host = document.getElementById('rows');
+  for (const block of BLOCKS) {
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.innerHTML = `
+      <h3><span>${block.label}</span><code>${block.id}</code></h3>
+      <div class="cells">
+        <div class="cell">
+          <h4>Open Roberta</h4>
+          <label class="drop" data-id="${block.id}">
+            Bild ablegen oder auswählen
+            <input type="file" accept="image/*">
+          </label>
+          <div class="stage ref-stage" hidden><img class="ref-only" alt=""></div>
+        </div>
+        <div class="cell">
+          <h4>Blockst</h4>
+          <div class="stage"><img class="cand" src="${block.file}" alt="${block.label}"></div>
+        </div>
+        <div class="cell">
+          <h4>Überlagerung</h4>
+          <div class="stage overlay">
+            <img class="cand" src="${block.file}" alt="">
+            <img class="ref" alt="" hidden>
+          </div>
+        </div>
+      </div>`;
+    host.appendChild(row);
+
+    const drop = row.querySelector('.drop');
+    const input = drop.querySelector('input');
+    const refStage = row.querySelector('.ref-stage');
+    const refOnly = row.querySelector('.ref-only');
+    const refOverlay = row.querySelector('img.ref');
+
+    const show = (dataUrl) => {
+      refOnly.src = dataUrl;
+      refOverlay.src = dataUrl;
+      refStage.hidden = false;
+      refOverlay.hidden = false;
+      drop.textContent = 'Anderes Bild wählen';
+      drop.appendChild(input);
+      applyTransform();
+    };
+
+    const read = (file) => {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => { store.set(block.id, reader.result); show(reader.result); };
+      reader.readAsDataURL(file);
+    };
+
+    input.addEventListener('change', () => read(input.files[0]));
+    drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
+    drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+    drop.addEventListener('drop', (e) => {
+      e.preventDefault();
+      drop.classList.remove('over');
+      read(e.dataTransfer.files[0]);
+    });
+
+    const saved = store.get(block.id);
+    if (saved) show(saved);
+  }
+}
+
+function applyTransform() {
+  const opacity = document.getElementById('opacity').valueAsNumber / 100;
+  const scale = document.getElementById('scale').valueAsNumber / 100;
+  const dx = document.getElementById('dx').valueAsNumber || 0;
+  const dy = document.getElementById('dy').valueAsNumber || 0;
+  document.getElementById('opacityValue').textContent = Math.round(opacity * 100) + ' %';
+  document.querySelectorAll('.stage.overlay img.ref').forEach((img) => {
+    img.style.opacity = opacity;
+    img.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+  });
+}
+
+function buildGeometry() {
+  const reference = window.NEPO_REFERENCE || {};
+  const table = document.getElementById('geometry');
+  const head = `<tr><th>Block</th><th>Rechte Kante</th><th>Mundkante</th>
+    <th>Höhe</th><th>Gesamtbreite</th></tr>`;
+  const rows = Object.entries(reference).map(([id, value]) => `
+    <tr>
+      <td><code>${id}</code></td>
+      <td class="num">${value.rightEdge}</td>
+      <td class="num">${value.statementEdge}</td>
+      <td class="num">${value.bottom}</td>
+      <td class="num">${value.width}</td>
+    </tr>`).join('');
+  table.innerHTML = head + (rows || `<tr><td colspan="5">
+    <code>reference.js</code> fehlt — <code>build.sh</code> ausführen.</td></tr>`);
+}
+
+function buildColours() {
+  const table = document.getElementById('colours');
+  table.innerHTML =
+    `<tr><th>Kategorie</th><th>Farbe</th><th>Konstante</th><th>Blöcke</th></tr>` +
+    COLOURS.map(([name, hex, constant, used]) => `
+      <tr>
+        <td>${name}</td>
+        <td><span class="swatch" style="background:${hex}"></span><code>${hex}</code></td>
+        <td><code>${constant}</code></td>
+        <td>${used}</td>
+      </tr>`).join('') +
+    `<tr><th colspan="4">Anschlussfarben — Blockly.DATA_TYPE</th></tr>` +
+    DATA_TYPES.map(([name, hex]) => `
+      <tr>
+        <td>${name}</td>
+        <td><span class="swatch" style="background:${hex}"></span><code>${hex}</code></td>
+        <td colspan="2">Farbe des Steckers bzw. der leeren Buchse</td>
+      </tr>`).join('');
+}
+
+function buildConstants() {
+  const table = document.getElementById('constants');
+  table.innerHTML =
+    `<tr><th>Konstante</th><th>Wert</th><th>Bedeutung</th></tr>` +
+    CONSTANTS.map(([name, value, meaning]) => `
+      <tr><td><code>${name}</code></td><td class="num">${value}</td><td>${meaning}</td></tr>`
+    ).join('');
+}
+
+['opacity', 'scale', 'dx', 'dy'].forEach((id) =>
+  document.getElementById(id).addEventListener('input', applyTransform));
+
+document.getElementById('reset').addEventListener('click', () => {
+  document.getElementById('opacity').value = 50;
+  document.getElementById('scale').value = 100;
+  document.getElementById('dx').value = 0;
+  document.getElementById('dy').value = 0;
+  applyTransform();
+});
+
+document.getElementById('clear').addEventListener('click', () => {
+  store.clear();
+  location.reload();
+});
+
+buildRows();
+buildGeometry();
+buildColours();
+buildConstants();
+applyTransform();
+</script>
+</body>
+</html>

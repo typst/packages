@@ -1,0 +1,13 @@
+[package]
+name = "diorama"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Nathan Scheinmann"]
+license = "MIT"
+description = "Illustrated cetz scene elements for word problem figures — terrain, vehicles, structures, creatures, luna park, and annotation tools"
+repository = "https://github.com/nathan-ed/typst-package-diorama"
+keywords = ["cetz", "scenes", "geometry", "trigonometry", "illustration", "word-problems", "education"]
+categories = ["visualization", "utility"]
+disciplines = ["mathematics", "education"]
+compiler = "0.13.0"
+exclude = ["docs/*", "gallery", "*.pdf"]
