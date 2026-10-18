@@ -4,12 +4,6 @@
   citation-style: "../assets/citations/compact-author-year.csl",
   showcase: (
     touying-ambrosia: (light: "../assets/logos/touying-ambrosia.svg", dark: "../assets/logos/touying-ambrosia-dark.svg"),
-    kyklo-logo: (light: "../assets/logos/kyklo-logo.svg", dark: "../assets/logos/kyklo-logo-dark.svg"),
-    kyklo-mark: (light: "../assets/logos/kyklo-mark.svg", dark: "../assets/logos/kyklo-mark-dark.svg"),
-    olympus-institute: (light: "../assets/logos/olympus-institute.svg", dark: "../assets/logos/olympus-institute-dark.svg"),
-    helios-polytechnic: (light: "../assets/logos/helios-polytechnic.svg", dark: "../assets/logos/helios-polytechnic-dark.svg"),
-    delphi-forum: (light: "../assets/logos/delphi-forum.svg", dark: "../assets/logos/delphi-forum-dark.svg"),
-    nectarion-college: (light: "../assets/logos/nectarion-college.svg", dark: "../assets/logos/nectarion-college-dark.svg"),
   ),
 )
 
