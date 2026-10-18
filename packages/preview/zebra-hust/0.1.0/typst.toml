@@ -1,0 +1,17 @@
+[package]
+name = "zebra-hust"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Zebraine <@Zebraine>"]
+license = "MIT"
+description = "Course reports and undergraduate CS theses for HUST."
+repository = "https://github.com/Zebraine/zebra-hust-template"
+keywords = ["HUST", "华中科技大学", "Huazhong University of Science and Technology"]
+categories = ["report", "thesis"]
+compiler = "0.15.0"
+exclude = ["/fonts/**", "/examples/**", "/output.pdf", "/main.typ", "/references.bib", "/Makefile", "/scripts/**", "/build/**", "/.git/**", "/.jj/**", "/.gitignore", "/images/go.png", "/images/image.png", "/images/HUSTGreen.eps"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
