@@ -6,7 +6,7 @@
 
 A configurable presentation theme for **Typst 0.15+** and **Touying 0.8.0**. Choose your slide geometry, colors, and branding independently, and keep the same authoring tools as your presentation changes.
 
-Ambrosia takes its name from the food of the Greek gods: one theme, many flavors. It grew out of [touying-greyc-ambrosia](https://github.com/inspiros/touying-greyc-ambrosia), an unofficial theme for the GREYC laboratory. This core is institution-neutral; GREYC's logos and legacy layout live in that small wrapper.
+Ambrosia takes its name from the food of the Greek gods: one theme, many flavors.
 
 [Start from the template on Typst Universe](https://typst.app/universe/package/touying-ambrosia), or import the package in an existing presentation.
 
@@ -138,7 +138,7 @@ The previews below render the actual package components. Each is reusable across
 | --- | --- |
 | <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/gallery/component-blocks.webp" width="420" alt="Plain, framed, poster, outlined, stripe, and tabbed blocks"> | **Blocks** — `ambrosia-block` groups content with a title. `style` selects one of six geometries, including a centered title tab; `kind` selects a semantic accent. Supports nesting, pauses, optional shadows, and watermarks. `ambrosia-shadow` can decorate custom content too. [Guide](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/utilities.md) · [Example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/utilities.typ) |
 | <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/gallery/component-annotations.webp" width="420" alt="Badges, alert emphasis, and a source note"> | **Annotations** — `alert` emphasizes a phrase; `muted` and `subtle` reduce prominence while inheriting text size; `ambrosia-badge` adds a compact status label, optionally `shadowed: true`; `ambrosia-source-note` credits a local figure or dataset without a footnote. [Guide](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/utilities.md) |
-| <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/gallery/component-citations.webp" width="420" alt="Matching native and footnote citation labels with a full reference"> | **Citations** — native `cite` / `@key`, `footcite`, and bibliography slides share compact author-year labels. Footcite places a full entry below the slide and respects animation visibility. [Guide](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/utilities.md) · [Example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/utilities.typ) |
+| <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/gallery/component-citations.webp" width="420" alt="Matching native and footnote citation labels with a full reference"> | **Citations** — native `cite` / `@key`, `footcite`, and bibliography slides share compact author-year labels. Footcite places a full entry below the slide and respects animation visibility. [Guide](https://inspiros.github.io/touying-ambrosia/v0.1.0/citations.html) · [Example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/utilities.typ) |
 | <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/gallery/component-people.webp" width="420" alt="Authors with linked symbolic affiliations and individual emails"> | **People** — structured authors, linked institutions, personal/shared emails, and configurable affiliation numbering. `ambrosia-affiliation` inserts a marker manually. [Guide](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/people.md) · [Example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/collaboration.typ) |
 | <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/gallery/component-palette-component.webp" width="420" alt="The current palette's actual color roles and hex codes"> | **Palette Showcase** — `ambrosia-palette-showcase` displays the actual colors in use, including institution accents and per-slide overrides. Select roles, columns, labels, and hex codes. [Guide](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/palettes.md) · [Example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/palettes.typ) |
 | <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/gallery/component-navigation-buttons.webp" width="420" alt="Transparent first, previous, section, outline, next, and last controls"> | **Navigation Buttons** — `ambrosia-navigation-buttons` links to logical slides, sections, and outlines. Place it manually or enable the automatic footer controls. Unavailable destinations are dimmed. [Guide](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/navigation.md) · [Example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/navigation.typ) |
@@ -170,11 +170,7 @@ Normal @knuth84. A footnote reference #footcite(<knuth84>).
 
 Footcite includes a full reference at the foot of its first logical slide and respects animation visibility. It also supports local, presentation-wide numeric, key, and custom markers. Multiple bibliographies can use explicit scopes when keys overlap.
 
-For conventional citation formatting, set `cite-marker: "native"` and `bibliography-marker: "native"`, then choose your bibliography style. Explicit `cite(..., style: "apa")` remains available. See [citation controls and limitations](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/utilities.md).
-
-Selected publication lists with highlighted author names are available as an
-[optional Pergamon recipe](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/publications.md) ([example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/publications.typ)).
-Normal Ambrosia decks have no Pergamon dependency.
+For conventional citation formatting, set `cite-marker: "native"` and `bibliography-marker: "native"`, then choose your bibliography style. Explicit `cite(..., style: "apa")` remains available. See [citation controls](https://inspiros.github.io/touying-ambrosia/v0.1.0/citations.html).
 
 ## Authors And Branding
 
@@ -243,7 +239,7 @@ Navigation can be selected independently of flavor. Existing presets retain thei
 )
 ```
 
-Header choices are `"tabs"`, `"dots"`, `"context"`, `"tree"` (a stacked current path), and `"panes"` (section/subsection selectors). `"breadcrumbs"` reuses the title slot; `"sidebar"` reserves a bounded outline column. `"segments"` puts linked section segments and progress within each section in a reserved footer row. Long outlines and segmented rails window around the current branch. Global progress, section progress, and transparent buttons remain independent. Main/appendix context and logical-slide counting are shared; animation frames do not inflate progress. See [navigation](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/navigation.md), its [editable example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/navigation.typ), and the [Beamer family comparison](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/beamer-navigation.md).
+Header choices are `"tabs"`, `"dots"`, `"context"`, `"tree"` (a stacked current path), and `"panes"` (section/subsection selectors). `"breadcrumbs"` reuses the title slot; `"sidebar"` reserves a bounded outline column. `"segments"` puts linked section segments and progress within each section in a reserved footer row. Long outlines and segmented rails window around the current branch. Global progress, section progress, and transparent buttons remain independent. Main/appendix context and logical-slide counting are shared; animation frames do not inflate progress. See [navigation](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/navigation.md), its [editable example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/navigation.typ).
 
 <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/gallery/navigation-tree.webp" width="1000" alt="Three-level tree navigation in Cambridge: talk title, section, and subsection in thin linked strips above the slide title">
 
@@ -299,13 +295,11 @@ Open an example in Tinymist or another Typst IDE and start its preview. Its `@pr
 | [title layouts](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/title-layouts.typ) | Independent cover presets, header-only logos, equal partners, and local overrides |
 | [ending layouts](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/ending-layouts.typ) | Closing messages, takeaways/contact cards, photograph covers, and local overrides |
 | [credits](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/credits.typ) | Optional package credits, static QR codes, and acknowledgement composition |
-| [publications](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/publications.typ) | Optional Pergamon lists, structured author highlighting, and journal filtering |
 | [agendas](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/agendas.typ) | Overview/divider styles, shared fitting, current-section focus, and local overrides |
 | [speaker notes](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/speaker-notes.typ) | Private pdfpc sidecars, split/notes-only output, and optional bundle export |
 | [navigation](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/navigation.typ) | Configurable header/sidebar navigation, breadcrumbs, buttons, and section progress |
 | [slide-previews](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/slide-previews.typ) | Clickable slide thumbnails, forward links, and selected animation frames |
 | [image captions](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/image-slides.typ) | Native band/corner placement, widths, margins, and light panels |
-| [Sankey recipe](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/sankey.typ) | Experimental native weighted flows, independent of the public API |
 | [roadmap](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/roadmap.typ) | Project/event timelines, custom units, fractional durations, and detail drawers |
 
 Use the scoped API (`ambrosia.block`, `ambrosia.badge`, `ambrosia.navigation-buttons`, etc.) when combining packages. See the complete [public API](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/api.md).
