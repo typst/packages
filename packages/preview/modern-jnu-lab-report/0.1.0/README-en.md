@@ -5,9 +5,9 @@
 ## Quick Start
 
 ```typst
-#import "lib.typ": jnu-report
+#import "@preview/modern-jnu-lab-report:0.1.0": jnu-report
 
-#show: jnu-report.with(
+show: jnu-report.with(
   course: "模拟电子技术实验",
   lab-name: "晶体管共射极单管放大器",
   instructor: "李四",

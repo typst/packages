@@ -5,7 +5,7 @@
 ## 快速开始
 
 ```typst
-#import "lib.typ": jnu-report
+#import "@preview/modern-jnu-lab-report:0.1.0": jnu-report
 
 #show: jnu-report.with(
   course: "模拟电子技术实验",
