@@ -1,6 +1,6 @@
 # Touying GREYC Ambrosia
 
-[![Typst Universe](https://img.shields.io/badge/Universe-0.2.0-239DAE?logo=typst)](https://typst.app/universe/package/touying-greyc-ambrosia) [![Checks](https://github.com/inspiros/touying-greyc-ambrosia/actions/workflows/checks.yml/badge.svg?branch=master)](https://github.com/inspiros/touying-greyc-ambrosia/actions/workflows/checks.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Typst Universe](https://img.shields.io/badge/Universe-0.2.0-239DAE?logo=typst)](https://typst.app/universe/package/touying-greyc-ambrosia) [![Continuous integration status for Touying GREYC Ambrosia tests](https://github.com/inspiros/touying-greyc-ambrosia/actions/workflows/checks.yml/badge.svg?branch=master)](https://github.com/inspiros/touying-greyc-ambrosia/actions/workflows/checks.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <img src="https://raw.githubusercontent.com/inspiros/touying-greyc-ambrosia/v0.2.0/assets/thumbnail.svg" alt="Touying GREYC Ambrosia: project logo, legacy cover, team branding, and modern slide layouts" width="1000">
 

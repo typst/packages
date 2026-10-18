@@ -1,6 +1,6 @@
 # Touying Ambrosia
 
-[![Typst Universe](https://img.shields.io/badge/Universe-0.1.0-239DAE?logo=typst)](https://typst.app/universe/package/touying-ambrosia) [![Checks](https://github.com/inspiros/touying-ambrosia/actions/workflows/checks.yml/badge.svg?branch=master)](https://github.com/inspiros/touying-ambrosia/actions/workflows/checks.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Typst Universe](https://img.shields.io/badge/Universe-0.1.0-239DAE?logo=typst)](https://typst.app/universe/package/touying-ambrosia) [![Continuous integration status for Touying Ambrosia tests](https://github.com/inspiros/touying-ambrosia/actions/workflows/checks.yml/badge.svg?branch=master)](https://github.com/inspiros/touying-ambrosia/actions/workflows/checks.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <img src="https://raw.githubusercontent.com/inspiros/touying-ambrosia/v0.1.0/assets/thumbnail.svg" alt="Touying Ambrosia: project logo beside light and dark slides with different layouts, palettes, and navigators" width="1000">
 
