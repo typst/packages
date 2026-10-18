@@ -2,15 +2,6 @@
 
 # JiNan University lab typst template
 
-## Style
-
-![cover](res/cover.png)
-
-
-![appendix](res/appendix.png)
-
-[pdf version](./main.pdf)
-
 ## Quick Start
 
 ```typst

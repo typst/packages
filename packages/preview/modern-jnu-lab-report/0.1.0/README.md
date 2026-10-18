@@ -2,14 +2,6 @@
 
 # 暨南大学实验报告 Typst 模板
 
-## 样式参考
-
-![cover](res/cover.png)
-
-
-![appendix](res/appendix.png)
-
-[pdf版本](./main.pdf)
 ## 快速开始
 
 ```typst
