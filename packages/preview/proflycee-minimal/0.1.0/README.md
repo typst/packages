@@ -1,5 +1,14 @@
 # proflycee-minimal
 
+A few commands from Cédric Pierquet's LaTeX package
+[ProfLycee](https://ctan.org/pkg/proflycee), ported to Typst for French
+high-school maths: trigonometric circle, approximate equation solving and
+recursive sequences with drawn NumWorks calculator screens, arithmetic
+(Euclid's algorithm with Bézout coefficients, modular reduction, base
+conversion, Euclidean division, divisors, prime factorisation) and probability
+(usual distributions, trees, density sketches). The commands, their keys and
+this README are in French.
+
 Quelques commandes du package LaTeX
 [ProfLycee](https://ctan.org/pkg/proflycee) de **Cédric Pierquet**, portées en
 Typst pour les cours de mathématiques du lycée : cercle trigonométrique,
@@ -14,14 +23,6 @@ des lois normale et exponentielle).
 > de façon incompatible entre deux versions `0.x`. Une documentation complète
 > suivra ; les clés de chaque commande sont décrites en tête de son fichier
 > source.
-
-*A few commands from Cédric Pierquet's LaTeX package ProfLycee, ported to Typst
-for French high-school maths (in French): trigonometric circle, approximate
-equation solving and recursive sequences with drawn NumWorks calculator
-screens, arithmetic (Euclid's algorithm with Bézout coefficients, modular
-reduction, base conversion, Euclidean division, divisors, prime
-factorisation) and probability (usual distributions, trees, density
-sketches).*
 
 ## Démarrage rapide
 
@@ -49,6 +50,11 @@ directement.
 
 ```typ
 #cercle-trigo(rayon: 2.5, equation-sin: true, sin: -30, aff-valeurs: false)
+
+// clés absentes de ProfLycee : enroulement de la droite réelle, angle orienté…
+// (exemples : tests/beta/21-cercle-trigo-ajouts.typ)
+#cercle-trigo(rayon: 1, aff-remarquables: false, aff-sens: true,
+  aff-axe-reel: true, enroulements: ((x: 2, nom: $M(2)$),))
 
 #let s = resolution-approchee(x => calc.pow(x, 3) - 2 * x * x - x - 1, k: 2, intervalle: (0, 10))
 $x_0 approx #s.defaut$ par défaut, $x_0 approx #s.exces$ par excès.

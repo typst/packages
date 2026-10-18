@@ -73,7 +73,9 @@
         (above: "dessus", below: "dessous").at(p.at(1), default: p.at(1))
       }
       let angle = if incline-probas { calc.atan2(x1 - x0, y1 - y0) } else { 0deg }
-      let texte = text(fill: couleur-probas, police-probas(p.first()))
+      // boîte ajustée à l'encre (et non à la hauteur des capitales) : un
+      // overline ou des parenthèses agrandies ne touchent plus la branche
+      let texte = text(fill: couleur-probas, top-edge: "bounds", bottom-edge: "bounds", police-probas(p.first()))
       let milieu = ((x0 + x1) / 2, (y0 + y1) / 2)
       if position == "dessus" {
         content(milieu, texte, angle: angle, anchor: "south", padding: 0.08)

@@ -12,6 +12,58 @@
 //                                     propre #canvas({ ... }) pour compléter
 //                                     la figure (comme le \CercleTrigo dans
 //                                     un tikzpicture).
+//
+// Clés de ProfLycee : rayon, epaisseur, marge, taille-valeurs, taille-angles,
+// couleur-fond, decal, moins-pi, aff-angles, aff-traits, valeurs-tan,
+// aff-valeurs, equation-cos, equation-sin, cos, sin, aff-traits-eq,
+// couleur-sol, point, nom-point, nom-angle.
+//
+// Clés absentes de ProfLycee (par défaut : rendu de \CercleTrigo inchangé).
+//
+// Angles : partout un nombre de degrés (45) ou un angle Typst (45deg,
+// calc.pi / 4 * 1rad). Seule exception, l'abscisse x d'un enroulement, qui
+// est un réel (une longueur sur la droite réelle).
+//
+//   Ce qui est affiché (booléens)
+//   aff-remarquables: true  false : ni valeurs, ni angles, ni traits de
+//                           ProfLycee (le cercle et les axes seuls)
+//   aff-points: auto        points des angles remarquables (auto : avec les
+//                           angles et les traits ; true : même sans les
+//                           angles, pour un gabarit vierge)
+//   aff-axes: true          axes (false : cercle seul)
+//   aff-origine: false      nom O de l'origine
+//   aff-graduations: false  graduations ±1 sur les axes
+//   aff-vecteurs: false     vecteurs i et j (les axes perdent leur flèche)
+//   aff-sens: false         flèche rouge « + » du sens direct
+//   aff-axe-reel: false     droite réelle tangente en I(1 ; 0)
+//
+//   Apparence
+//   couleur-cercle: black   couleur du cercle
+//   taille-noms: 9pt        taille des noms des éléments ajoutés ci-dessous
+//
+//   Éléments ajoutés : listes de dictionnaires, champs communs angle / de /
+//   a (angles), nom, couleur, epaisseur, fleche. Les noms sont placés à
+//   l'extérieur du cercle, jamais à cheval sur un axe. Un champ inconnu est
+//   une erreur.
+//   points: ()              (angle, nom, couleur: black, ancre: auto)
+//   rayons: ()              segment ou vecteur de O au cercle :
+//                           (angle, nom: none, couleur: black,
+//                           epaisseur: 1pt, fleche: false, etiquette: none,
+//                           copie: none, nom-copie: none) ; etiquette : au
+//                           milieu (une longueur…) ; copie : origine (x, y),
+//                           en rayons, d'un représentant du même vecteur
+//   arcs: ()                arc du cercle : (de, a, nom: none, couleur: red,
+//                           epaisseur: 2pt, fleche: false)
+//   angles: ()              angle au centre : (de, a, nom: none,
+//                           couleur: purple, rayon: 0.4, fond: none) ;
+//                           rayon en rayons du cercle, fond : couleur du
+//                           secteur
+//   enroulements: ()        réel x enroulé sur le cercle : (x, nom: none,
+//                           couleur: rgb("#228B22"), segment: true,
+//                           arc: true) : segment de I à M(1 ; x), arc de I
+//                           à N (sur un tour), spirale de M vers N
+//   intervalles: ()         segment de la droite réelle : (de, a,
+//                           couleur: red, epaisseur: 2pt) ; de et a réels
 #import "../deps.typ": cetz
 
 // Angles remarquables (en degrés) avec leur étiquette dans ]-π ; π] ...
@@ -50,6 +102,40 @@
   (330, $(11pi)/6$),
 )
 
+// Ancre d'un nom placé à l'extérieur du cercle, dans la direction de l'angle
+// a (en degrés), mais jamais à cheval sur un axe : au-dessus de l'axe des
+// abscisses, à côté de l'axe des ordonnées.
+#let _ancre-ext(a) = {
+  let (c, s) = (calc.cos(a * 1deg), calc.sin(a * 1deg))
+  let v = if s < -0.38 { "north" } else { "south" }
+  let h = if c < -0.01 { "east" } else { "west" }
+  v + "-" + h
+}
+
+// Arc de cercle de centre O en ligne brisée, de a0 à a1 (en degrés, même
+// plus d'un tour), pour les arcs, secteurs et flèches.
+#let _arc(a0, a1, r, n: 40) = range(n + 1).map(i => {
+  let t = (a0 + (a1 - a0) * i / n) * 1deg
+  (r * calc.cos(t), r * calc.sin(t))
+})
+
+// Angle en degrés (nombre), qu'on le donne en degrés ou en angle Typst.
+#let _deg(a) = if type(a) == angle { a.deg() } else { a }
+
+// Complète les dictionnaires d'une liste d'éléments par les valeurs par
+// défaut ; un champ inconnu ou obligatoire manquant est une erreur.
+#let _elements(liste, quoi, defauts, obligatoires) = liste.map(e => {
+  assert(type(e) == dictionary, message: "cercle-trigo : " + quoi + " attend des dictionnaires, par exemple (" + obligatoires.map(c => c + ": …").join(", ") + ")")
+  let permis = obligatoires + defauts.keys()
+  for c in e.keys() {
+    assert(c in permis, message: "cercle-trigo : champ « " + c + " » inconnu dans " + quoi + " (champs : " + permis.join(", ") + ")")
+  }
+  for c in obligatoires {
+    assert(c in e, message: "cercle-trigo : champ « " + c + " » manquant dans " + quoi)
+  }
+  defauts + e
+})
+
 #let cercle-trigo-dessin(
   rayon: 3,
   epaisseur: 1pt,
@@ -72,8 +158,37 @@
   point: none,
   nom-point: $M$,
   nom-angle: $theta$,
+  aff-remarquables: true,
+  aff-points: auto,
+  aff-axes: true,
+  aff-origine: false,
+  aff-graduations: false,
+  aff-vecteurs: false,
+  aff-sens: false,
+  aff-axe-reel: false,
+  couleur-cercle: black,
+  taille-noms: 9pt,
+  points: (),
+  rayons: (),
+  arcs: (),
+  angles: (),
+  enroulements: (),
+  intervalles: (),
 ) = {
   import cetz.draw: *
+
+  // un seul interrupteur pour les valeurs, angles et traits de ProfLycee
+  let (aff-valeurs, aff-angles, aff-traits) = if aff-remarquables {
+    (aff-valeurs, aff-angles, aff-traits)
+  } else { (false, false, false) }
+  // angles en degrés, donnés en nombre ou en angle Typst
+  let (point, cos, sin) = (if point == none { none } else { _deg(point) }, _deg(cos), _deg(sin))
+  let points = _elements(points, "points", (couleur: black, ancre: auto), ("angle", "nom"))
+  let rayons = _elements(rayons, "rayons", (nom: none, couleur: black, epaisseur: epaisseur, fleche: false, etiquette: none, copie: none, nom-copie: none), ("angle",))
+  let arcs = _elements(arcs, "arcs", (nom: none, couleur: red, epaisseur: 2pt, fleche: false), ("de", "a"))
+  let intervalles = _elements(intervalles, "intervalles", (couleur: red, epaisseur: 2pt), ("de", "a"))
+  let angles = _elements(angles, "angles", (nom: none, couleur: purple, rayon: 0.4, fond: none), ("de", "a"))
+  let enroulements = _elements(enroulements, "enroulements", (nom: none, couleur: rgb("#228B22"), segment: true, arc: true), ("x",))
 
   let R = rayon
   let d = decal / 1cm // décalage converti en unités du canvas (cm)
@@ -86,6 +201,9 @@
   )
   let val(corps) = etiquette(taille-valeurs, corps)
   let ang(corps) = etiquette(taille-angles, corps)
+  // nom d'un élément ajouté, et point marqué (même taille partout)
+  let nom(corps, couleur) = text(size: taille-noms, fill: couleur, corps)
+  let marque(p, couleur: black) = circle(p, radius: 0.05, fill: couleur, stroke: none)
 
   // Valeurs remarquables (cos = sin pour les angles de 30°, 45°, 60°)
   let remarquables = (
@@ -126,19 +244,63 @@
 
   // --- Axes et cercle ------------------------------------------------
   let ymax = calc.max(R, h-tan) + marge
-  line(
-    (-R - marge, 0),
-    (R + marge + 0.15, 0),
-    stroke: black + epaisseur,
-    mark: (end: "stealth", fill: black),
-  )
-  line(
-    (0, -ymax),
-    (0, ymax + 0.15),
-    stroke: black + epaisseur,
-    mark: (end: "stealth", fill: black),
-  )
-  circle((0, 0), radius: R, stroke: black + epaisseur)
+  // avec les vecteurs i et j, les axes n'ont pas de flèche (une seule
+  // orientation affichée)
+  let (fleche, bout) = if aff-vecteurs { (none, 0) } else { ((end: "stealth", fill: black), 0.15) }
+  if aff-axes {
+    line(
+      (-R - marge, 0),
+      (R + marge + bout, 0),
+      stroke: black + epaisseur,
+      mark: fleche,
+    )
+    line(
+      (0, -ymax),
+      (0, ymax + bout),
+      stroke: black + epaisseur,
+      mark: fleche,
+    )
+  }
+  circle((0, 0), radius: R, stroke: couleur-cercle + epaisseur)
+
+  // --- Repère : O, graduations ±1, vecteurs i et j (hors ProfLycee) ----
+  if aff-origine and not aff-valeurs {
+    content((0, 0), val($O$), anchor: "north-east", padding: 0.04)
+  }
+  if aff-graduations {
+    let g = 0.06
+    for s in (1, -1) {
+      line((s * R, -g), (s * R, g), stroke: black + epaisseur)
+      line((-g, s * R), (g, s * R), stroke: black + epaisseur)
+    }
+    // sous l'axe des abscisses, à gauche de l'axe des ordonnées : les noms
+    // des points (à l'extérieur du cercle, dans leur direction) restent libres
+    content((R, 0), val($1$), anchor: "north", padding: 0.06)
+    content((-R, 0), val($-1$), anchor: "north", padding: 0.06)
+    content((0, R), val($1$), anchor: "east", padding: 0.06)
+    content((0, -R), val($-1$), anchor: "east", padding: 0.06)
+  }
+  if aff-vecteurs {
+    let fleche = (end: "stealth", fill: black)
+    line((0, 0), (R, 0), stroke: black + 1.5 * epaisseur, mark: fleche)
+    line((0, 0), (0, R), stroke: black + 1.5 * epaisseur, mark: fleche)
+    content((R / 2, 0), val($arrow(i)$), anchor: "north", padding: 0.06)
+    content((0, R / 2), val($arrow(j)$), anchor: "east", padding: 0.06)
+  }
+
+  // --- Sens direct (hors ProfLycee) ------------------------------------
+  if aff-sens {
+    let rs = 1.3 * R
+    arc(
+      (rs * calc.cos(20deg), rs * calc.sin(20deg)),
+      start: 20deg,
+      stop: 70deg,
+      radius: rs,
+      stroke: red + epaisseur,
+      mark: (end: "stealth", fill: red),
+    )
+    content((rs * calc.cos(45deg), rs * calc.sin(45deg)), text(fill: red, size: taille-angles, $+$), anchor: "south-west", padding: 0.06)
+  }
 
   // --- Valeurs remarquables -----------------------------------------
   if aff-valeurs {
@@ -155,6 +317,7 @@
   }
 
   // --- Angles ---------------------------------------------------------
+  let aff-pts = if aff-points == auto { aff-angles and aff-traits } else { aff-points }
   if aff-angles {
     let liste = if moins-pi { _angles-moins-pi } else { _angles-zero-deux-pi }
     for (a, lab) in liste {
@@ -169,7 +332,7 @@
       } else {
         content(p, ang(lab))
       }
-      if aff-traits { circle(pt(a), radius: 0.03, fill: black, stroke: none) }
+      if aff-pts { circle(pt(a), radius: 0.03, fill: black, stroke: none) }
     }
     // angles sur l'axe horizontal : deux étiquettes, de part et d'autre de l'axe
     let (droite-haut, droite-bas, gauche-haut, gauche-bas) = if moins-pi {
@@ -180,6 +343,8 @@
     if droite-bas != none { content((xd, -0.05), ang(droite-bas), anchor: "north-west") }
     content((-xd, 0.05), ang(gauche-haut), anchor: "south-east")
     if gauche-bas != none { content((-xd, -0.05), ang(gauche-bas), anchor: "north-east") }
+  } else if aff-pts {
+    for (a, _) in _angles-moins-pi { circle(pt(a), radius: 0.03, fill: black, stroke: none) }
   }
 
   // --- Équation cos(x) = cos(α) ------------------------------------
@@ -246,6 +411,92 @@
       anchor: (if s >= 0 { "south" } else { "north" }) + "-" + (if c >= 0 { "west" } else { "east" }),
       padding: 0.08,
     )
+  }
+
+  // --- Angles au centre, arcs, rayons (hors ProfLycee) ----------------
+  for e in angles {
+    let (de, a) = (_deg(e.de), _deg(e.a))
+    let r = e.rayon * R
+    if e.fond != none {
+      line((0, 0), .._arc(de, a, r), close: true, fill: e.fond, stroke: none)
+    }
+    line(.._arc(de, a, r), stroke: e.couleur + 0.7pt, mark: (end: "stealth", fill: e.couleur))
+    if e.nom != none {
+      let m = (de + a) / 2
+      content(((r + 0.1) * calc.cos(m * 1deg), (r + 0.1) * calc.sin(m * 1deg)), nom(e.nom, e.couleur), anchor: _ancre-ext(m))
+    }
+  }
+  for e in arcs {
+    let (de, a) = (_deg(e.de), _deg(e.a))
+    let fl = if e.fleche { (end: "stealth", fill: e.couleur) } else { none }
+    line(.._arc(de, a, R), stroke: e.couleur + e.epaisseur, mark: fl)
+    if e.nom != none { content(pt((de + a) / 2), nom(e.nom, e.couleur), anchor: _ancre-ext((de + a) / 2), padding: 0.1) }
+  }
+  for e in rayons {
+    let a = _deg(e.angle)
+    let fl = if e.fleche { (end: "stealth", fill: e.couleur) } else { none }
+    line((0, 0), pt(a), stroke: e.couleur + e.epaisseur, mark: fl)
+    if e.nom != none {
+      content(pt(a), nom(e.nom, e.couleur), anchor: _ancre-ext(a), padding: 0.08)
+    }
+    // étiquette au milieu, du côté horaire du rayon (sous un rayon horizontal)
+    if e.etiquette != none {
+      content(pt(a).map(c => c / 2), nom(e.etiquette, e.couleur), anchor: _ancre-ext(a - 90), padding: 0.06)
+    }
+    // représentant du même vecteur, d'origine donnée (en rayons)
+    if e.copie != none {
+      let o = e.copie.map(c => c * R)
+      let b = (o.at(0) + pt(a).at(0), o.at(1) + pt(a).at(1))
+      line(o, b, stroke: e.couleur + e.epaisseur, mark: (end: "stealth", fill: e.couleur))
+      if e.nom-copie != none {
+        // nom à gauche du vecteur (côté direct), décalé perpendiculairement
+        let n = calc.cos((a + 90) * 1deg) * 0.25
+        let m = calc.sin((a + 90) * 1deg) * 0.25
+        content(((o.at(0) + b.at(0)) / 2 + n, (o.at(1) + b.at(1)) / 2 + m), nom(e.nom-copie, e.couleur))
+      }
+    }
+  }
+
+  // --- Enroulement de la droite réelle (hors ProfLycee) ----------------
+  if aff-axe-reel {
+    let hauts = enroulements.map(e => e.x * R)
+    let (bas, haut) = (calc.min(-0.6 * R, ..hauts) - 0.1, calc.max(1.2 * R, ..hauts) + 0.3 * R)
+    line((R, bas), (R, haut), stroke: black + 0.5 * epaisseur, mark: (end: "stealth", fill: black))
+    content((R, haut), val[axe réel], anchor: "west", padding: 0.1)
+    marque((R, 0))
+    content((R, 0), val($I$), anchor: "north-west", padding: 0.06)
+  }
+  for e in enroulements {
+    let (x, coul) = (e.x, e.couleur)
+    let deg = x * 180 / calc.pi
+    if e.segment { line((R, 0), (R, x * R), stroke: coul + 1.3pt) }
+    if e.arc and calc.rem(deg, 360) != 0 { line(.._arc(0, calc.rem(deg, 360), R), stroke: coul + 1.3pt) }
+    // spirale de M(1 ; x) vers N : rayon et angle varient ensemble
+    let (rm, am) = (R * calc.sqrt(1 + x * x), calc.atan2(1, x) / 1deg)
+    line(
+      ..range(61).map(i => {
+        let t = i / 60
+        let (r, a) = ((1 - t) * rm + t * R, ((1 - t) * am + t * deg) * 1deg)
+        (r * calc.cos(a), r * calc.sin(a))
+      }),
+      stroke: (paint: coul, dash: "densely-dashed", thickness: 0.6pt),
+    )
+    marque((R, x * R), couleur: coul)
+    // nom à droite de la droite réelle, sans la chevaucher
+    if e.nom != none { content((R, x * R), nom(e.nom, coul), anchor: "west", padding: 0.08) }
+    marque(pt(deg))
+  }
+
+  for e in intervalles {
+    line((R, e.de * R), (R, e.a * R), stroke: e.couleur + e.epaisseur)
+  }
+
+  // --- Points nommés (hors ProfLycee) ----------------------------------
+  for e in points {
+    let a = _deg(e.angle)
+    marque(pt(a), couleur: e.couleur)
+    let ancre = if e.ancre == auto { _ancre-ext(a) } else { e.ancre }
+    content(pt(a), nom(e.nom, e.couleur), anchor: ancre, padding: 0.08)
   }
 }
 
