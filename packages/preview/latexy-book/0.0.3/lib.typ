@@ -568,7 +568,7 @@ Changelog:
       math.equation(
         block: true,
         numbering: (..nums) => context {
-          equation-numbering-string(here(), nums: nums)
+          "(" + equation-numbering-string(here(), nums: nums) + ")"
         },
       )[
         #it.body
