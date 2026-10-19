@@ -14,4 +14,4 @@ exclude = ["CONTRIBUTING.md", "AGENTS.md", "CLAUDE.md", ".git", ".github", ".age
 [template]
 path = "template"
 entrypoint = "template.typ"
-thumbnail = "assets/template-thumbnail.png"
+thumbnail = "assets/template-thumbnail.webp"

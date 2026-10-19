@@ -3,7 +3,7 @@
 
 // Edit these values in your IDE. No command-line inputs are required.
 // project-theme adds only Ambrosia's own logo; ambrosia-theme starts unbranded.
-#let flavor = "minimal" // simple | cambridge | darmstadt | dewdrop | stargazer
+#let flavor = "minimal" // simple | cambridge | darmstadt | dewdrop | stargazer | portico
 #let palette = "ocean" // any built-in palette or ambrosia-palette(...) descriptor
 #show: project-theme.with(
   flavor: flavor, palette: palette,

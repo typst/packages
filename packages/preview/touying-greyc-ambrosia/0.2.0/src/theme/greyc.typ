@@ -93,7 +93,7 @@
   datetime-format: "[day]/[month]/[year]",
   ..args,
   body,
-) = context {
+) = {
   assert(type(team-accent) == bool, message: "team-accent must be true or false.")
   let definition = get-flavor(flavor)
   let team = branding.normalize-team(team)
@@ -211,9 +211,10 @@
       credit-project: (
         name: "touying-greyc-ambrosia",
         url: "https://github.com/inspiros/touying-greyc-ambrosia",
-        logo: self => image(if palettes.prefer-light(self.store.logo-background) {
-          bytes(assets.colorize-svg(assets.asset-paths.theme-logo, source: rgb("6a1761"), target: colors.logo-light))
-        } else { assets.read-asset(assets.asset-paths.theme-logo) }),
+        // The dark-surface artwork lightens every hue, not only the purple.
+        logo: self => image(assets.read-asset(if palettes.prefer-light(self.store.logo-background) {
+          assets.asset-paths.theme-logo-dark
+        } else { assets.asset-paths.theme-logo })),
         qr: image(assets.read-asset(assets.asset-paths.credit-qr)),
         based-on: (name: "Touying Ambrosia", url: "https://github.com/inspiros/touying-ambrosia"),
       ),

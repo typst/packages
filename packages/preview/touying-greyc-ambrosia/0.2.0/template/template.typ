@@ -4,7 +4,7 @@
 #let flavor = "legacy"
 #let palette = "greyc-light"
 #show: greyc-theme.with(
-  // Geometry: legacy | simple | cambridge | darmstadt | dewdrop | stargazer | minimal
+  // Geometry: legacy | simple | cambridge | darmstadt | dewdrop | stargazer | minimal | portico
   flavor: flavor,
   // Lab presets: greyc-light | greyc-ivory | greyc-nocturne | greyc-charcoal
   palette: palette,

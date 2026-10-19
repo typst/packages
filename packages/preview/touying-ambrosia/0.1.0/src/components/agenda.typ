@@ -44,8 +44,15 @@
   } else { [] }
   let slide-number = hd.slide.first()
   let last-main = utils.last-slide-counter.final().first()
-  let page-number = if slide-number > last-main { std.numbering("i", slide-number - last-main) } else { str(slide-number) }
+  // Appendix entries match the footer's appendix-numbering, including none.
+  // Like the footer, a numbering function also receives the appendix total.
+  let pattern = self.store.at("appendix-numbering", default: "i")
+  let page-number = if slide-number <= last-main { str(slide-number) }
+    else if type(pattern) == function and self.store.at("appendix-total", default: false) {
+      std.numbering(pattern, slide-number - last-main, utils.slide-counter.final().first() - last-main)
+    } else if pattern != none { std.numbering(pattern, slide-number - last-main) }
   let title = [#metadata((target: hd.page, slide: hd.slide.first(), level: hd.level))<ambrosia-agenda-entry>#prefix#hd.body]
+  if page-number == none { return link(hd.loc, title) }
   let number = text(size: 0.7em, page-number)
   if fill == none {
     link(hd.loc, grid(columns: (1fr, auto), column-gutter: 0.7em, title, number))

@@ -36,19 +36,15 @@
     layout(size => {
       let ml
       let mt
-      let mb
       if type(page.margin) == dictionary and "top" in page.margin and "left" in page.margin {
         ml = page.margin.left
         mt = page.margin.top
-        mb = page.margin.bottom
       } else if page.margin == auto {
         ml = (page.width - size.width) / 2
         mt = (page.height - size.height) / 2
-        mb = mt
       } else {
         ml = page.margin
         mt = page.margin
-        mb = page.margin
       }
       // cover
       place(top + left, dx: -ml, dy: -mt, float: false, block(width: page.width, height: page.height)[

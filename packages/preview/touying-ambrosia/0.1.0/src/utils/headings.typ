@@ -285,7 +285,7 @@
         let ctn = none
         // similar to display-current-heading
         if style == none {
-          current-heading
+          ctn = current-heading
         } else if style == auto {
           let current-level = current-heading.level
           if current-level == 1 {
@@ -293,7 +293,7 @@
           } else if current-level == 2 {
             ctn = text(.835em, current-heading)
           } else {
-            current-heading
+            ctn = current-heading
           }
         } else {
           ctn = style(..setting-args, current-heading)
@@ -301,7 +301,7 @@
 
         blocks.push(link(current-heading.location(), ctn))
       }
-      blocks.join(h(spacing))
+      if spacing == none { blocks.join() } else { blocks.join(h(spacing)) }
     }
   }
 )

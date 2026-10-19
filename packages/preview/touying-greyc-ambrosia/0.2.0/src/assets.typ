@@ -4,6 +4,7 @@
   credit-qr: "../assets/qr/repository.svg",
   lab-qr: "../assets/qr/qr-code-greyc-light.svg",
   theme-logo: "../assets/logos/touying-greyc-ambrosia.svg",
+  theme-logo-dark: "../assets/logos/touying-greyc-ambrosia-dark.svg",
   logo-cnrs: "../assets/logos/institutions/logo-cnrs.svg",
   logo-ensicaen: "../assets/logos/institutions/logo-ensicaen.svg",
   logo-nu: "../assets/logos/institutions/logo-nu.svg",
