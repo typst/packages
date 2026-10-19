@@ -79,7 +79,7 @@
   block-style: auto,
   watermark: auto,
   watermark-logo: auto,
-  watermark-opacity: 0.055,
+  watermark-opacity: 5.5%,
   watermark-height: 50%,
   agenda-style: "list",
   agenda-text-size: 1.15em,
@@ -100,7 +100,7 @@
   let default-logo = self => context branding.logo(team: team, lang: text.lang,
     light: palettes.prefer-light(self.store.at("logo-background", default: self.page.fill)))
   let default-logo-light = self => context branding.logo(team: team, lang: text.lang, light: true)
-  let default-logo-focus = self => context branding.logo(team: team, lang: text.lang, light: true, opacity: 0.6)
+  let default-logo-focus = self => context branding.logo(team: team, lang: text.lang, light: true, opacity: 60%)
   let default-header-logo = self => context {
     let definition = extensions.current-flavor(self)
     let style = definition.header-logo-style

@@ -39,11 +39,12 @@ A slide with *important information*.
 
 === Example Heading
 
-#ambrosia-block(title: [Example Block], fill: blue)[
+// kind selects a palette-aware meaning: accent | info | success | warning | danger | neutral
+#ambrosia-block(title: [Example Block], kind: "info")[
   Block content.
 ]
 
-#ambrosia-block(style: "framed", title: [Example Framed Block], fill: red)[
+#ambrosia-block(style: "framed", title: [Example Framed Block], kind: "warning")[
   Block content.
 ]
 

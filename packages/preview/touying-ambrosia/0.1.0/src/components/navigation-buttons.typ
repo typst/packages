@@ -26,7 +26,8 @@
 #let render-navigation-buttons(self: none, actions: _default-actions, opacity: 35%, fill: auto) = context {
   assert(type(actions) == array and actions.all(action => action in navigation-buttons-actions),
     message: "Navigator actions must be first, previous, section, outline, next, or last.")
-  assert(0% <= opacity and opacity <= 100%, message: "Navigator opacity must be between 0% and 100%.")
+  assert(type(opacity) == ratio and 0% <= opacity and opacity <= 100%,
+    message: "Navigator opacity must be a percentage between 0% and 100%, such as 35%.")
   let slides = query(<touying-metadata>).filter(it => is-kind(it, "touying-new-slide"))
   if slides.len() == 0 or actions.len() == 0 { return }
   let current-page = here().page()

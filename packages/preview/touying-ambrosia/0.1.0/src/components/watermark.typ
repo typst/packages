@@ -9,11 +9,13 @@
     else if type(background) == color and contrast(self.colors.primary, background) < 2.5 { on-color(background) }
     else { self.colors.primary }
   let data = source(fill)
-  let opacity = if opacity == auto { self.store.at("watermark-opacity", default: 0.055) } else { opacity }
+  let opacity = if opacity == auto { self.store.at("watermark-opacity", default: 5.5%) } else { opacity }
+  assert(type(opacity) == ratio and 0% <= opacity and opacity <= 100%,
+    message: "Watermark opacity must be a percentage between 0% and 100%, such as 5.5%.")
   // Root opacity applies once to the entire SVG, including overlapping paths.
   let data = str(data).replace(regex("<svg\\b[^>]*>"), match => {
     let root = match.text.replace(regex("\\sopacity\\s*=\\s*[\"'][^\"']*[\"']"), "")
-    root.replace(">", " opacity=\"" + str(opacity) + "\">")
+    root.replace(">", " opacity=\"" + str(opacity / 100%) + "\">")
   })
   image(bytes(data), height: height)
 }

@@ -44,9 +44,12 @@
 }
 
 
-#let transparentize-svg(data, opacity: 1) = {
+/// Apply a percentage opacity, such as 60%, to every fill and stroke.
+#let transparentize-svg(data, opacity: 100%) = {
+  assert(type(opacity) == ratio and 0% <= opacity and opacity <= 100%,
+    message: "SVG opacity must be a percentage between 0% and 100%, such as 60%.")
   data = _svg-text(data)
-  let op-str = str(opacity)
+  let op-str = str(opacity / 100%)
   data = data.replace(
     regex("fill-opacity=\"[^\"]*\""),
     "fill-opacity=\"" + op-str + "\"",

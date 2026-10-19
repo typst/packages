@@ -82,7 +82,7 @@
       block(width: 100%, breakable: false, fill: fill, radius: radius, inset: inset, stroke: stroke, body)
     } else {
       let mark = watermark-mark(self, if fill == none { self.page.fill } else { fill },
-        if region == "title" { 1.8em } else { 4em }, opacity: 0.07)
+        if region == "title" { 1.8em } else { 4em }, opacity: 7%)
       let dimensions = measure(mark)
       block(width: 100%, breakable: false, fill: fill, radius: radius, stroke: stroke, inset: inset, clip: true, {
         place(bottom + right, dx: dimensions.width * 25%, dy: dimensions.height * 20%, mark)
@@ -117,7 +117,7 @@
       let tab = box(fill: accent, radius: radius, stroke: 0.04em + accent,
         inset: (x: 0.8em, y: 0.3em), clip: true, {
           if watermark == "title" and self.store.at("watermark-logo", default: none) != none {
-            place(bottom + right, watermark-mark(self, accent, 1.8em, opacity: 0.07))
+            place(bottom + right, watermark-mark(self, accent, 1.8em, opacity: 7%))
           }
           header()
         })

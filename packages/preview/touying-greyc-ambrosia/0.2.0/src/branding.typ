@@ -41,9 +41,9 @@
   if light { assets.colorize-svg(data, source: colors.logo, target: colors.logo-light) } else { data }
 }
 
-#let logo(team: none, variant: "full", lang: "en", light: false, opacity: 1, ..args) = {
+#let logo(team: none, variant: "full", lang: "en", light: false, opacity: 100%, ..args) = {
   let data = logo-data(team: team, variant: variant, lang: lang, light: light)
-  if opacity != 1 { data = assets.transparentize-svg(data, opacity: opacity) }
+  if opacity != 100% { data = assets.transparentize-svg(data, opacity: opacity) }
   image(bytes(data), ..args)
 }
 

@@ -102,7 +102,7 @@
   block-style: auto,
   watermark: auto,
   watermark-logo: none,
-  watermark-opacity: 0.055,
+  watermark-opacity: 5.5%,
   watermark-height: 50%,
   agenda-style: "list",
   agenda-text-size: 1.15em,
@@ -121,7 +121,8 @@
   assert(bibliography-marker in ("author-year", "native"), message: "Bibliography marker must be author-year or native.")
   assert(cite-marker in ("author-year", "native"), message: "Cite marker must be author-year or native.")
   assert(type(navigation-buttons) == bool, message: "Navigator must be true or false.")
-  assert(0% <= navigation-buttons-opacity and navigation-buttons-opacity <= 100%, message: "Navigator opacity must be between 0% and 100%.")
+  assert(type(navigation-buttons-opacity) == ratio and 0% <= navigation-buttons-opacity and navigation-buttons-opacity <= 100%,
+    message: "Navigator opacity must be a percentage between 0% and 100%, such as 35%.")
 
   assert(type(agenda-text-size) == length, message: "Agenda text size must be a length, such as 1.15em or 20pt.")
   assert(agenda-style in ("list", "cards", "path"), message: "Agenda style must be list, cards, or path.")
@@ -152,7 +153,8 @@
   assert(footer-logo == auto or type(footer-logo) == bool, message: "Footer logo must be true, false, or auto.")
   assert(type(footer-logo-height) == length, message: "Footer logo height must be a length, such as 1.1em.")
   assert(watermark == auto or type(watermark) == bool, message: "Theme watermark must be true, false, or auto.")
-  assert(0 <= watermark-opacity and watermark-opacity <= 1, message: "Watermark opacity must be between 0 and 1.")
+  assert(type(watermark-opacity) == ratio and 0% <= watermark-opacity and watermark-opacity <= 100%,
+    message: "Watermark opacity must be a percentage between 0% and 100%, such as 5.5%.")
   assert(0% < watermark-height and watermark-height <= 100%, message: "Watermark height must be between 0% and 100%.")
   assert(0% < outline-min-scale and outline-min-scale <= 100%, message: "Outline minimum scale must be between 0% and 100%.")
   assert(0% < footer-min-scale and footer-min-scale <= 100%, message: "Footer minimum scale must be between 0% and 100%.")
