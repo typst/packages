@@ -1,5 +1,3 @@
-[English](./README-en.md) | **简体中文** |
-
 # 暨南大学实验报告 Typst 模板
 
 ## 快速开始
