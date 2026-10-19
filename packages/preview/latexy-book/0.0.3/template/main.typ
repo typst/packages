@@ -345,7 +345,7 @@ regress y x
 
 Section @sec:figure, Chapter @sec:chapter1, Part @sec:partI. 
 
-Eq. @eq:math-1-1, Eq. @eq:math-1-2, Eq. @eq:equation-B-1, Eq. @eq:equation-B-2.
+Eq. (@eq:math-1-1), Eq. (@eq:math-1-2), Eq. (@eq:equation-B-1), Eq. (@eq:equation-B-2).
 
 Definition @def:definition-1-2, Definition @def:definition-2-2.
 
