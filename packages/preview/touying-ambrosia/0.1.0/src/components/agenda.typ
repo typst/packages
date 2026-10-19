@@ -173,6 +173,24 @@
   }
 }
 
+// Keep section introductions visually distinct from their heading list. Empty
+// bodies still carry Touying metadata needed by heading/navigation queries.
+#let _introduction(self, body, visible: false) = {
+  if not visible { return body }
+  v(0.5em)
+  block(width: 100%, breakable: false, above: 0em, below: 0em,
+    inset: (x: 0.65em, y: 0.45em),
+    fill: self.colors.surface-alt,
+    stroke: (left: 0.12em + self.colors.primary),
+    radius: (top-right: 0.2em, bottom-right: 0.2em), {
+      [#metadata(none)<ambrosia-agenda-introduction>]
+      set align(left)
+      set text(size: 0.9em, fill: self.colors.foreground)
+      set par(justify: false, leading: 0.45em, spacing: 0.45em)
+      body
+    })
+}
+
 #let _best-scale(height, available, minimum) = {
   if height(100%) <= available { return 100% }
   let low = minimum
@@ -185,9 +203,16 @@
 }
 
 /// Fitted overview. Collapse depth before showing an explicitly marked window.
-#let fitted-outline(self, style: auto, fill: auto, depth: 1, level: none, numbered: true, min-scale: auto,
+#let fitted-outline(self, style: auto, text-size: auto, fill: auto, depth: 1, level: none, numbered: true, min-scale: auto,
   start: auto, overflow: "window", selector-filter: sel => sel, body: [],
 ) = layout(bounds => context {
+  let size = if text-size == auto { self.store.agenda-text-size } else { text-size }
+  assert(type(size) == length and size.to-absolute() > 0pt,
+    message: "Agenda text size must be a positive length.")
+  let base-size = size.to-absolute()
+  // Touying includes invisible headings, counters, and metadata in every body.
+  // They must survive, but must not create an introduction panel or a spacer.
+  let has-introduction = body != none and measure(body).height > 0pt
   let fill = if fill == auto { self.store.outline-fill } else { fill }
   assert(fill == none or type(fill) in (content, str), message: "Outline fill must be content or none.")
   let minimum = if min-scale == auto { self.store.outline-min-scale } else { min-scale }
@@ -205,11 +230,11 @@
   let width = bounds.width * 86%
   let effective-depth = depth
   let choice = (selected: all, before: (), after: (), deeper: ())
-  let render(choice, scale) = block(width: width, breakable: false, text(size: text.size * scale, {
+  let render(choice, scale) = block(width: width, breakable: false, text(size: base-size * scale, {
     _omission(choice.before, self.colors.muted)
     _entries(self, choice.selected, treatment, fill: fill, base-level: base, numbered: numbered, active: active)
     _omission(choice.after + choice.deeper, self.colors.muted)
-    if body != [] and body != none { v(0.65em); body }
+    _introduction(self, body, visible: has-introduction)
   }))
   let height(choice, scale) = measure(render(choice, scale)).height
   while height(choice, minimum) > bounds.height and effective-depth > base {
@@ -246,6 +271,7 @@
   let chosen = _best-scale(scale => height(choice, scale), bounds.height, minimum)
   block(width: bounds.width, height: bounds.height, breakable: false, {
     [#metadata((kind: "outline", style: treatment, requested-style: if style == auto { self.store.agenda-style } else { style }, scale: chosen / 100%, depth: effective-depth,
+      text-size: base-size.pt(), introduction: has-introduction,
       shown: choice.selected.len(), total: all.len(), omitted: choice.before.len() + choice.after.len() + choice.deeper.len(),
       available: bounds.height.pt(), height: height(choice, chosen).pt(), columns: if treatment == "cards" and _branches(choice.selected, base).len() > 1 { 2 } else { 1 }))<ambrosia-agenda-fit>]
     place(center + horizon, render(choice, chosen))
@@ -253,9 +279,16 @@
 })
 
 /// Center the current branch, fading only immediate neighbors. Never paginate implicitly.
-#let focused-outline(self, style: auto, fill: auto, depth: 3, level: 1, numbered: true, min-scale: auto,
+#let focused-outline(self, style: auto, text-size: auto, fill: auto, depth: 3, level: 1, numbered: true, min-scale: auto,
   neighbors: 1, selector-filter: sel => sel, body: [],
 ) = layout(bounds => context {
+  let size = if text-size == auto { self.store.agenda-text-size } else { text-size }
+  assert(type(size) == length and size.to-absolute() > 0pt,
+    message: "Agenda text size must be a positive length.")
+  let base-size = size.to-absolute()
+  // Touying includes invisible headings, counters, and metadata in every body.
+  // They must survive, but must not create an introduction panel or a spacer.
+  let has-introduction = body != none and measure(body).height > 0pt
   let fill = if fill == auto { self.store.outline-fill } else { fill }
   assert(fill == none or type(fill) in (content, str), message: "Outline fill must be content or none.")
   let minimum = if min-scale == auto { self.store.outline-min-scale } else { min-scale }
@@ -276,18 +309,18 @@
     after: roots.slice(calc.min(current + 1, roots.len()), calc.min(current + 1 + neighbors, roots.len())))
   let treatment = _style(self, style, branch, level)
   let width = bounds.width * 86%
-  let scaled(scale, content) = block(width: width, breakable: false, text(size: text.size * scale, content))
+  let scaled(scale, content) = block(width: width, breakable: false, text(size: base-size * scale, content))
   let main(choice, scale) = scaled(scale, {
     _entries(self, choice.selected, treatment, fill: fill, base-level: level, numbered: numbered, focus: true, active: if root == none { none } else { root.loc })
     _omission(choice.omitted, self.colors.muted)
-    if body != [] and body != none { v(0.65em); body }
+    _introduction(self, body, visible: has-introduction)
   })
   let previous(choice, scale) = scaled(scale, _rows(self, choice.before, fill: fill, base-level: level, numbered: numbered, muted: true))
   let following(choice, scale) = scaled(scale, _rows(self, choice.after, fill: fill, base-level: level, numbered: numbered, muted: true))
   let dimensions(choice, scale) = {
     let middle = measure(main(choice, scale)).height
-    let top = if choice.before.len() > 0 { measure(previous(choice, scale)).height + text.size * scale * 0.8 } else { 0pt }
-    let bottom = if choice.after.len() > 0 { measure(following(choice, scale)).height + text.size * scale * 0.8 } else { 0pt }
+    let top = if choice.before.len() > 0 { measure(previous(choice, scale)).height + base-size * scale * 0.55 } else { 0pt }
+    let bottom = if choice.after.len() > 0 { measure(following(choice, scale)).height + base-size * scale * 0.55 } else { 0pt }
     (main: middle, before: top, after: bottom, total: middle + 2 * calc.max(top, bottom))
   }
   let height(choice, scale) = dimensions(choice, scale).total
@@ -322,12 +355,13 @@
   let y = (bounds.height - dim.main) / 2
   block(width: bounds.width, height: bounds.height, breakable: false, {
     [#metadata((kind: "section", style: treatment, requested-style: if style == auto { self.store.agenda-style } else { style }, scale: chosen / 100%, depth: effective-depth,
+      text-size: base-size.pt(), introduction: has-introduction, main-height: dim.main.pt(),
       shown: choice.selected.len(), total: branch.len(), omitted: choice.omitted.len(),
       neighbors: choice.before.len() + choice.after.len(), current: if root == none { none } else { root.body },
       available: bounds.height.pt(), height: dim.total.pt(), columns: 1,
       focus-center: (y + dim.main / 2).pt()))<ambrosia-agenda-fit>]
     if choice.before.len() > 0 { place(top + center, dy: y - dim.before, previous(choice, chosen)) }
     place(top + center, dy: y, main(choice, chosen))
-    if choice.after.len() > 0 { place(top + center, dy: y + dim.main + text.size * chosen * 0.8, following(choice, chosen)) }
+    if choice.after.len() > 0 { place(top + center, dy: y + dim.main + base-size * chosen * 0.55, following(choice, chosen)) }
   })
 })

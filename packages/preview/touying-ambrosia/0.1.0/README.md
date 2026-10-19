@@ -224,6 +224,9 @@ Use `agenda-style: "cards"` or `"path"` on the theme; `style:` on
 the compact default. Cards suit short talks and fall back to the list for a long
 agenda. All styles preserve links, logical slide numbers, measured fitting,
 section introductions, and main/appendix scope.
+Agenda text defaults to `1.15em`; set `agenda-text-size` on the theme or
+`text-size` on one helper. Chapter summaries use a quiet accent panel; chapters
+without summary content add no panel or extra summary gap.
 Use `outline-fill: repeat[.]` on the theme or `outline-slide(fill: repeat[.])` for dotted leaders.
 
 [Guide](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/docs/agendas.md) · [Editable Example](https://github.com/inspiros/touying-ambrosia/blob/v0.1.0/examples/agendas.typ)

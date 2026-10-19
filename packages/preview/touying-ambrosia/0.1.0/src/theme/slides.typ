@@ -94,6 +94,9 @@
   level: none,
   depth: 1,
   style: auto,
+  /// Agenda typography; auto follows the theme's agenda-text-size.
+  /// -> auto | length
+  text-size: auto,
   /// Leader content between a heading and its slide number; auto inherits outline-fill.
   /// -> auto | content | none
   fill: auto,
@@ -128,7 +131,7 @@
         std.heading(utils.call-or-display(self, title), level: 1, outlined: false, bookmarked: true)
       }
       context [#metadata(none)#get-label(self)]
-      fitted-outline(self, style: style, fill: fill, depth: depth, level: level, numbered: numbered,
+      fitted-outline(self, style: style, text-size: text-size, fill: fill, depth: depth, level: level, numbered: numbered,
         min-scale: min-scale, start: start, overflow: overflow,
         selector-filter: ambrosia-utils.appendix-filter, body: body)
     },
@@ -156,6 +159,9 @@
   level: 1,
   depth: 3,
   style: auto,
+  /// Agenda typography; auto follows the theme's agenda-text-size.
+  /// -> auto | length
+  text-size: auto,
   /// Leader content for current and neighboring agenda entries.
   /// -> auto | content | none
   fill: auto,
@@ -190,7 +196,7 @@
   touying-slide(self: self, config: config,
     setting: body => {
       context [#metadata(none)#get-label(self)]
-      focused-outline(self, style: style, fill: fill, depth: depth, level: level, numbered: numbered,
+      focused-outline(self, style: style, text-size: text-size, fill: fill, depth: depth, level: level, numbered: numbered,
         min-scale: min-scale, neighbors: neighbors,
         selector-filter: ambrosia-utils.appendix-filter, body: body)
     },

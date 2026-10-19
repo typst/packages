@@ -105,6 +105,7 @@
   watermark-opacity: 0.055,
   watermark-height: 50%,
   agenda-style: "list",
+  agenda-text-size: 1.15em,
   outline-fill: none,
   outline-min-scale: 80%,
   footer-min-scale: 80%,
@@ -122,6 +123,7 @@
   assert(type(navigation-buttons) == bool, message: "Navigator must be true or false.")
   assert(0% <= navigation-buttons-opacity and navigation-buttons-opacity <= 100%, message: "Navigator opacity must be between 0% and 100%.")
 
+  assert(type(agenda-text-size) == length, message: "Agenda text size must be a length, such as 1.15em or 20pt.")
   assert(agenda-style in ("list", "cards", "path"), message: "Agenda style must be list, cards, or path.")
   assert(outline-fill == none or type(outline-fill) in (content, str),
     message: "Outline fill must be content or none.")
@@ -315,6 +317,7 @@
       watermark-opacity: watermark-opacity,
       watermark-height: watermark-height,
       agenda-style: agenda-style,
+      agenda-text-size: agenda-text-size,
       outline-fill: outline-fill,
       outline-min-scale: outline-min-scale,
       footer-min-scale: footer-min-scale,
