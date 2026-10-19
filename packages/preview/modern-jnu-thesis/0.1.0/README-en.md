@@ -4,9 +4,7 @@
 
 This template was created with reference to **the PDF file exported from Teacher Jianrui Lü’s template.**
 
-> [!NOTE]
->
-> Unofficial template.
+**Unofficial template.**
 
 ## Installation
 
