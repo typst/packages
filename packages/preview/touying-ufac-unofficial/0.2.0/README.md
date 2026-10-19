@@ -18,8 +18,7 @@
 typst init @preview/touying-ufac-unofficial:0.2.0
 ```
 
-creates a deck from [template/main.typ](template/main.typ), the cover and one slide. The font
-*New Computer Modern Sans* must be installed (see [Dependencies](#dependencies)).
+creates a deck from [template/main.typ](template/main.typ), the cover and one slide. The font *New Computer Modern Sans* must be installed (see [Dependencies](#dependencies)).
 
 <!-- template:begin (generated from template/main.typ by scripts/readme.sh: do not edit by hand) -->
 ```typst
@@ -62,14 +61,7 @@ Text.
 | `subject-code` | footer, on the left |
 | `counter-prefix` | "Exercise 1.N" / "Example 1.N"; `none` gives "Exercise N" |
 
-Options of `ufac-theme`: `aspect-ratio` (`"16-9"`, `"4-3"`, anything Touying's `utils.page-args-from-aspect-ratio`
-accepts), `lang` (`"pt-br"`, `"en"` or `"es"`), `exercise-name`, `example-name` and `part-name` (override the localized
-names), `exercise-icon` and `example-icon` (the icon in the pill of the exercises and examples: the name of an icon,
-content or `none`; a pencil and a beaker by default), `footer-left` and `footer-right` (content or `self => ...`), `logos` (an array: the logos of the footer and
-of the cover, in order and separated by dots; each one is content, `color => ...` or `auto` for the UFAC logo, which is
-the default alone: `(auto, x)` keeps it and adds `x`, `(x,)` replaces it), `section-margin`
-(`true` keeps the page margin to the right of the content of the section slides, for images without a background;
-a length sets the distance; `false`, the default, puts it flush with the edge).
+Options of `ufac-theme`: `aspect-ratio` (`"16-9"`, `"4-3"`, anything Touying's `utils.page-args-from-aspect-ratio` accepts), `lang` (`"pt-br"`, `"en"` or `"es"`), `exercise-name`, `example-name` and `part-name` (override the localized names), `exercise-icon` and `example-icon` (the icon in the pill of the exercises and examples: the name of an icon, content or `none`; a pencil and a beaker by default), `footer-left` and `footer-right` (content or `self => ...`), `logos` (an array: the logos of the footer and of the cover, in order and separated by dots; each one is content, `color => ...` or `auto` for the UFAC logo, which is the default alone: `(auto, x)` keeps it and adds `x`, `(x,)` replaces it), `section-margin` (`true` keeps the page margin to the right of the content of the section slides, for images without a background; a length sets the distance; `false`, the default, puts it flush with the edge).
 
 ## Example
 
@@ -197,11 +189,7 @@ Questions and suggestions: `your.name@ufac.br`
 | `== Title <empty-slide>`        | Closing or transition slide: no header, the title large and centered, the content centered below it (a `---` continuation is a normal slide) |
 | `== Title <empty-slide-primary>` | The same on a page of that color: any key of `colors` (`-secondary`, `-tertiary`, `-quaternary`, `-neutral`, tones such as `-primary-dark`); on a dark color the text and the footer turn white |
 
-Functions: `#title-slide()` (`#title-slide[...]` puts content below the titles: a logo, a program), `#outline()` (the parts of the deck, numbered, with their slides), `#slide[...]`, `#empty-slide(color:, title:)[...]` (footer only; `color` paints the page, `title` gives the centered layout of `<empty-slide>`), `#exercise-slide(title:, color:, icon:)[...]`,
-`#example-slide(title:, color:, icon:)[...]`, `#ufac-logo-image(height:, color:, shield:)` (the UFAC logo in the colours of the
-theme, for a handout that goes with the slides). Touying's `#pause`, `#uncover`, `#only`, `#alternatives`, `#speaker-note`,
-`#slide(composer:)` etc. work as usual. Code blocks never split across pages; `#local(breakable: true)[...]` (the
-theme's wrapper of codly's `local`, which takes any codly option) lets a long block split, box included.
+Functions: `#title-slide()` (`#title-slide[...]` puts content below the titles: a logo, a program), `#outline()` (the parts of the deck, numbered, with their slides), `#slide[...]`, `#empty-slide(color:, title:)[...]` (footer only; `color` paints the page, `title` gives the centered layout of `<empty-slide>`), `#exercise-slide(title:, color:, icon:)[...]`, `#example-slide(title:, color:, icon:)[...]`, `#ufac-logo-image(height:, color:, shield:)` (the UFAC logo in the colours of the theme, for a handout that goes with the slides). Touying's `#pause`, `#uncover`, `#only`, `#alternatives`, `#speaker-note`, `#slide(composer:)` etc. work as usual. Code blocks never split across pages; `#local(breakable: true)[...]` (the theme's wrapper of codly's `local`, which takes any codly option) lets a long block split, box included.
 
 ### Inline formatting
 
@@ -252,14 +240,11 @@ Markdown-like short forms (inline content only, always primary):
 
 ### Colors
 
-`colors` has five families (`primary` `#0C4DA2`, `secondary` `#FFBF14`, `tertiary` `#BE1E2D`, `quaternary`
-`#09B081`, `neutral` `#808080`) × seven tones (`-darkest`, `-darker`, `-dark`, base, `-light`, `-lighter`,
-`-lightest`), e.g. `colors.primary-lighter`. The same keys are available as `self.colors.*`.
+`colors` has five families (`primary` `#0C4DA2`, `secondary` `#FFBF14`, `tertiary` `#BE1E2D`, `quaternary` `#09B081`, `neutral` `#808080`) × seven tones (`-darkest`, `-darker`, `-dark`, base, `-light`, `-lighter`, `-lightest`), e.g. `colors.primary-lighter`. The same keys are available as `self.colors.*`.
 
 ## Documentation
 
-A full set of documentation in PDF can be found in the
-[repository](https://github.com/lucaslrodri/touying-ufac-unofficial/blob/v0.2.0/docs/manual.pdf).
+A full set of documentation in PDF can be found in the [repository](https://github.com/lucaslrodri/touying-ufac-unofficial/blob/v0.2.0/docs/manual.pdf).
 
 ## Dependencies
 
@@ -271,47 +256,29 @@ A full set of documentation in PDF can be found in the
 | [linguify](https://typst.app/universe/package/linguify) | 0.5.0 | localized names |
 | *New Computer Modern Sans* | | font, installed on the system (not bundled with Typst, unlike *New Computer Modern Math*, used for the equations) |
 
-The packages are fetched automatically. The font is not: *New Computer Modern Sans* belongs to the
-[New Computer Modern](https://ctan.org/pkg/newcomputermodern) family (download the archive from CTAN; the fonts are the
-`NewCMSans10-*.otf` files of its `otf` folder). Install them on the system, or keep them in a folder and compile with
-`typst compile --font-path <folder> main.typ`. In the [Typst web app](https://typst.app/), upload the `.otf` files to
-the project: fonts inside the project are found automatically.
+The packages are fetched automatically. The font is not: *New Computer Modern Sans* belongs to the [New Computer Modern](https://ctan.org/pkg/newcomputermodern) family (download the archive from CTAN; the fonts are the `NewCMSans10-*.otf` files of its `otf` folder). Install them on the system, or keep them in a folder and compile with `typst compile --font-path <folder> main.typ`. In the [Typst web app](https://typst.app/), upload the `.otf` files to the project: fonts inside the project are found automatically.
 
 ## License
 
-The theme is licensed under the [MIT License](LICENSE). The contents of [template/](template/) are licensed under
-[MIT No Attribution](LICENSE-MIT-0) (MIT-0), so a deck created from the template can be used and shared without
-restriction, with no attribution required.
+The theme is licensed under the [MIT License](LICENSE). The contents of [template/](template/) are licensed under [MIT No Attribution](LICENSE-MIT-0) (MIT-0), so a deck created from the template can be used and shared without restriction, with no attribution required.
 
-Third-party components: the icons in [src/icons.typ](src/icons.typ) are [Octicons](https://primer.style/octicons/),
-© GitHub Inc., licensed under the MIT License.
+Third-party components: the icons in [src/icons.typ](src/icons.typ) are [Octicons](https://primer.style/octicons/), © GitHub Inc., licensed under the MIT License.
 
-The UFAC logo ([assets/ufac-logo.svg](assets/ufac-logo.svg)) is the property of the
-[Federal University of Acre](https://www.ufac.br/), and the theme is used for academic purposes. This theme is
-unofficial: it is not affiliated with or endorsed by the university.
+The UFAC logo ([assets/ufac-logo.svg](assets/ufac-logo.svg)) is the property of the [Federal University of Acre](https://www.ufac.br/), and the theme is used for academic purposes. This theme is unofficial: it is not affiliated with or endorsed by the university.
 
 ## Changelog
 
 ### 0.2.0
 
-- Closing and transition slides: a `==` heading labelled `<empty-slide>` (white page) or `<empty-slide-primary>`,
-  `<empty-slide-secondary>`, … (any color of the palette) opens a slide without header, with the title large and
-  centered and the content below it; on a dark color the text and the footer turn white. Function form:
-  `#empty-slide(color:, title:)[...]`.
-- Exercise and example pills show an icon and "Exercise 1.N — Title". The icon is a parameter:
-  `exercise-slide(icon:)`, `example-slide(icon:)`, `ufac-theme(exercise-icon:, example-icon:)` (a name, content or
-  `none`).
-- `emph-box(icon:)`: an icon before the title, centered on the capitals. Badges and pills have the same height with or
-  without an icon, and a long title wraps inside them.
-- `#title-slide[...]` puts content below the titles of the cover; `#outline()` lists the parts of the deck, with links.
-- `ufac-theme(logos:)`: several logos in the footer and on the cover; `ufac-logo-image` draws the UFAC logo in other
-  colors. `ufac-theme(section-margin:)`: distance between the content of the section slides and the page edge.
-- Code blocks can split across pages, box included, with `#local(breakable: true)[...]`.
-- Tables: code in the blue header and in cells filled with a palette tone follows the background, as in pills and boxes.
-- The manual is a single document with an example for each feature; the example deck stays in the repository and is no
-  longer shipped in the package.
+- Closing and transition slides: `<empty-slide>`, `<empty-slide-primary>`, … or `#empty-slide`.
+- Icons in the exercise and example pills and in `emph-box`.
+- Content below the cover titles (`#title-slide[...]`) and `#outline()`.
+- More than one logo (`logos`) and the margin of the section slides (`section-margin`).
+- `ufac-logo-image`: the UFAC logo in other colors.
+- Code blocks that split across pages (`#local(breakable: true)`).
+- Code in table cells follows the cell color.
+- The manual is a single document; the example deck is no longer shipped in the package.
 
 ### 0.1.0
 
-- First release on Typst Universe: theme, cover, section slides, exercise and example slides, boxes, quotes, columns,
-  icons, code blocks (codly), template and manual.
+- First release on Typst Universe: theme, cover, section slides, exercise and example slides, boxes, quotes, columns, icons, code blocks (codly), template and manual.
