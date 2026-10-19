@@ -152,7 +152,7 @@ Changelog:
     let eq-num = if nums != none { nums.at(0) } else {
       counter(math.equation).at(loc).first() + 1   // equation numbering starts from 1
     }
-    let pattern = if bp == "appendix" { "(A.1)" } else { "(1.1)" }
+    let pattern = if bp == "appendix" { "A.1" } else { "1.1" }
     numbering(pattern, chapter-counter.at(loc).first(), eq-num)
   } else { none }
 }
