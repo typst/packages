@@ -4,7 +4,7 @@
 ///
 /// - imagedata (path, bytes): JXL image `path` or data as `bytes`
 /// -> bytes
-// CREDIT: grayness https://typst.app/universe/package/grayness/
+// CREDIT: grayness https://typst.app/universe/package/grayness
 #let _check_args(
   imagedata,
 ) = {
@@ -29,11 +29,12 @@
 /// _Example:_
 /// ```example
 /// #import "@preview/jxl-loader:0.5.0": image-jxl
-/// #image-jxl(path("path/to/img.jxl"), width: 50%)
-/// #image-jxl(read("path/to/img.jxl", encoding: none))
+/// #image-jxl(path("path/to/img.jxl"), width: 50%) // as `path()`
+/// #image-jxl(read("path/to/img.jxl", encoding: none)) // or as `bytes()`
 /// ```
 ///
 /// - imagedata (bytes, path): The JPEG XL image `path` or data as `bytes`.
+/// - ..args: Arguments accepted by Typst `image` function (https://typst.app/docs/reference/visualize/image)
 #let image-jxl(imagedata, ..args) = {
   let data = _plugin.jxl(_check_args(imagedata))
 
