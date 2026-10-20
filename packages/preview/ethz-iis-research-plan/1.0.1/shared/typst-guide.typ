@@ -240,7 +240,7 @@ Packages are imported with a version-pinned line — Typst downloads them
 automatically on first use, no manual installation needed:
 
 #code[```typ
-#import "@preview/cetz:0.4.2": canvas, draw
+#import "@preview/cetz:0.5.2": canvas, draw
 ```]
 
 Browse the full package registry at #link("https://typst.app/universe").

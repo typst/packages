@@ -1,8 +1,8 @@
 #import "@preview/ethz-iis-research-plan:1.0.1": *
 #import "@preview/ethz-iis-research-plan:1.0.1": pulp-colors
 #import "@preview/acrostiche:0.7.0": acr, acrpl, init-acronyms
-#import "@preview/cetz:0.4.2"
-#import "@preview/cetz-plot:0.1.3": plot as cplot
+#import "@preview/cetz:0.5.2"
+#import "@preview/cetz-plot:0.1.4": plot as cplot
 
 // Define acronyms locally — no need to pass them to the template.
 #init-acronyms((
