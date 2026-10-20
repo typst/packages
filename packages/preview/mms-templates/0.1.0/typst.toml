@@ -1,0 +1,18 @@
+[package]
+name = "mms-templates"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jayant Godse <https://github.com/JJGOD-13>"]
+license = "MIT"
+description = "A set of technical templates for Monash Motorsport"
+exclude = [
+  ".git",
+  "assets/images/article.png",
+  "assets/images/cover-page-article.png",
+]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/images/report.png"
