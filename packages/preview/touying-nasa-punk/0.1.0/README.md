@@ -4,7 +4,7 @@ An aerospace mission-briefing theme for [Touying](https://github.com/touying-typ
 livery rails, a vector orbital cover mark, phase-tracked section slides, a flight-plan
 outline, and instrument-panel callouts. Built on Touying's Metropolis theme.
 
-![Six slides from the template: the cover sheet with livery rails and an orbital mark, a flight-plan outline, a numbered section slide, a styled table, status callout panels, and a dark focus slide](docs/preview.png)
+![Six slides from the template: the cover sheet with livery rails and an orbital mark, a flight-plan outline, a two-column slide with a hint annotation, a styled table, status callout panels, and a dark focus slide](docs/preview.png)
 
 ## Quick start
 
