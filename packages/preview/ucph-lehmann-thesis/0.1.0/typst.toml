@@ -8,7 +8,7 @@ description = "Thesis template for the University of Copenhagen."
 repository = "https://github.com/jorgenhost/ucph-lehmann-thesis"
 keywords = ["thesis", "master", "bachelor", "phd", "ucph", "copenhagen", "ku", "københavn", "university of copenhagen", "speciale"]
 categories = ["thesis"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 exclude = [
   ".github",
   "scripts",
