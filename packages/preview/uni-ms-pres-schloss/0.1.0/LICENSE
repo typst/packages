@@ -1,0 +1,50 @@
+MIT License WITH EXCEPTIONS
+
+----------------------------------------------------------------------------
+
+MIT License
+
+Copyright (c) 2026 Wölkchen
+Based on original work: Copyright (c) 2025 Jonas Danker
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+----------------------------------------------------------------------------
+EXCEPTIONS & ASSET LICENSING:
+
+1. THE CODE (MIT LICENSE)
+The permissive MIT license granted above applies to the underlying Typst 
+code structure of this project.
+
+2. BACKGROUND IMAGES (MIT LICENSE)
+The two images "Schloss_Left.jpeg" and "Schloss_Right.jpeg" located in the 
+`assets/` directory are free of university copyright. They are explicitly 
+included under the permissive MIT license granted above and may be freely 
+used, copied, and distributed.
+
+3. UNIVERSITY CORPORATE DESIGN & LOGOS (RESTRICTED)
+The layout, color palette, geometric arrangements, typography specifications, 
+and all SVG files (e.g., logos) located in the `assets/` directory constitute 
+the Corporate Design and Trademarks of the University of Münster. 
+
+These specific elements are the intellectual property of the university and 
+are strictly limited to use within the scope of studies and university 
+projects at the University of Münster. They explicitly DO NOT fall under 
+the MIT license, may not be used commercially, and may not be distributed 
+under an open-source license.

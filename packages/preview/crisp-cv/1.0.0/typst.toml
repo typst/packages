@@ -1,0 +1,16 @@
+[package]
+name = "crisp-cv"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["nn3s <https://codeberg.org/nn3s>"]
+license = "Unlicense"
+description = "Clean, concise CV with sensible defaults and easy customization."
+repository = "https://codeberg.org/nn3s/crisp-cv"
+keywords = ["cv", "resume", "curriculum vitae"]
+categories = ["cv"]
+exclude = ["doc"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

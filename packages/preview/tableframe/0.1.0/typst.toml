@@ -1,0 +1,11 @@
+[package]
+name = "tableframe"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Patrick Kidger <contact@kidger.site>"]
+license = "Apache-2.0"
+description = "A dataframe(/spreadsheet/Excel) library"
+repository = "https://github.com/patrick-kidger/tableframe"
+keywords = ["tableframe", "datatframe", "table", "tables", "column", "columns", "pandas", "polars", "excel", "spreadsheet"]
+categories = ["scripting"]
+exclude = ["src/tests.typ"]

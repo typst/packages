@@ -1,0 +1,16 @@
+[package]
+name = "pasquino"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Camilo Zuluaga <@camilo-zuluaga>"]
+license = "MIT-0"
+description = "Academic conference posters with themed gradients."
+repository = "https://github.com/camilo-zuluaga/pasquino"
+keywords = ["poster", "academic", "research", "presentation", "conference"]
+categories = ["poster", "layout"]
+exclude = ["preview.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

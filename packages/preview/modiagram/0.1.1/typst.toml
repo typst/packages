@@ -1,0 +1,12 @@
+[package]
+name        = "modiagram"
+version     = "0.1.1"
+entrypoint  = "src/lib.typ"
+authors     = ["Jonathan Di Pietro <https://github.com/jonathandip>"]
+license     = "MIT"
+description = "Draw molecular orbital and energy pathway diagrams."
+repository  = "https://github.com/Typsium/modiagram"
+keywords    = ["chemistry", "molecular-orbital", "diagram", "MO", "cetz", "energy-pathway"]
+exclude     = ["tests/", "examples/", ".github/", "images/"]
+categories  = ["visualization", "paper"]
+disciplines = ["education", "chemistry", "physics"]

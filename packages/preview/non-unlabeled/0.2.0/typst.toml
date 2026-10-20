@@ -1,0 +1,10 @@
+[package]
+name = "non-unlabeled"
+version = "0.2.0"
+entrypoint = "src/non-unlabeled.typ"
+authors = ["Luca Ravasio"]
+license = "MIT"
+description = "Don't number unlabeled objects"
+repository = "https://github.com/ravasioluca/packages"
+exclude = ["img/image.png"]
+categories = ["utility", "layout"]

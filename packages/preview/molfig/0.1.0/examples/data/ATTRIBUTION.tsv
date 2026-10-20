@@ -1,0 +1,5 @@
+file	pdb_id	format	pdb_doi	license	source	authors_or_status	article_doi
+1crn.bcif	1CRN	BinaryCIF	https://doi.org/10.2210/pdb1CRN/pdb	CC0-1.0	RCSB PDB / wwPDB	Hendrickson, W.A.; Teeter, M.M.; primary citation Teeter, M.M. (1984) Proc Natl Acad Sci U S A 81:6014-6018	https://doi.org/10.1073/pnas.81.19.6014
+1FYY.cif	1FYY	mmCIF	https://doi.org/10.2210/pdb1FYY/pdb	CC0-1.0	RCSB PDB / wwPDB	Volk, D.E.; Rice, J.S.; Luxon, B.A.; Yeh, H.J.C.; Liang, C.; Xie, G.; Sayer, J.M.; Jerina, D.M.; Gorenstein, D.G.; primary citation Biochemistry 39:14040-14053 (2000)	https://doi.org/10.1021/bi001669l
+9R1O.pdb	9R1O	PDB	https://doi.org/10.2210/pdb9R1O/pdb	CC0-1.0	RCSB PDB / wwPDB	Petrenas, R.; Ozga, K.; Chubb, J.J.; Woolfson, D.N.; literature status to be published	
+9Z4O.pdb	9Z4O	PDB	https://doi.org/10.2210/pdb9Z4O/pdb	CC0-1.0	RCSB PDB / wwPDB	Ge, Y.; de Almeida Magalhaes, T.; Wu, H.; Yadav, G.P.; Wang, Z.; Salic, A.; Jiang, J.; Huang, P.; literature status to be published	

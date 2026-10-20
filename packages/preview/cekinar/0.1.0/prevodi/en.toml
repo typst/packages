@@ -1,0 +1,61 @@
+# All pre-printed text, with the exception of the decimal comma and the store or print shop logo
+
+# Since all pre-printed on UPN QR uses the same font, it's sorted by font size here, but disregarding the font weight
+
+# Repeating text is accompanied by a corresponding comment
+
+[pet]
+
+# Appears twice on UPN QR
+# Standard's mistake describes them differently sized, for which more attention would be needed when using each
+prostor = "Space for entries of the payment service provider"
+
+["šest"]
+
+podpis = "Payer's signature (optional stamp)"
+
+[sedem]
+
+# Again, it's worth mentioning that the sorting is done by font size, not by colour-designated sections
+namen-rok = "Purpose and deadline of payment"
+
+# Appears twice on UPN QR
+znesek = "Amount"
+
+qr = "QR Code"
+polog = "Deposit"
+dvig = "Withdrawal"
+nujno = "Urgent"
+datum = "Date of payment"
+koda = "Purpose code"
+namen = "Purpose of payment"
+rok = "Payment deadline"
+
+[sedem."plačnik"]
+
+ime = "Payer's name"
+iban = "Payer's IBAN"
+referenca = "Payer's reference"
+ime-ulica-kraj = "Payer's name, street, and place" # Standard's mistake omits Oxford comma and has "place" be "city"
+
+[sedem.prejemnik]
+
+ime = "Recipient's name"
+iban = "Recipient's IBAN"
+referenca = "Recipient's reference"
+iban-referenca = "Recipient's IBAN and reference"
+ime-ulica-kraj = "Recipient's name, street, and place" # Standard's mistake omits Oxford comma
+
+[devet]
+
+# Standard's mistake suggests `10pt`, not the used `9pt`
+upn-qr-potrdilo = "UPN QR - receipt"
+
+[deset]
+
+upn-qr = "UPN QR"
+
+[enajst]
+
+# Appears twice on UPN QR
+eur = "EUR"

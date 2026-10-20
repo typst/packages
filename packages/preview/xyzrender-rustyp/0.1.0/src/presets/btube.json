@@ -1,0 +1,24 @@
+{
+  "atom_scale": 2.5,
+  "atom_stroke_width": 4,
+  "bond_width": 40,
+  "hue_shift_factor": 0.05,
+  "light_shift_factor": 0.08,
+  "saturation_shift_factor": 0.05,
+  "gradient": true,
+  "bond_color_by_element": true,
+  "bond_gradient": true,
+  "bond_gradient_strength": 0.3,
+  "bond_gap": 0.55,
+  "bond_orders": false,
+  "bond_outline_color": "#000000",
+  "bond_outline_width": 4.0,
+  "radius_scale": {
+    "H": 1.2
+  },
+  "nci_element": true,
+  "nci_width": 1.2,
+  "ts_element": false,
+  "ts_width": 1.6,
+  "ts_dash": [0.5, 3]
+}

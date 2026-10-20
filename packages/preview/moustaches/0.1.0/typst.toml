@@ -1,0 +1,32 @@
+[package]
+name = "moustaches"
+version = "0.1.0"
+entrypoint = "moustaches.typ"
+authors = [ "Akilon <https://github.com/Akilon27>" ]
+license = "MIT"
+description = "Statistiques françaises (tableaux et diagrammes)."
+repository = "https://github.com/Akilon27/moustaches"
+categories = [ "utility", "visualization" ]
+disciplines = [ "mathematics", "education" ]
+keywords = [
+  "batons",
+  "histogrammes",
+  "moustaches",
+  "tableaux",
+  "Tuyaux d'orgue",
+  "camembert",
+  "bandes",
+  "effectifs",
+  "caractéristiques",
+  "moyenne",
+  "diagramme",
+  "quartiles",
+  "statistiques",
+  "statistics",
+  "PGCD",
+  "gcd",
+  "hachures",
+  "tilings"
+]
+exclude = [ "/Exemples/*", "moustaches-fr.pdf", "moustaches-fr.typ", "moustaches-en.pdf", "moustaches-en.typ" ]
+compiler = "0.15.0"

@@ -1,0 +1,99 @@
+l10n: std 
+de:
+  # type 
+  thesis: Bachelorthesis
+  tpt: Fachpraktische Ausarbeitung
+  paper: Seminararbeit
+  expose: Exposé
+  # cover
+  date: Datum
+  groupMembers: Gruppen-Mitglieder
+  submittedBy: Vorgelegt von
+  studyGroup: Studiengruppe
+  studentId: Matrikelnummer
+  wordcount: Anzahl der Wörter
+  contactDetails: Kontaktdaten
+  wordcountIncludingCites: (inkl. wörtliche Zitate / Fußnoten)
+  wordcountExcludingCites: (exkl. wörtliche Zitate / Fußnoten)
+  academicReviewer: Akademischer Gutachter
+  companyReviewer: Betrieblicher Gutachter
+  submissionDate: Abgabedatum
+  # modules
+  appliedCS: Angewandte Informatik
+  businessAdmin: Betriebswirtschaftslehre
+  businessCS: Wirtschaftsinformatik
+  # titles
+  practicalDocs1: "Fachpraktische Dokumentation zur Bachelorthesis mit dem vorläufigen Thema:"
+  practicalDocs2: Fachpraktische Dokumentation 
+  practicalPaper: Diese fachpraktische Ausarbeitung wurde erstellt im Rahmen der
+  exposeTitle: Exposé erstellt im Rahmen des Bachelor Thesis Kolloquiums
+  forDegree: zur Erreichung des Abschlusses
+  toc: Inhaltsverzeichnis
+  titleForeword: Vorwort / Danksagungen
+  showListOfFigures: Abbildungsverzeichnis
+  figAcr: Abb.
+  listOfTables: Tabellenverzeichnis
+  listOfCode: Codeverzeichnis
+  listOfAcronyms: Abkürzungsverzeichnis
+  appendix: Anhang
+  glossary: Glossar
+  affidavit: Eidesstattliche Erklärung
+  bibliography: Literaturverzeichnis
+  signature: Datum, Unterschrift von
+  # statements
+  statementUnderOath1: Hiermit erkläre ich, dass diese 
+  statementUnderOath2: selbständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt und die aus fremden Quellen direkt oder indirekt übernommenen Gedanken als solche kenntlich gemacht habe. Die Arbeit oder Teile hieraus wurde und wird keiner anderen Stelle oder anderen Person im Rahmen einer Prüfung vorgelegt. Ich versicher zudem, dass keine sachliche Übereinstimmung mit einer im Rahmen eines vorangegangenen Studiums angefertigten Seminar-, Diplom- oder Abschlussarbeit sowie Bachelorthesis besteht.
+  titleRestrictionNotice: Sperrvermerk
+  restrictionNotice1: Die vorliegende
+  restrictionNotice2: beinhaltet interne vertrauliche Informationen der DB Systel GmbH. Die Weitergabe des Inhaltes dieser Arbeit und eventuell beiliegender Zeichnungen und Daten im Gesamten oder in Teilen ist grundsätzlich untersagt. Es dürfen keinerlei Kopien oder Abschriften, auch nicht in digitaler Form, gefertigt werden. Ausnahmen bedürfen der schriftlichen Genehmigung durch die DB Systel GmbH.
+  titleGenderingNote: Gleichbehandlung der Geschlechter
+  genderingNote: Zur besseren Lesbarkeit wird in dieser Ausarbeitung auf die gleichzeitige Verwendung geschlechtsspezifischer Sprachformen verzichtet. Sämtliche personenbezogenen Bezeichnungen gelten daher im Sinne der Gleichbehandlung für alle Geschlechter. Diese Vereinfachung dient ausschließlich der sprachlichen Klarheit und ist in keiner Weise als Wertung zu verstehen.
+
+en:
+  # type 
+  thesis: thesis
+  tpt: 
+  paper: term paper
+  expose: thesis proposal
+  # cover
+  date: date
+  groupMembers: Group members
+  submittedBy: submitted by
+  studyGroup: study group
+  studentId: student ID
+  contactDetails: contact details
+  wordcount: word count
+  wordcountIncludingCites: (incl. excact quotes / footnotes)
+  wordcountExcludingCites: (excl. excact quotes / footnotes)
+  academicReviewer: academic reviewer
+  companyReviewer: company reviewer
+  submissionDate: submission date
+  # modules
+  appliedCS: Applied Computer Science
+  businessAdmin: Business Administration
+  businessCS: Computer Science and Business
+  # titles
+  practicalDocsForThesis: Practical documentation for the bachelor's thesis on the tentative topic
+  practicalDocs: Practical documentation 
+  forDegree: for the degree of
+  toc: table of contents
+  titleForeword: Foreword / Acknoledgements
+  listOfFigures: List of Figures
+  figAcr: Fig.
+  listOfTables: List of Tables
+  listOfCode: List of Code
+  listOfAcronyms: List of Acronyms
+  appendix: Appendix
+  glossary: Glossary
+  affidavit: Affidavit
+  bibliography: Bibliography
+  signature: Date, Signature of
+  # statements
+  statementUnderOath1: I hereby declare that this 
+  statementUnderOath2: was written independently, that I have used no sources or resources other than those cited, and that I have clearly identified any ideas taken directly or indirectly from external sources. Neither this thesis nor any part thereof has been or will be submitted to any other institution or person as part of an examination. I further certify that there is no substantive overlap with any seminar paper, diploma thesis, final thesis, or bachelor’s thesis completed as part of a previous course of study.
+  titleRestrictionNotice: Restriction Notice
+  restrictionNotice1: This
+  restrictionNotice2: contains confidential internal information belonging to DB Systel GmbH. The disclosure of the contents of this thesis, as well as any accompanying drawings and data, in whole or in part, is strictly prohibited. No copies or transcripts, including those in digital form, may be made. Exceptions require the written approval of DB Systel GmbH.
+  titleGenderingNote: Gender Equality
+  genderingNote: For the sake of readability, this document does not use gender-specific language. All references to individuals are therefore intended to apply equally to all genders in the spirit of equal treatment. This simplification is intended solely to ensure linguistic clarity and should in no way be construed as a value judgment.
+

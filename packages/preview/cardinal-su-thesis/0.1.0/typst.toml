@@ -1,0 +1,29 @@
+[package]
+name = "cardinal-su-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Maya Sheth <@mayasheth>"]
+license = "MIT-0"
+description = "Ph.D. dissertation or Engineer thesis at Stanford."
+repository = "https://github.com/mayasheth/cardinal-su-thesis"
+keywords = [
+  "Stanford",
+  "Stanford University",
+  "dissertation",
+  "doctoral",
+  "Engineer thesis",
+]
+categories = ["thesis", "layout"]
+compiler = "0.13.0"
+exclude = [
+  "/tests/",
+  "/.github/",
+  "/build/",
+  "/REQUIREMENTS.md",
+  "/CHANGELOG.md",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

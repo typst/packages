@@ -1,0 +1,23 @@
+[package]
+name = "simple-unimi-thesis"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Vittorio Robecchi <https://github.com/VictuarVi>"]
+license = "GPL-3.0-or-later"
+description = "Unofficial thesis and presentation template for the University of Milan."
+repository = "https://github.com/VictuarVi/Template-Tesi-UniMi"
+keywords = [
+    "thesis",
+    "unimi",
+    "università statale degli studi di milano",
+    "university of milan",
+]
+categories = ["thesis", "paper"]
+disciplines = ["computer-science", "mathematics", "physics"]
+compiler = "0.13.0"
+exclude = ["*.sh", "*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/thesis.png"

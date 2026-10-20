@@ -1,0 +1,17 @@
+[package]
+name = "clean-print-cv"
+version = "0.1.0"
+entrypoint = "cv-template.typ"
+authors = ["guillermodotn <@guillermodotn>"]
+license = "MIT AND MIT-0"
+description = "Create clean, print-friendly, YAML-driven CVs."
+repository = "https://github.com/guillermodotn/clean-print-cv"
+keywords = ["cv", "resume", "print", "yaml"]
+categories = ["cv"]
+compiler = "0.12.0"
+exclude = ["cv.typ", "/cv-data.yaml", "cv.pdf", "Makefile", "thumbnail-*.png", "personal/", ".gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,7 @@
+[package]
+name = "non-unlabeled"
+version = "0.1.0"
+entrypoint = "src/non-unlabeled.typ"
+authors = ["Luca Ravasio"]
+license = "MIT"
+description = "Don't number unlabeled objects"

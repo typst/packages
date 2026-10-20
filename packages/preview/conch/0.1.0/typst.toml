@@ -1,0 +1,16 @@
+[package]
+name = "conch"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+authors = ["Zihua Wu"]
+license = "MIT"
+description = "Simulate a shell and render terminal sessions in documents."
+keywords = ["terminal", "shell", "ansi", "wasm", "simulator"]
+categories = ["integration", "fun"]
+exclude = ["wasm/", "Justfile", "demo/", "_vendor/", "CONTRIBUTING_GUIDE.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

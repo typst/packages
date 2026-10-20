@@ -1,0 +1,50 @@
+MIT License
+
+Copyright (c) 2026 FERGOUS Abdelhak
+
+--- Origin and attribution -------------------------------------------------
+
+geomtools is a Typst re-implementation of the LaTeX package `OutilsGeomTikZ`
+by Cédric Pierquet, distributed under the LaTeX Project Public License 1.3c
+(https://ctan.org/pkg/outilsgeomtikz).
+
+No TeX source is copied here: the TikZ macros were re-written as Typst
+functions and the drawing layer is entirely new. What is taken from the
+original is its DESIGN — which instruments exist, their proportions, and the
+measurements that make each one recognisable (the ruler's three graduation
+depths, the protractor's 3.75 and 2.5 radii, the set square's 30-60-90).
+
+The LPPL treats a translation into another language as producing a Derived
+Work, and its clause 10 allows such a work to carry a different licence
+provided clause 6 is honoured. Accordingly:
+
+  * this file states the nature of the work: a port, not the original;
+  * the README maps every function to the macro it mirrors, and records where
+    this port departs from it;
+  * nothing here suggests that Cédric Pierquet supports, maintains, or is
+    associated with this port;
+  * the original remains available, complete and unmodified, from CTAN at the
+    address above.
+
+Bug reports about geomtools should come here, never to the author of
+OutilsGeomTikZ.
+
+--- MIT --------------------------------------------------------------------
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

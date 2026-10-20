@@ -1,0 +1,12 @@
+[package]
+name = "exiftract"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Uspfe <@Uspfe>"]
+license = "MIT AND BSD-2-Clause"
+description = "Read Exif metadata from images."
+repository = "https://github.com/Uspfe/typst-exiftract"
+keywords = ["exif", "metadata", "image", "photo", "camera", "jpeg"]
+categories = ["integration", "utility"]
+compiler = "0.15.0"
+exclude = ["/examples/"]
