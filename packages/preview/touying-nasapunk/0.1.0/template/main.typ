@@ -1,6 +1,6 @@
-#import "@preview/touying-nasa-punk:0.1.0": *
+#import "@preview/touying-nasapunk:0.1.0": *
 
-#show: nasa-punk-theme.with(
+#show: nasapunk-theme.with(
   aspect-ratio: "16-9",
   mission: [SYSTEMS RESEARCH / TECHNICAL BRIEFING],
   mission-code: [MSN-01],

@@ -1,4 +1,4 @@
-# touying-nasa-punk
+# touying-nasapunk
 
 An aerospace mission-briefing theme for [Touying](https://github.com/touying-typ/touying):
 livery rails, a vector orbital cover mark, phase-tracked section slides, a flight-plan
@@ -9,15 +9,15 @@ outline, and instrument-panel callouts. Built on Touying's Metropolis theme.
 ## Quick start
 
 ```bash
-typst init @preview/touying-nasa-punk:0.1.0
+typst init @preview/touying-nasapunk:0.1.0
 ```
 
 or import it into an existing document:
 
 ```typst
-#import "@preview/touying-nasa-punk:0.1.0": *
+#import "@preview/touying-nasapunk:0.1.0": *
 
-#show: nasa-punk-theme.with(
+#show: nasapunk-theme.with(
   mission: [SYSTEMS RESEARCH / TECHNICAL BRIEFING],
   mission-code: [MSN-01],
   config-info(title: [Efficient Inference], author: [Your Name], date: datetime.today()),
@@ -42,7 +42,7 @@ single import. Add `#set heading(numbering: "1.1")` to number slide titles.
 
 ## Theme options
 
-`nasa-punk-theme` accepts every Touying config (`config-info`, `config-common`, …) plus:
+`nasapunk-theme` accepts every Touying config (`config-info`, `config-common`, …) plus:
 
 | Option | Default | Description |
 |---|---|---|
@@ -82,7 +82,7 @@ Typst packages cannot ship fonts. Install these for the intended look:
 Rajdhani and IBM Plex Mono are available in the Typst web app. To substitute any of them:
 
 ```typst
-#show: nasa-punk-theme.with(
+#show: nasapunk-theme.with(
   fonts: (code: ("IBM Plex Mono",), title: ("Rajdhani", "Noto Sans CJK SC")),
 )
 ```

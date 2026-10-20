@@ -1,4 +1,4 @@
-// NASA Punk: a Metropolis-derived theme for research mission briefings.
+// NASApunk: a Metropolis-derived theme for research mission briefings.
 #import "@preview/touying:0.8.0": *
 #import "@preview/touying:0.8.0": utils
 
@@ -19,7 +19,7 @@
 #let bold-weight(weight) = if type(weight) == int { weight >= 700 } else { weight in ("bold", "extrabold", "black") }
 
 #let typography(body, dark: false, title-font: default-fonts.title) = {
-  show <nasa-punk-columns>: it => {
+  show <nasapunk-columns>: it => {
     let fields = it.fields()
     let _ = fields.remove("label", default: none)
     let children = fields.remove("children")
@@ -102,7 +102,7 @@
 // Multi-column grid; divider: true draws the theme's orange-capped rules.
 #let cols(columns: (1fr, 1fr), gutter: 5pt, valign: top, divider: true, ..cells) = {
   let content = grid(columns: columns, gutter: gutter, align: valign, ..cells)
-  if divider { [#content <nasa-punk-columns>] } else { content }
+  if divider { [#content <nasapunk-columns>] } else { content }
 }
 
 // Expand with ..table-highlight([Label], [Value], ...) inside #table(...).
@@ -410,7 +410,7 @@
 })
 
 // fonts: partial overrides merge into default-fonts, e.g. (body: ("Fira Mono",)).
-#let nasa-punk-theme(
+#let nasapunk-theme(
   aspect-ratio: "16-9",
   mission: none,
   mission-code: [],

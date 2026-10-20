@@ -1,11 +1,11 @@
 [package]
-name = "touying-nasa-punk"
+name = "touying-nasapunk"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Jinyi Liu <https://github.com/KKKZOZ>"]
 license = "MIT AND MIT-0"
 description = "An aerospace mission-briefing slide theme for Touying."
-repository = "https://github.com/KKKZOZ/touying-nasa-punk"
+repository = "https://github.com/KKKZOZ/touying-nasapunk"
 keywords = ["touying", "slides", "presentation", "theme", "aerospace", "punk"]
 categories = ["presentation"]
 compiler = "0.15.0"
