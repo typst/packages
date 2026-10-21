@@ -10,9 +10,9 @@ keywords = ["exam", "test paper", "chinese", "试卷", "考试", "exam-zh", "ans
 categories = ["office", "components", "layout"]
 disciplines = ["education"]
 compiler = "0.15.0"
-exclude = ["/examples", "/docs", "/scripts", "/tests", "/ROADMAP.md"]
+exclude = ["/docs", "/ROADMAP.md"]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "template/thumbnail.png"
+thumbnail = "thumbnail.png"

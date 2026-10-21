@@ -63,9 +63,9 @@ typst compile --input exam-mode=teacher exam.typ exam-teacher.pdf   # 教师版
 
 | | |
 |---|---|
-| [入门指南](https://github.com/pku-lemonade/exam-zh-next/releases/latest/download/guide.pdf)（[源码](https://github.com/pku-lemonade/exam-zh-next/blob/main/docs/guide.typ)） | 快速开始、各种题型、常见场景、FAQ；与 exam-zh 的入门文档逐章对应 |
-| [API 对照手册](https://github.com/pku-lemonade/exam-zh-next/releases/latest/download/reference.pdf)（[源码](https://github.com/pku-lemonade/exam-zh-next/blob/main/docs/reference.typ)） | exam-zh 的每个命令和选项 → Typst 写法、说明与效果；章节编号与 exam-zh 完整文档相同 |
-| [examples/](https://github.com/pku-lemonade/exam-zh-next/tree/main/examples) | exam-zh 全部示例的 Typst 版：2021 全国乙卷数学、A3 试卷合集，以及语文、英语、真实考试场景 |
+| [入门指南](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/guide.pdf)（[源码](https://github.com/pku-lemonade/exam-zh-next/blob/v0.1.0/docs/guide.typ)） | 快速开始、各种题型、常见场景、FAQ；与 exam-zh 的入门文档逐章对应 |
+| [API 对照手册](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/reference.pdf)（[源码](https://github.com/pku-lemonade/exam-zh-next/blob/v0.1.0/docs/reference.typ)） | exam-zh 的每个命令和选项 → Typst 写法、说明与效果；章节编号与 exam-zh 完整文档相同 |
+| [examples/](https://github.com/pku-lemonade/exam-zh-next/tree/v0.1.0/examples) | exam-zh 全部示例的 Typst 版：2021 全国乙卷数学、A3 试卷合集，以及语文、英语、真实考试场景 |
 
 两份文档本身也用本模板排版；自行编译时在仓库根目录运行 `typst compile --root . docs/guide.typ`。
 
@@ -80,7 +80,7 @@ typst compile --input exam-mode=teacher exam.typ exam-teacher.pdf   # 教师版
 ```
 
 键名写错时编译报错，例如 ``unknown option `choices.colums` ``。全部选项与默认值见
-[`src/config.typ`](https://github.com/pku-lemonade/exam-zh-next/blob/main/src/config.typ) 和 API 对照手册第 4 章。
+[`src/config.typ`](src/config.typ) 和 API 对照手册第 4 章。
 
 教师版显示哪些内容由 `teacher` 决定，默认是 `teacher-defaults`，可以在其上增改：
 
@@ -106,7 +106,7 @@ typst compile --input exam-mode=teacher exam.typ exam-teacher.pdf   # 教师版
 
 ## 从 exam-zh 迁移
 
-大多数命令一一对应，完整对照见 [API 对照手册](https://github.com/pku-lemonade/exam-zh-next/releases/latest/download/reference.pdf)：
+大多数命令一一对应，完整对照见 [API 对照手册](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/reference.pdf)：
 
 | exam-zh (LaTeX) | Typst |
 |---|---|
@@ -119,7 +119,7 @@ typst compile --input exam-mode=teacher exam.typ exam-teacher.pdf   # 教师版
 | `\draftpaper`、`\scoringbox`、`\tableofcontents` | `draftpaper()`、`scoringbox()`、`exam-outline()` |
 | `\ExamPrintAnswerSet` 与 `-shell-escape` | `--input exam-mode=teacher` 与 `exam(teacher: ..)` |
 
-与 exam-zh 不同或暂不支持的地方（文字绕排、选择与填空答案后置等）列在 [ROADMAP.md](https://github.com/pku-lemonade/exam-zh-next/blob/main/ROADMAP.md)。
+与 exam-zh 不同或暂不支持的地方（文字绕排、选择与填空答案后置等）列在 [ROADMAP.md](ROADMAP.md)。
 
 ## 开发
 
@@ -134,5 +134,5 @@ scripts/package.sh [--font-path DIR]     # 生成提交到 Typst Universe 的目
 本项目是 [exam-zh](https://github.com/xkwxdyy/exam-zh) 的非官方 Typst 移植。设计、选项命名和示例来自 exam-zh
 （作者 Zeping Lee，维护者 Kangwei Xia、Lijun Guo），感谢他们的工作。Typst 代码为独立实现。
 
-代码以 [MIT](https://github.com/pku-lemonade/exam-zh-next/blob/main/LICENSE) 许可发布；`template/` 中的初始试卷以 [MIT-0](https://github.com/pku-lemonade/exam-zh-next/blob/main/LICENSE-MIT-0) 许可发布，用它写出的试卷无需保留任何声明。
-文档中引用的 exam-zh 原文与 LaTeX 代码仍属于 exam-zh 作者（LPPL 1.3c），详见 [NOTICE.md](https://github.com/pku-lemonade/exam-zh-next/blob/main/NOTICE.md)。
+代码以 [MIT](LICENSE) 许可发布；`template/` 中的初始试卷以 [MIT-0](LICENSE-MIT-0) 许可发布，用它写出的试卷无需保留任何声明。
+文档中引用的 exam-zh 原文与 LaTeX 代码仍属于 exam-zh 作者（LPPL 1.3c），详见 [NOTICE.md](NOTICE.md)。
