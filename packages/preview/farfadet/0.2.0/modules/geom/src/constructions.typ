@@ -1,7 +1,7 @@
 // constructions.typ (farfadet-geom) — constructions usuelles tracées : médiatrice, bissectrice, hauteur.
 // Les calculs sans dessin (`milieu`, `projete`, `intersection`, `distance`) sont dans outils.typ.
 
-#import "@preview/cetz:0.5.2": draw as d
+#import "@preview/cetz:0.5.3": draw as d
 #import "rapide.typ" as _r
 #import "base.typ": *
 #import "codages.typ": _angle-droit, _angle-marque, _codage-segment

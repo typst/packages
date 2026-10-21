@@ -1,7 +1,7 @@
 // codages.typ (farfadet-geom) — codages de figure : égalité de longueurs, angle droit, angle marqué, parallèles.
 // Chaque codage existe en deux versions : un constructeur `_…` (appelé aussi par les constructions) et la macro publique.
 
-#import "@preview/cetz:0.5.2": draw as d
+#import "@preview/cetz:0.5.3": draw as d
 #import "rapide.typ" as _r
 #import "base.typ": *
 

@@ -1,7 +1,7 @@
 // base.typ (farfadet-geom) — briques communes : accès au style, couleurs, traits, unités, étiquettes.
 // Chaque macro de dessin est un `group` cetz dont le corps reçoit le style (posé par `geo`) et le contexte.
 
-#import "@preview/cetz:0.5.2": draw as d
+#import "@preview/cetz:0.5.3": draw as d
 #import "rapide.typ" as _r
 #import "reglages.typ": noms-couleurs
 #import "outils.typ": *

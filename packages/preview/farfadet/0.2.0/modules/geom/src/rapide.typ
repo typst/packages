@@ -11,7 +11,7 @@
 // points sont des couples de nombres. Sinon on appelle l'élément cetz d'origine : même résultat, coût
 // d'origine.
 
-#import "@preview/cetz:0.5.2": draw as d
+#import "@preview/cetz:0.5.3": draw as d
 
 #let _ident4 = ((1.0, 0.0, 0.0, 0.0), (0.0, 1.0, 0.0, 0.0), (0.0, 0.0, 1.0, 0.0), (0.0, 0.0, 0.0, 1.0))
 

@@ -1,6 +1,6 @@
 // objets.typ (farfadet-geom) — objets de base : point, segment, droite, demi-droite, vecteur, cercle, arc, polygone, triangle.
 
-#import "@preview/cetz:0.5.2": draw as d
+#import "@preview/cetz:0.5.3": draw as d
 #import "rapide.typ" as _r
 #import "base.typ": *
 #import "codages.typ": _angle-droit, _codage-parallele, _codage-segment

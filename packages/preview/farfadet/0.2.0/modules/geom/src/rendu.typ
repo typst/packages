@@ -10,10 +10,10 @@
 //   2. les formules des étiquettes dessinées reçoivent l'étiquette Typst <bf-geo-rendu> : leur clé de
 //      repérage diffère de celle des formules mesurées par les éléments (d.content, rapide.contenu), qui
 //      n'ont donc plus de jumeau, ni au tour 1 ni au tour 2.
-// Tout le reste (ordre, boîte englobante, tracés `curve`) reproduit `cetz.canvas` (cetz 0.5.2,
+// Tout le reste (ordre, boîte englobante, tracés `curve`) reproduit `cetz.canvas` (cetz 0.5.3,
 // src/canvas.typ) ; seuls les arguments employés par `geo` sont pris en charge (length, body).
 
-#import "@preview/cetz:0.5.2": process, drawable, path-util, styles, version as _cetz-version
+#import "@preview/cetz:0.5.3": process, drawable, path-util, styles, version as _cetz-version
 
 #let _ident = ((1.0, 0.0, 0.0, 0.0), (0.0, 1.0, 0.0, 0.0), (0.0, 0.0, 1.0, 0.0), (0.0, 0.0, 0.0, 1.0))
 
@@ -66,7 +66,7 @@
   )
 }
 
-/// `aabb.merge` de cetz 0.5.2 (non exporté par cetz).
+/// `aabb.merge` de cetz 0.5.3 (non exporté par cetz).
 #let _fusion(a, b) = {
   if a == none { return b }
   if b == none { return a }
@@ -80,7 +80,7 @@
   )
 }
 
-/// `process.many` de cetz 0.5.2 (src/process.typ), boîtes englobantes calculées en Typst (`_englobante`).
+/// `process.many` de cetz 0.5.3 (src/process.typ), boîtes englobantes calculées en Typst (`_englobante`).
 /// Repli sur cetz en mode debug (cadres de débogage).
 #let _many(ctx, body) = {
   if ctx.debug { return process.many(ctx, body) }

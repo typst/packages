@@ -1,6 +1,6 @@
 // cadre.typ (farfadet-geom) — le canevas : `geo` pose le style de farfadet-geom puis dessine ; `figure-geo` ajoute une légende.
 
-#import "@preview/cetz:0.5.2": draw as d
+#import "@preview/cetz:0.5.3": draw as d
 #import "rendu.typ": canevas
 #import "reglages.typ": reglages-geom
 #import "outils.typ": est-nombre, verifier-fenetre
