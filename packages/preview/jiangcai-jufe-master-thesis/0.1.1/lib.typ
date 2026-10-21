@@ -34,6 +34,21 @@
 //! 供英文目录自动提取英文标题；正文与中文目录不受影响（不渲染任何内容）
 #let en(body) = metadata(("en-title", body))
 
+//! 参考文献/附录/致谢等位于 bibliography 之后的双语一级标题专用：
+//! Typst 0.14.2 实测——bibliography 之后，标题体内只要含 metadata
+//!（如 #en[..]）就会触发"layout did not converge within 5 attempts"
+//!（bibliography 的引文收集与标题内 metadata 位置反复重排）；
+//! metadata 作为标题兄弟节点则不触发。故此处标题体内不放 #en，
+//! 英文标题以兄弟 metadata("en-next", …) 紧随标题之后，
+//! 英文目录按"同页、标题正下方邻近"匹配（实测 context 内构造的标题
+//! 其 .location() 与目录查到的元素 location 不相等，en-assoc 精确
+//! 匹配对此类标题失效；邻近匹配不依赖 location 恒等，稳定可靠）。
+//! 用法：#back-heading([参#h(0.5em)考…献], [References])
+#let back-heading(zh-body, en-body) = [
+  #heading(level: 1)[#zh-body]
+  #metadata(("en-next", en-body))
+]
+
 //! 在 content 树中递归查找第一个 #en[...] 标记。
 //! 0.14.2 的 query 不支持在 content 片段内检索，故手动遍历
 #let find-en-title(node) = {
@@ -60,8 +75,19 @@
   none
 }
 
+//! 全角句读/闭合标点按 Word 远东版式排版（docx: compressPunctuation + useFELayout）：
+//! Typst 对这些标点的 CJK 胶版两端对齐时可压 0.5em（实测 12pt 行步进压到 8.39pt），
+//! Word 仅压约 0.05em，导致 Typst 每行多塞字、换行系统性偏晚。
+//! 包 lang:"en" 关掉 zh 标点压缩胶版，字形仍为 SimSun/SimHei/FangSong 全角；
+//! 开括号（【《「『侧两引擎实测仅差 0.22pt，保留 Typst 行为，故不列入。
+#let show-word-punct(body) = {
+  show regex("[，。、；：！？）】》」』”’]"): it => text(lang: "en", it.text)
+  body
+}
+
 #let typeset-fore(doc) = {
   show: show-cn-fakebold
+  show: show-word-punct
   show: el.default-enum-list.with(bottom-edge: "baseline")
 
   //! 设置标题序号
@@ -79,12 +105,21 @@
 
   //! 设置标题格式
   show heading: set text(weight: "regular")
+  //! H1 块样式走 show-set 而非 show 函数体内的 set：函数体内的 set 位于
+  //! realization 链最深处，任何内层作用域（摘要/目录等前置部分）都盖不过，
+  //! 曾被迫用 v/页边距补偿；show-set 可被内层作用域的同名 show-set 覆盖
+  show heading.where(level: 1): set block(
+    //! 文本区顶 102.9（正文网格相位），inset 4.0 → H1 ink top 106.9（REF）。
+    //! inset 是盒内边距页顶不消失，只保留 docGrid 标题相位 4pt；段距一律走
+    //! spacing（block↔block 相邻折叠取大、页顶自动抑制），不用流内 v。
+    inset: (top: 4pt, right: 0em, bottom: 0em, left: 0em),
+    //! docx 标题1 直接格式 after=312 twips（15.6pt，一个 docGrid 行），
+    //! 经行盒边折算后 H1→正文墨顶差 42.9（REF 实测）；before 文档为 0。
+    //! 注意 Typst 0.14 block spacing 只接受标量（before/after 同值、折叠取大、
+    //! 页顶 before 自动抑制），非对称部分由 inset 承担
+    spacing: 30pt,
+  )
   show heading.where(level: 1): it => {
-    set block(
-      inset: (top: 0.5em, right: 0em, bottom: 0em, left: 0em),
-      // outset: 1em,
-      spacing: 1.5em,
-    )
     set text(
       font: ("Times New Roman", "SimHei"),
       size: zh(-3),
@@ -108,29 +143,35 @@
   }
   show heading.where(level: 2): it => {
     set block(
-      inset: (top: 0.5em, right: 0em, bottom: 0em, left: 0em),
-      // outset: 1em,
-      spacing: 1em,
+      //! docx 标题2 before=156 twips（半 docGrid 行 7.8pt）、after=0，经网格
+      //! 吸附实测（墨底→墨顶）：P→H2 18.9、H2→P 11.3、H2→H3 20.7；
+      //! H2 页顶墨顶 107.4（段前距被页首抑制）。
+      //! 机制：spacing 在 0.14 只接受标量（before/after 同值、相邻折叠取大、
+      //! 页顶 before 自动抑制），故段前距走 spacing 14.6（页顶正确消失），多出
+      //! 的段后用 inset bottom 收回（5.1→0）；inset top 只留页顶相位 4.5
+      inset: (top: 4.5pt, right: 0em, bottom: 0pt, left: 0em),
+      spacing: 14.6pt,
     )
     set text(
       font: ("Times New Roman", "SimHei"),
       size: zh(4),
-      // top-edge: 0.5em,
-      // bottom-edge: 1em,
     )
     it
   }
   show heading.where(level: 3): it => {
     set block(
-      inset: (top: 0em, right: 0em, bottom: 0em, left: 0em),
-      // outset: 1em,
-      // spacing: 1em,
+      //! docx 标题3 before=156 twips（半 docGrid 行 7.8pt）、after=0，网格吸附
+      //! 实测（墨底→墨顶）：P→H3 16.0、H3→P 8.5（= 普通正文行间距，after=0）。
+      //! 机制：after 要小，故 spacing 标量降到 11（H3→P 命中），before 不足部分
+      //! 用 inset top 补到 8.1（与 H2 不同方向：H2 段前走 spacing 因页顶必须抑制；
+      //! H3 极少独占页顶，inset top 的页顶残留仅 ~3pt）。
+      //! 旧 inset bottom 11.3 曾使 H3→P 达 22.5（标题后空一块），已去除
+      inset: (top: 8.1pt, right: 0em, bottom: 0pt, left: 0em),
+      spacing: 11pt,
     )
     set text(
       font: ("Times New Roman", "SimHei"),
       size: zh(-4),
-      // top-edge: 0.8em,
-      // bottom-edge: 1em,
     )
     it
   }
@@ -178,22 +219,26 @@
     }
   }
 
-  //! 设置段落格式
+  //! 设置段落格式：行节奏固定 19.56pt（top-edge 0.86em + leading 0.77em，
+  //! 与 docx docGrid 实测 19.53 一致）。spacing 与 leading 同值：
+  //! 自定义 edge 后段落边界节奏 = top-edge + spacing，同值则段落间节奏不中断
+  //! （视觉上段距为 0，无额外空行）
   set par(
     justify: true,
     first-line-indent: (amount: 2em, all: true),
-    leading: 0.5em,
-    spacing: 0.5em,
+    leading: 0.77em,
+    spacing: 0.77em,
   )
 
-  //! 设置正文格式
+  //! 设置正文格式：行盒上下边按 0.86/0.14em 切分，中英文字行盒同为 1em，
+  //! Times New Roman 与宋体行距统一
   set text(
     font: ("Times New Roman", "SimSun"),
     size: zh(-4),
     lang: "zh",
     region: "cn",
-    top-edge: "ascender",
-    bottom-edge: "descender",
+    top-edge: 0.86em,
+    bottom-edge: 0.14em,
   )
 
   //! 设置figure格式：图/表/代码/算法按 kind 分开计数，编号为"章号.序号"。
@@ -210,19 +255,60 @@
   show figure.where(kind: raw): set figure(numbering: figure-numbering(raw), supplement: [代码])
   show figure.where(kind: "algorithm"): set figure(numbering: figure-numbering("algorithm"), supplement: [算法])
 
-  //! 其中插入图片格式
-  show image: it => {
-    v(1em)
+  //! 其中插入图片格式：图片段/图注段在 docx 中都是普通正文段（无段距），
+  //! 视觉间距由 docGrid 行格吸附产生——REF 实测正文→图 27.1、图注→正文 25.7
+  //!（图注下方约一空行），图在页顶时图前距消失（图顶 = 内容区顶 102.9）。
+  //! 故间距走 figure 块的 spacing 标量（页顶 before 自动抑制、相邻块折叠取大），
+  //! 不能在图前塞流内 v（页顶不消失，会把整图顶低 ~13pt）。图注→正文 REF 26.1
+  //!（图注下一空行），提高 spacing 同时让文中图 before 趋近 REF 27.1，实测迭代
+  show figure.where(kind: image): it => {
+    set block(spacing: 29pt)
     it
   }
   show figure.where(kind: image): set figure.caption(position: bottom)
 
-  //! 其中插入表格格式
-  show figure.where(kind: table): set figure(gap: 0.2em)
-  show figure.where(kind: table): it => {
-    set figure.caption(position: top)
-    v(1em)
+  //! 其中插入表格格式：题注在上。
+  //! REF 实测：上文墨底→题注 25.7、题注墨底→顶线 2.9、底线→下文 22.8，
+  //! 两表相邻（中间无正文）时底线→题注同样是 22.8；
+  //! 表题在页顶时落在 102.6（前置间隔消失）。
+  //! 非对称实现（探针实测）：show 函数体内注入的弱 v 会"替换"该块的前侧
+  //! 间距（手写在正文流里则是叠加，二者不同），而块的后侧间距不受影响。
+  //! 故 figure spacing 22.8 专门承担表后→下文（gap C 实测 22.8=REF）；
+  //! 表前由弱 v 给出：墨底→块边差 2.9，v(28.6)−2.9=25.7（REF）；
+  //! 相邻两表底线即块边、无墨边差，v 取 22.8 即得 22.8。
+  //! 相邻判定不靠 query 计数（before(here()) 会包含当前表自身），
+  //! 也不靠题注位置差固定阈值（混淆矩阵类大表整块高达 117pt）：
+  //! 每张表在末尾放置 metadata 标记（携自身稳定 location），标记落在
+  //! 间距折叠后、下一块之前——相邻时距下一题注仅 ~2.5pt，
+  //! 隔一行正文即 ≥38pt，故阈值 12pt 干净可分（探针 V11 实测）。
+  //! 弱间距在页顶/页底自动塌陷：表被挤到次页时 v 留在上页底消失，
+  //! 页顶题注仍是 102.9——等价于 REF 题注前那个空段落。
+  //! 题注墨底→顶线 2.9 由 figure gap 5.4pt 折合。
+  show figure.where(kind: table): set figure.caption(position: top)
+  show figure.where(kind: table): set figure(gap: 5.4pt)
+  show figure.where(kind: table): it => context {
+    set block(spacing: 22.8pt, breakable: true)
+    //! 找前表末尾的相邻标记（"tbl-marker", loc）。
+    //! 标记位置在间距折叠后、下一块之前：两表相邻时距本块题注仅 ~2.5pt，
+    //! 中间隔一行正文即 ≥38pt——阈值 12pt 干净可分。
+    //! 标记必须走 metadata 携自身稳定 location，不能用 state 存坐标：
+    //! 坐标→v 决策→间距→坐标会形成自反馈，实测全文"布局不收敛"。
+    let vamt = 28.6pt
+    let last-marker = none
+    for m in query(metadata.where().before(here())) {
+      if m.value.len() == 2 and m.value.at(0) == "tbl-marker" {
+        last-marker = m.value.at(1)
+      }
+    }
+    if last-marker != none and last-marker.page() == here().page() {
+      if here().position().y - last-marker.position().y < 12pt {
+        vamt = 22.8pt
+      }
+    }
+    v(vamt, weak: true)
     it
+    //! 末尾标记：context 内 here() 即标记自身位置（稳定身份，不随迭代漂移）
+    context metadata(("tbl-marker", here()))
   }
   show table: set text(size: zh(5))
 
@@ -262,9 +348,15 @@
   //! 否则会把所在段落切碎成多行
   show raw.where(block: true): set par(first-line-indent: 0em, justify: false)
   show raw: set text(font: ("Courier New", "SimSun"), size: zh(5))
+  //! Typst 内建 typ 语法高亮把代码中的标题行（= …）渲染为加粗+下划线，
+  //! 下划线在论文代码清单里易被误认为格式要求标记，剥除下划线、保留加粗与其余着色
+  show raw: it => {
+    show underline: u => u.body
+    it
+  }
 
   //! 其中插入伪代码格式（用文末的 algorithm() 函数生成，
-  //! 算法框左对齐、整体左缩进 2 字符，编号"章号.序号"，caption 在上方，引用时 supplement 为"算法"）
+  //! 算法框整体居中、框内文字左对齐，编号"章号.序号"，caption 在上方，引用时 supplement 为"算法"）
   show figure.where(kind: "algorithm"): set figure.caption(position: top)
   show figure.where(kind: "algorithm"): it => {
     v(1em)
@@ -296,16 +388,24 @@
   //! 正文中文加粗用 cuti 伪粗（包内中文字体仅随 Regular 字重，西文加粗仍由
   //! Times New Roman Bold 承担），与前置部分 typeset-fore 保持一致
   show: show-cn-fakebold
+  show: show-word-punct
   pn-style.update("arabic")
   counter(page).update(1)
   set page(
     margin: (
-      top: 3.5cm,
-      bottom: 2.5cm,
+      //! 文本区顶取 102.9pt：复刻 docGrid 网格相位（续页首行在 103.0，REF）；
+      //! 章首页由 H1 show 的 inset 把标题定在 106.9
+      top: 102.9pt,
+      //! 底边对齐 docGrid 行格：内容区高 = 34 行 × 19.56 = 665.0（102.9→767.9）。
+      //! docx pgMar bottom=1418（几何底 771.1），正文行吸附 linePitch=312 网格，
+      //! 第 34 行（墨顶 748.4、墨迹底 ~760.4）为最深合法行；内容高锁整数格后，
+      //! 第 35 行几何上放不下，偏相内容（公式/表格残差）同样落到下一页，不撞页码。
+      bottom: 74.1pt,
       left: 2.5cm,
       right: 2.5cm,
     ),
-    header-ascent: 0.5cm,
+    //! 眉区底部锚点 = 文本区顶 − ascent：ascent 13.7pt 时眉线 89.2、眉文 72.4（REF）
+    header-ascent: 13.7pt,
     header: context [
       #set par(spacing: 0.9em)
       #set text(font: ("Times New Roman", "SimSun"), size: zh(5))
@@ -316,14 +416,20 @@
       } else {
         calc-headings(query(heading.where(level: 1))).at(here().page() - 1)
       }
+      #v(3.6pt)
       #head-text
-      #v(-6pt)
-      #line(length: 100%, stroke: 0.5pt)
+      #v(-1.7pt)
+      #line(length: 100%, stroke: 0.75pt)
     ],
-    footer-descent: 0.5em,
+    //! docx w:footer=1134（盒底距纸底 56.7pt）：Typst footer 盒顶固定在文本区底，
+    //! descent 加大只会把盒顶下移，故保持 0。内容底 767.9（34 行格），
+    //! 盒内 v(5.1pt) 把页码锚到 780.8 基线（REF）
+    footer-descent: 0pt,
     footer: context [
       #set text(font: "Times New Roman", size: zh(-5))
       #set align(center + top)
+      //! 页码基线落 780.8（REF）
+      #v(5.1pt)
       #counter(page).display("1")
     ],
   )
@@ -345,12 +451,13 @@
   month: 4,
 ) = {
   paper-title.update(zh-title1 + zh-title2)
-  set page(margin: (
-    top: 3.5cm,
-    bottom: 2.5cm,
-    left: 2.5cm,
-    right: 2.5cm,
-  ))
+  //! 封面整体绝对定位（白底，与 docx 一致；黄色为实体皮纸颜色）
+  set page(margin: 0pt)
+  //! 存档扫描件整体偏左上（装订皮面扫描所致）：实测封面墨迹包围盒
+  //! x 37.4..513.3 / y 52.5..749.9。垂直整体下移 oy 居中；水平方向
+  //! ox 仅作用于左右角元素（logo/信息块），行级元素改为各自页面水平居中
+  let ox = 22.3pt
+  let oy = 19.7pt
   let distr(width: auto, body) = {
     block(
       width: width,
@@ -382,125 +489,146 @@
     return result
   }
 
-  //! 封面logo
+  //! 封面logo：校徽定标 scale 0.40，印出 234.7×52.7，与存档件重合
   place(
-    dx: -0.29cm,
-    dy: 0.33cm,
-    image("./assets/硕士毕业论文封面logo.png", width: 6.78cm),
+    dx: 37.4pt + ox,
+    dy: 52.5pt + oy,
+    image("./assets/硕士毕业论文封面logo.png", width: 234.7pt),
   )
 
-  //! 出版信息
+  //! 出版信息：黑体五号（批注 #0）；右上角四行同处一个 block、共用一个行节奏，
+  //! 每行的标签与下划线在同一水平位（下划线 = 基线 +1.1pt 的 Word 下划线位）。
+  //! Word 原件为浮动文本框，行距 line=360 auto（实测行节奏 23.4pt，取 23.3）；
+  //! 学校代码/密级/中图分类号分散对齐，UDC 右对齐；下划线长 60.1pt
   {
-    let _underline() = {
-      rect(
-        width: 3.1cm,
-        stroke: (bottom: 0.6pt + black),
-      )
-    }
     set text(font: ("Times New Roman", "SimHei"), size: zh(5))
-    place(
-      dx: 9.35cm,
-      dy: 0.87cm,
-      grid(
-        columns: (4.3em, 1 * 0.25cm),
-        rows: 1em,
-        gutter: 0.45cm,
-        distr(width: 5em, "学校代码"), _underline(),
-        distr(width: 5em, "密级"), _underline(),
-        distr(width: 5em, "中图分类号"), _underline(),
-        distr(width: 5em, "UDC"), _underline(),
-      ),
+    let info-rows = (
+      ("学校代码", true),
+      ("密级", true),
+      ("中图分类号", true),
+      ("UDC", false),
     )
+    for (i, (label, spread)) in info-rows.enumerate() {
+      //! 标签墨顶 = dy − 1.8（SimHei 行盒度量），首行墨顶 59.8
+      let row-dy = 61.6pt + oy + 23.3pt * i
+      place(dx: 393.4pt + ox, dy: row-dy, if spread {
+        distr(width: 54.4pt, label)
+      } else {
+        block(width: 54.4pt, align(right, label))
+      })
+      //! 下划线随标签同节奏下移（dy + 8.5 ≈ 基线 +1.1），四线顶 y 70.1/93.4/116.7/140.0
+      place(dx: 453.2pt + ox, dy: row-dy + 8.5pt, line(length: 60.1pt, stroke: 0.6pt))
+    }
   }
 
-  //! 以下元素全部居中
-  set align(center)
+  //! 硕士学位论文：方正小标宋简体 45pt（批注 #3），
+  //! 块宽 571.2pt 居中（存档件视觉中心 285.8；v2 改为页面几何中心）
+  place(center + top, dy: 226.8pt + oy)[
+    #block(
+      width: 571.2pt,
+      align(center, text(
+        font: "FZXiaoBiaoSong-B05S",
+        size: 45pt,
+        tracking: 10pt,
+      )[硕士学位论文]),
+    )
+  ]
 
-  //! 硕士学位论文/MASTER DISSERTATION
-  v(183pt)
-  {
-    set text(font: "Microsoft YaHei", size: 45pt, tracking: 10pt)
-    set par(leading: 1em, spacing: 35pt)
-    [硕士学位论文]
-  }
-  {
-    set text(font: "STZhongsong", size: zh(1))
-    set par(leading: 1em)
-    [MASTER DISSERTATION]
-  }
+  //! MASTER DISSERTATION：华文中宋一号 26pt，同一中心
+  place(center + top, dy: 288.5pt + oy)[
+    #block(
+      width: 571.2pt,
+      align(center, text(font: "STZhongsong", size: zh(1))[MASTER DISSERTATION]),
+    )
+  ]
 
-  //? 论文题目（中英）
-  v(2 * 16.1pt)
-  table(
-    columns: (2.69cm, 11.49cm),
-    rows: 1.1cm,
-    align: center + horizon,
-    stroke: none,
-    text(font: ("Times New Roman", "SimHei"), size: zh(-3))[论文题目],
-    text(font: "KaiTi", size: zh(3))[#zh-title1],
-    table.hline(stroke: 0.5pt, start: 1),
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[（中文）],
-    text(font: "STZhongsong", size: zh(4))[#zh-title2],
-    table.hline(stroke: 0.5pt, start: 1),
-    text(font: ("Times New Roman", "SimHei"), size: zh(-3))[论文题目],
-    text(font: "Times New Roman", size: zh(3))[#en-title1],
-    table.hline(stroke: 0.5pt, start: 1),
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[（英文）],
-    text(font: "Times New Roman", size: zh(3))[#en-title2],
-    table.hline(stroke: 0.5pt, start: 1),
-  )
+  //? 论文题目（中英）：列宽 76/373pt、行高 31.9pt，
+  //? 横线仅第二列单元格底部 0.5 磅（批注 #8）；
+  //? 填入值汉字用楷体、西文与数字统一 Times New Roman（封面所有填入项同此）
+  place(center + top, dy: 383.3pt + oy)[
+    #table(
+      columns: (76pt, 373pt),
+      rows: 31.9pt,
+      inset: 0pt,
+      align: center + horizon,
+      stroke: none,
+      text(font: ("Times New Roman", "SimHei"), size: zh(-3))[论文题目],
+      text(font: ("Times New Roman", "KaiTi"), size: zh(3))[#zh-title1],
+      table.hline(stroke: 0.5pt, start: 1),
+      text(font: ("Times New Roman", "SimHei"), size: zh(4))[（中文）],
+      text(font: ("Times New Roman", "KaiTi"), size: zh(3))[#zh-title2],
+      table.hline(stroke: 0.5pt, start: 1),
+      text(font: ("Times New Roman", "SimHei"), size: zh(-3))[论文题目],
+      text(font: "Times New Roman", size: zh(4))[#en-title1],
+      table.hline(stroke: 0.5pt, start: 1),
+      text(font: ("Times New Roman", "SimHei"), size: zh(4))[（英文）],
+      text(font: "Times New Roman", size: zh(4))[#en-title2],
+      table.hline(stroke: 0.5pt, start: 1),
+    )
+  ]
 
-  //? 作者信息
-  v(5pt)
-  table(
-    columns: (2.44cm, 4.88cm, 0.42cm, 2.45cm, 4.26cm),
-    rows: 1.06cm,
-    align: center + bottom,
-    stroke: none,
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[
-      #distr(width: 4em, "作者")
-    ],
-    text(font: "KaiTi", size: zh(-3))[#author],
-    none,
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[
-      #distr(width: 4em, "导师")
-    ],
-    text(font: "KaiTi", size: zh(-3))[#mentor],
-    table.hline(stroke: 0.5pt, start: 1, end: 2),
-    table.hline(stroke: 0.5pt, start: 4),
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[
-      #distr(width: 4em, "申请学位")
-    ],
-    text(font: "KaiTi", size: zh(-3))[#degree],
-    none,
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[
-      #distr(width: 4em, "学院名称")
-    ],
-    text(font: "KaiTi", size: zh(-3))[#academy],
-    table.hline(stroke: 0.5pt, start: 1, end: 2),
-    table.hline(stroke: 0.5pt, start: 4),
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[
-      #distr(width: 4em, "学科专业")
-    ],
-    text(font: "KaiTi", size: zh(-3))[#subject],
-    none,
-    text(font: ("Times New Roman", "SimHei"), size: zh(4))[
-      #distr(width: 4em, "研究方向")
-    ],
-    text(font: "KaiTi", size: zh(-3))[#research],
-    table.hline(stroke: 0.5pt, start: 1, end: 2),
-    table.hline(stroke: 0.5pt, start: 4),
-  )
+  //? 作者信息：4 列 (73/144/68/160pt)、行高 30.4pt（界桩 56/129/273/341/501）；
+  //? 作者/学位/专业值楷体小三，导师/学院/方向值黑体四号（批注 #10），
+  //? 值内西文与数字统一 Times New Roman。
+  //? Word 30pt 固定行盒把文字压在底部；存档件实测墨顶 587.5、墨底距线 6.0
+  //? （首线 606.0），故表 dy 575.2、内容区底部内缩 5.6pt（inset 3.6 时墨底距线
+  //? 仅 4.0、三行整体偏下 2pt）
+  place(center + top, dy: 575.2pt + oy)[
+    #table(
+      columns: (73pt, 144pt, 68pt, 160pt),
+      rows: 30.4pt,
+      inset: (bottom: 5.6pt),
+      align: center + bottom,
+      stroke: none,
+      text(font: ("Times New Roman", "SimHei"), size: zh(4))[
+        #distr(width: 4em, "作者")
+      ],
+      text(font: ("Times New Roman", "KaiTi"), size: zh(-3))[#author],
+      text(font: ("Times New Roman", "SimHei"), size: zh(4))[
+        #distr(width: 4em, "导师")
+      ],
+      text(font: ("Times New Roman", "KaiTi"), size: zh(-3))[#mentor],
+      table.hline(stroke: 0.5pt, start: 1, end: 2),
+      table.hline(stroke: 0.5pt, start: 3),
+      text(font: ("Times New Roman", "SimHei"), size: zh(4))[
+        #distr(width: 4em, "申请学位")
+      ],
+      text(font: ("Times New Roman", "KaiTi"), size: zh(-3))[#degree],
+      text(font: ("Times New Roman", "SimHei"), size: zh(4))[
+        #distr(width: 4em, "学院名称")
+      ],
+      text(font: ("Times New Roman", "KaiTi"), size: zh(-3))[#academy],
+      table.hline(stroke: 0.5pt, start: 1, end: 2),
+      table.hline(stroke: 0.5pt, start: 3),
+      text(font: ("Times New Roman", "SimHei"), size: zh(4))[
+        #distr(width: 4em, "学科专业")
+      ],
+      text(font: ("Times New Roman", "KaiTi"), size: zh(-3))[#subject],
+      text(font: ("Times New Roman", "SimHei"), size: zh(4))[
+        #distr(width: 4em, "研究方向")
+      ],
+      text(font: ("Times New Roman", "KaiTi"), size: zh(-3))[#research],
+      table.hline(stroke: 0.5pt, start: 1, end: 2),
+      table.hline(stroke: 0.5pt, start: 3),
+    )
+  ]
 
-  //? 年月
-  v(60pt)
-  text(font: ("Times New Roman", "SimHei"), size: zh(-2))[
-    #number_to_chinese(year)年#number_to_chinese(month)月
+  //? 年月：小二、正常排（不紧排）；存档件实测数字（二〇二五/六）为楷体，
+  //? 「年」「月」为黑体，与数字间各空约 8pt。
+  //? 页面水平居中；墨顶 734（存档件实测；底部扫描有卷边，水平以页面居中为准）
+  place(center + top, dy: 735pt + oy)[
+    #block(
+      width: 595.3pt,
+      align(center, text(font: "KaiTi", size: zh(-2))[
+        #number_to_chinese(year)#h(8pt)#text(font: ("Times New Roman", "SimHei"))[年]#h(8pt)#number_to_chinese(month)#h(8pt)#text(font: ("Times New Roman", "SimHei"))[月]
+      ]),
+    )
   ]
 }
 
 #let declaration() = {
   show: show-cn-fakebold
+  show: show-word-punct
   set page(margin: (
     top: 3.5cm,
     bottom: 2.5cm,
@@ -584,12 +712,14 @@
   show: el.default-enum-list.with(bottom-edge: "baseline")
   set page(
     margin: (
-      top: 3.5cm,
+      //! 文本区顶 102.9pt：docGrid 续页相位 103.0（REF，前置部分与正文统一）
+      top: 102.9pt,
       bottom: 2.5cm,
       left: 2.5cm,
       right: 2.5cm,
     ),
-    header-ascent: 0.5cm,
+    //! 眉区底部锚点 = 文本区顶 − ascent：ascent 13.7pt 时眉线 89.2、眉文 72.4（REF）
+    header-ascent: 13.7pt,
     header: context [
       #set par(spacing: 0.9em)
       #set text(font: ("Times New Roman", "SimSun"), size: zh(5))
@@ -600,33 +730,43 @@
       } else {
         calc-headings(query(heading.where(level: 1))).at(here().page() - 1)
       }
+      #v(3.6pt)
       #head-text
-      #v(-6pt)
-      #line(length: 100%, stroke: 0.5pt)
+      #v(-1.7pt)
+      #line(length: 100%, stroke: 0.75pt)
     ],
-    footer-descent: 0.5em,
+    //! docx w:footer=1134（盒底距纸底 56.7pt）：Typst footer 盒顶固定在文本区底，
+    //! descent 加大只会把盒顶下移，故保持 0，纵向偏移由 footer 内 v(2.0pt) 完成
+    footer-descent: 0pt,
     footer: context [
       #set text(font: "Times New Roman", size: zh(-5))
       #set align(center + top)
+      //! 顶部 v(2.0)：页码基线落 780.8（REF；原贴文本区底 778.8）
+      #v(2.0pt)
       #counter(page).display("I")
     ],
   )
   show heading.where(level: 1): it => {
+    //! 标题位置：外层 typeset-fore 的 set block 对这里的标题同样生效（inset 4.0），
+    //! 文本区顶 102.9，再前置 v(0.5pt) → 标题行盒 107.4（REF 107.4）
     set align(center)
     set text(
       font: ("Times New Roman", "SimHei"),
       size: zh(-3),
       //   top-edge: 1.5em,
     )
+    v(0.5pt)
     it
-    v(0.4em)
+    //! 标题下间距直接用全局 H1 的 spacing 30pt（REF 首行墨顶 149.8）；
+    //! 不再叠 v：全局 spacing 升到 30pt 后 v(16.4) 与之叠加会多出约 17pt
   }
   set heading(level: 1, numbering: none)
+  //! 与 typeset-fore 同节奏（19.56pt），spacing 与 leading 同值以维持段间节奏
   set par(
     justify: true,
     first-line-indent: (amount: 2em, all: true),
-    leading: 0.6em,
-    spacing: 1em,
+    leading: 0.77em,
+    spacing: 0.77em,
   )
   counter(page).update(1)
 
@@ -634,13 +774,17 @@
     = 摘#h(2em)要 #en[Abstract]
 
     #zh-abstract
-    #v(1em)
-    #text(font: ("Times New Roman", "SimHei"), size: zh(-4))[关键词：]
-    #text(font: ("Times New Roman", "FangSong"), size: zh(-4))[#zh-keywords]
+    //! 与末行空整整一行（首尾行顶距 = 2 个行节奏 39.1，REF 39.0）后排关键词
+    #v(18.1pt)
+    //! 标签与正文须在同一 markup 连续结构内：分写两个独立表达式会产生词间空格
+    //!（实测标签后多 3pt 空隙）
+    #text(font: ("Times New Roman", "SimHei"), size: zh(
+      -4,
+    ))[关键词：#text(font: ("Times New Roman", "FangSong"), size: zh(-4))[#zh-keywords]]
 
     #heading(outlined: false)[Abstract]
     #en-abstract
-    #v(1em)
+    #v(18.1pt)
     *Key Words:* #en-keywords
   ]
 }
@@ -678,6 +822,25 @@
         en-text = v.at(2)
       }
     }
+    if en-text == none {
+      //! back-heading 的后置标题：兄弟 en-next metadata 邻近匹配。
+      //! 后置 H1 前必有 pagebreak（全局 H1 show），标题独占页顶，
+      //! 其 en-next 紧跟其后——同页、标题下方 80pt 内的 en-next 唯一
+      let hloc = it.element.location()
+      let hy = hloc.position().y
+      for m in query(metadata) {
+        let v = m.value
+        if v.len() == 2 and v.at(0) == "en-next" {
+          let ml = m.location()
+          if ml.page() == hloc.page() {
+            let dy = ml.position().y - hy
+            if dy > -5pt and dy < 80pt {
+              en-text = v.at(1)
+            }
+          }
+        }
+      }
+    }
     link(
       it.element.location(),
       it.indented(
@@ -701,12 +864,18 @@
 #let multi-outline() = {
   set page(
     margin: (
-      top: 3.5cm,
-      bottom: 2.5cm,
+      //! 文本区顶 103.4pt：续页相位 103.0（REF，+0.4 容差）；比摘要页高 0.5，
+      //! 使目录类标题行盒落在 107.4（REF 实测；内层 inset 会被全局 H1 show 覆盖，
+      //! 故只能在此整体抬高）
+      top: 103.4pt,
+      //! 同 typeset-back：内容底对齐行格 767.9（bottom 74.1），与正文页一致；
+      //! REF 目录最深条目 ~740，放容后若多排条目也在 767 前、不撞页码
+      bottom: 74.1pt,
       left: 2.5cm,
       right: 2.5cm,
     ),
-    header-ascent: 0.5cm,
+    //! 眉区底部锚点 = 文本区顶 − ascent：ascent 14.2pt 时眉线 89.2、眉文 72.4（REF）
+    header-ascent: 14.2pt,
     header: context [
       #set par(spacing: 0.9em)
       #set text(font: ("Times New Roman", "SimSun"), size: zh(5))
@@ -717,24 +886,35 @@
       } else {
         calc-headings(query(heading.where(level: 1))).at(here().page() - 1)
       }
+      #v(3.6pt)
       #head-text
-      #v(-6pt)
-      #line(length: 100%, stroke: 0.5pt)
+      #v(-1.7pt)
+      #line(length: 100%, stroke: 0.75pt)
     ],
-    footer-descent: 0.5em,
+    //! docx w:footer=1134（盒底距纸底 56.7pt）：Typst footer 盒顶固定在文本区底
+    //! 767.9，descent 加大会把盒顶下移故保持 0；盒内 v(5.1pt) 锚到 780.8 基线
+    footer-descent: 0pt,
     footer: context [
       #set text(font: "Times New Roman", size: zh(-5))
       #set align(center + top)
+      //! 页码基线落 780.8（REF）
+      #v(5.1pt)
       #counter(page).display("I")
     ],
   )
+  //! 目录类标题仅改对齐：垂直位置由上边距 103.4 统一保证（行盒 107.4）。
+  //! 不能用前置 v：全局 H1 show 已在标题前插 pagebreak，分页符后紧跟弱 v 会生成空白页；
+  //! 也不能用内层 set block inset：会被全局 H1 show 的 set block 覆盖
   show heading.where(level: 1): set align(center)
   set heading(level: 1, numbering: none)
 
-  //! 中文目录（目录自身标题进入中英文目录：中文目录显示"目录"，英文目录显示"TOC"，
-  //! 页码均为中文目录本页；与 docx 模板一致）
+  //! 目录/TOC 标题→首条为紧凑间距（REF：标题墨底 122.4 → 首条墨顶 133.8，
+  //! 折合 block spacing 13.5pt）。用内层 show-set 覆盖全局 H1 块样式的 spacing
+  //!（inset 等其余属性继承全局 show-set）；pagebreak 逻辑仍由全局 H1 show
+  //! 完成，不受影响
   show outline.entry: outline-entry
   [
+    #show heading.where(level: 1): set block(spacing: 13.5pt)
     #heading(level: 1)[目#h(2em)录 #en[TOC]]
     #outline(
       title: none,
@@ -745,6 +925,7 @@
   //! 英文目录：标题仅作本页页名，不进入任何目录（独立插入，不参与中文目录）
   show outline.entry: outline-entry-en
   [
+    #show heading.where(level: 1): set block(spacing: 13.5pt)
     #heading(level: 1, outlined: false)[TABLE OF CONTENTS]
     #outline(
       title: none,
@@ -752,7 +933,8 @@
     )
   ]
 
-  //! 图/表/公式目录（标题均进入中英文总目录）
+  //! 图/表/公式目录（标题均进入中英文总目录）：标题→首条与摘要同款空一行
+  //! 节奏（REF 27.4pt），直接走全局 H1 的 spacing 30pt，不叠 v
   show outline.entry: outline-entry
   [
     #heading(level: 1)[图目录 #en[List of Figures]]
@@ -800,7 +982,8 @@
   caption: caption,
 )
 
-//! 伪代码环境：三线风格算法框，算法框左对齐、整体左缩进 2 字符，
+//! 伪代码环境：三线风格算法框，算法框整体居中、框内文字左对齐
+//! （figure 默认将内容居中，表格去掉通栏 block 后框宽随内容收缩，与三线表同风格），
 //! 编号"章号.序号"（计入 algorithm 类型，不与图表混编）。
 //! 用法：
 //! #algorithm(
@@ -812,43 +995,98 @@
 //! supplement/编号由 typeset-fore 中 kind 为 "algorithm" 的全局 set 规则提供
 #let algorithm(body, caption: [算法标题], input: none, output: none) = figure(
   kind: "algorithm",
-  block(
-    width: 100%,
-    inset: (left: 2em),
-  )[
-    #set align(left)
-    #table(
-      columns: 1,
-      stroke: (top: 0.75pt, bottom: 0.75pt, x: none, y: none),
-      inset: (x: 1em, y: 0.35em),
-      if input != none [*输入：*#input],
-      if output != none [*输出：*#output],
-      body,
-    )
-  ],
+  table(
+    columns: 1,
+    stroke: (top: 0.75pt, bottom: 0.75pt, x: none, y: none),
+    inset: (x: 1em, y: 0.35em),
+    align: left,
+    if input != none [*输入：*#input],
+    if output != none [*输出：*#output],
+    body,
+  ),
   caption: caption,
 )
+
+//! 三线表起始页状态：tlt() 在表格紧前更新，续页表头里的 context
+//! 据此判断"当前页晚于起始页"从而显示续表标记（表头.header 每页重复、逐页重估）
+#let tlt-page = state("tlt-page", 0)
 
 //! 设置三线表格式（data 为读取好的文件内容，须在调用处用
 //! `read("./tables/xxx.xlsx", encoding: none)` 读取，以保证路径相对使用者文件解析）
 #let tlt(data) = {
-  xlsx-parser(
+  //! 先只做解析（parse-table-style: false 时 rexllent 给出 columns/rows 计数），
+  //! 表格骨架（续表标记行、顶线、表头、底线）在本地重组以支持跨页续表：
+  //! 标记行与顶线放进 table.header，分页后随表头每页重复
+  let t = xlsx-parser(
     data,
     parse-table-style: false,
     parse-alignment: false,
     parse-stroke: false,
     parse-fill: true,
-    parse-font: true,
+    //! 不采信 xlsx 自带字体：表头是否加粗/字号全由本库统一（表头加粗、
+    //! 全文五号），避免不同 xlsx 文件的格式差异渲染出不一致的表格
+    parse-font: false,
     parse-header: true,
     parse-formatted-cell: true,
-    rows: 1.8em,
     align: horizon,
-    prepend-elems: (table.hline()),
+  )
+  //! table 构造时会把计数参数规范化为 auto 轨道数组（parse-table-style: false
+  //! 时传给 table 的是列数/行数），故用 len() 取回计数
+  let n = if type(t.columns) == int { t.columns } else { t.columns.len() }
+  let m = if type(t.rows) == int { t.rows } else { t.rows.len() }
+  //! 起始页更新紧贴表格：本表任意续页表头读到的都是本表起始页
+  context tlt-page.update(here().page())
+  //! 单元格文字垂直居中：全局 top-edge 0.86em 使墨迹在 1.8em 固定行高内
+  //! 偏低 ~1pt（实测行内墨上/下 5.0/2.9，REF 为 4.2/3.7 居中）。
+  //! 此处 top/bottom-edge 互换 0.1em，行盒总高 1.77em 不变、多行格行距不变
+  set text(top-edge: 0.76em, bottom-edge: 0.24em)
+  //! 表头行统一加粗：重组后 y=0 是续表标记行、y=1 才是表头行；
+  //! 字号由全局 show table 的五号供给，无需在此重复设置
+  show table.cell.where(y: 1): set text(weight: "bold")
+  table(
+    columns: n,
+    //! 行轨道：首行=续表标记行（首页空、自动塌缩 0 高），其后 m 行 1.8em
+    rows: (auto,) + (1.8em,) * m,
+    //! 表头行（网格 y=1）下边线 0.75pt（REF 实测 0.72）；
+    //! 末数据行（y=m）底边 1.5pt 即表底线——作为表格外边界，
+    //! 分页时自动复制到每个片段底部（REF 实测：跨页片段末行后有尾线）
     stroke: (_, y) => {
-      if y == 0 {
-        return (bottom: 0.5pt)
+      if y == 1 {
+        return (bottom: 0.75pt)
+      }
+      if y == m {
+        return (bottom: 1.5pt)
       }
     },
-    table.hline(),
+    table.header(
+      //! 续表标记：宋体小四、右对齐至表格右缘（REF：续页首行、无编号）
+      table.cell(
+        colspan: n,
+        stroke: none,
+        inset: (x: 0pt, y: 0pt),
+        align: right,
+        context if here().page() > tlt-page.get() {
+          //! 固定高盒：文字钉在续页行顶（REF 字顶 103.0=文本区顶），
+          //! 盒高 15.9 → 顶线距行顶 15.9（REF 15.8）；首页条件不成立、
+          //! 无盒，标记行自动塌缩为 0 高
+          box(height: 15.9pt, width: 100%, inset: 0pt)[
+            #align(right)[
+              //! 显式恢复全局 edge：tlt 作用域的单元格居中 edge 不适用此钉顶标记
+              #text(
+                font: ("Times New Roman", "SimSun"),
+                size: zh(-4),
+                top-edge: 0.86em,
+                bottom-edge: 0.14em,
+              )[续表]
+            ]
+          ]
+        },
+      ),
+      //! 顶线 1.5pt（REF 实测 1.44），位于标记行与表头行之间；
+      //! 在 table.header 内，分页后随表头在续页重复
+      table.hline(y: 1, stroke: 1.5pt),
+      ..t.children.at(0).children,
+    ),
+    ..t.children.slice(1),
   )
 }

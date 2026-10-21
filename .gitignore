@@ -8,6 +8,8 @@ desktop.ini
 *.ttc
 *.pdf
 
+work/
+
 # Deployment
 /dist
 
