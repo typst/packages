@@ -1,5 +1,5 @@
 // use tailwind colors: text 700, fill 100, stroke 300
-#let twColors = (
+#let tw-colors = (
   red: (oklch(50.5%, 0.213, 27.518deg), oklch(93.6%, 0.032, 17.717deg), oklch(80.8%, 0.114, 19.571deg)),
   orange: (oklch(55.3%, 0.195, 38.402deg), oklch(95.4%, 0.038, 75.164deg), oklch(83.7%, 0.128, 66.29deg)),
   yellow: (oklch(55.4%, 0.135, 66.442deg), oklch(97.3%, 0.071, 103.193deg), oklch(90.5%, 0.182, 98.111deg)),
@@ -18,14 +18,14 @@
   math: ""
 )
 
-#let emptyblock((fontcolor, bgcolor, bordercolor), width: 100%, height: auto, content) = {
+#let empty-block((fontcolor, bgcolor, bordercolor), width: 100%, height: auto, content) = {
   set text(fill: fontcolor)
   block(width: width, height: height, inset: (x: 0.75em, y: 0.5em), radius: 0.5em, breakable: false,
     fill: bgcolor, stroke: (paint: bordercolor, thickness: 1pt), content)
 }
 
 #let callout(icon, title, content, colors) = {
-  emptyblock(colors,
+  empty-block(colors,
   [
     #heading(outlined: false, numbering: none, depth: 3, {
       box(text(font: "Material Symbols Outlined", icon), baseline: 1pt)
@@ -39,7 +39,7 @@
 
 #let inactive-text-color = rgb("#98A1AE")
 
-#let getCurrentHeader(lvl) = {
+#let get-current-header(lvl) = {
   query(heading.where(level: lvl).after(here())
     .or(heading.where(level: lvl).before(here())))
     .sorted(
@@ -63,33 +63,33 @@
 
 // callout definitions
 
-#let addTitle(title) = if title != [] {
+#let add-title(title) = if title != [] {
   ": "
   title
 } else []
 
 
-#let note(content) = callout("comment", [Note], content, twColors.gray)
+#let note(content) = callout("comment", [Note], content, tw-colors.gray)
 
-#let summary(content) = callout("summarize", [Summary], content, twColors.teal)
+#let summary(content) = callout("summarize", [Summary], content, tw-colors.teal)
 
-#let fact(content) = callout("info", "Fact", content, twColors.sky)
+#let fact(content) = callout("info", "Fact", content, tw-colors.sky)
 
 // todo
 
 // hint
 
-#let solution(content, title: []) = callout("check", if title == [] {"Solution"} else {title}, content, twColors.green)
+#let solution(content, title: []) = callout("check", if title == [] {"Solution"} else {title}, content, tw-colors.green)
 
-#let idea(content, title: []) = callout("lightbulb", [Idea#addTitle(title)], content, twColors.yellow)
+#let idea(content, title: []) = callout("lightbulb", [Idea#add-title(title)], content, tw-colors.yellow)
 
-#let question(content, title: []) = callout("question_mark", [Question#addTitle(title)], content, twColors.orange)
+#let question(content, title: []) = callout("question_mark", [Question#add-title(title)], content, tw-colors.orange)
 
-#let warning(content) = callout("warning", "Warning", content, twColors.orange)
+#let warning(content) = callout("warning", "Warning", content, tw-colors.orange)
 
-#let problem(content, title: []) = callout("dangerous", [Problem#addTitle(title)], content, twColors.red)
+#let problem(content, title: []) = callout("dangerous", [Problem#add-title(title)], content, tw-colors.red)
 
-#let example(content, title: []) = callout("edit", [Example#addTitle(title)], content, twColors.purple)
+#let example(content, title: []) = callout("edit", [Example#add-title(title)], content, tw-colors.purple)
 
 
 // useful to show code including math content
@@ -105,7 +105,7 @@
 
   #body
   ],
-  twColors.gray)
+  tw-colors.gray)
 }
 
 // compare two things side by side
@@ -117,7 +117,7 @@
       if i >= half-args {
         continue
       }
-      (emptyblock((black, none, twColors.gray.at(2)), [
+      (empty-block((black, none, tw-colors.gray.at(2)), [
         #{
           set align(center)
           heading(args.at(i), outlined: false, numbering: none, depth: 3)
@@ -130,8 +130,8 @@
 
 #let good-bad(good, bad) = {
   grid(columns: 2, gutter: 1em,
-    callout("check", [Pro], good, twColors.green),
-    callout("close", [Con], bad, twColors.red)
+    callout("check", [Pro], good, tw-colors.green),
+    callout("close", [Con], bad, tw-colors.red)
   )
 }
 
@@ -150,7 +150,7 @@
   // page layout and style
   set page(numbering: "1", header: context {
     // get the current header on level 1
-    let h = getCurrentHeader(1)
+    let h = get-current-header(1)
 
 
     set text(fill: inactive-text-color)
@@ -179,7 +179,7 @@
   }
   show terms.item: it => {
     callout("book_2", it.term, it.description,
-      twColors.sky)
+      tw-colors.sky)
   }
 
   set quote(block: true)
@@ -190,7 +190,7 @@
       it.attribution
     }
 
-    callout("format_quote", title, it.body, twColors.gray)
+    callout("format_quote", title, it.body, tw-colors.gray)
   }
 
   set table(stroke: rgb("#E4E6EB") + 0.5pt, fill: (_, y) => if calc.odd(y){ rgb("#F9F9FB") })
@@ -199,7 +199,7 @@
 
   show raw: set text(font: fonts.mono)
   show raw.where(block: true): it => {
-    emptyblock(twColors.gray, {
+    empty-block(tw-colors.gray, {
       place(top+right, text(font: fonts.sans, fill: inactive-text-color, it.lang))
 
       show raw.line: line => {
@@ -216,7 +216,7 @@
   }
 
   show image: i => {
-      block(clip: true, radius: 0.5em, stroke: twColors.gray.at(2), i)
+      block(clip: true, radius: 0.5em, stroke: tw-colors.gray.at(2), i)
   }
 
   show link: url => {

@@ -102,7 +102,7 @@ For example, you could add a todo callout and use it together with the _cheq_ pa
 
 Which would look like this:
 
-#import "@preview/cheq:0.2.2": checklist
+#import "@preview/cheq:0.4.0": checklist
 
 #show: checklist.with(stroke: rgb("#6F05E7"))
 
