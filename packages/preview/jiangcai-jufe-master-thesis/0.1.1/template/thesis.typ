@@ -1,6 +1,6 @@
 //! ⚠️ 提交 PR 前必须切换为下面注释中的 @preview 写法（已发布模板的标准写法）
-// #import "@preview/jiangcai-jufe-master-thesis:0.1.1": *
-#import "@local/jiangcai-jufe-master-thesis:0.1.1": *
+#import "@preview/jiangcai-jufe-master-thesis:0.1.1": *
+// #import "@local/jiangcai-jufe-master-thesis:0.1.1": *
 
 //! 行内代码（反引号标记的函数名、命令、文件名等）以蓝色突出，
 //! 类似常见技术文档中代码元素的着色强调；块级代码仍由语法高亮着色，不受影响
