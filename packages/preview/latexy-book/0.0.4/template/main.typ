@@ -1,4 +1,4 @@
-#import "@preview/latexy-book:0.0.4": book, frontmatter, mainmatter, appendix, backmatter, definition, theorem, assumption, proposition, lemma, corollary, exercise, example, notice, code, citep, citet, subfigure, mode-wheel
+#import "@preview/latexy-book:0.0.4": book, frontmatter, mainmatter, appendix, backmatter, definition, theorem, assumption, proposition, lemma, corollary, exercise, example, notice, code, citep, citet, subfigure, button, mode-wheel
 // #import "../lib.typ": *
 /* 
 If you are sure you want to import all the macros and not conflict with other packages, uncomment the line below.
