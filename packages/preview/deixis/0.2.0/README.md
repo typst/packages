@@ -1,7 +1,7 @@
 # Deixis
 
 [![Typst Universe](https://img.shields.io/badge/Typst_Universe-deixis-239DAE?logo=typst)](https://typst.app/universe/package/deixis)
-[![Tests](https://github.com/inspiros/typst-deixis/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/inspiros/typst-deixis/actions/workflows/test.yml)
+[![Deixis automated test suite status](https://github.com/inspiros/typst-deixis/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/inspiros/typst-deixis/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 <img src="https://raw.githubusercontent.com/inspiros/typst-deixis/v0.2.0/assets/readme/hero.svg" width="1100" alt="Deixis — Point to What Matters: a colorful collage of highlights, an equation callout, shared notes, diagram connections, an editorial comment, a native footnote, a note outline, and a table with its own local notes.">
