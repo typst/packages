@@ -8,4 +8,4 @@ description = "Fast SmartArt-style diagrams and flowcharts."
 repository = "https://github.com/CRAG666/typart"
 keywords = ["diagram", "smartart", "infographic", "poster", "flowchart", "process", "venn", "gantt", "timeline", "cycle", "pyramid", "hierarchy", "matrix", "tree", "swot"]
 categories = ["visualization", "poster"]
-exclude = ["images/*.png"]
+exclude = ["images/*"]

@@ -30,7 +30,7 @@ Sizes documented as heights are minimums: boxes grow to fit their text. Spacings
 - `edge("a", "b", "c", ..)` — connects nodes (or named groups) in a chain: `a → b → c`. Routing is automatic: straight when the two shapes face each other, elbowed otherwise, and around the row when the straight line is blocked or would overlap a reverse edge. `via:` forces a route through grid points, `bend:` curves the edge.
 - `group(title, "a", "b", ..)` — a dashed frame around nodes, titled on its border or `inside: true`; give it a `name` to connect edges to the whole frame.
 
-Nodes with a `(column, row)` position sit on a grid whose columns and rows take the size of their largest node; fractional positions such as `(0.5, 1)` sit between tracks (centred over two nodes) and widen them when needed. Leave the position out and the layout is automatic: each node goes one layer after its longest chain of predecessors (topological order), and is aligned with its predecessors inside its layer.
+Nodes with a `(column, row)` position sit on a grid whose columns and rows take the size of their largest node; gaps widen to fit group frames, and leave room for an arrow wherever an edge crosses them; fractional positions such as `(0.5, 1)` sit between tracks (centred over two nodes) and widen them when needed. Leave the position out and the layout is automatic: each node goes one layer after its longest chain of predecessors (topological order), and is aligned with its predecessors inside its layer.
 
 See [Paper figures](#paper-figures) for complete diagrams built with these pieces.
 
@@ -120,6 +120,7 @@ A research pipeline placed on the grid, with groups (nodes may hold any content,
 | `inset` | `7pt` | Default padding inside nodes. |
 | `group-stroke` | dashed `luma(150)` | Default group frame. |
 | `group-inset` | `10pt` | Space between a group frame and its nodes. |
+| `independent-columns` | `false` | `true` lets each lane (columns joined by nodes placed between them) size its own rows, so a tall node in one lane does not stretch the others. |
 
 ### node
 
@@ -163,19 +164,31 @@ A research pipeline placed on the grid, with groups (nodes may hold any content,
 
 ## Paper figures
 
-Building blocks for figures in papers and posters: `panels` lays out framed sub-figures with captions and a), b)… labels; `loop-ring` draws a "repeat / continuous" ring around any content; `flowchart` composes method diagrams. The four figures below are complete examples (icons are Font Awesome glyphs; any `image(...)` works the same way).
+Building blocks for figures in papers and posters: `panels` lays out framed sub-figures with captions and a), b)… labels; `loop-ring` draws a "repeat / continuous" ring around any content; `flowchart` composes method diagrams. The figures below are complete examples, set in [Inter](https://rsms.me/inter/) (any installed font works); icons are Font Awesome glyphs.
 
-A method diagram with captions under the boxes, fractional positions, routes through grid points (`via`) and titled groups:
+**Images.** A `node` body, a `panels` item and a `loop-ring` accept any content, so a picture is just `image(...)`; the path is resolved from your own document. Combine it with `fill: none, stroke: none` for a bare picture, and with `caption:` for a label under it:
 
 ```typst
-#set text(size: 16pt, weight: "bold")
+#flowchart(
+  node("sig", (0, 0), image("images/ecg.svg", width: 3cm), fill: none, stroke: none, caption: [ECG]),
+  node("model", (1, 0), [Model]),
+  edge("sig", "model"),
+)
+#panels(columns: 2, (image("images/ecg.svg", width: 4cm), [Raw signal]), ([Filtered], [Caption]))
+```
+
+A method diagram in three lanes: `independent-columns: true` lets each lane stack its own rows, captions hang under the boxes, fractional positions centre a node over two columns, routes go through grid points (`via`) and arrows reaching the same side of a node get their own slots:
+
+```typst
+#set text(font: "Inter", size: 16pt, weight: "bold")
 #let note(t) = text(size: 10pt, t)
 #let title(t) = text(weight: "regular", fill: luma(110), size: 18pt, t)
 #let (green, red, blue, orange, violet) = (rgb("#a7dd9b"), rgb("#f38ba8"), rgb("#89b4fa"), rgb("#f9b98a"), rgb("#b4bcfa"))
 #let s = (stroke: 1.5pt + black)
 
 #flowchart(
-  spacing: (16mm, 9mm),
+  independent-columns: true,
+  spacing: (12mm, 9mm),
   edge-stroke: 1.5pt + black,
   radius: 10pt,
   inset: 10pt,
@@ -189,26 +202,26 @@ A method diagram with captions under the boxes, fractional positions, routes thr
 
   node("feat", (2.5, 0), [Feature extraction], fill: orange, ..s,
     caption: note[Wavelet: bior3.3 \ characteristics by coefficient: \ [mean, std, var, kurtosis, skewness, \ energy, entropy, max, min, median, iqr, range, mad]]),
-  node("f1", (2, 2), [Signal1 F], fill: red.lighten(50%), ..s),
-  node("f2", (3, 2), [Signal2 F], fill: blue.lighten(50%), ..s),
-  node("merge", (2.5, 3), [Merging features], fill: orange, ..s),
-  node("final", (2.5, 4), [Final features], fill: rgb("#f5c2e7"), ..s),
-  node("kfold", (2.5, 5), [Stratified K-Fold], fill: violet, caption: note[Folds: 5 \ [Fold 1] [Fold 2] … [Fold k]], ..s),
+  node("f1", (2, 1), [Signal1 F], fill: red.lighten(50%), ..s),
+  node("f2", (3, 1), [Signal2 F], fill: blue.lighten(50%), ..s),
+  node("merge", (2.5, 2), [Merging features], fill: orange, ..s),
+  node("final", (2.5, 3), [Final features], fill: rgb("#f5c2e7"), ..s),
+  node("kfold", (2.5, 4), [Stratified K-Fold], fill: violet, caption: note[Folds: 5 \ [Fold 1] [Fold 2] … [Fold k]], ..s),
 
   node("list", (4, 0), [List of classifiers], fill: violet, ..s,
     caption: note[classifiers: [Random Forest, Logistic \ Regression, KNN, Decision Tree, \ Naive Bayes, Extra Trees, LDA]]),
-  node("cv", (4, 2), [Cross-Validation loop], fill: violet, caption: note[Train and test classifier by classifier], ..s),
-  node("report", (4, 3), [Classification Report], fill: violet, caption: note[Save in parquet packages], ..s),
-  node("viz", (4, 4), [Visualization], fill: violet, ..s),
+  node("cv", (4, 1), [Cross-Validation loop], fill: violet, caption: note[Train and test classifier by classifier], ..s),
+  node("report", (4, 2), [Classification Report], fill: violet, caption: note[Save in parquet packages], ..s),
+  node("viz", (4, 3), [Visualization], fill: violet, ..s),
 
   edge("dataset", "load"),
   edge("load", "sig1", "seg", "pre1"),
   edge("load", "sig2", "seg", "pre2"),
-  edge("pre1", "feat", via: ((0, 4.75), (1.48, 4.75), (1.48, 0))),
-  edge("pre2", "feat", via: ((1, 4.55), (1.4, 4.55), (1.4, 0))),
+  edge("pre1", "feat", via: ((0, 4.7), (1.6, 4.7), (1.6, 0))),
+  edge("pre2", "feat", via: ((1, 4.55), (1.5, 4.55), (1.5, 0))),
   edge("feat", "f1", "merge", "final", "kfold"),
   edge("feat", "f2", "merge"),
-  edge("kfold", "list", via: ((3.5, 5), (3.5, 0))),
+  edge("kfold", "list", via: ((3.45, 4), (3.45, 0))),
   edge("list", "cv", "report", "viz"),
 
   group(title[Preprocessing], "dataset", "load", "sig1", "sig2", "seg", "pre1", "pre2", inside: true),
@@ -223,7 +236,7 @@ A method diagram with captions under the boxes, fractional positions, routes thr
 A continuous-authentication scheme: icons as nodes, edges between whole groups, a decision diamond, a `loop` node and a curved back edge:
 
 ```typst
-#set text(size: 12pt, weight: "bold")
+#set text(font: "Inter", size: 12pt, weight: "bold")
 #let ico(code, col, size: 36pt) = text(font: "Font Awesome 7 Free", size: size, fill: col, code)
 #let plain = (fill: none, stroke: none)
 #let title(t) = text(weight: "regular", fill: luma(110), size: 14pt, t)
@@ -266,10 +279,49 @@ A continuous-authentication scheme: icons as nodes, edges between whole groups, 
 
 ![Screenshot of a continuous authentication flowchart with groups, a decision and a loop](images/figure-esquema.png)
 
+A verification pipeline with an image node (`images/ecg.svg`), edges between whole groups and two branches leaving one node through waypoints:
+
+```typst
+#set text(font: "Inter", size: 13pt, weight: "bold")
+#let ico(code, col, size: 44pt) = text(font: "Font Awesome 7 Free", size: size, fill: col, code)
+#let plain = (fill: none, stroke: none)
+#let boxed = (stroke: 1.2pt + black)
+#let title(t) = text(weight: "regular", size: 15pt, t)
+
+#flowchart(
+  spacing: (10mm, 9mm),
+  edge-stroke: 2.5pt + black,
+  radius: 8pt,
+  group-stroke: (paint: luma(120), thickness: 1pt, dash: "dashed"),
+  node("user", (0, 0), ico("\u{f007}", rgb("#c48b9f")), caption: [Sesion \ Request], ..plain),
+  node("watch", (0, 1), ico("\u{f21e}", rgb("#f44336"), size: 52pt), ..plain),
+  node("capture", (0, 2), [Capture], fill: rgb("#f38ba8"), width: 4cm, ..boxed),
+  node("ecg", (1, 2), image("images/ecg.svg", width: 3cm), ..plain),
+  node("feat", (2, 1), [Feature extraction], fill: rgb("#f9b98a"), width: 4.6cm, height: 1.6cm, ..boxed),
+  node("prep", (2, 2), [Preprocesing], fill: rgb("#f9b98a"), width: 4.6cm, height: 1.6cm, ..boxed),
+  node("rejected", (1, -1), ico("\u{f235}", rgb("#f06292")), caption: [Rejected], ..plain),
+  node("or", (2, -1), text(weight: "regular", size: 18pt)[OR], ..plain),
+  node("accepted", (3, -1), ico("\u{f4fc}", rgb("#c48b9f")), caption: [Accepted], ..plain),
+  node("auth", (2, 0), [Autentication], fill: rgb("#b4bcfa"), width: 4.6cm, ..boxed),
+
+  edge("user", "capture-box", "features", "verification"),
+  edge("watch", "capture", "ecg"),
+  edge("prep", "feat"),
+  edge("auth", "rejected", via: ((1.75, -1),)),
+  edge("auth", "accepted", via: ((2.25, -1),)),
+
+  group(title[Signal Capture], "watch", "capture", "ecg", name: "capture-box", inside: true),
+  group(title[Feature Engineering], "feat", "prep", name: "features", inside: true),
+  group(title[Verification Stage], "rejected", "or", "accepted", "auth", name: "verification", inside: true),
+)
+```
+
+![Screenshot of a verification pipeline: signal capture, feature engineering and an accept or reject stage](images/figure-verification.png)
+
 Sub-figure grids with `panels`:
 
 ```typst
-#set text(size: 12pt)
+#set text(font: "Inter", size: 12pt)
 #let ico(code, col) = text(font: "Font Awesome 7 Free", size: 34pt, fill: col, code)
 #let row(..icons) = grid(columns: icons.pos().len(), column-gutter: 1.2em, align: horizon, ..icons)
 
@@ -286,7 +338,7 @@ Sub-figure grids with `panels`:
 ![Screenshot of six dashed panels with icons, captions and numbers](images/figure-factors.png)
 
 ```typst
-#set text(size: 12pt)
+#set text(font: "Inter", size: 12pt)
 #let ico(code, col) = text(font: "Font Awesome 7 Free", size: 34pt, fill: col, code)
 #let row(..icons) = grid(columns: icons.pos().len(), column-gutter: 0.8em, align: horizon, ..icons)
 #let op(t) = text(size: 22pt, t)

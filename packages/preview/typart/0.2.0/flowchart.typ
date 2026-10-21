@@ -101,6 +101,7 @@
   inset: 7pt,
   group-stroke: (paint: luma(150), thickness: 0.8pt, dash: "dashed"),
   group-inset: 10pt,
+  independent-columns: false,
 ) = context {
   let parts = children.pos().flatten()
   let nodes = parts.filter(c => c.kind == "node")
@@ -144,11 +145,10 @@
 
   // the tracks a node covers: one for an integer position, both neighbours for a fraction
   let tracks = cells.map(((c, r)) => (int(calc.floor(c)), int(calc.ceil(c)), int(calc.floor(r)), int(calc.ceil(r))))
+  let (c0, r0) = (calc.min(..tracks.map(t => t.at(0))), calc.min(..tracks.map(t => t.at(2))))
+  let (nc, nr) = (calc.max(..tracks.map(t => t.at(1))) - c0 + 1, calc.max(..tracks.map(t => t.at(3))) - r0 + 1)
   // track sizes as in CSS grid: single-track nodes take the largest size per track,
   // then a node spanning tracks spreads whatever it still lacks over them
-  let (c0, r0) = (calc.min(..tracks.map(t => t.at(0))), calc.min(..tracks.map(t => t.at(2))))
-  let col-w = (0pt,) * (calc.max(..tracks.map(t => t.at(1))) - c0 + 1)
-  let row-h = (0pt,) * (calc.max(..tracks.map(t => t.at(3))) - r0 + 1)
   let fit(tracks, first, n, need, gap) = {
     let have = tracks.slice(first, first + n).sum() + gap * (n - 1)
     if n == 1 { tracks.at(first) = calc.max(tracks.at(first), need) } else if need > have {
@@ -156,20 +156,26 @@
     }
     tracks
   }
-  for pass in (1, 2) {
-    for (i, (ca, cb, ra, rb)) in tracks.enumerate() {
-      if (ca == cb) == (pass == 1) { col-w = fit(col-w, ca - c0, cb - ca + 1, sizes.at(i).w, gx) }
-      if (ra == rb) == (pass == 1) { row-h = fit(row-h, ra - r0, rb - ra + 1, sizes.at(i).h, gy) }
+  // sizes of n tracks from the nodes `ids`; lo/hi index their first/last track
+  let size-tracks(n, ids, lo, hi, origin, key, gap) = {
+    let out = (0pt,) * n
+    for pass in (1, 2) {
+      for i in ids {
+        let (a, b) = (tracks.at(i).at(lo) - origin, tracks.at(i).at(hi) - origin)
+        if (a == b) == (pass == 1) { out = fit(out, a, b - a + 1, sizes.at(i).at(key), gap) }
+      }
     }
+    out
   }
+  let col-w = size-tracks(nc, range(nodes.len()), 0, 1, c0, "w", gx)
   // groups as sets of nodes (a group may contain earlier groups) with the room their
   // frame and title take beyond those nodes, so the gaps between tracks can fit them
   let titles = groups.map(g => if g.title != none { text(weight: "bold", g.title) })
   let members = (:)
   for (i, nd) in nodes.enumerate() { members.insert(nd.name, (i,)) }
   let rooms = (:)
-  let items = tracks.map(((ca, cb, ra, rb)) => (c0: ca - c0, c1: cb - c0, r0: ra - r0, r1: rb - r0,
-    top: 0pt, bottom: 0pt, side: 0pt))
+  let items = tracks.zip(nodes).map((((ca, cb, ra, rb), nd)) => (c0: ca - c0, c1: cb - c0, r0: ra - r0,
+    r1: rb - r0, top: 0pt, bottom: 0pt, side: 0pt, name: nd.name))
   for (g, title) in groups.zip(titles) {
     let ids = g.names.map(nm => {
       assert(nm in members, message: "flowchart: no node or group named \"" + nm + "\"")
@@ -186,13 +192,17 @@
       rooms.insert(g.name, room)
     }
     items.push((c0: calc.min(..ids.map(i => items.at(i).c0)), c1: calc.max(..ids.map(i => items.at(i).c1)),
-      r0: calc.min(..ids.map(i => items.at(i).r0)), r1: calc.max(..ids.map(i => items.at(i).r1)), ..room))
+      r0: calc.min(..ids.map(i => items.at(i).r0)), r1: calc.max(..ids.map(i => items.at(i).r1)), ..room,
+      name: g.name))
   }
-  // a gap grows until whatever faces each other across it fits, frames included
-  let gaps(n, gap, last, first, lo, hi, before, after) = range(n - 1).map(k => calc.max(gap, ..items
+  // a gap grows until whatever faces each other across it fits, frames included, plus
+  // room for an arrow when an edge joins the two sides
+  let linked = edges.map(e => (e.from, e.to))
+  let arrow-room(a, b) = if (a.name, b.name) in linked or (b.name, a.name) in linked { 0.9cm } else { 0pt }
+  let gaps(items, n, gap, last, first, lo, hi, before, after) = range(n - 1).map(k => calc.max(gap, ..items
     .filter(a => a.at(last) == k)
     .map(a => items.filter(b => b.at(first) == k + 1 and b.at(lo) <= a.at(hi) and a.at(lo) <= b.at(hi))
-      .map(b => a.at(before) + b.at(after) + 6pt))
+      .map(b => a.at(before) + b.at(after) + 6pt + arrow-room(a, b)))
     .flatten()))
   let starts(tracks, gaps) = {
     let (acc, out) = (0pt, ())
@@ -202,16 +212,38 @@
     }
     out
   }
-  let xs = starts(col-w, gaps(col-w.len(), gx, "c1", "c0", "r0", "r1", "side", "side"))
-  let ys = starts(row-h, gaps(row-h.len(), gy, "r1", "r0", "c0", "c1", "bottom", "top"))
-  let cxs = range(col-w.len()).map(i => xs.at(i) + col-w.at(i) / 2)
-  let cys = range(row-h.len()).map(i => ys.at(i) + row-h.at(i) / 2)
+  let xs = starts(col-w, gaps(items, nc, gx, "c1", "c0", "r0", "r1", "side", "side"))
+  let cxs = range(nc).map(i => xs.at(i) + col-w.at(i) / 2)
+  // lanes: blocks of columns joined by nodes that span them (interval merging).  With
+  // independent-columns every lane sizes and spaces its own rows; else one lane has all.
+  let spans = tracks.map(t => (t.at(0) - c0, t.at(1) - c0)).sorted()
+  let bounds = if independent-columns {
+    let merged = ()
+    for (a, b) in spans {
+      if merged.len() > 0 and a <= merged.at(-1).at(1) { merged.at(-1).at(1) = calc.max(merged.at(-1).at(1), b) } else {
+        merged.push((a, b))
+      }
+    }
+    merged
+  } else { ((0, nc - 1),) }
+  let lanes = bounds.map(((a, b)) => {
+    let inside = it => it.c0 <= b and it.c1 >= a
+    let ids = range(nodes.len()).filter(i => inside(items.at(i)))
+    let row-h = size-tracks(nr, ids, 2, 3, r0, "h", gy)
+    let ys = starts(row-h, gaps(items.filter(inside), nr, gy, "r1", "r0", "c0", "c1", "bottom", "top"))
+    (a: a, b: b, row-h: row-h, ys: ys, cys: range(nr).map(i => ys.at(i) + row-h.at(i) / 2))
+  })
+  // the lane of a (relative, possibly fractional) column: the last one starting at or before it
+  let lane-of(c) = lanes.filter(l => l.a <= calc.floor(c)).at(-1, default: lanes.first())
   // a fractional grid coordinate, interpolated (or extrapolated) between track centres
   let along(v, cs, pitch) = if cs.len() == 1 { cs.first() + v * pitch } else {
     let k = calc.min(calc.max(int(calc.floor(v)), 0), cs.len() - 2)
     cs.at(k) + (v - k) * (cs.at(k + 1) - cs.at(k))
   }
-  let grid-point((c, r)) = (along(c - c0, cxs, col-w.first() + gx), along(r - r0, cys, row-h.first() + gy))
+  let grid-point((c, r)) = {
+    let lane = lane-of(c - c0)
+    (along(c - c0, cxs, col-w.first() + gx), along(r - r0, lane.cys, lane.row-h.first() + gy))
+  }
   let geo = cells.enumerate().map(((i, cell)) => {
     let (x, y) = grid-point(cell)
     let sz = sizes.at(i)
@@ -265,15 +297,12 @@
   let side(g, k) = (g.x + k * g.sa, g.sy)
   let end(g, k) = (g.x, g.y + k * g.b)
   // an end waypoint p slides along the leg it shares with its neighbour q until it
-  // lines up with node g, so the edge meets g straight (orthogonal connector snapping)
-  // (kept where it already faces the node, else moved to the middle of the shape)
+  // lines up with the middle of node g, so the edge meets g straight
   let snap(g, p, q) = {
     let (px, py) = p
-    if calc.abs(q.at(0) - px) < 0.5pt and calc.abs(px - g.x) > g.sa {
-      (px, if calc.abs(py - g.sy) < g.sb { py } else { g.sy })
-    } else if calc.abs(q.at(1) - py) < 0.5pt and calc.abs(py - g.y) > g.b {
-      (if calc.abs(px - g.x) < g.sa { px } else { g.x }, py)
-    } else { p }
+    if calc.abs(q.at(0) - px) < 0.5pt and calc.abs(px - g.x) > g.sa { (px, g.sy) } else if (
+      calc.abs(q.at(1) - py) < 0.5pt and calc.abs(py - g.y) > g.b
+    ) { (g.x, py) } else { p }
   }
   // where an edge from waypoint p meets g: a side when p faces it, else top or bottom
   let attach(g, p) = {
@@ -362,6 +391,34 @@
   }
 
   let paths = edges.map(path)
+  // port assignment: elbow edges arriving on the same side of a node each get a slot
+  // along that side, ordered so their last legs do not cross; only that leg moves
+  let ports = (:)
+  for (i, (e, pts)) in edges.zip(paths).enumerate() {
+    if pts.len() < 3 or (e.bend != 0deg and e.via.len() == 0) { continue }
+    let ((px, py), (qx, qy)) = pts.slice(-2)
+    let side = if calc.abs(py - qy) < 0.5pt { if px < qx { "left" } else { "right" } } else if calc.abs(px - qx) < 0.5pt {
+      if py < qy { "top" } else { "bottom" }
+    } else { continue }
+    ports.insert(e.to + "|" + side, ports.at(e.to + "|" + side, default: ()) + (i,))
+  }
+  for (key, ids) in ports.pairs().filter(((_, ids)) => ids.len() > 1) {
+    let across = key.ends-with("left") or key.ends-with("right")
+    let g = find(key.split("|").first())
+    let step = calc.min(14pt, 1.6 * (if across { g.sb } else { g.sa }) / ids.len())
+    // a leg from farther away takes the slot nearer the side it comes from
+    let order = ids.sorted(key: i => {
+      let (a, b, c) = paths.at(i).slice(-3)
+      let (k, d) = if across { (1, calc.abs(c.at(0) - b.at(0))) } else { (0, calc.abs(c.at(1) - b.at(1))) }
+      if a.at(k) > b.at(k) { -d / 1pt } else { d / 1pt }
+    })
+    let k = if across { 1 } else { 0 }
+    for (j, i) in order.enumerate() {
+      let off = (j - (ids.len() - 1) / 2) * step
+      paths.at(i).at(-1).at(k) += off
+      paths.at(i).at(-2).at(k) += off
+    }
+  }
   // a label sits mid-curve on bent edges, else on the longest leg
   let labels = edges.zip(paths).filter(((e, _)) => e.label != none).map(((e, pts)) => {
     let (x, y) = if e.bend != 0deg and e.via.len() == 0 {
@@ -377,7 +434,7 @@
   })
   // the canvas covers the tracks, the frames with their titles, every edge and label
   let extents = (
-    (0pt, 0pt, xs.last() + col-w.last(), ys.last() + row-h.last()),
+    (0pt, 0pt, xs.last() + col-w.last(), calc.max(..lanes.map(l => l.ys.last() + l.row-h.last()))),
     ..frames.map(f => (f.x0, if f.title-pos == top and not f.inside { f.y0 - f.th / 2 - 3pt } else { f.y0 },
       f.x1, if f.title-pos == bottom and not f.inside { f.y1 + f.th / 2 + 3pt } else { f.y1 })),
     ..paths.flatten().chunks(2).map(((x, y)) => (x - 6pt, y - 6pt, x + 6pt, y + 6pt)),
