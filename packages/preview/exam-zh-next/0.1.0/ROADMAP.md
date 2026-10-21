@@ -47,17 +47,30 @@
 
 ## 路线图
 
-### 0.1.0 发布前
+### 0.1.0
 
-- [x] 包名 `exam-zh-next`，仓库 <https://github.com/pku-lemonade/exam-zh-next>；
-- [x] `typst.toml` 的 `authors` 加上 GitHub 账号；
-- [ ] 推送到 GitHub，并发布 Release，附上 `out/release/` 中的 `guide.pdf` 与 `reference.pdf`（README 的文档链接指向最新 Release 的这两个文件）；
-- [ ] `scripts/check.sh` 与 `scripts/package.sh` 全部通过后，把 `out/submit/exam-zh-next/0.1.0` 复制到 [typst/packages](https://github.com/typst/packages) 的 `packages/preview/` 并提交 PR；
+- [x] 包名 `exam-zh-next`，仓库 <https://github.com/pku-lemonade/exam-zh-next>，`authors` 含 GitHub 账号；
+- [x] Release [v0.1.0](https://github.com/pku-lemonade/exam-zh-next/releases/tag/v0.1.0)，附 `guide.pdf` 与 `reference.pdf`；
+- [x] 提交 Typst Universe：[typst/packages#6182](https://github.com/typst/packages/pull/6182)，自动检查全部通过；
+- [ ] 等待审核，按审核意见修改；
 - [ ] 在 typst.app 上从模板新建项目，确认默认字体可用、无警告。
+
+### 0.2.0：老师常用、exam-zh 没有的功能
+
+以下需求来自实际使用者（多数在 [ezexam](https://github.com/gbchu/ezexam) 的 issue 中被提出），按优先级排列：
+
+- [ ] **大题分值自动统计**：由各题 `points` 自动生成“本题共 8 小题，共 40 分”与全卷总分；
+- [ ] **答案汇总**：选择题、填空题的答案集中到文末或生成答案表（目前只有 `solution` 支持 `"show-move"`）；
+- [ ] **题目引用**：`question(label: <q-fn>)[..]` 与 `@q-fn` 引用题号，如“由第 3 题可知”；
+- [ ] **带题号的括号与横线**：英语七选五、完形填空中，`paren` 与 `fillin` 的占位显示题号；
+- [ ] **着重号**：语文常用的字下加点；
+- [ ] **试卷信息**：A/B 卷类型标记、命题人与审题人一行；
+- [ ] **全页水印**：目前只有草稿纸有水印。
 
 ### 之后
 
-- 文字绕排与汉字格的独立包（见上表），完成后在本模板中提供对应写法；
-- 选择、填空答案集中到文末；
-- 回归测试：把示例的渲染结果存为参考图，修改后逐页比较；
-- 英文版 README 与入门指南。
+- [ ] 讲义模式：同一套题目排成讲义（例题、解析框、公式编号），与试卷模式切换；
+- [ ] 文字绕排与汉字格的独立包（见“尚不支持”），完成后在本模板中提供对应写法；
+- [ ] 回归测试：把示例的渲染结果存为参考图，修改后逐页比较；
+- [ ] `scripts/release.sh`：一条命令完成版本号更新、检查、打标签、发布 Release 与提交 Universe PR；
+- [ ] 英文版 README 与入门指南；在线文档（Typst HTML 导出或静态网站）。
