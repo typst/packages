@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="240" viewBox="0 0 320 240">
+  <rect width="320" height="240" fill="#9a9a9a"/>
+  <path d="M0 0L320 240M320 0L0 240" stroke="#b8b8b8" stroke-width="2"/>
+  <text x="160" y="138" font-family="sans-serif" font-size="42" text-anchor="middle" fill="#202020">Image</text>
+</svg>
