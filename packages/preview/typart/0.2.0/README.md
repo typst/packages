@@ -161,6 +161,7 @@ A research pipeline placed on the grid, with groups (nodes may hold any content,
 | `title-pos` | `top` | `top` or `bottom`. |
 | `fill` | `none` | Frame background. |
 | `stroke` | `group-stroke` | Frame outline. |
+| `stretch` | `none` | Edges that grow until they meet another frame or node, or the outer edge of the diagram: `bottom`, `right`, `(bottom, right)`, … Groups stretch in declaration order. |
 
 ## Paper figures
 
@@ -177,7 +178,7 @@ Building blocks for figures in papers and posters: `panels` lays out framed sub-
 #panels(columns: 2, (image("images/ecg.svg", width: 4cm), [Raw signal]), ([Filtered], [Caption]))
 ```
 
-A method diagram in three lanes: `independent-columns: true` lets each lane stack its own rows, captions hang under the boxes, fractional positions centre a node over two columns, routes go through grid points (`via`) and arrows reaching the same side of a node get their own slots:
+A method diagram in three lanes: `independent-columns: true` lets each lane stack its own rows, captions hang under the boxes, fractional positions centre a node over two columns, routes go through grid points (`via`), arrows reaching the same side of a node get their own slots, and `stretch` grows the K-Fold frame to the right and the Validation frame down until they meet:
 
 ```typst
 #set text(font: "Inter", size: 16pt, weight: "bold")
@@ -226,8 +227,8 @@ A method diagram in three lanes: `independent-columns: true` lets each lane stac
 
   group(title[Preprocessing], "dataset", "load", "sig1", "sig2", "seg", "pre1", "pre2", inside: true),
   group(title[Feature Engineering], "feat", "f1", "f2", "merge", "final", inside: true),
-  group(title[Validation and Results], "list", "cv", "report", "viz", inside: true),
-  group(none, "kfold"),
+  group(none, "kfold", stretch: right),
+  group(title[Validation and Results], "list", "cv", "report", "viz", inside: true, stretch: bottom),
 )
 ```
 

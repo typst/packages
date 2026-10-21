@@ -32,9 +32,11 @@
 
 // A dashed frame around nodes (and earlier groups).  Its title sits on the top or bottom
 // border, or inside the frame with `inside: true`.  A `name` makes it an edge end.
-#let group(title, ..names, name: none, fill: none, stroke: auto, title-pos: top, inside: false) = (
+// stretch: edges (e.g. bottom, or (bottom, right)) that grow until they meet another
+// frame or node, or the outer edge of the diagram.
+#let group(title, ..names, name: none, fill: none, stroke: auto, title-pos: top, inside: false, stretch: none) = (
   kind: "group", title: title, names: names.pos().map(str), name: if name != none { str(name) },
-  fill: fill, stroke: stroke, title-pos: title-pos, inside: inside)
+  fill: fill, stroke: stroke, title-pos: title-pos, inside: inside, stretch: stretch)
 
 // (layer, slot) per node: longest-path layering by Kahn's topological sort, then each
 // layer ordered by the barycenter of its predecessors and snapped to free integer
@@ -265,6 +267,30 @@
     let f = (..g, title: title, th: th, x0: x0 - widen, x1: x1 + widen,
       y0: calc.min(..ms.map(m => m.y - m.b)) - group-inset - (if g.title-pos == top { room } else { 0pt }),
       y1: calc.max(..ms.map(m => m.y + m.b)) + group-inset + (if g.title-pos == bottom { room } else { 0pt }))
+    // stretched edges stop at the nearest frame or node ahead of the frame's content
+    // (frames declared earlier stretch first), else at the outer edge of the diagram;
+    // nodes keep group-inset clear
+    let sides = if g.stretch == none { () } else if type(g.stretch) == array { g.stretch } else if g.stretch.axis() == none {
+      (g.stretch.x, g.stretch.y)
+    } else { (g.stretch,) }
+    if sides.len() > 0 {
+      let boxes = frames.map(o => (o.x0, o.y0, o.x1, o.y1, 0pt)) + geo.map(m => (m.x - m.a, m.y - m.b, m.x + m.a,
+        m.y + m.b, group-inset))
+      let outer(k, pick, sign) = pick(..boxes.map(b => b.at(k) + sign * b.at(4)))
+      let across-x = b => b.at(0) < f.x1 and b.at(2) > f.x0
+      let across-y = b => b.at(1) < f.y1 and b.at(3) > f.y0
+      for side in sides {
+        if side == bottom {
+          f.y1 = calc.min(outer(3, calc.max, 1), ..boxes.filter(b => across-x(b) and b.at(1) >= f.y1 - group-inset - 0.5pt).map(b => b.at(1) - b.at(4)))
+        } else if side == top {
+          f.y0 = calc.max(outer(1, calc.min, -1), ..boxes.filter(b => across-x(b) and b.at(3) <= f.y0 + group-inset + 0.5pt).map(b => b.at(3) + b.at(4)))
+        } else if side == right {
+          f.x1 = calc.min(outer(2, calc.max, 1), ..boxes.filter(b => across-y(b) and b.at(0) >= f.x1 - group-inset - 0.5pt).map(b => b.at(0) - b.at(4)))
+        } else if side == left {
+          f.x0 = calc.max(outer(0, calc.min, -1), ..boxes.filter(b => across-y(b) and b.at(2) <= f.x0 + group-inset + 0.5pt).map(b => b.at(2) + b.at(4)))
+        }
+      }
+    }
     frames.push(f)
     if g.name != none {
       let (x, y, a, b) = ((f.x0 + f.x1) / 2, (f.y0 + f.y1) / 2, (f.x1 - f.x0) / 2, (f.y1 - f.y0) / 2)
