@@ -4,12 +4,6 @@
 desktop.ini
 .DS_Store
 
-*.ttf
-*.ttc
-*.pdf
-
-work/
-
 # Deployment
 /dist
 
