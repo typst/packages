@@ -19,6 +19,7 @@
 #import "galerie/manchette.typ" as _manchette
 #import "galerie/filet.typ" as _filet
 #import "galerie/suspendu.typ" as _suspendu
+#import "galerie/minimal.typ" as _minimal
 
 /// Rendus intégrés au moteur (`bf` : rendu de bfcours ; `rd` : boîtes de rdboites), réservés.
 #let _rendus-integres = ("bf", "rd")
@@ -32,6 +33,7 @@
   manchette: _manchette.skin,
   filet: _filet.skin,
   suspendu: _suspendu.skin,
+  minimal: _minimal.skin,
 )
 
 /// Skins enregistrés : (nom: fonction).
@@ -56,7 +58,7 @@
 /// ```
 ///
 /// - reinitialiser (bool): `true` oublie d'abord tous les skins enregistrés.
-/// - skins (function): `nom: fonction`, autant que voulu. Les noms `"bf"`, `"rd"` et ceux des skins intégrés (`"cahier"`, `"outil"`, `"pastille"`, `"manchette"`, `"filet"`, `"suspendu"`) sont réservés. Une variante d'un skin (`bfskin("suspendu", icone: "cle")`) est une fonction : elle s'enregistre comme un autre skin.
+/// - skins (function): `nom: fonction`, autant que voulu. Les noms `"bf"`, `"rd"` et ceux des skins intégrés (`"cahier"`, `"outil"`, `"pastille"`, `"manchette"`, `"filet"`, `"suspendu"`, `"minimal"`) sont réservés. Une variante d'un skin (`bfskin("suspendu", icone: "cle")`) est une fonction : elle s'enregistre comme un autre skin.
 /// -> content
 #let setbfskins(reinitialiser: false, ..skins) = {
   if type(reinitialiser) != bool {
@@ -176,7 +178,7 @@
 /// Variante d'un skin : un skin (fonction `d => contenu`) dont certaines options sont figées.
 ///
 /// `base` est le nom d'un skin intégré (`"cahier"`, `"outil"`, `"pastille"`, `"manchette"`, `"filet"`,
-/// `"suspendu"`) ou enregistré par `setbfskins`, ou une fonction skin. Les options données ici sont les
+/// `"suspendu"`, `"minimal"`) ou enregistré par `setbfskins`, ou une fonction skin. Les options données ici sont les
 /// valeurs par défaut de la variante ; celles de la clé `skin:` de l'appel (ou d'un réglage) l'emportent.
 /// La variante s'emploie directement (`rendu: bfskin(…)`) ou s'enregistre sous un nom (`setbfskins`).
 ///

@@ -10,7 +10,7 @@
 /// Contrôle de chaque clé : (test, description de ce qui est attendu).
 #let _controles = (
   version: _choix("toutes", "prof", "eleve"),
-  rendu: (v => type(v) in (str, function), "\"bf\", \"rd\", un skin intégré (\"cahier\", \"outil\", \"pastille\", \"manchette\", \"filet\", \"suspendu\"), le nom d'un skin enregistré par setbfskins, ou une fonction d => contenu (par exemple bfskin(\"suspendu\", icone: \"cle\"))"),
+  rendu: (v => type(v) in (str, function), "\"bf\", \"rd\", un skin intégré (\"cahier\", \"outil\", \"pastille\", \"manchette\", \"filet\", \"suspendu\", \"minimal\"), le nom d'un skin enregistré par setbfskins, ou une fonction d => contenu (par exemple bfskin(\"suspendu\", icone: \"cle\"))"),
   rd: (v => type(v) == dictionary, "un dictionnaire de clés de la boîte rd, par exemple (colframe: red)"),
   skin: (v => type(v) == dictionary, "un dictionnaire d'options du skin, par exemple (icone: \"cle\", epaisseur: 2pt)"),
   before-skip: _c.longueur,
