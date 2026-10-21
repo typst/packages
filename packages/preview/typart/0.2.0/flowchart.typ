@@ -34,9 +34,11 @@
 // border, or inside the frame with `inside: true`.  A `name` makes it an edge end.
 // stretch: edges (e.g. bottom, or (bottom, right)) that grow until they meet another
 // frame or node, or the outer edge of the diagram.
-#let group(title, ..names, name: none, fill: none, stroke: auto, title-pos: top, inside: false, stretch: none) = (
-  kind: "group", title: title, names: names.pos().map(str), name: if name != none { str(name) },
-  fill: fill, stroke: stroke, title-pos: title-pos, inside: inside, stretch: stretch)
+// join: the name of another group; touching frames are drawn as one outline.
+#let group(title, ..names, name: none, fill: none, stroke: auto, title-pos: top, inside: false, stretch: none,
+  join: none) = (kind: "group", title: title, names: names.pos().map(str), name: if name != none { str(name) },
+  fill: fill, stroke: stroke, title-pos: title-pos, inside: inside, stretch: stretch,
+  join: if join != none { str(join) })
 
 // (layer, slot) per node: longest-path layering by Kahn's topological sort, then each
 // layer ordered by the barycenter of its predecessors and snapped to free integer
@@ -82,6 +84,45 @@
     }
   }
   range(n).map(v => (layer.at(v), slot.at(v)))
+}
+
+// Closed outlines of the union of rectangles (x0, y0, x1, y1): coordinate compression
+// into cells, the edges between covered and empty cells, then chained into loops
+// with collinear points dropped.
+#let _outline(rects) = {
+  let xs = rects.map(r => (r.at(0), r.at(2))).flatten().dedup().sorted()
+  let ys = rects.map(r => (r.at(1), r.at(3))).flatten().dedup().sorted()
+  let covered(i, j) = i >= 0 and j >= 0 and i < xs.len() - 1 and j < ys.len() - 1 and rects.any(r =>
+    r.at(0) <= xs.at(i) and xs.at(i + 1) <= r.at(2) and r.at(1) <= ys.at(j) and ys.at(j + 1) <= r.at(3))
+  // clockwise boundary edges, keyed by their start point
+  let next = (:)
+  for i in range(xs.len() - 1) {
+    for j in range(ys.len() - 1).filter(j => covered(i, j)) {
+      let (a, b, c, d) = ((xs.at(i), ys.at(j)), (xs.at(i + 1), ys.at(j)), (xs.at(i + 1), ys.at(j + 1)), (xs.at(i), ys.at(j + 1)))
+      for (p, q, open) in ((a, b, not covered(i, j - 1)), (b, c, not covered(i + 1, j)), (c, d, not covered(i, j + 1)),
+        (d, a, not covered(i - 1, j))) {
+        if open { next.insert(repr(p), (p, q)) }
+      }
+    }
+  }
+  let loops = ()
+  while next.len() > 0 {
+    let (start, _) = next.values().first()
+    let pts = ()
+    let p = start
+    while repr(p) in next {
+      let (_, q) = next.remove(repr(p))
+      pts.push(p)
+      p = q
+    }
+    // keep corners only
+    let n = pts.len()
+    loops.push(range(n).filter(k => {
+      let (o, c, d) = (pts.at(k - 1), pts.at(k), pts.at(calc.rem(k + 1, n)))
+      not ((o.at(0) == c.at(0) and c.at(0) == d.at(0)) or (o.at(1) == c.at(1) and c.at(1) == d.at(1)))
+    }).map(k => pts.at(k)))
+  }
+  loops
 }
 
 // unit vector from p to q, as floats
@@ -471,9 +512,31 @@
   let height = oy + calc.max(..extents.map(m => m.at(3)))
 
   box(width: width, height: height, place(top + left, dx: ox, dy: oy, {
-    for f in frames {
-      place(top + left, dx: f.x0, dy: f.y0, rect(width: f.x1 - f.x0, height: f.y1 - f.y0, radius: 6pt,
-        fill: f.fill, stroke: if f.stroke == auto { group-stroke } else { f.stroke }))
+    // joined frames share one outline; every other frame is a rounded rectangle
+    // union-find; the array is passed in because closures capture by value
+    let up(root, i) = {
+      while root.at(i) != i { i = root.at(i) }
+      i
+    }
+    let root = range(frames.len())
+    for (i, f) in frames.enumerate().filter(((_, f)) => f.join != none) {
+      let j = frames.position(o => o.name == f.join)
+      assert(j != none, message: "flowchart: no group named \"" + f.join + "\" to join")
+      root.at(up(root, i)) = up(root, j)
+    }
+    for k in range(frames.len()).filter(k => up(root, k) == k) {
+      let members = range(frames.len()).filter(i => up(root, i) == k).map(i => frames.at(i))
+      let f = members.first()
+      let outline = if f.stroke == auto { group-stroke } else { f.stroke }
+      if members.len() == 1 {
+        place(top + left, dx: f.x0, dy: f.y0, rect(width: f.x1 - f.x0, height: f.y1 - f.y0, radius: 6pt,
+          fill: f.fill, stroke: outline))
+      } else {
+        for pts in _outline(members.map(m => (m.x0, m.y0, m.x1, m.y1))) {
+          place(top + left, curve(fill: f.fill, stroke: outline, curve.move(pts.first()),
+            ..pts.slice(1).map(curve.line), curve.close(mode: "straight")))
+        }
+      }
     }
     for (e, pts) in edges.zip(paths) {
       let st = stroke(if e.stroke == auto { edge-stroke } else { e.stroke })
