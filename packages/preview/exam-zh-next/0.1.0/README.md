@@ -1,24 +1,25 @@
-# exam-zh-next: Chinese exam papers in Typst
+# exam-zh-next：Typst 中文试卷模板
 
-**English** | [简体中文](README.zh-CN.md)
+**简体中文** | [English](README.en.md)
 
-Typeset Chinese exam papers (试卷) in Typst, with student and teacher versions
-from one source. A port of the LaTeX class [exam-zh](https://github.com/xkwxdyy/exam-zh)
-that keeps its option names. It is independent and not affiliated with the exam-zh authors.
+> Typeset Chinese exam papers in Typst, with student and teacher versions from one source.
+> A port of the LaTeX class exam-zh. [English README](README.en.md)
 
-| Student version | Teacher version | Seal line, A3 two-up |
+用 Typst 排版中文试卷，移植自 LaTeX 试卷模板 [exam-zh](https://github.com/xkwxdyy/exam-zh)：一份源码同时生成学生版与教师版。本项目为独立移植，并非 exam-zh 官方项目。
+
+| 学生版 | 教师版 | 密封线、A3 双栏 |
 |:-:|:-:|:-:|
-| ![Student version](docs/images/first-student.png) | ![Teacher version](docs/images/first-teacher.png) | ![A3 paper with seal line](docs/images/sealline-a3.png) |
+| ![学生版](docs/images/first-student.png) | ![教师版](docs/images/first-teacher.png) | ![A3 密封线试卷](docs/images/sealline-a3.png) |
 
-- **One source, two versions.** The student version hides answers. The teacher version shows answers, correct options and scoring points. One command-line flag switches between them.
-- **Choices lay themselves out** in 4, 2 or 1 columns by width. Answer parentheses go to the end of the line.
-- **Blanks:** underline, parentheses, circle, box or blank, with ▲, a number or nothing in the student version. Long answers wrap.
-- **Solutions:** score leaders reach the margin. Answers can be hidden, shown in place, or collected at the end.
-- **Whole-paper layout:** seal lines, A3 landscape two-up, scoring boxes, draft paper, and collections of papers with a table of contents.
-- **Subjects:** Chinese passages, poems with notes, matching lines and composition grids. English writing boxes. Math calculation grids and textbook-style symbols.
-- **Familiar options:** the same names as exam-zh, and a mistyped option is an error. One compile, no `-shell-escape`.
+- **一份源码，两个版本**：学生版隐藏答案，教师版显示答案、正确选项和评分点，命令行一个参数切换；
+- **选择题自动分栏**：选项按内容宽度排成 4、2 或 1 列；括号自动排到行末；
+- **填空**：下划线、括号、圆圈、方框、空白，学生版显示 ▲、编号或空白，长答案自动换行；
+- **解答**：评分点引导线画到页边；答案可隐藏、原位显示或集中到文末；
+- **整卷版式**：密封线、A3 横向双栏、评分框、草稿纸、多份试卷合集与目录；
+- **各学科**：语文的材料、古诗注释、连线题、作文格，英语作文框，数学计算题与教材写法的符号；
+- **熟悉的接口**：选项名与 exam-zh 相同，写错键名时直接报错；一次编译完成，不需要 `-shell-escape`。
 
-## Quick start
+## 快速开始
 
 ```typ
 #import "@preview/exam-zh-next:0.1.0": *
@@ -52,92 +53,87 @@ that keeps its option names. It is independent and not affiliated with the exam-
 ```
 
 ```sh
-typst compile exam.typ                                              # student version
-typst compile --input exam-mode=teacher exam.typ exam-teacher.pdf   # teacher version
+typst compile exam.typ                                              # 学生版
+typst compile --input exam-mode=teacher exam.typ exam-teacher.pdf   # 教师版
 ```
 
-Or start from a complete paper with `typst init @preview/exam-zh-next`, or create a project from
-the template on [typst.app](https://typst.app). To compile locally, install the Noto CJK fonts or
-pick another font preset (see below).
+也可以用 `typst init @preview/exam-zh-next` 生成一份完整的试卷再修改。在 [typst.app](https://typst.app)
+上从模板新建项目即可，无需安装字体；本地编译请先安装 Noto CJK 字体，或改用其他字体（见下文）。
 
-## Documentation and examples
-
-The docs are in Chinese and are typeset with this package.
+## 文档与示例
 
 | | |
 |---|---|
-| [Guide](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/guide.pdf) ([source](https://github.com/pku-lemonade/exam-zh-next/blob/v0.1.0/docs/guide.typ)) | Getting started, question types, common scenarios, FAQ. Chapter by chapter parallel to exam-zh's beginner guide. |
-| [API dictionary](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/reference.pdf) ([source](https://github.com/pku-lemonade/exam-zh-next/blob/v0.1.0/docs/reference.typ)) | Every exam-zh command and option with its Typst equivalent and a rendered example. Section numbers match exam-zh's manual. |
-| [examples/](https://github.com/pku-lemonade/exam-zh-next/tree/v0.1.0/examples) | All of exam-zh's examples in Typst: the 2021 national math paper, an A3 collection, and Chinese, English and real-exam scenarios. |
+| [入门指南](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/guide.pdf)（[源码](https://github.com/pku-lemonade/exam-zh-next/blob/v0.1.0/docs/guide.typ)） | 快速开始、各种题型、常见场景、FAQ；与 exam-zh 的入门文档逐章对应 |
+| [API 对照手册](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/reference.pdf)（[源码](https://github.com/pku-lemonade/exam-zh-next/blob/v0.1.0/docs/reference.typ)） | exam-zh 的每个命令和选项 → Typst 写法、说明与效果；章节编号与 exam-zh 完整文档相同 |
+| [examples/](https://github.com/pku-lemonade/exam-zh-next/tree/v0.1.0/examples) | exam-zh 全部示例的 Typst 版：2021 全国乙卷数学、A3 试卷合集，以及语文、英语、真实考试场景 |
 
-## Settings
+两份文档本身也用本模板排版；自行编译时在仓库根目录运行 `typst compile --root . docs/guide.typ`。
 
-Options are grouped by module, and the same keys work at three levels:
+## 设置
+
+所有选项按模块分组，三个入口用同样的键名：
 
 ```typ
-#show: exam.with(choices: (max-columns: 2))  // the whole paper
-#exam-setup(fillin: (type: "paren"))         // from here on
-#choices(columns: 2)[A][B][C][D]              // this call only
+#show: exam.with(choices: (max-columns: 2))  // 整份试卷
+#exam-setup(fillin: (type: "paren"))         // 从此处往后
+#choices(columns: 2)[A][B][C][D]              // 只作用于这一次
 ```
 
-A mistyped key is a compile error, such as ``unknown option `choices.colums` ``. All options and
-their defaults are in [`src/config.typ`](src/config.typ) and in chapter 4 of the API dictionary.
+键名写错时编译报错，例如 ``unknown option `choices.colums` ``。全部选项与默认值见
+[`src/config.typ`](src/config.typ) 和 API 对照手册第 4 章。
 
-What the teacher version shows is set by `teacher`, which defaults to `teacher-defaults`. You can extend it:
+教师版显示哪些内容由 `teacher` 决定，默认是 `teacher-defaults`，可以在其上增改：
 
 ```typ
 #show: exam.with(teacher: teacher-defaults + (solution: (show-solution: "show-move")))
 #teacher-only[本题考查函数的单调性。]
 ```
 
-### Fonts
+### 字体
 
-`font: (preset: ..)` picks a set of Chinese fonts. You can also set a single role, such as `font: (kai: "LXGW WenKai")`:
+`font: (preset: ..)` 选择一组中文字体，也可以单独指定，例如 `font: (kai: "LXGW WenKai")`：
 
-| preset | Song (serif) | Hei (sans) | Kai | Fangsong |
+| preset | 宋体 | 黑体 | 楷体 | 仿宋 |
 |---|---|---|---|---|
-| `noto` (default) | Noto Serif CJK SC | Noto Sans CJK SC | (Song) | (Song) |
-| `source-han` | Source Han Serif SC | Source Han Sans SC | (Song) | (Song) |
+| `noto`（默认） | Noto Serif CJK SC | Noto Sans CJK SC | （同宋体） | （同宋体） |
+| `source-han` | Source Han Serif SC | Source Han Sans SC | （同宋体） | （同宋体） |
 | `fandol` | FandolSong | FandolHei | FandolKai | FandolFang |
 | `windows` | SimSun | SimHei | KaiTi | FangSong |
 | `mac` | Songti SC | Heiti SC | Kaiti SC | STFangsong |
 | `founder` | FZShuSong-Z01 | FZHei-B01 | FZKai-Z03 | FZFangSong-Z02 |
 
-Latin text and math use Typst's bundled New Computer Modern. Typst doesn't fake bold, so choose
-Chinese fonts that have a bold weight.
+西文与数学默认使用 Typst 自带的 New Computer Modern。Typst 不会伪造粗体，请选用带粗体字重的中文字体。
 
-## Coming from exam-zh
+## 从 exam-zh 迁移
 
-Most commands map one to one. The [API dictionary](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/reference.pdf) has the full list:
+大多数命令一一对应，完整对照见 [API 对照手册](https://github.com/pku-lemonade/exam-zh-next/releases/download/v0.1.0/reference.pdf)：
 
 | exam-zh (LaTeX) | Typst |
 |---|---|
-| `\documentclass{exam-zh}`, `\examsetup{..}` | `#show: exam.with(..)`, `#exam-setup(..)` |
+| `\documentclass{exam-zh}`、`\examsetup{..}` | `#show: exam.with(..)`、`#exam-setup(..)` |
 | `\section{..}` | `= ..` |
-| `question`, `problem[points = 12]` | `question[..]`, `problem(points: 12)[..]` |
-| `choices` with `\item` | `choices[..][..]`, with `answer: "B"` marking the correct option |
-| `\paren[B]`, `\fillin[答案]` | `paren[B]`, `fillin[答案]` |
-| `solution`, `\score{2}` | `solution[..]`, `score(2)` |
-| `\draftpaper`, `\scoringbox`, `\tableofcontents` | `draftpaper()`, `scoringbox()`, `exam-outline()` |
-| `\ExamPrintAnswerSet` with `-shell-escape` | `--input exam-mode=teacher` with `exam(teacher: ..)` |
+| `question`、`problem[points = 12]` | `question[..]`、`problem(points: 12)[..]` |
+| `choices` 与 `\item` | `choices[..][..]`，`answer: "B"` 标出正确选项 |
+| `\paren[B]`、`\fillin[答案]` | `paren[B]`、`fillin[答案]` |
+| `solution`、`\score{2}` | `solution[..]`、`score(2)` |
+| `\draftpaper`、`\scoringbox`、`\tableofcontents` | `draftpaper()`、`scoringbox()`、`exam-outline()` |
+| `\ExamPrintAnswerSet` 与 `-shell-escape` | `--input exam-mode=teacher` 与 `exam(teacher: ..)` |
 
-[ROADMAP.md](ROADMAP.md) lists what differs from exam-zh, what is not supported yet (text wrapping,
-moving choice and blank answers to the end), and what comes next.
+与 exam-zh 不同或暂不支持的地方（文字绕排、更多汉字格）以及后续计划列在 [ROADMAP.md](ROADMAP.md)。
 
-## Development
+## 开发
 
 ```sh
-scripts/check.sh [--font-path DIR]       # compile all examples (both versions), tests and docs; fail on any warning
-scripts/doc-images.sh [--font-path DIR]  # re-render the page images in the docs and README, and the thumbnail
-scripts/package.sh [--font-path DIR]     # build the Typst Universe submission and test it the way users get it
+scripts/check.sh [--font-path DIR]       # 编译全部示例（两个版本）、测试与文档，有警告即失败
+scripts/doc-images.sh [--font-path DIR]  # 重新生成文档与 README 中的整页图片和模板缩略图
+scripts/package.sh [--font-path DIR]     # 生成提交到 Typst Universe 的目录，并按用户的方式测试
 ```
 
-## License and credits
+## 许可与致谢
 
-This is an unofficial Typst port of [exam-zh](https://github.com/xkwxdyy/exam-zh). The design,
-option names and examples come from exam-zh (author Zeping Lee, maintainers Kangwei Xia and
-Lijun Guo), and we thank them for their work. The Typst code is an independent implementation.
+本项目是 [exam-zh](https://github.com/xkwxdyy/exam-zh) 的非官方 Typst 移植。设计、选项命名和示例来自 exam-zh
+（作者 Zeping Lee，维护者 Kangwei Xia、Lijun Guo），感谢他们的工作。Typst 代码为独立实现。
 
-The code is under the [MIT](LICENSE) license. The starter paper in `template/` is under
-[MIT-0](LICENSE-MIT-0), so papers written from it need no notice. The exam-zh text and LaTeX code
-quoted in the docs belong to the exam-zh authors (LPPL 1.3c); see [NOTICE.md](NOTICE.md).
+代码以 [MIT](LICENSE) 许可发布；`template/` 中的初始试卷以 [MIT-0](LICENSE-MIT-0) 许可发布，用它写出的试卷无需保留任何声明。
+文档中引用的 exam-zh 原文与 LaTeX 代码仍属于 exam-zh 作者（LPPL 1.3c），详见 [NOTICE.md](NOTICE.md)。

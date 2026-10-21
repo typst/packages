@@ -10,7 +10,7 @@ keywords = ["exam", "test paper", "chinese", "试卷", "考试", "exam-zh", "ans
 categories = ["office", "components", "layout"]
 disciplines = ["education"]
 compiler = "0.15.0"
-exclude = ["/docs", "/ROADMAP.md", "/README.zh-CN.md"]
+exclude = ["/docs", "/ROADMAP.md", "/README.en.md"]
 
 [template]
 path = "template"
