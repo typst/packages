@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+  <!-- Band-scale sibling of wood.svg. A "border"-mode band is rendered as ONE
+       image spanning the whole band rect (~7.3cm for a default board) rather
+       than one square (~0.8cm), roughly 10x the linear size, so both
+       baseFrequency values here are 10x wood.svg's to keep the grain looking
+       like grain instead of degenerating into large blobs. The x-frequency
+       stays the fast axis, so the grain still runs vertically. Everything
+       else (color matrices, component-transfer tables, the two stacked
+       rects) is byte-identical to wood.svg. -->
+  <filter id="dark" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.5 0.06" numOctaves="2" seed="4" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="
+      0    0    0    0 0.24
+      0    0    0    0 0.14
+      0    0    0    0 0.06
+      0.34 0.33 0.33 0 0"/>
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="0 0 0 0.1 0.75 0.1 0 0.1 0.75 0.1 0 0.1 0.75 0.1 0 0.1 0.75 0.1 0 0 0"/>
+    </feComponentTransfer>
+  </filter>
+  <filter id="light" x="0%" y="0%" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.5 0.06" numOctaves="2" seed="4" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="
+      0    0    0    0 0.82
+      0    0    0    0 0.66
+      0    0    0    0 0.45
+      0.34 0.33 0.33 0 0"/>
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="0 0 0 0 0 0 0.4 0 0 0 0.4 0 0 0 0.4 0 0 0 0.4 0 0"/>
+    </feComponentTransfer>
+  </filter>
+  <rect width="200" height="200" filter="url(#dark)"/>
+  <rect width="200" height="200" filter="url(#light)"/>
+</svg>

@@ -1,0 +1,22 @@
+[package]
+name = "scrawl"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Draw hand-sketched shapes with no plugin and no dependency."
+repository = "https://github.com/fergousA/scrawl"
+keywords = [
+	"hand-drawn",
+	"sketch",
+	"rough",
+	"whiteboard",
+	"annotation",
+]
+categories = ["visualization", "components"]
+compiler = "0.13.0"
+exclude = [
+	".DS_Store",
+	"/examples",
+	"*.pdf",
+]

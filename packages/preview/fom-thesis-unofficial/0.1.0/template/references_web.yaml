@@ -1,0 +1,20 @@
+vw:
+  type: Web
+  author: ["Kaiser, Arvid"]
+  title: 
+    value: "Diese Städte zittern um VW-Milliarden"
+    short: "VW"
+  url: 
+    value: "http://manager-magazin.de/unternehmen/artikel/volkswagen-staedte-wolfsburg-braunschweig-zwickau-zittern-um-steuern-a-1055321.html"
+    date: 2017-11-12
+  date: 2015-09-30
+
+theisen_ohnejahr:
+  type: Web
+  author: ["Theisen, Manuel R."]
+  title: 
+    value: "Umsetzung der Formvorschriften mit Microsoft® Word 2007"
+    short: "Formvorschriften"
+  url: 
+    value: "http://www.bwl.uni-muenchen.de/fakultaet/personen/emerprof/theisen/publikationen/dokumente/formvorschriften_word2007.pdf"
+    date: 2026-09-22

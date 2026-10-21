@@ -1,0 +1,114 @@
+[days.format.wide]
+1 = "Lunes"
+2 = "Martes"
+3 = "Miércoles"
+4 = "Jueves"
+5 = "Viernes"
+6 = "Sábado"
+7 = "Domingo"
+
+[days.format.abbreviated]
+1 = "Lun"
+2 = "Mar"
+3 = "Mié"
+4 = "Jue"
+5 = "Vie"
+6 = "Sab"
+7 = "Dom"
+
+[days.format.narrow]
+1 = "L"
+2 = "M"
+3 = "X"
+4 = "J"
+5 = "V"
+7 = "D"
+
+[days.stand-alone.wide]
+1 = "Lunes"
+2 = "Martes"
+3 = "Miércoles"
+4 = "Jueves"
+5 = "Viernes"
+6 = "Sábado"
+7 = "Domingo"
+
+[days.stand-alone.abbreviated]
+1 = "Lun"
+2 = "Mar"
+3 = "Mié"
+4 = "Jue"
+5 = "Vie"
+6 = "Sab"
+7 = "Dom"
+
+[days.stand-alone.narrow]
+1 = "L"
+2 = "M"
+3 = "X"
+4 = "J"
+5 = "V"
+7 = "D"
+
+[months.format.wide]
+1 = "Enero"
+2 = "Febrero"
+3 = "Marzo"
+4 = "Abril"
+5 = "Mayo"
+6 = "Junio"
+7 = "Julio"
+8 = "Agosto"
+9 = "Setiembre"
+10 = "Octubre"
+11 = "Noviembre"
+12 = "Diciembre"
+
+[months.format.abbreviated]
+1 = "Ene"
+2 = "Feb"
+3 = "Mar"
+4 = "Abr"
+5 = "May"
+6 = "Jun"
+7 = "Jul"
+8 = "Ago"
+9 = "Set"
+10 = "Oct"
+11 = "Nov"
+12 = "Dic"
+
+[months.stand-alone.wide]
+1 = "Enero"
+2 = "Febrero"
+3 = "Marzo"
+4 = "Abril"
+5 = "Mayo"
+6 = "Junio"
+7 = "Julio"
+8 = "Agosto"
+9 = "Setiembre"
+10 = "Octubre"
+11 = "Noviembre"
+12 = "Diciembre"
+
+[months.stand-alone.abbreviated]
+1 = "Ene"
+2 = "Feb"
+3 = "Mar"
+4 = "Abr"
+5 = "May"
+6 = "Jun"
+7 = "Jul"
+8 = "Ago"
+9 = "Set"
+10 = "Oct"
+11 = "Nov"
+12 = "Dic"
+
+[patterns]
+full = "EEEE, d MMMM, y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "d/M/yy"
+

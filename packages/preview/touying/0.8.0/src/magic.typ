@@ -1,0 +1,242 @@
+#import "utils.typ"
+#import "core/tree.typ"
+
+// ---------------------------------------------------------------------
+// List, Enum, and Terms
+// ---------------------------------------------------------------------
+
+
+/// Apply as a show rule to vertically align list markers with the baseline of the first line of each list item. This prevents markers from appearing too high when list items have tall content.
+///
+/// Usage: `#show: align-list-marker-with-baseline`
+///
+/// -> content
+#let align-list-marker-with-baseline(body) = {
+  show list.item: it => {
+    let current-marker = {
+      set text(fill: text.fill)
+      if type(list.marker) == array {
+        list.marker.at(0)
+      } else {
+        list.marker
+      }
+    }
+    let hanging-indent = std.measure(current-marker).width + .6em + .3pt
+    set terms(hanging-indent: hanging-indent)
+    if type(list.marker) == array {
+      terms.item(
+        current-marker,
+        {
+          // set the value of list.marker in a loop
+          set list(marker: list.marker.slice(1) + (list.marker.at(0),))
+          it.body
+        },
+      )
+    } else {
+      terms.item(current-marker, it.body)
+    }
+  }
+  body
+}
+
+/// Apply as a show rule to vertically align enum markers with the baseline of the first line of each enum item. Only works for numeric markers (e.g. `1.`).
+///
+/// Usage: `#show: align-enum-marker-with-baseline`
+///
+/// -> content
+#let align-enum-marker-with-baseline(body) = {
+  let counting-symbols = "1aAiI一壹あいアイא가ㄱ*"
+  let consume-regex = regex(
+    "[^"
+      + counting-symbols
+      + "]*["
+      + counting-symbols
+      + "][^"
+      + counting-symbols
+      + "]*",
+  )
+
+  show enum.item: it => {
+    if it.number == none {
+      return it
+    }
+    let new-numbering = if type(enum.numbering) == function or enum.full {
+      numbering.with(enum.numbering, it.number)
+    } else {
+      enum.numbering.trim(consume-regex, at: start, repeat: false)
+    }
+    let current-number = numbering(enum.numbering, it.number)
+    set terms(hanging-indent: 1.2em)
+    terms.item(
+      strong(delta: -strong.delta, numbering(enum.numbering, it.number)),
+      {
+        if new-numbering != "" {
+          set enum(numbering: new-numbering)
+          it.body
+        } else {
+          it.body
+        }
+      },
+    )
+  }
+
+  body
+}
+
+/// Scale the font size of nested list, enum, and terms items.
+///
+/// Usage: `#show: scale-list-items.with(scale: .75)`
+///
+/// - scale (int, float): The font size ratio of the current nesting level relative to the parent. Default is `.75`.
+///
+/// - body (content): The content to apply the scaling to.
+///
+/// -> content
+#let scale-list-items(
+  scale: .75,
+  body,
+) = {
+  show list.where().or(enum.where().or(terms)): it => {
+    show list.where().or(enum.where().or(terms)): set text(scale * 1em)
+    it
+  }
+  body
+}
+
+/// Convert a single tight list, enum, or terms element to non-tight (with spacing between items). For use in show rules.
+///
+/// Usage: `#show list: nontight(list)`
+///
+/// - lst (content): A list, enum, or terms element to make non-tight.
+///
+/// -> content
+#let nontight(lst) = {
+  let fields = lst.fields()
+  let _ = fields.remove("children")
+  // The label stays on the shown element, so it must not be passed to the
+  // constructor and must not be re-attached either.
+  let _ = fields.remove("label", default: none)
+  fields.tight = false
+  (lst.func())(..fields, ..lst.children)
+}
+
+/// Apply as a show rule to make all lists, enumerations, and term lists use non-tight spacing by default (adds spacing between items).
+///
+/// Usage: `#show: nontight-list-enum-and-terms`
+///
+/// -> content
+#let nontight-list-enum-and-terms(body) = {
+  show list.where(tight: true): nontight
+  show enum.where(tight: true): nontight
+  show terms.where(tight: true): nontight
+  body
+}
+
+/// Apply as a show rule to suppress list markers and enum numbering inside `#hide(...)` calls. This prevents phantom markers from taking up space in covered content.
+///
+/// Usage: `#show: show-hide-set-list-marker-none`
+///
+/// -> content
+#let show-hide-set-list-marker-none(body) = {
+  show hide: it => {
+    set list(marker: none)
+    set enum(numbering: (..nums) => none)
+
+    it
+  }
+  body
+}
+
+
+
+// ---------------------------------------------------------------------
+// Bibliography
+// ---------------------------------------------------------------------
+
+#let bibliography-visited = state("footer-bibliography-visited", ())
+
+/// Display bibliography citations as footnotes.
+/// / Note: #[You still need to register the bibliography globally once. \ If you don't want to show the bibliography, \ use `hide(bibliography(...))` at the end of your document. ]
+///
+/// Usage: `#show: magic.bibliography-as-footnote`
+///
+/// - self (dictionary): The presentation context, used to read `footnote-style` if configured. Default is `none`.
+///
+/// - numbering (str): The numbering format for footnote citations. Default is `"[1]"`.
+///
+/// - footnote-style (dict): A dictionary of style properties to apply to the footnotes showing citation markers. These are the markers in the text not the entries, see #link("https://typst.app/docs/reference/model/footnote/") and #link("https://typst.app/docs/reference/text/super/") for how to style them.
+///  Default is `(typographic: false, baseline: 0em, size:1em)`, which makes the bibliography markers appear like normal text.
+///
+/// -> content
+#let bibliography-as-footnote(
+  self: none,
+  numbering: "[1]",
+  footnote-style: (typographic: false, baseline: 0em, size: 1em),
+  body,
+) = {
+  // Covering a citation with `hide()` hides its marker, but Typst still lays out
+  // the footnote entry it would create regardless of `hide`. So inside a hidden
+  // region, don't create a real footnote for it - instead reserve the same marker
+  // width by advancing the real footnote counter and drawing just the superscript
+  // number, matching how plain footnotes are handled in core.typ.
+  // Only a genuinely-hiding cover needs the placeholder: a visual-only method
+  // (color-changing-cover, alpha-changing-cover) keeps covered content visible,
+  // so its citations should stay real. This mirrors the footnote branch in
+  // core/parser.typ, which asks the same config rather than looking for `hide`.
+  show hide: it => if self != none and not utils.cover-hides-footnote(self) {
+    it
+  } else {
+    show cite.where(form: "normal"): it2 => context {
+      let n = counter(footnote).get().first() + 1
+      counter(footnote).update(n)
+      let footnote-style = if self != none {
+        self.at("footnote-style", default: auto)
+      } else {
+        auto
+      }
+      if footnote-style == auto {
+        super[#std.numbering(numbering, n)]
+      } else {
+        // See the matching comment in core.typ: calling `footnote-style` directly
+        // on a constructed `footnote(..)` would lay it out for real, double
+        // counting and leaking its own entry. `measure` discards those side
+        // effects and keeps only the width, which is all a placeholder needs.
+        let fake = footnote(numbering: numbering, [])
+        box(width: std.measure(footnote-style(fake)).width)
+      }
+    }
+    it
+  }
+
+  show cite.where(form: "normal"): it => (
+    context {
+      let label-str = "touying-footnote-bib:" + str(it.key)
+      if (
+        type(self) == dictionary and not self.at("article-mode", default: false)
+      ) {
+        label-str = label-str + str(here().page()) //dedup in slides mode per page. in article mode that is not stable
+      }
+      let bibitem = {
+        show: body => {
+          show regex("^\[\d+\]\s"): it => ""
+          body
+        }
+        cite(it.key, form: "full")
+      }
+      if it.key not in bibliography-visited.get() {
+        bibliography-visited.update(visited => visited + (it.key,))
+      }
+      box({
+        if query(selector(label(label-str)).before(here())).len() > 0 {
+          set super(..footnote-style)
+          footnote(label(label-str), numbering: numbering)
+        } else {
+          set super(..footnote-style)
+          [#footnote(numbering: numbering, bibitem)#label(label-str)]
+        }
+      })
+    }
+  )
+
+  body
+}

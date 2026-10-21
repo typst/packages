@@ -1,0 +1,63 @@
+## 0.4.1 - 2026/08/14
+- fixed operator precedence error in `check-if-figure`
+    - thank to @VinciYan for the fix!
+
+## 0.4.0 - 2026/08/04
+- added `padding` to all functions
+    - helps when you don't want the content spanning the full page
+- added `figure` variant of `oasis-align()`
+    - for when you want to align the images but not the caption text
+- added content ID system to automatically switch from `oasis-align()` to `oasis-align-images()` and `oasis-align-figures()` logic based on input content type
+    - increased performance of image-image and figure-figure alignment 
+    - added `override` parameter to override this behavior
+- major refactoring of codebases
+    - added help functions under `utils.typ`
+    - separated `image` and `figure` variants of `oasis-align()` into separate files
+- `README.md` now includes extra examples of use cases along with tips 
+
+## 0.3.3 - 2026/01/08
+- fixed relative length issue for gutters
+    - thanks to @Andrew15-5 for the fix!
+
+## 0.3.2 - 2025/11/25
+- separated `/examples` into `/docs` and `/demo`  
+- updated `README.md` to further clarify function use-cases
+    - thanks to @PennDraken for pointing this out!
+- fixed linking issues in `README.md`
+
+## 0.3.1 - 2025/10/30
+- fixed duplicate image rendering with `oasis-align-images()`
+    - thanks to @spidersouris for catching this!
+- updated `README.md`
+
+## 0.3.0 - 2025/03/26 to 2025/06/21
+- added the following parameters
+    - `min-frac` 
+    - `vertical` 
+        - requested by @noobzik on Discord for presentations
+        - note that certain behaviors with figures and other kinds of content yield strange results
+    - `ruler`
+    - `range` 
+    - `force-frac`
+    - `frac-limit`
+- improved the `debug` output
+- `int-frac` is now derived as mean of `range`
+- refactored code base for easier legibility
+- improve parameter verification using `assert()`
+- re-added `oasis-align-images()`
+
+
+## 0.2.0 - 2024/11/30
+- removed `oasis-align-images()`
+    - Thanks to @Aaron-Rumpler for pointing out a critical bug!
+- added `swap` to parameters
+    - switches positions of content
+- cleaned up `debug` output to be more readable
+- breaking scenarios are now treated as such with `panic`
+    - Thanks again to @Aaron-Rumpler for the suggestion!
+- no longer show error message if content is "incompatible" and will instead display state at `int-frac`
+    - should make using `oasis-align()` way less frustrating to use
+- default max iterations reduced from 50 to 30
+
+## 0.1.0 - 2024/09/02
+- Initial Release

@@ -1,0 +1,10 @@
+{
+    "name": "trees",
+    "description": "Tree visualizations for hierarchical data",
+    "dependencies": [],
+    "exports": [
+        "tree",
+        "tree-node",
+        "draw-tree"
+    ]
+}

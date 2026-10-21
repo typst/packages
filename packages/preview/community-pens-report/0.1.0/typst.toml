@@ -1,0 +1,25 @@
+[package]
+name = "community-pens-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Azzam Abidurrahman Mujahid <https://github.com/azzamjhd>"]
+license = "MIT"
+description = "Final project report at Politeknik Elektronika Negeri Surabaya (PENS)."
+repository = "https://github.com/azzamjhd/community-pens-report"
+keywords = [
+  "PENS",
+  "Politeknik Elektronika Negeri Surabaya",
+  "final project",
+  "thesis",
+  "report",
+  "proyek akhir",
+  "Indonesia",
+]
+categories = ["report"]
+disciplines = ["engineering"]
+compiler = "0.11.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

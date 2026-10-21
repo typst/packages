@@ -1,0 +1,25 @@
+[package]
+name = "signal-resume"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["David Sasson <@DavidSasson22>"]
+license = "MIT"
+description = "Evidence-focused resumes built for reliable ATS parsing."
+repository = "https://github.com/DavidSasson22/david-resume-template"
+keywords = ["resume", "cv", "ats", "career"]
+categories = ["cv"]
+compiler = "0.14.0"
+exclude = [
+  ".github",
+  "docs",
+  "examples",
+  "scripts",
+  ".gitignore",
+  ".DS_Store",
+  "CONTRIBUTING.md",
+]
+
+[template]
+path = "starter"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

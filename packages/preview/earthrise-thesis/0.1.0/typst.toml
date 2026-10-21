@@ -1,0 +1,16 @@
+[package]
+name = "earthrise-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Andrej Orsula <@AndrejOrsula>"]
+license = "MIT"
+description = "Doctoral thesis in print and digital editions."
+repository = "https://github.com/AndrejOrsula/earthrise_thesis_template"
+keywords = ["thesis", "dissertation", "doctoral", "PhD", "print", "two-sided"]
+categories = ["thesis"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

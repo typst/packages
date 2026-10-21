@@ -1,0 +1,13 @@
+[package]
+name = "conic-toan"
+version = "0.3.5"
+entrypoint = "baigiang.typ"
+authors = ["Kim Thu <kimthitran9410@gmail.com>"]
+license = "MIT"
+description = "Draw math figures, graphs and variation tables."
+repository = "https://github.com/Thutran1891/conic-toan"
+keywords = ["math", "geometry", "plot", "slides", "exam", "vietnamese", "toan", "de-thi"]
+categories = ["visualization", "presentation", "components"]
+disciplines = ["mathematics", "education"]
+compiler = "0.13.0"
+exclude = ["/assets/"]

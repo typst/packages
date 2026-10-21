@@ -1,0 +1,15 @@
+[package]
+name = "mkuipers-ulusofona"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Martijn Kuipers <martijn.kuipers@ulusofona.pt>"]
+license = "MIT"
+description = "Thesis, dissertation, or lab report at Universidade Lusófona."
+repository = "https://github.com/MartijnKuipers/typst-ulusofona"
+keywords = ["Universidade Lusófona", "thesis", "dissertation", "report", "academic"]
+categories = ["thesis", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

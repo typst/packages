@@ -1,0 +1,29 @@
+[package]
+name = "modern-usp-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Rubens Andrade <@andrader>"]
+license = "MIT AND MIT-0 AND CC-BY-SA-3.0"
+description = "Theses and dissertations at the University of São Paulo."
+repository = "https://github.com/andrader/usp-thesis-typst-template"
+keywords = [
+    "academic",
+    "thesis",
+    "dissertation",
+    "brazil",
+    "usp",
+    "imeusp",
+    "University of São Paulo",
+    "Institute of Mathematics and Statistics",
+    "Universidade de São Paulo",
+    "Instituto de Matemática e Estatística",
+]
+categories = ["thesis", "paper"]
+disciplines = ["mathematics", "computer-science", "engineering"]
+compiler = "0.13.0"
+exclude = ["/examples/", "/justfile"]
+
+[template]
+path = "src/template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

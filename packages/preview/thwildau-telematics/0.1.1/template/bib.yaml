@@ -1,0 +1,11 @@
+web-fig1-fig2:
+  type: Web
+  title: "Fig 1, Fig 2"
+  authors:
+    - "u/birofrunk"
+  publisher:
+    name: "reddit.com/r/puns"
+  url:
+    value: "https://www.reddit.com/r/puns/comments/7wcj5h/figs/?chainedPosts=t3_1k90k0"
+    date: 2025-10-23
+

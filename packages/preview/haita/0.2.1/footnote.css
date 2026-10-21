@@ -1,0 +1,41 @@
+:root {
+    scroll-behavior: smooth;
+}
+
+.footnote {
+    position: relative;
+    display: inline-block;
+}
+
+.footnote-popup {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    margin-bottom: 0.5rem;
+
+    width: 16rem;
+    padding: 0.5rem;
+
+    background: #444;
+    color: white;
+    font-size: 0.875rem;
+
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+
+    transition:
+        opacity 120ms ease,
+        transform 120ms ease,
+        visibility 120ms;
+    pointer-events: auto;
+}
+
+.footnote:hover .footnote-popup,
+.footnote:focus-within .footnote-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
