@@ -20,6 +20,8 @@
 
 #let typography(body, dark: false, title-font: default-fonts.title) = {
   show <nasapunk-columns>: it => {
+    // Article mode linearizes the grid into a block but keeps the label.
+    if it.func() != grid { return it }
     let fields = it.fields()
     let _ = fields.remove("label", default: none)
     let children = fields.remove("children")
