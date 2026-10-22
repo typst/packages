@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 #import "@preview/lilaq:0.6.0" as lq
 #import "ipa.typ": ipa-to-unicode
 #import "_config.typ": phonokit-font

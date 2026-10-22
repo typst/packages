@@ -1,7 +1,7 @@
 // Hasse diagram visualization for OT constraint rankings
 // Part of phonokit package
 
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 #import "_config.typ": phonokit-font
 
 /// Create a Hasse diagram for Optimality Theory constraint rankings

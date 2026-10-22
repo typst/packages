@@ -4,7 +4,7 @@
 
 #import "ipa.typ": ipa, ipa-to-unicode
 #import "_config.typ": phonokit-font
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 
 // Sonority scale: Parker (2011: 18), "Final hierarchy of relative sonority" (27).
 // One index per natural class, 1–17. Classes Parker does not list are placed

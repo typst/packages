@@ -1,4 +1,4 @@
-#import "@preview/cetz:0.5.2": canvas, draw
+#import "@preview/cetz:0.5.3": canvas, draw
 #import "ipa.typ": ipa-to-unicode
 #import "_config.typ": phonokit-font
 #import "vowels.typ": language-vowels, vowel-data

@@ -1,7 +1,7 @@
 // Multi-tier phonological representations (CV phonology, skeletal tiers, etc.)
 // Part of phonokit package
 
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 #import "_config.typ": phonokit-font
 #import "ipa.typ": ipa as ipa-convert
 
