@@ -2,7 +2,7 @@
 name = "simple-cornell-notes"
 version = "0.1.0"
 entrypoint = "lib.typ"
-author = ["Philipp Knoch"]
+authors = ["Philipp Knoch"]
 license = "MIT"
 description = "Customizable Cornell Notes for typed or handwriten notes"
 repository = "https://github.com/kn0kh/simple-cornell-notes"
