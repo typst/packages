@@ -1,8 +1,8 @@
 // small helper functions
 #let empty(x) = x == none or x == "" or x == []
-#let web_link(url) = link("https://" + url, url)
-#let tel_link(number) = link("tel:" + number, number)
-#let mail_link(address) = link("mailto:" + address, address)
+#let web-link(url) = link("https://" + url, url)
+#let tel-link(number) = link("tel:" + number, number)
+#let mail-link(address) = link("mailto:" + address, address)
 
 #let resume(
   author: "",
@@ -14,18 +14,18 @@
   author-font-size: 20pt,
   font-size: 10pt,
   lang: "en",
+  margin: 0.5in, // recommended to have 0.5in margin on all sides
   body,
 ) = {
   // Sets document metadata
   set document(author: author, title: author)
 
-  // Recommended to have 0.5in margin on all sides
+  // Document-wide formatting, including page and font setup
   set page(
-    margin: 0.5in,
+    margin: margin,
     paper: paper,
   )
 
-  // Document-wide formatting, including font and margins
   set text(
     // LaTeX style font
     font: font,
@@ -84,11 +84,11 @@
   }
 
   // join them with separator
-  let rows = values.map(row_values => {
-    row_values = row_values.filter(x => x != none)
+  let rows = values.map(row-values => {
+    row-values = row-values.filter(x => x != none)
 
     if values.len() > 0 {
-      row_values.join(separator)
+      row-values.join(separator)
     }
   })
 
@@ -174,9 +174,9 @@
   assert(not empty(name), message: "name must not be empty")
   let a = if empty(role) [*#name*] else [*#role*, #name]
   // if url and dates are given, add the url to the left side
-  let b = if not empty(url) and not empty(dates) [ (#web_link(url))]
+  let b = if not empty(url) and not empty(dates) [ (#web-link(url))]
   // right side is dates unless it's empty, then use url
-  let c = if empty(dates) and not empty(url) { web_link(url) } else { dates }
+  let c = if empty(dates) and not empty(url) { web-link(url) } else { dates }
   generic-one-by-two(left: a + b, right: c)
 }
 
@@ -189,7 +189,7 @@
   assert(not empty(name), message: "name must not be empty")
   assert(not empty(issuer), message: "issuer must not be empty")
   generic-one-by-two(
-    left: [*#name*, #issuer] + if not empty(url) [ (#web_link(url))],
+    left: [*#name*, #issuer] + if not empty(url) [ (#web-link(url))],
     right: date,
   )
 }

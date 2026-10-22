@@ -1,6 +1,6 @@
 #import "@preview/basic-resume-plus:0.3.0": *
 
-// Put your personal information here, replacing mine
+// Replace these sample values with your own.
 #let name = "Stephen Xu"
 #let phone = "+1 (xxx) xxx-xxxx"
 #let email = "stxu@hmc.edu"
@@ -9,7 +9,7 @@
 
 #show: resume.with(
   author: name,
-  accent-color: eastern.darken(20%),
+  accent-color: blue.darken(30%), // #005197
   font: "New Computer Modern",
   paper: "a4",
   author-position: center,
@@ -19,12 +19,12 @@
   // Contact details are optional; remove any items or rows you don't need.
   values: (
     (
-      tel_link(phone),
-      mail_link(email),
+      tel-link(phone),
+      mail-link(email),
       location,
-      web_link(personal-site),
+      web-link(personal-site),
     ),
-    (), // second row of contact details
+    (), // Add optional social links here.
   ),
   position: center,
 )

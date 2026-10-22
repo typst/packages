@@ -32,20 +32,20 @@ The template starts with personal details, global styling, and a separate contac
 
 #show: resume.with(
   author: name,
-  accent-color: eastern.darken(20%),
+  accent-color: blue.darken(30%), // #005197
   font: "New Computer Modern",
   paper: "a4",
   author-position: center,
 )
 
-// Contact details are optional; remove any items or rows you don't need.
 #contact-section(
+  // Contact details are optional; remove any items or rows you don't need.
   values: (
     (
-      tel_link(phone),
-      mail_link(email),
+      tel-link(phone),
+      mail-link(email),
       location,
-      web_link(personal-site),
+      web-link(personal-site),
     ),
     (), // Add optional social links here.
   ),
@@ -69,7 +69,7 @@ For a fuller starting document, see [`template/main.typ`](template/main.typ).
 ## Components
 
 - `resume(...)` applies document-wide styling. It accepts `author`, `author-position`, `section-position`, `accent-color`, `font`, `paper`, `author-font-size`, `font-size`, and `lang`.
-- `empty(value)` checks whether a value is `none`, an empty string, or an empty array. `web_link(...)`, `tel_link(...)`, and `mail_link(...)` create linked contact content; `web_link` expects a host/path without a URL scheme and adds `https://`.
+- `empty(value)` checks whether a value is `none`, an empty string, or an empty array. `web-link(...)`, `tel-link(...)`, and `mail-link(...)` create linked contact content; `web-link` expects a host/path without a URL scheme and adds `https://`.
 - `contact-section(values:, separator:, position:)` displays one or more rows of contact details. Pass a flat array for one row or an array of arrays for multiple rows. Each item can be any Typst content, including the built-in link helpers or content from icon packages. Compared with the older built-in contact fields, composing these rows takes more manual work but gives you control over the content, order, separators, and alignment.
 - `dates-helper(start, end)` formats one date or a start/end range with an en dash.
 - `edu(...)` formats education entries; `institution-top` and `location-top` control which details are shown on the top row.

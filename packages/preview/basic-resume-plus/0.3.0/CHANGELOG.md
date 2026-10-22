@@ -14,7 +14,7 @@
 ### Added and improved
 
 - Added `contact-section(...)` with multi-row values, configurable separators, and alignment. Its default separator is a spaced middle dot.
-- Added `web_link(...)`, `tel_link(...)`, and `mail_link(...)` helpers.
+- Added `web-link(...)`, `tel-link(...)`, and `mail-link(...)` helpers.
 - Added the `empty(...)` value-check helper.
 - Added `section-position` to `resume(...)` and the `institution-top` / `location-top` education layouts.
 - Added `extracurricular-list(data:)` for rendering activity/date pairs as a list.

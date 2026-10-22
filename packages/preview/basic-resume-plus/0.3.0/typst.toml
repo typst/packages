@@ -13,7 +13,6 @@ categories = ["cv"]
 compiler = "0.12.0"
 exclude = [
   ".git",
-  "docs",
   "scripts",
   "tests",
   ".typstignore",
