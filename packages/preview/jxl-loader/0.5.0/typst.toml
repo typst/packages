@@ -1,7 +1,7 @@
 [package]
 name = "jxl-loader"
 version = "0.5.0"
-compiler = "0.13.0"
+compiler = "0.14.0"
 entrypoint = "lib.typ"
 authors = ["frabera"]
 license = "MIT"
