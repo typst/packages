@@ -84,7 +84,8 @@ Every symbol is a shape function compatible with Fletcher's `node`:
     edge(<producer>, <consumer>, marks: "-|>")
     edge(<producer>, <tank>, marks: "-|>")
   },
-)```
+)
+```
 
 ## Shapes
 
