@@ -85,7 +85,7 @@
 }
 
 
-#let ALL_ESL_SHAPES = (
+#let ALL-ESL-SHAPES = (
 	amp: amp,
   box: box,
   consumer: consumer,

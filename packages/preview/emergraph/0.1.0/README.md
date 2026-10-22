@@ -14,14 +14,14 @@ The package requires Typst 0.13.0 or newer and depends on Fletcher 0.5.8, which
 is re-exported for convenience:
 
 ```typ
-#import "@preview/emergraph:0.1.0": ALL_ESL_SHAPES as esl, fletcher
+#import "@preview/emergraph:0.1.0": ALL-ESL-SHAPES as esl, fletcher
 #import fletcher: diagram, edge, node
 ```
 
 When testing a local copy, import it from the local namespace instead:
 
 ```typ
-#import "@local/emergraph:0.1.0": ALL_ESL_SHAPES as esl, fletcher
+#import "@local/emergraph:0.1.0": ALL-ESL-SHAPES as esl, fletcher
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ When testing a local copy, import it from the local namespace instead:
 Every symbol is a shape function compatible with Fletcher's `node`:
 
 ```typ
-#import "@preview/emergraph:0.1.0": ALL_ESL_SHAPES as esl, fletcher
+#import "@preview/emergraph:0.1.0": ALL-ESL-SHAPES as esl, fletcher
 #import fletcher: diagram, edge, node
 
 #diagram(
@@ -88,7 +88,7 @@ Every symbol is a shape function compatible with Fletcher's `node`:
 
 ## Shapes
 
-All shapes are available through `ALL_ESL_SHAPES`:
+All shapes are available through `ALL-ESL-SHAPES`:
 
 | Name | ESL symbol | Description |
 | --- | --- | --- |

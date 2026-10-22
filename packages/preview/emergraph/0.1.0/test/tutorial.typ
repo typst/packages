@@ -1,4 +1,4 @@
-#import "@local/emergraph:0.1.0": ALL_ESL_SHAPES as esl, fletcher
+#import "@local/emergraph:0.1.0": ALL-ESL-SHAPES as esl, fletcher
 #import fletcher: diagram, edge, node
 
 #diagram(
