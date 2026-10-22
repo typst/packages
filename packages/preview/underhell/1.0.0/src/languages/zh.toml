@@ -1,0 +1,70 @@
+language = "zh"
+
+# === 正文标点按语言渲染:源(半角) -> 目标符号 ===
+["标点"]
+"," = "，"
+"." = "。"
+"?" = "？"
+"!" = "！"
+";" = "；"
+":" = "："
+"..." = "……"
+
+[stats]
+ac = "护甲等级"
+hp = "生命值"
+speed = "速度"
+
+[sections]
+actions = "动作"
+reactions = "反应"
+limited_usage = "有限使用"
+equip = "装备"
+legendary_act = "传奇动作"
+
+[npc]
+description = "描述"
+background = "背景"
+roleplay = "角色扮演提示"
+
+
+# === 自定义字体配置 ===
+[fonts]
+# 定义正文字体（支持列表，自动回退）:霞鹜文楷等宽
+body = ["LXGW WenKai Mono", "LXGW WenKai", "PingFang SC", "Hiragino Sans GB"]
+# 定义标题字体:段宁毛笔小楷
+header = ["DuanNingMaoBiXiaoKai", "LXGW WenKai", "PingFang SC", "Hiragino Sans GB"]
+# 定义斜体字体:等距更紗黑體(Sarasa Mono SC)
+italic = ["Sarasa Mono SC", "Sarasa Gothic SC", "LXGW WenKai Mono", "PingFang SC", "Hiragino Sans GB"]
+# 定义评论字体:方正赵佶瘦金书
+comment = ["FZZhaoJiShouJinShuS", "方正赵佶瘦金书 简", "LXGW WenKai", "PingFang SC"]
+# 定义目录字体:霞鹜文楷
+outline = ["LXGW WenKai", "LXGW WenKai Mono", "Kaiti SC", "PingFang SC"]
+
+
+# === 网页模式配置(可选) ===
+# -family 键给出自托管字体族名,会插到 [fonts] 对应列表首位;
+# [[web.fonts]] 逐条给出 @font-face 的族名与文件(url 相对 HTML 输出目录)。
+# 不配 [web] 段时,网页按 [fonts] 的系统字体回退渲染。
+[web]
+body-family = "uh-lxgw-mono"
+header-family = "duan-kaixiao"
+comment-family = "zhaoji-shoujin"
+bold-family = "uh-zhenkai"
+
+[[web.fonts]]
+family = "uh-lxgw-mono"
+file = "webfonts/lxgw-wenkai-mono.woff2"
+
+[[web.fonts]]
+family = "uh-zhenkai"
+file = "webfonts/zhenkai-gb.woff2"
+
+[[web.fonts]]
+family = "duan-kaixiao"
+file = "webfonts/duan-kaixiao-full.woff2"
+
+[[web.fonts]]
+family = "zhaoji-shoujin"
+file = "webfonts/zhaoji-shoujin.woff2"
+
