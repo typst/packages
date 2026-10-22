@@ -15,4 +15,4 @@ keywords = [
   "interface",
 ]
 compiler = "0.15"
-exclude = ["examples/*", "docs/*"]
+exclude = ["examples/*", "docs/*", "tests/*"]
