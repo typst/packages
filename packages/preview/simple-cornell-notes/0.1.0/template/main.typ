@@ -1,4 +1,4 @@
-#import "@preview/simple-cornell-notes": cornell-page
+#import "@preview/simple-cornell-notes:0.1.0": cornell-page
 
 #set document(title: "Cornell notes", author: "Philipp Knoch")
 
