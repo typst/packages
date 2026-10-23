@@ -4,7 +4,7 @@ A modular kit for **books, lecture notes and slides** that share one design lang
 Every component is its own `im-` function, sizes come from roles (body, table, code,
 inline code), and fonts and colors are applied as **groups** you pick from palettes.
 
-![Covers](https://raw.githubusercontent.com/ilkermansur/ilkman/main/docs/covers.png)
+![Ten generative cover styles: waveform, pcm, packet, bits, gitgraph, minimap, neural, solid, topo and halftone](https://raw.githubusercontent.com/ilkermansur/ilkman/v0.1.0/docs/covers.png)
 
 - 📄 `im-doc` — books and notes with a wide left column for side notes
 - 🖥️ `im-slides` — presentations built on [Touying](https://typst.app/universe/package/touying)
@@ -60,7 +60,7 @@ Override single roles and keep the rest of a palette:
 
 ### Colors
 
-![Palettes](https://raw.githubusercontent.com/ilkermansur/ilkman/main/docs/palettes.png)
+![Sample pages of the color palettes, each with a heading, colored boxes, a zebra table, a code block and a callout](https://raw.githubusercontent.com/ilkermansur/ilkman/v0.1.0/docs/palettes.png)
 
 `okyanus`, `fiyort`, `gece`, `çelik`, `okabe`, `orman`, `nane`, `zeytin`,
 `kiremit`, `kehribar`, `gül`, `bordo`, `lavanta`, `mürdüm`, `grafit`
@@ -114,7 +114,7 @@ Every role is relative to the body size, so slide density changes everything at 
 )
 ```
 
-![Document](https://raw.githubusercontent.com/ilkermansur/ilkman/main/docs/document.png)
+![Three document pages with a chapter heading, a side note with an arrow, a code block, tables, grid boxes and callouts](https://raw.githubusercontent.com/ilkermansur/ilkman/v0.1.0/docs/document.png)
 
 **Header and footer slots** take `"chapter"`, `"section"`, `"title"`, `"author"`,
 `"date"`, `"version"`, `"page"`, `"page-total"`, any string or content, a
@@ -245,7 +245,7 @@ scale whatever you draw with your favourite package to the given width.
 #im-speaker[Notes for the presenter view.]
 ```
 
-![Slides](https://raw.githubusercontent.com/ilkermansur/ilkman/main/docs/slides.png)
+![Slide deck pages: title slide, section slide, a slide with a code block, a dense text slide and a focus slide](https://raw.githubusercontent.com/ilkermansur/ilkman/v0.1.0/docs/slides.png)
 
 | Function | Purpose |
 |---|---|
@@ -271,7 +271,7 @@ A number such as `dense: 0.65` is used as a factor. Headings shrink less than bo
 
 ## Covers
 
-![Title slides](https://raw.githubusercontent.com/ilkermansur/ilkman/main/docs/title-slides.png)
+![The ten cover styles laid out as 16:9 title slides](https://raw.githubusercontent.com/ilkermansur/ilkman/v0.1.0/docs/title-slides.png)
 
 Ten styles: `waveform`, `pcm`, `packet`, `bits`, `gitgraph`, `minimap`,
 `neural`, `solid`, `topo`, `halftone`. The same options work for `im-cover`
