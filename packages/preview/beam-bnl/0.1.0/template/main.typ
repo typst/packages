@@ -1,6 +1,6 @@
-#import "@preview/beam-bnl:0.1.0": BNLletter
+#import "@preview/beam-bnl:0.1.0": bnl-letter
 
-#show: BNLletter.with(
+#show: bnl-letter.with(
   department: [Your department],
   address: [Building XXX\
     P.O. Box 5000\

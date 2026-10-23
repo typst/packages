@@ -1,4 +1,4 @@
-#let BNLletter(
+#let bnl-letter(
   comment: none,
   address: [Building XXX\
     P.O. Box 5000\

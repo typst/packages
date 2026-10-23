@@ -20,8 +20,8 @@ as a fallback; fonts are not bundled.
 
 ## Options
 
-Import `BNLletter` from `@preview/beam-bnl:0.1.0` and apply it with
-`#show: BNLletter.with(...)`.
+Import `bnl-letter` from `@preview/beam-bnl:0.1.0` and apply it with
+`#show: bnl-letter.with(...)`.
 
 | Option | Default / behavior |
 | --- | --- |
@@ -42,7 +42,7 @@ numbers. The department, logo, and address appear at the start of the letter.
 Size supplied logo artwork to 2.13 inches wide and signatures to 1 inch wide:
 
 ```typ
-#show: BNLletter.with(
+#show: bnl-letter.with(
   logo: image("bnl-logo.svg", width: 2.13in),
   signature: image("my-signature.svg", width: 1in),
   references: bibliography("references.bib",
