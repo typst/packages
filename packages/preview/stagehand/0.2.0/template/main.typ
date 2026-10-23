@@ -1,4 +1,4 @@
-#import "@preview/stagehand:0.1.1":*
+#import "@preview/stagehand:0.2.0":*
 
 #descriptions(
   (name:"Alice", group:"Nerds", desc:"A Nerd called Alice", actor:"Andrea"),
@@ -47,7 +47,7 @@ I'd rather wear my emotions on the sleeve, and put them right behind my name.
 The command takes an optional parameter: 'blocked'. If 'blocked' is false, it looks like this: #stage-direction(blocked: false)[He gestures around in a surprising lack of parentheses.]
 #speaker[Alice]
 Instead of having to write "\#speaker" and "\#stage-direction" all the time, we can import these names with dedicated aliases:
-#import "@preview/stagehand:0.1.1":stage-direction as d, speaker as s
+#import "@preview/stagehand:0.2.0":stage-direction as d, speaker as s
 #d[Alice uses some magic and imports the command with a new name.]
 #s[Bob]
 We can also define functions for our names, so we don't have to write them out all the time.

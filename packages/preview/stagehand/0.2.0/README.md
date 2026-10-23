@@ -5,7 +5,7 @@ A typst template for easily creating pretty and legible theatre scripts meant fo
 If you just want to get started with the default values, simply init a new typst document with this template.
 From the webapp, choose this template when starting a new project, from the CLI, use 
 ```bash
-typst init @preview/stagehand:0.1.1
+typst init @preview/stagehand:0.2.0
 ```
 Read the template text to learn the basic syntax, and you're good to go!
 For a basic script, you need to write nothing but 
@@ -18,7 +18,7 @@ I recommend setting aliases for recurring characters, and to use shorter, altern
 
 Alternatively, add this to the start of your typst file:
 ```typ
-#import "@preview/stagehand:0.1.1":*
+#import "@preview/stagehand:0.2.0":*
 #show: stagehand
 ```
 

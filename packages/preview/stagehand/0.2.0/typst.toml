@@ -1,6 +1,6 @@
 [package]
 name = "stagehand"
-version = "0.1.1"
+version = "0.2.0"
 entrypoint = "lib.typ"
 authors = ["Aaron Prott <https://github.com/aarquelle>"]
 license = "MIT"
@@ -9,7 +9,7 @@ repository = "https://github.com/aarquelle/stagehand"
 keywords = ["theatre", "theater", "stage", "stageplay", "drehbuch"]
 categories = ["book"]
 disciplines = ["theater", "literature"]
-compiler = "0.13.0"
+compiler = "0.15.0"
 exclude = ["docs/*"]
 
 [template]
