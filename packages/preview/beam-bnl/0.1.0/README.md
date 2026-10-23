@@ -14,9 +14,10 @@ cd my-letter
 typst compile main.typ
 ```
 
-Edit the starter's sender details and letter text. The BNL logo is bundled and
-displayed by default. No personal signature or external bibliography is needed. Arial is preferred, with Liberation Sans
-as a fallback; fonts are not bundled.
+Edit the starter's sender details and letter text. You must supply the logo yourself
+using the instructions below; no BNL logo is distributed. The starter compiles
+without a logo, signature, or bibliography. Arial is preferred, with Liberation
+Sans as a fallback; fonts are not bundled.
 
 ## Options
 
@@ -29,7 +30,7 @@ Import `bnl-letter` from `@preview/beam-bnl:0.1.0` and apply it with
 | `address` | Example sender address content |
 | `info` | Example name, title, group, and institution content |
 | `comment` | `none`; optional subject or other content before the letter |
-| `logo` | Bundled BNL logo; `none` hides it; custom content overrides it |
+| `logo` | `none`; supply `image("bnl-logo.svg", width: 2.13in)` from your project |
 | `signature` | `none`; caller-created content after the letter |
 | `fontsize` | `10pt` |
 | `headerfontsize` | `7pt` |
@@ -53,20 +54,25 @@ Size supplied logo artwork to 2.13 inches wide and signatures to 1 inch wide:
 These expressions are evaluated in your project, so paths resolve to your files.
 The bibliography file must contain entries corresponding to any citations used.
 
-## Logo and institutional use
+## Supply the logo
 
-The bundled `assets/bnl_logo_horizontal_rgb.svg` is Brookhaven National
-Laboratory artwork and is **not covered by MIT-0**. The thumbnail also depicts
-that logo; MIT-0 does not grant rights to the depicted branding. No personal
-signature is distributed.
+The package does not include or download a BNL logo. To add one:
 
-Source: [BNL Brand Center](https://www.bnl.gov/brandcenter/logo.php).
-Follow the [logo use policy](https://www.bnl.gov/brandcenter/logo-policy.php),
-including appropriate approval. Download availability does not establish permission
-to redistribute the logo. Redistribution permission for this public package still
-needs to be documented before submission to Typst Universe. Its
-[asset requirements](https://github.com/typst/packages/blob/9e740025a355c43453e5819ecf17c7e29487c84d/docs/licensing.md)
-require a copyright-holder policy clearing distribution in the package.
-The MIT-0 license applies to the template code and starter, and grants no rights
-to BNL branding or supplied artwork. Do not send letters with example details.
- Local verification and submission
+1. Open the [BNL Brand Center logo page](https://www.bnl.gov/brandcenter/logo.php).
+2. Under **Download RGB Color Logos**, download the **Horizontal RGB Logo (.svg)** (the page may label it “RBG”).
+3. Save it as `bnl-logo.svg` beside your project's `main.typ`. In the Typst web app, upload the SVG into that project.
+4. Uncomment the starter's logo line inside `bnl-letter.with(...)`:
+
+```typ
+logo: image("bnl-logo.svg", width: 2.13in),
+```
+
+The image is evaluated in your project, so its path resolves to your file.
+Use the exact filename you saved. Leave `logo` unset (or set `logo: none`) to
+compile without a logo. A missing file produces Typst's normal file-not-found
+error when the image line is enabled.
+
+Follow the [BNL logo use policy](https://www.bnl.gov/brandcenter/logo-policy.php)
+and obtain any required approval. MIT-0 covers this package's code and starter;
+it grants no rights to BNL branding or artwork you supply. No personal signature
+is included. Replace example contact details before sending a letter.

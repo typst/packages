@@ -6,7 +6,7 @@
     Phone: your phone number\
     your.name\@bnl.gov],
   department: [Your department],
-  logo: image("assets/bnl_logo_horizontal_rgb.svg", width: 2.13in),
+  logo: none,
   signature: none,
   info: [Your name\
     Your title\
