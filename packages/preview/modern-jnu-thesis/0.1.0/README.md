@@ -1,39 +1,20 @@
-<h1>暨南大学本科毕业论文 / 调研报告 Typst 模板</h1>
-
-本模板参考**吕荐瑞老师的模板导出的pdf文件**
-
 **非官方模板**
 
-## 安装
-
-Typst Universe 包名为 `modern-jnu-thesis`。在空目录中运行：
-
-```sh
-typst init @preview/modern-jnu-thesis:0.1.0
-```
-
-也可以在现有文档中直接导入：
-
-```typst
-#import "@preview/modern-jnu-thesis:0.1.0": jnu-thesis
-```
-
-## 目录
-- [目录](#目录)
-- [安装](#安装)
 - [论文模式](#论文模式)
 - [调研报告模式](#调研报告模式)
 - [参数说明](#参数说明)
   - [通用参数](#通用参数)
-  - [调研报告专用](#调研报告专用)
+  - [调研报告专用参数](#调研报告专用参数)
 - [字号与行距](#字号与行距)
 - [其他说明](#其他说明)
   - [章节分页](#章节分页)
   - [参考文献与引用](#参考文献与引用)
   - [三线表示例](#三线表示例)
+- [LICENSE](#license)
 
 ## 论文模式
-`paper-type`: `"thesis"`
+
+`paper-type: "thesis"`
 
 默认论文模式，示例：
 
@@ -71,7 +52,7 @@ typst init @preview/modern-jnu-thesis:0.1.0
 
 ## 调研报告模式
 
-`paper-type`: `"report"`
+`paper-type: "report"`
 
 填写报告封面与分工表字段：
 
@@ -81,8 +62,8 @@ typst init @preview/modern-jnu-thesis:0.1.0
   title: ("调查题目第一行", "第二行"),
   short-title: "学生实践调查报告",
   course: ("课程名称第一行", "第二行"),
-  class-name: "2024 级金融工程",
-  supervisor: "许文芳",
+  class-name: "2024 级xx工程",
+  supervisor: "Teacher",
   score: "",
   date: "2026 年 5 月",
   abstract: [中文摘要],
@@ -136,7 +117,7 @@ typst init @preview/modern-jnu-thesis:0.1.0
 | `include-statement` | `auto` | `auto`：论文显示、报告隐藏 |
 | `include-abstract-en` | `auto` | `auto`：论文显示、报告隐藏 |
 
-### 调研报告专用
+### 调研报告专用参数
 
 | 参数 | 默认值 | 说明 |
 |---|---|---|
@@ -201,6 +182,3 @@ typst init @preview/modern-jnu-thesis:0.1.0
 )
 ```
 
-# PS
-
-repo的命名参考了[yueryang/LaTeX4JNUBachelor](https://github.com/yueryang/LaTeX4JNUBachelor)
