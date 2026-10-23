@@ -1,0 +1,69 @@
+%YAML 1.2
+---
+# OpenSCAD syntax for Typst's `raw` highlighter (Sublime-syntax format).
+# Enable with maquette-scad.typ's `scad-highlighting` show rule; then fenced
+# ```scad / ```openscad blocks are highlighted.
+name: OpenSCAD
+file_extensions:
+  - scad
+  - openscad
+scope: source.scad
+
+contexts:
+  main:
+    - include: comments
+    - include: strings
+    - include: numbers
+    - match: '\b(module|function|if|else|for|intersection_for|let|each|return|include|use)\b'
+      scope: keyword.control.scad
+    - match: '\b(true|false|undef|PI)\b'
+      scope: constant.language.scad
+    - match: '\$(fn|fa|fs|t|vpr|vpt|vpd|vpf|children|preview)\b'
+      scope: variable.language.scad
+    - match: '\b(union|difference|intersection|hull|minkowski|render|group)\b'
+      scope: support.function.boolean.scad
+    - match: '\b(translate|rotate|scale|mirror|resize|multmatrix|color|offset|linear_extrude|rotate_extrude|projection)\b'
+      scope: support.function.transform.scad
+    - match: '\b(cube|sphere|cylinder|polyhedron|square|circle|polygon|text|surface|import|children|echo|assert)\b'
+      scope: support.function.builtin.scad
+    - match: '\b(abs|sign|sin|cos|tan|acos|asin|atan|atan2|floor|round|ceil|ln|log|pow|sqrt|exp|min|max|norm|cross|len|concat|lookup|str|chr|ord|search|rands|is_undef|is_list|is_num|is_bool|is_string)\b'
+      scope: support.function.math.scad
+    # a name immediately followed by '(' is a call (user module/function)
+    - match: '[a-zA-Z_][a-zA-Z0-9_]*(?=\s*\()'
+      scope: variable.function.scad
+    - match: '(==|!=|<=|>=|&&|\|\||[-+*/%<>=!?:])'
+      scope: keyword.operator.scad
+    - match: '\b[a-zA-Z_][a-zA-Z0-9_]*\b'
+      scope: variable.other.scad
+
+  comments:
+    - match: '//'
+      scope: punctuation.definition.comment.scad
+      push:
+        - meta_scope: comment.line.double-slash.scad
+        - match: '$'
+          pop: true
+    - match: '/\*'
+      scope: punctuation.definition.comment.begin.scad
+      push:
+        - meta_scope: comment.block.scad
+        - match: '\*/'
+          scope: punctuation.definition.comment.end.scad
+          pop: true
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.scad
+      push:
+        - meta_scope: string.quoted.double.scad
+        - match: '\\.'
+          scope: constant.character.escape.scad
+        - match: '"'
+          scope: punctuation.definition.string.end.scad
+          pop: true
+
+  numbers:
+    - match: '\b\d+(\.\d+)?([eE][+-]?\d+)?\b'
+      scope: constant.numeric.scad
+    - match: '\.\d+([eE][+-]?\d+)?'
+      scope: constant.numeric.scad
