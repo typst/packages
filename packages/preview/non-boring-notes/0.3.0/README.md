@@ -62,15 +62,15 @@ Start writing here...
 ```
 
 A longer example using most of the features is available in
-[examples/showcase.typ](https://github.com/aruzdh/non-boring-notes/blob/main/examples/showcase.typ).
+[examples/showcase.typ](./examples/showcase.typ).
 
 ## Documentation
 
 | Page | What it covers |
 | :--- | :--- |
-| [Template reference](https://github.com/aruzdh/non-boring-notes/blob/main/docs/template.md) | Every `template` parameter, defaults, recipes, and common pitfalls. |
-| [Theorem-like environments](https://github.com/aruzdh/non-boring-notes/blob/main/docs/theorem-like-envs.md) | All 16 environments, numbering, labels, and references. |
-| [Utilities](https://github.com/aruzdh/non-boring-notes/blob/main/docs/utilities.md) | `indent`, `quote-box`, `mathbox`, and the bundled fletcher, cetz, and unify packages. |
+| [Template reference](./docs/template.md) | Every `template` parameter, defaults, recipes, and common pitfalls. |
+| [Theorem-like environments](./docs/theorem-like-envs.md) | All 16 environments, numbering, labels, and references. |
+| [Utilities](./docs/utilities.md) | `indent`, `quote-box`, `mathbox`, and the bundled fletcher, cetz, and unify packages. |
 
 ## Features
 
@@ -84,4 +84,4 @@ A longer example using most of the features is available in
 
 ## License
 
-Released under the [MIT License](https://github.com/aruzdh/non-boring-notes/blob/main/LICENSE).
+Released under the [MIT License](./LICENSE).
