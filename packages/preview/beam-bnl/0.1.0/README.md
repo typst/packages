@@ -65,7 +65,7 @@ Follow the [logo use policy](https://www.bnl.gov/brandcenter/logo-policy.php),
 including appropriate approval. Download availability does not establish permission
 to redistribute the logo. Redistribution permission for this public package still
 needs to be documented before submission to Typst Universe. Its
-[asset requirements](https://github.com/typst/packages/blob/main/docs/licensing.md)
+[asset requirements](https://github.com/typst/packages/blob/9e740025a355c43453e5819ecf17c7e29487c84d/docs/licensing.md)
 require a copyright-holder policy clearing distribution in the package.
 The MIT-0 license applies to the template code and starter, and grants no rights
 to BNL branding or supplied artwork. Do not send letters with example details.
