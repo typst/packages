@@ -182,3 +182,12 @@
 )
 ```
 
+## LICENSE
+
+本项目中的 Typst 模板源代码依据 MIT-0 许可证进行授权。
+
+模板内置的校徽（res/jnulogo.png）为暨南大学标识资源，属于受商标权、著作权保护的资源文件，不在 MIT-0 许可证授权范围内，其知识产权归相关权利人所有。上述资源仅限用于学位论文排版的学术、非商业用途，除法律法规另有规定或已获得相关授权外，不得对上述资源进行再分发、修改或用于其他用途。使用者需自行确认其对资源的使用符合暨南大学的有关规定及适用法律法规。
+
+The Typst template source code in this project is licensed under the MIT-0 License.
+
+The university logo (`res/jnulogo.png`) included in the template is an identifier resource of Jinan University and is a resource file protected by trademark and copyright. It is not covered by the MIT-0 License, and its intellectual property rights belong to the respective rights holders. The aforementioned resource is permitted solely for academic, non-commercial use in thesis/dissertation typesetting. Unless otherwise provided by laws and regulations or duly authorized, the resource must not be redistributed, modified, or used for other purposes. Users are responsible for ensuring that their use of the resource complies with the relevant regulations of Jinan University and applicable laws and regulations.
