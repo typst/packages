@@ -20,7 +20,7 @@
 /// Marks the author of a chapter or subchapter in a team thesis:
 /// `= Wstęp i cel pracy #written-by[Jan Kowalski]`. The name is printed in
 /// parentheses after the title, in the text and in the table of contents.
-#let written-by(name) = metadata((pg-thesis-author: name))
+#let written-by(name) = metadata((pg-unofficial-thesis-author: name))
 
 /// An English term given after its Polish translation:
 /// `#ang[document engineering]` → (ang. _document engineering_).
@@ -30,8 +30,8 @@
 #let _space = [ ].func()
 
 #let _author-of(c) = if (
-  c.func() == metadata and type(c.value) == dictionary and "pg-thesis-author" in c.value
-) { c.value.pg-thesis-author }
+  c.func() == metadata and type(c.value) == dictionary and "pg-unofficial-thesis-author" in c.value
+) { c.value.pg-unofficial-thesis-author }
 
 // Splits a heading body into its title and the `written-by` author (or none).
 #let _split-author(body) = {
@@ -51,7 +51,7 @@
   if author != none { text(weight: "regular", style: "normal")[ #box[(#author)]] }
 }
 
-#let _appendix = state("pg-thesis-appendix", false)
+#let _appendix = state("pg-unofficial-thesis-appendix", false)
 
 #let _heading-numbering(..nums) = {
   let n = nums.pos()

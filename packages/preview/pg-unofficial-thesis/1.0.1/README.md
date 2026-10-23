@@ -1,7 +1,8 @@
-# pg-thesis
+# pg-unofficial-thesis
 
-Typst template for diploma theses (bachelor's, engineering, master's) at
-**Politechnika Gdańska**, in Polish or English. It follows the
+Unofficial, community-built Typst template for diploma theses (bachelor's,
+engineering, master's) at **Politechnika Gdańska**, in Polish or English. It is
+not endorsed by the university. It follows the
 [Regulamin procesu dyplomowania PG](https://cdn.files.pg.edu.pl/zie/Strona%20polska/Studenci/5.%20Regulaminy/Regulamin%20procesu%20dyplomowania_01.10.2026.pdf)
 (2026), [Zarządzenie Rektora PG nr 53/2022](https://cdn.files.pg.edu.pl/wilis/Studenci/Dyplomy/ZR%2053-2022.pdf)
 and the layout of the [official PG LaTeX template](https://git.pg.edu.pl/p1252239/latex_template_for_diploma).
@@ -9,13 +10,13 @@ and the layout of the [official PG LaTeX template](https://git.pg.edu.pl/p125223
 ## Start your thesis
 
 ```sh
-typst init @preview/pg-thesis:1.0.0 moja-praca
+typst init @preview/pg-unofficial-thesis:1.0.1 moja-praca
 cd moja-praca
 typst watch main.typ
 ```
 
 In the [Typst web app](https://typst.app), choose **Start from template** and
-search for `pg-thesis`.
+search for `pg-unofficial-thesis`.
 
 You get a ready project: `main.typ` holds the thesis data, `chapters/` the
 text, and `bibliography.bib` the references. The sample chapters show figures,
@@ -24,7 +25,7 @@ tables, code, equations and citations; replace them with your own.
 ## Usage
 
 ```typst
-#import "@preview/pg-thesis:1.0.0": *
+#import "@preview/pg-unofficial-thesis:1.0.1": *
 
 #show: thesis.with(
   kind: "engineering", // "bachelor", "engineering", "engineering-project" or "master"
@@ -110,16 +111,16 @@ make check    # versions, builds and typst-package-check (needs podman or docker
 CI rebuilds the PDFs in `docs/` whenever the sources on `main` change.
 
 To release, bump `version` in `typst.toml` and in every
-`@preview/pg-thesis:…` import, add an entry to `CHANGELOG.md`, and push a
-`vX.Y.Z` tag. CI then creates the GitHub release and opens the pull request to
-[typst/packages](https://github.com/typst/packages). For the pull request it
-needs a `PACKAGES_TOKEN` secret; without one, run `make publish` locally.
+`@preview/pg-unofficial-thesis:…` import, add an entry to `CHANGELOG.md`, and
+push a `vX.Y.Z` tag. CI then creates the GitHub release and opens the pull
+request to [typst/packages](https://github.com/typst/packages) (using the
+`PACKAGES_TOKEN` secret; without it, run `make publish` locally).
 
 ## About
 
 Written with [Claude](https://claude.com/claude-code) (Anthropic);
-maintained by Stanisław Nieradko. This is not an official PG publication; the regulations
-linked above are authoritative.
+maintained by Stanisław Nieradko. If anything here disagrees with the
+regulations linked above, the regulations win.
 
 ## License
 

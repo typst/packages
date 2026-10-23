@@ -1,4 +1,4 @@
-#import "@preview/pg-thesis:1.0.0": ang, written-by
+#import "@preview/pg-unofficial-thesis:1.0.1": ang, written-by
 
 // W pracy zespołowej autora rozdziału lub podrozdziału podaje się po
 // tytule – w treści i w spisie treści: `= Tytuł #written-by[Imię Nazwisko]`.
