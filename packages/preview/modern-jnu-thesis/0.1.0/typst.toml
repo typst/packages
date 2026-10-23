@@ -6,18 +6,9 @@ authors = ["LENCELG"]
 license = "MIT"
 description = "Undergraduate thesis and research report for Jinan University."
 repository = "https://github.com/lencelg/typst4JnuBachelor"
-keywords = ["thesis", "university", "jinan-university", "chinese", "report"]
+keywords = ["thesis", "jinan-university", "report"]
 categories = ["thesis", "report"]
-compiler = "0.14.0"
-exclude = [
-  "/main.typ",
-  "/main.pdf",
-  "/jnuthesis.pdf",
-  "/jnuthesis-1_1.png",
-  "/jnu-paper-spec.docx",
-  "/.opencode/",
-  "/res/refs.bib",
-]
+compiler = "0.15.0"
 
 [template]
 path = "template"
