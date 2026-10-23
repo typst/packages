@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict><key>name</key><string>Lineal light</string><key>settings</key><array>
+<dict><key>settings</key><dict><key>foreground</key><string>#172126</string><key>background</key><string>#ffffff</string></dict></dict>
+<dict><key>scope</key><string>comment</string><key>settings</key><dict><key>foreground</key><string>#64748b</string><key>fontStyle</key><string>italic</string></dict></dict>
+<dict><key>scope</key><string>keyword, storage, punctuation.definition.block.svelte</string><key>settings</key><dict><key>foreground</key><string>#7444a4</string></dict></dict>
+<dict><key>scope</key><string>support.function.rune.svelte, keyword.control.block.svelte</string><key>settings</key><dict><key>foreground</key><string>#006b94</string></dict></dict>
+<dict><key>scope</key><string>string</string><key>settings</key><dict><key>foreground</key><string>#42752a</string></dict></dict>
+<dict><key>scope</key><string>constant.numeric, constant.language</string><key>settings</key><dict><key>foreground</key><string>#8b5900</string></dict></dict>
+<dict><key>scope</key><string>entity.name.tag, punctuation.definition.tag</string><key>settings</key><dict><key>foreground</key><string>#006b94</string></dict></dict>
+<dict><key>scope</key><string>entity.other.attribute-name, entity.name.function, support.function</string><key>settings</key><dict><key>foreground</key><string>#215a9c</string></dict></dict>
+<dict><key>scope</key><string>entity.name.type, support.type, support.class</string><key>settings</key><dict><key>foreground</key><string>#006e65</string></dict></dict>
+<dict><key>scope</key><string>keyword.operator, punctuation</string><key>settings</key><dict><key>foreground</key><string>#475569</string></dict></dict>
+</array></dict></plist>
