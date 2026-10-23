@@ -1,3 +1,0 @@
-= Implementación
-
-#lorem(30)

@@ -1,3 +1,0 @@
-# Include project configuration in the Universe bundle despite its hidden name.
-!template/.zettypst/
-!template/.zettypst/**

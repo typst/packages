@@ -1,3 +1,0 @@
-= Conclusiones
-
-#lorem(30)
