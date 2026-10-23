@@ -1,0 +1,413 @@
+// util.typ - Shared utilities for primaviz
+
+// sRGB channel (0..1) to linear light
+#let _lin(c) = if c <= 0.04045 { c / 12.92 } else { calc.pow((c + 0.055) / 1.055, 2.4) }
+
+/// WCAG relative luminance of a colour (0 = black, 1 = white).
+///
+/// - c (color): Colour (alpha is ignored)
+/// -> float
+#let luminance(c) = {
+  let k = rgb(c).components()
+  0.2126 * _lin(k.at(0) / 100%) + 0.7152 * _lin(k.at(1) / 100%) + 0.0722 * _lin(k.at(2) / 100%)
+}
+
+/// WCAG contrast ratio between two colours (1 = identical, 21 = black on white).
+///
+/// - a (color): First colour
+/// - b (color): Second colour
+/// -> float
+#let contrast-ratio(a, b) = {
+  let (la, lb) = (luminance(a), luminance(b))
+  (calc.max(la, lb) + 0.05) / (calc.min(la, lb) + 0.05)
+}
+
+/// Text colour for a label drawn on a filled mark, chosen by WCAG contrast
+/// ratio rather than a luma guess (white on `#e15759` is 3.6:1, black 5.8:1).
+///
+/// Without a `theme` the answer is black or white, whichever has the higher
+/// contrast ratio against `c`. With a `theme` its own text colours are tried
+/// first, darker first, and the first with at least `min-ratio` contrast
+/// against the fill wins, so labels keep the theme's look (a dark theme's
+/// soft white, say); if neither reaches the ratio, black or white, whichever
+/// is stronger.
+///
+/// - c (color): The mark's fill
+/// - theme (none, dictionary): Resolved theme, to prefer its text colours
+/// - min-ratio (float): Contrast ratio worth keeping a theme colour for
+/// -> color
+#let contrast-text(c, theme: none, min-ratio: 4.5) = {
+  let strongest = if contrast-ratio(black, c) >= contrast-ratio(white, c) { black } else { white }
+  if theme == none { return strongest }
+  let theirs = (theme.text-color-inverse, theme.text-color).sorted(key: k => luminance(k))
+  let ok = theirs.find(k => contrast-ratio(k, c) >= min-ratio)
+  if ok != none { ok } else { strongest }
+}
+
+/// Normalizes data input to a `(labels: array, values: array)` dictionary.
+///
+/// - data (dictionary, array): Dict with `labels`/`values` keys, or array of `(label, value)` tuples
+/// -> dictionary
+#let normalize-data(data) = {
+  let labels = if type(data) == dictionary { data.labels } else { data.map(d => d.at(0)) }
+  let values = if type(data) == dictionary { data.values } else { data.map(d => d.at(1)) }
+  (labels: labels, values: values)
+}
+
+/// Linearly interpolates between two colors.
+///
+/// - c1 (color): Start color (at t=0)
+/// - c2 (color): End color (at t=1)
+/// - t (float): Interpolation factor, clamped to 0..1
+/// -> color
+#let lerp-color(c1, c2, t) = {
+  let t-clamped = calc.max(0, calc.min(1, t))
+  color.mix((c1, (1 - t-clamped) * 100%), (c2, t-clamped * 100%))
+}
+
+// Named palette definitions — arrays of color stops for N-stop interpolation.
+#let _named-palettes = (
+  viridis: (rgb("#440154"), rgb("#3b528b"), rgb("#21918c"), rgb("#5ec962"), rgb("#fde725")),
+  // Ordered, light to dark (ColorBrewer YlOrRd): more is always darker, so it
+  // reads as an amount.
+  heat: (rgb("#ffffb2"), rgb("#fecc5c"), rgb("#fd8d3c"), rgb("#f03b20"), rgb("#bd0026")),
+  blues: (rgb("#f7fbff"), rgb("#6baed6"), rgb("#08306b")),
+  greens: (rgb("#f7fcf5"), rgb("#74c476"), rgb("#00441b")),
+  reds: (rgb("#fff5f0"), rgb("#fb6a4a"), rgb("#67000d")),
+  purples: (rgb("#fcfbfd"), rgb("#9e9ac8"), rgb("#3f007d")),
+  inferno: (rgb("#000004"), rgb("#420a68"), rgb("#932667"), rgb("#dd513a"), rgb("#fcffa4")),
+  plasma: (rgb("#0d0887"), rgb("#7e03a8"), rgb("#cc4778"), rgb("#f89540"), rgb("#f0f921")),
+  coolwarm: (rgb("#3b4cc0"), rgb("#7b9ff9"), rgb("#f7f7f7"), rgb("#f4987a"), rgb("#b40426")),
+  spectral: (rgb("#9e0142"), rgb("#f46d43"), rgb("#fee08b"), rgb("#abdda4"), rgb("#5e4fa2")),
+)
+
+/// Interpolates across an array of color stops for a 0..1 value.
+///
+/// - stops (array): Array of colors (2 or more)
+/// - v (float): Normalized value 0..1
+/// -> color
+#let _interpolate-stops(stops, v) = {
+  let n = stops.len()
+  if n == 1 { return stops.at(0) }
+  let scaled = v * (n - 1)
+  let idx = calc.min(int(scaled), n - 2)
+  let t = scaled - idx
+  lerp-color(stops.at(idx), stops.at(idx + 1), t)
+}
+
+/// Maps a normalized 0..1 value to a color using a palette.
+///
+/// Palette can be a string name (`"viridis"`, `"heat"`, `"blues"`, `"greens"`,
+/// `"reds"`, `"purples"`, `"inferno"`, `"plasma"`, `"coolwarm"`, `"spectral"`,
+/// `"grayscale"`) or an array of color stops for custom palettes.
+///
+/// Append `"-r"` to any named palette to reverse it (e.g., `"viridis-r"`).
+///
+/// - val (float): Value in the range 0 to 1
+/// - palette (str, array): Palette name or array of color stops
+/// - reverse (bool): Reverse the palette direction
+/// -> color
+#let heat-color(val, palette: "viridis", reverse: false) = {
+  let v = calc.max(0, calc.min(1, val))
+
+  // Handle array palette directly
+  if type(palette) == array {
+    let stops = if reverse { palette.rev() } else { palette }
+    return _interpolate-stops(stops, v)
+  }
+
+  // Handle grayscale specially (not stop-based)
+  if palette == "grayscale" or palette == "grayscale-r" {
+    let rv = if reverse or palette == "grayscale-r" { v } else { 1 - v }
+    return luma(int(rv * 255))
+  }
+
+  // Check for -r suffix
+  let pal-name = palette
+  let rev = reverse
+  if palette.ends-with("-r") {
+    pal-name = palette.slice(0, palette.len() - 2)
+    rev = true
+  }
+
+  // Look up named palette
+  let stops = _named-palettes.at(pal-name, default: _named-palettes.at("blues"))
+  if rev { stops = stops.rev() }
+  _interpolate-stops(stops, v)
+}
+
+/// Returns the value unchanged if non-zero, otherwise returns `fallback`.
+/// Prevents division-by-zero in range calculations.
+///
+/// - val (int, float): Value to check
+/// - fallback (int, float): Returned when `val` is zero
+/// -> int, float
+#let nonzero(val, fallback: 1) = if val == 0 { fallback } else { val }
+
+/// Extracts the plain text of a label that may be a string, a number, or content.
+///
+/// Labels accept arbitrary content (`$x^2$`, `[*Q1*]`), which has no `.len()` and
+/// cannot be concatenated with strings. Layout heuristics and error messages need a
+/// plain-text form, so walk the content tree and gather every text leaf. The result
+/// is an approximation for typeset math — good enough to size labels, never used for
+/// rendering (charts always place the original value).
+///
+/// - v (any): Label value — string, number, or content
+/// -> str
+#let label-str(v) = {
+  if type(v) == str {
+    v
+  } else if type(v) == int or type(v) == float {
+    str(v)
+  } else if type(v) == array {
+    v.map(label-str).fold("", (a, b) => a + b)
+  } else if type(v) == content {
+    if v.has("text") and type(v.text) == str {
+      v.text
+    } else {
+      let out = ""
+      for (_, field) in v.fields() {
+        if type(field) == str or type(field) == content or type(field) == array {
+          out += label-str(field)
+        }
+      }
+      out
+    }
+  } else {
+    ""
+  }
+}
+
+/// Returns the character count of a label for width heuristics.
+///
+/// Accepts the same values as `label-str`; content labels are measured by their
+/// extracted text.
+///
+/// - v (any): Label value — string, number, or content
+/// -> int
+#let label-len(v) = label-str(v).clusters().len()
+
+/// Clamps a numeric value to the range [lo, hi].
+///
+/// - val (int, float): Value to clamp
+/// - lo (int, float): Lower bound
+/// - hi (int, float): Upper bound
+/// -> int, float
+#let clamp(val, lo, hi) = {
+  calc.max(lo, calc.min(hi, val))
+}
+
+/// Formats a number for display using the specified mode.
+///
+/// - val (int, float): Number to format
+/// - digits (int): Decimal places to round to
+/// - mode (str): Format mode: `"auto"`, `"comma"`, `"si"`, `"plain"`, or `"percent"`
+/// - step (none, int, float): Tick step, when formatting axis ticks. In SI
+///   mode it sets the decimals so adjacent ticks stay distinct (10.05k, not
+///   two "10.1k"); without it SI values get one decimal.
+/// -> str
+#let format-number(val, digits: 1, mode: "auto", step: none) = {
+  let abs-val = calc.abs(val)
+  let rounded = calc.round(val, digits: digits)
+
+  if mode == "si" or (mode == "auto" and abs-val >= 10000) {
+    // SI abbreviations, largest tier first
+    let tiers = ((1000000000, "B"), (1000000, "M"), (1000, "k"))
+    let pick = tiers.position(((scale, _)) => abs-val >= scale)
+    let decimals(scale) = if step != none and step > 0 {
+      int(calc.max(0, -calc.floor(calc.log(step / scale, base: 10))))
+    } else { 1 }
+    if pick == none {
+      str(rounded)
+    } else {
+      let (scale, suffix) = tiers.at(pick)
+      let scaled = calc.round(val / scale, digits: decimals(scale))
+      // Rounding can carry into the next tier (999,999.9 -> "1000k" -> "1M")
+      if calc.abs(scaled) >= 1000 and pick > 0 {
+        let (scale, suffix) = tiers.at(pick - 1)
+        str(calc.round(val / scale, digits: decimals(scale))) + suffix
+      } else {
+        str(scaled) + suffix
+      }
+    }
+  } else if mode == "comma" {
+    // Add comma separators - Typst doesn't have built-in number formatting
+    // so we'll build the string manually
+    let s = str(calc.round(val, digits: digits))
+    let negative = s.starts-with("-")
+    let abs-str = if negative { s.slice(1) } else { s }
+    let parts = abs-str.split(".")
+    let int-str = parts.at(0)
+    let result = ""
+    let count = 0
+    let chars = int-str.clusters()
+    let n = chars.len()
+    for i in array.range(n) {
+      let idx = n - 1 - i
+      if count > 0 and calc.rem(count, 3) == 0 {
+        result = "," + result
+      }
+      result = chars.at(idx) + result
+      count = count + 1
+    }
+    if parts.len() > 1 {
+      result = result + "." + parts.at(1)
+    }
+    if negative { "-" + result } else { result }
+  } else if mode == "percent" {
+    str(calc.round(val, digits: digits)) + "%"
+  } else {
+    // plain or auto (below threshold)
+    str(rounded)
+  }
+}
+
+/// Sorts a simple data dictionary by values.
+///
+/// - data (dictionary): Dict with `labels` and `values` arrays
+/// - descending (bool): Sort in descending order
+/// -> dictionary
+#let sort-data(data, descending: false) = {
+  let pairs = data.labels.zip(data.values)
+  let sorted = pairs.sorted(key: p => p.at(1))
+  if descending {
+    sorted = sorted.rev()
+  }
+  (labels: sorted.map(p => p.at(0)), values: sorted.map(p => p.at(1)))
+}
+
+/// Returns the top N entries by value (descending) from a simple data dictionary.
+///
+/// - data (dictionary): Dict with `labels` and `values` arrays
+/// - n (int): Number of top entries to return
+/// -> dictionary
+#let top-n(data, n) = {
+  let sorted = sort-data(data, descending: true)
+  (labels: sorted.labels.slice(0, calc.min(n, sorted.labels.len())),
+   values: sorted.values.slice(0, calc.min(n, sorted.values.len())))
+}
+
+/// Aggregates multi-series data into a simple label-value dictionary.
+///
+/// - data (dictionary): Dict with `labels` and `series` (each with `values`)
+/// - fn (str): Aggregation function: `"sum"`, `"mean"`, `"max"`, or `"min"`
+/// -> dictionary
+#let aggregate(data, fn: "sum") = {
+  let n = data.labels.len()
+  let agg-values = ()
+  for i in array.range(n) {
+    let vals = data.series.map(s => s.values.at(i))
+    let result = if fn == "sum" { vals.sum() }
+      else if fn == "mean" { vals.sum() / vals.len() }
+      else if fn == "max" { calc.max(..vals) }
+      else if fn == "min" { calc.min(..vals) }
+      else { vals.sum() }
+    agg-values.push(result)
+  }
+  (labels: data.labels, values: agg-values)
+}
+
+/// Normalizes an `errors` parameter for bar/line/scatter charts into a uniform
+/// list of `(low, high)` dicts. Accepts either symmetric (single number per
+/// point) or asymmetric (two-tuple per point) specifications.
+///
+/// - errors (none, array): Symmetric `(e1, e2, ...)` or asymmetric `((lo1, hi1), ...)`
+/// - n (int): Expected number of entries
+/// -> none, array
+#let normalize-errors(errors, n) = {
+  if errors == none { return none }
+  assert(errors.len() == n,
+    message: "errors length (" + str(errors.len()) + ") must match data length (" + str(n) + ")")
+  let result = ()
+  for e in errors {
+    if type(e) == array {
+      result.push((low: e.at(0), high: e.at(1)))
+    } else {
+      result.push((low: e, high: e))
+    }
+  }
+  result
+}
+
+/// Computes nice step-aligned tick values for an axis using D3-style step selection.
+/// Steps are restricted to 1, 2, 5, or 10 × 10^n for clean tick labels.
+/// Returns a dictionary with `min`, `max`, `step`, `ticks` (array of values),
+/// and `digits` (auto-detected decimal places for formatting).
+///
+/// - data-min (number): Minimum data value
+/// - data-max (number): Maximum data value
+/// - count (int): Target number of ticks (actual count may vary slightly)
+/// - step (auto, number): Use this step instead of picking one from `count` (the ticks
+///   still snap outward to multiples of it)
+/// -> dictionary
+#let nice-ticks(data-min, data-max, count: 5, step: auto) = {
+  // A flat series (all values equal) would snap to a single tick; give it a
+  // band around the value so the axis still has a scale.
+  if data-min == data-max {
+    let pad = if data-min == 0 { 1 } else { calc.abs(data-min) * 0.1 }
+    data-min -= pad
+    data-max += pad
+  }
+  let raw-range = data-max - data-min
+  // Target intervals = count - 1
+  let raw-step = raw-range / calc.max(1, count - 1)
+
+  // Round step to a nice number: 1, 2, 5, or 10 × 10^n (D3 algorithm)
+  let exp = calc.floor(calc.log(raw-step, base: 10))
+  let base = calc.pow(10, exp)
+  let error = raw-step / base
+  // D3 thresholds: sqrt(50), sqrt(10), sqrt(2) partition [1, 10) into step tiers
+  let step = if step != auto { step }
+    else if error >= calc.sqrt(50) { base * 10 }
+    else if error >= calc.sqrt(10) { base * 5 }
+    else if error >= calc.sqrt(2) { base * 2 }
+    else { base }
+
+  // Snap min/max to step boundaries
+  // (the epsilon keeps 0.6 / 0.2 = 2.9999999999999996 from snapping a whole
+  // step past the data)
+  let tick-min = calc.round(calc.floor(data-min / step + 1e-9) * step, digits: 10)
+  let tick-max = calc.round(calc.ceil(data-max / step - 1e-9) * step, digits: 10)
+
+  // Generate ticks
+  let ticks = ()
+  let v = tick-min
+  while v <= tick-max + step * 0.001 {
+    let rv = calc.round(v, digits: 10)
+    ticks.push(if rv == calc.floor(rv) { int(rv) } else { rv })
+    v += step
+  }
+
+  // Auto-detect digits from step size (Heckbert's TickmarkPrecision formula)
+  let digits = int(calc.max(-calc.floor(calc.log(step, base: 10)), 0))
+
+  (min: tick-min, max: tick-max, step: step, ticks: ticks, digits: digits)
+}
+
+/// Returns day-of-week for a "YYYY-MM-DD" string (0=Mon … 6=Sun).
+///
+/// Uses Tomohiko Sakamoto's algorithm.
+///
+/// - date-str (str): Date in "YYYY-MM-DD" format
+/// -> int
+#let day-of-week(date-str) = {
+  let parts = date-str.split("-")
+  let y = int(parts.at(0))
+  let m = int(parts.at(1))
+  let d = int(parts.at(2))
+  let offsets = (0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4)
+  let yy = if m < 3 { y - 1 } else { y }
+  let dow = calc.rem(yy + calc.div-euclid(yy, 4) - calc.div-euclid(yy, 100) + calc.div-euclid(yy, 400) + offsets.at(m - 1) + d, 7)
+  // Convert from 0=Sun to 0=Mon: Sun(0)→6, Mon(1)→0, …, Sat(6)→5
+  calc.rem(dow + 6, 7)
+}
+
+/// Converts values to percentages of total, returning a new data dictionary.
+///
+/// - data (dictionary): Dict with `labels` and `values` arrays
+/// -> dictionary
+#let percent-of-total(data) = {
+  let total = data.values.sum()
+  if total == 0 { return data }
+  (labels: data.labels, values: data.values.map(v => calc.round(v / total * 100, digits: 1)))
+}
