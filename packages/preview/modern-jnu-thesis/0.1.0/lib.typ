@@ -535,9 +535,8 @@
 /// - `include-statement` / `include-abstract-en`：`auto` 时论文显示、报告隐藏，也可显式传布尔值
 /// - `abstract` / `abstract-en`：摘要正文（content）
 /// - `keywords` / `keywords-en`：关键词数组
-/// - `bib`：参考文献 `.bib` 路径，或 `bibliography(...)` 返回的内容；设为 `none` 则不自动生成参考文献页。
-///   作为包使用时请传入 `bibliography("res/refs.bib", style: "gb-7714-2015-numeric", title: none)`，
-///   因为字符串路径会在包目录中解析。
+/// - `bib`：`bibliography(...)` 返回的内容，或 `.bib` 路径字符串；设为 `none` 则不自动生成参考文献页。
+///   `main.typ` 中传入 `bibliography("res/refs.bib", style: "gb-7714-2015-numeric", title: none)`，
 /// - `sizes`：字号覆盖，例如 `(body: 12pt, heading: 14pt)`
 /// - `chapter-pagebreak`：编号章节是否另起一页，默认 `false`
 /// - `leading`：行距，默认 `0.83em`（约 1.5 倍）

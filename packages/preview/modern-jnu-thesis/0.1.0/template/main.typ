@@ -35,7 +35,7 @@
   // ),
 
   // 参考文献与排版
-  bib: "res/refs.bib",
+  bib: bibliography("res/refs.bib", style: "gb-7714-2015-numeric", title: none),
   chapter-pagebreak: false,      // 编号章节是否另起一页
   leading: 0.83em,               // 行距，约 1.5 倍
   // logo: "res/jnulogo.png",    // 默认使用 res/jnulogo.png
@@ -132,7 +132,7 @@ $ integral_0^1 x^2 dif x = 1/3 $ <eq-demo>
   abstract-en: [English abstract],
   keywords: ("关键词1", "关键词2"),
   keywords-en: ("Keyword1", "Keyword2"),
-  bib: "res/refs.bib",
+  bib: bibliography("res/refs.bib", style: "gb-7714-2015-numeric", title: none),
   // include-statement: true,      // 默认：论文显示、报告隐藏
   // include-abstract-en: true,
   // chapter-pagebreak: false,     // 编号章节连续排版

@@ -109,7 +109,7 @@
 | `abstract-en` | `[]` | 英文摘要内容 |
 | `keywords` | `()` | 中文关键词数组 |
 | `keywords-en` | `()` | 英文关键词数组 |
-| `bib` | `none` | `bibliography(...)` 返回的内容，或 `.bib` 路径；`none` 表示不生成参考文献 |
+| `bib` | `none` | `bibliography(...)` 返回的内容；`none` 表示不生成参考文献。|
 | `logo` | `"res/jnulogo.png"` | 封面校徽路径 |
 | `sizes` | `(:)` | 字号覆盖字典，见下一节 |
 | `chapter-pagebreak` | `false` | 编号章节是否另起一页 |
