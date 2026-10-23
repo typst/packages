@@ -9,21 +9,21 @@
   title: title,
   title-en: title-en,
   short-title: title,
-  college: "Steam",
-  major: "Gaming",
-  author: "布置倒",
-  student-id: "114514",
-  supervisor: "暨大大",
+  college: "",
+  major: "",
+  author: "",
+  student-id: "",
+  supervisor: "",
   date: "二〇二六年六月",
 
   abstract: [
-    针对暨南大学本科毕业论文的排版需求，设计并实现了一套基于 Typst 的论文模板。模板依据学校本科毕业论文撰写规范，对页面尺寸、页边距、字体字号、行距、标题层级、页眉页码以及图表公式编号等要素进行了统一设置。模板将封面、诚信声明、中英文摘要、目录等前置部分与正文样式封装为可复用函数，使用者只需填写论文信息并撰写正文，即可自动生成符合规范的版面。
+    针对暨南大学本科毕业论文的排版需求，设计并实现了一套基于 Typst 的论文模板。模板将封面、诚信声明、中英文摘要、目录等前置部分与正文样式封装为可复用函数。
   ],
   abstract-en: [
-    To meet the typesetting requirements of undergraduate theses at Jinan University, this paper designs and implements a thesis template based on Typst. Following the university's writing standards, the template unifies page size, margins, fonts, line spacing, heading hierarchy, running headers, page numbers, and the numbering of figures, tables, and equations. The cover, integrity statement, Chinese and English abstracts, table of contents, and body styles are encapsulated as reusable functions.
+    To meet the typesetting requirements of undergraduate theses at Jinan University, this paper designs and implements a thesis template based on Typst.The cover, integrity statement, Chinese and English abstracts, table of contents, and body styles are encapsulated as reusable functions.
   ],
-  keywords: ("毕业论文", "Typst", "排版模板", "暨南大学", "自动化排版"),
-  keywords-en: ("Thesis", "Typst", "Typesetting template", "Jinan University", "Automated typesetting"),
+  keywords: ("毕业论文", "Typst"),
+  keywords-en: ("Thesis", "Typst"),
 
   // 调研报告专用
   // course: ("课程名第一行", "课程名第二行"),
@@ -107,14 +107,8 @@ $ integral_0^1 x^2 dif x = 1/3 $ <eq-demo>
 
 #heading(numbering: none)[结论]
 
-没有结论
-
 #heading(numbering: none)[致谢]
 
-  LOL。
-
-感谢我的导师暨大大老师，谢谢他在论文写作过程中给予的悉心指导。他严谨的治学态度和无私的关爱，将激励我不断进取。其次，还要感谢四年中教过我的所有老师，谢谢他们对于逃课的态度很好，让我在Steam上贡献了大量时间研究并不断在社区里面提升自我实力。
-我的同学暨小小在Steam上的Gaming项目也给予了我很多的帮助，在此一并致谢！
 
 #heading(numbering: none)[附录 A]
 
@@ -176,4 +170,3 @@ $ integral_0^1 x^2 dif x = 1/3 $ <eq-demo>
 
 #heading(numbering: none)[附录 B]
 
-nothing here
