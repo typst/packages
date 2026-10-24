@@ -1,0 +1,11 @@
+[package]
+name = "frame-it"
+version = "2.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Marc Thieme"]
+repository = "https://github.com/marc-thieme/frame-it"
+license = "MIT"
+keywords = ["theorems", "frames", "custom", "style", "styling", "math", "papers", "notes", "lectures", "scientific writing", "html"]
+categories = ["components", "layout", "report"]
+exclude = ["/assets/"]
+description = "Define theorems with seamless syntax and easy custom styling."
