@@ -366,7 +366,7 @@ It is off by default. The bar appears only on counted content slides, so title, 
 
 ## Examples
 
-The [`gallery/`](https://github.com/bips-hb/bips-typst/tree/main/gallery) directory in the repository holds example decks, one per feature area or ecosystem topic (citations, speaker notes, diagrams, data visualisation, a German deck, R with knitr, and more); its README lists them all.
+The [`gallery/`](https://github.com/bips-hb/bips-typst/tree/v0.6.0/gallery) directory in the repository holds example decks, one per feature area or ecosystem topic (citations, speaker notes, diagrams, data visualisation, a German deck, R with knitr, and more); its README lists them all.
 They are not part of the package.
 
 `typst init @preview/bypst` starts from the `basic` template.
