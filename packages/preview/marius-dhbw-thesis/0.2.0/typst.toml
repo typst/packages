@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "marius-dhbw-thesis"
 version = "0.2.0"
 entrypoint = "lib.typ"
@@ -13,3 +13,4 @@ compiler = "0.15.0"
 [template]
 path = "template"
 entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
