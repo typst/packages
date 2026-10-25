@@ -8,7 +8,7 @@ effects are applied by Typst, so:
 - the **layout does not move**: line and page breaks are those of the clean document;
 - rendering is **deterministic**: the same `seed` always gives the same PDF.
 
-![A textbook excerpt with the old-paper preset and a photocopied problem sheet](https://raw.githubusercontent.com/kornstein/lookscanned/main/assets/hero.png)
+![A textbook excerpt with the old-paper preset and a photocopied problem sheet](https://raw.githubusercontent.com/kornstein/lookscanned/v0.1.0/assets/hero.png)
 
 ## Quick start
 
@@ -32,7 +32,7 @@ Place `scan` after your `set page` rules. With a template whose rule must come l
 
 ## Presets
 
-![The seven presets on the same excerpt](https://raw.githubusercontent.com/kornstein/lookscanned/main/assets/presets.png)
+![The seven presets on the same excerpt](https://raw.githubusercontent.com/kornstein/lookscanned/v0.1.0/assets/presets.png)
 
 | Preset | Look |
 |---|---|
