@@ -358,14 +358,14 @@ WebAssembly plugin, `src/kernel.wasm`, compiled from the Rust code in the [`kern
 the repository.
 To change it you need Rust with the `wasm32-unknown-unknown` target:
 
-```
+```sh
 python kernel/build.py          # builds and copies src/kernel.wasm
 cargo test --manifest-path kernel/Cargo.toml
 ```
 
 The tests are in [`tests/`](https://github.com/gxono/goban/tree/v0.1.0/tests):
 
-```
+```sh
 python tests/run.py
 python tests/run.py --update
 ```
