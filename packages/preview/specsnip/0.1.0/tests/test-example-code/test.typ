@@ -42,7 +42,7 @@
 #raw(code, block: true, lang: "h")
 
 = Checking Identifier Existance
-#let q = contains_identifier(
+#let q = contains-identifier(
   code,
   "main",
 )
@@ -50,9 +50,9 @@ The `main` function is #{ if not q [not] } listed in the source code.
 
 = Arbitray Queries
 #let query = "((type_definition (type_identifier) @type.name) @definition (#eq? @type.name \"ICD_Data\"))"
-#let result = query_code(code, query)
+#let result = query-code(code, query)
 #let first_capture = result.at(0).captures.at(0)
 #raw(code.slice(first_capture.start_byte, first_capture.end_byte), block: true, lang: "h")
 
 //= Get the entire Tree
-//#get_tree(code)
+//#get-tree(code)
