@@ -1,0 +1,47 @@
+dio: draw.io diagrams for Typst
+Copyright (c) 2026 Emile Schupbach. Licensed under the MIT licence (see LICENSE).
+
+This package is not affiliated with, endorsed by or sponsored by draw.io or
+JGraph Ltd. "draw.io" is a registered trademark of JGraph Ltd and is used here
+only to describe the file format the package reads.
+
+drawio.wasm bundles third-party software and assets:
+
+- draw.io (https://github.com/jgraph/drawio) v32.5.5, Copyright (c) JGraph Ltd.
+  - Source code: viewer-static.min.js and shapes-14-6-5.min.js, compiled to
+    QuickJS bytecode without source text or comments, and the stencil decoder
+    ported (modified) in plugin/js/stencils.js. Apache License 2.0, see
+    licenses/drawio-Apache-2.0.txt.
+  - Third-party libraries bundled in draw.io's viewer-static.min.js:
+    - DOMPurify 3.4.16, (c) Cure53 and other contributors. Dual-licensed;
+      used under the Apache License 2.0, see licenses/dompurify-Apache-2.0.txt.
+    - pako 2.2.0, (c) Vitaly Puzrin and Andrei Tuputcyn. MIT and Zlib, see
+      licenses/pako-MIT-and-Zlib.txt.
+    - rough.js, (c) Preet Shihn. MIT, see licenses/roughjs-MIT.txt.
+    - spin.js 2.0.0, (c) Felix Gnass. MIT, see licenses/spin.js-MIT.txt.
+    - regenerator-runtime, (c) Facebook, Inc. and the Babel contributors.
+      MIT, see licenses/regenerator-runtime-MIT.txt.
+  - Icon sets and stencil libraries: the stencils from stencils.min.js
+    (re-packed per shape by plugin/tools/build-stencils.js) and the image
+    library img/lib (packed by plugin/tools/build-images.js). They are
+    provided under draw.io's terms in licenses/drawio-icons-and-stencils.txt:
+    they may not be used in, distributed for use with, or incorporated into
+    Atlassian products or the Atlassian marketplace/plugin ecosystem without
+    JGraph's written permission. Diagrams you create (exported documents or
+    images) are not restricted. Some icons were originally made by third
+    parties (e.g. cloud and network vendors); draw.io states their licences
+    permit this use.
+- Liberation fonts 2.1.5 (Sans, Serif, Mono), Copyright (c) 2010 Google
+  Corporation and (c) 2012 Red Hat, Inc. SIL Open Font License 1.1, see
+  licenses/liberation-fonts-OFL-1.1.txt. drawio.wasm contains subsets of them
+  (Latin and Greek, made by plugin/tools/build-fonts.py), renamed
+  "DrawioTypst Sans/Serif/Mono" as the licence requires for modified
+  versions. They are used to draw outline text.
+- QuickJS (Fabrice Bellard), via rquickjs-sys. MIT, see licenses/quickjs-MIT.txt.
+- rquickjs. MIT, see licenses/rquickjs-MIT.txt.
+- rustybuzz and ttf-parser (MIT), ruzstd (MIT), miniz_oxide and
+  wasm-minimal-protocol (MIT / Apache-2.0).
+
+The fidelity tests (tests/fidelity) render draw.io's diagram templates, which
+are licensed under CC BY 4.0. They are fetched at test time and are not part
+of this package.

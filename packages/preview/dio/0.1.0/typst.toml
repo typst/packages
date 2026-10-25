@@ -1,0 +1,12 @@
+[package]
+name = "dio"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.15.0"
+authors = ["Emile Schupbach <@I-Azy-I>"]
+license = "MIT AND Apache-2.0 AND Zlib AND OFL-1.1"
+description = "Render draw.io diagrams with draw.io's own renderer."
+repository = "https://github.com/I-Azy-I/typst-dio"
+keywords = ["drawio", "diagrams.net", "diagram", "flowchart"]
+categories = ["visualization"]
+exclude = ["docs"]
