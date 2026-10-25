@@ -1,0 +1,13 @@
+[package]
+name = "stargazing"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Orpheus-21 <@Orpheus-21>"]
+license = "GPL-3.0-or-later"
+description = "Typeset regression tables from model results."
+repository = "https://github.com/Orpheus-21/stargazing"
+keywords = ["econometrics", "regression", "table", "statistics"]
+categories = ["model"]
+disciplines = ["economics"]
+compiler = "0.15.1"
+exclude = ["examples/example.png", "tests"]

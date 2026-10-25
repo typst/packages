@@ -1,0 +1,21 @@
+[package]
+name = "proflycee-minimal"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Arthur Meyer"]
+license = "MIT"
+description = "French high-school maths after ProfLycee: trigonometric circle, equations, sequences, NumWorks screens, arithmetic, probability"
+repository = "https://github.com/amjmeyer/proflycee-minimal"
+keywords = [
+  "ProfLycee", "cercle trigonométrique", "trigonometric circle", "unit circle",
+  "dichotomie", "bisection", "NumWorks", "suites", "sequences", "seuil",
+  "PGCD", "GCD", "Euclide", "Euclid", "Bézout",
+  "probabilités", "probability", "arbre", "tree", "loi normale", "binomiale",
+  "modulo", "division euclidienne", "Euclidean division", "base conversion",
+  "diviseurs", "divisors", "facteurs premiers", "prime factorization",
+  "lycée", "enseignement", "teaching", "cetz",
+]
+categories = ["visualization", "components"]
+disciplines = ["education", "mathematics"]
+compiler = "0.14.0"
+exclude = ["docs/*", "tests/*", "PUBLIER.md", "CHANGELOG.md", "CLAUDE.md"]

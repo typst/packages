@@ -1,0 +1,101 @@
+{
+  "title": "Open Source Project Stats",
+
+  "subsystems": {
+    "labels": ["net", "fs", "drivers", "mm", "arch", "kernel"],
+    "values": [4820, 3150, 8930, 2710, 2340, 1890]
+  },
+
+  "patches": {
+    "labels": ["drivers", "net", "fs", "arch", "sound", "crypto"],
+    "values": [312, 187, 145, 98, 67, 42]
+  },
+
+  "languages": {
+    "labels": ["Rust", "C", "Python", "Go", "Other"],
+    "values": [35, 28, 18, 12, 7]
+  },
+
+  "contributors": {
+    "labels": ["Core Team", "Regular", "Occasional", "Drive-by", "Bots"],
+    "values": [120, 95, 55, 25, 5]
+  },
+
+  "modules": {
+    "name": "src",
+    "children": [
+      {"name": "charts", "value": 40, "children": [
+        {"name": "bar",  "value": 15},
+        {"name": "line", "value": 12},
+        {"name": "misc", "value": 13}
+      ]},
+      {"name": "primitives", "value": 35, "children": [
+        {"name": "axes",   "value": 20},
+        {"name": "legend", "value": 15}
+      ]},
+      {"name": "util", "value": 25}
+    ]
+  },
+
+  "dependencies": {
+    "labels": ["charts", "primitives", "theme", "util", "validate"],
+    "matrix": [
+      [0, 25, 15, 10, 5],
+      [20, 0, 30, 8, 12],
+      [5, 10, 0, 15, 3],
+      [8, 5, 12, 0, 10],
+      [15, 8, 5, 10, 0]
+    ]
+  },
+
+  "rankings": {
+    "labels": ["v0.1", "v0.2", "v0.3", "v0.4", "v0.5"],
+    "series": [
+      {"name": "Alice", "values": [1, 2, 1, 3, 2]},
+      {"name": "Bob",   "values": [3, 1, 2, 1, 1]},
+      {"name": "Carol", "values": [2, 3, 3, 2, 3]}
+    ]
+  },
+
+  "health": {
+    "labels": ["net", "fs", "drivers", "mm", "arch"],
+    "values": [85, 72, 95, 60, 78]
+  },
+
+  "correlation": {
+    "labels": ["net", "fs", "mm", "drv", "arch"],
+    "values": [
+      [1.0, 0.7, 0.3, 0.5, 0.2],
+      [0.7, 1.0, 0.4, 0.6, 0.3],
+      [0.3, 0.4, 1.0, 0.2, 0.8],
+      [0.5, 0.6, 0.2, 1.0, 0.4],
+      [0.2, 0.3, 0.8, 0.4, 1.0]
+    ]
+  },
+
+  "commits-by-lang": {
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "series": [
+      {"name": "Rust",   "values": [120, 145, 160, 180, 210, 195]},
+      {"name": "C",      "values": [95, 88, 82, 75, 70, 68]},
+      {"name": "Python", "values": [60, 72, 85, 90, 95, 110]}
+    ]
+  },
+
+  "commit-calendar": {
+    "dates": [
+      "2024-03-01", "2024-03-02", "2024-03-03", "2024-03-04", "2024-03-05",
+      "2024-03-06", "2024-03-07", "2024-03-08", "2024-03-09", "2024-03-10",
+      "2024-03-11", "2024-03-12", "2024-03-13", "2024-03-14", "2024-03-15",
+      "2024-03-16", "2024-03-17", "2024-03-18", "2024-03-19", "2024-03-20",
+      "2024-03-21", "2024-03-22", "2024-03-23", "2024-03-24", "2024-03-25",
+      "2024-03-26", "2024-03-27", "2024-03-28"
+    ],
+    "values": [8, 12, 3, 15, 18, 5, 1, 14, 22, 9, 0, 11, 7, 2, 16, 20, 13, 6, 19, 4, 0, 17, 10, 8, 21, 14, 3, 11]
+  },
+
+  "pr-merge-time": {
+    "labels": ["primaviz", "typst-core", "docs-site", "ci-runner", "sdk-go", "web-ui"],
+    "values": [4.2, 8.1, 2.5, 6.3, 5.8, 3.1]
+  }
+}

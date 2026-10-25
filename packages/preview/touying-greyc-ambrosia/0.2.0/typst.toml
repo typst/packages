@@ -1,0 +1,21 @@
+[package]
+name = "touying-greyc-ambrosia"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = [
+  "Hoang-Nhat Tran <hnhat.tran@gmail.com>"
+]
+license = "MIT"
+description = "Unofficial GREYC slides with configurable Touying layouts"
+# homepage = ""
+repository = "https://github.com/inspiros/touying-greyc-ambrosia"
+keywords = ["touying", "greyc", "unicaen", "ensicaen", "nu", "cnrs", "presentation", "slides", "lecture", "university", "theme"]
+categories = ["presentation"]
+disciplines = []
+compiler = "0.15.0"
+exclude = ["CONTRIBUTING.md", "AGENTS.md", "CLAUDE.md", ".git", ".github", ".agents", ".codex", ".aws", "develop", "target", "tests", "docs", "scripts", "examples", "assets/samples", "assets/gallery", "assets/thumbnail.svg", "*.pdf", "**/*.pdf", "__pycache__", "**/__pycache__", ".venv", ".pytest_cache", "*.py[cod]"]
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "assets/template-thumbnail.webp"

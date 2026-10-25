@@ -1,0 +1,32 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "sheaffer-notes"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["xegors <https://github.com/xegors>"]
+license = "MIT-0"
+description = "Print-friendly course notes with theorems and proofs."
+repository = "https://github.com/xegors/sheaffer"
+keywords = ["notes", "mathematics", "print"]
+categories = ["book"]
+disciplines = ["mathematics"]
+compiler = "0.15.0"
+exclude = [
+  ".github",
+  ".gitignore",
+  "doc",
+  "my-notes",
+  "my-notes.pdf",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+  "template/main.pdf",
+  "thumbnail_pages.png"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,330 @@
+{
+  "source": "https://typst.app/assets/font-derived/font-index.mpk",
+  "checked_at": "2026-10-20T07:52:40.674326+00:00",
+  "index_sha256": "7fe97681517a8bae5f41583e51fdd184d63fc19e66ef4e59f9a10f6df54faa29",
+  "font_families": {
+    "Libertinus Serif": {
+      "role": "english",
+      "faces": [
+        {
+          "file": "LibertinusSerif-Regular-fcf06307.otf",
+          "style": "normal",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "LibertinusSerif-SemiboldItalic-397f0d7a.otf",
+          "style": "italic",
+          "weight": 600,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "LibertinusSerif-Semibold-a4b3f28e.otf",
+          "style": "normal",
+          "weight": 600,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "LibertinusSerif-Bold-02649142.otf",
+          "style": "normal",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "LibertinusSerif-BoldItalic-47a66525.otf",
+          "style": "italic",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "LibertinusSerif-Italic-9a393d63.otf",
+          "style": "italic",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 0
+        }
+      ]
+    },
+    "Noto Serif CJK SC": {
+      "role": "chinese",
+      "faces": [
+        {
+          "file": "NotoSerifCJKsc-SemiBold-374acf16.otf",
+          "style": "normal",
+          "weight": 600,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKsc-Black-0f856ec0.otf",
+          "style": "normal",
+          "weight": 900,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKsc-Regular-18e4072f.otf",
+          "style": "normal",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKsc-Medium-e96f8848.otf",
+          "style": "normal",
+          "weight": 500,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKsc-Bold-2a684361.otf",
+          "style": "normal",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKsc-ExtraLight-6f509211.otf",
+          "style": "normal",
+          "weight": 200,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKsc-Light-fb6e307d.otf",
+          "style": "normal",
+          "weight": 300,
+          "stretch": 1000,
+          "index": 2
+        }
+      ]
+    },
+    "Noto Serif CJK JP": {
+      "role": "japanese",
+      "faces": [
+        {
+          "file": "NotoSerifCJKjp-Bold-eb99f5a2.otf",
+          "style": "normal",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKjp-ExtraLight-5c18c744.otf",
+          "style": "normal",
+          "weight": 200,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKjp-SemiBold-4b5afd6b.otf",
+          "style": "normal",
+          "weight": 600,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKjp-Medium-02bc021e.otf",
+          "style": "normal",
+          "weight": 500,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKjp-Regular-f7e7faca.otf",
+          "style": "normal",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKjp-Black-a8f92489.otf",
+          "style": "normal",
+          "weight": 900,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKjp-Light-fb089c34.otf",
+          "style": "normal",
+          "weight": 300,
+          "stretch": 1000,
+          "index": 2
+        }
+      ]
+    },
+    "Noto Serif CJK KR": {
+      "role": "korean",
+      "faces": [
+        {
+          "file": "NotoSerifCJKkr-Regular-ec79fc32.otf",
+          "style": "normal",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKkr-Medium-4265254d.otf",
+          "style": "normal",
+          "weight": 500,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKkr-Light-173735da.otf",
+          "style": "normal",
+          "weight": 300,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKkr-ExtraLight-c1e807b3.otf",
+          "style": "normal",
+          "weight": 200,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKkr-Bold-b478ed93.otf",
+          "style": "normal",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKkr-SemiBold-d14c8912.otf",
+          "style": "normal",
+          "weight": 600,
+          "stretch": 1000,
+          "index": 2
+        },
+        {
+          "file": "NotoSerifCJKkr-Black-5eb2a83c.otf",
+          "style": "normal",
+          "weight": 900,
+          "stretch": 1000,
+          "index": 2
+        }
+      ]
+    },
+    "DejaVu Sans Mono": {
+      "role": "mono",
+      "faces": [
+        {
+          "file": "DejaVuSansMono-Bold-bce60f1b.ttf",
+          "style": "normal",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 1
+        },
+        {
+          "file": "DejaVuSansMono-BoldOblique-91713a71.ttf",
+          "style": "italic",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 1
+        },
+        {
+          "file": "DejaVuSansMono-b4a6c3e4.ttf",
+          "style": "normal",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 1
+        },
+        {
+          "file": "DejaVuSansMono-Oblique-74209784.ttf",
+          "style": "italic",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 1
+        }
+      ]
+    },
+    "Noto Sans CJK SC": {
+      "role": "sans",
+      "faces": [
+        {
+          "file": "NotoSansCJKsc-Thin-89bb8179.otf",
+          "style": "normal",
+          "weight": 100,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "NotoSansCJKsc-Regular-2c76254f.otf",
+          "style": "normal",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "NotoSansCJKsc-Light-e78bbbe1.otf",
+          "style": "normal",
+          "weight": 300,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "NotoSansCJKsc-Medium-ca094f6b.otf",
+          "style": "normal",
+          "weight": 500,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "NotoSansCJKsc-DemiLight-4600700d.otf",
+          "style": "normal",
+          "weight": 350,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "NotoSansCJKsc-Black-2267c4a0.otf",
+          "style": "normal",
+          "weight": 900,
+          "stretch": 1000,
+          "index": 0
+        },
+        {
+          "file": "NotoSansCJKsc-Bold-b5f0d1a1.otf",
+          "style": "normal",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 0
+        }
+      ]
+    },
+    "New Computer Modern Math": {
+      "role": "math",
+      "faces": [
+        {
+          "file": "NewCMMath-Book-ac2f4393.otf",
+          "style": "normal",
+          "weight": 450,
+          "stretch": 1000,
+          "index": 4
+        },
+        {
+          "file": "NewCMMath-Regular-60394d35.otf",
+          "style": "normal",
+          "weight": 400,
+          "stretch": 1000,
+          "index": 4
+        },
+        {
+          "file": "NewCMMath-Bold-5809edde.otf",
+          "style": "normal",
+          "weight": 700,
+          "stretch": 1000,
+          "index": 4
+        }
+      ]
+    }
+  },
+  "scope": "Live web inventory and required faces; not an interactive web-editor compilation."
+}
