@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Nikolai Neff-Sarnow"]
 license = "Apache-2.0"
 description = "A package to query C code and headers using Tree-Sitter."
-homepage = ""
 repository = "https://github.com/nineff/specsnip"
 keywords = [
   "tree-sitter",
@@ -14,5 +13,6 @@ keywords = [
   "code",
   "interface",
 ]
-compiler = "0.15"
+categories = ["scripting", "integration", "model"]
+compiler = "0.15.0"
 exclude = ["examples/*", "docs/*", "tests/*"]
