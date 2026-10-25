@@ -54,7 +54,7 @@
 /// Runs an arbitrary Tree-Sitter-Query on the given source code
 /// Panics if the query or sourcecode are invalid
 /// -> array | dictionary
-#let query_code(
+#let query-code(
   /// The source code to be queried.
   /// If a path is given, the file at the given path is read as the source code.
   /// -> path | str | bytes
@@ -70,7 +70,7 @@
 /// Returns the complete syntax tree of the provided code.
 /// Panics if the code is invalid.
 /// -> array | dictionary
-#let get_tree(
+#let get-tree(
   /// The source code.
   /// If a path is given, the file at the given path is read as the source code.
   /// -> path | str | bytes
@@ -82,7 +82,7 @@
 /// Checks if the given identifier is contained in the source code (either as function or type definition)
 /// Panics if the code or identifier are invalid.
 /// -> bool
-#let contains_identifier(
+#let contains-identifier(
   /// The source code to search in.
   /// If a path is given, the file at the given path is read as the source code.
   /// -> path | str | bytes
