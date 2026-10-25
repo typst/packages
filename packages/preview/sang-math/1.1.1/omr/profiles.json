@@ -1,0 +1,314 @@
+{
+ "new-12-2-4-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-12-2-4-a5",
+   "name": "12 TN · 2 Đ/S · 4 TLN · A5 ngang",
+   "mcq": 12,
+   "tf": 2,
+   "tln": 4,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-12-2-4-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-12-2-4-a4",
+   "name": "12 TN · 2 Đ/S · 4 TLN · A4 dọc",
+   "mcq": 12,
+   "tf": 2,
+   "tln": 4,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-0-10-0-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-10-0-a5",
+   "name": "10 Đ/S · A5 ngang",
+   "mcq": 0,
+   "tf": 10,
+   "tln": 0,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-0-10-0-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-10-0-a4",
+   "name": "10 Đ/S · A4 dọc",
+   "mcq": 0,
+   "tf": 10,
+   "tln": 0,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-0-4-6-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-4-6-a5",
+   "name": "4 Đ/S · 6 TLN · A5 ngang",
+   "mcq": 0,
+   "tf": 4,
+   "tln": 6,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-0-4-6-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-4-6-a4",
+   "name": "4 Đ/S · 6 TLN · A4 dọc",
+   "mcq": 0,
+   "tf": 4,
+   "tln": 6,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-12-4-0-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-12-4-0-a5",
+   "name": "12 TN · 4 Đ/S · A5 ngang",
+   "mcq": 12,
+   "tf": 4,
+   "tln": 0,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-12-4-0-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-12-4-0-a4",
+   "name": "12 TN · 4 Đ/S · A4 dọc",
+   "mcq": 12,
+   "tf": 4,
+   "tln": 0,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-12-0-4-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-12-0-4-a5",
+   "name": "12 TN · 4 TLN · A5 ngang",
+   "mcq": 12,
+   "tf": 0,
+   "tln": 4,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-12-0-4-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-12-0-4-a4",
+   "name": "12 TN · 4 TLN · A4 dọc",
+   "mcq": 12,
+   "tf": 0,
+   "tln": 4,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-0-5-5-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-5-5-a5",
+   "name": "5 Đ/S · 5 TLN · A5 ngang",
+   "mcq": 0,
+   "tf": 5,
+   "tln": 5,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-0-5-5-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-5-5-a4",
+   "name": "5 Đ/S · 5 TLN · A4 dọc",
+   "mcq": 0,
+   "tf": 5,
+   "tln": 5,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-0-6-4-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-6-4-a5",
+   "name": "6 Đ/S · 4 TLN · A5 ngang",
+   "mcq": 0,
+   "tf": 6,
+   "tln": 4,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-0-6-4-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-6-4-a4",
+   "name": "6 Đ/S · 4 TLN · A4 dọc",
+   "mcq": 0,
+   "tf": 6,
+   "tln": 4,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-8-3-3-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-8-3-3-a5",
+   "name": "8 TN · 3 Đ/S · 3 TLN · A5 ngang",
+   "mcq": 8,
+   "tf": 3,
+   "tln": 3,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-8-3-3-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-8-3-3-a4",
+   "name": "8 TN · 3 Đ/S · 3 TLN · A4 dọc",
+   "mcq": 8,
+   "tf": 3,
+   "tln": 3,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-8-4-2-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-8-4-2-a5",
+   "name": "8 TN · 4 Đ/S · 2 TLN · A5 ngang",
+   "mcq": 8,
+   "tf": 4,
+   "tln": 2,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-8-4-2-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-8-4-2-a4",
+   "name": "8 TN · 4 Đ/S · 2 TLN · A4 dọc",
+   "mcq": 8,
+   "tf": 4,
+   "tln": 2,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-0-0-10-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-0-10-a5",
+   "name": "10 TLN · A5 ngang",
+   "mcq": 0,
+   "tf": 0,
+   "tln": 10,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-0-0-10-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-0-0-10-a4",
+   "name": "10 TLN · A4 dọc",
+   "mcq": 0,
+   "tf": 0,
+   "tln": 10,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-40-0-0-a5": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-40-0-0-a5",
+   "name": "40 TN · A5 ngang",
+   "mcq": 40,
+   "tf": 0,
+   "tln": 0,
+   "paper": "a5",
+   "version": 1
+  }
+ },
+ "new-40-0-0-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-40-0-0-a4",
+   "name": "40 TN · A4 dọc",
+   "mcq": 40,
+   "tf": 0,
+   "tln": 0,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-18-4-6-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-18-4-6-a4",
+   "name": "18 TN · 4 Đ/S · 6 TLN · A4 dọc",
+   "mcq": 18,
+   "tf": 4,
+   "tln": 6,
+   "paper": "a4",
+   "version": 1
+  }
+ },
+ "new-24-4-0-a4": {
+  "numSbd": 6,
+  "numMade": 4,
+  "profile": {
+   "id": "new-24-4-0-a4",
+   "name": "24 TN · 4 Đ/S · A4 dọc",
+   "mcq": 24,
+   "tf": 4,
+   "tln": 0,
+   "paper": "a4",
+   "version": 1
+  }
+ }
+}

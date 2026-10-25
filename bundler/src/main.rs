@@ -245,6 +245,8 @@ fn process_package(
 ) -> anyhow::Result<FullIndexPackageInfo> {
     println!("Bundling {}.", path.display());
 
+    validate_no_symlinks(path)?;
+
     let manifest =
         parse_manifest(config, path, namespace).context("failed to parse package manifest")?;
     let buf = build_archive(path, &manifest).context("failed to build archive")?;
@@ -257,7 +259,7 @@ fn process_package(
         let Some(thumbnail) = &template.thumbnail else {
             bail!("thumbnails are required for templates");
         };
-        let original_path = VirtualPath::new(thumbnail.as_str())
+        let original_path = parse_relative_path(thumbnail.as_str())
             .context("thumbnail path")?
             .realize(path)
             .context("thumbnail path")?;
@@ -284,6 +286,17 @@ fn process_package(
         updated_at: 0,
         released_at: 0,
     })
+}
+
+/// Ensure that the package contains no symlinks.
+fn validate_no_symlinks(dir_path: &Path) -> anyhow::Result<()> {
+    for entry in walkdir::WalkDir::new(dir_path) {
+        let entry = entry?;
+        if entry.path_is_symlink() {
+            bail!("symlinks are not allowed (at {})", entry.path().display());
+        }
+    }
+    Ok(())
 }
 
 fn validate_no_unknown_fields(
@@ -375,11 +388,20 @@ fn parse_manifest(
         }
     }
 
-    let entrypoint = VirtualPath::new(&manifest.package.entrypoint)
-        .context("package entrypoint")?
+    // We prefer relative paths, but two packages already have absolute paths,
+    // so there's an exception for these.
+    let virtual_entrypoint = match manifest.package.name.as_str() {
+        "shuxuejuan" | "pardioid" => {
+            VirtualPath::new(&manifest.package.entrypoint).map_err(Into::into)
+        }
+        _ => parse_relative_path(&manifest.package.entrypoint),
+    }
+    .context("package entrypoint")?;
+    let real_entrypoint = virtual_entrypoint
         .realize(path)
         .context("package entrypoint")?;
-    validate_typst_file(&entrypoint, "package entrypoint")?;
+
+    validate_typst_file(&real_entrypoint, "package entrypoint")?;
 
     if let Some(template) = &manifest.template {
         validate_no_unknown_fields(&template.unknown_fields, Some("template"))?;
@@ -388,23 +410,37 @@ fn parse_manifest(
             bail!("template packages must have at least one category");
         }
 
-        // First resolve the template entrypoint relative to the template directory.
-        let entrypoint = VirtualPath::new(&template.entrypoint)
-            .context("template entrypoint")?
-            .realize(template.path.as_str().as_ref())
+        let virtual_path = parse_relative_path(&template.path).context("template path")?;
+        let real_path = virtual_path.realize(path).context("template path")?;
+
+        let virtual_entrypoint =
+            parse_relative_path(&template.entrypoint).context("template entrypoint")?;
+        let real_entrypoint = virtual_entrypoint
+            .realize(&real_path)
             .context("template entrypoint")?;
-        let entrypoint = entrypoint
-            .to_str()
-            .expect("the template `path` and `entrypoint` are valid UTF-8");
-        // Then realize the path relative to the package directory.
-        let entrypoint = VirtualPath::new(entrypoint)
-            .context("template entrypoint")?
-            .realize(path)
-            .context("template entrypoint")?;
-        validate_typst_file(&entrypoint, "template entrypoint")?;
+
+        validate_typst_file(&real_entrypoint, "template entrypoint")?;
     }
 
     Ok(manifest)
+}
+
+/// Ensure that paths used in manifests are relative (as opposed to absolute).
+///
+/// Absolute paths are not needed in the context of manifests, so we don't
+/// want them on Universe.
+fn parse_relative_path(path: &str) -> anyhow::Result<VirtualPath> {
+    let virtualized = VirtualPath::new(path)?;
+    if path.starts_with('/') {
+        // Backslashes are already disallowed by `VirtualPath` and Windows drive
+        // letters require a colon which is rejected below.
+        bail!("path must not start with `/`");
+    }
+    if path.contains(':') {
+        // Windows drive letters.
+        bail!("path must not contain `:`");
+    }
+    Ok(virtualized)
 }
 
 /// Return the README file as a string.
@@ -456,6 +492,16 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
             local_path = Path::new(".");
         }
         println!("  Adding {}", local_path.display());
+        if let Some(name) = local_path.file_name() {
+            let name = name.to_str().context("file name is invalid UTF-8")?;
+            if is_windows_reserved(name) {
+                bail!("file name `{name}` is reserved on Windows and disallowed");
+            }
+            if name.ends_with(['.', ' ']) {
+                // Windows strips trailing dots and spaces.
+                bail!("file name `{name}` must not end with a dot or space");
+            }
+        }
         builder.append_path_with_name(file_path, local_path)?;
     }
 
@@ -605,4 +651,31 @@ fn is_allowed_cc(license: LicenseId) -> bool {
         LazyLock::new(|| regex::Regex::new(r"^CC(-BY|-BY-SA|0)-[0-9]\.[0-9](-[A-Z]+)?$").unwrap());
 
     RE.is_match(license.name)
+}
+
+/// Whether the given file name is reserved on Windows.
+///
+/// Copied from <https://github.com/typst/typst/blob/ddaaa2eeb1857fb1ad72b9122e0c57ba8e293e3f/crates/typst-syntax/src/path.rs#L499-L522>.
+fn is_windows_reserved(name: &str) -> bool {
+    #[rustfmt::skip]
+    fn is_reserved_base(basename: &str) -> bool {
+        matches!(
+            basename,
+            "CON" | "PRN" | "AUX" | "NUL"
+                | "COM0" | "COM1" | "COM2" | "COM3" | "COM4" | "COM5" | "COM6"
+                | "COM7" | "COM8" | "COM9" | "COM¹" | "COM²" | "COM³"
+                | "LPT0" | "LPT1" | "LPT2" | "LPT3" | "LPT4" | "LPT5" | "LPT6"
+                | "LPT7" | "LPT8" | "LPT9" | "LPT¹" | "LPT²" | "LPT³"
+                | "CONIN$" | "CONOUT$"
+        )
+    }
+
+    // Some Windows versions also allow arbitrary characters after a dot or
+    // colon in device names (and trailing spaces before that suffix).
+    let base = name
+        .split(['.', ':'])
+        .next()
+        .unwrap_or(name)
+        .trim_end_matches(' ');
+    base.len() <= 7 && is_reserved_base(&base.to_ascii_uppercase())
 }

@@ -1,0 +1,31 @@
+[package]
+name = "dorost"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Alireza Jafartash <@alirezaopmc>"]
+license = "MIT AND MIT-0"
+description = "Compose English, Persian, and mixed-script documents."
+repository = "https://github.com/alirezaopmc/dorost"
+keywords = ["bilingual", "persian", "rtl", "typography"]
+compiler = "0.15.0"
+categories = ["languages", "layout"]
+exclude = [
+  "/tests/",
+  "/scripts/",
+  "/.github/",
+  "/.superpowers/",
+  "/.gitignore",
+  "/.typst-cache/",
+  "/artifacts/",
+  "/AGENTS.md",
+  "/build/",
+  "/CHANGELOG.md",
+  "/CONTRIBUTING.md",
+  "/SECURITY.md",
+  "/SUPPORT.md",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
