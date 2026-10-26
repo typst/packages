@@ -3,9 +3,10 @@
 // `none` for what CSS cannot express; the caller then keeps Typst's native output.
 #import "css.typ": num, size, sides, direction
 #import "align.typ": html-align
+#import "shapes.typ": text-block, trim-text-block
 
-#let div(class, styles, body, hidden: false) = {
-  let attrs = (class: class, style: styles.join("; "))
+#let div(class, styles, body, hidden: false, attrs: (:)) = {
+  attrs += (class: class, style: styles.join("; "))
   if hidden { attrs.insert("aria-hidden", "true") }
   html.elem("div", attrs: attrs, body)
 }
@@ -22,18 +23,7 @@
   if type(it.amount) == fraction { return none }
   let negative = type(it.amount) == length and it.amount.to-absolute() < 0pt
   let property = if it.weak or negative { "margin-top: " } else { "height: " }
-  div("letmeout-v", (property + size(it.amount),), [], hidden: true)
-}
-
-#let pad-rule(it) = {
-  let styles = ()
-  for side in ("top", "right", "bottom", "left") {
-    let value = it.at(side)
-    if value == 0% + 0pt or value == 0pt { continue }
-    let negative = (if type(value) == relative { value.length } else { value }).to-absolute() < 0pt
-    styles.push((if negative { "margin-" } else { "padding-" }) + side + ": " + size(value))
-  }
-  div("letmeout-pad", ("display: flow-root",) + styles, it.body)
+  div("letmeout-v", (property + size(it.amount),), [], hidden: true, attrs: (data-weak: repr(it.weak)))
 }
 
 // Block content needs a `div`; a `span` around it would break the paragraph structure.
@@ -49,6 +39,18 @@
   if it.has("children") { return it.children.any(is-block) }
   if it.has("child") { return is-block(it.child) }
   false
+}
+
+#let pad-rule(it) = {
+  let styles = ()
+  for side in ("top", "right", "bottom", "left") {
+    let value = it.at(side)
+    if value == 0% + 0pt or value == 0pt { continue }
+    let negative = (if type(value) == relative { value.length } else { value }).to-absolute() < 0pt
+    styles.push((if negative { "margin-" } else { "padding-" }) + side + ": " + size(value))
+  }
+  div("letmeout-pad", ("display: flow-root",) + styles,
+    if text-block(it.body) { trim-text-block(it.body) } else { it.body })
 }
 
 #let hide-rule(it) = {

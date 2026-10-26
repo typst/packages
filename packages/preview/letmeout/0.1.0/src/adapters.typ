@@ -6,8 +6,11 @@
 #import "shapes.typ": shape-rule, container-rule, paintable, corners
 #import "layout.typ": h-rule, v-rule, pad-rule, hide-rule, move-rule, rotate-rule, skew-rule, scale-rule, stack-rule, columns-rule, colbreak-rule, place-rule, frame-rule
 
+#import "math-marker.typ": math-marker
+
+// Inside an equation, every element stays native: HTML elements are not valid MathML.
 #let adapt(render) = it => context {
-  if target() != "html" { return it }
+  if target() != "html" or math.equation.supplement == math-marker { return it }
   let out = render(it)
   if out == none { it } else { out }
 }
@@ -51,6 +54,9 @@
   show std.block: adapt(container-rule("block"))
   show std.polygon: adapt(frame-rule)
   show std.curve: adapt(frame-rule)
+  // A layout callback requires Typst's paged layout engine. Preserve arbitrary
+  // third-party drawings in an SVG rather than letting HTML drop the callback.
+  show std.layout(_ => []).func(): adapt(frame-rule)
   show std.h: adapt(h-rule)
   show std.v: adapt(v-rule)
   show std.pad: adapt(pad-rule)

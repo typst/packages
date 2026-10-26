@@ -19,24 +19,22 @@
 /// The Guide for Page Setup explains how to use this and related functions to set up a
 /// document with many examples.
 ///
-/// #quote(block: true)[*Note:* Typst's own `page`, with these notes on HTML. It passes
-/// on exactly the arguments you give, so it behaves like `page` in every output:
-/// `letmeout-extras.page(...)[...]` and `show: letmeout-extras.page.with(...)` work as
-/// with `page`. Use `set page(...)` for set rules; the package does not shadow `page`.
-/// With `#show: letmeout`, HTML export turns page settings into one continuous block
-/// per run of equal settings, not a sheet of paper. Without it, Typst ignores page
-/// settings in HTML. Paged output is unchanged.]
+/// #quote(block: true)[*Note:* In HTML, it passes on exactly the arguments you give, so
+/// it behaves like `page` in every output: `letmeout-extras.page(...)[...]` and `show:
+/// letmeout-extras.page.with(...)` work as with `page`. Use `set page(...)` for set
+/// rules; the package does not shadow `page`. With `#show: letmeout`, HTML export turns
+/// page settings into one continuous block per run of equal settings, not a sheet of
+/// paper. Without it, Typst ignores page settings in HTML. Paged output is unchanged.]
 ///
 /// - paper (str): A standard paper size to set width and height.
 ///
 ///   This is just a shorthand for setting `width` and `height` and, as such, cannot be
 ///   retrieved in a context expression.
 ///
-///   Default: the surrounding page setting; Typst's default is `"a4"`.
-///
-///   #quote(block: true)[*Note:* Sets the width and height. The width caps the sheet;
-///   the height only resolves vertical percentage margins. Explicit dimensions override
-///   it.]
+///   Default: the surrounding page setting; Typst's default is `"a4"`. \
+///   #quote(block: true)[*Note:* In HTML, sets the width and height. The width caps the
+///   sheet; the height only resolves vertical percentage margins. Explicit dimensions
+///   override it.]
 ///
 /// - width (auto, length): The width of the final page, after any trims have been
 ///   applied.
@@ -46,10 +44,9 @@
 ///
 ///   See the `bleed` parameter for details on how to set a trim or bleed area.
 ///
-///   Default: the surrounding page setting; Typst's default is `595.28pt`.
-///
-///   #quote(block: true)[*Note:* Maximum width of the centred sheet. On narrower
-///   screens the sheet fills the available width. `auto` removes the cap.]
+///   Default: the surrounding page setting; Typst's default is `595.28pt`. \
+///   #quote(block: true)[*Note:* In HTML, maximum width of the centred sheet. On
+///   narrower screens the sheet fills the available width. `auto` removes the cap.]
 ///
 /// - height (auto, length): The height of the final page area, after any trims have
 ///   been applied.
@@ -59,18 +56,16 @@
 ///   throughout this documentation use `auto` for the height of the page to dynamically
 ///   grow and shrink to fit their content.
 ///
-///   Default: the surrounding page setting; Typst's default is `841.89pt`.
-///
-///   #quote(block: true)[*Note:* Does not limit the block's height; the content does.
-///   Still resolves vertical percentage and automatic margins, and becomes the width
-///   when `flipped`.]
+///   Default: the surrounding page setting; Typst's default is `841.89pt`. \
+///   #quote(block: true)[*Note:* In HTML, does not limit the block's height; the
+///   content does. Still resolves vertical percentage and automatic margins, and
+///   becomes the width when `flipped`.]
 ///
 /// - flipped (bool): Whether the page is flipped into landscape orientation.
 ///
-///   Default: the surrounding page setting; Typst's default is `false`.
-///
-///   #quote(block: true)[*Note:* Swaps width and height, so it changes the sheet
-///   width.]
+///   Default: the surrounding page setting; Typst's default is `false`. \
+///   #quote(block: true)[*Note:* In HTML, swaps width and height, so it changes the
+///   sheet width.]
 ///
 /// - margin (auto, relative, dictionary): The page’s margins.
 ///
@@ -95,11 +90,10 @@
 ///   mutually exclusive with the values for `inside` and `outside`. The values should
 ///   be relative lengths or `auto`.
 ///
-///   Default: the surrounding page setting; Typst's default is `auto`.
-///
-///   #quote(block: true)[*Note:* Padding on the sheet, with Typst's defaults, folding,
-///   `x`/`y`/`rest`, and ratios. With a fixed width, margins are fractions of the sheet
-///   width, so they shrink on narrower screens.]
+///   Default: the surrounding page setting; Typst's default is `auto`. \
+///   #quote(block: true)[*Note:* In HTML, padding on the sheet, with Typst's defaults,
+///   folding, `x`/`y`/`rest`, and ratios. With a fixed width, margins are fractions of
+///   the sheet width, so they shrink on narrower screens.]
 ///
 /// - bleed (relative, dictionary): The page’s bleed margin.
 ///
@@ -132,9 +126,8 @@
 ///
 ///   In PDF export, if the bleed is non-zero, a `TrimBox` is defined for the page.
 ///
-///   Default: the surrounding page setting; Typst's default is `(:)`.
-///
-///   #quote(block: true)[*Note:* No effect on screen; there is no trim box.]
+///   Default: the surrounding page setting; Typst's default is `(:)`. \
+///   #quote(block: true)[*Note:* In HTML, no effect on screen; there is no trim box.]
 ///
 /// - binding (auto, alignment): On which side the pages will be bound.
 ///
@@ -145,20 +138,18 @@
 ///
 ///   This affects the meaning of the `inside` and `outside` options for margins.
 ///
-///   Default: the surrounding page setting; Typst's default is `auto`.
-///
-///   #quote(block: true)[*Note:* The first page's layout applies, as HTML has no facing
-///   pages: an `inside` margin goes left for `left` and right for `right`.]
+///   Default: the surrounding page setting; Typst's default is `auto`. \
+///   #quote(block: true)[*Note:* In HTML, the first page's layout applies, as HTML has
+///   no facing pages: an `inside` margin goes left for `left` and right for `right`.]
 ///
 /// - columns (int): How many columns the page has.
 ///
 ///   If you need to insert columns into a page or other container, you can also use the
 ///   `columns` function.
 ///
-///   Default: the surrounding page setting; Typst's default is `1`.
-///
-///   #quote(block: true)[*Note:* CSS columns with the `columns.gutter` gap. Columns are
-///   at least `12em` wide, so they collapse on narrow screens.]
+///   Default: the surrounding page setting; Typst's default is `1`. \
+///   #quote(block: true)[*Note:* In HTML, CSS columns with the `columns.gutter` gap.
+///   Columns are at least `12em` wide, so they collapse on narrow screens.]
 ///
 /// - fill (none, auto, color, gradient, tiling): The page’s background fill.
 ///
@@ -174,10 +165,9 @@
 ///   The default of `auto` results in `none` for PDF output, and `white` for PNG and
 ///   SVG.
 ///
-///   Default: the surrounding page setting; Typst's default is `auto`.
-///
-///   #quote(block: true)[*Note:* Background of the full-width block, following the
-///   color scheme. `auto` is transparent, so host colors and dark mode stay.]
+///   Default: the surrounding page setting; Typst's default is `auto`. \
+///   #quote(block: true)[*Note:* In HTML, background of the full-width block, following
+///   the color scheme. `auto` is transparent, so host colors and dark mode stay.]
 ///
 /// - numbering (none, str, function): How to number the pages. You can refer to the
 ///   Page Setup Guide for customizing page numbers.
@@ -197,18 +187,17 @@
 ///   If an explicit `footer` (or `header` for top-aligned numbering) is given, the
 ///   numbering is ignored.
 ///
-///   Default: the surrounding page setting; Typst's default is `none`.
-///
-///   #quote(block: true)[*Note:* Shown in the automatic header or footer through
-///   `counter(page)`. HTML is one page, so the number does not advance at page breaks.]
+///   Default: the surrounding page setting; Typst's default is `none`. \
+///   #quote(block: true)[*Note:* In HTML, shown in the automatic header or footer
+///   through `counter(page)`. HTML is one page, so the number does not advance at page
+///   breaks.]
 ///
 /// - supplement (none, auto, content): A supplement for the pages.
 ///
 ///   For page references, this is added before the page number.
 ///
-///   Default: the surrounding page setting; Typst's default is `auto`.
-///
-///   #quote(block: true)[*Note:* No effect on screen.]
+///   Default: the surrounding page setting; Typst's default is `auto`. \
+///   #quote(block: true)[*Note:* In HTML, no effect on screen.]
 ///
 /// - number-align (alignment): The alignment of the page numbering.
 ///
@@ -216,10 +205,9 @@
 ///   it is `bottom`, it is placed in the footer. Horizon alignment is forbidden. If an
 ///   explicit matching `header` or `footer` is given, the numbering is ignored.
 ///
-///   Default: the surrounding page setting; Typst's default is `center + bottom`.
-///
-///   #quote(block: true)[*Note:* The horizontal part aligns the automatic number; `top`
-///   puts it in the header, anything else in the footer.]
+///   Default: the surrounding page setting; Typst's default is `center + bottom`. \
+///   #quote(block: true)[*Note:* In HTML, the horizontal part aligns the automatic
+///   number; `top` puts it in the header, anything else in the footer.]
 ///
 /// - header (none, auto, content): The page’s header. Fills the top margin of each
 ///   page.
@@ -229,19 +217,17 @@
 ///     `top`.
 ///   - `none`: Suppresses the header.
 ///
-///   Default: the surrounding page setting; Typst's default is `auto`.
-///
-///   #quote(block: true)[*Note:* A `<header>` before the content, once per block, at
-///   the bottom of the top margin. `auto` shows the page number if `number-align` is at
-///   the top.]
+///   Default: the surrounding page setting; Typst's default is `auto`. \
+///   #quote(block: true)[*Note:* In HTML, a `<header>` before the content, once per
+///   block, at the bottom of the top margin. `auto` shows the page number if
+///   `number-align` is at the top.]
 ///
 /// - header-ascent (relative): The amount the header is raised into the top margin.
 ///   Ratios are relative to the height of the top margin.
 ///
-///   Default: the surrounding page setting; Typst's default is `30% + 0pt`.
-///
-///   #quote(block: true)[*Note:* Space below the header content, relative to the top
-///   margin.]
+///   Default: the surrounding page setting; Typst's default is `30% + 0pt`. \
+///   #quote(block: true)[*Note:* In HTML, space below the header content, relative to
+///   the top margin.]
 ///
 /// - footer (none, auto, content): The page’s footer. Fills the bottom margin of each
 ///   page.
@@ -255,19 +241,17 @@
 ///   to create a custom footer but still display the page number, you can directly
 ///   access the page counter.
 ///
-///   Default: the surrounding page setting; Typst's default is `auto`.
-///
-///   #quote(block: true)[*Note:* A `<footer>` after the content, once per block, at the
-///   top of the bottom margin. `auto` shows the page number unless `number-align` is at
-///   the top.]
+///   Default: the surrounding page setting; Typst's default is `auto`. \
+///   #quote(block: true)[*Note:* In HTML, a `<footer>` after the content, once per
+///   block, at the top of the bottom margin. `auto` shows the page number unless
+///   `number-align` is at the top.]
 ///
 /// - footer-descent (relative): The amount the footer is lowered into the bottom
 ///   margin. Ratios are relative to the height of the bottom margin.
 ///
-///   Default: the surrounding page setting; Typst's default is `30% + 0pt`.
-///
-///   #quote(block: true)[*Note:* Space above the footer content, relative to the bottom
-///   margin.]
+///   Default: the surrounding page setting; Typst's default is `30% + 0pt`. \
+///   #quote(block: true)[*Note:* In HTML, space above the footer content, relative to
+///   the bottom margin.]
 ///
 /// - background (none, content): Content in the page’s background.
 ///
@@ -279,10 +263,9 @@
 ///   `100mm` wide with a `5mm` bleed, a width of `100%` is computed as `5mm + 100mm +
 ///   5mm`.
 ///
-///   Default: the surrounding page setting; Typst's default is `none`.
-///
-///   #quote(block: true)[*Note:* A layer behind the content, centred and clipped to the
-///   sheet. Hidden from screen readers and clicks.]
+///   Default: the surrounding page setting; Typst's default is `none`. \
+///   #quote(block: true)[*Note:* In HTML, a layer behind the content, centred and
+///   clipped to the sheet. Hidden from screen readers and clicks.]
 ///
 /// - foreground (none, content): Content in the page’s foreground.
 ///
@@ -291,10 +274,9 @@
 ///   Relative lengths are resolved against the page size including `bleed`, following
 ///   the same behavior as `background`.
 ///
-///   Default: the surrounding page setting; Typst's default is `none`.
-///
-///   #quote(block: true)[*Note:* A layer above the content, like `background`. Hidden
-///   from screen readers and clicks.]
+///   Default: the surrounding page setting; Typst's default is `none`. \
+///   #quote(block: true)[*Note:* In HTML, a layer above the content, like `background`.
+///   Hidden from screen readers and clicks.]
 ///
 /// - body (content): The contents of the page(s).
 ///
@@ -302,10 +284,10 @@
 ///   page with the page properties prior to the function invocation will be created
 ///   after the body has been typeset.
 ///
-///   Default: the surrounding page setting; Typst's default is `[]`.
-///
-///   #quote(block: true)[*Note:* Its own block with its own settings, inheriting the
-///   surrounding ones. Content before and after it forms separate blocks.]
+///   Default: the surrounding page setting; Typst's default is `#[]`. \
+///   #quote(block: true)[*Note:* In HTML, its own block with its own settings,
+///   inheriting the surrounding ones. Content before and after it forms separate
+///   blocks.]
 ///
 /// -> content
 #let page(

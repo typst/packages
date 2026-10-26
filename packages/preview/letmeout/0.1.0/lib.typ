@@ -1,7 +1,4 @@
-// Import with `: *` to bridge layout functions to HTML.
-#import "src/grid.typ": grid
-#import "src/line.typ": line
-#import "src/align.typ": align
+// Native element APIs remain available, including set/show rules and associated definitions.
 #import "src/document.typ": letmeout
-// Optional helpers stay in a namespace, including with wildcard imports.
+// Optional wrappers and documented native aliases stay in a namespace.
 #import "letmeout-extras.typ"

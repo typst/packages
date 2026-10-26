@@ -8,6 +8,7 @@
 #import "target.typ": resolve
 #import "page.typ": kind, visible-count, merge-args, settings, section, html-pagebreak
 #import "screen.typ": screen, screen-style
+#import "scroll.typ": group-wide
 
 #let probe-label = <letmeout-probe>
 // Start and end of a `context` item, and page settings found inside one.
@@ -193,7 +194,7 @@
   if visible-count(item.body) == 0 { return item.body }
   let s = settings(merge-args((:), item.info.key))
   s.gutter = item.info.gutter
-  section(s, item.body, true, true, lang: item.info.lang, dir: item.info.dir)
+  section(s, group-wide(item.body), true, true, lang: item.info.lang, dir: item.info.dir)
 }
 
 // Render runs of equal page settings as blocks. A style node whose subtree
@@ -242,7 +243,7 @@
 #let html-document(body, options) = {
   let root = probe-value()
   // After the hoisted set rules, so their font and color are the document's.
-  let text-root = (font: text.font, fill: text.fill)
+  let text-root = (font: text.font, fill: text.fill, size: text.size, weight: text.weight, style: text.style, tracking: text.tracking)
   screen-style(text-root, options)
   show: screen.with(text-root)
   // Probes render nothing. Their values are read back below.
@@ -301,7 +302,7 @@
 ///
 /// See docs/html-semantics.md for every native page/pagebreak field and the
 /// individual screen adapters. Page support requires this show rule before
-/// document content; `grid`, `line`, and `align` also work without it.
+/// document content. Optional wrappers in `letmeout-extras` also work without it.
 ///
 /// -> content
 #let letmeout(body, color-scheme: "light dark", dark-colors: (), dark-frames: "invert", css: "") = context {

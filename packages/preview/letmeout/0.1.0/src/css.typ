@@ -1,6 +1,12 @@
 // A number for CSS. Typst writes negative numbers with a Unicode minus sign.
 #let num(value) = str(value).replace("\u{2212}", "-")
 
+#let weight-css(weight) = {
+  if type(weight) == int { return str(weight) }
+  (thin: "100", extralight: "200", light: "300", regular: "400", medium: "500",
+    semibold: "600", bold: "700", extrabold: "800", black: "900").at(str(weight), default: "400")
+}
+
 // Preserve physical, font-relative, and percentage components as CSS lengths.
 #let size(value, percent-unit: "%") = {
   if value == auto { return "auto" }
@@ -184,4 +190,13 @@
   // The browser can infer the same default from the language on the wrapper.
   if text.lang in ("ar", "ara", "he", "heb", "fa", "fas", "per", "ur", "urd", "ps", "pus", "yi", "yid", "syr", "dv", "div", "ug", "uig", "sd", "snd", "ckb") { "rtl" }
   else { "ltr" }
+}
+
+// Quote font family names consistently in text and block metrics.
+#let font-css(fonts) = {
+  let fonts = if type(fonts) == array { fonts } else { (fonts,) }
+  fonts.map(f => {
+    let name = if type(f) == dictionary { f.name } else { f }
+    "\"" + name.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
+  }).join(", ")
 }
