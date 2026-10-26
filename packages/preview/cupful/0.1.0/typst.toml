@@ -1,0 +1,11 @@
+[package]
+name = "cupful"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Michael Lip <@theluckystrike>"]
+license = "MIT"
+description = "Convert cup, tablespoon and teaspoon measures of common ingredients to grams in recipes."
+homepage = "https://ingredientcalculator.com/cups-to-grams"
+repository = "https://github.com/theluckystrike/cupful"
+keywords = ["recipe", "cooking", "baking", "units", "grams", "cups"]
+categories = ["utility"]
