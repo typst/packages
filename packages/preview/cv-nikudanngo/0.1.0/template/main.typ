@@ -2,7 +2,7 @@
 // 表示が崩れる場合は Noto Serif JP をシステムにインストールしてください。
 // https://fonts.google.com/noto/specimen/Noto+Serif+JP からダウンロードできます。
 
-#import "@preview/cv-ja:0.1.0": 履歴書
+#import "@preview/cv-nikudanngo:0.1.0": 履歴書
 
 #show: 履歴書.with(
   姓読み: "りれきしょ",

@@ -1,4 +1,4 @@
-# cv-ja
+# cv-nikudanngo
 
 日本で一般的に使われている形式（市販の履歴書用紙に近いレイアウト）の履歴書を作成する[Typst](https://typst.app/)パッケージです。
 
@@ -9,13 +9,13 @@
 新規プロジェクトをテンプレートから作成します。
 
 ```sh
-typst init @preview/cv-ja:0.1.0 my-resume
+typst init @preview/cv-nikudanngo:0.1.0 my-resume
 ```
 
 または、既存プロジェクトから `履歴書` 関数を直接インポートし、`#show` ルールでドキュメントに適用することもできます。
 
 ```typ
-#import "@preview/cv-ja:0.1.0": 履歴書
+#import "@preview/cv-nikudanngo:0.1.0": 履歴書
 
 #show: 履歴書.with(
   姓読み: "りれきしょ",
