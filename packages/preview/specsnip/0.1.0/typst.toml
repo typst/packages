@@ -15,4 +15,4 @@ keywords = [
 ]
 categories = ["scripting", "integration", "model"]
 compiler = "0.15.0"
-exclude = ["examples/*", "docs/*", "tests/*"]
+exclude = ["examples/*", "docs/*"]
