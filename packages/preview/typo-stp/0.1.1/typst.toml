@@ -5,7 +5,7 @@ entrypoint = "lib.typ"
 
 authors = ["Alexey Yakush"]
 license = "MIT"
-description = "Unofficial template for BSUIR documents enterprise standard [https://www.bsuir.by/m/12_100229_1_185586.pdf]"
+description = "Unofficial template for BSUIR documents enterprise standard"
 
 repository = "https://github.com/Yakush-A/typstp"
 keywords = ["bsuir", "uni", "stp", "gost"]

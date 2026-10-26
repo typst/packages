@@ -1,6 +1,6 @@
 # STP BSUIR
 
-An unofficial Typst template for preparing academic and technical documents according to the requirements of the Enterprise Standard of the Belarusian State University of Informatics and Radioelectronics (BSUIR), STP 01-2024 (БГУИР СТП 01-2024).
+An unofficial Typst template for preparing academic and technical documents according to the requirements of the Enterprise Standard of the Belarusian State University of Informatics and Radioelectronics (BSUIR), STP 01-2024 ([БГУИР СТП 01-2024](https://www.bsuir.by/m/12_100229_1_185586.pdf)).
 
 The template is intended for documents such as term papers, laboratory reports, theses, and other academic documentation that must follow the BSUIR formatting requirements.
 
