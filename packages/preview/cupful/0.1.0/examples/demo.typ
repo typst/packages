@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/cupful:0.1.0": *
 
 = Banana bread (doubled)
 
