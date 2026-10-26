@@ -6,7 +6,7 @@
 
 
 // ------ TEMPLATE SETUP ------------------------------------------------
-//#import "@preview/casson-uom-thesis:0.1.2": *
+//#import "@preview/uom-thesis-casson:0.1.2": *
 #import "uom-thesis-casson.typ": * // for local installation use
 
 
