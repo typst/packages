@@ -276,7 +276,11 @@ Hai lưu ý:
   goc-vuong(ctx, (0,0), (5,0), (0,4))             // ký hiệu vuông góc
   ve-goc(ctx, (5,0), (0,0), (3,4), ten: $alpha$)  // = goc, nhưng ĐỈNH ở GIỮA (lối TikZ)
   ve-goc-vuong(ctx, (5,0), (0,0), (0,4))          // = goc-vuong, ĐỈNH ở GIỮA (lối TikZ)
-  danh-dau(ctx, (0,0), (5,0), so: 2)              // 2 vạch "bằng nhau"
+  doan(ctx, (0,0), (5,0), vach: 2)                // vẽ đoạn KÈM 2 vạch "bằng nhau" (0.4.2)
+  doan(ctx, (0,0), (5,0), vach: "//")             // vạch chéo; "x" = dấu ✕
+  cac-doan(ctx, A, B, C, A, vach: 1)              // tam giác đều: vạch MỌI cạnh
+  cac-doan(ctx, duong(A, B, C, dong: true, vach: (2, 0, 2))) // MẢNG = từng cạnh
+  danh-dau(ctx, (0,0), (5,0), so: 2)              // 2 vạch "bằng nhau" (lệnh riêng, như cũ)
   danh-dau(ctx, (0,0), (5,0), so: 2, nghieng: 25deg) // vạch CHÉO "//"
   danh-dau(ctx, (0,0), (5,0), cheo: true)         // dấu ✕ (chéo nhau)
   ve-ham(ctx, x => x*x/4, mau: blue)              // đồ thị hàm bất kỳ

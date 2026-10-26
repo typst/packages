@@ -619,6 +619,66 @@
   if mui-ten-cuoi != none { _dau-pt(pa, pb, mau: mau, kich: mui-ten-cuoi) }
 }
 
+// Lõi vẽ VẠCH ĐÁNH DẤU tại trung điểm AB (dùng chung cho `doan(vach:)` và
+// `danh-dau`) — đặt TRƯỚC `doan` vì Typst bắt tên lúc định nghĩa hàm.
+#let _vach-doan(ctx, A, B, so: 1, dai: 6pt, mau: black, day: 1pt,
+              nghieng: 0deg, cheo: false) = {
+  let a = toa-pt(ctx, A)
+  let b = toa-pt(ctx, B)
+  let dx = b.at(0) - a.at(0)
+  let dy = b.at(1) - a.at(1)
+  let l = calc.sqrt(dx * dx + dy * dy)
+  if l == 0 { return }
+  let ux = dx / l
+  let uy = dy / l
+  let m = ((a.at(0) + b.at(0)) / 2, (a.at(1) + b.at(1)) / 2)
+  let hd = dai.pt() / 2
+  // vẽ MỘT vạch tại tâm c, nghiêng góc g so với pháp tuyến (−uy, ux) của đoạn.
+  let mot-vach(c, g) = {
+    let cs = calc.cos(g)
+    let sn = calc.sin(g)
+    // pháp tuyến p = (−uy, ux); tiếp tuyến u = (ux, uy)
+    // vạch nghiêng: v = cos(g)·p + sin(g)·u
+    let vx = -uy * cs + ux * sn
+    let vy = ux * cs + uy * sn
+    doan-pt(
+      (c.at(0) - hd * vx, c.at(1) - hd * vy),
+      (c.at(0) + hd * vx, c.at(1) + hd * vy),
+      mau: mau, day: day,
+    )
+  }
+  for i in range(so) {
+    let t = (i - (so - 1) / 2) * 3.2
+    let c = (m.at(0) + t * ux, m.at(1) + t * uy)
+    if cheo {
+      let g = if nghieng == 0deg { 30deg } else { nghieng }
+      mot-vach(c, g)
+      mot-vach(c, -g)
+    } else {
+      mot-vach(c, nghieng)
+    }
+  }
+}
+
+// Đọc tham số `vach:` của `doan` -> dict tuỳ chọn cho `_vach-doan`, hoặc none.
+//   số n        : n vạch vuông góc (0 = không vạch)
+//   "|" "||"    : vạch vuông góc · "/" "//" "///" : vạch chéo (nghiêng 25°)
+//   "x" "xx"    : dấu chéo nhau ✕ · dict (so:, nghieng:, cheo:, dai:, mau:, day:)
+#let _doc-vach(v) = {
+  if v == none or v == false or v == 0 { return none }
+  if type(v) == int { return (so: v) }
+  if type(v) == dictionary { return v }
+  if type(v) == str {
+    let t = v.trim()
+    if t == "" { return none }
+    let n = t.clusters().len()
+    if t.clusters().all(c => c == "/") { return (so: n, nghieng: 25deg) }
+    if t.clusters().all(c => c in ("x", "X", "×", "✕")) { return (so: n, cheo: true) }
+    if t.clusters().all(c => c == "|") { return (so: n) }
+  }
+  panic("doan(vach: ...): nhận số (1, 2, 3), chuỗi \"|\", \"//\", \"x\"… hoặc dict (so:, nghieng:, cheo:); nhận được " + repr(v))
+}
+
 // Đoạn thẳng AB, kèm NHÃN CHÚ THÍCH đặt trên đoạn (tuỳ chọn):
 //   ten   : nội dung nhãn (vd $a$, [3 cm]) — none = không ghi
 //   tai   : vị trí nhãn theo TỈ LỆ từ A đến B (0 = tại A, 1 = tại B, .5 = giữa)
@@ -630,14 +690,25 @@
 //   Ví dụ: doan(A, B, ten: $2a$)            // giữa đoạn, phía trên
 //          doan(A, B, ten: $h$, tai: 0.7, huong: "right", cach: 4pt)
 //          doan(A, B, ten: [đường chéo], ten-quay: true)
+//   vach  : VẠCH ĐÁNH DẤU đoạn bằng nhau tại trung điểm (thay cho `danh-dau`):
+//           1/2/3 (vuông góc) · "/" "//" "///" (chéo) · "x" "xx" (✕) ·
+//           dict (so:, nghieng:, cheo:, dai:, mau:, day:). Màu/nét theo đoạn.
+//   Ví dụ: doan(A, B, vach: 2)   doan(C, D, vach: "//")   doan(E, F, vach: "x")
 /// Đoạn thẳng A–B. Kèm nhãn giữa đoạn bằng `ten:` (đặt chỗ khác bằng `tai:`
 /// tỉ lệ 0..1, lệch sang bên bằng `huong:`, xoay theo đoạn bằng `ten-quay: true`).
+/// `vach:` đánh dấu đoạn bằng nhau: 1/2/3, "//" (chéo), "x" (✕) hoặc dict.
 #let doan(
   ctx, A, B,
   mau: black, day: 1pt, dut: false,
   ten: none, tai: 0.5, huong: auto, cach: 6pt, ten-quay: false, mau-ten: auto,
+  vach: 0,
 ) = {
   place(line(start: toa(ctx, A), end: toa(ctx, B), stroke: net(mau, day, dut)))
+  let vd = _doc-vach(vach)
+  if vd != none {
+    // dict người dùng ĐÈ lên mặc định (màu theo đoạn, nét vạch không quá 1pt)
+    _vach-doan(ctx, A, B, ..((mau: mau, day: calc.min(day, 1pt)) + vd))
+  }
   if ten != none {
     let P = (A.at(0) + tai * (B.at(0) - A.at(0)), A.at(1) + tai * (B.at(1) - A.at(1)))
     // chữ dọc theo đoạn: chọn chiều A->B hay B->A để không bị lộn ngược
@@ -871,10 +942,15 @@
 //   mau · day · dut · dong (khép kín) · to (tô màu, tự khép kín)
 //   mui-ten (vẽ đầu mũi tên ở điểm cuối) · ten/tai/huong/cach/ten-quay/mau-ten
 //   (nhãn đặt tại tỉ lệ `tai` tính theo TỔNG chiều dài nét — xem `doan`)
+//   vach (0.4.2): vạch đánh dấu đoạn bằng nhau như `doan(vach:)` — MỘT giá trị
+//     (2, "//", "x", dict) áp cho MỌI đoạn của nét; MẢNG thì gán riêng từng
+//     đoạn theo thứ tự (thiếu = không vạch), vd tam giác cân
+//     duong(A, B, C, dong: true, vach: (2, 0, 2)) -> AB, CA hai vạch.
 #let duong(
   ..noi-dung,
   mau: auto, day: auto, dut: auto, dong: auto, to: auto, mui-ten: auto,
   ten: auto, tai: auto, huong: auto, cach: auto, ten-quay: auto, mau-ten: auto,
+  vach: auto,
 ) = {
   let p = noi-dung.pos()
   // duong((A, B, C)) — truyền nguyên một mảng điểm
@@ -884,6 +960,7 @@
     bg-duong: true, diem: p,
     mau: mau, day: day, dut: dut, dong: dong, to: to, mui-ten: mui-ten,
     ten: ten, tai: tai, huong: huong, cach: cach, ten-quay: ten-quay, mau-ten: mau-ten,
+    vach: vach,
   )
 }
 
@@ -892,11 +969,13 @@
 
 /// Vẽ NHIỀU nét trong một lệnh: điểm liền nhau thành một đường gấp khúc,
 /// mỗi MẢNG điểm là một nét riêng — `cac-doan((A, B), (C, D), (M, N))`.
-/// Nét cần kiểu riêng thì bọc `duong(...)`.
+/// Nét cần kiểu riêng thì bọc `duong(...)`. `vach:` đánh dấu đoạn bằng nhau
+/// (một giá trị cho mọi đoạn, hoặc mảng cho từng đoạn).
 #let cac-doan(
   ctx, ..noi-dung,
   mau: black, day: 1pt, dut: false, dong: false, to: none, mui-ten: false,
   ten: none, tai: 0.5, huong: auto, cach: 6pt, ten-quay: false, mau-ten: auto,
+  vach: 0,
 ) = {
   // gom đối số vị trí thành danh sách các nét
   let nets = ()
@@ -918,8 +997,12 @@
     if pts.len() == 1 { diem(ctx, pts.at(0), mau: m); continue }
     if tt != none { da-giac-pt(pts.map(P => toa-pt(ctx, P)), to: tt) }
     let cd = if dg or tt != none { pts + (pts.at(0),) } else { pts }
+    // vach: mảng = gán riêng từng đoạn; giá trị đơn = áp cho mọi đoạn
+    let vh = n.at("vach", default: auto)
+    let vh = if vh == auto { vach } else { vh }
     for i in range(cd.len() - 1) {
-      doan(ctx, cd.at(i), cd.at(i + 1), mau: m, day: d, dut: du)
+      let vi = if type(vh) == array { vh.at(i, default: 0) } else { vh }
+      doan(ctx, cd.at(i), cd.at(i + 1), mau: m, day: d, dut: du, vach: vi)
     }
     if ly("mui-ten", mui-ten) {
       dau-mui-ten(ctx, cd.at(cd.len() - 2), cd.at(cd.len() - 1), mau: m)
@@ -1747,43 +1830,8 @@
 // cheo   : true = mỗi mốc vẽ dấu CHÉO NHAU "✕" (hai vạch ±góc); khi đó `nghieng`
 //          = nửa góc mở của dấu ✕ (mặc định 30deg nếu để 0deg).
 #let danh-dau(ctx, A, B, so: 1, dai: 6pt, mau: black, day: 1pt,
-              nghieng: 0deg, cheo: false) = {
-  let a = toa-pt(ctx, A)
-  let b = toa-pt(ctx, B)
-  let dx = b.at(0) - a.at(0)
-  let dy = b.at(1) - a.at(1)
-  let l = calc.sqrt(dx * dx + dy * dy)
-  if l == 0 { return }
-  let ux = dx / l
-  let uy = dy / l
-  let m = ((a.at(0) + b.at(0)) / 2, (a.at(1) + b.at(1)) / 2)
-  let hd = dai.pt() / 2
-  // vẽ MỘT vạch tại tâm c, nghiêng góc g so với pháp tuyến (−uy, ux) của đoạn.
-  let mot-vach(c, g) = {
-    let cs = calc.cos(g)
-    let sn = calc.sin(g)
-    // pháp tuyến p = (−uy, ux); tiếp tuyến u = (ux, uy)
-    // vạch nghiêng: v = cos(g)·p + sin(g)·u
-    let vx = -uy * cs + ux * sn
-    let vy = ux * cs + uy * sn
-    doan-pt(
-      (c.at(0) - hd * vx, c.at(1) - hd * vy),
-      (c.at(0) + hd * vx, c.at(1) + hd * vy),
-      mau: mau, day: day,
-    )
-  }
-  for i in range(so) {
-    let t = (i - (so - 1) / 2) * 3.2
-    let c = (m.at(0) + t * ux, m.at(1) + t * uy)
-    if cheo {
-      let g = if nghieng == 0deg { 30deg } else { nghieng }
-      mot-vach(c, g)
-      mot-vach(c, -g)
-    } else {
-      mot-vach(c, nghieng)
-    }
-  }
-}
+              nghieng: 0deg, cheo: false) = _vach-doan(ctx, A, B, so: so, dai: dai,
+  mau: mau, day: day, nghieng: nghieng, cheo: cheo)
 
 // ---------- Tiện ích hình học phẳng (tính toán) ----------
 /// TRẢ VỀ trung điểm của A và B (chỉ tính, không vẽ).

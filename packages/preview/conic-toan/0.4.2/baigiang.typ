@@ -154,20 +154,21 @@
 // (Bên trong lib các hàm vẫn gọi nhau theo lối cũ nên không ảnh hưởng.)
 // =====================================================================
 // ve.typ — nguyên thuỷ vẽ
-/// `doan(A, B, mau: black, day: 1pt, dut: false, ten: none, tai: 0.5, huong: auto, cach: 6pt, ten-quay: false, mau-ten: auto)`
+/// `doan(A, B, mau: black, day: 1pt, dut: false, ten: none, tai: 0.5, huong: auto, cach: 6pt, ten-quay: false, mau-ten: auto, vach: 0)`
 ///
-/// Đoạn thẳng AB, kèm NHÃN CHÚ THÍCH đặt trên đoạn (tuỳ chọn):
-/// ten   : nội dung nhãn (vd $a$, [3 cm]) — none = không ghi
-/// tai   : vị trí nhãn theo TỈ LỆ từ A đến B (0 = tại A, 1 = tại B, .5 = giữa)
-/// huong : auto = tự đặt VUÔNG GÓC phía trên đoạn (đoạn dọc thì ra trái);
 /// hoặc tên hướng ("above", "below", "left", ...), hoặc vectơ (dx, dy)
 /// cach  : khoảng cách từ đoạn tới nhãn
+/// ten-quay: true = chữ NẰM DỌC theo đoạn (tự xoay, luôn đọc xuôi)
+/// mau-ten : màu chữ (auto = theo màu đoạn)
+/// Ví dụ: doan(A, B, ten: $2a$)            // giữa đoạn, phía trên
+/// doan(A, B, ten: $h$, tai: 0.7, huong: "right", cach: 4pt)
 #let doan = _voi-ctx(doan)
-/// `cac-doan(..noi-dung, mau: black, day: 1pt, dut: false, dong: false, to: none, mui-ten: false, ten: none, tai: 0.5, huong: auto, cach: 6pt, ten-quay: false, mau-ten: auto)`
+/// `cac-doan(..noi-dung, mau: black, day: 1pt, dut: false, dong: false, to: none, mui-ten: false, ten: none, tai: 0.5, huong: auto, cach: 6pt, ten-quay: false, mau-ten: auto, vach: 0)`
 ///
 /// Vẽ NHIỀU nét trong một lệnh: điểm liền nhau thành một đường gấp khúc,
 /// mỗi MẢNG điểm là một nét riêng — `cac-doan((A, B), (C, D), (M, N))`.
-/// Nét cần kiểu riêng thì bọc `duong(...)`.
+/// Nét cần kiểu riêng thì bọc `duong(...)`. `vach:` đánh dấu đoạn bằng nhau
+/// (một giá trị cho mọi đoạn, hoặc mảng cho từng đoạn).
 #let cac-doan = _voi-ctx(cac-doan)
 /// `nhan(P, noi-dung, huong: "above", cach: 6pt, mau: black, quay: 0deg)`
 ///
