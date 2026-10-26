@@ -1,5 +1,7 @@
 # cv-nikudanngo
 
+A Typst package and template for creating a Japanese-style résumé (履歴書) in the standard two-page format commonly used for job applications in Japan.
+
 日本で一般的に使われている形式（市販の履歴書用紙に近いレイアウト）の履歴書を作成する[Typst](https://typst.app/)パッケージです。
 
 ![サンプル](example.png)
