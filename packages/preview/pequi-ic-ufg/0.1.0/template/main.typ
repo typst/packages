@@ -1,7 +1,8 @@
 #import "@preview/pequi-ic-ufg:0.1.0": *
-#import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
-#show: codly-init.with()
+#import "@preview/codly:2.0.0" as codly
+#import "@preview/codly-languages:0.1.10": codly-languages
+#show: codly.lang-set_(languages: codly-languages)
+#show raw.where(block: true): codly.new
 
 #show: report.with(
   title: "Modelo de Relatório Final de IC - UFG",
@@ -23,7 +24,7 @@
 = Metodologia <metodologia>
 #lorem(40)
 #figure(
-  image("images/example.png", width: 50%),
+  image("images/graphic.png", width: 50%),
   caption: [Dados interessantes]
 ) <Fig1>
 #lorem(40)

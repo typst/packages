@@ -9,7 +9,7 @@ repository = "https://github.com/BrianMath/pequi-ic-ufg"
 keywords = ["UFG", "IC", "iniciação científica", "relatório", "Brasil"]
 categories = ["report"]
 disciplines = ["education"]
-compiler = "0.13.0"
+compiler = "0.15.0"
 
 [template]
 path = "template"
