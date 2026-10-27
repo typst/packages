@@ -6,10 +6,10 @@
 </p>
 
 <p align="center">
-  <a href="https://typst.app/universe/package/vlna"><img alt="Typst Universe" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fiamanro%2Ftypst-vlna%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&label=typst%20universe&color=239DAD"></a>
-  <a href="https://github.com/iamanro/typst-vlna/actions/workflows/test.yml"><img alt="Tests" src="https://img.shields.io/github/actions/workflow/status/iamanro/typst-vlna/test.yml?branch=main&label=tests"></a>
-  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/github/license/iamanro/typst-vlna?color=blue"></a>
-  <a href="https://prirucka.ujc.cas.cz/?id=880"><img alt="Follows the ÚJČ guideline" src="https://img.shields.io/badge/follows-%C3%9AJ%C4%8C%20AV%20%C4%8CR-c2504a"></a>
+  <a href="https://typst.app/universe/package/vlna"><img alt="Latest version on Typst Universe" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fiamanro%2Ftypst-vlna%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&label=typst%20universe&color=239DAD"></a>
+  <a href="https://github.com/iamanro/typst-vlna/actions/workflows/test.yml"><img alt="Status of the line-break tests on the main branch" src="https://img.shields.io/github/actions/workflow/status/iamanro/typst-vlna/test.yml?branch=main&label=tests"></a>
+  <a href="LICENSE"><img alt="License: MIT, see the LICENSE file" src="https://img.shields.io/github/license/iamanro/typst-vlna?color=blue"></a>
+  <a href="https://prirucka.ujc.cas.cz/?id=880"><img alt="Follows the line-breaking guideline of the Czech Language Institute (ÚJČ AV ČR)" src="https://img.shields.io/badge/follows-%C3%9AJ%C4%8C%20AV%20%C4%8CR-c2504a"></a>
 </p>
 
 <p align="center">
@@ -317,7 +317,7 @@ typst compile --root . examples/stress-test.typ   # every rule, with debug frame
 `tests/breaks.py` sweeps the page width so that a line break lands in every
 gap of each glued unit, and fails if a unit ever splits. The benchmark and
 the typographic equivalence check against the previous release are described
-in [`examples/benchmark`](examples/benchmark/README.md).
+in [`examples/benchmark`](https://github.com/iamanro/typst-vlna/tree/main/examples/benchmark).
 
 ## License
 
