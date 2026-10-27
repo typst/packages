@@ -1,0 +1,11 @@
+[package]
+name = "statutely"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Simon Holm (@simo899t)"]
+license = "MIT"
+description = "Statutes/bylaws (vedtægter) with § numbering, sub-clauses and auto-numbered paragraphs. Danish and English."
+keywords = ["statutes", "bylaws", "vedtægter", "association"]
+repository = "https://github.com/simo899t/statutely"
+categories = ["office"]
+compiler = "0.13.0"
