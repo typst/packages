@@ -1,0 +1,11 @@
+[package]
+name = "minutely"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Simon Holm (@simo899t)"]
+license = "MIT"
+description = "Meeting minutes and agendas: formalia, votes, proposals, amendments, responsibility tags and next-meeting blocks. Danish and English."
+keywords = ["minutes", "agenda", "meeting", "referat", "dagsorden"]
+repository = "https://github.com/simo899t/minutely"
+categories = ["office"]
+compiler = "0.13.0"
