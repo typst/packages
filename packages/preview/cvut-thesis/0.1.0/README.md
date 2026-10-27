@@ -7,11 +7,11 @@
 <p align="center">
   <a href="https://typst.app/universe/package/cvut-thesis"><img alt="Package: @preview/cvut-thesis" src="https://img.shields.io/badge/package-@preview%2Fcvut--thesis-239dad?logo=typst&logoColor=white"></a>
   <img alt="Typst 0.11+" src="https://img.shields.io/badge/typst-0.11%2B-239dad?logo=typst&logoColor=white">
-  <a href="https://github.com/firu11/cvut-thesis/blob/main/LICENSE"><img alt="License: MIT-0" src="https://img.shields.io/badge/license-MIT--0-blue.svg"></a>
+  <a href="LICENSE"><img alt="License: MIT-0" src="https://img.shields.io/badge/license-MIT--0-blue.svg"></a>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/firu11/cvut-thesis/main/thumbnail.png" alt="Preview of the cvut-thesis Typst template" width="50%">
+  <img src="thumbnail.png" alt="Preview of the cvut-thesis Typst template" width="50%">
 </p>
 
 `cvut-thesis` is an unofficial Typst template for qualification theses at the Czech Technical University in Prague. It currently focuses on the Faculty of Electrical Engineering (`fel-thesis`).
@@ -127,5 +127,5 @@ cvut-thesis/
 Original code, documentation, and starter files: [MIT-0](LICENSE).
 
 Third-party assets are licensed under [CC-BY-SA-3.0](https://creativecommons.org/licenses/by-sa/3.0/):
-- `template/assets/iso690-numeric-brackets-cs.csl` - Jiří Kratochvíl and Libor Ansorge ([source](https://github.com/citation-style-language/styles/blob/master/iso690-numeric-brackets-cs.csl)).
+- `template/assets/iso690-numeric-brackets-cs.csl` - Jiří Kratochvíl and Libor Ansorge ([source](template/assets/iso690-numeric-brackets-cs.csl)).
 - `template/assets/cvut-logo.svg` - České vysoké učení technické v Praze ([source](https://cs.wikipedia.org/wiki/Soubor:CVUT_znak.svg)). Trademark restrictions still apply.
