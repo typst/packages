@@ -1,0 +1,11 @@
+[package]
+name = "letmeout"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["David Bieregger <@BierDav>"]
+license = "MIT"
+description = "Bridges document layouts to HTML while preserving paged output."
+keywords = ["html", "grid", "layout", "export"]
+categories = ["layout", "utility"]
+compiler = "0.15.0"
+exclude = ["tests", "docs", "CONTRIBUTING.md", "scripts", ".github", ".githooks", ".gitignore"]
