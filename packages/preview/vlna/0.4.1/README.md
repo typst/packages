@@ -317,7 +317,7 @@ typst compile --root . examples/stress-test.typ   # every rule, with debug frame
 `tests/breaks.py` sweeps the page width so that a line break lands in every
 gap of each glued unit, and fails if a unit ever splits. The benchmark and
 the typographic equivalence check against the previous release are described
-in [`examples/benchmark`](https://github.com/iamanro/typst-vlna/tree/main/examples/benchmark).
+in [`examples/benchmark`](https://github.com/iamanro/typst-vlna/tree/v0.4.1/examples/benchmark).
 
 ## License
 
