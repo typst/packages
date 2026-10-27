@@ -248,6 +248,13 @@ its own physical core (2 threads), at least 12 runs per series. Harness, chart a
 
 v0.4.1 compiles 27% faster than v0.3.0 at p95, matches v0.4.0 (the new citation abbreviations cost nothing measurable), and `legal: true` adds 0.42 s, 27% on top.
 
+These figures come from the quick parallel harness (about a minute, 12–85
+runs per series) and are not comparable to the 501-page serial figures of
+earlier releases. The `raw` rows are the noisiest (up to 3 of 12 runs
+stalled), so their ordering is within noise; the serial 0.4.0 measurement
+(22.16 s → 20.30 s p50 on 501 pages, see [CHANGELOG.md](CHANGELOG.md)) remains
+the reference for that comparison.
+
 The `raw` rows are the price of two features. `#vlna-off()`, `#vlna-on()`,
 `#vlna-debug-on()` and skipping `raw` all depend on *where* a match sits in
 the document, which forces a state lookup at every match, and a single code
