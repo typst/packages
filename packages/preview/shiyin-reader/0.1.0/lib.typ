@@ -101,7 +101,7 @@
 #let _poem-pinyin(pinyin, poem) = if pinyin == none {
   none
 } else {
-  pinyin.poems.at(poem.at("poem_id", default: ""), default: none)
+  pinyin.poems.at(poem.at("poem-id", default: ""), default: none)
 }
 
 // Each character is its own box so pinyin can overhang neighbouring glyphs
@@ -216,12 +216,12 @@
 ) = {
   let py-data = _poem-pinyin(pinyin, poem)
   let use-pinyin = pinyin-mode and py-data != none
-  let title-size = format.at("title_size", default: 16) * 1pt
-  let title-py-size = format.at("title_pinyin_size", default: 8) * 1pt
-  let author-size = format.at("author_size", default: 9.5) * 1pt
-  let author-py-size = format.at("author_pinyin_size", default: 6.6) * 1pt
-  let body-size = format.body_size * 1pt
-  let body-py-size = format.at("pinyin_size", default: 7.7) * 1pt
+  let title-size = format.at("title-size", default: 16) * 1pt
+  let title-py-size = format.at("title-pinyin-size", default: 8) * 1pt
+  let author-size = format.at("author-size", default: 9.5) * 1pt
+  let author-py-size = format.at("author-pinyin-size", default: 6.6) * 1pt
+  let body-size = format.body-size * 1pt
+  let body-py-size = format.at("pinyin-size", default: 7.7) * 1pt
   let page-width = if profile.paper == "a6" {
     105mm
   } else if profile.paper == "a5" {
@@ -231,7 +231,7 @@
   }
   let content-width = page-width - profile.margin.left - profile.margin.right
   let column-width = if format.columns == 2 {
-    (content-width - format.gutter_pt * 1pt) / 2
+    (content-width - format.gutter-pt * 1pt) / 2
   } else {
     content-width
   }
@@ -277,8 +277,8 @@
             #poem.number．#poem.title
           ]
         }
-        #if poem.at("poem_id", default: "") != "" {
-          label("poem-" + poem.poem_id)
+        #if poem.at("poem-id", default: "") != "" {
+          label("poem-" + poem.poem-id)
         }
         #v(0.08em)
         #if use-pinyin and py-data.at("author", default: none) != none {
@@ -354,7 +354,7 @@
         ]
       }
       #if note-mode == "short" {
-        _short-notes(poem.notes, format.note_size * 1pt)
+        _short-notes(poem.notes, format.note-size * 1pt)
       }
       #v(profile.poem-gap)
     ]
@@ -364,7 +364,7 @@
 #let _book-cover(book, profile, mode, asset-root) = {
   let branding = book.at("branding", default: (:))
   let slogan = branding.at("slogan", default: "")
-  let cover-lines = branding.at("cover_lines", default: ())
+  let cover-lines = branding.at("cover-lines", default: ())
   let cover-lines = if cover-lines == none or cover-lines == "" {
     ()
   } else if type(cover-lines) == str {
@@ -373,7 +373,7 @@
     cover-lines
   }
   let has-logo = branding.at("logo", default: "") != ""
-  let has-school = branding.at("school_name", default: "") != "" or branding.at("school_name_en", default: "") != ""
+  let has-school = branding.at("school-name", default: "") != "" or branding.at("school-name-en", default: "") != ""
   let logo-cell = if has-logo {
     (
       box(fill: white, inset: 3mm, radius: 50%)[
@@ -386,12 +386,12 @@
   let school-cell = if has-school {
     (
       [
-        #if branding.at("school_name", default: "") != "" {
-          text(fill: white, size: 10pt, weight: "medium")[#branding.at("school_name", default: "")]
+        #if branding.at("school-name", default: "") != "" {
+          text(fill: white, size: 10pt, weight: "medium")[#branding.at("school-name", default: "")]
         }
-        #if branding.at("school_name_en", default: "") != "" {
+        #if branding.at("school-name-en", default: "") != "" {
           v(0.2em)
-          text(fill: white.transparentize(12%), size: 7.5pt)[#branding.at("school_name_en", default: "")]
+          text(fill: white.transparentize(12%), size: 7.5pt)[#branding.at("school-name-en", default: "")]
         }
       ],
     )
@@ -423,8 +423,8 @@
     #place(left + horizon, dx: 20mm)[
       #block(width: 42%, inset: (x: 4mm, y: 4mm))[
         #if mode == "personal" {
-          let student = book.metadata.at("student_name", default: "")
-          let class-name = book.metadata.at("class_name", default: "")
+          let student = book.metadata.at("student-name", default: "")
+          let class-name = book.metadata.at("class-name", default: "")
           text(font: ("STKaiti", "KaiTi"), size: 15pt, fill: luma(45))[
             #(if class-name == "" { "班级：" } else { "班级：" + class-name })
             #if class-name == "" {
@@ -462,8 +462,8 @@
 
 #let _title-page(book, profile, mode) = {
   let slogan = _brand(book, "slogan")
-  let student = book.metadata.at("student_name", default: "")
-  let class-name = book.metadata.at("class_name", default: "")
+  let student = book.metadata.at("student-name", default: "")
+  let class-name = book.metadata.at("class-name", default: "")
   let volume = book.metadata.at("volume", default: "")
   let edition = book.metadata.at("edition", default: "")
   let subtitle = if volume != "" and edition != "" {
@@ -497,10 +497,10 @@
     ]
     #place(top + left, dx: 22mm, dy: 24mm)[
       #rect(width: 28mm, height: 1.4pt, fill: rgb("#ED6C32"))
-      #if book.metadata.at("review_mode", default: false) {
+      #if book.metadata.at("review-mode", default: false) {
         v(3mm)
         text(size: 9pt, fill: rgb("#B33A20"))[
-          #book.metadata.at("review_label", default: "审核稿") · 请勿付印
+          #book.metadata.at("review-label", default: "审核稿") · 请勿付印
         ]
       }
     ]
@@ -523,7 +523,7 @@
   ]
 }
 
-#let _preface-page(book, profile) = if book.front_matter.at("preface", default: "") != "" {
+#let _preface-page(book, profile) = if book.front-matter.at("preface", default: "") != "" {
   page(
     paper: profile.paper,
     margin: profile.margin,
@@ -536,7 +536,7 @@
             font: ("STKaiti", "KaiTi"),
             size: 26pt,
             fill: rgb("#D5672D"),
-          )[#book.front_matter.at("title", default: "卷首语")]
+          )[#book.front-matter.at("title", default: "卷首语")]
         ]
         #v(1.7em)
         #align(left)[
@@ -547,7 +547,7 @@
             spacing: 1.1em,
           )
           #set text(size: 12.5pt, fill: luma(35))
-          #for paragraph in book.front_matter.paragraphs {
+          #for paragraph in book.front-matter.paragraphs {
             paragraph
             parbreak()
           }
@@ -566,8 +566,8 @@
   #line(length: 100%, stroke: 0.8pt + rgb("#DBA17C"))
 ]
 
-#let _famous-lines-page(book, profile) = if book.features.at("famous_lines", default: false) {
-  let lines = book.appendix.famous_lines
+#let _famous-lines-page(book, profile) = if book.features.at("famous-lines", default: false) {
+  let lines = book.appendix.famous-lines
   let per-page = 7
   for start in range(0, lines.len(), step: per-page) {
     page(
@@ -591,7 +591,7 @@
   }
 }
 
-#let _poet-page(book, profile) = if book.features.at("poet_bio", default: false) {
+#let _poet-page(book, profile) = if book.features.at("poet-bio", default: false) {
   page(
     paper: profile.paper,
     margin: profile.margin,
@@ -602,7 +602,7 @@
         font: ("STKaiti", "KaiTi"),
         size: 18pt,
         fill: rgb("#D5672D"),
-      )[#book.appendix.at("poet_heading", default: "【诗人简介】")]
+      )[#book.appendix.at("poet-heading", default: "【诗人简介】")]
     ]
     #line(length: 100%, stroke: 0.8pt + rgb("#DBA17C"))
     #v(1.1em)
@@ -640,7 +640,7 @@
   ]
 }
 
-#let _author-index-page(book, profile) = if book.features.at("author_index", default: false) {
+#let _author-index-page(book, profile) = if book.features.at("author-index", default: false) {
   page(
     paper: profile.paper,
     margin: profile.margin,
@@ -656,14 +656,14 @@
     #line(length: 100%, stroke: 0.8pt + rgb("#DBA17C"))
     #v(0.9em)
     #let initials = ()
-    #for item in book.appendix.author_index {
+    #for item in book.appendix.author-index {
       let initial = item.at("initial", default: "")
       if not initials.contains(initial) {
         initials.push(initial)
       }
     }
     #for (group-index, initial) in initials.enumerate() {
-      let items = book.appendix.author_index.filter(
+      let items = book.appendix.author-index.filter(
         item => item.at("initial", default: "") == initial,
       )
       let rows = items
@@ -682,7 +682,7 @@
           )[
             #for (index, poem) in item.poems.enumerate() {
               if index > 0 { [、] }
-              [#poem.title#box[（第 #ref(label("poem-" + poem.poem_id), supplement: none, form: "page") 页）]]
+              [#poem.title#box[（第 #ref(label("poem-" + poem.poem-id), supplement: none, form: "page") 页）]]
             }
           ],
         ))
@@ -724,7 +724,7 @@
 }
 
 #let _end-page(book, profile) = {
-  let motto = book.at("branding", default: (:)).at("end_motto", default: "诗心常在　书香长伴")
+  let motto = book.at("branding", default: (:)).at("end-motto", default: "诗心常在　书香长伴")
   page(
     paper: profile.paper,
     margin: 0pt,
@@ -755,7 +755,7 @@
   let slogan = branding.at("slogan", default: "")
   let motto = branding.at("motto", default: "")
   let has-logo = branding.at("logo", default: "") != ""
-  let has-school = branding.at("school_name", default: "") != "" or branding.at("school_name_en", default: "") != ""
+  let has-school = branding.at("school-name", default: "") != "" or branding.at("school-name-en", default: "") != ""
   let logo-cell = if has-logo {
     (
       box(fill: white, inset: 3mm, radius: 50%)[
@@ -768,12 +768,12 @@
   let school-cell = if has-school {
     (
       [
-        #if branding.at("school_name", default: "") != "" {
-          text(fill: white, size: 10pt, weight: "medium")[#branding.at("school_name", default: "")]
+        #if branding.at("school-name", default: "") != "" {
+          text(fill: white, size: 10pt, weight: "medium")[#branding.at("school-name", default: "")]
         }
-        #if branding.at("school_name_en", default: "") != "" {
+        #if branding.at("school-name-en", default: "") != "" {
           v(0.2em)
-          text(fill: white.transparentize(12%), size: 7.5pt)[#branding.at("school_name_en", default: "")]
+          text(fill: white.transparentize(12%), size: 7.5pt)[#branding.at("school-name-en", default: "")]
         }
       ],
     )
@@ -820,7 +820,7 @@
   paper: profile.paper,
   margin: 0pt,
   columns: 1,
-  fill: rgb(chapter.bg_color),
+  fill: rgb(chapter.bg-color),
   numbering: none,
 )[
   #place(center + horizon)[
@@ -927,14 +927,14 @@
   let actual-format = if pinyin-mode {
     base-format + (
       columns: 1,
-      body_size: 14.0,
+      body-size: 14.0,
       leading: 2.2,
-      note_size: 10.5,
-      title_size: 18.0,
-      title_pinyin_size: 8.0,
-      author_size: 11.0,
-      author_pinyin_size: 6.6,
-      pinyin_size: 7.7,
+      note-size: 10.5,
+      title-size: 18.0,
+      title-pinyin-size: 8.0,
+      author-size: 11.0,
+      author-pinyin-size: 6.6,
+      pinyin-size: 7.7,
     )
   } else {
     base-format
@@ -948,7 +948,7 @@
   }
   let book = book + (features: actual-features)
   let actual-cover-mode = if cover-mode == none {
-    book.metadata.at("cover_mode", default: "general")
+    book.metadata.at("cover-mode", default: "general")
   } else {
     cover-mode
   }
@@ -963,7 +963,7 @@
     lang: "zh",
     region: "cn",
     font: actual-fonts.body,
-    size: actual-format.body_size * 1pt,
+    size: actual-format.body-size * 1pt,
   )
   set par(justify: false)
   set heading(numbering: none)
@@ -993,14 +993,14 @@
       fill: luma(48),
     )[#it.body]
   ]
-  set columns(gutter: actual-format.gutter_pt * 1pt)
+  set columns(gutter: actual-format.gutter-pt * 1pt)
   set page(
     paper: profile.paper,
     margin: profile.margin,
     columns: actual-format.columns,
     numbering: "1",
     footer: context align(center)[
-      #let review-label = book.metadata.at("review_label", default: "")
+      #let review-label = book.metadata.at("review-label", default: "")
       #if review-label != "" {
         text(size: 8.5pt, fill: luma(150))[#review-label · ]
       }
@@ -1010,7 +1010,7 @@
 
   _book-cover(book, profile, actual-cover-mode, asset-root)
   _title-page(book, profile, actual-cover-mode)
-  if actual-features.at("front_matter", default: false) {
+  if actual-features.at("front-matter", default: false) {
     _preface-page(book, profile)
   }
   _toc-page(book, profile, actual-format.columns)
@@ -1048,19 +1048,19 @@
       }
     ]
   }
-  if actual-features.at("poet_bio", default: false) {
+  if actual-features.at("poet-bio", default: false) {
     _poet-page(book, profile)
   }
-  if actual-features.at("famous_lines", default: false) {
+  if actual-features.at("famous-lines", default: false) {
     _famous-lines-page(book, profile)
   }
-  if actual-features.at("author_index", default: false) {
+  if actual-features.at("author-index", default: false) {
     _author-index-page(book, profile)
   }
-  if actual-features.at("end_page", default: false) {
+  if actual-features.at("end-page", default: false) {
     _end-page(book, profile)
   }
-  if actual-features.at("back_cover", default: false) {
+  if actual-features.at("back-cover", default: false) {
     _back-cover(book, profile, asset-root)
   }
 }

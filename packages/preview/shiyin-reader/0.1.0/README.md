@@ -35,7 +35,7 @@ Or import the package directly:
 | `chapters` | array | yes | Chapters, each containing poems. |
 | `branding` | dictionary | no | Optional school or organization branding. |
 | `features` | dictionary | no | Optional appendix pages; all default to `false`. |
-| `front_matter` | dictionary | no | Preface text. Required when `features.front_matter` is `true`. |
+| `front-matter` | dictionary | no | Preface text. Required when `features.front-matter` is `true`. |
 | `appendix` | dictionary | no | Data for the optional appendix pages. |
 
 ### `metadata`
@@ -46,10 +46,10 @@ Or import the package directly:
 | `volume` | string | Volume or grade label. |
 | `edition` | string | Edition year or label. |
 | `author` | string | Document author. Defaults to the book title. |
-| `cover_mode` | `"general"` or `"personal"` | `personal` adds name and class fields to the cover. |
-| `student_name`, `class_name` | string | Values used in personal mode. |
-| `review_mode` | boolean | Show a review label on the title page. |
-| `review_label` | string | Review label text. Defaults to `审核稿`. |
+| `cover-mode` | `"general"` or `"personal"` | `personal` adds name and class fields to the cover. |
+| `student-name`, `class-name` | string | Values used in personal mode. |
+| `review-mode` | boolean | Show a review label on the title page. |
+| `review-label` | string | Review label text. Defaults to `审核稿`. |
 
 ### `format`
 
@@ -57,11 +57,11 @@ Or import the package directly:
 | --- | --- | --- |
 | `paper` | `"a4"`, `"a5"`, `"a6"` | Page size. |
 | `columns` | `1` or `2` | Column count. |
-| `gutter_pt` | number | Column gutter in points. |
-| `body_size` | number | Body text size in points. |
+| `gutter-pt` | number | Column gutter in points. |
+| `body-size` | number | Body text size in points. |
 | `leading` | number | Paragraph leading multiplier. |
-| `note_size` | number | Note text size in points. |
-| `title_size`, `title_pinyin_size`, `author_size`, `author_pinyin_size`, `pinyin_size` | number | Optional pinyin-mode overrides. |
+| `note-size` | number | Note text size in points. |
+| `title-size`, `title-pinyin-size`, `author-size`, `author-pinyin-size`, `pinyin-size` | number | Optional pinyin-mode overrides. |
 
 ### `notes`
 
@@ -77,29 +77,29 @@ All fields are optional. The cover and back cover hide empty branding blocks aut
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `school_name` | string | School or organization name. |
-| `school_name_en` | string | Secondary name, usually English. |
+| `school-name` | string | School or organization name. |
+| `school-name-en` | string | Secondary name, usually English. |
 | `slogan` | string | Cover and back-cover slogan. |
 | `motto` | string | Vertical motto on the back cover. |
-| `cover_lines` | array of strings or string | Lines shown in the middle of the cover in general mode. |
+| `cover-lines` | array of strings or string | Lines shown in the middle of the cover in general mode. |
 | `logo` | string or image | Logo image. Typst callers can pass `image("logo.svg")`, which resolves in their project. JSON callers pass a path string, resolved from the package file; use an absolute path or the `asset-root` prefix. |
-| `end_motto` | string | Ending-page motto. Defaults to `诗心常在　书香长伴`. |
+| `end-motto` | string | Ending-page motto. Defaults to `诗心常在　书香长伴`. |
 
 ### `features`
 
 | Key | Default | Description |
 | --- | --- | --- |
-| `front_matter` | `false` | Render the preface page. |
-| `famous_lines` | `false` | Render the famous-lines appendix. |
-| `poet_bio` | `false` | Render the poet biographies appendix. |
-| `author_index` | `false` | Render the author index. |
-| `end_page` | `false` | Render the closing page. |
-| `back_cover` | `false` | Render the back cover. |
+| `front-matter` | `false` | Render the preface page. |
+| `famous-lines` | `false` | Render the famous-lines appendix. |
+| `poet-bio` | `false` | Render the poet biographies appendix. |
+| `author-index` | `false` | Render the author index. |
+| `end-page` | `false` | Render the closing page. |
+| `back-cover` | `false` | Render the back cover. |
 
-### `front_matter`
+### `front-matter`
 
 ```typst
-front_matter: (
+front-matter: (
   title: "卷首语",
   preface: "Plain-text preface.",
   paragraphs: (
@@ -115,25 +115,25 @@ front_matter: (
 
 ```typst
 appendix: (
-  famous_lines: (
+  famous-lines: (
     (quote: "春眠不觉晓，处处闻啼鸟。", source: "孟浩然《春晓》"),
   ),
-  poet_heading: "【诗人简介】",
+  poet-heading: "【诗人简介】",
   poets: (
     (group: "唐", name: "孟浩然", years: "689—740", bio: "唐代诗人，襄阳人。"),
   ),
-  author_index: (
+  author-index: (
     (
       initial: "M",
       name: "孟浩然",
       dynasty: "唐",
-      poems: ((title: "春晓", poem_id: "chunxiao"),),
+      poems: ((title: "春晓", poem-id: "chunxiao"),),
     ),
   ),
 )
 ```
 
-Every poem referenced from `author_index` must have a matching `poem_id` in the chapter data so its page reference can be resolved.
+Every poem referenced from `author-index` must have a matching `poem-id` in the chapter data so its page reference can be resolved.
 
 ### `chapters` and `poems`
 
@@ -142,11 +142,11 @@ chapters: (
   (
     name: "第一编 春晓",
     subname: "五言绝句",
-    bg_color: "#E65100",
+    bg-color: "#E65100",
     poems: (
       (
         number: 1,
-        poem_id: "chunxiao",
+        poem-id: "chunxiao",
         title: "春晓",
         author: "（唐）孟浩然",
         lines: ("春眠不觉晓，处处闻啼鸟。", "夜来风雨声，花落知多少。"),
@@ -160,7 +160,7 @@ chapters: (
 )
 ```
 
-- `poem_id` is optional, but it is required for pinyin annotations and author-index page references.
+- `poem-id` is optional, but it is required for pinyin annotations and author-index page references.
 - `notes` is required; use `()` when a poem has no notes.
 - `topic` and `subtopic` are optional grouping headings within a chapter.
 
@@ -182,7 +182,7 @@ Pinyin data is passed separately:
 ```json
 {
   "version": 1,
-  "poem_count": 1,
+  "poem-count": 1,
   "poems": {
     "jingyesi": {
       "title": [["静", "jìng"], ["夜", "yè"], ["思", "sī"]],
@@ -196,7 +196,7 @@ Pinyin data is passed separately:
 }
 ```
 
-Each `title`, `author`, and line is an array of `[hanzi, pinyin]` pairs. The key under `poems` must match the poem's `poem_id`.
+Each `title`, `author`, and line is an array of `[hanzi, pinyin]` pairs. The key under `poems` must match the poem's `poem-id`.
 
 ## `poem-book` parameters
 
@@ -207,7 +207,7 @@ Each `title`, `author`, and line is an array of `[hanzi, pinyin]` pairs. The key
 | `notes` | `none` | Override `book.notes`. |
 | `fonts` | `none` | Override `book.fonts`. |
 | `features` | `(:)` | Override `book.features`. |
-| `cover-mode` | `none` | Override `metadata.cover_mode`. |
+| `cover-mode` | `none` | Override `metadata.cover-mode`. |
 | `asset-root` | `""` | Prefix for `branding.logo`. |
 | `pinyin` | `none` | Pinyin dictionary. |
 | `pinyin-mode` | `false` | Enable ruby annotations and single-column layout. |
@@ -226,7 +226,7 @@ The template uses `Noto Serif CJK SC` for body text and `STKaiti` or `KaiTi` for
 
 ## Template contents
 
-The template ships with four public-domain poems (春晓, 静夜思, 登鹳雀楼, 咏鹅) and neutral example data. Replace the `chapters`, `appendix`, and `front_matter` entries with your own content. No real school name, logo, or curriculum is included.
+The template ships with four public-domain poems (春晓, 静夜思, 登鹳雀楼, 咏鹅) and neutral example data. Replace the `chapters`, `appendix`, and `front-matter` entries with your own content. No real school name, logo, or curriculum is included.
 
 ## License
 

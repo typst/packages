@@ -5,15 +5,15 @@
     title: "诗词读本",
     volume: "示例卷",
     edition: "2026",
-    cover_mode: "general",
+    cover-mode: "general",
   ),
   format: (
     paper: "a4",
     columns: 2,
-    gutter_pt: 28,
-    body_size: 12,
+    gutter-pt: 28,
+    body-size: 12,
     leading: 1.75,
-    note_size: 9.5,
+    note-size: 9.5,
   ),
   notes: (mode: "short"),
   fonts: (
@@ -21,14 +21,14 @@
     title: ("STKaiti", "KaiTi", "Noto Serif CJK SC"),
   ),
   branding: (
-    school_name: "",
-    school_name_en: "",
+    school-name: "",
+    school-name-en: "",
     slogan: "读诗 · 积累 · 成长",
     motto: "诗心常在　书香长伴",
-    cover_lines: ("诗中有画", "画中有诗"),
+    cover-lines: ("诗中有画", "画中有诗"),
     logo: "",
   ),
-  front_matter: (
+  front-matter: (
     title: "卷首语",
     preface: "读诗，是与古人对话，也是在汉字的声音里认识世界。\n\n愿这本小小的读本，陪你从春晓读到静夜，从明月读到高楼，在一次次诵读中，遇见更辽阔的天地。",
     paragraphs: (
@@ -37,20 +37,20 @@
     ),
   ),
   features: (
-    front_matter: true,
-    famous_lines: true,
-    poet_bio: true,
-    author_index: true,
-    end_page: true,
-    back_cover: true,
+    front-matter: true,
+    famous-lines: true,
+    poet-bio: true,
+    author-index: true,
+    end-page: true,
+    back-cover: true,
   ),
   appendix: (
-    famous_lines: (
+    famous-lines: (
       (quote: "春眠不觉晓，处处闻啼鸟。", source: "孟浩然《春晓》"),
       (quote: "举头望明月，低头思故乡。", source: "李白《静夜思》"),
       (quote: "欲穷千里目，更上一层楼。", source: "王之涣《登鹳雀楼》"),
     ),
-    poet_heading: "【诗人简介】",
+    poet-heading: "【诗人简介】",
     poets: (
       (
         group: "唐",
@@ -77,30 +77,30 @@
         bio: "唐代诗人，婺州义乌人。",
       ),
     ),
-    author_index: (
+    author-index: (
       (
         initial: "L",
         name: "李白",
         dynasty: "唐",
-        poems: ((title: "静夜思", poem_id: "jingyesi"),),
+        poems: ((title: "静夜思", poem-id: "jingyesi"),),
       ),
       (
         initial: "L",
         name: "骆宾王",
         dynasty: "唐",
-        poems: ((title: "咏鹅", poem_id: "yonge"),),
+        poems: ((title: "咏鹅", poem-id: "yonge"),),
       ),
       (
         initial: "M",
         name: "孟浩然",
         dynasty: "唐",
-        poems: ((title: "春晓", poem_id: "chunxiao"),),
+        poems: ((title: "春晓", poem-id: "chunxiao"),),
       ),
       (
         initial: "W",
         name: "王之涣",
         dynasty: "唐",
-        poems: ((title: "登鹳雀楼", poem_id: "dengguanquelou"),),
+        poems: ((title: "登鹳雀楼", poem-id: "dengguanquelou"),),
       ),
     ),
   ),
@@ -108,11 +108,11 @@
     (
       name: "第一编 春晓",
       subname: "五言绝句",
-      bg_color: "#E65100",
+      bg-color: "#E65100",
       poems: (
         (
           number: 1,
-          poem_id: "chunxiao",
+          poem-id: "chunxiao",
           title: "春晓",
           author: "（唐）孟浩然",
           lines: ("春眠不觉晓，处处闻啼鸟。", "夜来风雨声，花落知多少。"),
@@ -123,7 +123,7 @@
         ),
         (
           number: 2,
-          poem_id: "jingyesi",
+          poem-id: "jingyesi",
           title: "静夜思",
           author: "（唐）李白",
           lines: ("床前明月光，疑是地上霜。", "举头望明月，低头思故乡。"),
@@ -137,11 +137,11 @@
     (
       name: "第二编 登鹳雀楼",
       subname: "五言绝句",
-      bg_color: "#5E8B65",
+      bg-color: "#5E8B65",
       poems: (
         (
           number: 3,
-          poem_id: "dengguanquelou",
+          poem-id: "dengguanquelou",
           title: "登鹳雀楼",
           author: "（唐）王之涣",
           lines: ("白日依山尽，黄河入海流。", "欲穷千里目，更上一层楼。"),
@@ -152,7 +152,7 @@
         ),
         (
           number: 4,
-          poem_id: "yonge",
+          poem-id: "yonge",
           title: "咏鹅",
           author: "（唐）骆宾王",
           lines: ("鹅，鹅，鹅，曲项向天歌。", "白毛浮绿水，红掌拨清波。"),
