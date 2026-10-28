@@ -1,4 +1,4 @@
-#import "@preview/datify:1.0.1": *
+#import "@preview/datify:1.3.0": *
 #import "../colors/colors.typ": *
 #import "../assets/fonts.typ": fonts-state
 #import "../i18n/i18n.typ": language-state
