@@ -138,7 +138,7 @@ The scheduling function is then passed as a parameter of the `plot` function.
 #plot(from: 0, to: 20, tasks: taskset)
 ```
 
-![](assets/plot.svg)
+![Example of plot without any scheduling](assets/plot.svg)
 
 2. Plot a tasket and scheduling it (with RM).
 
@@ -152,7 +152,7 @@ The scheduling function is then passed as a parameter of the `plot` function.
 #plot(from: 0, to: 20, tasks: taskset, scheduler: scheduler.rm)
 ```
 
-![](assets/rm.svg)
+![Example of plot with a RM scheduling](assets/rm.svg)
 
 3. Utiliser des couleurs pour l'affichage
 
@@ -163,9 +163,9 @@ The scheduling function is then passed as a parameter of the `plot` function.
   (c: 2, d: 4, t: 4),
 )
 
-#{config.colors = (red.lighten(40%), green.lighten(40%)}
+#{config.colors = (red.lighten(40%), green.lighten(40%))}
 
 #plot(from: 0, to: 20, tasks: taskset, scheduler: scheduler.rm, config:config)
 ```
 
-![](assets/colors.svg)
+![Example of a plot with colors assigned to tasks](assets/colors.svg)

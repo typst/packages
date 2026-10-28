@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/rt-sched:0.0.1": *
 #set page(margin: (x: 4em, y: 5em))
 
 = Rate Monotonic (RM)

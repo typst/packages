@@ -8,13 +8,13 @@
   colors: none,
 )
 
-#let heuristic_len(len_interval) = {
+#let heuristic-len(len_interval) = {
   // interval of 20 -> step_width = 2em
   let x = 40
   return (x / len_interval) * 1em
 }
 
-#let task_label(i) = $tau_#i$
+#let task-label(i) = $tau_#i$
 
 #let task-pos(i, t: 0) = {
   (x: t, y: config.task_height * i)
@@ -67,7 +67,7 @@
     }
 
     if (auto-width) {
-      config.step_width = heuristic_len(to - from)
+      config.step_width = heuristic-len(to - from)
     }
     // panic(config.step_width)
 
@@ -96,7 +96,7 @@
       // Y-Label
       content(
         (-0.5, task_pos.y - (config.task_height / 2)),
-        task_label(task_number),
+        task-label(task_number),
       )
       // Line-separator
       line(
