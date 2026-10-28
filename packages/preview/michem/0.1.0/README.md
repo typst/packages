@@ -30,7 +30,9 @@ the piperazine and oxazolidinone rings.
 )
 ```
 
-![Ciprofloxacin and linezolid with highlighted heterocyclic rings](assets/readme/molecule.png)
+<p align="center">
+  <img src="assets/readme/molecule.png" alt="Ciprofloxacin and linezolid with highlighted heterocyclic rings">
+</p>
 
 Molecular structures: [PubChem ciprofloxacin](https://pubchem.ncbi.nlm.nih.gov/compound/2764)
 and [PubChem linezolid](https://pubchem.ncbi.nlm.nih.gov/compound/441401).
@@ -63,9 +65,11 @@ scaled to fit cell widths.
 )
 ```
 
-![Suzuki–Miyaura coupling with the new biaryl bond highlighted](assets/readme/reaction-route.png)
+<p align="center">
+  <img src="assets/readme/reaction-route.png" alt="Suzuki–Miyaura coupling with the new biaryl bond highlighted">
+</p>
 
-4-Bromoacetophenone (*1*) and phenylboronic acid (*2*) give
+4-Bromoacetophenone (_1_) and phenylboronic acid (*2*) give
 4-acetylbiphenyl (*3*). The coupling substrates and conditions follow the
 [palladium/metformin Suzuki–Miyaura study](https://doi.org/10.1039/C7RA01197K).
 Green marks the newly formed biaryl C–C bond; this figure does not assert a yield.
@@ -128,7 +132,9 @@ a figure in a manuscript.
 )
 ```
 
-![Urea cycle with incoming substrates, released products and highlighted urea bonds](assets/readme/circular-route.png)
+<p align="center">
+  <img src="assets/readme/circular-route.png" alt="Urea cycle with incoming substrates, released products and highlighted urea bonds">
+</p>
 
 The four enzymatic steps follow the [Reactome urea cycle](https://reactome.org/content/detail/R-HSA-70635).
 Structures use neutral molecular forms for depiction; ATP/AMP/PPᵢ are shown as
@@ -166,7 +172,44 @@ for clear curves between the supplied endpoints.
 )
 ```
 
-![Aldol addition: enolate attack on benzaldehyde and carbonyl electron movement](assets/readme/electron-flow.png)
+<p align="center">
+  <img src="assets/readme/electron-flow.png" alt="Aldol addition: enolate attack on benzaldehyde and carbonyl electron movement">
+</p>
+
+## Inspecting atom indices
+
+Enable `debug` to display the atom IDs used by highlights and electron-arrow
+references. This numbers every atom, including unlabeled skeletal carbons.
+For example, inspect the Suzuki product before selecting its new biaryl bond:
+
+```typst
+#import "@preview/michem:0.1.0" as michem
+
+#michem.smiles("CC(=O)c1ccc(-c2ccccc2)cc1", style: michem.style(
+  font: "Libertinus Serif",
+  debug: true,
+))
+```
+
+<p align="center">
+  <img src="assets/readme/debug.png" alt="Suzuki product with blue atom indices for selecting highlight endpoints">
+</p>
+
+The new bond connects atoms `6` and `7`, so its highlight uses
+`bonds: ((6, 7),)`. These are two **atom IDs**, not a bond index. SMILES IDs
+start at zero in parse order; branches contribute atoms, while ring closure
+digits and implicit hydrogens do not. Authored molecular graphs display their
+atom names instead of numeric indices. Each molecular occurrence has its own IDs.
+
+To inspect a complete `reaction-route`, including circular stages and peripheral
+participants, pass `molecular-style: michem.style(debug: true)`. The same option
+works with `compound-grid`. In a mechanism, pass `style: michem.style(debug: true)`
+to each `mol` that needs inspection.
+
+Debug is off by default. Blue ID labels follow the molecular font at 65% of its
+size and participate in measured bounds without changing atom positions or IDs.
+Dense structures may need a larger bond length for readability. Turn debug off
+after choosing references for the final figure.
 
 ## Public interfaces
 
