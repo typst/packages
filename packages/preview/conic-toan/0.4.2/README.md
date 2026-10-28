@@ -1070,6 +1070,24 @@ nay tính theo khổ A4 rồi phóng cùng khối.
 Dựng hình riêng lẻ (app làm bài online) thì truyền
 `--input phong-hinh=1.4` (`sys.inputs`).
 
+**Đặt độ lớn từng bảng bằng `w:` (0.4.2).** `#bbt`, `#bang-xet-dau`, mọi
+bảng dựng sẵn (`bbt-bac-hai`, `bbt-bac-ba`, `bbt-trung-phuong`, `bbt-phan-thuc`,
+`bbt-huu-ti`, `bbt-bac-ba-don-dieu`, `bbt-can-bac-hai-ham-bac-hai`) và
+`xet-dau-tam-thuc` nhận `w:` = BỀ RỘNG cả bảng. Bảng được PHÓNG/CO ĐỀU (ô,
+nét, mũi tên, chữ cùng tỉ lệ) nên giữ nguyên dáng — khác `rong-cot:` chỉ nới
+cột mà không đổi cỡ chữ.
+
+```typ
+#bbt-bac-ba(1, 0, -3, 1, w: 9cm)     // rộng đúng 9cm ở bản A4
+#bbt-trung-phuong(1, -2, 0, w: 80%)  // 80% bề rộng vùng chứa
+#bang-xet-dau(x: ($-oo$, 1, $+oo$),
+  dong: (($f(x)$, ("", "-", "0", "+", "")),), w: 100%)   // đầy bề rộng
+```
+`w:` nhận độ dài (`9cm`), tỉ lệ vùng chứa (`80%`) hoặc `relative`
+(`50% + 1cm`); mặc định `auto` = như cũ. Độ dài là bề rộng ở bản A4 — bản
+trình chiếu nhân thêm hệ số phóng như mọi bảng khác; muốn bảng choán đúng một
+phần slide thì dùng `%`. Khai `w:` thì bỏ qua chốt chặn 60% chiều cao slide.
+
 **BBT tự động từ hệ số** (07/2026) — chỉ nhập hệ số (positional), thuật toán
 tự tìm cực trị/tiệm cận/chiều biến thiên, phủ mọi trường hợp, nhãn số đẹp
 (phân số, căn, `(m ± k√n)/q`):
@@ -1905,7 +1923,16 @@ tiếp, thường kèm `cols:` cố định:
 //   chừa đúng chiều cao của `cho-trong:` khai trong từng câu.
 // cho-trong: false = bỏ đồng bộ cả hàng chấm lẫn khoảng trống
 //   trên toàn bài, không cần xoá `cho-trong:` ở từng câu.
+// ti-le-hinh: 0.8 = co MỌI #hinh (và đồ thị/hình dựng sẵn) còn 80% từ vị
+//   trí này trở đi; 1.2 hay 120% = giãn; 1 = trở lại (0.4.2).
 ```
+
+`ti-le-hinh` nhân vào `w:` (và `h:` nếu khai) của mọi `#hinh` — kể cả đồ thị
+`do-thi-*`, hình phẳng, hình không gian, đa diện, mặt cong, biểu đồ thống kê
+vì chúng đều dựng trên `hinh`. Cỡ chữ nhãn GIỮ NGUYÊN (y như tự sửa `w:` từng
+hình). Không áp cho ảnh `#image(...)` và BBT/bảng xét dấu (bảng dùng `w:`
+riêng, xem mục 6). Đặt giữa bài được: `#kieu-cau-hoi(ti-le-hinh: 0.7)` trước
+phần trắc nghiệm, `#kieu-cau-hoi(ti-le-hinh: 1)` sau đó.
 
 `cho-trong` trong `kieu-cau-hoi` là công tắc toàn cục cho cả
 `#tn`, `#ds`, `#tln`, `#tl` và các dạng hoạt động. Nó chỉ tác động

@@ -220,7 +220,8 @@
   cao-bt: 2.3cm,     // chiều cao dòng biến thiên
   mau-mui-ten: blue.darken(20%),
   co-chu: 1em,
-) = _phong-to(co: true, context {
+  w: auto,           // BỀ RỘNG cả bảng: 12cm · 80% (vùng chứa) · auto = như cũ
+) = _phong-to(co: true, w: w, context {
   // `co-chu` mặc định 1em: quy ra độ dài TUYỆT ĐỐI ngay đầu hàm — các ô gạch
   // (`o-gach`) và đầu mút mũi tên (`_pt-so`) gọi `.pt()`, mà `.pt()` từ chối
   // độ dài còn dính em (lỗi "10pt + 1.3em to pt", 0.4.2).
@@ -458,7 +459,8 @@
   ten-x: $x$,
   rong-cot: 2.2cm,
   co-chu: 1em,
-) = _phong-to(co: true, context {
+  w: auto,           // BỀ RỘNG cả bảng: 12cm · 80% (vùng chứa) · auto = như cũ
+) = _phong-to(co: true, w: w, context {
   // `co-chu` mặc định 1em: quy ra độ dài TUYỆT ĐỐI ngay đầu hàm — các ô gạch
   // (`o-gach`) và đầu mút mũi tên (`_pt-so`) gọi `.pt()`, mà `.pt()` từ chối
   // độ dài còn dính em (lỗi "10pt + 1.3em to pt", 0.4.2).
@@ -546,7 +548,7 @@
 
 // BBT hàm bậc hai y = ax² + bx + c.
 // Form mới: bbt-bac-hai(a, b, c). Form cũ: bbt-bac-hai(a: 1, xd: .., yd: ..).
-#let bbt-bac-hai(..he-so, a: 1, xd: $(-b)/(2a)$, yd: $(-Delta)/(4a)$, ten-f: $y$, ten-fp: $y'$) = {
+#let bbt-bac-hai(..he-so, a: 1, xd: $(-b)/(2a)$, yd: $(-Delta)/(4a)$, ten-f: $y$, ten-fp: $y'$, w: auto) = {
   let hs = he-so.pos()
   let (a, xd, yd) = if hs.len() == 3 {
     let (a, b, c) = hs
@@ -554,7 +556,7 @@
     (a, so-toan(-b / (2 * a)), so-toan(c - b * b / (4 * a)))
   } else { (a, xd, yd) }
   if a > 0 {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, xd, $+oo$),
       dau: ("", "-", "0", "+", ""),
       gia-tri: ($+oo$, yd, $+oo$),
@@ -562,7 +564,7 @@
       ten-f: ten-f, ten-fp: ten-fp,
     )
   } else {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, xd, $+oo$),
       dau: ("", "+", "0", "-", ""),
       gia-tri: ($-oo$, yd, $-oo$),
@@ -582,7 +584,7 @@
 //       cực tiểu 0, y' KHÔNG xác định tại đỉnh (ghi ‖).
 //   a < 0, Δ > 0 (g có 2 nghiệm): TXĐ = [x₁, x₂]; đồng biến rồi nghịch biến,
 //       cực đại y₀ tại đỉnh, giá trị 2 nghiệm = 0. (a < 0 mà Δ ≤ 0 → TXĐ rỗng.)
-#let bbt-can-bac-hai-ham-bac-hai(a, b, c, ten-f: $y$, ten-fp: $y'$) = {
+#let bbt-can-bac-hai-ham-bac-hai(a, b, c, ten-f: $y$, ten-fp: $y'$, w: auto) = {
   assert(calc.abs(a) > _eps-bbt, message: "bbt-can-bac-hai-ham-bac-hai: cần a ≠ 0")
   let delta = b * b - 4 * a * c
   let x-dinh = so-toan(-b / (2 * a))
@@ -593,7 +595,7 @@
       // 2 nghiệm: gạch khoảng giữa (ngoài TXĐ), x₁ < x₂
       let x1 = so-can-thuc(-b, -1, delta, 2 * a)
       let x2 = so-can-thuc(-b, 1, delta, 2 * a)
-      bbt(
+      bbt(w: w,
         x: ($-oo$, x1, x2, $+oo$),
         dau: ("", "-", "||", "", "||", "+", ""),
         gia-tri: ($+oo$, $0$, $0$, $+oo$),
@@ -603,7 +605,7 @@
       )
     } else if delta < -_eps-bbt {
       // vô nghiệm: TXĐ = ℝ, cực tiểu y₀ tại đỉnh (y' = 0)
-      bbt(
+      bbt(w: w,
         x: ($-oo$, x-dinh, $+oo$),
         dau: ("", "-", "0", "+", ""),
         gia-tri: ($+oo$, y-dinh, $+oo$),
@@ -612,7 +614,7 @@
       )
     } else {
       // nghiệm kép: y = √a·|x − x₀|, cực tiểu 0, y' không xác định tại đỉnh (‖)
-      bbt(
+      bbt(w: w,
         x: ($-oo$, x-dinh, $+oo$),
         dau: ("", "-", "||", "+", ""),
         gia-tri: ($+oo$, $0$, $+oo$),
@@ -625,7 +627,7 @@
     assert(delta > _eps-bbt, message: "bbt-can-bac-hai-ham-bac-hai: a < 0 thì cần Δ > 0 (nếu không TXĐ rỗng)")
     let x1 = so-can-thuc(-b, 1, delta, 2 * a)
     let x2 = so-can-thuc(-b, -1, delta, 2 * a)
-    bbt(
+    bbt(w: w,
       x: (x1, x-dinh, x2),
       dau: ("", "+", "0", "-", ""),
       gia-tri: ($0$, y-dinh, $0$),
@@ -645,6 +647,7 @@
   x1: $x_1$, y1: $y_(c d)$,
   x2: $x_2$, y2: $y_(c t)$,
   ten-f: $y$, ten-fp: $y'$,
+  w: auto,
 ) = {
   let hs = he-so.pos()
   if hs.len() == 4 {
@@ -655,7 +658,7 @@
     if delta > _eps-bbt {
       // 2 cực trị — giá trị CHÍNH XÁC dạng căn thức (cuc-tri-bac-ba)
       let ct = cuc-tri-bac-ba(a, b, c, d)
-      return bbt-bac-ba(
+      return bbt-bac-ba(w: w,
         a: a,
         x1: ct.x1, y1: ct.y1,
         x2: ct.x2, y2: ct.y2,
@@ -665,13 +668,13 @@
     if delta < -_eps-bbt {
       // y' vô nghiệm: đơn điệu, không mốc
       return if a > 0 {
-        bbt(
+        bbt(w: w,
           x: ($-oo$, $+oo$), dau: ("", "+", ""),
           gia-tri: ($-oo$, $+oo$), huong: ("len",),
           ten-f: ten-f, ten-fp: ten-fp, rong-cot: 5cm,
         )
       } else {
-        bbt(
+        bbt(w: w,
           x: ($-oo$, $+oo$), dau: ("", "-", ""),
           gia-tri: ($+oo$, $-oo$), huong: ("xuong",),
           ten-f: ten-f, ten-fp: ten-fp, rong-cot: 5cm,
@@ -688,7 +691,7 @@
     } else {
       ("-", ("xuong-tren", "xuong-duoi"), ($+oo$, $-oo$))
     }
-    return bbt(
+    return bbt(w: w,
       x: ($-oo$, so-toan(t), $+oo$),
       dau: ("", dau0, "0", dau0, ""),
       gia-tri: (dau-vc.at(0), y-moc, dau-vc.at(1)),
@@ -698,7 +701,7 @@
   }
   // ----- form cũ: 2 cực trị nhập tay -----
   if a > 0 {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, x1, x2, $+oo$),
       dau: ("", "+", "0", "-", "0", "+", ""),
       gia-tri: ($-oo$, y1, y2, $+oo$),
@@ -706,7 +709,7 @@
       ten-f: ten-f, ten-fp: ten-fp,
     )
   } else {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, x1, x2, $+oo$),
       dau: ("", "-", "0", "+", "0", "-", ""),
       gia-tri: ($+oo$, y1, y2, $-oo$),
@@ -717,9 +720,9 @@
 }
 
 // BBT hàm bậc ba đơn điệu (y' không đổi dấu).
-#let bbt-bac-ba-don-dieu(a: 1, ten-f: $y$, ten-fp: $y'$) = {
+#let bbt-bac-ba-don-dieu(a: 1, ten-f: $y$, ten-fp: $y'$, w: auto) = {
   if a > 0 {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, $+oo$),
       dau: ("", "+", ""),
       gia-tri: ($-oo$, $+oo$),
@@ -728,7 +731,7 @@
       rong-cot: 5cm,
     )
   } else {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, $+oo$),
       dau: ("", "-", ""),
       gia-tri: ($+oo$, $-oo$),
@@ -750,6 +753,7 @@
   yc: $y_1$,   // giá trị tại ±x0
   y0: $y_0$,   // giá trị tại 0
   ten-f: $y$, ten-fp: $y'$,
+  w: auto,
 ) = {
   let hs = he-so.pos()
   if hs.len() == 3 {
@@ -757,7 +761,7 @@
     assert(calc.abs(a) > _eps-bbt, message: "bbt-trung-phuong: cần a ≠ 0")
     if a * b < -_eps-bbt {
       // 3 cực trị — x0 và giá trị cực trị CHÍNH XÁC (kể cả căn thức/phân số)
-      return bbt-trung-phuong(
+      return bbt-trung-phuong(w: w,
         a: a,
         x0: so-can-thuc(0, 1, -b / (2 * a), 1),
         yc: so-can-thuc(4 * a * c - b * b, 0, 0, 4 * a),
@@ -767,7 +771,7 @@
     }
     // 1 cực trị tại x = 0 (b = 0 hoặc a·b > 0)
     return if a > 0 {
-      bbt(
+      bbt(w: w,
         x: ($-oo$, $0$, $+oo$),
         dau: ("", "-", "0", "+", ""),
         gia-tri: ($+oo$, so-toan(c), $+oo$),
@@ -775,7 +779,7 @@
         ten-f: ten-f, ten-fp: ten-fp, rong-cot: 3.2cm,
       )
     } else {
-      bbt(
+      bbt(w: w,
         x: ($-oo$, $0$, $+oo$),
         dau: ("", "+", "0", "-", ""),
         gia-tri: ($-oo$, so-toan(c), $-oo$),
@@ -786,7 +790,7 @@
   }
   // ----- form cũ: 3 cực trị nhập tay -----
   if a > 0 {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, $-$ + x0, $0$, x0, $+oo$),
       dau: ("", "-", "0", "+", "0", "-", "0", "+", ""),
       gia-tri: ($+oo$, yc, y0, yc, $+oo$),
@@ -795,7 +799,7 @@
       rong-cot: 2.1cm,
     )
   } else {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, $-$ + x0, $0$, x0, $+oo$),
       dau: ("", "+", "0", "-", "0", "+", "0", "-", ""),
       gia-tri: ($-oo$, yc, y0, yc, $-oo$),
@@ -815,6 +819,7 @@
   x0: $x_0$, y0: $y_0$,
   dong-bien: true,   // y' > 0 trên từng khoảng?
   ten-f: $y$, ten-fp: $y'$,
+  w: auto,
 ) = {
   let hs = he-so.pos()
   let (x0, y0, dong-bien) = if hs.len() == 4 {
@@ -825,7 +830,7 @@
     (so-toan(-d / c), so-toan(a / c), D > 0)
   } else { (x0, y0, dong-bien) }
   if dong-bien {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, x0, $+oo$),
       dau: ("", "+", "||", "+", ""),
       gia-tri: (y0, ($+oo$, $-oo$), y0),
@@ -835,7 +840,7 @@
       rong-cot: 3.2cm,
     )
   } else {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, x0, $+oo$),
       dau: ("", "-", "||", "-", ""),
       gia-tri: (y0, ($-oo$, $+oo$), y0),
@@ -851,7 +856,7 @@
 // Viết y = px + q + r/(dx + e) với p = a/d, q = (bd − ae)/d², r = c − qe.
 // Tự phân 3 trường hợp: p·r·d > 0: 2 cực trị hai bên tiệm cận đứng |
 // p·r·d < 0: đơn điệu (2 khoảng) | r = 0: suy biến (đường thẳng khuyết điểm).
-#let bbt-huu-ti(a, b, c, d, e, ten-f: $y$, ten-fp: $y'$) = {
+#let bbt-huu-ti(a, b, c, d, e, ten-f: $y$, ten-fp: $y'$, w: auto) = {
   assert(calc.abs(a) > _eps-bbt and calc.abs(d) > _eps-bbt, message: "bbt-huu-ti: cần a ≠ 0 và d ≠ 0")
   let x0 = -e / d
   let p = a / d
@@ -862,7 +867,7 @@
     // 2 cực trị — hoành độ & giá trị CHÍNH XÁC dạng căn thức (cuc-tri-huu-ti)
     let ct = cuc-tri-huu-ti(a, b, c, d, e)
     return if p > 0 {
-      bbt(
+      bbt(w: w,
         x: ($-oo$, ct.x1, so-toan(x0), ct.x2, $+oo$),
         dau: ("", "+", "0", "-", "||", "-", "0", "+", ""),
         gia-tri: ($-oo$, ct.y1, ($-oo$, $+oo$), ct.y2, $+oo$),
@@ -871,7 +876,7 @@
         ten-f: ten-f, ten-fp: ten-fp, rong-cot: 2.1cm,
       )
     } else {
-      bbt(
+      bbt(w: w,
         x: ($-oo$, ct.x1, so-toan(x0), ct.x2, $+oo$),
         dau: ("", "-", "0", "+", "||", "+", "0", "-", ""),
         gia-tri: ($+oo$, ct.y1, ($+oo$, $-oo$), ct.y2, $-oo$),
@@ -888,7 +893,7 @@
     (l, l)
   } else if r * d > 0 { ($-oo$, $+oo$) } else { ($+oo$, $-oo$) }
   if p > 0 {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, so-toan(x0), $+oo$),
       dau: ("", "+", "||", "+", ""),
       gia-tri: ($-oo$, (trai, phai), $+oo$),
@@ -897,7 +902,7 @@
       ten-f: ten-f, ten-fp: ten-fp, rong-cot: 3.2cm,
     )
   } else {
-    bbt(
+    bbt(w: w,
       x: ($-oo$, so-toan(x0), $+oo$),
       dau: ("", "-", "||", "-", ""),
       gia-tri: ($+oo$, (trai, phai), $-oo$),
@@ -910,9 +915,9 @@
 
 // Bảng xét dấu tam thức bậc hai có 2 nghiệm (dấu theo a).
 // (form hệ số: xem các bbt-* phía trên)
-#let xet-dau-tam-thuc(a: 1, x1: $x_1$, x2: $x_2$, ten: $f(x)$) = {
+#let xet-dau-tam-thuc(a: 1, x1: $x_1$, x2: $x_2$, ten: $f(x)$, w: auto) = {
   let (ngoai, trong) = if a > 0 { ("+", "-") } else { ("-", "+") }
-  bang-xet-dau(
+  bang-xet-dau(w: w,
     x: ($-oo$, x1, x2, $+oo$),
     dong: ((ten, ("", ngoai, "0", trong, "0", ngoai, "")),),
   )

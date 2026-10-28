@@ -78,12 +78,38 @@
 // co: true — gánh luôn việc CO cho vừa vùng chứa (BBT, bảng xét dấu): đo một
 //   lần cho cả phóng lẫn co, thay vì hai lớp `layout`+`measure` lồng nhau
 //   (lồng nhau làm file nhiều BBT ở beamer chậm gấp đôi, RAM gấp đôi rưỡi).
-#let _phong-to(co: false, body) = context {
+// w: auto (mặc định, như trên) · độ dài (`12cm`) · tỉ lệ bề rộng vùng chứa
+//   (`80%`, `100%`) · `relative` (`50% + 1cm`). Khai `w` thì khối được dựng
+//   ĐÚNG như bản A4 rồi phóng/co ĐỀU (chữ, ô, nét, mũi tên) cho bề rộng bằng
+//   đúng `w` — bỏ qua chốt chặn 60% chiều cao slide. Độ dài là bề rộng ở bản
+//   A4; bản trình chiếu nhân thêm hệ số phóng k (cùng dáng với chữ slide).
+//   Tỉ lệ % thì luôn tính theo vùng chứa, bản nào cũng vậy.
+#let _phong-to(co: false, w: auto, body) = context {
   let p = _phong.get()
   let beamer = not _la-sach(_ho-so.get())
   let k = if p == false or p == none { 1.0 }
     else if p == auto { if beamer { 1em.to-absolute() / _co-goc-hinh } else { 1.0 } }
     else { float(p) }
+  // k chỉ dùng để đưa chữ về cỡ A4; khai `w` mà hệ số bị tắt thì vẫn dựng
+  // theo cỡ chữ beamer quy về 11pt cho dáng nhất quán giữa các bản.
+  let kd = if w != auto and beamer and (p == false or p == none) {
+    1em.to-absolute() / _co-goc-hinh } else { k }
+  if w != auto {
+    let noi = if calc.abs(kd - 1) < 0.01 { body } else { set text(size: 1em / kd); body }
+    return layout(kv => {
+      let nat = measure(noi)
+      if nat.width <= 0pt or nat.height <= 0pt { return noi }
+      let rong = if kv.width.pt() < 1e5 { kv.width } else { nat.width }
+      let muc = if type(w) == ratio { rong * w }
+        else if type(w) == relative { w.length.to-absolute() * k + rong * w.ratio }
+        else if type(w) == length { w.to-absolute() * k }
+        else { panic("`w` của bảng phải là độ dài (12cm), tỉ lệ (80%) hoặc auto — nhận được " + repr(w)) }
+      let s = muc / nat.width
+      if s <= 0 { return noi }
+      if calc.abs(s - 1) < 0.001 { return noi }
+      scale(x: s * 100%, y: s * 100%, reflow: true, noi)
+    })
+  }
   let mot = calc.abs(k - 1) < 0.01
   if mot and not co { return body }
   let noi = if mot { body } else { set text(size: 1em / k); body }

@@ -214,7 +214,7 @@
 /// Với đồ thị vẽ bằng `ve-ham`, đặt `toa-do-chu-nhat: true` để chiều cao tự
 /// chặn trong `0.55w..0.82w`; mặc định false để hình học không bị méo.
 /// -> content
-#let hinh(
+#let _hinh-goc(
   w: 8cm,
   h: auto,
   xmin: auto, xmax: auto,
@@ -249,6 +249,49 @@
     } else { w * ti-le }
     _hinh-lam(w, hh, c.xmin, c.xmax, c.ymin, c.ymax, co-chu, khung, cat, ve)
   }
+}
+
+// ----- TỈ LỆ HÌNH TOÀN FILE (0.4.2) -----
+// `#kieu-cau-hoi(ti-le-hinh: 0.8)` co (hoặc 1.2 giãn) MỌI `#hinh` — kể cả
+// đồ thị, hình phẳng/không gian, biểu đồ dựng sẵn đều đi qua `hinh`. Nhân
+// vào `w` (và `h` khi khai), cỡ chữ nhãn GIỮ NGUYÊN (như tự đổi `w:`).
+// Đặt ở ve.typ (không phụ thuộc gì) để cau-hoi.typ import được, không vòng.
+#let _ti-le-hinh = state("bg-ti-le-hinh", 1.0)
+#let _he-so-hinh(t) = {
+  if t == none or t == auto { 1.0 }
+  else if type(t) == ratio { t / 100% }
+  else { float(t) }
+}
+/// Khung vẽ: đặt cửa sổ toạ độ toán rồi vẽ bên trong. Mọi lệnh vẽ đặt trong
+/// thân hàm này là tự có `ctx`, không phải gõ.
+/// BỎ TRỐNG xmin/xmax/ymin/ymax thì gói TỰ ĐO phạm vi hình rồi chọn cửa sổ
+/// vừa khít. `w`/`h` được nhân với `ti-le-hinh` của `kieu-cau-hoi`.
+/// -> content
+#let hinh(
+  w: 8cm,
+  h: auto,
+  xmin: auto, xmax: auto,
+  ymin: auto, ymax: auto,
+  co-chu: 10em / 11,
+  khung: false,
+  cat: false,
+  toa-do-chu-nhat: false,
+  le: 0.03,
+  ve,
+) = {
+  // Khung khai đủ 4 cạnh trả `box`, khung tự dò trả `context` (như bản cũ) —
+  // giữ đúng LOẠI phần tử để bố cục bản in không lệch một điểm ảnh nào.
+  let lam() = {
+    let t = _he-so-hinh(_ti-le-hinh.get())
+    let (w2, h2) = if calc.abs(t - 1) < 0.000001 { (w, h) }
+      else { (w * t, if h == auto { auto } else { h * t }) }
+    _hinh-goc(w: w2, h: h2, xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax,
+      co-chu: co-chu, khung: khung, cat: cat, toa-do-chu-nhat: toa-do-chu-nhat,
+      le: le, ve)
+  }
+  if xmin != auto and xmax != auto and ymin != auto and ymax != auto {
+    box(context lam())
+  } else { context lam() }
 }
 
 // (`_voi-ctx` nay nằm ngay TRƯỚC `_hinh-lam` — truyền ctx bằng marker +

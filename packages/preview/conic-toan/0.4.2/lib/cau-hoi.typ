@@ -21,6 +21,7 @@
 //   -> đổi MỘT LẦN, đồng bộ toàn bài.
 // CHỪA CHỖ TL (bản in): #trong-tl(cao: 5cm) / #khong-trong-tl()
 // =====================================================================
+#import "ve.typ": _ti-le-hinh
 #import "slide.typ": _buoc-ht, _bd-cau, _bd-vd, _bd-hd, _bd-lt, _bd-vdtt, _bd-pp, _bd-tat-ca, _so-moi, _ho-so, _he-so-gian, _cao-that, _nhan
 
 #let _hien-da = state("ch-hien-da", false)
@@ -233,7 +234,10 @@
 //   (xem `_chong-net` của slide.typ). Mặc định BẬT — đây là thứ chống dính chữ
 //   ở phân số/căn thức mà `gian-dong` không với tới được.
 #let kieu-cau-hoi(mau: auto, hinh: auto, hien-o: auto, cham-cuoi: auto,
-  om-hinh: auto, eq-trong-dong: auto, cao-that: auto, cho-trong: auto) = {
+  om-hinh: auto, eq-trong-dong: auto, cao-that: auto, cho-trong: auto,
+  ti-le-hinh: auto) = {
+  // ti-le-hinh: co/giãn MỌI `#hinh` từ chỗ đặt trở xuống (0.8 · 1.2 · 120%).
+  if ti-le-hinh != auto { _ti-le-hinh.update(ti-le-hinh) }
   _kieu.update(k => (
     mau: if mau == auto { k.mau } else { mau },
     hinh: if hinh == auto { k.hinh } else { hinh },
