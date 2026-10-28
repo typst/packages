@@ -1,16 +1,16 @@
 # Touying Slide Theme for Yanshan University
 
-[[中文]](./README.zh.md)
+[[中文]](https://github.com/bahayonghang/simply-ysu-touying/blob/4bd7c6513552e5e74b40c7ad1332a3227c9803ef/README.zh.md)
 
 A Yanshan University slide theme for [Touying](https://touying-typ.github.io/touying/zh/) and Typst. Version 0.2.0 follows the layout of a doctoral defense deck: a navy palette, a breadcrumb headline that carries the slide's conclusion, chapter openers, a footer chapter navigation, and a component library for problem–method–conclusion pages. Speaker notes can be compiled into separate notes pages for presenter tools.
 
 | Cover | Chapter opener | Content slide |
 | --- | --- | --- |
-| ![Cover slide](https://raw.githubusercontent.com/bahayonghang/simply-ysu-touying/main/docs/screenshots/beamer-ysu-cover.png) | ![Chapter opener](https://raw.githubusercontent.com/bahayonghang/simply-ysu-touying/main/docs/screenshots/beamer-ysu-opener.png) | ![Content slide](https://raw.githubusercontent.com/bahayonghang/simply-ysu-touying/main/docs/screenshots/beamer-ysu-content.png) |
+| ![Cover slide](https://raw.githubusercontent.com/bahayonghang/simply-ysu-touying/4bd7c6513552e5e74b40c7ad1332a3227c9803ef/docs/screenshots/beamer-ysu-cover.png) | ![Chapter opener](https://raw.githubusercontent.com/bahayonghang/simply-ysu-touying/4bd7c6513552e5e74b40c7ad1332a3227c9803ef/docs/screenshots/beamer-ysu-opener.png) | ![Content slide](https://raw.githubusercontent.com/bahayonghang/simply-ysu-touying/4bd7c6513552e5e74b40c7ad1332a3227c9803ef/docs/screenshots/beamer-ysu-content.png) |
 
 ## Requirements
 
-- Typst `0.15.1` or later
+- Typst `0.15.0` or later
 - `@preview/touying:0.8.0` (imported by the package)
 
 ## Quick start
@@ -110,7 +110,10 @@ Write `#note[...]` anywhere in a slide; several notes on one slide join as parag
 ```typ
 #show: ysu-theme.with(
   notes: sys.inputs.at("notes", default: "off") == "on",
-  config-info(...),
+  config-info(
+    title: [Presentation Title],
+    author: [Your Name],
+  ),
 )
 
 #title-slide(note: [Good morning, my topic is …])
@@ -158,7 +161,7 @@ Slides use sans-serif. CJK fallback: Source Han Sans → Noto Sans SC → Micros
 - Theme and library source files are released under the MIT License.
 - `LICENSE` preserves both the upstream QuadnucYard notice and the current Geekyhang notice because this repository adapts upstream work while shipping new YSU-specific source files under the same MIT terms.
 - The starter content in `template/main.typ` is additionally available under MIT No Attribution; see [`LICENSE-MIT-0.txt`](./LICENSE-MIT-0.txt).
-- University-branded assets in `themes/assets/ysu-*` are not covered by the SPDX license expression in `typst.toml`; see [`ASSETS.md`](./ASSETS.md) for the file inventory, source links, transformation notes, and reviewer guidance.
+- University-branded assets in `themes/assets/ysu-*` are not covered by the SPDX license expression in `typst.toml`; see [ASSETS.md](https://github.com/bahayonghang/simply-ysu-touying/blob/4bd7c6513552e5e74b40c7ad1332a3227c9803ef/ASSETS.md) for the file inventory, source links, transformation notes, and reviewer guidance.
 
 ## License
 

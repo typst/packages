@@ -2,7 +2,7 @@
 name = "simply-ysu-touying"
 version = "0.2.0"
 entrypoint = "lib.typ"
-compiler = "0.15.1"
+compiler = "0.15.0"
 authors = ["Geekyhang <@bahayonghang>"]
 license = "MIT AND MIT-0"
 description = "Yanshan University defense-style slides for Touying, with speaker notes."
