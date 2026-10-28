@@ -8,10 +8,10 @@
   colors: none,
 )
 
-#let heuristic-len(len_interval) = {
+#let heuristic-len(len-interval) = {
   // interval of 20 -> step_width = 2em
   let x = 40
-  return (x / len_interval) * 1em
+  return (x / len-interval) * 1em
 }
 
 #let task-label(i) = $tau_#i$
