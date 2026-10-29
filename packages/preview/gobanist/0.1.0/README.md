@@ -1,12 +1,13 @@
-# goban
+# gobanist
 
-Go boards, positions, games and problems for Typst. It is a port of
+Boards, positions, game diagrams and tsumego problems of the board game Go (baduk, weiqi, igo) for Typst,
+read from SGF files or written by hand. It is a port of
 [pgf-go](https://ctan.org/pkg/pgf-go), the LaTeX package by the same author.
 
 ```typ
-#import "@preview/goban:0.1.0": *
+#import "@preview/gobanist:0.1.0": *
 
-#goban-set(background: (fill: (color: rgb("#dcb35c"))), label: (at: (bottom, left)))
+#gobanist-set(background: (fill: (color: rgb("#dcb35c"))), label: (at: (bottom, left)))
 
 #goban(size: 19, partial: "K1:T9",
   stones(black: "L8, S8, R5, S5, P4, R4, M3, P3, N2, O2",
@@ -53,7 +54,7 @@ The full manual, with tutorials and the reference of every function and option:
 - `goban(..options, ..elements)`: draws a board.
 - `board(..options, ..elements)`: a board as a value. It can start with another board: `board(base, moves("C3"))`
   is `base` with one more move, and `goban(base)` draws it. With `resume`, another board goes on from it.
-- `goban-set(..options)`: options for the boards that follow.
+- `gobanist-set(..options)`: options for the boards that follow.
 - `stones(...)`, `prisoners(...)`: stones. Without a player, neutral; `stones(black: "C3", white: "D4")`.
 - `moves(...)`: numbered moves, alternating. Without a player they follow the turn; `moves(white: "D2")` starts
   with White. Options: `from`, `numbers`, `label`, `mark` and those of the stone.
@@ -170,14 +171,14 @@ A tree of dictionaries, like that of pgf-go:
       ),
     ),
     line: (on: true, color: black, width: 0.75pt, opacity: 1),
-    sep: 0.825em,
+    sep: 8.25pt,
     rounded-corners: (outer: 0pt, inner: 0pt),
     shadow: (on: false, angle: -45deg, offset: 1.5pt, opacity: 0.5, color: black),
   ),
   grid: (
     on: true,
     line: (on: true, color: black, width: 0.55pt, opacity: 1),
-    sep: (x: 1.25em, y: 1.25em),
+    sep: (x: 12.5pt, y: 12.5pt),
     image: (file: none, fit: "stretch", tiles: auto, rotate: 0deg), // fit: "tile", one per square or per cell
   ),
   hoshi: (on: true, radius: 1.5pt, color: auto, opacity: auto, at: auto,
@@ -185,7 +186,7 @@ A tree of dictionaries, like that of pgf-go:
   label: (
     at: (),                     // sides: top, bottom, left, right
     sep: 0.35cm,
-    text: (:),                  // what text() receives
+    text: (size: 10pt),          // what text() receives
     columns: "A",               // "A": the go letters; otherwise a numbering pattern ("1", "一")
     rows: "1",
     columns-direction: ltr,     // or rtl
@@ -338,7 +339,7 @@ profile; what comes after is added. What is not style stays: `size`, `use-i`, `p
 `scale`, `scale-line-width`, `label.at`, `label.columns`, `label.rows` and their directions, `hoshi.at`,
 `move.numbers`, the arrows, the lines, the game and the branches of the games and the diagrams.
 
-A profile is a dictionary of options: `goban-set(profile: (background: ..., players: ...))`. A `profile` inside
+A profile is a dictionary of options: `gobanist-set(profile: (background: ..., players: ...))`. A `profile` inside
 a profile is the one it starts from. Those of the package are named: `"default"`, `"wain"`, `"pgfgo"`,
 `"pgfgosmooth"`, `"simple"`, `"draft"`, `"shell"`, `"yunzi"` and `"baduktv"` (the last three, with the images
 of `images/`).
@@ -354,7 +355,7 @@ dictionary adjusts it without turning it on: `fill: (on: true, color: red)`. A l
 ## Kernel
 
 Captures, territory, regions, score, reading SGF and the opacity and silhouettes of images are done by a
-WebAssembly plugin, `src/kernel.wasm`, compiled from the Rust code in the [`kernel/`](https://github.com/gxono/goban/tree/v0.1.0/kernel) folder of
+WebAssembly plugin, `src/kernel.wasm`, compiled from the Rust code in the [`kernel/`](https://github.com/gxono/gobanist/tree/v0.1.0/kernel) folder of
 the repository.
 To change it you need Rust with the `wasm32-unknown-unknown` target:
 
@@ -363,7 +364,7 @@ python kernel/build.py          # builds and copies src/kernel.wasm
 cargo test --manifest-path kernel/Cargo.toml
 ```
 
-The tests are in [`tests/`](https://github.com/gxono/goban/tree/v0.1.0/tests):
+The tests are in [`tests/`](https://github.com/gxono/gobanist/tree/v0.1.0/tests):
 
 ```sh
 python tests/run.py
@@ -375,7 +376,7 @@ python tests/run.py --update
 
 ## License
 
-goban is distributed under the [LaTeX Project Public License](https://www.latex-project.org/lppl/), version
+gobanist is distributed under the [LaTeX Project Public License](https://www.latex-project.org/lppl/), version
 1.3c or later (see [LICENSE](LICENSE)). The images in `images/` come from pgf-go, by the same author, under the
 same license.
 

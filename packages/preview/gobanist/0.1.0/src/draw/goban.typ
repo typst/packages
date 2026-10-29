@@ -143,7 +143,7 @@
     label-name(x, cols, label.columns, label.columns-direction, ltr, tree.use-i))))
   let rows-labels = range(fy, ty + 1).map(y => (y, label-text(
     label-name(y, rows, label.rows, label.rows-direction, btt, tree.use-i))))
-  let gap = (label.sep + neutral-radius + 0.5em).to-absolute()
+  let gap = (label.sep + neutral-radius + 5pt).to-absolute()
   // Los kanji de las filas se alinean del lado del tablero, para que los de dos caracteres no lo pisen.
   let kanji-rows = label.rows == "一"
   let row-gap = if kanji-rows { (label.sep + neutral-radius).to-absolute() } else { gap }

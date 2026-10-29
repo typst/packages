@@ -133,21 +133,21 @@
       image: (file: none, fit: "cover", anchor: bottom + left, width: auto, tiles: auto, rotate: 0deg),
     ),
     line: (on: true, color: black, width: 0.75pt, opacity: 1),
-    sep: 0.825em,
+    sep: 8.25pt,
     rounded-corners: (outer: 0pt, inner: 0pt),
     shadow: (on: false, angle: -45deg, offset: 1.5pt, opacity: 0.5, color: black),
   ),
   grid: (
     on: true,
     line: (on: true, color: black, width: 0.55pt, opacity: 1),
-    sep: (x: 1.25em, y: 1.25em),
+    sep: (x: 12.5pt, y: 12.5pt),
     image: (file: none, fit: "stretch", tiles: auto, rotate: 0deg),
   ),
   hoshi: (on: true, radius: 1.5pt, color: auto, opacity: auto, at: auto, image: (file: none, width: auto, rotate: 0deg)),
   label: (
     at: (),
     sep: 0.35cm,
-    text: (:),
+    text: (size: 10pt),
     columns: "A",
     rows: "1",
     columns-direction: ltr,
@@ -371,8 +371,8 @@
 #let global = state("goban-options", ())
 
 // Fija opciones para todos los tableros que siguen.
-#let goban-set(..args) = {
-  if args.pos().len() > 0 { panic("goban-set solo recibe opciones con nombre") }
+#let gobanist-set(..args) = {
+  if args.pos().len() > 0 { panic("gobanist-set solo recibe opciones con nombre") }
   global.update(list => list + (args.named(),))
 }
 

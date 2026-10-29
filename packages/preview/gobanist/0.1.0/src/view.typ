@@ -38,7 +38,7 @@
 }
 
 // Dibuja la parte part ("C3" o "B2:E4") del tablero (un board(...) o un elemento, como una partida) en el texto,
-// con su centro a raise sobre la línea de base. Las opciones son las de la rama view (goban-set(view: ...)). No
+// con su centro a raise sobre la línea de base. Las opciones son las de la rama view (gobanist-set(view: ...)). No
 // cambia lo que dicen goban-score, goban-prisoners, goban-notes ni goban-region.
 #let goban-view(value, part, ..args) = context {
   if args.pos().len() > 0 { panic("goban-view recibe un tablero, la parte y opciones con nombre") }

@@ -138,7 +138,7 @@
 }
 
 // Dibuja un problema, o varios: las partidas van sin nombre (sgf-problem(problema)). Las opciones son las de
-// la rama problems (goban-set(problems: ...)); las de sgf de cada partida valen en sus tableros, salvo las que
+// la rama problems (gobanist-set(problems: ...)); las de sgf de cada partida valen en sus tableros, salvo las que
 // fija cada diagrama. El metadata de adelante es para goban-layout, que pone los diagramas en su disposición.
 #let sgf-problem(..args) = {
   let games = args.pos()

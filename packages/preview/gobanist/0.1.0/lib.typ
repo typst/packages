@@ -1,6 +1,6 @@
 // goban: tableros, partidas y problemas de go. Un port de pgf-go.
 
-#import "src/options.typ": goban-set
+#import "src/options.typ": gobanist-set
 #import "src/elements.typ": stones, prisoners, moves, marks, arrows, lines, territory
 #import "src/board.typ": board
 #import "src/draw/goban.typ": goban

@@ -1,5 +1,5 @@
 // Los perfiles que trae el paquete: los de pgf-go-profiles.sty. Un perfil es un diccionario de opciones,
-// como las de goban-set; profile: "nombre" usa uno de estos.
+// como las de gobanist-set; profile: "nombre" usa uno de estos.
 
 // La mezcla de xcolor (a!p!b): p por ciento de a y el resto de b, en RGB.
 #let xmix(a, p, b) = color.mix((a, p), (b, 100% - p), space: rgb)

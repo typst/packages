@@ -75,7 +75,7 @@
 // El número n con el estilo de la jugada (move) sobre una piedra de ese estilo.
 #let number(n, move, style, scale) = {
   let body = numbering(move.label.format, n)
-  let size = if move.label.size == auto { fitted-size(number-length(body), 1em) } else { move.label.size }
+  let size = if move.label.size == auto { fitted-size(number-length(body), 10pt) } else { move.label.size }
   let options = move.label.text
   options.insert("size", size * style.scale * scale)
   options.insert("top-edge", "bounds")

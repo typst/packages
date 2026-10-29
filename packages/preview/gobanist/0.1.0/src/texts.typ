@@ -2,7 +2,7 @@
 // epígrafes de los diagramas y los problemas (diagram ... white-to-play); las notas «3 en 1» y «5: pasa» (at,
 // pass); y el resultado (result ... unknown-result). Los que tienen partes variables son funciones: n es el
 // número de una jugada, w el nombre del ganador y p la diferencia de puntos. Se cambian, o se agrega un
-// idioma, con goban-set(texts: (es: (pass: "pasa"), ...)); lo que le falta a un idioma sale del inglés.
+// idioma, con gobanist-set(texts: (es: (pass: "pasa"), ...)); lo que le falta a un idioma sale del inglés.
 
 #let texts = (
   en: (

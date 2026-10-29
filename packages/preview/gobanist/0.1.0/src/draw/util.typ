@@ -62,7 +62,7 @@
 #let square(s, ..style) = place(top + left, dx: -s, dy: -s, rect(width: 2 * s, height: 2 * s, ..style))
 
 // El tamaño de un texto que va sobre una piedra, según su largo n: con un carácter, one.
-#let fitted-size(n, one) = if n <= 1 { one } else if n == 2 { 0.65em } else { 0.45em }
+#let fitted-size(n, one) = if n <= 1 { one } else if n == 2 { 6.5pt } else { 4.5pt }
 
 // El largo de un número escrito con su formato: las letras y las cifras latinas, y dos por cada kanji.
 #let number-length(text) = text.clusters().map(c => {

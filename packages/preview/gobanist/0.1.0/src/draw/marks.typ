@@ -74,11 +74,11 @@
   }
   else if name == "sequence" {
     let body = numbering(style.label.format, context-info.number)
-    label(body, number-length(body), 0.7em, style, context-info.scale)
+    label(body, number-length(body), 7pt, style, context-info.scale)
   }
   else if name == "custom" {
     let body = context-info.content
-    label(body, plain(body).clusters().len(), 1em, style, context-info.scale)
+    label(body, plain(body).clusters().len(), 10pt, style, context-info.scale)
   }
   else { panic("forma de marca desconocida: " + name) }
 }

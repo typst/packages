@@ -252,7 +252,7 @@
   )))
 }
 
-// Dibuja la partida en diagramas. Las opciones son las de la rama diagrams (goban-set(diagrams: ...)); las de
+// Dibuja la partida en diagramas. Las opciones son las de la rama diagrams (gobanist-set(diagrams: ...)); las de
 // sgf de la partida (sgf(partida, ...)) valen en cada tablero, salvo las que fija cada diagrama. El metadata de
 // adelante es para goban-layout, que pone los diagramas en su disposición.
 #let sgf-diagrams(game, ..args) = {

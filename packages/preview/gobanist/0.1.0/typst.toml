@@ -1,12 +1,12 @@
 [package]
-name = "goban"
+name = "gobanist"
 version = "0.1.0"
 entrypoint = "lib.typ"
 compiler = "0.15.0"
 authors = ["Jonatán Perren Hug"]
 license = "LPPL-1.3c"
-description = "Draw go boards, games and problems, and read SGF."
-repository = "https://github.com/gxono/goban"
+description = "Draw Go (baduk, weiqi) boards, game diagrams and tsumego problems, and read SGF files."
+repository = "https://github.com/gxono/gobanist"
 keywords = ["go", "baduk", "weiqi", "igo", "board game", "sgf", "tsumego", "kifu"]
 categories = ["visualization", "fun"]
 exclude = ["/doc/", "/tests/", "/kernel/"]
