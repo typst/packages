@@ -85,4 +85,8 @@ Also exported: `code` for numbered listings, `small-todo` (a smaller `dashy-todo
 
 Do not pass `ai-tools` and also call `ai-tools-table` yourself, or the table appears twice.
 
+## License
+
+This package is licensed under the MIT-0 license. The included DHBW logo is not covered by the MIT-0 license and remains the legal property of the Duale Hochschule Baden-Württemberg (DHBW).
+
 Docs: <https://typst.app/docs/>

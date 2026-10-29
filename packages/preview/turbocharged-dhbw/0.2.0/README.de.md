@@ -84,3 +84,7 @@ author: ("Jane Doe", "John Smith"),
 Außerdem exportiert: `code` für nummerierte Listings, `small-todo` (ein kleineres `dashy-todo`), `ai-tools-table`, `ai-acknowledgement` und `source`. `#source[...]` ohne Leerzeichen davor. Steht in derselben Zeile und fehlt im Abbildungsverzeichnis. Eigene Arbeit: `#source[eigene Darstellung]` wird zu `(eigene Darstellung)`. Eine Zitation `#source[@key]` bleibt die Zitation, nicht `([1])`. Abgewandelt: `#source[in Anlehnung an @key]`.
 
 `ai-tools` und `ai-tools-table` nicht gleichzeitig nutzen, sonst erscheint die Tabelle doppelt.
+
+## Lizenz
+
+Dieses Paket steht unter der MIT-0-Lizenz. Das enthaltene DHBW-Logo ist nicht von der MIT-0-Lizenz abgedeckt und bleibt rechtliches Eigentum der Dualen Hochschule Baden-Württemberg (DHBW).
