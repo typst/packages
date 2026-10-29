@@ -1,4 +1,4 @@
-#import "@preview/slides-nudt:0.1.0": *
+#import "@preview/modern-nudt-slides:0.1.0": *
 
 // Edit the cover fields here; theme.typ stays reusable.
 #show: use-theme.with(
