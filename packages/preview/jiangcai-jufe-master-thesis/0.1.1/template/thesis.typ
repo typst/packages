@@ -1,6 +1,6 @@
 //! ⚠️ 开发期用下方 @local 导入（编译带 --root .，改 lib.typ 即时生效）；提交 PR 前必须切回 @preview
-// #import "@preview/jiangcai-jufe-master-thesis:0.1.1": *
-#import "@local/jiangcai-jufe-master-thesis:0.1.1": *
+#import "@preview/jiangcai-jufe-master-thesis:0.1.1": *
+// #import "@local/jiangcai-jufe-master-thesis:0.1.1": *
 
 //! 版本模式："review" 完整版（默认）/ "blind" 送审匿名版 / "print" 无封面打印版
 //! 命令行临时切换：--input mode=blind（不改源文件）
