@@ -79,7 +79,7 @@ typst compile template/thesis.typ blind.pdf --font-path fonts --input mode=blind
 
 ## 文档结构
 
-```
+```bash
 #cover(...)       封面
 #declaration()    独创性声明（blind 模式自动跳过）
 #abstract(...)    中英文摘要与关键词
