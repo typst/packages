@@ -10,14 +10,19 @@
 
 ## 目录
 
-- [项目概述](#项目概述)
-- [使用方法](#使用方法)
-- [文档结构](#文档结构)
-- [功能速查](#功能速查)
-- [注意事项](#注意事项)
-- [贡献指南](#贡献指南)
-- [联系方式](#联系方式)
-- [许可证信息](#许可证信息)
+- [江西财经大学硕士毕业论文Typst模板](#江西财经大学硕士毕业论文typst模板)
+  - [目录](#目录)
+  - [项目概述](#项目概述)
+  - [使用方法](#使用方法)
+    - [安装与编译](#安装与编译)
+    - [版本模式](#版本模式)
+    - [功能一览](#功能一览)
+  - [文档结构](#文档结构)
+  - [功能速查](#功能速查)
+  - [注意事项](#注意事项)
+  - [贡献指南](#贡献指南)
+  - [联系方式](#联系方式)
+  - [许可证信息](#许可证信息)
 
 ## 项目概述
 
@@ -119,7 +124,8 @@ typst compile template/thesis.typ blind.pdf --font-path fonts --input mode=blind
 **缺点：**
 
 1. 句末引用偶现行首悬挂：`…文字#[@ref]。` 中 `[N]` 和句号可能被甩到下一行行首（Typst 引擎局限），在句号后增删一两个字即可避开
-2. Typst 仍在快速迭代，版本更新偶可能引入兼容性问题
+2. GBT2025尚未更新，等待大佬更新https://github.com/YDX-2147483647/gb7714-bench
+3. Typst 仍在快速迭代，版本更新偶可能引入兼容性问题
 
 遇到任何问题欢迎在[讨论区](https://github.com/MaxforCherubim/jufe-thesis-defence-Revealjs-template/discussions)提问，或提交 [issues](https://github.com/MaxforCherubim/jufe-thesis-defence-Revealjs-template/issues)。
 
