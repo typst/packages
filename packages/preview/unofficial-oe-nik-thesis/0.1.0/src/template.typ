@@ -12,7 +12,7 @@
 // Supervisor: a deviation from the Guide approved by the supervisor of the thesis the template was made for
 // Own: the template's own choice
 
-#import "@preview/wordometer:0.1.5": word-count-of
+#import "@preview/wordometer:0.1.6": word-count-of
 #import "@preview/glossarium:0.5.10": count-refs, make-glossary, print-glossary, register-glossary
 
 #import "cover/cover.typ": cover-page
