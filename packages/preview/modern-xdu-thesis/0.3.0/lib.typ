@@ -30,6 +30,10 @@
 #import "pages/appendix.typ": appendix
 #import "pages/references.typ": references
 #import "pages/bio.typ": bio
+#import "supporting/proposal.typ": proposal-documentclass
+#import "supporting/interim.typ": interim-documentclass
+#import "supporting/bachelor-forms.typ": bachelor-proposal-documentclass, bachelor-interim-documentclass
+#import "supporting/course-report.typ": course-report-documentclass
 
 // ============================================================
 // 校验

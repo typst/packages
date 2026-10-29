@@ -1,7 +1,8 @@
 # 西安电子科技大学学位论文 Typst 模板
 
 用 [Typst](https://typst.app) 排版西安电子科技大学本科毕业设计（论文）、硕士与博士学位论文
-（中文撰写）。三者使用独立入口并放在同一个包中；`typst init` 的默认模板仍为硕士。
+（中文撰写），并提供研究生/本科开题、中期考核和通用课程实验报告入口。论文与行政表使用
+独立入口；`typst init` 的默认模板仍为硕士。
 
 **本模板不是学校官方发布**，版式数值以学校发布的 Word / LaTeX 模板及配套规范为准；与官方模板存在差异的地方
 逐条列在[「与官方模板的差异」](#与官方模板的差异)。
@@ -29,10 +30,13 @@
 | 学术学位 / 专业学位 | 包含：由一个参数切换 |
 | 盲审模式 | 包含：由一个开关控制 |
 | 本科毕业设计（论文） | 包含：可开关封面、中英文摘要、目录、正文、附录、参考文献、致谢；独立 `bachelor` 入口 |
-| 本科装订独立表单 | 不包含：诚信书、任务书、中期检查表、成绩评定表、查重报告等由学院另行发放 |
+| 本科装订独立表单 | 包含：开题报告、中期报告；不包含：诚信书、任务书、周记、中期检查表、成绩评定表、查重报告等仍以学院/本科生院原表为准 |
 | 博士学位论文（中文撰写） | 包含：博士专用封面、中英文题名页，学术博士与专业博士字段；正文及后置部分沿用研究生模板 |
+| 研究生开题 / 中期 | 包含：学术/专业硕士、学术/专业博士四类；学院流程和系统导出件仍以学院通知为准 |
+| 课程实验报告 | 包含：通用骨架；非全校统一模板，教师指定模板优先 |
 | 英文撰写的学位论文 | 不包含 |
-| 开题报告 / 中期考核 / 答辩表格 | 不包含：不属于学位论文正文 |
+| 科研实验记录本 | 不包含：未找到全校统一版式，采用学院或导师提供的本子/表格 |
+| 答辩、评阅、审批、经费等表格 | 不包含：只保留官方链接，不批量复刻 |
 | 详细中文摘要（单独装订） | 不包含：学校规定与论文分开装订 |
 
 ## 环境要求
@@ -47,12 +51,12 @@
 
 ## 快速开始
 
-当前版本为 `0.2.0`。Universe 收录进度以 [包页面](https://typst.app/universe/package/modern-xdu-thesis)
+当前版本为 `0.3.0`。Universe 收录进度以 [包页面](https://typst.app/universe/package/modern-xdu-thesis)
 和 [版本提交记录](https://github.com/typst/packages/pulls?q=is%3Apr+modern-xdu-thesis) 为准。
 如果新版本尚未收录，请先按下方步骤注册本地包；新版本可用后，一条命令即可创建项目：
 
 ```bash
-typst init @preview/modern-xdu-thesis:0.2.0 my-thesis   # 硕士（默认模板）
+typst init @preview/modern-xdu-thesis:0.3.0 my-thesis   # 硕士（默认模板）
 cd my-thesis && typst compile thesis.typ                # 编译出 PDF
 ```
 
@@ -60,13 +64,14 @@ cd my-thesis && typst compile thesis.typ                # 编译出 PDF
 把 [`examples/bachelor-thesis.typ`](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/main/examples/bachelor-thesis.typ)
 复制到自己的项目后编译即可。
 
-`0.2.0` 包含本科格式修正与博士支持，已收录的旧版 `0.1.0` 不包含这些更新。
+`0.3.0` 新增研究生/本科开题、中期考核和通用课程实验报告，并沿用 `0.2.0` 的博士支持与
+本科学位论文格式修正。旧版本不包含这些入口。
 博士没有默认 `[template]` 入口，
 从包导入 `doctor-documentclass`（本地源码也可导入 `doctor.typ` 的 `documentclass`），完整示例见
 [`examples/doctor-thesis.typ`](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/main/examples/doctor-thesis.typ)：
 
 ```typst
-#import "@preview/modern-xdu-thesis:0.2.0": doctor-documentclass
+#import "@preview/modern-xdu-thesis:0.3.0": doctor-documentclass
 #let thesis = doctor-documentclass(
   degree: "professional",             // academic / professional
   blind: false,
@@ -107,8 +112,66 @@ Doctor of Philosophy（学术）、工程博士 / Doctor of Engineering（专业
 专业博士2026.5专用前置页的公开成品尚未取得，当前依据仍为官网原始Word。
 本次变更及发布步骤见 [发布说明](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/main/docs/发布说明.md)。
 
+### 开题、中期与课程实验报告
+
+配套材料不是学位论文正文，使用独立入口，且不改变论文的默认 `[template]`。完整示例：
+
+- [`examples/proposal-thesis.typ`](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/main/examples/proposal-thesis.typ)
+  —— 研究生开题报告，支持 `--input graduate=doctor --input degree=professional`
+- [`examples/interim-thesis.typ`](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/main/examples/interim-thesis.typ)
+  —— 研究生中期考核报告
+- [`examples/bachelor-proposal.typ`](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/main/examples/bachelor-proposal.typ)
+  —— 本科开题报告
+- [`examples/bachelor-interim.typ`](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/main/examples/bachelor-interim.typ)
+  —— 本科中期报告
+- [`examples/course-report.typ`](https://github.com/CoderJackZhu/modern-xdu-thesis/blob/main/examples/course-report.typ)
+  —— 通用课程实验报告
+
+```typst
+#import "@preview/modern-xdu-thesis:0.3.0": proposal-documentclass
+#let (doc, proposal) = proposal-documentclass(
+  graduate: "doctor",
+  degree: "professional",
+  info: (
+    title: ("题目第一行", "题目第二行"),
+    author: "张三",
+    student-id: "2026000001",
+    department: "电子工程学院",
+    degree-name: "工程博士",
+    domain: "电子信息",
+    supervisor: "李四　教授",
+    enterprise-supervisor: "王五　高级工程师",
+    proposal-date: "2026 年 10 月",
+  ),
+)
+#show: doc
+#proposal(body: (
+  topicSource: [选题来源],
+  abstract: [中文摘要],
+  significance: [选题意义],
+  researchStatus: [国内外研究现状],
+  goal: [研究目标],
+  researchContent: [研究内容],
+  keyProblems: [拟解决的关键问题],
+  methods: [研究方法、技术路线和可行性],
+  innovation: [论文创新点],
+  plan: [研究计划和预期成果],
+  foundation: [实验条件和研究积累],
+  achievements: [已取得成果],
+  record: [开题报告记录],
+  rubric: ("论文选题": "良好", "研究方案": "良好", "研究基础": "合格", "进度安排": "良好"),
+  conclusion: [评语及结论],
+  advisorOpinion: [指导教师意见],
+))
+```
+
+表格依据、字段差异和已知限制见 [配套材料规格](docs/配套材料规格.md) 与
+[配套材料导航](docs/配套材料导航.md)。开题/中期原表要求 A3 正反套印，本包输出 A4 单页；
+学校研究生管理系统、学院签批和最终格式检测仍需按当期通知完成。课程实验报告入口不是学校
+官方模板，教师已给出模板时应直接使用教师模板。
+
 `dev/pkg-stage.sh` 把仓库挂到 Typst 的本地包目录，模板里的
-`@preview/modern-xdu-thesis:0.2.0` 才能解析到当前工作区。脚本可重复运行，解除用
+`@preview/modern-xdu-thesis:0.3.0` 才能解析到当前工作区。脚本可重复运行，解除用
 `bash dev/pkg-stage.sh --remove`。
 
 ### 在线编辑（typst.app）
@@ -135,7 +198,7 @@ Doctor of Philosophy（学术）、工程博士 / Doctor of Engineering（专业
 `assets/xdu-emblem.png`。然后用调用方构造的 `path(...)` 传给模板：
 
 ```typ
-#import "@preview/modern-xdu-thesis:0.2.0": bachelor
+#import "@preview/modern-xdu-thesis:0.3.0": bachelor
 
 #let (doc, cover, abstract, abstract-en, outline-page, mainmatter,
   appendix, references, acknowledgement) = bachelor.documentclass(
@@ -400,18 +463,20 @@ lib.typ          硕士/博士共用入口，导出 doctor-documentclass 与 bac
 doctor.typ       博士独立入口，导出 documentclass
 bachelor.typ     本科独立实现入口，bachelor.documentclass(info:, cover-enabled:, cover-wordmark:, cover-emblem:)
 bachelor/        本科专用版式、页面与正文规则（不导入硕士 layouts/pages）
+supporting/      开题、中期、课程实验报告的独立版式与入口
 layouts/         研究生页面版式核心
 pages/           研究生页面组件及博士专用前置页
 utils/           字体映射与无状态共用工具
 template/        硕士示例，也是 typst init 默认复制的目录
-examples/        本科与博士完整示例（博士配套 doctor-ref.bib）
+examples/        论文、开题、中期、课程实验报告完整示例（博士配套 doctor-ref.bib）
 写作要求.md       官方撰写要求对照表 + 提交前自查清单
 dev/             仓库开发与验收工具（不进发布包）
 docs/            格式规格、官方要求摘录与实现说明（不进发布包）
 ```
 
 硕士从 `template/thesis.typ` 开始；本科复制 `examples/bachelor-thesis.typ`；
-博士复制 `examples/doctor-thesis.typ` 与 `examples/doctor-ref.bib`。
+博士复制 `examples/doctor-thesis.typ` 与 `examples/doctor-ref.bib`；
+开题/中期/课程实验报告从 `examples/` 下对应文件复制并按学院原表核对。
 
 ## 参考资料
 
