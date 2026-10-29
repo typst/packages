@@ -379,7 +379,7 @@ It must be placed between the label and the body, for example:
 
 ### Item label formatting
 
-  - Setting the _text style_ of item label: `..args`
+  - Setting the _text style_ of item label (any named arguments of `text`): `..args`
   - Label alignment: `label-align`
   - Horizontal movement of the label: `label-inset`
   - Vertical movement of the label: `label-baseline`
