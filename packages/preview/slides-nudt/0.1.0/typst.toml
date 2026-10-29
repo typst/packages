@@ -1,0 +1,15 @@
+[package]
+name = "slides-nudt"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Lane0218 <https://github.com/Lane0218>"]
+license = "MIT"
+description = "NUDT-style slides for research talks and group meetings."
+repository = "https://github.com/Lane0218/slides-nudt"
+keywords = ["slides", "presentation", "NUDT"]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
