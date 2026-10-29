@@ -1,0 +1,7 @@
+[package]
+name = "cdate"
+version = "0.2.1"
+entrypoint = "typst/date.typ"
+authors = ["Julian Y. Richard Corbet <@julian-corbet>"]
+license = "Apache-2.0"
+description = "Format Gregorian dates for German and English correspondence"
