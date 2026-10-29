@@ -8,6 +8,7 @@ description = "NUDT-style slides for research talks and group meetings."
 repository = "https://github.com/Lane0218/slides-nudt"
 keywords = ["slides", "presentation", "NUDT"]
 categories = ["presentation"]
+compiler = "0.15.0"
 
 [template]
 path = "template"

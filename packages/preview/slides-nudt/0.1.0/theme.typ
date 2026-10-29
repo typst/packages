@@ -1,4 +1,4 @@
-#import "@preview/touying:0.7.4": *
+#import "@preview/touying:0.8.0": *
 #import "@preview/touying-simpl-nudt:0.1.0": *
 
 #let nudt-green = rgb("#005844")
