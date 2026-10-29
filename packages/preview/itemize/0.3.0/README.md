@@ -26,7 +26,7 @@ Now you can use `enum` and `list` as usual. `itemize` revises some default behav
 
 Below is a comparison.
 
-![comparison](asserts/native.svg)
+![comparison between native and itemzie](asserts/native.svg)
 
 <details>
 <summary>Code:</summary>
@@ -69,7 +69,7 @@ Below is a comparison.
       <img src="examples/v0.3.0/05-resumed-numbering.svg" width="250px", alt="resumed numbering list">
   </td>
   <td>
-      <img src="examples/v0.3.0/20-memorandum.svg" width="250px", alt="memorandum">
+      <img src="examples/v0.3.0/20-memorandum.svg" width="250px", alt="memorandum with term headings">
   </td>
 </tr>
 <!----->
@@ -135,13 +135,13 @@ Below is a comparison.
 <!---->
 <tr>
   <td>  
-      <img src="examples/v0.3.0/18-timeline.svg" width="250px", alt="timeline">
+      <img src="examples/v0.3.0/18-timeline.svg" width="250px", alt="timeline with circle nodes">
   </td>
   <td>
       <img src="examples/v0.3.0/19-editorial-cards.svg" width="250px", alt="editorial cards">
   </td>
   <td>
-      <img src="examples/v0.3.0/21-leaderboard.svg" width="250px", alt="leaderboard">
+      <img src="examples/v0.3.0/21-leaderboard.svg" width="250px", alt="leaderboard with rank badges">
   </td>
 </tr>
 </table>
@@ -289,7 +289,7 @@ The diagram below illustrates the model for `enum` and `list` in `itemize`.
 Now (since version 0.3.0), each of the `default-*`, `paragraph-*`, and `inline-*` methods will have a separately maintained level counter. When the method is used, its level will start counting from 1 again. If you want to use the level counting from `itemize 0.2.0` (where a single level counter is maintained throughout the entire document), you need to set the parameter `auto-base-level` to `false`.
 
 <a>
-<img src="asserts/model.svg" width="550px", alt="Model">
+<img src="asserts/model.svg" width="550px", alt="The model of enum and list in itemize">
 </a>
 
 <details>
@@ -379,7 +379,7 @@ It must be placed between the label and the body, for example:
 
 ### Item label formatting
 
-  - Setting the _text style_ of item label (any named arguments of `text`): `..args`
+  - Setting the _text style_ of item label: `..args`
   - Label alignment: `label-align`
   - Horizontal movement of the label: `label-inset`
   - Vertical movement of the label: `label-baseline`
