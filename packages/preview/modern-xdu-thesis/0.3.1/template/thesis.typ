@@ -9,7 +9,7 @@
 // 全篇只需 宋体 / 黑体 / Times New Roman 三种，详见 README「字体要求」。
 // Windows 自带 SimSun / SimHei / Times New Roman；macOS 用 Songti SC / Heiti SC。
 
-#import "@preview/modern-xdu-thesis:0.3.0": documentclass
+#import "@preview/modern-xdu-thesis:0.3.1": documentclass
 
 #let (
   doc,

@@ -1,6 +1,6 @@
 // 西安电子科技大学本科毕业设计（论文）Typst 模板 — 独立包入口
 //
-// 用法：#import "@preview/modern-xdu-thesis:0.3.0": bachelor
+// 用法：#import "@preview/modern-xdu-thesis:0.3.1": bachelor
 //      #let (...) = bachelor.documentclass(...)
 // 本文件是本科实现入口；lib.typ 只导出 bachelor 模块命名空间，不复用硕士页面或版式代码。
 
