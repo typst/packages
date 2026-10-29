@@ -1,9 +1,0 @@
-[package]
-name = "tidy"
-version = "0.2.0"
-entrypoint = "src/tidy.typ"
-authors = ["Mc-Zen <https://github.com/Mc-Zen>"]
-license = "MIT"
-exclude = ["/docs/*"]
-description = "Documentation generator for Typst code in Typst."
-homepage = "https://github.com/Mc-Zen/tidy"

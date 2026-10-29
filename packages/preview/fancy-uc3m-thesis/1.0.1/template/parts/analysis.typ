@@ -1,3 +1,0 @@
-= Análisis
-
-#lorem(30)

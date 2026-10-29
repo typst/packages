@@ -1,9 +1,0 @@
-[package]
-name = "algorithmic"
-version = "0.1.0"
-entrypoint = "algorithmic.typ"
-authors = ["Jade Lovelace"]
-license = "MIT"
-repository = "https://github.com/lf-/typst-algorithmic"
-exclude = ["docs/assets/*", "*.pdf"]
-description = "Algorithm pseudocode typesetting for Typst, inspired by algorithmicx in LaTeX"

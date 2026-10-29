@@ -1,8 +1,0 @@
-[package]
-name = "anatomy"
-version = "0.1.1"
-entrypoint = "lib.typ"
-authors = ["Toto"]
-license = "MIT"
-description = "Anatomy of a Font. Visualise metrics."
-exclude = ["README.pdf", "README.typ", "export.typ", "img"]

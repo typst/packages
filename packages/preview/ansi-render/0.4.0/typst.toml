@@ -1,8 +1,0 @@
-[package]
-name = "ansi-render"
-version = "0.4.0"
-entrypoint = "ansi-render.typ"
-authors = ["8LWXpg"]
-license = "MIT"
-description = "provides a simple way to render text with ANSI escape sequences."
-repository = "https://github.com/8LWXpg/typst-ansi-render"

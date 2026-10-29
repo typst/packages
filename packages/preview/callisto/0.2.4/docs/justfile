@@ -1,6 +1,0 @@
-lorenz: (screenshot "lorenz-extract.typ")
-
-screenshot filename:
-    typst c --root=.. {{filename}} {{file_stem(filename)}}.png
-
-

@@ -1,1 +1,0 @@
-#import "droplet.typ": dropcap

@@ -1,7 +1,0 @@
-.DS_Store
-.vscode
-.idea
-
-*/**/*.pdf
-tests/**/diff
-tests/**/out

@@ -1,8 +1,0 @@
-[package]
-name = "typearea"
-version = "0.1.0"
-entrypoint = "typearea.typ"
-authors = ["Adrian Freund"]
-license = "MIT"
-repository = "https://github.com/freundTech/typst-typearea"
-description = "A KOMA-Script inspired package to better configure your typearea and margins."

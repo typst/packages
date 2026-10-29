@@ -1,6 +1,0 @@
-
-= Acknowledgement
-
-Thanks to....
-
-

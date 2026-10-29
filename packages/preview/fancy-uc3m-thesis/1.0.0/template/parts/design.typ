@@ -1,3 +1,0 @@
-= Diseño
-
-#lorem(30)

@@ -1,8 +1,0 @@
-[package]
-name = "suboutline"
-version = "0.1.0"
-description = "An outline function just for one section and nothing else"
-authors = ["nxe <@RosiePuddles>", "sdiebolt <@sdiebolt>"]
-license = "GPL-3.0-only"
-entrypoint = "lib.typ"
-repository = "https://github.com/sdiebolt/suboutline"

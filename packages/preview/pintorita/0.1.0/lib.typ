@@ -1,1 +1,0 @@
-#import "./pintorita.typ": render

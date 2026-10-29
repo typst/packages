@@ -1,2 +1,0 @@
-= Introducción
-<sec:introduccion>

@@ -1,7 +1,0 @@
-*.pdf
-!guide.pdf
-
-.vscode
-
-# For macOS users
-.DS_Store

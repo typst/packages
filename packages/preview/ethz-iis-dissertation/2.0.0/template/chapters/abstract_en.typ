@@ -1,3 +1,0 @@
-= Abstract
-
-#lorem(200)

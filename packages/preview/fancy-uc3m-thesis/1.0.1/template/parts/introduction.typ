@@ -1,4 +1,0 @@
-= Introducción
-
-#lorem(50)
-

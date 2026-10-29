@@ -1,8 +1,0 @@
-[package]
-name = "gloss-awe"
-version = "0.0.5"
-authors = ["JKRB <https://github.com/RolfBremer>"]
-license = "Apache-2.0"
-description = "Awesome Glossary for Typst."
-entrypoint = "gloss-awe.typ"
-repository = "https://github.com/RolfBremer/gloss-awe"

@@ -1,8 +1,0 @@
-[package]
-name = "slydst"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["Gaspard Lambrechts"]
-license = "MIT"
-description = "Create simple static slides using standard headings"
-exclude = ["svg", "example.typ"]

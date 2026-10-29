@@ -1,7 +1,0 @@
-[package]
-name = "simpleplot"
-version = "0.1.0"
-entrypoint = "lib.typ"
-authors = ["Tobs"]
-license = "MIT"
-description = "A super simple Package to make graphs as simple as possible"

@@ -1,1 +1,0 @@
-#import "squircle.typ": squircle

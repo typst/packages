@@ -1,6 +1,0 @@
-
-
-// ---------- Danach normale Seitenränder wiederherstellen ----------
-
-
-

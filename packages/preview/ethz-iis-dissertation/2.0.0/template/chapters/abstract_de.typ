@@ -1,3 +1,0 @@
-= Zusammenfassung
-
-#lorem(200)

@@ -1,3 +1,0 @@
-= Acknowledgments
-
-#lorem(100)

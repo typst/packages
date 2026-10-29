@@ -1,7 +1,0 @@
-tabler-icons*.ttf
-!fonts/*.ttf
-# ignore any version folders
-*.*.*
-
-
-tools/tmp

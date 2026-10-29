@@ -1,3 +1,0 @@
-= Evaluación
-
-#lorem(30)

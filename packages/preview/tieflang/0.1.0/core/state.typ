@@ -1,5 +1,0 @@
-#let stored-translations = state("stored-translations", (default: (:)))
-#let default-lang = state("default-lang", (default: "en-US"))
-#let is-strict-mode-enabled = state("is-strict-mode-enabled", false)
-#let available-langs = state("available-langs", (default: ()))
-#let current-lang-stack = state("current-lang", ())

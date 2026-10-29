@@ -1,8 +1,0 @@
-[package]
-name = "lemmify"
-version = "0.1.1"
-entrypoint = "src/lib.typ"
-authors = ["Marmare314"]
-license = "GPL-3.0-only"
-description = "Theorem typesetting library."
-repository = "https://github.com/Marmare314/lemmify"
