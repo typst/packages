@@ -1,0 +1,14 @@
+# https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+
+# Example:
+harry:
+  type: Book
+  title: Harry Potter and the Order of the Phoenix
+  author: Rowling, J. K.
+  date: 2003-06-21
+
+electronic:
+  type: Web
+  title: Ishkur's Guide to Electronic Music
+  author: Ishkur
+  url: http://www.techno.org/electronic-music-guide/
