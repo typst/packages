@@ -63,7 +63,7 @@ Write compact **qu**izzes and t**ests** (quests) with Typst! To get started, see
 
 The contents of this file compiles to the following preview.
 
-![Thumbnail of "My Quiz or Test" containing 4 numbered questions used only to demonstrate the quest template.](template/thumbnail.png)
+![Thumbnail of "My Quiz or Test" containing 4 numbered questions used only to demonstrate the quest template.](thumbnail.png)
 
 ## Usage
 
