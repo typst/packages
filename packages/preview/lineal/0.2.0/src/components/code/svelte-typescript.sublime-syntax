@@ -1,0 +1,8 @@
+%YAML 1.2
+---
+name: Lineal Svelte TypeScript
+file_extensions: [svelte-ts, lineal-svelte-ts]
+scope: source.ts.svelte
+contexts:
+  main:
+    - include: ts-main
