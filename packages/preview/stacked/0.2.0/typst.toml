@@ -1,0 +1,41 @@
+[package]
+name = "stacked"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = [ "Akilon <https://github.com/Akilon27>" ]
+license = "MIT"
+description = """
+Stacked cubes and dices,
+solids sections and nets"""
+repository = "https://github.com/Akilon27/stacked"
+categories = [ "utility", "visualization" ]
+disciplines = [ "mathematics", "education" ]
+keywords = [
+  "pile",
+  "empilement",
+  "assemblage",
+  "cubes",
+  "dés",
+  "yams",
+  "stacked",
+  "stacks",
+  "heap",
+  "dice",
+  "die",
+  "yams",
+  "section",
+  "net",
+  "patron",
+  "polyèdre",
+  "polyhedron",
+  "sphere",
+  "cylinder",
+  "cone",
+  "globe",
+  "meridian",
+  "regular",
+  "pyramid",
+  "polygon"
+]
+exclude = [ "*.svg", "*.pdf", "*.png" ]
+compiler = "0.15.0"
