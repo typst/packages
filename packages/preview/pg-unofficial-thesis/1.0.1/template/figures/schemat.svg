@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="150" viewBox="0 0 480 150" font-family="Arial, Liberation Sans, sans-serif" font-size="14">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <g stroke="#222" stroke-width="1.5" fill="#eef3fa">
+    <rect x="10" y="45" width="120" height="60" rx="6"/>
+    <rect x="180" y="45" width="120" height="60" rx="6"/>
+    <rect x="350" y="45" width="120" height="60" rx="6"/>
+  </g>
+  <g stroke="#222" stroke-width="1.5">
+    <line x1="130" y1="75" x2="178" y2="75" marker-end="url(#a)"/>
+    <line x1="300" y1="75" x2="348" y2="75" marker-end="url(#a)"/>
+  </g>
+  <g text-anchor="middle" fill="#111">
+    <text x="70" y="80">Dane</text>
+    <text x="240" y="80">Przetwarzanie</text>
+    <text x="410" y="80">Wyniki</text>
+  </g>
+</svg>
