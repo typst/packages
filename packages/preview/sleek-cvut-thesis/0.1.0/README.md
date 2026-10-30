@@ -1,20 +1,20 @@
-<h1 align="center">cvut-thesis</h1>
+<h1 align="center">sleek-cvut-thesis</h1>
 
 <p align="center">
   <strong>Unofficial thesis layout for ČVUT (CTU in Prague)</strong><br>
 </p>
 
 <p align="center">
-  <a href="https://typst.app/universe/package/cvut-thesis"><img alt="Package: @preview/cvut-thesis" src="https://img.shields.io/badge/package-@preview%2Fcvut--thesis-239dad?logo=typst&logoColor=white"></a>
+  <a href="https://typst.app/universe/package/sleek-cvut-thesis"><img alt="Package: @preview/sleek-cvut-thesis" src="https://img.shields.io/badge/package-@preview%2Fcvut--thesis-239dad?logo=typst&logoColor=white"></a>
   <img alt="Typst 0.11+" src="https://img.shields.io/badge/typst-0.11%2B-239dad?logo=typst&logoColor=white">
   <a href="LICENSE"><img alt="License: MIT-0" src="https://img.shields.io/badge/license-MIT--0-blue.svg"></a>
 </p>
 
 <p align="center">
-  <img src="thumbnail.png" alt="Preview of the cvut-thesis Typst template" width="50%">
+  <img src="thumbnail.png" alt="Preview of the sleek-cvut-thesis Typst template" width="50%">
 </p>
 
-`cvut-thesis` is an unofficial Typst template for qualification theses at the Czech Technical University in Prague. It currently focuses on the Faculty of Electrical Engineering (`fel-thesis`).
+`sleek-cvut-thesis` is an unofficial Typst template for qualification theses at the Czech Technical University in Prague. It currently focuses on the Faculty of Electrical Engineering (`fel-thesis`).
 
 > **Note:** This template is unofficial and not endorsed by ČVUT. Always verify the final PDF against your faculty's current thesis requirements before submitting.
 
@@ -28,11 +28,11 @@
 - Template project with ČVUT logo and ISO690-numeric citation style.
 
 ## Quick start
-In the [Typst web app](https://typst.app), click **Start from template** and search for `cvut-thesis`.
+In the [Typst web app](https://typst.app), click **Start from template** and search for `sleek-cvut-thesis`.
 
 Or initialize a fresh project locally with the Typst CLI:
 ```sh
-typst init @preview/cvut-thesis:0.1.0 my-thesis
+typst init @preview/sleek-cvut-thesis:0.1.0 my-thesis
 cd my-thesis
 typst watch main.typ
 ```
@@ -41,7 +41,7 @@ Typst will copy the starter project (from the `template` folder) and keep recomp
 ## Usage
 A minimal thesis starts with a single `show` rule:
 ```typ
-#import "@preview/cvut-thesis:0.1.0": fel-thesis
+#import "@preview/sleek-cvut-thesis:0.1.0": fel-thesis
 
 #show: fel-thesis.with(
   title: "Velmi zajímavá studie",
@@ -108,7 +108,7 @@ The bundled starter also includes a bibliography call:
 
 ## Project structure
 ```text
-cvut-thesis/
+sleek-cvut-thesis/
 ├─ lib.typ                  # public exports
 ├─ typst.toml               # typst package manifest
 ├─ src/

@@ -1,9 +1,9 @@
 [package]
-name = "cvut-thesis"
+name = "sleek-cvut-thesis"
 version = "0.1.0"
 compiler = "0.11.0"
 authors = ["Filip Růžička <https://firu.dev>"]
-repository = "https://github.com/firu11/cvut-thesis"
+repository = "https://github.com/firu11/sleek-cvut-thesis"
 license = "MIT-0 AND CC-BY-SA-3.0"
 description = "Unofficial thesis layout for ČVUT (CTU in Prague)."
 entrypoint = "lib.typ"
