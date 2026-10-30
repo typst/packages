@@ -1,0 +1,18 @@
+[package]
+name = "ratsch-bmim"
+version = "0.5.0"
+entrypoint = "src/lib.typ"
+compiler = "0.15.0"
+authors = ["IACE <https://github.com/umit-iace>"]
+license = "MIT"
+description = "Template for articles/exams/exercises/flyers/labs/lectures/letters/posters/reports/slides/theses/workbooks by IACE/BMIM at UMIT TIROL."
+repository = "https://github.com/umit-iace/typst-umit-tirol-bmim"
+keywords = ["UMIT TIROL", "IACE", "Article", "Exam", "Exercise", "Flyer", "Lecture", "Letter", "Poster", "Report", "Slides", "Thesis", "Workbook"]
+categories = ["office"]
+disciplines = ["education"]
+exclude = [".github/", "example/", "tests/", "*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

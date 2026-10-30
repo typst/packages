@@ -1,0 +1,37 @@
+[package]
+name = "longops"
+version = "0.2.1"
+entrypoint = "lib.typ"
+authors = [ "Akilon <https://github.com/Akilon27>" ]
+license = "MIT"
+description = "Long operations and detailed calculations.                        Opérations posées et calculs détaillés."
+repository = "https://github.com/Akilon27/longops"
+categories = [ "utility", "visualization" ]
+disciplines = [ "mathematics", "education" ]
+keywords = [
+  "addition",
+  "soustraction",
+  "subtraction",
+  "multiplication",
+  "division",
+  "opérations",
+  "operations",
+  "racine",
+  "sqrt",
+  "square root",
+  "durées",
+  "durations",
+  "xlop",
+  "base",
+  "binary",
+  "hexadecimal",
+  "Jalousie",
+  "Gelosia",
+  "Napier",
+  "Lattice",
+  "Ethiopian",
+  "Japanese",
+  "Russian"
+]
+exclude = [ "/Exemples/*", "*.pdf", "*.svg" ]
+compiler = "0.15.0"

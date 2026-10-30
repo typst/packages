@@ -1,0 +1,19 @@
+[package]
+name = "invar"
+version = "0.1.0"
+compiler = "0.15.0"
+entrypoint = "lib.typ"
+repository = "https://codeberg.org/haydn/invar"
+authors = ["Haydn Trowell"]
+license = "GPL-3.0-or-later"
+description = "Precision invoices with expressive typography."
+keywords = ["invoice", "billing", "typography", "variable-font"]
+categories = ["office"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool.Typesetter]
+name = "Invar"

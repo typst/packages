@@ -1,0 +1,17 @@
+[package]
+name = "turbocharged-dhbw"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Rudi Regentonne <@Rudi-Regentonne>", "Luisa Bellitto <@bubblecup-12>"]
+license = "MIT-0"
+description = "Practical reports and theses at DHBW (unofficial)."
+repository = "https://github.com/Rudi-Regentonne/turbocharged-dhbw"
+keywords = ["dhbw", "Duale Hochschule Baden-Württemberg", "thesis", "Praxisbericht", "Studienarbeit", "Bachelorarbeit", "Projektarbeit"]
+categories = ["paper", "thesis", "report"]
+compiler = "0.15.0"
+exclude = ["**/*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
