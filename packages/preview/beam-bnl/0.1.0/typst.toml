@@ -5,7 +5,6 @@ entrypoint = "lib.typ"
 authors = ["Mark P. M. Dean <@mpmdean>"]
 license = "MIT-0"
 description = "Community letterhead for Brookhaven National Laboratory."
-repository = "https://github.com/mpmdean/packages/tree/beam-bnl-0.1.0/packages/preview/beam-bnl/0.1.0"
 keywords = ["Brookhaven National Laboratory", "BNL", "letter", "letterhead"]
 categories = ["office"]
 compiler = "0.14.0"

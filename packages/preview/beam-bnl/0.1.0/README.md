@@ -6,8 +6,6 @@ Requires Typst 0.14.0 or later. Code and starter files are licensed MIT-0.
 
 ## Quick start
 
-After publication:
-
 ```sh
 typst init @preview/beam-bnl:0.1.0 my-letter
 cd my-letter
