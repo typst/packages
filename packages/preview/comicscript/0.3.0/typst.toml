@@ -1,0 +1,12 @@
+[package]
+name = "comicscript"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["3sdras"]
+license = "MIT"
+description = "Write comic scripts with multiple views and reports."
+repository = "https://github.com/3sdras/comicscript"
+keywords = ["comics", "script", "hq", "roteiro"]
+categories = ["components"]
+compiler = "0.14.1"
+exclude = ["/docs/", "/examples/", "/tests/", "/.gitignore", "/.gitattributes", ".DS_Store", "__pycache__"]
