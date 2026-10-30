@@ -44,14 +44,14 @@ Short package for plotting real-time scheduling of tasksets.
 
 The configuration is represented as an array of three values:
 
-- the width of a task (`step_width`: length)
-- the height of a task (`task_height`: length)
+- the width of a task (`step-width`: length)
+- the height of a task (`task-height`: length)
 - the color set from which the task choose a color (`colors`: array of colors)
 
 ```typst
 #let config = (
-  task_height: 0.8cm,
-  step_width: 2em,
+  task-height: 0.8cm,
+  step-width: 2em,
   colors: none,
 )
 ```
@@ -85,16 +85,16 @@ plot(
   tasks: array,
   // the configuration of the plot (array)
   // contains the following fields
-  // - config.task_height (mandatory)
+  // - config.task-height (mandatory)
   //   the height of the tasks
-  // - config.step_width (mandatory)
+  // - config.step-width (mandatory)
   //   the width of the tasks
   // - config.colors (optional)
   //   the colors from which each task get their color (by index modulo
   //   the number of colors)
   config: (
-    task_height: 0.8cm,
-    step_width: 2em,
+    task-height: 0.8cm,
+    step-width: 2em,
     colors: none,
   ),
   // the scheduling function, if none only the plot is displayed
@@ -104,7 +104,7 @@ plot(
   scheduler: none,
   // display a mark to indicate an idle unit (default: false)
   display-idle: false,
-  // try to find a step_width that enable the plot to be printed on a a4 page
+  // try to find a step-width that enable the plot to be printed on a a4 page
   auto-width: true,
 )
 ```
@@ -154,7 +154,7 @@ The scheduling function is then passed as a parameter of the `plot` function.
 
 ![Example of plot with a RM scheduling](assets/rm.svg)
 
-3. Utiliser des couleurs pour l'affichage
+3. Use colors for plotting
 
 ```typst
 #import "@preview/rt-sched:0.0.1": *

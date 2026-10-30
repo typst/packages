@@ -3,13 +3,13 @@
 #import "@preview/cetz:0.5.3"
 
 #let config = (
-  task_height: 0.8cm,
-  step_width: 2em,
+  task-height: 0.8cm,
+  step-width: 2em,
   colors: none,
 )
 
 #let heuristic-len(len-interval) = {
-  // interval of 20 -> step_width = 2em
+  // interval of 20 -> step-width = 2em
   let x = 40
   return (x / len-interval) * 1em
 }
@@ -17,7 +17,7 @@
 #let task-label(i) = $tau_#i$
 
 #let task-pos(i, t: 0) = {
-  (x: t, y: config.task_height * i)
+  (x: t, y: config.task-height * i)
 }
 
 #let plot(
@@ -37,16 +37,16 @@
   tasks: array,
   // the configuration of the plot (array)
   // contains the following fields
-  // - config.task_height (mandatory)
+  // - config.task-height (mandatory)
   //   the height of the tasks
-  // - config.step_width (mandatory)
+  // - config.step-width (mandatory)
   //   the width of the tasks
   // - config.colors (optional)
   //   the colors from which each task get their color (by index modulo
   //   the number of colors)
   config: (
-    task_height: 0.8cm,
-    step_width: 2em,
+    task-height: 0.8cm,
+    step-width: 2em,
     colors: none,
   ),
   // the scheduling function, if none only the plot is displayed
@@ -56,7 +56,7 @@
   scheduler: none,
   // display a mark to indicate an idle unit (default: false)
   display-idle: false,
-  // try to find a step_width that enable the plot to be printed on a a4 page
+  // try to find a step-width that enable the plot to be printed on a a4 page
   auto-width: true,
 ) = {
   cetz.canvas({
@@ -67,13 +67,13 @@
     }
 
     if (auto-width) {
-      config.step_width = heuristic-len(to - from)
+      config.step-width = heuristic-len(to - from)
     }
-    // panic(config.step_width)
+    // panic(config.step-width)
 
     // X-axis ticks
     for j in range(0, to - from, step: step, inclusive: true) {
-      let i = config.step_width * j
+      let i = config.step-width * j
       // Tick
       line((i, 0), (i, -0.1))
       // Value
@@ -81,12 +81,12 @@
       // Line-separator
       line(
         (i, 0),
-        (i, config.task_height * tasks.len()),
+        (i, config.task-height * tasks.len()),
         stroke: (dash: "dotted", thickness: 0.6pt, paint: gray),
       )
     }
     // X-axis
-    line((0, 0), (config.step_width * (to - from), 0))
+    line((0, 0), (config.step-width * (to - from), 0))
 
     // Y-axis lines
     for task_number in range(1, tasks.len() + 1) {
@@ -95,13 +95,13 @@
       line((-0.2, task_pos.y), (0, task_pos.y))
       // Y-Label
       content(
-        (-0.5, task_pos.y - (config.task_height / 2)),
+        (-0.5, task_pos.y - (config.task-height / 2)),
         task-label(task_number),
       )
       // Line-separator
       line(
         (0, task_pos.y),
-        (config.step_width * (to - from), task_pos.y),
+        (config.step-width * (to - from), task_pos.y),
         stroke: (dash: "dotted", thickness: 1pt, paint: gray),
       )
       // Y-axis
@@ -114,10 +114,10 @@
       let task-pos = task-pos(task_id - 1, t: t)
       // Prevent printing the mark outside the plot
       if (t <= to) {
-        let x-pos = config.step_width * t
+        let x-pos = config.step-width * t
         let y-pos = task-pos.y
         mark(
-          (x-pos + dx, y-pos + config.task_height - dy),
+          (x-pos + dx, y-pos + config.task-height - dy),
           (x-pos + dx, y-pos),
           ..content,
         )
@@ -127,31 +127,31 @@
     let plot-release(task_id, t) = {
       let task-pos = task-pos(task_id, t: t)
       // Prevent printing the mark outside the plot
-      let x-pos = config.step_width * t
+      let x-pos = config.step-width * t
       line(
-        (x-pos, task-pos.y - (config.task_height / 4)),
+        (x-pos, task-pos.y - (config.task-height / 4)),
         (x-pos, task-pos.y),
-        mark: (start: "barbed", length: config.task_height / 10),
+        mark: (start: "barbed", length: config.task-height / 10),
       )
     }
 
     let plot-deadline(task_id, t) = {
-      plot-mark(task_id, t, dy: config.task_height / 2, "x", scale: 0.7)
+      plot-mark(task_id, t, dy: config.task-height / 2, "x", scale: 0.7)
     }
 
     let plot-missed-deadline(task_id, t) = {
       plot-mark(
         task_id,
         t,
-        dx: config.step_width / 2,
-        dy: config.task_height / 2,
+        dx: config.step-width / 2,
+        dy: config.task-height / 2,
         "x",
         stroke: 1pt + red,
       )
     }
 
     let plot-idle(task_id, t) = {
-      plot-mark(task_id, t, dx: config.step_width / 2, dy: config.task_height / 1.5, "<>", fill: black, scale: 0.7)
+      plot-mark(task_id, t, dx: config.step-width / 2, dy: config.task-height / 1.5, "<>", fill: black, scale: 0.7)
     }
 
     let job(task_id, task, t) = {
@@ -198,8 +198,8 @@
       let task = tasks.at(task_id - 1)
       let task-pos = task-pos(task_id - 1, t: t)
       rect(
-        (task-pos.x * config.step_width, task-pos.y),
-        ((task-pos.x + n) * config.step_width, task-pos.y + config.task_height),
+        (task-pos.x * config.step-width, task-pos.y),
+        ((task-pos.x + n) * config.step-width, task-pos.y + config.task-height),
         fill: if (config.keys().contains("colors")) {
           if (config.colors != none) {
             config.colors.at(calc.rem(task_id - 1, config.colors.len()))
@@ -255,7 +255,7 @@
         if (not task-param.keys().contains("o")) {
           task-param.insert("o", 0)
         }
-        let x-pos = config.step_width * (t - from)
+        let x-pos = config.step-width * (t - from)
         // Releases
         if (is-task-asynchronous(task-param)) {
           // Asynchronous case

@@ -12,8 +12,8 @@
 #print-taskset(taskset)
 
 #let config = (
-  task_height: 0.8cm,
-  step_width: 2em,
+  task-height: 0.8cm,
+  step-width: 2em,
   colors: (gray.lighten(80%),),
 )
 
@@ -29,8 +29,8 @@
 #print-taskset(taskset)
 
 #let config = (
-  task_height: 0.8cm,
-  step_width: 0.28em,
+  task-height: 0.8cm,
+  step-width: 0.28em,
   colors: (gray.lighten(80%),),
 )
 
@@ -48,8 +48,8 @@
 #print-taskset(taskset)
 
 #let config = (
-  task_height: 0.8cm,
-  step_width: 0.3em,
+  task-height: 0.8cm,
+  step-width: 0.3em,
   colors: (gray.lighten(80%),),
 )
 
@@ -66,8 +66,8 @@
 #print-taskset(taskset)
 
 #let config = (
-  task_height: 0.8cm,
-  step_width: 1.5em,
+  task-height: 0.8cm,
+  step-width: 1.5em,
   colors: (gray.lighten(80%),),
 )
 
@@ -77,8 +77,8 @@
 = Least Laxity First (LLF)
 
 #let config = (
-  task_height: 0.8cm,
-  step_width: 2em,
+  task-height: 0.8cm,
+  step-width: 2em,
   colors: (gray.lighten(80%),),
 )
 
