@@ -1,4 +1,4 @@
-#import "@preview/unofficial-oe-nik-thesis:0.1.0": ai-tool, thesis-template
+#import "@preview/unofficial-oe-nik-thesis:0.1.1": ai-tool, thesis-template
 
 #show: thesis-template.with(
   // "en" or "hu", the language of the cover page, the generated titles, the captions and the references
@@ -47,6 +47,8 @@
       date: datetime(year: 2026, month: 9, day: 14),
     ) <ai-test-cases>
   ],
+  // the free Nimbus Roman and Nimbus Sans by default, or the original fonts of the guide if you have them
+  // fonts: (serif: "Times New Roman", sans: "Arial"),
   // the missing parts are red notes while drafting, `false` (or `typst compile --input draft=false`) turns them and
   // the length checks into errors for the version to submit
   draft: true,

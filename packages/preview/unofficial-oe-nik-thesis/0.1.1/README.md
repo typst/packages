@@ -12,7 +12,7 @@ In the [web app](https://typst.app), choose "Start from template" and search for
 On the command line, create a project and compile it on every change:
 
 ```sh
-typst init @preview/unofficial-oe-nik-thesis:0.1.0 thesis
+typst init @preview/unofficial-oe-nik-thesis:0.1.1 thesis
 cd thesis
 typst watch main.typ
 ```
@@ -21,7 +21,7 @@ The new project is an example thesis that shows what the template can do, replac
 The smallest thesis looks like this:
 
 ```typ
-#import "@preview/unofficial-oe-nik-thesis:0.1.0": thesis-template
+#import "@preview/unofficial-oe-nik-thesis:0.1.1": thesis-template
 
 #show: thesis-template.with(
   lang: "en",
@@ -61,9 +61,22 @@ typst watch --font-path fonts main.typ
 With Nix, the repository's flake has them as a package:
 
 ```sh
-export TYPST_FONT_PATHS=$(nix build --no-link --print-out-paths github:gepbird/unofficial-oe-nik-thesis/v0.1.0#nimbus)/share/fonts
+export TYPST_FONT_PATHS=$(nix build --no-link --print-out-paths github:gepbird/unofficial-oe-nik-thesis/v0.1.1#nimbus)/share/fonts
 typst watch main.typ
 ```
+
+To use other fonts, like the original Times New Roman and Arial if you have them, change them with the `fonts` parameter:
+
+```typ
+#show: thesis-template.with(
+  // ...
+  fonts: (serif: "Times New Roman", sans: "Arial"),
+)
+```
+
+`serif` is the font of the text and the thesis type on the cover page, `sans` is the font of the rest of the cover page.
+Each can be a font name or an array of fallbacks, and a font you leave out stays the default.
+The line spacing is calculated from the line height of Times New Roman, and it stays the same with other fonts.
 
 ## Features
 
@@ -98,6 +111,7 @@ Instead, you need to insert the signed PDFs, until then a placeholder marks thei
 | `appendices` | `none` | each appendix is a subchapter, e.g. `[== Source code ...]` |
 | `ai-tools` | `none` | the AI tools you used, see below |
 | `body-length`, `summary-length` | `auto` | changes to the length limits, see below |
+| `fonts` | `auto` | other fonts, e.g. `(serif: "Times New Roman", sans: "Arial")`, see [Fonts](#fonts) |
 | `draft` | `true` | `false` for the version to submit |
 
 A part that is `auto` is still missing and shows up as a red note, `none` leaves it out.
@@ -109,7 +123,7 @@ Add each tool with `ai-tool` and a label, then reference it in the text where yo
 Text written by AI has to be in italics followed by the reference, `ai-generated` does that:
 
 ```typ
-#import "@preview/unofficial-oe-nik-thesis:0.1.0": ai-generated, ai-tool, thesis-template
+#import "@preview/unofficial-oe-nik-thesis:0.1.1": ai-generated, ai-tool, thesis-template
 
 #show: thesis-template.with(
   // ...

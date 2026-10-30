@@ -28,6 +28,8 @@
   year: none,
   author: none,
   registration-number: none,
+  // `serif` and `sans` fonts, see `default-fonts` in ../template.typ
+  fonts: none,
 ) = {
   let texts = cover-texts.at(lang)
   let margin = (top: 1.5cm, right: 2cm, left: 3cm)
@@ -39,8 +41,7 @@
   let baseline = 1.5 * 1.15 * 12pt - descent
   set text(top-edge: baseline, bottom-edge: -descent)
   set par(leading: 8pt, spacing: 8pt, justify: false)
-  // Own: URW Nimbus Sans instead of Arial, like Nimbus Roman (Supervisor) instead of Times New Roman
-  set text(font: "Nimbus Sans", size: 12pt)
+  set text(font: fonts.sans, size: 12pt)
 
   grid(
     columns: (4.69cm, 5.75cm, 1fr),
@@ -57,7 +58,7 @@
   place(
     top + center,
     dy: 11.24cm - margin.top,
-    text(font: "Nimbus Roman", size: 36pt, weight: "bold", top-edge: "baseline", upper(thesis-type)),
+    text(font: fonts.serif, size: 36pt, weight: "bold", top-edge: "baseline", upper(thesis-type)),
   )
 
   place(top, dy: 25.16cm - margin.top - baseline, grid(

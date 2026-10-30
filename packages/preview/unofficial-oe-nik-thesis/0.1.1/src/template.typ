@@ -100,6 +100,26 @@
   if value == none { (:) } else if value == auto { guide } else { guide + value }
 }
 
+// Guide 2.3: "The font used in the body text is Times New Roman"
+// Docx: the cover page is in Arial, except the thesis type in Times New Roman
+// Supervisor: URW Nimbus Roman is fine to use, a free alternative to Times New Roman
+// Own: URW Nimbus Sans instead of Arial, like Nimbus Roman instead of Times New Roman
+#let default-fonts = (serif: "Nimbus Roman", sans: "Nimbus Sans")
+
+// checks a parameter changing the `default-fonts`, e.g. `(serif: "Times New Roman")`, and returns the fonts
+#let assert-fonts(value) = {
+  assert(
+    value == auto
+      or type(value) == dictionary
+        and value.pairs().all(((key, font)) => key in default-fonts and type(font) in (str, array)),
+    message: "`fonts` must be `auto` or some of the fonts "
+      + default-fonts.keys().map(repr).join(", ")
+      + " as a font name or an array of fallbacks, e.g. `fonts: (serif: \"Times New Roman\", sans: \"Arial\")`, got "
+      + repr(value),
+  )
+  if value == auto { default-fonts } else { default-fonts + value }
+}
+
 // an error if `actual` is out of the limit `key` (e.g. "min-pages") of `assert-length-limits`, `name` is the
 // parameter that changes it, `what` is what was measured, e.g. "the number of pages in the chapters"
 #let check-length(name, limits, key, actual, what) = {
@@ -192,6 +212,9 @@
   ai-tools: none,
   // each appendix is a subchapter, e.g. `[== Source code ...]`
   appendices: none,
+  // changes to the `default-fonts`, e.g. `(serif: "Times New Roman", sans: "Arial")`: `serif` for the text and the
+  // thesis type on the cover page, `sans` for the rest of the cover page
+  fonts: auto,
   // `false` (or `typst compile --input draft=false`) for the version to submit
   draft: true,
   body,
@@ -228,6 +251,7 @@
   assert-type((content, none), "ai-tools", ai-tools, hint: "e.g. `[#ai-tool(...) <ai-example>]`")
   assert-type((content, none), "appendices", appendices, hint: "e.g. `[== Source code ...]`")
   let summary = assert-per-language("summary", summary)
+  let fonts = assert-fonts(fonts)
   assert(
     abbreviations in (auto, none)
       or type(abbreviations) == array
@@ -264,14 +288,14 @@
   )
 
   // Guide 2.3: "The font used in the body text is Times New Roman, size 12, with justified alignment."
-  // Supervisor: URW Nimbus Roman is fine to use, a free alternative to Times New Roman
-  set text(font: "Nimbus Roman", size: 12pt)
+  set text(font: fonts.serif, size: 12pt)
   set par(justify: true)
 
   // Guide 2.3: "line spacing 1.5 lines"
   let line-spacing = 1.5
   // Docx: a multiple of the font's single line height: ascender + descender + line gap of its hhea table, the sum
   // is the same for Nimbus Roman TrueType (1604, 444, 307 / 2048) and Times New Roman (1825, 443, 87 / 2048)
+  // Own: Typst can't read these from the font, so other `fonts` get the same line height as Times New Roman
   // https://forum.typst.app/t/getting-office-365-word-line-spacing-in-typst/3422
   let ascender = 1604 / 2048 * 1em
   let descender = 444 / 2048 * 1em
@@ -415,6 +439,7 @@
     year: year,
     author: author,
     registration-number: registration-number,
+    fonts: fonts,
   )
 
   // Guide 2.3: the worksheet, the student declaration and the consultation log are mandatory front pages

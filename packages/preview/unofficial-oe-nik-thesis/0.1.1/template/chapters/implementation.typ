@@ -1,4 +1,4 @@
-#import "@preview/unofficial-oe-nik-thesis:0.1.0": ai-generated
+#import "@preview/unofficial-oe-nik-thesis:0.1.1": ai-generated
 
 = Implementation <implementation>
 
