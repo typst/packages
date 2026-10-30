@@ -1,0 +1,16 @@
+[package]
+name = "simple-ctu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Petr Chalupa <https://chalupapetr.cz>"]
+license = "MIT"
+description = "Thesis and reports at CTU in Prague."
+repository = "https://github.com/Petr-Chalupa/Typst-CTU-Thesis"
+keywords = ["ctu", "Czech Technical University in Prague", "čvut", "České vysoké učení technické v Praze", "thesis", "paper", "fel"]
+categories = ["thesis"]
+compiler = "0.15.0" 
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
