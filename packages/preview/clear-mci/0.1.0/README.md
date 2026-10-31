@@ -208,7 +208,7 @@ CSL 文件会在 `typst init` 时被复制到你的项目目录，与 `reference
 
 ## 发布前待办
 
-- [x] 已填写 `authors`、`license`（MIT AND MIT-0）、`repository`
-- [x] 已添加 `LICENSE` / `LICENSE-MIT-0`
-- [ ] 确认/替换 `thumbnail.png`（当前为示例第 5 页的渲染图，可替换）
-- [ ] 对照《现代化工》最新投稿规范核实排印细节（当前系根据作者稿件重建，未逐条核实）
+- 已填写 `authors`、`license`（MIT AND MIT-0）、`repository`
+- 已添加 `LICENSE` / `LICENSE-MIT-0`
+- 待确认：`thumbnail.png`（当前为示例第 5 页的渲染图，可替换）
+- 待核实：对照《现代化工》最新投稿规范核实排印细节（当前系根据作者稿件重建，未逐条核实）
