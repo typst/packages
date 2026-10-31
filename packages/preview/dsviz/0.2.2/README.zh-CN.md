@@ -1,9 +1,9 @@
 # dsviz
 
 [![CI build status](https://github.com/wesleyel/dsviz/actions/workflows/ci.yml/badge.svg)](https://github.com/wesleyel/dsviz/actions/workflows/ci.yml)
-[![Typst Universe package version](https://img.shields.io/badge/Typst_Universe-0.2.1-239dad)](https://typst.app/universe/package/dsviz)
+[![Typst Universe package version](https://img.shields.io/badge/Typst_Universe-0.2.2-239dad)](https://typst.app/universe/package/dsviz)
 [![Minimum Typst version](https://img.shields.io/badge/Typst-%E2%89%A50.13-239dad)](https://typst.app)
-[![Plugin written in Rust and compiled to WASM](https://img.shields.io/badge/plugin-Rust%2FWASM-555555)](https://github.com/wesleyel/dsviz/tree/v0.2.1/plugin)
+[![Plugin written in Rust and compiled to WASM](https://img.shields.io/badge/plugin-Rust%2FWASM-555555)](https://github.com/wesleyel/dsviz/tree/v0.2.2/plugin)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 [English](README.md) · **中文**
@@ -17,7 +17,7 @@
 ## 用法
 
 ````typ
-#import "@preview/dsviz:0.2.1": ds
+#import "@preview/dsviz:0.2.2": ds
 
 // 之后每个 ```ds 代码块都会变成图
 #show raw.where(lang: "ds"): ds
@@ -61,7 +61,7 @@ CLK: c c c
 | 图 | `graph` `digraph` `orthlist` `multilist` |
 | 计算机系统 | `fields` 位段、`pipeline` 时空图、`gantt` 甘特图、`ladder` 时序图、`wave` 波形、`block` 方框图 |
 
-完整语法和 `ds` 参数见 [docs/syntax.md](https://github.com/wesleyel/dsviz/blob/v0.2.1/docs/syntax.md)（英文）。
+完整语法和 `ds` 参数见 [docs/syntax.md](https://github.com/wesleyel/dsviz/blob/v0.2.2/docs/syntax.md)（英文）。
 
 ## 图例
 
@@ -71,7 +71,7 @@ CLK: c c c
 
 ![无向图、有向图、邻接矩阵、十字链表和邻接多重表](docs/images/graphs.png)
 
-源码在 [`examples/`](https://github.com/wesleyel/dsviz/tree/v0.2.1/examples)。
+源码在 [`examples/`](https://github.com/wesleyel/dsviz/tree/v0.2.2/examples)。
 
 ## 开发
 
@@ -83,4 +83,4 @@ make test    # 单元测试、gallery 和 examples
 make images  # 重新生成 docs/images/
 ```
 
-更新记录见 [CHANGELOG.md](https://github.com/wesleyel/dsviz/blob/v0.2.1/CHANGELOG.md)，许可证为 [MIT](LICENSE)。
+更新记录见 [CHANGELOG.md](https://github.com/wesleyel/dsviz/blob/v0.2.2/CHANGELOG.md)，许可证为 [MIT](LICENSE)。

@@ -1,9 +1,9 @@
 # dsviz
 
 [![CI build status](https://github.com/wesleyel/dsviz/actions/workflows/ci.yml/badge.svg)](https://github.com/wesleyel/dsviz/actions/workflows/ci.yml)
-[![Typst Universe package version](https://img.shields.io/badge/Typst_Universe-0.2.1-239dad)](https://typst.app/universe/package/dsviz)
+[![Typst Universe package version](https://img.shields.io/badge/Typst_Universe-0.2.2-239dad)](https://typst.app/universe/package/dsviz)
 [![Minimum Typst version](https://img.shields.io/badge/Typst-%E2%89%A50.13-239dad)](https://typst.app)
-[![Plugin written in Rust and compiled to WASM](https://img.shields.io/badge/plugin-Rust%2FWASM-555555)](https://github.com/wesleyel/dsviz/tree/v0.2.1/plugin)
+[![Plugin written in Rust and compiled to WASM](https://img.shields.io/badge/plugin-Rust%2FWASM-555555)](https://github.com/wesleyel/dsviz/tree/v0.2.2/plugin)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 **English** · [中文](README.zh-CN.md)
@@ -17,7 +17,7 @@ Labels are typeset by Typst itself, so diagrams align with any font and match yo
 ## Usage
 
 ````typ
-#import "@preview/dsviz:0.2.1": ds
+#import "@preview/dsviz:0.2.2": ds
 
 // Every ```ds block becomes a diagram.
 #show raw.where(lang: "ds"): ds
@@ -59,7 +59,7 @@ Diagrams use color by default. Pass `palette: "gray"` for black-and-white printi
 | Graphs | `graph` `digraph` `orthlist` `multilist` |
 | Systems | `fields` `pipeline` `gantt` `ladder` `wave` `block` |
 
-Full syntax and `ds` parameters: [docs/syntax.md](https://github.com/wesleyel/dsviz/blob/v0.2.1/docs/syntax.md).
+Full syntax and `ds` parameters: [docs/syntax.md](https://github.com/wesleyel/dsviz/blob/v0.2.2/docs/syntax.md).
 
 ## Gallery
 
@@ -69,7 +69,7 @@ Full syntax and `ds` parameters: [docs/syntax.md](https://github.com/wesleyel/ds
 
 ![Undirected and directed graphs, an adjacency matrix, an orthogonal list and an adjacency multilist](docs/images/graphs.png)
 
-Sources are in [`examples/`](https://github.com/wesleyel/dsviz/tree/v0.2.1/examples).
+Sources are in [`examples/`](https://github.com/wesleyel/dsviz/tree/v0.2.2/examples).
 
 ## Development
 
@@ -81,4 +81,4 @@ make test    # unit tests, gallery and examples
 make images  # regenerate docs/images/
 ```
 
-Release notes: [CHANGELOG.md](https://github.com/wesleyel/dsviz/blob/v0.2.1/CHANGELOG.md). License: [MIT](LICENSE).
+Release notes: [CHANGELOG.md](https://github.com/wesleyel/dsviz/blob/v0.2.2/CHANGELOG.md). License: [MIT](LICENSE).
