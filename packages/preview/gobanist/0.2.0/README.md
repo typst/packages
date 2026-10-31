@@ -109,6 +109,47 @@ its moves, and the result at the end.
 
 <img alt="A short game in two diagrams with captions and comments" src="doc/readme-6.png" width="354">
 
+## Diagrams from Sensei's Library
+
+Diagrams written as text, as in Sensei's Library and L19 (lines that start with `$$`), are read like an SGF file,
+and every function works with them: `X` and `O` are stones, the numbers are moves, `C`, `S`, `T` and `M` are
+marks, the lowercase letters are letters on the board, and `{AR ...}` is an arrow. The edges say which corner is
+drawn.
+
+```typ
+#let nadare = sgf-read("$$B Nadare joseki
+$$  --------------
+$$ | . . . . . . .
+$$ | . . . . . . .
+$$ | . . . 1 6 . .
+$$ | . . 5 4 . . .
+$$ | . . 3 2 a . .
+$$ | . . . . . . .
+$$ | . . . . . . .
+$$ | . . . . . . .
+$$ | . . . . . . .
+$$ {AR 3:6 3:9}")
+
+#sgf-diagrams(nadare)
+```
+
+<img alt="A joseki in a corner written in the notation of Sensei's Library" src="doc/readme-10.png" width="149">
+
+## Other languages
+
+The texts of the package (captions, notes, results) follow the language of the text, in ten languages, and the
+coordinates can be written as in Japanese or Chinese books. The comments are those of the file.
+
+```typ
+// MS Gothic comes with Windows; any font with the kanji will do.
+#set text(lang: "ja", font: ("Libertinus Serif", "MS Gothic"))
+
+#sgf-diagrams(sgf-read(path("game.sgf")), comments: true,
+  goban: (label: (at: (top, right), style: "japanese")))
+```
+
+<img alt="A game with Japanese coordinates and caption" src="doc/readme-11.png" width="205">
+
 ## Problems
 
 `sgf-problem` draws the statement and a diagram for each line of the solution.
@@ -158,7 +199,7 @@ diagram, and `partial: auto` shows the part of the board that all of them use.
 ## Features
 
 - Games in SGF: a game on one board, a game in diagrams as in books, with variations, and problems with their
-  solutions.
+  solutions. Also the text diagrams of Sensei's Library.
 - The rules, in a WebAssembly kernel: captures, "N at M" notes, territory and score.
 - Profiles for the board and the players, with images: wood, slate and shell stones.
 - Boards as values, to follow a variation from a position or to show part of a board in a paragraph.
