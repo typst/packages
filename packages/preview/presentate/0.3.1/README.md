@@ -134,7 +134,7 @@ Since 0.3.0, the named index were introduced. You can name a step by using `#mar
 You can have a precise control on what should be shown on each subslide relatively without worring about their order in definition code by using `#motion` function, and tag by a unique name for each contents in `#tag` function. For example, 
 
 ```typst
-#import "@preview/cetz:0.5.2": canvas, draw
+#import "@preview/cetz:0.5.3": canvas, draw
 
 #slide[
   = Drawing A Fan
@@ -170,7 +170,7 @@ In this example, featured with CeTZ package, each element is drawn normally, whi
 For example, Integration with [CeTZ](https://typst.app/universe/package/cetz) and [Fletcher](https://typst.app/universe/package/fletcher) can be done by using `interface` and modify hider and wrapper mode:
 
 ```typst
-#import "@preview/cetz:0.5.2": canvas, draw
+#import "@preview/cetz:0.5.3": canvas, draw
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 
 #slide[
@@ -235,7 +235,7 @@ The nested scope can be accessed by using `bridge` function, for example, in [Al
 You can use the `render` function to create a workspace, and import the `animation` module of Presentate to create animation with other packages. 
 
 ```typst
-#import "@preview/cetz:0.5.2": canvas, draw
+#import "@preview/cetz:0.5.3": canvas, draw
 #import "@preview/fletcher:0.5.8": diagram, edge, node
 
 #slide[
