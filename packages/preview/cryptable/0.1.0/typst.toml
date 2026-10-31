@@ -1,0 +1,15 @@
+[package]
+name = "cryptable"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["David Sattler <https://github.com/dassetter>"]
+license = "MIT"
+description = "London Times-style crosswords."
+repository = "https://github.com/dassetter/cryptable"
+categories = ["fun"]
+compiler = "0.15.0"
+
+[template]
+path = "example"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
