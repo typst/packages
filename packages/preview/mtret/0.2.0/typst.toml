@@ -1,0 +1,17 @@
+[package]
+name = "mtret"
+version = "0.2.0"
+compiler = "0.15.1"
+entrypoint = "src/lib.typ"
+repository = "https://github.com/hinshiba/MTReT"
+authors = ["hinshiba"]
+license = "MIT AND MIT-0"
+description = "Modular Typst REport sTyle for ja students."
+keywords = ["Japanese", "University", "report"]
+categories = ["report"]
+exclude = ["example"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
