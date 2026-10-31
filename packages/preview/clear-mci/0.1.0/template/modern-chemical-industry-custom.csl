@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US" initialize-with-hyphen="false">
+  <info>
+    <title>Modern Chemical Industry - manuscript numeric reference style (reconstructed)</title>
+    <id>http://www.zotero.org/styles/modern-chemical-industry-manuscript-reconstructed</id>
+    <link href="http://www.zotero.org/styles/modern-chemical-industry-manuscript-reconstructed" rel="self"/>
+    <category citation-format="numeric"/>
+    <category field="engineering"/>
+    <summary>Reconstructed from user-provided DOCX reference lists, not an official journal CSL.</summary>
+    <updated>2026-10-31T00:00:00+00:00</updated>
+  </info>
+  <macro name="author">
+    <names variable="author" delimiter=", " et-al-min="4" et-al-use-first="3">
+      <name name-as-sort-order="all" sort-separator=" " initialize-with="." delimiter=", " delimiter-precedes-et-al="always"/>
+      <et-al font-style="italic"/>
+    </names>
+  </macro>
+  <macro name="title">
+    <group delimiter="">
+      <text variable="title"/>
+      <choose>
+        <if type="article-journal" match="any"><text value="[J]"/></if>
+        <else-if type="book" match="any"><text value="[M]"/></else-if>
+        <else-if type="paper-conference" match="any"><text value="[C]"/></else-if>
+        <else-if type="thesis" match="any"><text value="[D]"/></else-if>
+        <else-if type="report" match="any"><text value="[R]"/></else-if>
+      </choose>
+    </group>
+  </macro>
+  <macro name="container">
+    <choose>
+      <if type="article-journal">
+        <text variable="container-title" font-style="italic"/>
+      </if>
+      <else><text variable="publisher"/></else>
+    </choose>
+  </macro>
+  <macro name="date-volume-pages">
+    <group delimiter=", ">
+      <date variable="issued"><date-part name="year"/></date>
+      <group delimiter="">
+        <text variable="volume"/>
+        <text variable="issue" prefix="(" suffix=")"/>
+      </group>
+    </group>
+  </macro>
+  <citation collapse="citation-number"
+            after-collapse-delimiter=",">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout
+      prefix="["
+      suffix="]"
+      delimiter=","
+      vertical-align="sup">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography et-al-min="4" et-al-use-first="3" entry-spacing="0" line-spacing="1" second-field-align="flush">
+    <sort><key variable="citation-number"/></sort>
+    <layout>
+      <text variable="citation-number" prefix="[" suffix="]"/>
+      <group delimiter=" ">
+        <text macro="author" suffix="."/>
+        <group delimiter=". ">
+          <text macro="title"/>
+          <group delimiter="">
+            <text macro="container"/>
+            <group prefix=", ">
+              <text macro="date-volume-pages"/>
+              <text variable="page" prefix=":"/>
+            </group>
+          </group>
+        </group>
+      </group>
+      <text value="."/>
+    </layout>
+  </bibliography>
+</style>

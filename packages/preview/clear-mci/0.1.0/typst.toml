@@ -1,0 +1,19 @@
+# clear-mci — 面向《现代化工》的社区 Typst 模板
+#
+# 作者与许可信息见下方 [package]。发布到 Typst Universe 前请确认
+# license 为合法 SPDX 标识符，并保留仓库根目录的 LICENSE 文件。
+[package]
+name = "clear-mci"
+version = "0.1.0"
+entrypoint = "journal.typ"
+authors = ["jack_clear <jacklikejava@gmail.com>"]
+license = "MIT AND MIT-0"
+repository = "https://github.com/jack8487/clear-mci"
+description = "《现代化工》期刊中文论文排版（社区制作，非期刊官方）"
+keywords = ["modern-chemical-industry", "journal", "article", "chinese", "chemistry"]
+categories = ["paper"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
