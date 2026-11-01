@@ -98,8 +98,6 @@ $ x^2 + y^2 = z^2 $
 )
 ```
 
-See [example documents](https://github.com/Yakush-A/typstp/tree/main/example) for more complete examples.
-
 ## Current limitations
 Some parts of STP 01-2024 are not fully implemented yet:
 
