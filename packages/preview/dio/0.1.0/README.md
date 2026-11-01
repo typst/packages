@@ -44,23 +44,38 @@ As shown in @fig:flow, invalid requests go straight to the database.
 #drawio(path("architecture.drawio"), scale: 0.8)
 ```
 
-**Fonts.** By default labels are drawn as outlines with fonts bundled in the package: free fonts with the metrics of Helvetica/Arial (draw.io's default), Times New Roman and Courier New. They look like draw.io on every machine and in the web app, with nothing to install.
-
-To typeset labels as native Typst text in fonts you have instead, use `text: "native"`. Labels then use the fonts chosen in draw.io; map missing ones to fonts you have:
-
-```typ
-#drawio(path("architecture.drawio"), text: "native", font: (
-  "Helvetica": "Nimbus Sans",       // draw.io's default font
-  "Courier New": "Liberation Mono",
-))
-#drawio(path("architecture.drawio"), text: "native", font: auto)  // your document's font
-```
+**Fonts.** Labels are Typst text, in your document's font by default. Any font works: `font: "Libertinus Serif"` uses one font for all labels. To get the fonts draw.io uses, see [Fonts like in draw.io](#fonts-like-in-drawio).
 
 **A frame.** Use Typst's own `box` or `block`:
 
 ```typ
 #box(stroke: 0.5pt + gray, inset: 6pt, drawio(path("architecture.drawio"), width: 10cm))
 ```
+
+## Fonts like in draw.io
+
+draw.io's default font is Helvetica, and Typst doesn't come with it. The free [Liberation fonts](https://github.com/liberationfonts/liberation-fonts/releases) have the same letter widths as Helvetica/Arial, Times New Roman and Courier New, so labels wrap exactly as in draw.io.
+
+1. **Get the fonts.**
+   - *Typst web app:* download `liberation-fonts-ttf-*.tar.gz` from the [releases page](https://github.com/liberationfonts/liberation-fonts/releases), unpack it, and drag the `.ttf` files into your project's file panel.
+   - *Linux:* they are often installed already (`fc-list | grep Liberation`). Otherwise install the package `fonts-liberation` (Debian/Ubuntu), `liberation-fonts` (Fedora) or `ttf-liberation` (Arch).
+   - *Windows and macOS:* install the `.ttf` files from the releases page (double-click, then "Install"), or put them in a folder and compile with `typst compile --font-path <folder>`.
+2. **Map draw.io's fonts to them** once, at the top of your document, and pass the map to each diagram:
+
+   ```typ
+   #import "@preview/dio:0.1.0": drawio
+
+   #let drawio-fonts = (
+     "Helvetica": "Liberation Sans",        // draw.io's default
+     "Arial": "Liberation Sans",
+     "Times New Roman": "Liberation Serif",
+     "Courier New": "Liberation Mono",
+   )
+
+   #drawio(path("architecture.drawio"), font: drawio-fonts)
+   ```
+
+Fonts the map doesn't list are used by their own names. Typst warns if it can't find one and falls back to your document's font, so add the missing ones to the map. `font: "drawio"` uses the diagram's fonts with no map.
 
 ## Usage
 
@@ -76,8 +91,7 @@ Pass the file as a `path(...)` (Typst 0.15 or newer) with Bytes from `read(..., 
 | `height`  | `auto`     | Height (length or ratio); the width follows. With `width` too, the diagram fits inside both |
 | `scale`   | `1.0`      | With no `width`/`height`: multiplier on the natural size (1 draw.io px = 0.75pt) |
 | `padding` | `0`        | Margin around the diagram, in draw.io px |
-| `text`    | `"outline"` | `"outline"`: labels drawn with the bundled draw.io-like fonts (selectable through an invisible text layer); `"native"`: labels typeset by Typst |
-| `font`    | `"drawio"` | Font for native text: `"drawio"` for the diagram's own fonts, a substitution map for them (see above), `auto` for the document's font, or a font name |
+| `font`    | `auto`     | Font of the labels: `auto` for the document's font, `"drawio"` for the diagram's own fonts, a substitution map for them (see above), or a font name |
 | `theme`   | `"light"`  | `"light"` or `"dark"`: draw.io's light or dark appearance |
 | `background` | `none`  | Fill behind the diagram: transparent by default; `auto` uses the diagram's own background colour (draw.io's dark page colour with `theme: "dark"`), or give any colour |
 | `engine`  | `"plugin"` | `"plugin"` (draw.io's renderer) or `"native"` (a small pure-Typst renderer) |
@@ -86,13 +100,13 @@ Pass the file as a `path(...)` (Typst 0.15 or newer) with Bytes from `read(..., 
 
 ## Limitations
 
-- **Text:** labels are laid out by the package, not a browser, so a wrapped label can occasionally break a line differently from draw.io. The bundled fonts cover Latin and Greek; other scripts and right-to-left text are drawn as native Typst text. Selecting outline text highlights whole lines accurately, single words approximately.
+- **Text:** labels are laid out by Typst, not a browser, and usually in a different font from draw.io's, so a wrapped label can break a line differently and text can be a little wider or narrower than in draw.io.
 - **Images:** images must be embedded in the file or come from draw.io's built-in icon library. Images that draw.io loads from the web (e.g. `https://icons.diagrams.net/...`) are skipped, since Typst packages have no network access.
 - **HTML labels:** formatting, lists, headings, block backgrounds and tables (as in ER diagrams) are supported. Complex CSS beyond that isn't.
 - **Dark theme:** `theme: "dark"` switches the colours draw.io defines in light/dark pairs, including its defaults. Fixed colours are kept as they are; draw.io's automatic darkening of them isn't reproduced.
 - **Shadows:** blurred shadows are approximated by a few offset copies.
 - **Not yet rendered:** math labels, fill patterns (hatch, dots…), gradients on rotated shapes.
-- **Speed and size:** the first diagram in a compile takes about half a second more while draw.io loads, and large diagrams take a few seconds. Typst caches results, so unchanged diagrams aren't redrawn. Outline text makes the PDF a little larger than native text (tens of KB per diagram). The plugin is about 8.7 MB.
+- **Speed and size:** the first diagram in a compile takes about half a second more while draw.io loads, and large diagrams take a few seconds. Typst caches results, so unchanged diagrams aren't redrawn. The plugin is about 7.2 MB.
 
 ## How it works
 

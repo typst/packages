@@ -296,54 +296,7 @@
   styled(block-of(it.lines, it.al, maxw, false, boxh, table-of))
 }
 
-// Outline text (see plugin/js/outline.js): glyph outlines drawn as shapes,
-// and an invisible text layer on top so that the text stays selectable and
-// searchable. `glyphs`: font -> (upem, g: glyph id -> path segments in font
-// units); `shadow`: none, or a colour replacing all colours.
-// One glyph as a curve at the origin (`k`: length per font unit). Every
-// occurrence of a glyph at a size and colour is the same content, placed with
-// an offset: Typst memoizes this function, and the identical drawing commands
-// compress to almost nothing in the PDF. none for glyphs without outline.
-#let _glyph-curve(segs, k, color) = {
-  if segs.len() == 0 { return none }
-  let p(seg, j) = (seg.at(j) * k, seg.at(j + 1) * k)
-  curve(fill: color, stroke: none, ..segs.map(seg => {
-    let op = seg.at(0)
-    if op == "m" { curve.move(p(seg, 1)) } else if op == "l" { curve.line(p(seg, 1)) } else if op == "q" {
-      curve.quad(p(seg, 1), p(seg, 3))
-    } else if op == "c" { curve.cubic(p(seg, 1), p(seg, 3), p(seg, 5)) } else { curve.close(mode: "straight") }
-  }))
-}
-
-#let _outline-body(ol, s, glyphs, shadow: none) = box(width: ol.w * s, height: ol.h * s, {
-  for it in ol.items {
-    if it.k == "g" {
-      let gt = glyphs.at(it.f)
-      let k = it.sz / gt.upem * s
-      let g = it.g
-      let color = if shadow != none { shadow } else { rgb(it.c) }
-      for i in range(0, g.len(), step: 3) {
-        let c = _glyph-curve(gt.g.at(str(g.at(i))), k, color)
-        if c != none { place(top + left, dx: (it.x + g.at(i + 1)) * s, dy: (it.y + g.at(i + 2)) * s, c) }
-      }
-    } else if it.k == "r" {
-      let fill = if shadow != none { shadow } else { rgb(it.c) }
-      place(top + left, dx: it.x * s, dy: it.y * s, rect(width: it.w * s, height: it.h * s, fill: fill, stroke: none))
-    } else if it.k == "s" and shadow == none {
-      // invisible text, stretched to the width of the drawn line
-      let t = text(size: it.sz * s, fill: rgb(0, 0, 0, 0), top-edge: "ascender", bottom-edge: "descender", it.t)
-      let natural = measure(t).width
-      if natural > 0pt {
-        place(top + left, dx: it.x * s, dy: it.y * s, box(width: it.w * s, height: it.h * s, align(left + horizon,
-          scale(x: it.w * s / natural * 100%, origin: left, reflow: true, t))))
-      }
-    } else if it.k == "a" and shadow == none {
-      place(top + left, dx: it.x * s, dy: it.y * s, link(it.href, box(width: it.w * s, height: it.h * s)))
-    }
-  }
-})
-
-#let _text(it, s, font, glyphs) = context {
+#let _text(it, s, font) = context {
   let it = it
   it.w = it.w * s
   it.ww = it.at("ww", default: it.w / s) * s
@@ -357,8 +310,7 @@
     // document font, except code keeps a monospace font
     name => if name != none and lower(str(name)) == "monospace" { ("DejaVu Sans Mono",) + if type(fallback) == array { fallback } else { (fallback,) } } else { none }
   } else { none }
-  let ol = it.at("ol", default: none)
-  let body = if ol != none { _outline-body(ol, s, glyphs) } else { _label-body(it, s, font, family) }
+  let body = _label-body(it, s, font, family)
   // text shadow: the same label in the shadow colour, offset, drawn underneath
   let sh = it.at("shadow", default: none)
   if sh != none {
@@ -369,9 +321,7 @@
     let copies = if b > 0pt { ((-b, -b), (b, -b), (-b, b), (b, b)) } else { ((0pt, 0pt),) }
     let faint = c.transparentize(100% - (100% - c.components().at(3, default: 100%)) / copies.len())
     let shadow-color = if copies.len() > 1 { faint } else { c }
-    let shadow-body = if ol != none { _outline-body(ol, s, glyphs, shadow: shadow-color) } else {
-      _label-body(it, s, font, family, shadow: shadow-color)
-    }
+    let shadow-body = _label-body(it, s, font, family, shadow: shadow-color)
     body = box({
       for (ox, oy) in copies { place(top + left, dx: sh.dx * s + ox, dy: sh.dy * s + oy, shadow-body) }
       body
@@ -414,15 +364,14 @@
 
 // ───────────────────────── Public API ─────────────────────────
 
-#let _render-plugin(data, page, padding, theme: "light", text: "native", list-only: false) = {
-  let opts = json.encode((page: page, border: padding, theme: theme, text: text, listOnly: list-only), pretty: false)
+#let _render-plugin(data, page, padding, theme: "light", list-only: false) = {
+  let opts = json.encode((page: page, border: padding, theme: theme, listOnly: list-only), pretty: false)
   cbor(_plugin.render(data, bytes(opts)))
 }
 
 #let _draw(r, s, font, background) = {
-  let glyphs = r.at("glyphs", default: (:))
   let items = r.items.map(it => {
-    if it.k == "p" { _path(it, s) } else if it.k == "sh" { _shadow(it, s) } else if it.k == "t" { _text(it, s, font, glyphs) } else if it.k == "i" {
+    if it.k == "p" { _path(it, s) } else if it.k == "sh" { _shadow(it, s) } else if it.k == "t" { _text(it, s, font) } else if it.k == "i" {
       _image(it, s)
     }
   })
@@ -472,25 +421,18 @@
 /// - scale (float): with no width or height, multiplier on the natural size
 ///   (1 draw.io px = 0.75pt).
 /// - padding (int, float): empty margin around the diagram, in draw.io px.
-/// - font (str, auto, array, dictionary): font for native text (`text:
-///   "native"`, and labels outline text can't draw). `"drawio"` (default)
-///   uses the fonts set in the diagram, falling back to the document's font
-///   (with a warning) when Typst doesn't have them; a dictionary also uses the
+/// - font (auto, str, array, dictionary): font of the labels. `auto` (default)
+///   uses the document's font (code keeps a monospace font). `"drawio"` uses
+///   the fonts set in the diagram, falling back to the document's font (with a
+///   warning) when Typst doesn't have them; a dictionary also uses the
 ///   diagram's fonts, through substitutions, e.g.
-///   `("Helvetica": "Nimbus Sans", "Verdana": "DejaVu Sans")`; `auto` uses the
-///   document's font; a font name or list uses that font.
+///   `("Helvetica": "Nimbus Sans", "Verdana": "DejaVu Sans")`; a font name or
+///   list uses that font.
 /// - theme (str): `"light"` or `"dark"`: which colour of draw.io's `light-dark()`
 ///   pairs to use, like draw.io's light/dark appearance.
 /// - background (none, auto, color, gradient): fill behind the diagram. `none`
 ///   (default) is transparent; `auto` uses the diagram's background colour (or
 ///   draw.io's dark page colour with `theme: "dark"`); or give any fill.
-/// - text (str): `"outline"` (default): labels are laid out in the plugin
-///   with bundled fonts that have the metrics of draw.io's fonts
-///   (Helvetica/Arial, Times New Roman, Courier New) and drawn as shapes, so
-///   they look like draw.io everywhere without installing fonts; an invisible
-///   text layer keeps them selectable and searchable. Labels with other
-///   scripts or right-to-left text are drawn as native text. `"native"`:
-///   labels are Typst text, laid out by Typst in the fonts given by `font`.
 /// - engine (str): `"plugin"` (draw.io's own renderer) or `"native"` (pure Typst approximation).
 #let drawio(
   source,
@@ -499,25 +441,19 @@
   height: auto,
   scale: 1.0,
   padding: 0,
-  font: "drawio",
+  font: auto,
   theme: "light",
   background: none,
-  text: "outline",
   engine: "plugin",
 ) = {
   assert(theme in ("light", "dark"), message: "drawio: theme must be \"light\" or \"dark\"")
-  assert(text in ("native", "outline"), message: "drawio: text must be \"native\" or \"outline\"")
   let data = _source(source)
   if engine == "native" {
     assert(height == auto, message: "drawio: height is not supported by the native engine; use width or scale")
     return native.drawio(data, page: page, scale: scale, width: width, padding: padding)
   }
   assert(engine == "plugin", message: "drawio: engine must be \"plugin\" or \"native\"")
-  let r = _render-plugin(data, page, padding, theme: theme, text: text)
-  // labels that outline text can't draw (other scripts, right-to-left) use
-  // the document font unless a font was given: draw.io's Helvetica would
-  // rarely cover them and only warn
-  let font = if text == "outline" and font == "drawio" { auto } else { font }
+  let r = _render-plugin(data, page, padding, theme: theme)
   if r.w == 0 or r.h == 0 { return box() }
   if width == auto and height == auto {
     _draw(r, 0.75pt * scale, font, background)

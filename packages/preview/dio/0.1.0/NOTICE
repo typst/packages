@@ -31,15 +31,9 @@ drawio.wasm bundles third-party software and assets:
     images) are not restricted. Some icons were originally made by third
     parties (e.g. cloud and network vendors); draw.io states their licences
     permit this use.
-- Liberation fonts 2.1.5 (Sans, Serif, Mono), Copyright (c) 2010 Google
-  Corporation and (c) 2012 Red Hat, Inc. SIL Open Font License 1.1, see
-  licenses/liberation-fonts-OFL-1.1.txt. drawio.wasm contains subsets of them
-  (Latin and Greek, made by plugin/tools/build-fonts.py), renamed
-  "DrawioTypst Sans/Serif/Mono" as the licence requires for modified
-  versions. They are used to draw outline text.
 - QuickJS (Fabrice Bellard), via rquickjs-sys. MIT, see licenses/quickjs-MIT.txt.
 - rquickjs. MIT, see licenses/rquickjs-MIT.txt.
-- rustybuzz and ttf-parser (MIT), ruzstd (MIT), miniz_oxide and
+- ruzstd (MIT), miniz_oxide and
   wasm-minimal-protocol (MIT / Apache-2.0).
 
 The fidelity tests (tests/fidelity) render draw.io's diagram templates, which
