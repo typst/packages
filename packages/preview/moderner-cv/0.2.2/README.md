@@ -1,7 +1,7 @@
 # moderner-cv
 
-[![License][license-badge]][license]
-[![CI][ci-badge]][ci]
+[![MIT license badge][license-badge]][license]
+[![CI status badge][ci-badge]][ci]
 [![Latest release][latest-release-badge]][typst-universe]
 
 [license-badge]: https://img.shields.io/github/license/pavelzw/moderner-cv?style=flat-square
@@ -19,15 +19,14 @@ This template uses FontAwesome icons via the [fontawesome typst package](https:/
 In order to properly use it, you need to have fontawesome installed on your system or have typst configured (via `--font-path`) to use the fontawesome font files.
 You can download fontawesome [here](https://fontawesome.com/download).
 
-> [!TIP]
-> You can use typst in combination with [pixi](https://pixi.sh) to easily add fontawesome to your project and run it reproducibly anywhere.
->
-> ```toml
-> [dependencies]
-> typst = ">=0.14"
-> typstyle = ">=0.14"
-> font-otf-fontawesome = "*"
-> ```
+**Tip:** You can use typst in combination with [pixi](https://pixi.sh) to easily add fontawesome to your project and run it reproducibly anywhere.
+
+```toml
+[dependencies]
+typst = ">=0.14"
+typstyle = ">=0.14"
+font-otf-fontawesome = "*"
+```
 
 ## Usage
 
