@@ -105,4 +105,4 @@ tagged PDF, put the table in a figure with a caption, as Typst 0.15 cannot mark 
 The code is [MIT](LICENSE). The role names in `translations.json` come from the community
 [credit-translation](https://github.com/contributorshipcollaboration/credit-translation) project
 under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); the translators are listed in
-[CREDITS.md](https://github.com/simonvanlierde/credit-matrix/blob/main/src/core/credit-i18n/translations/CREDITS.md).
+[CREDITS.md](https://github.com/simonvanlierde/credit-matrix/blob/v0.11.0/src/core/credit-i18n/translations/CREDITS.md).

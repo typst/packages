@@ -1,4 +1,4 @@
-#import "../lib.typ": *
+#import "@preview/credit-matrix:0.11.0": *
 #set document(title: "CRediT statement")
 #set page(height: auto, margin: 1.5cm)
 
