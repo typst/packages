@@ -1,0 +1,29 @@
+[package]
+name = "tysty"
+version = "0.1.0"
+entrypoint = "lib/_lib.typ/lib.typ"
+authors = ["mujiu555 <@mujiu555>"]
+license = "Apache-2.0"
+description = "Organize and publish linked notes as documents or websites."
+repository = "https://github.com/mujiu555/tysty"
+keywords = [
+  "notes",
+  "publishing",
+  "static-site",
+  "knowledge-base",
+  "enhancement",
+]
+exclude = [
+  "/.git/",
+  "/.direnv/",
+  "/doc/",
+  "/tests/",
+  "/tmp/",
+  "/flake.nix",
+  "/flake.lock",
+  "/.envrc",
+  "/.gitignore",
+]
+compiler = "0.15.1"
+
+[tool]
