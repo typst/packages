@@ -50,7 +50,3 @@ Feel free to open a PR with your language added to the `lang.toml` file.
 ## License
 
 [MIT License](LICENSE)
-
-## Changelog
-
-[See CHANGELOG.md](CHANGELOG.md)
