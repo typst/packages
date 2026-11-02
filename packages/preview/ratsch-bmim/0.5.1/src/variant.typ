@@ -934,6 +934,9 @@
 
         show footnote.entry: set text(size: 0.7em)
         set footnote.entry(gap: 0.2em)
+        // marker in the text superscripted, also for citations shown as
+        // footnotes (bib-as-footnote), which touying sets on the baseline
+        show footnote: set super(typographic: true, baseline: -0.5em, size: 0.6em)
 
         show strong: self.methods.alert.with(self: self)
 
