@@ -6,7 +6,7 @@ A Typst template for linguistics handouts. Examples are numbered (1), (2), ... c
 
 Start a new project from the template:
 
-```
+```bash
 typst init @preview/ling-handout:0.1.0
 ```
 
@@ -47,7 +47,7 @@ Referencing examples from anywhere in the document, like @ex-conditionals, is ea
 
 renders as
 
-```
+```text
 (1)  Every linguist who knows about donkey sentences loves them.
 ```
 
@@ -64,7 +64,7 @@ Use a numbered list (`+`) inside the example. Sub-items are numbered (i), (ii), 
 
 renders as
 
-```
+```text
 (2)  (i)  John left.
      (ii) *Left John.
 ```
