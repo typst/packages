@@ -15,7 +15,7 @@ Short package for plotting real-time scheduling of tasksets.
 ## Getting started
 
 ```typst
-#import "@preview/rt-sched:0.0.1": print-taskset, scheduler, plot
+#import "@preview/rt-sched:0.0.2": print-taskset, scheduler, plot
 
 // Declare a taskset
 // o: offset (optionnal, default=0)
@@ -60,7 +60,7 @@ The configuration is represented as an array of three values:
 If you want the scheduler some colors you could do:
 
 ```typst
-#import "@preview/rt-sched:0.0.1": config, plot
+#import "@preview/rt-sched:0.0.2": config, plot
 config.colors = (red, blue, green)
 ```
 
@@ -137,7 +137,7 @@ The scheduling function is then passed as a parameter of the `plot` function.
 1. Plot a tasket without scheduling it.
 
 ```typst
-#import "@preview/rt-sched:0.0.1": *
+#import "@preview/rt-sched:0.0.2": *
 #let taskset = (
   (c: 1, d: 5, t: 5),
   (c: 2, d: 4, t: 4),
@@ -151,7 +151,7 @@ The scheduling function is then passed as a parameter of the `plot` function.
 2. Plot a tasket and scheduling it (with RM).
 
 ```typst
-#import "@preview/rt-sched:0.0.1": *
+#import "@preview/rt-sched:0.0.2": *
 #let taskset = (
   (c: 1, d: 5, t: 5),
   (c: 2, d: 4, t: 4),
@@ -165,7 +165,7 @@ The scheduling function is then passed as a parameter of the `plot` function.
 3. Use colors for plotting
 
 ```typst
-#import "@preview/rt-sched:0.0.1": *
+#import "@preview/rt-sched:0.0.2": *
 #let taskset = (
   (c: 1, d: 5, t: 5),
   (c: 2, d: 4, t: 4),
