@@ -9,8 +9,7 @@
 ```typst
 #import "@preview/tysty:0.1.0": *
 #show: template
-#entry(id: "home", title: [Notebook], authors: ())[
-  #mkcover()
+#entry(id: "home", title: [Notebook], authors: (), cover: true)[
   Notebook content.
 ]
 ```
@@ -19,7 +18,7 @@
 
 ## 文档与元数据
 
-`entry(..fields, content)` 声明元数据并渲染文档标题和正文，将 ID 注册为引用目标，并加入阅读顺序。需要封面时，在正文中调用 `mkcover()`。一次编译中的文档 ID 必须唯一。
+`entry(..fields, cover: false, content)` 声明元数据并渲染文档标题和正文，将 ID 注册为引用目标，并加入阅读顺序。需要用封面替代标题时，设置 `cover: true`。一次编译中的文档 ID 必须唯一。
 
 省略 `parent-id` 时，`entry` 会继承当前文档的 ID；没有当前文档时则创建语义根节点。显式设置 `parent-id: auto` 总是将文档设为自身的根节点。`entry` 不会恢复先前的当前文档；请用 `embed` 保存并恢复上下文。父子关系与标题的视觉嵌套相互独立。
 
@@ -42,7 +41,7 @@
 | `tags` | 标签记录数组 | `()` |
 | `tlb` | `dictionary` | `(:)`；保存的元数据 |
 
-`entry` 接受上表列出的元数据字段，不支持 `new-page` 等渲染选项。可选字段仍需符合声明的类型，不能用 `none` 替代其默认值。
+`entry` 接受上表列出的元数据字段和 `cover: bool`（默认 `false`）。设置 `cover: true` 时，将封面渲染在标题的位置。不支持 `new-page` 等其他渲染选项。可选字段仍需符合声明的类型，不能用 `none` 替代其默认值。
 
 `meta(..fields)` 是底层声明 API，接受同样的元数据字段。它发布元数据并选择当前文档，但不渲染或注册标题。与 `entry` 不同，省略 `parent-id` 表示根节点。使用 `entry` 可以一次完成文档声明与渲染。
 
@@ -54,7 +53,7 @@
 | --- | --- |
 | `template(body, ..options)` | 通过 `#show: template` 使用，选择 PDF、单文件 HTML 或 bundle 包装器，选项传递给对应包装器。 |
 | `embed(body, offset: …)` | 保存并恢复当前文档；PDF 默认增加标题层级，HTML 和 bundle 默认不增加。 |
-| `mkcover()` | 渲染当前文档封面，不新增引用目标或阅读顺序项。 |
+| `mkcover()` | 渲染当前文档封面；单独渲染时可在 `meta()` 后使用。 |
 | `mkoutline(..args)` | PDF 和单文件 HTML 自动生成标题目录；bundle 自动生成带页面链接的文档树，包括在 bundle 页面内调用时。 |
 | `render-children(title)` | 列出具有已渲染引用目标的直接子文档。 |
 | `render-tags(tree)` | 渲染注册的标签树及直接关联到各节点的已渲染文档。 |
@@ -123,7 +122,7 @@
 | `(img.data)(read("cover.png", encoding: none))` | 原始图像字节 |
 | `img.null` | 无图像；它是值而非构造函数 |
 
-将这些值作为 `entry` 的 `cover_image` 参数，并在正文中调用 `mkcover()`。
+将这些值作为 `entry` 的 `cover_image` 参数，并在 `entry` 上设置 `cover: true` 以渲染封面。
 
 所有分类构造函数使用命名字段。除 `volume` 和 `issue` 为整数外，字段均为字符串。每个构造函数都要求提供表中列出的全部字段。
 
@@ -185,8 +184,8 @@
 | `pdf.template` | `(body)`；PDF 页面样式 |
 | `html.template` | `(body, title: "Notebook", lang: "en", css: html.stylesheet, css-href: none)`；默认内联 CSS，指定 `css-href` 时使用外部样式表 |
 | `pdf.embed`, `html.embed` | `(body, offset: true/false)`；默认分别为 `true`、`false` |
-| `pdf.mkdoc` | `(content, new-page: true)`；渲染当前元数据 |
-| `html.mkdoc` | `(content, new-page: true, ssg: false)`；接受但忽略 `new-page`；`ssg` 选择站点布局 |
+| `pdf.mkdoc` | `(content, new-page: true, cover: false)`；渲染当前元数据 |
+| `html.mkdoc` | `(content, new-page: true, cover: false, ssg: false)`；接受但忽略 `new-page`；`ssg` 选择站点布局 |
 | `pdf.mkcover`, `html.mkcover` | `()`；当前文档封面 |
 | `pdf.lookup`, `html.lookup` | `(label, content)`；引用行为与顶层函数相同 |
 | `pdf.mkindex`, `html.mkindex` | `(label, content)`；共享索引注册逻辑 |
@@ -203,7 +202,6 @@
 #show: html.bundle
 #html.page("guide/index.html", title: "Guide")[
   #entry(id: "guide", title: [Guide], authors: ())[
-    #mkcover()
     Guide content.
   ]
 ]

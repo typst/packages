@@ -29,19 +29,19 @@ API reference: [English](doc/README.api.en.md) · [简体中文](doc/README.api.
 // Attach a tag to a document by adding tags: (physics,) to its entry call.
 
 // Declare and render a document with entry.
-// Place cover rendering inside its content.
+// Set cover: true to render a cover instead of the document heading.
 // id, title, and authors are required; authors is an array of names or author records.
 // Each document id must be unique within one compilation.
 // Omitting parent-id inherits the current document, if one exists.
 // Use parent-id: auto to declare an independent root.
 #entry(
   id: "notebook",
+  cover: true,
   title: [Book],
   authors: ("Alice",),
   date: datetime(year: 2026, month: 10, day: 30),
   tags: (physics,),
 )[
-  #mkcover()
   // Automatic outline: headings in PDF/single HTML, document routes in bundles.
   #mkoutline()
 ]
@@ -93,7 +93,6 @@ API reference: [English](doc/README.api.en.md) · [简体中文](doc/README.api.
   authors: ("Alice",),
   date: datetime(year: 2026, month: 10, day: 30, hour: 23, minute: 46, second: 0),
 )[
-  #mkcover()
   sub note 3 content
   #lookup("label")[reference]
 ]
@@ -194,7 +193,7 @@ The generated site includes page navigation, breadcrumbs, section outlines, and 
 
 | Home | Research | Review with reused research content |
 | --- | --- | --- |
-| ![SSG home page](doc/imgs/Screenshot%20from%202026-11-02%2011-41-26.png) | ![SSG research page with document tree and section outline](doc/imgs/Screenshot%20from%202026-11-02%2011-41-36.png) | ![SSG review page reusing the research page body](doc/imgs/Screenshot%20from%202026-11-02%2011-41-44.png) |
+| ![SSG home page](imgs/Screenshot%20from%202026-11-02%2011-41-26.png) | ![SSG research page with document tree and section outline](imgs/Screenshot%20from%202026-11-02%2011-41-36.png) | ![SSG review page reusing the research page body](imgs/Screenshot%20from%202026-11-02%2011-41-44.png) |
 
 #### PDF
 
@@ -202,19 +201,19 @@ Document headings, metadata, navigation, nested notes, and tag listings in the P
 
 | Book | Note heading |
 | --- | --- |
-| ![PDF book heading and metadata](doc/imgs/Screenshot%20from%202026-11-02%2011-44-57.png) | ![PDF note heading](doc/imgs/Screenshot%20from%202026-11-02%2011-45-04.png) |
+| ![PDF book heading and metadata](imgs/Screenshot%20from%202026-11-02%2011-44-57.png) | ![PDF note heading](imgs/Screenshot%20from%202026-11-02%2011-45-04.png) |
 
 | Note navigation | Nested note |
 | --- | --- |
-| ![PDF note with previous and next navigation](doc/imgs/Screenshot%20from%202026-11-02%2011-45-11.png) | ![PDF nested note with breadcrumbs and back link](doc/imgs/Screenshot%20from%202026-11-02%2011-45-21.png) |
+| ![PDF note with previous and next navigation](imgs/Screenshot%20from%202026-11-02%2011-45-11.png) | ![PDF nested note with breadcrumbs and back link](imgs/Screenshot%20from%202026-11-02%2011-45-21.png) |
 
-![PDF publication metadata and hierarchical tag listing](doc/imgs/Screenshot%20from%202026-11-02%2011-45-37.png)
+![PDF publication metadata and hierarchical tag listing](imgs/Screenshot%20from%202026-11-02%2011-45-37.png)
 
 #### Single-file HTML
 
 The same notebook rendered as HTML, with a cover, automatic outline, and document navigation.
 
-![Single-file HTML notebook with cover, contents, and nested notes](doc/imgs/Screenshot%20from%202026-11-02%2011-46-37.png)
+![Single-file HTML notebook with cover, contents, and nested notes](imgs/Screenshot%20from%202026-11-02%2011-46-37.png)
 
 ## Maintainers
 

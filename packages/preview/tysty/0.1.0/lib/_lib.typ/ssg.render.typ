@@ -102,7 +102,7 @@
 
 // Bundle mkdoc uses the route derived from current metadata. Other targets
 // keep their ordinary HTML/PDF rendering behavior.
-#let mkdoc(body) = context {
+#let mkdoc(cover: false, body) = context {
   if target() == "bundle" {
     [#metadata(true) <tysty-bundle-output>]
     let doc = (current.get)()
@@ -115,6 +115,7 @@
       #_html.template(
         _html.mkdoc(
           ssg: true,
+          cover: cover,
           body,
         ),
         title: doc.title,
@@ -122,7 +123,10 @@
       )
     ]
   } else {
-    _html.mkdoc(body)
+    _html.mkdoc(
+      cover: cover,
+      body,
+    )
   }
 }
 

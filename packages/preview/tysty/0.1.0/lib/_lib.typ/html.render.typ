@@ -59,16 +59,33 @@
   html.elem("nav", attrs: (class: "tysty-breadcrumbs", aria-label: "Breadcrumb"), crumbs.join(" / "))
 }
 
+// Covers are presentation only, outside the primary-index reading sequence.
+#let mkcover() = context {
+  let doc = (current.get)()
+  _element("header", "tysty-cover", mkindex(doc.id, [
+    #if doc.cover_image.variant in ("path", "data") {
+      image(doc.cover_image.payload, alt: "Cover image")
+    }
+    #html.elem("h1", doc.title)
+    #_details(doc)
+    #if doc.abstract != "" { _element("p", "tysty-abstract", doc.abstract) }
+  ]))
+}
+
 // new-page is accepted for shared PDF/HTML source; HTML flows continuously.
-#let mkdoc(new-page: true, ssg: false, content) = context {
+#let mkdoc(new-page: true, cover: false, ssg: false, content) = context {
   let scope = here()
   let doc = (current.get)()
   [#metadata(doc.id) <tysty-rendered-document>]
   let article = _element("article", "tysty-note", [
-    #mkindex(doc.id, heading(depth: 1, [
-      #doc.title
-      #_element("span", "tysty-note-id", link((file_base.get)() + doc.file-path, "[" + doc.id + "]"))
-    ]))
+    #if cover {
+      mkcover()
+    } else {
+      mkindex(doc.id, heading(depth: 1, [
+        #doc.title
+        #_element("span", "tysty-note-id", link((file_base.get)() + doc.file-path, "[" + doc.id + "]"))
+      ]))
+    }
     #_details(doc)
     #if not ssg { _navigation(doc) }
     #if not ssg { _breadcrumbs(doc) }
@@ -89,19 +106,6 @@
   } else {
     article
   }
-}
-
-// Covers are presentation only, outside the primary-index reading sequence.
-#let mkcover() = context {
-  let doc = (current.get)()
-  _element("header", "tysty-cover", [
-    #if doc.cover_image.variant in ("path", "data") {
-      image(doc.cover_image.payload, alt: "Cover image")
-    }
-    #html.elem("h1", doc.title)
-    #_details(doc)
-    #if doc.abstract != "" { _element("p", "tysty-abstract", doc.abstract) }
-  ])
 }
 
 #let render-children(title) = context {

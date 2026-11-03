@@ -5,7 +5,7 @@
 #import "state.typ": _mkstate
 #import "util.typ": _match
 #import "embed.typ": _embed
-#import "render.common.typ": entities, file_base, _breadcrumb-path
+#import "render.common.typ": _breadcrumb-path, entities, file_base
 
 #let embed(offset: true, body) = _embed(body, offset: offset)
 
@@ -56,35 +56,13 @@
   parts
 }
 
-// Render the current note and register its id as a global index label.
-#let mkdoc(new-page: true, content) = context {
-  let doc = (current.get)()
-  [#metadata(doc.id) <tysty-rendered-document>]
-  assert("id" in doc, message: "Call meta before mkheading")
-  if new-page { pagebreak(weak: true) }
-  // Register outside the heading body: outlines replay that body.
-  mkindex(doc.id, block(below: 0.3em, heading(
-    depth: 1,
-    text(weight: 600, doc.title) + h(0.5em) + link((file_base.get)() + doc.file-path, _slug("[" + doc.id + "]")),
-  )))
-  let parts = _details(doc)
-  let parent-id = doc.parent-id
-  if parent-id != doc.id and parent-id in entities() {
-    parts.push(link(indexers().find(index => index.label == parent-id).loc, "[back]"))
-  }
-  block(above: 0.3em, below: 0.6em, text(size: 0.9em, fill: _meta-color, parts.join(" · ")))
-  if doc.abstract != "" {
-    block(above: 0.6em, below: 1em, doc.abstract)
-  }
-  content
-}
 
 // A separate cover does not register the heading label a second time.
 #let mkcover() = context {
   let doc = (current.get)()
   assert("id" in doc, message: "Call meta before mkcover")
   pagebreak(weak: true)
-  align(center)[
+  mkindex(doc.id, align(center)[
     #v(1fr)
     #if doc.cover_image.variant in ("path", "data") {
       image(doc.cover_image.payload, width: 60%)
@@ -107,9 +85,35 @@
       description: doc.description,
       keywords: doc.keywords,
     )
-
-  ]
+  ])
   pagebreak(weak: true)
+}
+
+// Render the current note and register its id as a global index label.
+#let mkdoc(new-page: true, cover: false, content) = context {
+  let doc = (current.get)()
+  [#metadata(doc.id) <tysty-rendered-document>]
+  assert("id" in doc, message: "Call meta before mkheading")
+  if new-page { pagebreak(weak: true) }
+  // Register outside the heading body: outlines replay that body.
+  if cover {
+    mkcover()
+  } else {
+    mkindex(doc.id, block(below: 0.3em, heading(
+      depth: 1,
+      text(weight: 600, doc.title) + h(0.5em) + link((file_base.get)() + doc.file-path, _slug("[" + doc.id + "]")),
+    )))
+  }
+  let parts = _details(doc)
+  let parent-id = doc.parent-id
+  if parent-id != doc.id and parent-id in entities() {
+    parts.push(link(indexers().find(index => index.label == parent-id).loc, "[back]"))
+  }
+  block(above: 0.3em, below: 0.6em, text(size: 0.9em, fill: _meta-color, parts.join(" · ")))
+  if doc.abstract != "" {
+    block(above: 0.6em, below: 1em, doc.abstract)
+  }
+  content
 }
 
 // Shared outline row, using the destination's page counter and numbering.
@@ -130,10 +134,9 @@
   let entries = indexers()
   let ids = entities()
 
-  let children = docs
-    .filter(
-      d => d.parent-id == doc.id and d.id != doc.id and d.id in ids and entries.any(index => index.label == d.id),
-    )
+  let children = docs.filter(
+    d => d.parent-id == doc.id and d.id != doc.id and d.id in ids and entries.any(index => index.label == d.id),
+  )
 
   if children.len() > 0 {
     heading(level: 2, outlined: false, title)

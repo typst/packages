@@ -46,7 +46,7 @@
   }
 }
 
-#let entry(..args, content) = context {
+#let entry(..args, cover: false, content) = context {
   let fields = arguments.named(args)
   if not ("parent-id" in fields) {
     let parent = (current.get)().at("id", default: auto)
@@ -54,6 +54,6 @@
       fields.insert("parent-id", parent)
     }
   }
-  meta(..fields) + mkdoc(content)
+  meta(..fields) + mkdoc(cover: cover, content)
 }
 

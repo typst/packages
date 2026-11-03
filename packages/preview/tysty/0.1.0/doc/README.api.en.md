@@ -9,15 +9,14 @@ Use Typst 0.15.1 or later with `@preview/tysty:0.1.0` installed. Import the pack
 ```typst
 #import "@preview/tysty:0.1.0": *
 #show: template
-#entry(id: "home", title: [Notebook], authors: ())[
-  #mkcover()
+#entry(id: "home", title: [Notebook], authors: (), cover: true)[
   Notebook content.
 ]
 ```
 
 ## Documents and metadata
 
-`entry(..fields, content)` declares metadata and renders the document's heading and body, registers its ID as a reference target, and adds it to the reading sequence. Put `mkcover()` inside its body when a cover is needed. Document IDs must be unique within a compilation.
+`entry(..fields, cover: false, content)` declares metadata and renders the document's heading and body, registers its ID as a reference target, and adds it to the reading sequence. Set `cover: true` when a cover should replace the heading. Document IDs must be unique within a compilation.
 
 When `parent-id` is omitted, `entry` inherits the current document's ID if available; otherwise it creates a semantic root. Explicit `parent-id: auto` always makes the document its own root. `entry` does not restore the previous current document; use `embed` to save and restore that context. Parent relationships are separate from visual heading nesting.
 
@@ -40,7 +39,7 @@ When `parent-id` is omitted, `entry` inherits the current document's ID if avail
 | `tags` | array of tag records | `()` |
 | `tlb` | `dictionary` | `(:)`; stored metadata |
 
-`entry` accepts the metadata fields listed above. Rendering options such as `new-page` are not supported by `entry`. Optional fields still require their declared types; `none` is not a substitute for their defaults.
+`entry` accepts the metadata fields listed above and `cover: bool` (default `false`). With `cover: true`, it renders a cover in place of the heading. Other rendering options such as `new-page` are not supported by `entry`. Optional fields still require their declared types; `none` is not a substitute for their defaults.
 
 `meta(..fields)` is the lower-level declaration API with the same metadata fields. It publishes metadata and selects the current document without rendering or registering a heading. Unlike `entry`, omitted `parent-id` means a root. Use `entry` to declare and render a document in one call.
 
@@ -52,7 +51,7 @@ Use these helpers in shared PDF, HTML, and bundle sources. They choose the appro
 | --- | --- |
 | `template(body, ..options)` | Use with `#show: template`; selects PDF, single HTML, or bundle wrapper. Options go to the selected wrapper. |
 | `embed(body, offset: …)` | Saves/restores the current document; heading offset defaults to `true` in PDF and `false` in HTML/bundles. |
-| `mkcover()` | Renders the current document's cover without adding another reference target or reading-sequence entry. |
+| `mkcover()` | Renders the current document's cover; use after `meta()` when rendering it explicitly. |
 | `mkoutline(..args)` | Automatically renders a heading outline for PDF/single HTML, or a document tree with page links for bundles (including calls inside bundle pages). |
 | `render-children(title)` | Lists directly related children that have rendered reference targets. |
 | `render-tags(tree)` | Renders a registered tag tree and rendered documents directly tagged at each node. |
@@ -117,11 +116,11 @@ Calling an index record's `lookup` creates a plain link without recording a back
 
 | Image value | Meaning |
 | --- | --- |
-| `(img.path)(path("cover.png"))` | Image path |
+| `(img.path)("cover.png")` | Image path |
 | `(img.data)(read("cover.png", encoding: none))` | Raw image bytes |
 | `img.null` | No image; a value, not a constructor |
 
-Pass these values as `cover_image` to `entry`, then call `mkcover()` in its body.
+Pass these values as `cover_image` to `entry`, and set `cover: true` on `entry` to render the cover.
 
 All category constructors use named fields. Fields are strings except `volume` and `issue`, which are integers. Each constructor requires all listed fields.
 
@@ -183,8 +182,8 @@ Use these when the output target is known. Automatic helpers above are usually s
 | `pdf.template` | `(body)`; PDF page styling |
 | `html.template` | `(body, title: "Notebook", lang: "en", css: html.stylesheet, css-href: none)`; inline CSS unless `css-href` is supplied |
 | `pdf.embed`, `html.embed` | `(body, offset: true/false)` respectively |
-| `pdf.mkdoc` | `(content, new-page: true)`; renders current metadata |
-| `html.mkdoc` | `(content, new-page: true, ssg: false)`; accepts but ignores `new-page`; `ssg` selects site layout |
+| `pdf.mkdoc` | `(content, new-page: true, cover: false)`; renders current metadata |
+| `html.mkdoc` | `(content, new-page: true, cover: false, ssg: false)`; accepts but ignores `new-page`; `ssg` selects site layout |
 | `pdf.mkcover`, `html.mkcover` | `()`; current document's cover |
 | `pdf.lookup`, `html.lookup` | `(label, content)`; same reference behavior as top-level helper |
 | `pdf.mkindex`, `html.mkindex` | `(label, content)`; shared index registration |
@@ -201,7 +200,6 @@ Use these when the output target is known. Automatic helpers above are usually s
 #show: html.bundle
 #html.page("guide/index.html", title: "Guide")[
   #entry(id: "guide", title: [Guide], authors: ())[
-    #mkcover()
     Guide content.
   ]
 ]
