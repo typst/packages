@@ -1,0 +1,62 @@
+{
+  "scales": {
+    "at": {
+      "best": 1,
+      "worst": 5,
+      "pass": 4,
+      "step": "1",
+      "higher_is_better": false
+    },
+    "ch": {
+      "best": 6,
+      "worst": 1,
+      "pass": 4,
+      "step": "0.5",
+      "higher_is_better": true
+    },
+    "de": {
+      "best": 1.0,
+      "worst": 6.0,
+      "pass": 4.0,
+      "step": "0.1, with 0.3/0.4/0.7 Zwischennoten",
+      "higher_is_better": false
+    },
+    "es": {
+      "best": 10,
+      "worst": 0,
+      "pass": 5,
+      "step": "0.5",
+      "higher_is_better": true
+    },
+    "fr": {
+      "best": 20,
+      "worst": 0,
+      "pass": 10,
+      "step": "0.5",
+      "higher_is_better": true
+    },
+    "it": {
+      "best": 30,
+      "worst": 0,
+      "pass": 18,
+      "step": "1",
+      "higher_is_better": true
+    },
+    "us": {
+      "best": 4.0,
+      "worst": 0.0,
+      "pass": 1.0,
+      "step": "0.3/0.4 (letter steps)",
+      "higher_is_better": true
+    }
+  },
+  "supported": [
+    "at",
+    "ch",
+    "de",
+    "es",
+    "fr",
+    "it",
+    "us"
+  ]
+}

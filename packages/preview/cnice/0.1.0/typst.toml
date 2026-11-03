@@ -1,0 +1,9 @@
+[package]
+name = "cnice"
+version = "0.1.0"
+entrypoint = "typst/lib.typ"
+authors = ["Julian Y. Richard Corbet"]
+license = "LGPL-3.0-only WITH LGPL-3.0-linking-exception"
+description = "Formulaic correspondence phrases: German salutations and locale-specific valedictions (cnice.greet + cnice.farewell). No models, no I/O: same input always yields the same output. Mirrors the cnice Rust crate release line."
+repository = "https://github.com/corbet-labs/cnice"
+exclude = [".git", ".github", ".crow", "target", "dist", "js", "py", "tests", "scripts"]
