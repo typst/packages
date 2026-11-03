@@ -24,6 +24,24 @@ The flora fills the margins the page has, so give it room: about 5 cm for a side
 margin, or 3 cm all round for `surround`. It also grows into gaps in the text:
 leave a `#v(6cm)` and the plant reaches into it.
 
+## Gallery
+
+Up close: the blooms are vector paths painted like watercolour, and the gold is computed per pixel.
+
+<img src="images/detail.jpg" alt="Close-up of a title page: two blue blooms on either side of a gilt laurel crest" width="100%">
+
+The eight colourways: `spring`, `summer`, `autumn` and `winter` above; `ember`, `plum`, `rose` and `original` below.
+
+<img src="images/colourways.jpg" alt="Eight pages with the same layout, one in each colourway" width="100%">
+
+The same page with other options. Above: `density: 0.4`, `density: 2`, `visitors: 4` and `mix: (lily: 3, bloom: 0, umbel: 0)`. Below: `palette` with one ink, `palette` with two inks, `ornaments: (moon: 5, night: 0, sun: 0, planet: 0)` and `draft: true`.
+
+<img src="images/tuning.jpg" alt="Eight pages showing density, visitors, mix, palette, ornaments and draft" width="100%">
+
+The plant grows around what the page holds: a gap in the text, a table and an equation, a floating figure, and two columns with `layout: "split"`.
+
+<img src="images/content.jpg" alt="Four pages where the flora fills a gap, surrounds a table and an equation, stops at a floating figure, and follows two columns" width="100%">
+
 ## Compile times
 
 A page takes about 3 to 6 seconds to grow, depending on the layout and how full it
@@ -112,9 +130,9 @@ them weight.
 
 - Text is measured by the block, not by the line, so the flora does not reach into
   the space beside a short last line. Gaps between blocks work as they should.
-- Paragraphs, headings, figures, lists, tables, block equations and code blocks are
-  measured. Other content, such as a bare `#rect` or `#image` outside a figure, is
-  not, and flora can grow over it if it stands in a gap.
+- Paragraphs, headings, figures, lists, tables, block equations, code blocks and the
+  bibliography are measured. Other content, such as a bare `#rect` or `#image` outside
+  a figure, is not, and flora can grow over it if it stands in a gap.
 - Multiple columns are assumed to use the default gutter.
 
 ## Credits

@@ -146,7 +146,19 @@
   set page(background: _background(base))
   show par: it => { _mark(it); it }
   show heading: it => { _mark(it); it }
-  show figure: it => { _mark(it); it }
+  // A floating figure stands away from where it was written, so the mark goes inside the float.
+  show figure: it => {
+    if it.placement == none { _mark(it); it } else {
+      show place: p => if p.has("label") { p } else {
+        [#place(
+          p.alignment, scope: p.scope, float: p.float, clearance: p.clearance, dx: p.dx, dy: p.dy,
+          { _mark(p.body); p.body },
+        ) <hortulus-float>]
+      }
+      it
+    }
+  }
+  show bibliography: it => { _mark(it); it }
   show list: it => { _mark(it); it }
   show enum: it => { _mark(it); it }
   show terms: it => { _mark(it); it }
