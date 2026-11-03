@@ -1,0 +1,34 @@
+  css-main:
+    - match: '/\*'
+      scope: punctuation.definition.comment.begin.css
+      push:
+        - meta_scope: comment.block.css
+        - match: '\*/'
+          scope: punctuation.definition.comment.end.css
+          pop: true
+    - match: '"'
+      push:
+        - meta_scope: string.quoted.double.css
+        - match: '\\.'
+          scope: constant.character.escape.css
+        - match: '"'
+          pop: true
+    - match: "'"
+      push:
+        - meta_scope: string.quoted.single.css
+        - match: '\\.'
+          scope: constant.character.escape.css
+        - match: "'"
+          pop: true
+    - match: '[.#][A-Za-z_][A-Za-z0-9_-]*'
+      scope: entity.name.type.css
+    - match: '[-A-Za-z]+(?=\s*:)'
+      scope: entity.other.attribute-name.css
+    - match: '#[0-9A-Fa-f]{3,8}\b|\b\d+(?:\.\d+)?(?:px|pt|em|rem|vh|vw|s|ms|%)?\b'
+      scope: constant.numeric.css
+    - match: '\b[-A-Za-z]+(?=\s*\()'
+      scope: support.function.css
+    - match: '\b(?:inherit|initial|unset|auto|none|block|inline|flex|grid|solid|absolute|relative|fixed|transparent|rebeccapurple|red|blue|green|black|white)\b'
+      scope: constant.language.css
+    - match: '[{}:;,()]'
+      scope: punctuation.css

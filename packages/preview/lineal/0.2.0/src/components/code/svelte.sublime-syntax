@@ -1,0 +1,96 @@
+%YAML 1.2
+---
+name: Lineal Svelte
+file_extensions: [svelte, lineal-svelte]
+scope: text.html.svelte
+contexts:
+  main:
+    - match: '<!--'
+      scope: punctuation.definition.comment.begin.html
+      push: html-comment
+    - match: '(?i)(<)(script)\b'
+      captures:
+        1: punctuation.definition.tag.begin.html
+        2: entity.name.tag.script.html
+      push: script-tag
+    - match: '(?i)(<)(style)\b'
+      captures:
+        1: punctuation.definition.tag.begin.html
+        2: entity.name.tag.style.html
+      push: style-tag
+    - match: '\{([#:/@])\s*([A-Za-z]+)'
+      captures:
+        1: punctuation.definition.block.svelte
+        2: keyword.control.block.svelte
+      push: expression
+    - match: '\{'
+      scope: punctuation.section.embedded.begin.svelte
+      push: expression
+    - match: '(</?)([A-Za-z][A-Za-z0-9:.-]*)'
+      captures:
+        1: punctuation.definition.tag.begin.html
+        2: entity.name.tag.html
+      push: tag
+  html-comment:
+    - meta_scope: comment.block.html
+    - match: '-->'
+      scope: punctuation.definition.comment.end.html
+      pop: true
+  tag:
+    - match: '/?>'
+      scope: punctuation.definition.tag.end.html
+      pop: true
+    - match: '\{'
+      scope: punctuation.section.embedded.begin.svelte
+      push: expression
+    - include: attributes
+  attributes:
+    - match: '[A-Za-z_:][A-Za-z0-9_:.-]*(?=\s*=)'
+      scope: entity.other.attribute-name.html
+    - match: '='
+      scope: keyword.operator.assignment.html
+    - match: '"'
+      scope: punctuation.definition.string.begin.html
+      push:
+        - meta_scope: string.quoted.double.html
+        - match: '"'
+          scope: punctuation.definition.string.end.html
+          pop: true
+    - match: "'"
+      scope: punctuation.definition.string.begin.html
+      push:
+        - meta_scope: string.quoted.single.html
+        - match: "'"
+          scope: punctuation.definition.string.end.html
+          pop: true
+  script-tag:
+    - match: '>'
+      scope: punctuation.definition.tag.end.html
+      set: script
+    - include: attributes
+  script:
+    - meta_scope: source.ts.embedded.svelte
+    - match: '(?i)</script\s*>'
+      scope: entity.name.tag.script.html
+      pop: true
+    - include: ts-main
+  style-tag:
+    - match: '>'
+      scope: punctuation.definition.tag.end.html
+      set: style
+    - include: attributes
+  style:
+    - meta_scope: source.css.embedded.svelte
+    - match: '(?i)</style\s*>'
+      scope: entity.name.tag.style.html
+      pop: true
+    - include: css-main
+  expression:
+    - meta_scope: source.ts.embedded.svelte
+    - match: '\}'
+      scope: punctuation.section.embedded.end.svelte
+      pop: true
+    - match: '\{'
+      scope: punctuation.section.embedded.begin.svelte
+      push: expression
+    - include: ts-main
