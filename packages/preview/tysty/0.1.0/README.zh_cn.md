@@ -62,7 +62,3 @@ API 参考：[English](doc/README.api.en.md) · [简体中文](doc/README.api.zh
 - `uid(namespace, name)` 使用纯 Typst 的 32 位 FNV-1a 散列，格式类似 UUID，但不是标准 UUID v5；有效散列空间只有 32 位，可能发生碰撞。
 
 完整的字段、类型、显式渲染器和静态网站 API 请参阅[中文 API 参考](README.api.zh_cn.md)。
-
-## 维护者与许可
-
-维护者：[github@mujiu555（暮玖）](https://github.com/mujiu555)。许可证：[Apache License 2.0](../LICENSE)。
