@@ -1,0 +1,38 @@
+{
+  "cgreet": {
+    "repository": "https://github.com/corbet-labs/cgreet",
+    "version": "0.2.1",
+    "files": {
+      "typst/greet.typ": "f8692c94864fd784dfdbbc258b20e9ea160c12ec55b4ab98441c14d9743a5524",
+      "tables/de.json": "f14fc6efedce618b2cf62e8cae4e857e1e0a4744fa66f8317ec6a4ef8af096dc",
+      "LICENSES/Apache-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "LICENSES/MIT.txt": "567462da97ddd294c09ca55b84072415bf6e9647400dc38c2c8364f41a4f4865"
+    }
+  },
+  "cfarewell": {
+    "repository": "https://github.com/corbet-labs/cfarewell",
+    "version": "0.2.1",
+    "files": {
+      "typst/farewell.typ": "1a6614195544b973eb465ee535b2ccf735e767c97aa32ba8daf772576b1716ac",
+      "typst/generated/closing.typ": "b7af17ae1ef4851fd57dca690e960508d390f48ec1c6ba6f36212cdcf92e4c1f",
+      "LICENSES/Apache-2.0.txt": "e3f1255549c278d641d38886d6a0f913f3cfb5f8c5699e5a7ee3d9161e694a0d"
+    }
+  },
+  "cdate": {
+    "repository": "https://github.com/corbet-labs/cdate",
+    "version": "0.2.1",
+    "files": {
+      "typst/date.typ": "63860f9240cad02f0f485b3245526e81bb9367d31e5c0b83f1474ca031fd92af",
+      "typst/generated/dates.typ": "f8e6d790df57d37f787485c51a9bfdb41c229981c0916eac8eeffe86d6503fa1",
+      "LICENSES/Apache-2.0.txt": "e3f1255549c278d641d38886d6a0f913f3cfb5f8c5699e5a7ee3d9161e694a0d"
+    }
+  },
+  "cink": {
+    "repository": "https://github.com/corbet-labs/cink",
+    "version": "0.1.4",
+    "files": {
+      "typst/ink.typ": "9d9363546c54dbdccafc74f0a9622c06c24f8eb8f54288a15410a3b4e4c8b585",
+      "LICENSES/Apache-2.0.txt": "0a048d046ff43a19d801b6b2ea81d0d622e8fa0d2e18d39536bd58d1f1027f2c"
+    }
+  }
+}
