@@ -1,0 +1,75 @@
+# Default labels — every display string the template emits, loaded by
+# `internal/defaults.typ`. Override any subset via `alta(labels: ...)`;
+# unknown keys panic.
+#
+# Keys mirror JSON Resume's section keys; values are editorial
+# ("Experience" reads better than "Work" as a heading).
+#
+# Translators: copy and translate this file, then pass
+#   #alta(cv, labels: toml("labels-de.toml"))
+
+# Lowercase ISO 639 code. Drives hyphenation, smart quotes and the
+# PDF language tag (read by screen readers).
+lang = "en"
+
+# Section headings.
+work         = "Experience"
+volunteer    = "Volunteer"
+focusAreas   = "Areas of Focus"
+skills       = "Skills"
+languages    = "Languages"
+education    = "Education"
+certificates = "Certifications"
+publications = "Publications"
+awards       = "Awards"
+projects     = "Projects"
+interests    = "Interests"
+references   = "References"
+referencesAvailableOnRequest = "References available upon request."
+
+# Deprecated for `publicationTypes.article`; still honoured when
+# overridden, removed in the next major (#239).
+articles = "Articles"
+
+# Heading for untyped projects when another project is typed (an
+# all-untyped list renders flat).
+otherProjects = "Other"
+
+# Rendered in date ranges when `endDate` is empty.
+present = "Present"
+
+# Footer label when `preferences.lastModifiedFooter` is true.
+lastModified = "Last updated"
+
+# Templates rather than prefixes, so a translation can reorder the
+# parts; unknown placeholders panic.
+#
+# `pageFooter: "auto"` counter. `{current}` required, `{total}` optional.
+pageNumber = "Page {current} / {total}"
+
+# PDF Title; `{name}` required. A plain string, not markup, so write a
+# real em dash — `---` only becomes one in Typst markup.
+documentTitle = "{name} — CV"
+
+# Exactly twelve. Used by `dateFormat: "long"` and the
+# `[month repr:long]` / `[month repr:short]` template tokens.
+months = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+]
+
+# Subheadings for `publications[].type` codes (untyped counts as
+# `article`), matched case-insensitively; other types print as given.
+# Overrides merge key by key.
+[publicationTypes]
+article = "Articles"
+book    = "Books"
+patent  = "Patents"
+thesis  = "Theses"
+talk    = "Talks"
+
+# Icon names per `publications[].type`, matched case-insensitively.
+# Built-ins live in `_code_publication_icons` (`sections/
+# publications.typ`) and `_legacy_publication_icons`
+# (`internal/canonical.typ`); unknown types fall back to `file`.
+[publicationIcons]
