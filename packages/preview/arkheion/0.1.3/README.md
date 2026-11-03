@@ -2,7 +2,7 @@
 
 A Typst template based on popular LateX template used in arXiv and bio-arXiv. Inspired by [arxiv-style](https://github.com/kourgeorge/arxiv-style)
 
-![Example](example.png)
+![First page of a paper made with arkheion: the title "Typst Template for arXiv" between two horizontal rules, two authors side by side with email and affiliation, the date, a centered abstract, a keywords line, and numbered sections with three levels of headings and inline math.](example.png)
 
 ## Usage
 
