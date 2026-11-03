@@ -1,0 +1,25 @@
+[package]
+name = "staunton"
+version = "0.2.1"
+entrypoint = "lib.typ"
+authors = ["Frank Lippert <frank.lippert@gmail.com>"]
+license = "MIT AND GPL-2.0-or-later"
+description = "Chess publishing: boards, FEN/PGN diagrams, tables, outlines."
+repository = "https://github.com/ndg6/staunton"
+keywords = ["chess", "fen", "pgn", "diagram", "board"]
+categories = ["visualization"]
+compiler = "0.15.0"
+
+# Files kept in the repo but NOT shipped in the published bundle. (`prompts`,
+# `CLAUDE.md`, and the non-shipped piece sets are also gitignored, so they are
+# absent from a clean checkout; they are listed here too as belt-and-suspenders.)
+exclude = [
+  "tests",
+  "docs",
+  "scripts",
+  "prompts",
+  "CLAUDE.md",
+  "RELEASING.md",
+  ".github",
+  "src/assets/piece_sets/_incomplete",
+]

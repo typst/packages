@@ -1,0 +1,10 @@
+[package]
+name = "sanor"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["pacaunt <@pacaunt>"]
+license = "MIT"
+compiler = "0.13.1"
+repository = "https://github.com/pacaunt/sanor"
+description = "Fast, small, presentation animation utility"
+categories = ["utility", "presentation"]

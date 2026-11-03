@@ -1,0 +1,9 @@
+[package]
+name = "clean-barm-initialized"
+version = "0.0.1"
+entrypoint = "main.typ"
+
+[[tool.prequery.jobs]]
+name = "download"
+kind = "web-resource"
+

@@ -1,0 +1,16 @@
+#import "./tree_backend.typ": _tree-backend
+
+/// Parses Newick-formatted phylogenetic tree data into a dictionary structure
+/// suitable for rendering.
+///
+/// - data (str): Newick-formatted phylogenetic tree data.
+/// -> dictionary with keys:
+///   - children (array, none): Child node dictionaries, or none for leaf nodes.
+///   - name (str, none): Optional node label.
+///   - length (int, float, none): Optional branch length.
+///   - rooted (bool): Root-only rootedness flag.
+/// Child nodes use the same fields except `rooted`.
+#let parse-newick(data) = {
+  let result = _tree-backend.parse_newick(bytes(data.trim()))
+  json(result)
+}

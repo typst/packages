@@ -1,0 +1,12 @@
+[package]
+name = "underhell"
+version = "0.3.1"
+entrypoint = "lib.typ"
+authors = ["Colin Jacobs", "跨越晨昏"]
+license = "MIT"
+description = "用于创建架空世界内容的文档模板,包括冒险、属性方块、法术卡、世界设定文档。A template for building worldbuilding content: adventures, stat blocks, spell cards, and setting documents."
+repository = "https://github.com/kych-net/UnderHellTemplate"
+keywords = ["roleplaying", "rpg", "template", "gaming", "worldbuilding", "fiction"]
+categories = ["layout", "report"]
+compiler = "0.14.0"
+exclude = ["example"]

@@ -1,0 +1,50 @@
+[package]
+name = "quati-abnt"
+version = "0.0.4"
+entrypoint = "src/lib.typ"
+authors = ["Gabriel Malosto <professional@gabdumal.com>"]
+license = "AGPL-3.0-only"
+description = "Documents according to the Associação Brasileira de Normas Técnicas (ABNT)."
+repository = "https://github.com/gabdumal/quati_abnt"
+keywords = [
+    "Associação Brasileira de Normas Técnicas",
+    "ABNT",
+    "Article",
+    "Paper",
+    "Monograph",
+    "Thesis",
+]
+categories = ["paper", "thesis"]
+exclude = [
+    "/.devcontainer",
+    "/.git",
+    "/.vscode",
+    "/examples",
+    "/scripts",
+    "/target",
+    "/.gitignore",
+    "/.gitmodules",
+    "/compose.yml",
+    "/TODO.md",
+    "/tinymist.lock",
+]
+
+[template]
+path = "template"
+entrypoint = "article/main.typ"
+thumbnail = "thumbnail.png"
+
+[tool.utpm]
+exclude = [
+    ".devcontainer",
+    ".git",
+    ".vscode",
+    "examples",
+    "scripts",
+    "target",
+    ".gitignore",
+    ".gitmodules",
+    "compose.yml",
+    "TODO.md",
+    "tinymist.lock",
+]

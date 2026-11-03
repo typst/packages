@@ -1,0 +1,12 @@
+[package]
+name = "tiago"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "lib.typ"
+authors = ["OverflowCat <https://about.overflow.cat>"]
+license = "Apache-2.0"
+description = "Draw diagrams in Typst via Diago, a D2 implementation in MoonBit."
+repository = "https://github.com/OverflowCat/tiago"
+categories = ["visualization", "integration"]
+keywords = ["diagram", "flowchart", "graph", "network", "node", "arrow"]
+exclude = ["demo"]

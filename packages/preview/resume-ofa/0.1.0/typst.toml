@@ -1,0 +1,16 @@
+[package]
+name = "resume-ofa"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aldrick Tadeo <@aldrick-t>"]
+license = "MIT"
+description = "Create concise, configurable curriculum vitae."
+repository = "https://github.com/aldrick-t/typst-resume-ofa"
+keywords = ["resume", "cv", "curriculum-vitae"]
+categories = ["cv"]
+exclude = ["docs/**", "examples/**"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

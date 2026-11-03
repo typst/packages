@@ -1,0 +1,12 @@
+[package]
+name = "scorify"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Justin Bornais"]
+license = "MIT"
+description = "Render professional sheet music directly in Typst documents."
+repository = "https://github.com/justinbornais/typst-sheet-music"
+keywords = ["music", "notation", "scorify", "sheet-music", "chord", "score"]
+categories = ["visualization", "components"]
+disciplines = ["music"]
+compiler = "0.14.0"

@@ -1,0 +1,58 @@
+<svg class="typst-doc" viewBox="0 0 48.44921875 66.15625" width="48.44921875pt" height="66.15625pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:h5="http://www.w3.org/1999/xhtml">
+    <path class="typst-shape" fill="#ffffff" fill-rule="nonzero" d="M 0 0v 66.15625 h 48.44922 v -66.15625 Z "/>
+    <g>
+        <g class="typst-group" transform="matrix(1 0 0 1 8 8)">
+            <g>
+                <g class="typst-group">
+                    <g>
+                        <path class="typst-shape" fill="#f2f2f2" fill-rule="nonzero" d="M 0 0m 0 3.5 c 0 -1.9329966 1.5670034 -3.5 3.5 -3.5 h 25.449219 c 1.9329967 0 3.5 1.5670034 3.5 3.5 v 13.078125 c 0 1.9329967 -1.5670033 3.5 -3.5 3.5 h -25.449219 c -1.9329966 0 -3.5 -1.5670033 -3.5 -3.5 Z "/>
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0m 3.5 0 h 25.449219 c 1.9329967 0 3.5 1.5670034 3.5 3.5 v 13.078125 c 0 1.9329967 -1.5670033 3.5 -3.5 3.5 h -25.449219 c -1.9329966 0 -3.5 -1.5670033 -3.5 -3.5 v -13.078125 c 0 -1.9329966 1.5670034 -3.5 3.5 -3.5 "/>
+                        <g class="typst-group" transform="matrix(1 0 0 1 5 5)">
+                            <g>
+                                <path class="typst-shape" fill="#87cefa" fill-rule="nonzero" stroke="#000000" stroke-width="0.8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0v 10.078125 h 22.449219 v -10.078125 Z "/>
+                                <g class="typst-text" transform="matrix(1 0 0 -1 4 8.078125)">
+                                    <use xlink:href="#g6B2472A1CDC81AFC237E524F5E68BF5B" x="0" y="0" fill="#000000" fill-rule="nonzero"/>
+                                    <use xlink:href="#g784B235AF9B5C5FDDCDE27E84CCC35C0" x="4.81640625" y="0" fill="#000000" fill-rule="nonzero"/>
+                                    <use xlink:href="#g20E0EF68744CD62AC666BBF414BA0AEA" x="9.6328125" y="0" fill="#000000" fill-rule="nonzero"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 16.224609375 22.078125)">
+                    <g>
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" transform="matrix(1 0 0 1 -0.00000000000000024492935982947064 0)" d="M 0 0l 0.00000000000000048985874 8 "/>
+                    </g>
+                </g>
+                <g class="typst-group" transform="matrix(1 0 0 1 4.81640625 30.078125)">
+                    <g>
+                        <path class="typst-shape" fill="#fdecdc99" fill-rule="nonzero" d="M 0 0m 0 3.5 c 0 -1.9329966 1.5670034 -3.5 3.5 -3.5 h 15.816406 c 1.9329967 0 3.5 1.5670034 3.5 3.5 v 13.078125 c 0 1.9329967 -1.5670033 3.5 -3.5 3.5 h -15.816406 c -1.9329966 0 -3.5 -1.5670033 -3.5 -3.5 Z "/>
+                        <path class="typst-shape" fill="none" stroke="#aaaaaa" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" stroke-dashoffset="0" stroke-dasharray="3 3" d="M 0 0m 3.5 0 h 15.816406 c 1.9329967 0 3.5 1.5670034 3.5 3.5 v 13.078125 c 0 1.9329967 -1.5670033 3.5 -3.5 3.5 h -15.816406 c -1.9329966 0 -3.5 -1.5670033 -3.5 -3.5 v -13.078125 c 0 -1.9329966 1.5670034 -3.5 3.5 -3.5 "/>
+                        <g class="typst-group" transform="matrix(1 0 0 1 5 5)">
+                            <g>
+                                <path class="typst-shape" fill="#fa8072" fill-rule="nonzero" stroke="#000000" stroke-width="0.8" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" d="M 0 0v 10.078125 h 12.816406 v -10.078125 Z "/>
+                                <g class="typst-text" transform="matrix(1 0 0 -1 4 8.078125)">
+                                    <use xlink:href="#gEC5C5CA0F4C44C51659792B4AD47B6F1" x="0" y="0" fill="#000000" fill-rule="nonzero"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs id="glyph">
+        <symbol id="g6B2472A1CDC81AFC237E524F5E68BF5B" overflow="visible">
+            <path d="M 0 0m 1.4648438 0.55078125 v -2.2148438 h -0.72265625 v 6.0390625 h 0.72265625 v -0.55859375 q 0.1796875 0.32421875 0.47851563 0.49414063 q 0.29882813 0.16992188 0.6894531 0.16992188 q 0.79296875 0 1.2441406 -0.61328125 q 0.45117188 -0.61328125 0.45117188 -1.6992188 q 0 -1.0664063 -0.453125 -1.6738281 q -0.453125 -0.6074219 -1.2421875 -0.6074219 q -0.3984375 0 -0.6972656 0.16992188 q -0.29882813 0.16992188 -0.47070313 0.49414063 Z m 2.109375 1.6328125 q 0 0.8359375 -0.26367188 1.2617188 q -0.26367188 0.42578125 -0.7832031 0.42578125 q -0.5234375 0 -0.79296875 -0.42773438 q -0.26953125 -0.42773438 -0.26953125 -1.2597656 q 0 -0.828125 0.26953125 -1.2578125 q 0.26953125 -0.4296875 0.79296875 -0.4296875 q 0.51953125 0 0.7832031 0.42578125 q 0.26367188 0.42578125 0.26367188 1.2617188 Z "/>
+        </symbol>
+        <symbol id="g784B235AF9B5C5FDDCDE27E84CCC35C0" overflow="visible">
+            <path d="M 0 0m 2.3984375 5.6171875 v -1.2421875 h 1.6328125 v -0.55859375 h -1.6328125 v -2.375 q 0 -0.484375 0.18359375 -0.67578125 q 0.18359375 -0.19140625 0.640625 -0.19140625 h 0.80859375 v -0.57421875 h -0.87890625 q -0.80859375 0 -1.140625 0.32421875 q -0.33203125 0.32421875 -0.33203125 1.1171875 v 2.375 h -1.1679688 v 0.55859375 h 1.1679688 v 1.2421875 h 0.71875 Z "/>
+        </symbol>
+        <symbol id="g20E0EF68744CD62AC666BBF414BA0AEA" overflow="visible">
+            <path d="M 0 0m 4.5117188 3.4726563 q -0.23046875 0.1796875 -0.46875 0.26171875 q -0.23828125 0.08203125 -0.5234375 0.08203125 q -0.671875 0 -1.0273438 -0.421875 q -0.35546875 -0.421875 -0.35546875 -1.21875 v -2.1757813 h -0.72265625 v 4.375 h 0.72265625 v -0.85546875 q 0.1796875 0.46484375 0.5527344 0.7128906 q 0.37304688 0.24804688 0.8847656 0.24804688 q 0.265625 0 0.49609375 -0.06640625 q 0.23046875 -0.06640625 0.44140625 -0.20703125 v -0.734375 Z "/>
+        </symbol>
+        <symbol id="gEC5C5CA0F4C44C51659792B4AD47B6F1" overflow="visible">
+            <path d="M 0 0m 0.18359375 5.8320313 h 4.4492188 v -0.6640625 h -1.8242188 v -5.1679688 h -0.79296875 v 5.1679688 h -1.8320313 v 0.6640625 Z "/>
+        </symbol>
+    </defs>
+</svg>

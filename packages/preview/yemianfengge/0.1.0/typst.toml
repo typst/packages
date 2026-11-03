@@ -1,0 +1,11 @@
+[package]
+
+name = "yemianfengge"
+version = "0.1.0"
+entrypoint = "pagestyle.typ"
+authors = ["@Neruthes"]
+license = "MIT"
+description = "Page style management."
+repository = "https://github.com/neruthes/typstpkg-pagestyle"
+keywords = ["Layout"]
+categories = ["utility"]

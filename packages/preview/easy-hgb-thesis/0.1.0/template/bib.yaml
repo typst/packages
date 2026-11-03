@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mkdjr/hayagriva/refs/heads/main/hayagriva.schema.json
+# This is a hayagriva bibliography file. For more information, see documentation at
+# https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+
+
+demo-cite:
+  type: article
+  author:
+    - John Doe
+  title: A Demonstrative Article on Demo Citations
+  parent:
+    title: Journal of Demonstrations
+  date: 2024
+  volume: 42
+  issue: 1
+  page-range: 1-10
+  serial-number: 
+    doi: 10.1234/demo.2024.001
+  note: Demo reference for template

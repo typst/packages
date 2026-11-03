@@ -35,6 +35,10 @@ Once used, they are cached in `{cache-dir}/typst/packages/preview` where
 - `~/Library/Caches` on macOS
 - `%LOCALAPPDATA%` on Windows
 
+You may also run `typst info` and check _Package cache path_ for the actual path.
+This would be helpful if you have installed the Typst compiler from Snap or are
+using special environment variables.
+
 Importing a cached package does not result in network access.
 
 ## Local packages
@@ -47,6 +51,10 @@ locally on your system. Here, `{data-dir}` is
 - `$XDG_DATA_HOME` or `~/.local/share` on Linux
 - `~/Library/Application Support` on macOS
 - `%APPDATA%` on Windows
+
+You may also run `typst info` and check _Package path_ for the actual path. This
+would be helpful if you have installed the Typst compiler from Snap or are using
+special environment variables.
 
 You can create an arbitrary `{namespace}`. A good namespace for system-local
 packages is `local`. Using this namespace:

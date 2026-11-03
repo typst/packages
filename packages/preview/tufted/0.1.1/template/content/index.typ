@@ -1,0 +1,32 @@
+#import "../config.typ": template, tufted
+#import "@preview/cmarker:0.1.8"
+#show: template
+
+= Tufted
+
+#tufted.margin-note({
+  image("imgs/tufted-duck-female-with-duckling.webp")
+  image("imgs/tufted-duck-male.webp")
+})
+
+#tufted.margin-note[
+  The tufted duck (_Aythya fuligula_) is a medium-sized diving duck native to Eurasia. Known for its diving ability, it can plunge to great depths to forage for food.
+]
+
+// NOTE: This page is generated from the README.md file
+#{
+  let md-content = read("../README.md")
+  let md-content = md-content.trim(regex("\s*#.+?\n")) // Remove first-level heading
+
+  // Render markdown content with custom image handling
+  cmarker.render(
+    md-content,
+    scope: (
+      image: (source, alt: none, format: auto) => figure(image(
+        "../" + source, // Modify paths for images
+        alt: alt,
+        format: format,
+      )),
+    ),
+  )
+}

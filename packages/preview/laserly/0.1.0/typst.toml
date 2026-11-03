@@ -1,0 +1,9 @@
+[package]
+name = "laserly"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Robin Eberhard"]
+license = "MIT"
+description = "Create 2D laser optic assemblies for visualizating laser beam paths"
+
+exclude = ["example1.png", "example2.png"]

@@ -1,0 +1,11 @@
+[package]
+name = "upsetter"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["goll <@goll72>"]
+license = "BSD-2-Clause"
+description = "Render set intersections using UpSet plots"
+repository = "https://github.com/goll72/upsetter"
+exclude = ["manual.typ", "manual.pdf", "docs/**/*"]
+keywords = ["upset", "plot", "set", "intersection"]
+categories = ["visualization"]

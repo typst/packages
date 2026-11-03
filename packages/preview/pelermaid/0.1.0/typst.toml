@@ -1,0 +1,12 @@
+[package]
+name = "pelermaid"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Mohamed Nady <@mohamedamrnady>"]
+license = "MIT AND ISC"
+description = "Render Mermaid diagrams with the Pele renderer."
+repository = "https://github.com/mohamedamrnady/typst-pelermaid"
+keywords = ["mermaid", "diagram", "diagrams", "flowchart", "svg", "pele"]
+categories = ["visualization", "integration"]
+compiler = "0.15.0"
+exclude = ["js", "scripts", "tests", ".cache", ".github", ".git", ".gitignore", ".gitattributes", "dist", "vendor"]

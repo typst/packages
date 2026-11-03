@@ -1,0 +1,24 @@
+[package]
+name = "uni-ms-pres-schloss"
+version = "0.1.0"
+entrypoint = "uni-muenster-pres-schloss.typ"
+authors = [ "Wölkchen" ]
+license = "MIT"
+description = "Unofficial Typst + Polylux presentation template in the style of the University of Muenster Schloss-Blue"
+repository = "https://github.com/Woelkchen/uni-ms-pres-schloss/"
+keywords = [
+  "presentation",
+  "polylux",
+  "university",
+  "muenster",
+  "univserität-münster",
+  "corporate-design"
+]
+categories = [ "presentation" ]
+disciplines = [ "education", "mathematics", "computer-science" ]
+exclude = [ "*.pdf", "slide-images/" ]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "./thumbnail.png"

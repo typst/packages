@@ -1,0 +1,29 @@
+[package]
+name = "maquette-scad"
+version = "0.1.0"
+entrypoint = "maquette-scad.typ"
+authors = ["bernsteining"]
+repository = "https://github.com/bernsteining/maquette/tree/master/crates/maquette-scad"
+homepage = "https://bernsteining.github.io/maquette/?model=openscad-logo.scad"
+license = "GPL-3.0-or-later"
+description = "Render OpenSCAD (.scad) models."
+keywords = [
+  "3D",
+  "OpenSCAD",
+  "SCAD",
+  "CSG",
+  "CAD",
+  "manifold",
+  "procedural",
+  "mesh",
+]
+categories = ["visualization"]
+compiler = "0.14.0"
+disciplines = [
+  "architecture",
+  "computer-science",
+  "design",
+  "drawing",
+  "engineering",
+  "mathematics",
+]

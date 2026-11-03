@@ -1,0 +1,8 @@
+# PDF files
+*.pdf
+# ...but keep the manual PDF tracked so the README permalink resolves
+# (it is still excluded from the published package via typst.toml `exclude`)
+!docs/manual.pdf
+
+# Typst artifacts
+*.typ.aux

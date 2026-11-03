@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>name</key><string>Ambrosia Dark</string>
+  <key>settings</key><array>
+    <dict><key>settings</key><dict><key>foreground</key><string>#FBF7F8</string><key>background</key><string>#171B22</string></dict></dict>
+    <dict><key>scope</key><string>comment</string><key>settings</key><dict><key>foreground</key><string>#A9B4C5</string></dict></dict>
+    <dict><key>scope</key><string>string</string><key>settings</key><dict><key>foreground</key><string>#D6DB8F</string></dict></dict>
+    <dict><key>scope</key><string>keyword, storage</string><key>settings</key><dict><key>foreground</key><string>#E4A5D5</string></dict></dict>
+    <dict><key>scope</key><string>constant, support</string><key>settings</key><dict><key>foreground</key><string>#8AC7DB</string></dict></dict>
+    <dict><key>scope</key><string>entity.name.function</string><key>settings</key><dict><key>foreground</key><string>#F0BF84</string></dict></dict>
+  </array>
+</dict></plist>

@@ -1,0 +1,12 @@
+[package]
+name = "csan"
+version = "0.7.1"
+entrypoint = "lib.typ"
+authors = ["VERALVX <veralvx@veralvx.com>"]
+license = "MIT OR Apache-2.0"
+description = "Generate Cutter call numbers for library cataloging."
+repository = "https://github.com/veralvx/csan"
+keywords = ["cutter", "cutter-sanborn", "library-of-congress", "library", "cataloging", "call-number"]
+categories = ["utility"]
+compiler = "0.14.2"
+exclude = ["/examples", "/tests"]

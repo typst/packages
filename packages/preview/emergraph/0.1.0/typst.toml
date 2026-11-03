@@ -1,0 +1,12 @@
+[package]
+name = "emergraph"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "src/lib.typ"
+license = "Apache-2.0"
+repository = "https://github.com/luciodias/emergraph"
+description = "A package for H.T. Odum's Energy Systems Language blocks and diagrams"
+categories = [ "visualization" ]
+keywords = ["emergy", "odum", "esl", "energese", "symbols"]
+authors = ["Lucio Dias <lucio@example.com>"]
+exclude = [ "/test/*"]

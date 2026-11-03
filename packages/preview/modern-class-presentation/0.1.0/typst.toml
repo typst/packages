@@ -1,0 +1,15 @@
+[package]
+name = "modern-class-presentation"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Modern Class Presentation contributors"]
+license = "MIT"
+description = "A polished, classroom-focused presentation template."
+categories = ["presentation"]
+keywords = ["slides", "lecture", "classroom", "education", "university"]
+repository = "https://github.com/aurghya-0/modern-class-presentation"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,20 @@
+[package]
+name = "habaneraa-one-page-resume-zh"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["habaneraa <Lumberjack1024@yeah.net>"]
+license = "MIT"
+description = "Fit your resume perfectly on one page by tuning one parameter."
+repository = "https://github.com/habaneraa/typst-resume-one-page"
+categories = ["cv"]
+keywords = ["resume", "cv", "chinese"]
+compiler = "0.13.0"
+exclude = [
+  "assets/*",
+  "examples/*",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

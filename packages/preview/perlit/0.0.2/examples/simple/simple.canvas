@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"5734c720bd6257a9","x":-534,"y":-138,"width":250,"height":60,"color":"6","type":"text","text":"Obsidian"},
+		{"id":"dd5e64723b6c2710","x":300,"y":-138,"width":250,"height":60,"color":"5","type":"text","text":"Typst"},
+		{"id":"8acb5b9403c7af65","x":-120,"y":-138,"width":250,"height":60,"type":"text","text":".canvas(JSON File)"}
+	],
+	"edges":[
+		{"id":"719cd339591d41d6","fromNode":"5734c720bd6257a9","fromSide":"right","toNode":"8acb5b9403c7af65","toSide":"left","color":"1"},
+		{"id":"908f53e5a2befb9e","fromNode":"8acb5b9403c7af65","fromSide":"right","toNode":"dd5e64723b6c2710","toSide":"left","color":"4"}
+	]
+}

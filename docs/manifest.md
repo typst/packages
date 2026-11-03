@@ -29,7 +29,7 @@ The following fields are required by the compiler:
 - `version`: The package's version as a full major-minor-patch triple.
   Package versioning should follow [SemVer].
 - `entrypoint`: The path to the main Typst file that is evaluated when the
-  package is imported.
+  package is imported (should be a relative path).
 
 If you plan to use your package only on your machine or to distribute
 it by your own means, you don't have to include more than these three fields.
@@ -116,10 +116,9 @@ for languages that are not generally written using the Latin alphabet.
 A good package description is simple, easily understandable and succinct. Here
 are some rules to follow to write great descriptions:
 
-- Keep it short. Try to maximize the content to length ratio and weigh your words
-  thoughtfully. Ideally, it should be 40 to 60 characters long.
-
-- Terminate your description with a full stop.
+- Keep it short. Try to maximize the content to length ratio and weigh your
+  words thoughtfully. Ideally, it should be one sentence of about 40 to 60
+  characters length.
 
 - Avoid the word "Typst", which is redundant unless your package or template
   actually has to do with Typst itself or its ecosystem (like in the case of
@@ -168,10 +167,10 @@ thumbnail = "thumbnail.png"
 Required by the compiler:
 
 - `path`: The directory within the package that contains the files that should
-  be copied into the user's new project directory.
+  be copied into the user's new project directory (should be a relative path).
 - `entrypoint`: A path _relative to the template's path_ that points to the file
-  serving as the compilation target. This file will become the previewed file in
-  the Typst web application.
+  serving as the compilation target (should be a relative path). This file will
+  become the previewed file in the Typst web application.
 
 Required for submissions to this repository:
 

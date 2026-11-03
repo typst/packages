@@ -1,0 +1,14 @@
+[package]
+name = "zap"
+version = "0.6.0"
+compiler = "0.14.0"
+entrypoint = "src/lib.typ"
+authors = ["Louis Grange <https://codeberg.org/grangelouis>"]
+license = "MIT"
+homepage = "https://zap.grangelouis.ch"
+description = "A package to draw standards-inspired electronic circuits, powered by CeTZ"
+repository = "https://codeberg.org/grangelouis/zap"
+categories = ["visualization", "components"]
+disciplines = ["engineering", "drawing", "physics"]
+keywords = ["zap", "electronic", "circuit", "cetz", "circuitikz", "voltage", "draw", "schema", "engineering"]
+exclude = [".forgejo", "docs", "examples", "tests"]

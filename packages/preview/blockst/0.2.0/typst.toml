@@ -1,0 +1,18 @@
+[package]
+name = "blockst"
+version = "0.2.0"
+entrypoint = "package.typ"
+authors = ["Loewe1000 <@Loewe1000>"]
+repository = "https://github.com/Loewe1000/blockst"
+keywords = ["scratch", "education", "programming", "blocks"]
+categories = ["visualization", "components", "languages"]
+disciplines = ["education", "computer-science"]
+compiler = "0.13.1"
+exclude = [
+	".DS_Store",
+	"*.pdf",
+	"/examples",
+]
+
+description = "Render Scratch-style blocks for educational documents."
+license = "MIT"

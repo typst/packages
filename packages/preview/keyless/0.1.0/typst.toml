@@ -1,0 +1,25 @@
+[package]
+name = "keyless"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["mkpoli"]
+license = "MIT"
+description = "Key out selected colors from raster images and turn them transparent."
+repository = "https://github.com/mkpoli/typst-keyless"
+keywords = [
+  "image",
+  "transparency",
+  "alpha",
+  "chroma key",
+  "color key",
+  "background removal",
+  "removal",
+  "remove",
+  "deletion",
+  "delete",
+  "mask",
+  "wasm",
+]
+categories = ["utility"]
+compiler = "0.8.0"
+exclude = ["docs/**"]
