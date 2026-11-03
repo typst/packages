@@ -1,0 +1,18 @@
+lang: en
+school: HTL Saalfelden
+department: Electrical Engineering
+school-year: "2026/27"
+class: "5AHETS"
+title: Thesis Title
+subtitle: Subtitle
+thesis-number: "42"
+due_date: "15.04.2027"
+abstract: A short summary of the thesis.
+usage: Planned usage of the results.
+candidates:
+  - name: Johannes Höllwerth
+    class: "5AHETS"
+    task: Develop a foo classification system
+supervisors:
+  - title: Dipl.-Ing. Dr.
+    name: Gerhard Gaube
