@@ -3,6 +3,24 @@
 
 #let nudt-green = rgb("#005844")
 
+#let highlight-box(
+  body,
+  width: 100%,
+  height: auto,
+  radius: 0.15in,
+  inset: 0.22in,
+  stroke: (paint: nudt-green, thickness: 1pt),
+  fill: rgb("#f3f8f5"),
+) = block(
+  width: width,
+  height: height,
+  radius: radius,
+  inset: inset,
+  stroke: stroke,
+  fill: fill,
+  body,
+)
+
 #let compact-code(code, height: auto) = block(
   width: 100%,
   height: height,
@@ -220,27 +238,33 @@
   ]
 }
 
-#let toc-slide() = slide(
-  config: config-page(header: none, margin: (x: 1.25cm, top: 0.52cm, bottom: 0.9cm)),
-)[
-  #set text(fill: nudt-green)
-  #grid(
-    columns: (1fr, auto),
-    [
-      #v(0.6cm)
-      #text(size: 1.85em, weight: "bold")[目录]
-    ],
-    [
-      #v(0.6cm)
-      #image("images/logo.png", width: 3.4cm)
-    ],
-  )
-  #v(-0.1cm)
-  #line(length: 100%, stroke: (paint: nudt-green, thickness: 1.5pt))
+#let toc-slide(config: (:)) = touying-slide-wrapper(self => {
+  if self.store.toc-mode != "none" {
+    self = utils.merge-dicts(
+      self,
+      config-page(header: none, margin: (x: 1.25cm, top: 0.52cm, bottom: 0.9cm)),
+    )
+    touying-slide(self: self, config: config)[
+      #set text(fill: nudt-green)
+      #grid(
+        columns: (1fr, auto),
+        [
+          #v(0.6cm)
+          #text(size: 1.85em, weight: "bold")[目录]
+        ],
+        [
+          #v(0.6cm)
+          #image("images/logo.png", width: 3.4cm)
+        ],
+      )
+      #v(-0.1cm)
+      #line(length: 100%, stroke: (paint: nudt-green, thickness: 1.5pt))
 
-  #v(1cm)
-  #toc-cards()
-]
+      #v(1cm)
+      #toc-cards()
+    ]
+  }
+})
 
 #let section-toc-slide(config: (:), ..args, body) = touying-slide-wrapper(self => {
   let current-section = if self.headings != () {
@@ -279,7 +303,12 @@
   author: none,
   date: none,
   institution: none,
+  toc-mode: "full",
 ) = {
+  assert(
+    toc-mode in ("none", "once", "full"),
+    message: "toc-mode must be one of: \"none\", \"once\", \"full\"",
+  )
   show: nudt-theme.with(
     config-info(
       title: title,
@@ -290,8 +319,9 @@
     ),
     config-common(
       slide-fn: slide,
-      new-section-slide-fn: section-toc-slide,
+      new-section-slide-fn: if toc-mode == "full" { section-toc-slide } else { none },
     ),
+    config-store(toc-mode: toc-mode),
   )
   body
 }

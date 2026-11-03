@@ -7,6 +7,7 @@
   author: [汇报人：姓名],
   date: [汇报日期],
   institution: [单位 / 学院 / 实验室],
+  toc-mode: "full",
 )
 
 #title-slide()
@@ -41,8 +42,10 @@
 
 给定查询 $Q$、键 $K$ 和值 $V$，注意力计算为：
 
-#align(center)[
-  #text(size: 1.25em)[$"Attention"(Q, K, V) = "softmax"(Q K^T / sqrt(d_k)) V$]
+#highlight-box[
+  #align(center)[
+    #text(size: 1.25em)[$"Attention"(Q, K, V) = "softmax"(Q K^T / sqrt(d_k)) V$]
+  ]
 ]
 
 - $Q K^T$ 衡量查询与各键之间的匹配程度。

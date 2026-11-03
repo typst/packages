@@ -14,6 +14,19 @@ typst compile main.typ main.pdf
 
 The generated `main.typ` is a short literature-report example about *Attention Is All You Need*. Edit its cover fields and replace the sample sections with your own content.
 
+Set `toc-mode` in `use-theme` to `"none"` (no contents slides), `"once"` (one contents slide), or `"full"` (a contents slide plus a section outline before each section). It defaults to `"full"`; keep `#toc-slide()` in `main.typ` for the global contents slide.
+
+Use `highlight-box` to emphasize a formula or key point:
+
+```typst
+#highlight-box[
+  *Scaled dot-product attention*
+  #align(center)[$"Attention"(Q, K, V) = "softmax"(Q K^T / sqrt(d_k)) V$]
+]
+```
+
+Its `width`, `height`, `radius`, `inset`, `stroke`, and `fill` parameters can override the default style.
+
 ## Contents
 
 - `template/main.typ`: editable presentation and example content.
