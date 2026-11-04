@@ -1,0 +1,13 @@
+[package]
+name = "tl-modern-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Iulian Rotaru <iulian@rotaru.cc>", "TactileLibrary® <tactile.library@e-uvt.ro>"]
+license = "MIT"
+description = "Clean and modern document style built for the TactileLibrary® Research Center."
+categories = ["report", "office"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
