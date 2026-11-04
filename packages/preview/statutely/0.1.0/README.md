@@ -46,4 +46,4 @@ The board consists of 5 members.
 
 ## Examples
 
-- [Example statutes](https://github.com/simo899t/statutely/blob/master/examples/example.typ)
+- [Example statutes](https://github.com/simo899t/statutely/blob/5591434dfecbad78839c784782388a66a9469364/examples/example.typ)

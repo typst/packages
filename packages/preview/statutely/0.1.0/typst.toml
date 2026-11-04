@@ -9,3 +9,4 @@ keywords = ["statutes", "bylaws", "vedtægter", "association"]
 repository = "https://github.com/simo899t/statutely"
 categories = ["office"]
 compiler = "0.13.0"
+exclude = ["examples"]
