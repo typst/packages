@@ -11,7 +11,7 @@ API reference: [English](doc/README.api.en.md) · [简体中文](doc/README.api.
 ```typst
 // Save this example as notebook.typ.
 // Compile with: typst compile --root . notebook.typ
-// Requires Typst 0.15.1 or later.
+// Requires Typst 0.15.0 or later.
 #import "@preview/tysty:0.1.0": *
 // Top-level APIs automatically select PDF or HTML at the call site.
 // Explicit pdf.* and html.* APIs remain available.
@@ -147,7 +147,7 @@ API reference: [English](doc/README.api.en.md) · [简体中文](doc/README.api.
 ### Static site generation
 
 ```typst
-// Save as site.typ. Requires Typst 0.15.1 or later.
+// Save as site.typ. Requires Typst 0.15.0 or later.
 // Compile with: typst compile --root . --features html,bundle --format bundle site.typ output
 #import "@preview/tysty:0.1.0": *
 #show: template
