@@ -9,3 +9,4 @@ keywords = ["minutes", "agenda", "meeting", "referat", "dagsorden"]
 repository = "https://github.com/simo899t/minutely"
 categories = ["office"]
 compiler = "0.13.0"
+exclude = ["examples"]

@@ -73,5 +73,5 @@ Statutes / vedtægter live in the separate package [statutely](https://github.co
 
 ## Examples
 
-- [Danish example](https://github.com/simo899t/minutely/blob/master/examples/example.typ)
-- [English example](https://github.com/simo899t/minutely/blob/master/examples/example-en.typ)
+- [Danish example](https://github.com/simo899t/minutely/blob/9705a608524d1afcf55ecae97874e8c8e993cc13/examples/example.typ)
+- [English example](https://github.com/simo899t/minutely/blob/9705a608524d1afcf55ecae97874e8c8e993cc13/examples/example-en.typ)
