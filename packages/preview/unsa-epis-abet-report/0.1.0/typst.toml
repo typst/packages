@@ -1,0 +1,17 @@
+[package]
+name = "unsa-epis-abet-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alvaro Quispe <https://github.com/alvaro9rqc>"]
+license = "MIT"
+description = "UNSA EPIS ABET-compliant laboratory practice report."
+repository = "https://github.com/alvaro9rqc/unsa-epis-abet-report"
+keywords = ["unsa", "epis", "abet", "lab-report", "engineering"]
+categories = ["report", "layout"]
+disciplines = ["engineering", "education"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
