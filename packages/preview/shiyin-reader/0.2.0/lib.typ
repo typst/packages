@@ -1058,6 +1058,50 @@
   scale: 1.0,
 ) = if book.front_matter.at("preface", default: "") != "" {
   let styled = theme.name != "school"
+  let content-width = profile.width - profile.margin.left - profile.margin.right
+  let content-height = profile.height - profile.margin.top - profile.margin.bottom
+  let content = block(width: content-width * 0.88, inset: (x: 2mm, y: 0pt))[
+    #align(center)[
+      #text(
+        font: theme.serif,
+        size: if styled {
+          if profile.paper == "a4" and theme.at("preface-title-size-a4", default: none) != none {
+            theme.preface-title-size-a4
+          } else {
+            theme.preface-title-size
+          }
+        } else {
+          theme.preface-title-size * scale
+        },
+        fill: theme.preface-title,
+        weight: if styled { theme.title-weight } else { "regular" },
+        tracking: 0.1em,
+      )[#book.front_matter.at("title", default: "卷首语")]
+      #v(0.7em)
+      #line(
+        length: if styled { 20mm } else { 24mm * scale },
+        stroke: (if styled { 0.5pt } else { 0.8pt * scale }) + theme.preface-title,
+      )
+    ]
+    #v(if styled { 1.1em } else if body-size >= 20pt { 1em } else { 1.35em })
+    #align(left)[
+      #set par(
+        justify: true,
+        first-line-indent: (amount: 2em, all: true),
+        leading: if styled { 0.55em } else if body-size >= 20pt { 0.85em } else { 1.15em },
+        spacing: if styled { 0.8em } else if body-size >= 20pt { 1em } else { 1.3em },
+      )
+      #set text(
+        font: body-font,
+        size: if styled { body-size } else if body-size >= 20pt { 20pt } else { 14pt },
+        fill: theme.preface-text-fill,
+      )
+      #for paragraph in book.front_matter.paragraphs {
+        paragraph
+        parbreak()
+      }
+    ]
+  ]
   page(
     ..profile.page-args,
     margin: profile.margin,
@@ -1067,50 +1111,15 @@
 )[
     // Short prefaces look best as a single centred block: the title and body
     // are balanced against the page instead of leaving a large blank tail.
-    #place(center + horizon)[
-      #block(width: 88%, inset: (x: 2mm, y: 0pt))[
-        #align(center)[
-          #text(
-            font: theme.serif,
-            size: if styled {
-              if profile.paper == "a4" and theme.at("preface-title-size-a4", default: none) != none {
-                theme.preface-title-size-a4
-              } else {
-                theme.preface-title-size
-              }
-            } else {
-              theme.preface-title-size * scale
-            },
-            fill: theme.preface-title,
-            weight: if styled { theme.title-weight } else { "regular" },
-            tracking: 0.1em,
-          )[#book.front_matter.at("title", default: "卷首语")]
-          #v(0.7em)
-          #line(
-            length: if styled { 20mm } else { 24mm * scale },
-            stroke: (if styled { 0.5pt } else { 0.8pt * scale }) + theme.preface-title,
-          )
-        ]
-        #v(if styled { 1.1em } else if body-size >= 20pt { 1em } else { 1.35em })
-        #align(left)[
-          #set par(
-            justify: true,
-            first-line-indent: (amount: 2em, all: true),
-            leading: if styled { 0.55em } else if body-size >= 20pt { 0.85em } else { 1.15em },
-            spacing: if styled { 0.8em } else if body-size >= 20pt { 1em } else { 1.3em },
-          )
-          #set text(
-            font: body-font,
-            size: if styled { body-size } else if body-size >= 20pt { 20pt } else { 14pt },
-            fill: theme.preface-text-fill,
-          )
-          #for paragraph in book.front_matter.paragraphs {
-            paragraph
-            parbreak()
-          }
-        ]
-      ]
-    ]
+    // Long prefaces must flow from the top and may span pages; placing them
+    // would clip the overflow on small Kindle pages.
+    #context {
+      if measure(content).height <= content-height {
+        place(center + horizon, content)
+      } else {
+        align(center, content)
+      }
+    }
   ]
 }
 
