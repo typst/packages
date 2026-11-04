@@ -7,9 +7,9 @@
           position: "",
           date: datetime.today(),
           language: "en",
-          logo: "tl-logo.svg",
-          page_numbering: "1/1",
-          section_numbering: "1.",
+          logo: "logoipsum.svg",
+          page-numbering: "1/1",
+          section-numbering: "1.",
           doc) = {
          
   // document setup
@@ -45,13 +45,13 @@
     #line(length: 100%)
     ],
     footer: auto,
-    numbering: page_numbering,
+    numbering: page-numbering,
     number-align: right,
     columns: 1,
   )
   set par(justify: true)
 
-  set heading(numbering: section_numbering)
+  set heading(numbering: section-numbering)
 
   // title page
   page(header: none, footer: none, margin: (top: 2cm))[

@@ -40,9 +40,9 @@ The full list of supported arguments is shown in @tab:args.
     [position], [Author's role within the company, used for the cover page. Optional.], [""],
     [date], [Datetime object, used for the cover page and document properties.], [datetime.today()],
     [language], [An ISO 639-1/2/3 language code, also applied to the date format on the cover page.], ["en"],
-    [logo], [Path to your logo file, used for the cover page and header.], ["tl-logo.svg"],
-    [page\_numbering], [Numbering rule for the pages.], ["1/1"],
-    [section\_numbering], [Numbering rule for the sections.], ["1."],
+    [logo], [Path to your logo file, used for the cover page and header.], ["logoipsum.svg"],
+    [page-numbering], [Numbering rule for the pages.], ["1/1"],
+    [section-numbering], [Numbering rule for the sections.], ["1."],
   ),
   caption: [List of arguments.],
 ) <tab:args>
