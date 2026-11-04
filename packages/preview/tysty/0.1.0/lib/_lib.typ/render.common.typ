@@ -1,4 +1,4 @@
-#import "doc.typ": current
+#import "doc.typ": current, documents
 #import "indexer.typ": _lookup
 
 #import "state.typ": _mkstate
@@ -17,8 +17,9 @@
 #let entities() = query(<tysty-rendered-document>).map(item => item.value)
 
 // Validate ancestry before constructing any breadcrumb content.
-#let _breadcrumb-path(doc, docs) = {
+#let _breadcrumb-path(doc) = {
   let limit = query(<tysty-rendered-document>).len()
+  let docs = documents()
   let path = ()
   let node = doc
   while true {
@@ -27,7 +28,13 @@
       panic("Breadcrumb path exceeds rendered document count: " + doc.id)
     }
     if node.parent-id == node.id { break }
-    node = docs.find(doc => doc.id == node.parent-id)
+    let parent-id = node.parent-id
+    let parent = docs.find(doc => doc.id == node.parent-id)
+    assert(
+      parent != none,
+      message: "document " + "\"" + node.id + "\"" + " references undefined parent" + "\"" + node.parent-id + "\"",
+    )
+    node = parent
   }
   path.rev()
 }

@@ -1,11 +1,10 @@
-#import "doc.typ": current, documents
+#import "doc.typ": _core_doc, current, documents
 #import "types.typ": author
 #import "indexer.typ": backlinks, indexers, mkindex
-#import "render.common.typ": lookup
 #import "state.typ": _mkstate
 #import "util.typ": _match
 #import "embed.typ": _embed
-#import "render.common.typ": _breadcrumb-path, entities, file_base
+#import "render.common.typ": _breadcrumb-path, entities, file_base, lookup
 
 #let embed(offset: true, body) = _embed(body, offset: offset)
 
@@ -184,7 +183,7 @@
     ),
     header: context {
       let doc = (current.get)()
-      if "id" in doc {
+      if _match(_core_doc, doc) {
         let entries = indexers()
         let ids = entities()
         let pos = ids.position(id => id == doc.id)
@@ -203,8 +202,7 @@
 
         let parts = (doc.title, doc.date.display("[year]-[month]-[day]"))
 
-        let docs = documents()
-        let path = _breadcrumb-path(doc, docs)
+        let path = _breadcrumb-path(doc)
         let breadcrumbs = path.map(node => {
           let title = _truncate-middle(node.title)
           if entries.any(index => index.label == node.id) {

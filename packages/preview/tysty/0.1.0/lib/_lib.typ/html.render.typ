@@ -50,7 +50,7 @@
 #let _breadcrumbs(doc) = context {
   let entries = indexers()
   let docs = documents()
-  let path = _breadcrumb-path(doc, docs)
+  let path = _breadcrumb-path(doc)
   let crumbs = path.map(node => {
     if entries.any(index => index.label == node.id) {
       link(entries.find(index => index.label == node.id).loc, node.title)
