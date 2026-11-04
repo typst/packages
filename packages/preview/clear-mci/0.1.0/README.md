@@ -1,5 +1,11 @@
 # clear-mci — 《现代化工》Typst 模板
 
+An unofficial, community-maintained Typst template for preparing
+Chinese-language academic manuscripts for *Modern Chemical Industry*
+(《现代化工》).
+
+This project is not affiliated with or officially endorsed by the journal.
+
 面向《现代化工》期刊中文稿件的 **社区制作** Typst 模板，用于排版中文论文的题名、摘要、
 关键词、分级标题、图表、公式与参考文献。支持 `typst init` 直接创建新文章。
 
