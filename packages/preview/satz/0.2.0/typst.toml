@@ -10,4 +10,4 @@ repository = "https://github.com/kylekahraman/satz"
 keywords = ["letter", "invoice", "report", "journal", "cover", "koma-script", "class"]
 categories = ["components", "layout", "text"]
 disciplines = ["communication", "education"]
-exclude = [".DS_Store", ".edist", "testing", "examples/latex-parity", "tools/**", "workbook-conversion/**", "AGENTS.md", "TODO.md", "letter/heading-test.typ", "*.pdf", "letter/example.typ", "journal/example.typ", "report/example.typ", "docs/site/**", "docs/archive/**", "astro.config.mjs", "package.json", "package-lock.json", "tsconfig.json", "src/**", "node_modules/**", ".astro/**", "site/**", ".github/**"]
+exclude = [".DS_Store", ".edist", "testing", "examples/latex-parity", "tools/**", "skills/**", "workbook-conversion/**", "AGENTS.md", "TODO.md", "letter/heading-test.typ", "*.pdf", "letter/example.typ", "journal/example.typ", "report/example.typ", "docs/site/**", "docs/archive/**", "astro.config.mjs", "package.json", "package-lock.json", "tsconfig.json", "src/**", "node_modules/**", ".astro/**", "site/**", ".github/**"]
