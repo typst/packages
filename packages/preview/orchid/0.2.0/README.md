@@ -18,7 +18,7 @@ See [CHANGELOG.adoc](CHANGELOG.adoc) for release notes.
 
 ## Manual
 
-For usage, options and examples, see the [manual](manual.pdf).
+For usage, options and examples, see the [manual](docs/manual.pdf).
 
 ## Issues
 
