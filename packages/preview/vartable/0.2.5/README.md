@@ -6,14 +6,14 @@ La [documention](https://github.com/Le-foucheur/Typst-VarTable/blob/main/documen
 
 
 ```js
-#import "@preview/vartable:0.2.5": tabvar
+#import "@preview/vartable:0.2.3": tabvar
 ```
 # Few examples
 
 ### Trigonometric functions
 Turn this :
 ```js
-#import "@preview/vartable:0.2.5": tabvar
+#import "@preview/vartable:0.2.3": tabvar
 
 #tabvar(
 
@@ -57,7 +57,7 @@ Into this
 ### hyperbolic function $f(x) = 1/x $
 
 ```js
-#import "@preview/vartable:0.2.5": tabvar
+#import "@preview/vartable:0.2.3": tabvar
 
 #tabvar(
   arrow-mark: (end: ">", start: "|"),
@@ -82,7 +82,7 @@ Into this
 ### A random function : $f(x) = \sqrt{x²-4}$ & $f'(x) = \frac {x} {\sqrt{x² - 4}}$
 
 ```js
-#import "@preview/Tabvar:0.2.5": tabvar, hatch
+#import "@preview/Tabvar:0.2.3": tabvar, hatch
 
 #tabvar(
   variable: $t$,
@@ -113,6 +113,7 @@ Into this
 - add a parameter to make the style of undefined values at the beginnig and the end, look like tkz-var 
 - support `Cetz 0.5.3`
 - support `"0"` bar at the beginnig and end of a sub-table `"s"`
+- now can instert some content in the middle of the bar in a sub-table `"s"`
 - bug fix
 
 #### 0.2.4

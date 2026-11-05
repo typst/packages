@@ -314,167 +314,167 @@
   #place(polygon.regular(vertices: 3, size: 7pt, stroke: .5pt))
 ]
 
-/// Return a variation table
-////// Retourne un tableau de variation
+////// Return a variation table
+/// Retourne un tableau de variation
 #let tabvar(
-  /// variable is a content block which contains the table’s variable name (like $x$ or $t$)
-  ///
-  ////// `variable` est la variable qui contient la variable du tableau (comme $x$ ou $t$)\
-  ////// *Exemple :* si la variable de la fonction est $t$, alors :\
-  ////// ```typst
-  ////// variable : $ t $
-  ////// ```
-  //////  -> content
-  variable: $ x $,
-  /// `label` is an array which contain arrays of 2 arguments that contains in first position the line’s label and in second position, if the line is a variation table or a sign table with this following keys : "v" for variation and "s" for sign \
-  /// *Example :* for a variation table of a function $f$, you should write : \
+  ////// variable is a content block which contains the table’s variable name (like $x$ or $t$)
+  //////
+  /// `variable` est la variable qui contient la variable du tableau (comme $x$ ou $t$)\
+  /// *Exemple :* si la variable de la fonction est $t$, alors :\
   /// ```typst
-  /// init: (
-  ///   variable: $x$,
-  ///   label: (
-  ///     ([sign of $f$], "Sign"), // the first line is a sign table
-  ///     ([variation of $f$], "Variation") // the second line is a variation table
-  ///   )
-  /// )
+  /// variable : $ t $
   /// ```
-  ///
-  ////// `label` est un array qui contient des array de longueur 2, une pour chaque ligne du tableau, dont le premier élément est le titre de la ligne et le second est le type de la ligne : signes ( "s" ) ou variations ( "v" ) \
-  ////// *Exemple :* pour le tableau de variations de la fonction $f$, vous devriez écrire :\
+  ///  -> content
+  variable: $ x $,
+  ////// `label` is an array which contain arrays of 2 arguments that contains in first position the line’s label and in second position, if the line is a variation table or a sign table with this following keys : "v" for variation and "s" for sign \
+  ////// *Example :* for a variation table of a function $f$, you should write : \
   ////// ```typst
-  ////// label : (
-  //////   ([Signe de $f$], "s"), // la première ligne est un tableau de signe
-  //////   ([Variations de $f$], "v") // la seconde ligne est un tableau de variations
+  ////// init: (
+  //////   variable: $x$,
+  //////   label: (
+  //////     ([sign of $f$], "Sign"), // the first line is a sign table
+  //////     ([variation of $f$], "Variation") // the second line is a variation table
+  //////   )
   ////// )
   ////// ```
-  ////// -> array
-  label: (),
-  /// values taken by the variable \
-  /// for example if your funtions changes sign or reaches a max/min for $x in {0,1,2,3}$ \
-  /// you should write this :
+  ///
+  /// `label` est un array qui contient des array de longueur 2, une pour chaque ligne du tableau, dont le premier élément est le titre de la ligne et le second est le type de la ligne : signes ( "s" ) ou variations ( "v" ) \
+  /// *Exemple :* pour le tableau de variations de la fonction $f$, vous devriez écrire :\
   /// ```typst
-  /// domain: ($0$, $1$, $2$, $3$)
+  /// label : (
+  ///   ([Signe de $f$], "s"), // la première ligne est un tableau de signe
+  ///   ([Variations de $f$], "v") // la seconde ligne est un tableau de variations
+  /// )
+  /// ```
+  /// -> array
+  label: (),
+  ////// values taken by the variable \
+  ////// for example if your funtions changes sign or reaches a max/min for $x in {0,1,2,3}$ \
+  ////// you should write this :
+  ////// ```typst
+  ////// domain: ($0$, $1$, $2$, $3$)
+  ////// ```
+  ///
+  /// Les valeurs prises par la variable. \
+  /// Par exemple, si votre fonction change de signe ou atteint un extrémum pour $x in {0;1;2;3}$, \
+  /// vous devriez écrire :
+  /// ```typst
+  /// domain: ($0$, $1$, $2$, $3$)
   /// ```
   ///
-  ////// Les valeurs prises par la variable. \
-  ////// Par exemple, si votre fonction change de signe ou atteint un extrémum pour $x in {0;1;2;3}$, \
-  ////// vous devriez écrire :
-  ////// ```typst
-  ////// domain: ($0$, $1$, $2$, $3$)
-  ////// ```
-  //////
-  ////// -> array
+  /// -> array
   domain: (),
   /// the content of the table \
   /// see below for more details
-  ////// Le contenu du tableau\
-  ////// Voir 2.2<2.2> pour plus de détails
-  ////// -> array
+  /// Le contenu du tableau\
+  /// Voir 2.2<2.2> pour plus de détails
+  /// -> array
   contents: ((),),
-  /// *Optional*\
-  /// The style of the table,\
-  /// the style type is defined by Cetz,
-  /// so I invite you to have a look at the #link("https://cetz-package.github.io/docs")[#underline(stroke: blue)[Cetz manual]]. \
-  /// *Caution :* if you haven't entered the mark symbol as none, all lines in the table will have an arrowhead.
-  //////
-  ////// *Optionelle*\
-  ////// Le style du tableau\
-  ////// Le type style est défini par Cetz, aussi je vous recommande de vous référer au #link("https://cetz-package.github.io/docs")[#underline(stroke: blue)[manuel de Cetz]].\
-  ////// *Attention :* Si vous ne mettez pas le paramètre de style : `mark` à `none`, alors toutes les lignes du tableau auront une tête en flèche
-  //////  -> style
+  ////// *Optional*\
+  ////// The style of the table,\
+  ////// the style type is defined by Cetz,
+  ////// so I invite you to have a look at the #link("https://cetz-package.github.io/docs")[#underline(stroke: blue)[Cetz manual]]. \
+  ////// *Caution :* if you haven't entered the mark symbol as none, all lines in the table will have an arrowhead.
+  ///
+  /// *Optionelle*\
+  /// Le style du tableau\
+  /// Le type style est défini par Cetz, aussi je vous recommande de vous référer au #link("https://cetz-package.github.io/docs")[#underline(stroke: blue)[manuel de Cetz]].\
+  /// *Attention :* Si vous ne mettez pas le paramètre de style : `mark` à `none`, alors toutes les lignes du tableau auront une tête en flèche
+  ///  -> style
   table-style: (stroke: 1pt + black, mark: (symbol: none)),
-  /// to hide the external cardre
-  ////// Pour cacher le cadre externe du tableau
-  ////// -> bool
+  ////// to hide the external cardre
+  /// Pour cacher le cadre externe du tableau
+  /// -> bool
   nocadre: false,
-  /// the style of the arrowhead, the type of which is defined by Cetz
-  //////
-  ////// Le style de la tête de la flèche.\
-  ////// *NB.* le type `mark` est défini par Cetz
-  ////// -> mark
+  ////// the style of the arrowhead, the type of which is defined by Cetz
+  ///
+  /// Le style de la tête de la flèche.\
+  /// *NB.* le type `mark` est défini par Cetz
+  /// -> mark
   arrow-mark: (end: "straight"),
-  /// *Optional*\
-  ///  the style of the arrow, as for the `table-style` parameter\
-  /// *Caution :* the `mark` section is overwrite by the `arrow-mark`
-  //////
-  ////// *Optionelle :*\
-  ////// Le style des flèches.\
-  ////// *Attention :* le paramètre `mark` est supplanté par le paramètre `arrow-mark`
-  ////// -> style
+  ////// *Optional*\
+  //////  the style of the arrow, as for the `table-style` parameter\
+  ////// *Caution :* the `mark` section is overwrite by the `arrow-mark`
+  ///
+  /// *Optionelle :*\
+  /// Le style des flèches.\
+  /// *Attention :* le paramètre `mark` est supplanté par le paramètre `arrow-mark`
+  /// -> style
   arrow-style: (stroke: black + 1pt),
-  ///  *Optional*\
-  /// if you want to change the default bar sign to a bar with a 0
-  //////
-  ////// *Optionelle*\
-  ////// Si vous voulez remplacer la barre par défaut dans les tableaux de signes, par une barre avec un 0 en son centre
-  ////// -> bool
+  //////  *Optional*\
+  ////// if you want to change the default bar sign to a bar with a 0
+  ///
+  /// *Optionelle*\
+  /// Si vous voulez remplacer la barre par défaut dans les tableaux de signes, par une barre avec un 0 en son centre
+  /// -> bool
   line-0: false,
   ////// *Optional*\
   ////// change the undefined bar at the beginnig end the end of sub-table for a style that mimic tkz-tab
-  ////// *Optionelle*\
-  ////// change les bars d’indéfinies au début et à la fin des sous-tableaux pour copier le style de tkz-tab
+  /// *Optionelle*\
+  /// change les bars d’indéfinies au début et à la fin des sous-tableaux pour copier le style de tkz-tab
   undefined-bar-alt: false,
-  /// *Optional*\
-  /// if you want to change the style of all separator lines between signs\
+  ////// *Optional*\
+  ////// if you want to change the style of all separator lines between signs\
+  //////
+  ////// Warning: this will only change the default lines, the `||`, `|` or `0` lines will not be changed.
   ///
-  /// Warning: this will only change the default lines, the `||`, `|` or `0` lines will not be changed.
-  //////
-  ////// *Optionelle*\
-  ////// Si vous voulez le style de toutes les barres de séparation entre les signes
-  ////// -> style
+  /// *Optionelle*\
+  /// Si vous voulez le style de toutes les barres de séparation entre les signes
+  /// -> style
   line-style: (stroke: black + 1pt),
-  /// *Optional*\
-  /// The style of the hatching in the sign and variation table
-  //////
-  ////// *Optionelle*\
-  ////// Le style des hachures, s’il y a des zones hachurées
-  ////// -> tiling
+  ////// *Optional*\
+  ////// The style of the hatching in the sign and variation table
+  ///
+  /// *Optionelle*\
+  /// Le style des hachures, s’il y a des zones hachurées
+  /// -> tiling
   hatching-style: tiling(size: (30pt, 30pt))[
 
     #place(line(start: (0%, 100%), end: (100%, 0%), stroke: 2pt))
     #place(line(start: (-100%, 100%), end: (100%, -100%), stroke: 2pt))
     #place(line(start: (0%, 200%), end: (200%, 0%), stroke: 2pt))
   ],
-  /// *Optional*\
-  /// change the width of the first column
-  //////
-  ////// *Optionelle*\
-  ////// Change la largeur de la première colonne
-  ////// -> length
+  ////// *Optional*\
+  ////// change the width of the first column
+  ///
+  /// *Optionelle*\
+  /// Change la largeur de la première colonne
+  /// -> length
   first-column-width: none,
-  /// *Optional*\
-  /// change the height of the first line
-  //////
-  ////// Change la hauteur de la première ligne (celle du domaine et de la variable)
-  ////// -> length
+  ////// *Optional*\
+  ////// change the height of the first line
+  ///
+  /// Change la hauteur de la première ligne (celle du domaine et de la variable)
+  /// -> length
   first-line-height: none,
-  /// *Optional*\
-  /// change the distance betwen two elements
-  //////
-  ////// *Optionelle*\
-  ////// Change la distance entre deux éléments
-  ////// -> length
+  ////// *Optional*\
+  ////// change the distance betwen two elements
+  ///
+  /// *Optionelle*\
+  /// Change la distance entre deux éléments
+  /// -> length
   element-distance: none,
-  /// *Optional*\
-  /// To add values betwen to pre-defined values
-  //////
-  ////// Pour ajouter des valeurs entre deux valeurs prédéfinies
-  ////// -> array
+  ////// *Optional*\
+  ////// To add values betwen to pre-defined values
+  ///
+  /// Pour ajouter des valeurs entre deux valeurs prédéfinies
+  /// -> array
   values: ((),),
-  /// *Optional*\
-  /// The fill color for values (should be the same as the background of the table)
-  /// default : white
-  //////
-  ////// *Optionelle*\
-  ////// La couleur de remplissage pour les valeurs sur les flèches (devrait être identique
-  ////// à l'arrière-plan du tableau)
-  ////// Par défaut : white
-  ////// -> color
+  ////// *Optional*\
+  ////// The fill color for values (should be the same as the background of the table)
+  ////// default : white
+  ///
+  /// *Optionelle*\
+  /// La couleur de remplissage pour les valeurs sur les flèches (devrait être identique
+  /// à l'arrière-plan du tableau)
+  /// Par défaut : white
+  /// -> color
   fill-color: white,
-  /// *Optional*\
-  /// To add more stuff with Cetz
-  //////
-  ////// Pour ajouter davantage d’éléments, via Cetz
-  ////// -> content
+  ////// *Optional*\
+  ////// To add more stuff with Cetz
+  ///
+  /// Pour ajouter davantage d’éléments, via Cetz
+  /// -> content
   add: (),
 ) = {
   //start of function
@@ -822,14 +822,9 @@
 
         if label.at(i).last() == "s" {
           // panic si il y a plus ou moins d’éléments qu’il faudrais
-          if ("0", "|", "||").contains(contents.at(i).at(-1)) {
-            if contents.at(i).len() != domain.len() {
-              panic("TabVar: Wrong number of elements in the table number " + str(i + 1))
-            }
-          } else {
-            if contents.at(i).len() != domain.len() - 1 {
-              panic("TabVar: Wrong number of elements in the table number " + str(i + 1))
-            }
+          // panic si il y a plus ou moins d’éléments qu’il faudrais
+          if contents.at(i).len() > domain.len()  {
+            panic("TabVar: Wrong number of elements in the table number " + str(i + 1))
           }
 
           for j in range(0, contents.at(i).len() - 1) {
@@ -860,6 +855,19 @@
                 content(
                   "zero.mid",
                   $ 0 $,
+                )
+              } else if type(contents.at(i).at(j).at(0)) == type([]) {
+                // Marque libre : un contenu posé au milieu de la barre, comme le 0
+                // (`type([])` : ici, `content` est la fonction de Cetz, pas le type)
+                set-style(..line-style)
+                line(
+                  (coordX.at(j).at(0), coordY.at(i).at(0) - coordY.at(i).at(1) / 2),
+                  (coordX.at(j).at(0), coordY.at(i).at(0) + coordY.at(i).at(1) / 2),
+                  name: "zero",
+                )
+                content(
+                  "zero.mid",
+                  contents.at(i).at(j).at(0),
                 )
               } else if contents.at(i).at(j).first() == "|" {
                 set-style(..line-style)
@@ -1160,6 +1168,17 @@
               (coordX.at(-1).at(0), coordY.at(i).at(0) - coordY.at(i).at(1) / 2),
               (coordX.at(-1).at(0), coordY.at(i).at(0) + coordY.at(i).at(1) / 2),
             )
+          } else if contents.at(i).len() == domain.len() {
+            set-style(..line-style)
+            line(
+              (coordX.at(-1).at(0), coordY.at(i).at(0) - coordY.at(i).at(1) / 2),
+              (coordX.at(-1).at(0), coordY.at(i).at(0) + coordY.at(i).at(1) / 2),
+              name: "zero",
+            )
+            content(
+              "zero.mid",
+              contents.at(i).at(-1),
+            )
           } else {
             if type(contents.at(i).at(-1)) == array and contents.at(i).at(-1).len() == 0 {
               // On ne fait rien s'il n'y a pas de signe
@@ -1307,6 +1326,20 @@
                       content(
                         "zero.mid",
                         $ 0 $,
+                      )
+                      set-style(..table-style)
+                    } else if type(contents.at(i).at(-1).at(0)) == type([]) {
+                      // Marque libre : un contenu posé au milieu de la barre, comme le 0
+                // (`type([])` : ici, `content` est la fonction de Cetz, pas le type)
+                      set-style(..line-style)
+                      line(
+                        (coordX.at(-2).at(0), coordY.at(i).at(0) - coordY.at(i).at(1) / 2),
+                        (coordX.at(-2).at(0), coordY.at(i).at(0) + coordY.at(i).at(1) / 2),
+                        name: "zero",
+                      )
+                      content(
+                        "zero.mid",
+                        contents.at(i).at(-1).at(0),
                       )
                       set-style(..table-style)
                     } else if contents.at(i).at(-1).first() == "|" {
