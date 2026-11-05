@@ -1,0 +1,309 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Theme for typtorial",
+  "description": "Fonts, colors, brand text and layout of a tutorial. Every setting is optional; missing ones are taken from the package's themes/default.theme.yaml and then from the values built into typtorial.",
+  "type": [
+    "object",
+    "null"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "fonts": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "description": "Font families. Each is one family or a list of fallbacks; the first one installed on the machine that compiles the tutorial is used.",
+      "properties": {
+        "text": {
+          "$ref": "#/$defs/font",
+          "description": "Body text, headings and title."
+        },
+        "code": {
+          "$ref": "#/$defs/font",
+          "description": "Code blocks and inline code."
+        },
+        "brand": {
+          "$ref": "#/$defs/font",
+          "description": "Text at the top right."
+        }
+      }
+    },
+    "sizes": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "description": "Font sizes in pt. The website scales its own sizes by the same proportions.",
+      "properties": {
+        "text": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "description": "Body text.",
+          "default": 14
+        },
+        "heading": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "description": "Heading of a step.",
+          "default": 15
+        },
+        "title": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "description": "Title at the top left.",
+          "default": 17
+        },
+        "title-page": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "description": "Title on the title page.",
+          "default": 30
+        },
+        "brand": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "description": "Text at the top right.",
+          "default": 20
+        },
+        "code": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0,
+          "description": "Code blocks and inline code.",
+          "default": 10.9
+        }
+      }
+    },
+    "colors": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "description": "Colors as hex values, e.g. \"#ffc800\". Empty values fall back to the next theme in the lookup order.",
+      "properties": {
+        "background": {
+          "$ref": "#/$defs/color",
+          "description": "Page background."
+        },
+        "background-gradient": {
+          "$ref": "#/$defs/color",
+          "description": "Second color for a gradient towards the bottom right. Empty = solid background."
+        },
+        "text": {
+          "$ref": "#/$defs/color",
+          "description": "Body text."
+        },
+        "accent": {
+          "$ref": "#/$defs/color",
+          "description": "Progress dot and underline of the title."
+        },
+        "heading": {
+          "$ref": "#/$defs/color",
+          "description": "Heading of a step."
+        },
+        "heading-background": {
+          "$ref": "#/$defs/color",
+          "description": "Bar behind the heading of a step. Empty = no bar."
+        },
+        "line": {
+          "$ref": "#/$defs/color",
+          "description": "Separator lines, small dots and borders."
+        },
+        "code-background": {
+          "$ref": "#/$defs/color",
+          "description": "Background of the code panel."
+        },
+        "code-text": {
+          "$ref": "#/$defs/color",
+          "description": "Text color in the code panel. Empty = same as text."
+        },
+        "header": {
+          "$ref": "#/$defs/color",
+          "description": "Background of the header. Empty = the page background shows through."
+        },
+        "header-text": {
+          "$ref": "#/$defs/color",
+          "description": "Text color of the header. Empty = same as text."
+        },
+        "button": {
+          "$ref": "#/$defs/color",
+          "description": "Copy button of the website. Empty = same as code-background."
+        },
+        "button-text": {
+          "$ref": "#/$defs/color",
+          "description": "Text of the copy button. Empty = same as code-text."
+        },
+        "title-background": {
+          "$ref": "#/$defs/color",
+          "description": "Background of the title page. Empty = same as the other pages."
+        },
+        "title-text": {
+          "$ref": "#/$defs/color",
+          "description": "Text color of the title page. Empty = same as text."
+        },
+        "abstract-background": {
+          "$ref": "#/$defs/color",
+          "description": "Background of the abstract page. Empty = same as the other pages."
+        },
+        "abstract-text": {
+          "$ref": "#/$defs/color",
+          "description": "Text color of the abstract page. Empty = same as text."
+        }
+      }
+    },
+    "brand": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "description": "Brand text shown at the top right. A logo is passed to the tutorial function as `logo: image(\"logo.svg\")`.",
+      "properties": {
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Text at the top right. \"\" hides it."
+        }
+      }
+    },
+    "layout": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "description": "Shape and arrangement.",
+      "properties": {
+        "dots": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Progress dots next to the heading; they link to the other steps.",
+          "default": false
+        },
+        "corner-radius": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Rounding of the code panel. 0 = square.",
+          "default": 0.5
+        },
+        "code-border": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Thin line around the code panel.",
+          "default": false
+        },
+        "title-underline": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Underline the title at the top left in the accent color.",
+          "default": false
+        },
+        "title-uppercase": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Title at the top left in capitals.",
+          "default": false
+        },
+        "text-position": {
+          "enum": [
+            "center",
+            "top",
+            null
+          ],
+          "description": "Vertical position of a step's heading and text.",
+          "default": "center"
+        },
+        "title-page": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Start with a page that shows the title large and centered.",
+          "default": true
+        },
+        "abstract": {
+          "enum": [
+            "separate",
+            "with-title",
+            null
+          ],
+          "description": "Where the abstract goes: on a page of its own, or below the title on the title page (needs title-page).",
+          "default": "with-title"
+        }
+      }
+    },
+    "dark": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "description": "Values for the dark color scheme. Anything missing falls back to the light values. A theme with its own colors but without this section has no dark scheme.",
+      "properties": {
+        "colors": {
+          "$ref": "#/properties/colors"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "color": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^#([0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+    "font": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

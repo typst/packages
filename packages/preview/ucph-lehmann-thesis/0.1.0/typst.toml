@@ -1,0 +1,25 @@
+[package]
+name = "ucph-lehmann-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Jørgen Baun Høst <https://github.com/jorgenhost>"]
+license = "MIT"
+description = "Thesis template for the University of Copenhagen."
+repository = "https://github.com/jorgenhost/ucph-lehmann-thesis"
+keywords = ["thesis", "master", "bachelor", "phd", "ucph", "copenhagen", "ku", "københavn", "university of copenhagen", "speciale"]
+categories = ["thesis"]
+compiler = "0.15.0"
+exclude = [
+  ".github",
+  "scripts",
+  "tools",
+  ".typstignore",
+  "Justfile",
+  "examples",
+  "template/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "assets/thumbnail.png"

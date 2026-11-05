@@ -1,0 +1,12 @@
+[package]
+name = "lookscanned"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+authors = ["kornstein", "Instelce"]
+license = "Apache-2.0"
+repository = "https://github.com/kornstein/lookscanned"
+homepage = "https://kornstein.github.io/lookscanned/"
+description = "Make documents look scanned, photocopied, faxed or typewritten, powered by WASM."
+keywords = ["scan", "photocopy", "fax", "typewriter", "paper", "texture", "vintage", "aged", "ink"]
+categories = ["visualization"]

@@ -1,0 +1,30 @@
+[package]
+name = "touying-ufac-unofficial"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Lucas Lima Rodrigues <https://github.com/lucaslrodri>"]
+license = "MIT AND MIT-0"
+description = "Lecture slides for the Federal University of Acre (UFAC)."
+repository = "https://github.com/lucaslrodri/touying-ufac-unofficial"
+keywords = ["touying", "slide", "theme", "ufac", "universidade federal do acre", "university", "lecture", "acre"]
+categories = ["presentation"]
+compiler = "0.14.0"
+# No `exclude`: only what the package needs is published (scripts/package.sh); example/, tests/, docs/ and scripts/ stay
+# in the repository.
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+# Regression tests (Tytanic, `tt`): `tt run --use-system-fonts` inside this folder. See tests/README.md.
+[tool.tytanic]
+tests = "tests"
+
+# The theme uses New Computer Modern Sans, which is not bundled with Typst: always run with the system fonts,
+# `tt run --use-system-fonts` (tytanic 0.4.1 does not accept that option here; only `dir`, `ppi`, `max-delta`, `max-deviations`).
+[tool.tytanic.default]
+# 96 ppi: a 16:9 slide becomes 1123 × 631 px; enough for pixel comparison and keeps the reference PNGs small.
+ppi = 96.0
+max-delta = 1
+max-deviations = 0

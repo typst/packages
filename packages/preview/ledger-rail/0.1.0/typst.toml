@@ -1,0 +1,16 @@
+[package]
+name = "ledger-rail"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["pdfs.build <https://pdfs.build>", "Zeyad Obaia <@ZedObaia>"]
+license = "MIT AND MIT-0"
+description = "Invoice with a navy side rail and brass accents."
+keywords = ["invoice", "billing", "bill", "business", "freelance"]
+categories = ["office"]
+compiler = "0.13.0"
+exclude = ["/preview.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

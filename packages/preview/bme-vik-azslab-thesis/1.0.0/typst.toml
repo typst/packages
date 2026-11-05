@@ -1,0 +1,37 @@
+[package]
+name = "bme-vik-azslab-thesis"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = [
+    "Attila E. Frankó <https://github.com/afranko>"
+]
+license = "MIT"
+disciplines = [
+    "computer-science",
+    "engineering",
+    "mathematics",
+    "medicine",
+    "business",
+]
+description = "Template for theses at the Faculty of Electrical Engineering and Informatics (VIK), Budapest University of Technology and Economics (BME)."
+repository = "https://github.com/afranko/bme-vik-thesis-template"
+keywords = [
+    "BME",
+    "Budapesti Műszaki és Gazdaságtudományi Egyetem",
+    "Budapesti Műszaki Egyetem",
+    "Budapest University of Technologies and Economics",
+    "Bachelorthesis",
+    "Masterthesis",
+    "Szakdolgozat",
+    "Diplomaterv",
+    "AZSLab",
+    "thesis",
+]
+categories = ["thesis"]
+compiler = "0.15.0"
+exclude = ["template/main.pdf"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

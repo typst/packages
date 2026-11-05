@@ -1,0 +1,15 @@
+# Bibliography in the Hayagriva format. You can also use a BibTeX (.bib) file instead.
+# Format reference: https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+knuth1984:
+  type: article
+  title: Literate Programming
+  author: Knuth, Donald E.
+  date: 1984
+  page-range: 97-111
+  serial-number:
+    doi: 10.1093/comjnl/27.2.97
+  parent:
+    type: periodical
+    title: The Computer Journal
+    volume: 27
+    issue: 2

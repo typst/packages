@@ -1,0 +1,17 @@
+[package]
+name = "neat-book"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["xzqbear <@xiong-ZH-zq>"]
+license = "MIT"
+description = "Elegant multilingual books with framed theorems."
+repository = "https://github.com/xiong-ZH-zq/neat-book"
+keywords = ["book", "CJK", "elegantbook", "theorem", "algorithm"]
+categories = ["book"]
+compiler = "0.15.0"
+exclude = ["/build/", "/dist/", "/tests/", "/scripts/", "/docs/", "/examples/", "/.github/", "/.git/", "/.agents/", "/.codex/", "/.aws/", "/Makefile", "/.gitignore", "/CHANGELOG.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

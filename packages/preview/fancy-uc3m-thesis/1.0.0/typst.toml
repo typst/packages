@@ -1,0 +1,23 @@
+[package]
+name = "fancy-uc3m-thesis"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = [
+    "GUL UC3M <info@gul.uc3m.es>",
+    "Luis Daniel Casais Mezquida <@rajayonin>",
+    "José Antonio Verde Jimenez <@joseaverde>",
+    "Jorge Lázaro Ruiz <@JorgeyGari>",
+    "Eduardo Alarcón <@Astrak00>",
+]
+license = "Unlicense"
+description = "Opinionated bachelor/master thesis template for Universidad Carlos III de Madrid"
+repository = "https://github.com/guluc3m/uc3m-thesis-typst"
+compiler = "0.14.2"
+keywords = ["uc3m", "thesis"]
+categories = ["thesis"]
+exclude = [".github", "docs", "examples", ".vscode", "template/report.pdf", "out"]
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "thumbnail.png"

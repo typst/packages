@@ -1,0 +1,16 @@
+[package]
+name = "touying-simpl-cnu"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Yip Coekjan <cn_yzr@qq.com>", "Max Chang <maxcfoo@gmail.com>"]
+license = "MIT"
+description = "Touying Slide Theme for Capital Normal University"
+repository = "https://github.com/maxchang3/touying-simpl-cnu"
+keywords = ["touying", "slide", "theme", "cnu", "capital normal university"]
+categories = ["presentation"]
+exclude = [".github/**", "examples/**", "build/**"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

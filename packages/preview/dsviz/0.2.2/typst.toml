@@ -1,0 +1,13 @@
+[package]
+name = "dsviz"
+version = "0.2.2"
+entrypoint = "lib.typ"
+authors = ["wesleyel <https://github.com/wesleyel>"]
+license = "MIT"
+description = "Draw data-structure and computer-systems diagrams from a compact text DSL."
+repository = "https://github.com/wesleyel/dsviz"
+keywords = ["data structure", "tree", "binary tree", "graph", "linked list", "diagram", "algorithm", "timing diagram", "wasm"]
+categories = ["visualization", "integration"]
+disciplines = ["computer-science"]
+compiler = "0.13.0"
+exclude = ["docs/", "examples/"]

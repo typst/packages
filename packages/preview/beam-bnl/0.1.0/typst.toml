@@ -1,0 +1,15 @@
+[package]
+name = "beam-bnl"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Mark P. M. Dean <@mpmdean>"]
+license = "MIT-0"
+description = "Community letterhead for Brookhaven National Laboratory."
+keywords = ["Brookhaven National Laboratory", "BNL", "letter", "letterhead"]
+categories = ["office"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Syntax colors for code on a dark panel, used by typtorial in dark mode. -->
+<plist version="1.0">
+<dict>
+  <key>name</key><string>Tutorial Dark</string>
+  <key>settings</key>
+  <array>
+    <dict><key>settings</key><dict>
+      <key>foreground</key><string>#ece8df</string>
+      <key>background</key><string>#27241f</string>
+    </dict></dict>
+    <dict><key>scope</key><string>comment</string><key>settings</key><dict>
+      <key>foreground</key><string>#8f897b</string>
+    </dict></dict>
+    <dict><key>scope</key><string>string, markup.raw</string><key>settings</key><dict>
+      <key>foreground</key><string>#9ccf8a</string>
+    </dict></dict>
+    <dict><key>scope</key><string>keyword, storage, punctuation.definition.keyword</string><key>settings</key><dict>
+      <key>foreground</key><string>#ff8a7a</string>
+    </dict></dict>
+    <dict><key>scope</key><string>entity.name, support.function, variable.function, meta.function-call</string><key>settings</key><dict>
+      <key>foreground</key><string>#7fb4ff</string>
+    </dict></dict>
+    <dict><key>scope</key><string>constant, variable.parameter, entity.other.attribute-name</string><key>settings</key><dict>
+      <key>foreground</key><string>#f2a86b</string>
+    </dict></dict>
+    <dict><key>scope</key><string>markup.list, punctuation.definition.list, markup.other</string><key>settings</key><dict>
+      <key>foreground</key><string>#c79bf2</string>
+    </dict></dict>
+    <dict><key>scope</key><string>markup.heading</string><key>settings</key><dict>
+      <key>fontStyle</key><string>bold underline</string>
+    </dict></dict>
+    <dict><key>scope</key><string>markup.bold</string><key>settings</key><dict>
+      <key>fontStyle</key><string>bold</string>
+    </dict></dict>
+    <dict><key>scope</key><string>markup.italic</string><key>settings</key><dict>
+      <key>fontStyle</key><string>italic</string>
+    </dict></dict>
+  </array>
+</dict>
+</plist>
