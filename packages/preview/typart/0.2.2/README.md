@@ -774,7 +774,7 @@ A root node with a row of children beneath it.
 | `size` | `18pt` | Text size. |
 
 ### tree
-A multi-level tree hierarchy. A node is a label, `(label, children)`, `(label, color)`, or `((label, color), children)`. Box heights grow automatically to fit wrapped text.
+A multi-level tree hierarchy, top-down by default or sideways with `dir: ltr`. A node is a label, `(label, children)`, `(label, color)`, or `((label, color), children)`. Box heights grow automatically to fit wrapped text.
 
 ```typst
 #tree(([CEO], (([Eng], ([Web], [Mobile])), [Sales])))
@@ -782,13 +782,24 @@ A multi-level tree hierarchy. A node is a label, `(label, children)`, `(label, c
 
 ![Screenshot of the tree widget showing a multi-level hierarchy chart](images/tree.png)
 
+```typst
+#tree(dir: ltr, ([Template protection], (
+  ([Cryptosystems], ([Key binding], [Key generation])),
+  ([Encrypted domain], ([Homomorphic encryption], [Multiparty computation])),
+  ([Cancelable], ([Salting], [Non-invertible transforms])),
+)))
+```
+
+![Screenshot of the tree widget laid out from left to right](images/tree-ltr.png)
+
 | Parameter | Default | Description |
 |---|---|---|
 | `root` | — | Root node (see node forms above). |
+| `dir` | `ttb` | Direction from the root to the leaves: `ttb`, `ltr`, `rtl` or `btt`. |
 | `box-w` | `4` | Box width. |
 | `box-h` | `1.5` | Minimum box height. |
-| `xstep` | `4.6` | Horizontal spacing per leaf. |
-| `ystep` | `2.8` | Vertical spacing between levels. |
+| `xstep` | `auto` | Horizontal spacing: per leaf for `ttb`/`btt` (`4.6`), between levels for `ltr`/`rtl` (`5.6`). |
+| `ystep` | `auto` | Vertical spacing: between levels for `ttb`/`btt` (`2.8`), per leaf for `ltr`/`rtl` (`1.9`). |
 | `root-fill` | `rgb("#aab4f7")` | Root box fill. |
 | `box-fill` | `rgb("#a7dd9b")` | Non-root box fill. |
 | `text-fill` | `rgb("#1f1f3a")` | Text colour. |
