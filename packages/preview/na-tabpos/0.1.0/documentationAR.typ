@@ -1,6 +1,6 @@
 // na-tabpos — الدليل (العربية)
 // الترجمة من مجلد الحزمة :  typst compile documentationAR.typ
-#import "lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 
 #set page(paper: "a4", margin: (x: 2cm, y: 2cm), numbering: "1")
 #set text(font: ("Amiri", "New Computer Modern"), size: 13pt, lang: "ar", dir: rtl)
