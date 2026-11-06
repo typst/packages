@@ -1,0 +1,8 @@
+[package]
+name = "na-tabpos"
+version = "0.1.0"
+authors = ["Naam Mohamed"]
+license = "MIT"
+description = "حزمة مخصصة لتحديد وإدارة مواضع الجداول والرسومات في Typst."
+readme = "README.md"
+repository = "https://github.com/naam11/packages"
