@@ -1,0 +1,17 @@
+[package]
+name = "juti"
+version = "0.0.1"
+entrypoint = "juti.typ"
+authors = [
+  "Moch. Nafkhan Alzamzami <nafkhan@its.ac.id>",
+  "Imam Mustafa Kamal <imamkamal@its.ac.id>",
+]
+license = "MIT"
+description = "Template for writing articles for JUTI: Jurnal Ilmiah Teknologi Informasi"
+# repository = ""
+categories = ["paper"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

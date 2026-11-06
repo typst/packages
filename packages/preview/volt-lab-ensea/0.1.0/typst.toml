@@ -1,0 +1,16 @@
+[package]
+name = "volt-lab-ensea"
+version = "0.1.0"
+entrypoint = "template-lab.typ"
+authors = ["Dawod-G"]
+license = "MIT"
+description = "Unofficial Typst template for lab reports at ENSEA, a French engineering school."
+repository = "https://github.com/Dawod-G/ENSEA_Typst-Template"
+keywords = ["ensea", "school", "engineering", "report"]
+categories = ["report"]
+exclude = ["thumbnail-lab-1.png", "thumbnail-lab-2.png"]
+
+[template]
+path = "template"
+entrypoint = "main-lab.typ"
+thumbnail = "thumbnail-lab-1.png"

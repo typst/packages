@@ -1,0 +1,34 @@
+---
+title: Untitled
+author: Author Name
+date: 01.07.2024
+subtitle: easy slides in typst
+format:
+  diaquarto-typst: 
+    layout: medium # small, medium, large
+    ratio: 16/9 # any ratio possible 
+    title-color: "013220" # Hex code for the title color (without #)
+---
+
+# First Section
+
+## First Slide
+
+This is the first slide. After here comes a Term and its Definition.
+
+Term 
+  ~ Definition
+
+Now some code 
+
+```python
+print("Hello World")
+```
+
+---
+
+BUmmmmmm
+
+## Second Slide
+
+This is the second slide.

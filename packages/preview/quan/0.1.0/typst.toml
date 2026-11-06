@@ -1,0 +1,12 @@
+[package]
+name = "quan"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["SchrodingerBlume <https://github.com/SchrodingerBlume>"]
+license = "MIT"
+description = "Circled numbers / 带圈数字"
+repository = "https://github.com/SchrodingerBlume/typst-quan"
+keywords = ["circled", "number"]
+categories = ["text", "utility"]
+compiler = "0.13.0"
+exclude = ["*.pdf"]

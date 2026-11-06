@@ -1,0 +1,152 @@
+
+#key is introduction, value is a dictionary containing name, summary and contacts. Contacts is a dictionary itself.
+introduction:
+  name: "Freezy Freezerson"
+  summary: >
+    Skilled osu! player with a degree from a very real and established university.
+    Looking for opportunities to leverage my circle clicking abilities in a professional setting.
+  contacts:
+    email:
+      displayText: "freezy.freezerson@osu.com"
+      icon: "envelope regular"                  #add "regular" suffix for non-solid icons (if available for free in FontAwesome)
+      link: "mailto:freezy.freezerson@osu.com"
+
+    phone:
+      displayText: "727-727-7272"
+      icon: "phone-flip"
+      link: "tel:+46764080413"
+
+    location:
+      displayText: "North Pole, Antarctica"
+      icon: "location-dot"
+      link: ""
+    
+    github:
+      displayText: "@Freezy727"
+      icon: "github"
+      link: "https://github.com/Freezy727"
+
+    linkedin:
+      displayText: "freezyfreezerson"
+      icon: "linkedin"
+      link: "https://www.linkedin.com"
+
+    twitter:
+      displayText: "@Freezy"
+      icon: "x-twitter"
+      link: "https://x.com/"
+
+    osu:
+      displayText: "[ Freezy ]"
+      icon: "circle"
+      link: "https://osu.ppy.sh/users/8976810"
+  
+#key is employment, value is a list of jobs. Each job is a dictionary. So structure is key : list of dictionaries.
+#The fields in each dictionary are: title, subtitle, icon, duration, location, description, points.
+#Leave field as empty string "" if not applicable.
+employment:
+  - title: "*Coach*"
+    subtitle: "osu! Academy"
+    icon: "briefcase"
+    duration: "Aug 2027 — ongoing"
+    location: "Remote"
+    description: ""
+    points:
+      - "Mentored over *50* aspiring osu! players, helping them improve their skills and farm performance points to climb the leaderboards"
+      - "Developed tailored training programs, allowing players to aim and tap like one-digits within *3 months* of coaching"
+
+  - title: "*Cashier*"
+    subtitle: "osu! store"
+    icon: "briefcase"
+    duration: "Jul 2027 — Aug 2027"
+    location: "Canberra, Australia"
+    description: ""
+    points:
+      - "Provided exceptional customer service, skillfully answering questions about osu! merchandise which resulted in a *200%* customer satisfaction rating"
+      - "Sold over *10 million* pippi dolls per month, exceeding sales targets by *420%*"
+
+education:
+  degrees:
+    - title: "*ph.D. in Circle Clicking*"
+      subtitle: "osu! University"
+      icon: "graduation-cap"
+      duration: "Aug 2023 — Jul 2027"
+      location: "Florida, USA"
+      description: >
+        _240/240 ECTS | GPA: 4.7/5.0_ \
+        Thesis title: _Investigating the Impact of BWS on fair tournament play in osu!: A Comprehensive Study_ \
+        Relevant Coursework: Advanced Circle Clicking Mechanics, Beatmap Analysis, Density Reading, High BPM Techniques, RSI Theory \
+      points:
+        - "Awarded the prestigious osu! sandbagger medal for being severely underranked"
+
+
+    - title: "*B.Sc. in Rhythm Games*"
+      subtitle: "osu! University"
+      icon: "graduation-cap"
+      duration: "Aug 2020 — Jun 2023"
+      location: "Florida, USA"
+      description: >
+        _180/180 ECTS | GPA: 4.5/5.0_ \
+        Relevant Coursework: Rhythm Game Theory, Hand-Eye Coordination Analysis, Nerve Control Principles 
+      points: ""
+
+
+  selfContained:
+    - title: ""
+      icon: "bookmark"
+      description: "*Introduction to Video Games* | 8 ECTS | Unseen University | 2022"
+
+    - title: ""
+      icon: "bookmark"
+      description: "*Japanese I* | 10 ECTS | Tokyo University | 2021"
+
+  certifications:
+    - title: ""
+      icon: "award"
+      description: "*Certified Nerd* | Nerd Academy | 2019"
+
+projects:
+  - title: "*Replay Analysis Tool*"
+    subtitle: ""
+    icon: "star"
+    duration: ""
+    location: ""
+    description: >
+      Developed a tool in *C\#* to analyze osu! replay files, extracting miss patterns and visualizing player accuracy over time.
+      More about the project can be found #underline(text(fill: blue, link("https://www.youtube.com/watch?v=dQw4w9WgXcQ")[here]))
+    points: ""
+
+
+      
+skills:
+  - title: "Language Proficiency"
+    icon: "language"
+    description: "Fluent in English, Swedish, basic knowledge of Japanese."
+    
+  - title: "Coding"
+    icon: "laptop-code"
+    description: >
+      Good knowledge of C\# and Python, as well as some experience with LaTeX and Typst.
+
+  - title: "Databases"
+    icon: "database"
+    description: MySQL, PostgreSQL, MongoDB.
+
+  - title: "Web Development"
+    icon: "code"
+    description: >
+      HTML, CSS, JavaScript/TypeScript, React, Spring Boot, Node.js.
+
+  - title: "Project Management"
+    icon: "users"
+    description: Experience using Git.
+
+interests:
+  - title: "Playing osu!, watching anime, contributing to open source projects"
+    icon: ""
+    description: ""
+
+references:
+  - title: "Available upon request" 
+    icon: ""
+    description: ""

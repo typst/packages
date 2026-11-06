@@ -1,0 +1,5 @@
+slug = "rotate-image"
+title = "Rotate Image"
+difficulty = "medium"
+labels = ["array", "matrix", "math"]
+render-chessboard = true

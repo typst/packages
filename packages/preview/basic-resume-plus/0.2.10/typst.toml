@@ -1,0 +1,28 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "basic-resume-plus"
+version = "0.2.10"
+entrypoint = "src/lib.typ"
+authors = ["Stephen Xu <https://stuxf.dev>"]
+license = "Unlicense"
+description = "A simple, standard resume, designed to work well with ATS."
+repository = "https://codeberg.org/ressler/basic-resume-plus-typst-template"
+keywords = ["cv", "resume", "ATS"]
+categories = ["cv"]
+exclude = [
+	".git",
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"example-resume.png",
+	"example-resume.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

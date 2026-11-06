@@ -1,0 +1,16 @@
+[package]
+name = "psl-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Samuel Le Meur-Diebolt <@sdiebolt>"]
+license = "MIT-0"
+description = "Template for a PhD thesis manuscript at Paris Sciences et Lettres (PSL) University."
+keywords = ["Paris Sciences et Lettres", "PSL", "thesis", "manuscript", "PhD"]
+categories = ["thesis"]
+repository = "https://github.com/sdiebolt/psl-thesis"
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

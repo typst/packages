@@ -1,0 +1,21 @@
+[package]
+name = "bloated-neurips"
+version = "0.2.1"
+compiler = "0.10.0"
+entrypoint = "neurips2023.typ"
+repository = "https://github.com/daskol/typst-templates"
+authors = ["Daniel Bershatsky <d.bershatsky2@skoltech.ru>"]
+license = "MIT"
+description = "NeurIPS-style paper template to publish at the Conference and Workshop on Neural Information Processing Systems"
+keywords = [
+    "Neural Information Processing Systems", "NeurIPS",
+    "Machine Learning", "ML", "Deep Learning", "DL",
+    "Artificial Intelligence", "AI",
+]
+categories = ["paper"]
+disciplines = ["computer-science", "mathematics"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

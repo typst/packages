@@ -1,0 +1,19 @@
+[package]
+name = "marginalia"
+version = "0.1.3"
+entrypoint = "lib.typ"
+authors = ["nleanba <@nleanba>"]
+license = "Unlicense"
+description = "Configurable margin-notes and matching wide blocks."
+repository = "https://github.com/nleanba/typst-marginalia"
+keywords = [
+  "margins",
+  "notes",
+  "annotations",
+  "comments",
+  "marginnote",
+  "sidenote",
+]
+categories = ["layout", "utility"]
+compiler = "0.12.0"
+exclude = ["main.typ", "Marginalia.pdf", "preview.svg"]

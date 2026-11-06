@@ -1,0 +1,12 @@
+[package]
+name = "linguify"
+version = "0.3.1"
+entrypoint = "linguify.typ"
+authors = ["Jomaway <https://github.com/jomaway>"]
+license = "MIT"
+description = "Load strings for different languages easily" 
+repository = "https://github.com/jomaway/typst-linguify"
+keywords = ["i18n, language, internationalization"]
+categories = ["languages", "utility"]
+compiler = "0.11.0"
+exclude = ["examples/*",]

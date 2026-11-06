@@ -1,0 +1,1 @@
+#import "./mj.typ": render

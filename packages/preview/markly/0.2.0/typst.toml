@@ -1,0 +1,11 @@
+[package]
+name = "markly"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Chad Skeeters"]
+license = "MIT"
+description = "Typst package for bleed, cut and registration marks"
+repository = "https://github.com/cskeeters/typst-markly"
+categories = ["layout"]
+exclude = ["main.pdf"]
+compiler = "0.12.0"

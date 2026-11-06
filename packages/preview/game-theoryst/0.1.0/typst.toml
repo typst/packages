@@ -1,0 +1,11 @@
+[package]
+name = "game-theoryst"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Connor T. Wiegand <@connortwiegand>"]
+license = "AGPL-3.0-only"
+description = "A package for typesetting games in Typst."
+disciplines = [ "economics", "education", "mathematics" ]
+repository = "https://github.com/connortwiegand/game-theoryst"
+keywords = [ "game-theory", "game-tables", "payoff-matrix", "normal-form", "strategic-form" ]
+exclude = ["doc/"]

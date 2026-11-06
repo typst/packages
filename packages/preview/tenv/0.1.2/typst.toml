@@ -1,0 +1,12 @@
+[package]
+name = "tenv"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["chillcicada"]
+license = "MIT"
+description = "Parse a .env content."
+homepage = "https://github.com/chillcicada/typst-dotenv#readme"
+repository = "https://github.com/chillcicada/typst-dotenv"
+keywords = ["dotenv", "environment", "utility"]
+exclude = ["example/*", ".*", "example.png"]
+compiler = "0.13.0"

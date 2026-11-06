@@ -1,0 +1,9 @@
+[package]
+name = "latex-lookalike"
+version = "0.1.2"
+entrypoint = "src/lib.typ"
+authors = ["Robin Eklind"]
+license = "0BSD"
+description = "LaTeX style for Typst."
+exclude = ["example", "inc"]
+repository = "https://github.com/mewmew/latex-lookalike"

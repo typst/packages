@@ -1,0 +1,20 @@
+[package]
+name = "pedigrypst"
+version = "0.1.0"
+entrypoint = "src/main.typ"
+authors = ["CrowdingFaun624"]
+license = "MIT"
+description = "Draw pedigrees."
+repository = "https://github.com/CrowdingFaun624/pedigrypst"
+keywords = [
+    "pedigree",
+    "genetics",
+    "ancestry",
+    "family tree"
+]
+categories = ["visualization"]
+disciplines = ["biology"]
+compiler = "0.14.0"
+exclude = ["example/", "docs/"]
+
+[tool]

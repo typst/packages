@@ -1,0 +1,16 @@
+[package]
+name = "sano-presentation-template"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Sudan Chapagain <https://sudanchapagain.com.np/>"]
+license = "MIT"
+description = "Small and minimal presentation template"
+repository = "https://github.com/sudanchapagain/sano-presentation-template"
+keywords = ["small", "minimal", "Presentation"]
+categories = ["presentation"]
+exclude = ["template/main.pdf"]
+
+[template]
+path = "template/"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

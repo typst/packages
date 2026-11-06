@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Estilo CSL — ABNT
+    NBR 6023:2025 (referências bibliográficas)
+    NBR 10520:2023 (citações em documentos)
+    Sistema: autor-data
+
+    Para citações em prosa ("Silva, Souza e Oliveira (2023)"), use o arquivo
+    bibliography_style_prose.csl em conjunto com cite(form: "prose") no Typst.
+-->
+
+<!--
+    Nota sobre sobrenomes compostos:
+    o atributo demote-non-dropping-particle="never" preserva partículas como "Van", "De", "Von" no
+    lugar original sem desmontagem.
+-->
+
+<style
+    xmlns="http://purl.org/net/xbiblio/csl"
+    version="1.0.2"
+    class="in-text"
+    demote-non-dropping-particle="never"
+    default-locale="pt-BR"
+>
+
+    <!-- ============================================================
+        Metadados.
+        ============================================================ -->
+
+    <info>
+        <title>ABNT — NBR 6023:2025 (Português - Brasil)</title>
+        <title-short>ABNT</title-short>
+        <id>https://gabdumal.com/csl/abnt-nbr6023-2025</id>
+        <link href="https://gabdumal.com/csl/abnt-nbr6023-2025" rel="self" />
+
+        <!-- Autores do estilo-base original (Zotero ABNT). -->
+        <contributor>
+            <name>Juliana Geyna Régis</name>
+            <email>juliana.regis@ipea.gov.br</email>
+        </contributor>
+        <contributor>
+            <name>Lucas Mation</name>
+            <email>lucas.mation@ipea.gov.br</email>
+        </contributor>
+        <contributor>
+            <name>Eduardo Michelotti Bettoni</name>
+            <email>webtur@ufpr.br</email>
+        </contributor>
+        <contributor>
+            <name>Paulo Augusto Nascimento</name>
+            <email>paulo.nascimento@ipea.gov.br</email>
+        </contributor>
+        <contributor>
+            <name>Iuri Gavronski</name>
+            <email>iuri at ufrgs dot br</email>
+        </contributor>
+        <contributor>
+            <name>José Antonio Meira da Rocha</name>
+            <email>joseantoniorocha@gmail.com</email>
+            <uri>http://meiradarocha.jor.br</uri>
+        </contributor>
+        <contributor>
+            <name>Mario José</name>
+            <email>gnumario [at-mark] gmail [dot-mark] com</email>
+        </contributor>
+        <contributor>
+            <name>Pedro P. Palazzo</name>
+            <email>palazzo@unb.br</email>
+            <uri>https://palazzo.pt</uri>
+        </contributor>
+        <contributor>
+            <name>Daniel Corrêa Lobato</name>
+            <email>daniel@lobato.org</email>
+        </contributor>
+
+        <!-- Refatoração e atualização para NBR 6023:2025. -->
+        <author>
+            <name>Gabriel Malosto</name>
+            <email>professional@gabdumal.com</email>
+        </author>
+
+        <category citation-format="author-date" />
+        <category field="generic-base" />
+
+        <summary>Estilo ABNT conforme NBR 10520:2023 (citações) e NBR 6023:2025
+            (referências). Sistema autor-data. Para citações em prosa, use
+            bibliography_style_prose.csl com cite(form: "prose") no Typst.</summary>
+
+        <updated>2026-03-03T00:00:00+00:00</updated>
+
+        <rights license="http://creativecommons.org/licenses/by-sa/3.0/">
+            This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License.
+        </rights>
+    </info>
+
+    <!-- ============================================================
+        Localização — Português (Brasil).
+        ============================================================ -->
+
+    <locale xml:lang="pt-BR">
+        <terms>
+            <!-- Abreviações de meses — NBR 6023:2025. -->
+            <term name="month-01" form="short">jan.</term>
+            <term name="month-02" form="short">fev.</term>
+            <term name="month-03" form="short">mar.</term>
+            <term name="month-04" form="short">abr.</term>
+            <term name="month-05" form="short">maio</term>
+            <term name="month-06" form="short">jun.</term>
+            <term name="month-07" form="short">jul.</term>
+            <term name="month-08" form="short">ago.</term>
+            <term name="month-09" form="short">set.</term>
+            <term name="month-10" form="short">out.</term>
+            <term name="month-11" form="short">nov.</term>
+            <term name="month-12" form="short">dez.</term>
+
+            <!-- Rótulos de responsabilidade editorial. -->
+            <term name="editor" form="short">
+                <single>org</single>
+                <multiple>orgs</multiple>
+            </term>
+            <term name="container-author" form="short">
+                <single>ed</single>
+                <multiple>eds</multiple>
+            </term>
+            <term name="collection-editor" form="short">
+                <single>ed</single>
+                <multiple>eds</multiple>
+            </term>
+
+            <!-- Termos gerais. -->
+            <term name="in">in</term>
+            <term name="and">e</term>
+        </terms>
+    </locale>
+
+    <!-- ============================================================
+        MACROS — Autores e responsáveis.
+        ============================================================ -->
+
+    <!--
+        `names-bibliography`: lista completa de autores para a lista de referências.
+        Formato: SOBRENOME, Prenome N.; SOBRENOME2, Prenome N. — NBR 6023:2025.
+        Todos os autores são listados integralmente (sem truncamento por "et al.").
+        Fallback: editor → tradutor → título da obra.
+    -->
+    <macro name="names-bibliography">
+        <names variable="author">
+            <name
+                name-as-sort-order="all"
+                sort-separator=", "
+                initialize="false"
+                initialize-with=". "
+                delimiter="; "
+                delimiter-precedes-last="always"
+            >
+                <name-part name="family" text-case="uppercase" />
+                <name-part name="given" />
+            </name>
+            <label
+                form="short"
+                prefix=" ("
+                suffix=".)"
+                text-case="uppercase"
+            />
+            <substitute>
+                <names variable="editor" />
+                <names variable="translator" />
+                <text macro="title" />
+            </substitute>
+        </names>
+    </macro>
+
+    <!--
+        `names-citation`: autores para citação parentética no corpo do texto.
+        Formato: Sobrenome; Sobrenome2 — NBR 10520:2023.
+        A partir de 4 autores: primeiro + et al. (itálico), conforme <citation>.
+        Fallback: editor → tradutor → título.
+    -->
+    <macro name="names-citation">
+        <names variable="author">
+            <name
+                form="short"
+                name-as-sort-order="all"
+                sort-separator=", "
+                initialize="false"
+                initialize-with=". "
+                delimiter="; "
+                delimiter-precedes-last="always"
+            >
+                <name-part name="family" text-case="capitalize-first" />
+                <name-part name="given" />
+            </name>
+            <et-al font-style="italic" />
+            <substitute>
+                <names variable="editor" />
+                <names variable="translator" />
+                <text macro="title-short" />
+            </substitute>
+        </names>
+    </macro>
+
+    <!--
+        `names-container`: responsáveis pela obra contenedora (organizadores/editores).
+        Usado em "In: EDITOR (org.). Título." — NBR 6023:2025.
+        Fallback: editor → editor de coleção.
+    -->
+    <macro name="names-container">
+        <names variable="container-author">
+            <name
+                name-as-sort-order="all"
+                sort-separator=", "
+                initialize="false"
+                initialize-with=". "
+                delimiter="; "
+                delimiter-precedes-last="always"
+            >
+                <name-part name="family" text-case="uppercase" />
+                <name-part name="given" />
+            </name>
+            <et-al font-style="italic" />
+            <label
+                form="short"
+                prefix=" ("
+                suffix=".)"
+                text-case="lowercase" />
+            <substitute>
+                <names variable="editor" />
+                <names variable="collection-editor" />
+            </substitute>
+        </names>
+    </macro>
+
+    <!--
+        `translator`: tradutores prefixados por "Tradução:".
+        Formato: Tradução: Prenome Sobrenome — NBR 6023:2025.
+    -->
+    <macro name="translator">
+        <names variable="translator" delimiter="; ">
+            <name
+                delimiter="; "
+                sort-separator=" "
+                delimiter-precedes-last="always"
+                prefix="Tradução: "
+            >
+                <name-part name="given" />
+                <name-part name="family" text-case="capitalize-first" />
+            </name>
+            <et-al font-style="italic" />
+        </names>
+    </macro>
+
+    <!-- ============================================================
+        MACROS — Títulos.
+        ============================================================ -->
+
+    <!--
+        `title`: título principal da obra.
+        Negrito para obras autônomas (livro, tese, relatório, mapa, etc.).
+        Fonte normal para partes de obras (capítulo, artigo, trabalho em evento,
+        projeto de lei), pois o destaque recai sobre a obra contenedora.
+    -->
+    <macro name="title">
+        <choose>
+            <if
+                type="chapter bill article-newspaper article-magazine article-journal paper-conference"
+                match="any">
+                <text variable="title" />
+            </if>
+            <else>
+                <text variable="title" font-weight="bold" />
+            </else>
+        </choose>
+    </macro>
+
+    <!--
+        `title-short`: título abreviado para citações parentéticas no corpo do texto.
+        Livros: sem aspas. Demais tipos: entre aspas — NBR 10520:2023.
+    -->
+    <macro name="title-short">
+        <choose>
+            <if type="book">
+                <text variable="title" form="short" />
+            </if>
+            <else>
+                <text variable="title" form="short" quotes="true" />
+            </else>
+        </choose>
+    </macro>
+
+    <!--
+        `title-container`: título da obra contenedora — sempre em negrito.
+    -->
+    <macro name="title-container">
+        <text variable="container-title" font-weight="bold" />
+    </macro>
+
+    <!--
+        `in-container`: indicação completa da obra contenedora com seus responsáveis.
+        Formato: In: RESPONSÁVEL (rótulo). Título. — NBR 6023:2025.
+        Renderizado apenas quando container-title está presente.
+    -->
+    <macro name="in-container">
+        <choose>
+            <if variable="container-title">
+                <text term="in" font-style="italic" text-case="capitalize-first" suffix=": " />
+                <text macro="names-container" suffix=". " />
+                <text macro="title-container" suffix=". " />
+            </if>
+        </choose>
+    </macro>
+
+    <!-- ============================================================
+        MACROS — Datas.
+        ============================================================ -->
+
+    <!--
+        `date-full`: data completa "DD mês. AAAA".
+        Ausência: [S.d.] em itálico — NBR 6023:2025.
+    -->
+    <macro name="date-full">
+        <choose>
+            <if variable="issued" match="any">
+                <date variable="issued">
+                    <date-part name="day" suffix=" " />
+                    <date-part name="month" form="short" suffix=" " />
+                    <date-part name="year" />
+                </date>
+            </if>
+            <else>
+                <text value="[S.d.]" font-style="italic" />
+            </else>
+        </choose>
+    </macro>
+
+    <!--
+        `date-year`: apenas o ano — para citações e obras sem data completa.
+        Ausência: [S.d.] em itálico.
+    -->
+    <macro name="date-year">
+        <choose>
+            <if variable="issued" match="any">
+                <date variable="issued">
+                    <date-part name="year" />
+                </date>
+            </if>
+            <else>
+                <text value="[S.d.]" font-style="italic" />
+            </else>
+        </choose>
+    </macro>
+
+    <!-- ============================================================
+        MACROS — Identificação e acesso.
+        ============================================================ -->
+
+    <!--
+        `access`: URL e data de acesso para recursos online.
+        Formato: Disponível em: URL. Acesso em: DD mês. AAAA. — NBR 6023:2025.
+    -->
+    <macro name="access">
+        <choose>
+            <if variable="DOI" match="none">
+                <text variable="URL" prefix="Disponível em: " suffix=". " />
+            </if>
+        </choose>
+        <date variable="accessed" prefix="Acesso em: " suffix=".">
+            <date-part name="day" suffix=" " />
+            <date-part name="month" form="short" suffix=" " />
+            <date-part name="year" />
+        </date>
+    </macro>
+
+    <!--
+        `doi`: identificador DOI.
+        Formato: DOI: 10.XXXX/... — NBR 6023:2025.
+    -->
+    <macro name="doi">
+        <choose>
+            <if variable="DOI">
+                <text variable="DOI" prefix="DOI: " />
+            </if>
+        </choose>
+    </macro>
+
+    <!-- ============================================================
+        MACROS — Detalhes bibliográficos.
+        ============================================================ -->
+
+    <!--
+        `edition`: número ou descrição de edição.
+        Numérica: "3. ed." | Texto livre: "texto ed." — NBR 6023:2025.
+    -->
+    <macro name="edition">
+        <choose>
+            <if variable="edition">
+                <choose>
+                    <if is-numeric="edition">
+                        <group delimiter=" ">
+                            <number variable="edition" form="numeric" suffix="." />
+                            <text term="edition" form="short" suffix="." />
+                        </group>
+                    </if>
+                    <else>
+                        <text variable="edition" suffix=" ed." />
+                    </else>
+                </choose>
+            </if>
+        </choose>
+    </macro>
+
+    <!--
+        `publisher`: local, editora e data de publicação.
+        Formato: Local: Editora, Data — NBR 6023:2025.
+        Ausências substituídas por [S.l.], [S.n.], [S.d.] em itálico.
+    -->
+    <macro name="publisher">
+        <choose>
+            <if variable="publisher-place">
+                <text variable="publisher-place" suffix=": " />
+            </if>
+            <else>
+                <text value="[S.l.]" font-style="italic" suffix=": " />
+            </else>
+        </choose>
+        <choose>
+            <if variable="publisher">
+                <text variable="publisher" suffix=", " />
+            </if>
+            <else>
+                <text value="[S.n.]" font-style="italic" suffix=", " />
+            </else>
+        </choose>
+        <text macro="date-full" />
+    </macro>
+
+    <!--
+        `locators`: volume, número e páginas por tipo de documento.
+        Artigos periódicos : v. N, n. N, p. N–N.
+        Livros e capítulos : v. N, p. N–N.
+        Projetos de lei    : data da publicação, seção e página no diário.
+    -->
+    <macro name="locators">
+        <choose>
+            <if type="bill">
+                <group delimiter=", ">
+                    <date variable="issued">
+                        <date-part name="day" />
+                        <date-part name="month" form="short" prefix=" " />
+                        <date-part name="year" prefix=" " />
+                    </date>
+                    <text variable="section" prefix="Sec. " />
+                    <text variable="page" prefix="p. " />
+                </group>
+            </if>
+            <else-if type="article-journal article-magazine article-newspaper" match="any">
+                <group delimiter=", ">
+                    <text variable="volume" prefix="v. " />
+                    <text variable="issue" prefix="n. " />
+                    <text variable="page" prefix="p. " />
+                </group>
+            </else-if>
+            <else-if type="book chapter paper-conference" match="any">
+                <group delimiter=", ">
+                    <text variable="volume" prefix="v. " />
+                    <text variable="page" prefix="p. " />
+                </group>
+            </else-if>
+        </choose>
+    </macro>
+
+    <!-- ============================================================
+        MACROS — Eventos.
+        ============================================================ -->
+
+    <!--
+        `event-name`: nome do evento formatado.
+        Sem gênero : NOME EM CAIXA-ALTA.
+        Com gênero  : "Gênero apresentado em Nome do Evento".
+    -->
+    <macro name="event-name">
+        <choose>
+            <if variable="event">
+                <choose>
+                    <if variable="genre" match="none">
+                        <text variable="event" text-case="uppercase" suffix=". " />
+                    </if>
+                    <else>
+                        <group delimiter=" " suffix=". ">
+                            <text variable="genre" text-case="capitalize-first" />
+                            <text value="apresentado em" />
+                            <text variable="event" />
+                        </group>
+                    </else>
+                </choose>
+            </if>
+        </choose>
+    </macro>
+
+    <!--
+        `event-proceedings`: identificação do evento seguida do título dos anais.
+        NBR 6023:2025.
+          In: NOME DO EVENTO[, ano][, Cidade]. Título dos Anais.
+          In: Título dos Anais.   ← sem nome de evento (somente container-title).
+        Ano usa event-date quando disponível, caso contrário usa issued.
+        Usado em trabalhos em eventos (paper-conference).
+    -->
+    <macro name="event-proceedings">
+        <choose>
+            <if variable="event">
+                <text term="in" font-style="italic" text-case="capitalize-first" suffix=": " />
+                <group suffix=". ">
+                    <text variable="event" text-case="uppercase" />
+                    <choose>
+                        <if variable="event-date">
+                            <date variable="event-date" prefix=", ">
+                                <date-part name="year" />
+                            </date>
+                        </if>
+                        <else>
+                            <date variable="issued" prefix=", ">
+                                <date-part name="year" />
+                            </date>
+                        </else>
+                    </choose>
+                    <text variable="event-place" prefix=", " />
+                </group>
+                <choose>
+                    <if variable="container-title">
+                        <text variable="container-title" font-weight="bold" suffix=". " />
+                    </if>
+                    <else>
+                        <text value="Anais" font-weight="bold" suffix=". " />
+                    </else>
+                </choose>
+            </if>
+            <else-if variable="container-title">
+                <text term="in" font-style="italic" text-case="capitalize-first" suffix=": " />
+                <text variable="container-title" font-weight="bold" suffix=". " />
+            </else-if>
+        </choose>
+    </macro>
+
+    <!-- ============================================================
+        MACRO — Localizador de citação.
+        ============================================================ -->
+
+    <!--
+        `citation-locator`: localizador usado na citação (página, seção etc.).
+        Sufixo da citação parentética: (Autor, Ano, p. N).
+    -->
+    <macro name="citation-locator">
+        <group>
+            <label variable="locator" form="short" />
+            <text variable="locator" prefix=" " />
+        </group>
+    </macro>
+
+    <!-- ============================================================
+        CITAÇÃO PARENTÉTICA — NBR 10520:2023.
+        A partir de 4 autores: exibe apenas o primeiro + et al. (itálico).
+        Ordenação: sobrenome do primeiro autor, depois ano.
+        ============================================================ -->
+
+    <citation
+        et-al-min="4"
+        et-al-use-first="1"
+        collapse="year"
+        disambiguate-add-year-suffix="true"
+    >
+        <sort>
+            <key macro="names-bibliography" />
+            <key variable="issued" />
+        </sort>
+        <layout prefix="(" suffix=")" delimiter="; ">
+            <group>
+                <text macro="names-citation" suffix=", " />
+                <text macro="date-year" />
+                <text variable="year-suffix" />
+                <text macro="citation-locator" prefix=", " />
+            </group>
+        </layout>
+    </citation>
+
+    <!-- ============================================================
+        LISTA DE REFERÊNCIAS — NBR 6023:2025.
+        Todos os autores são listados integralmente (sem et al.).
+        Ordenação alfabética pelo sobrenome do primeiro autor.
+        ============================================================ -->
+
+    <bibliography hanging-indent="false" entry-spacing="1">
+        <sort>
+            <key macro="names-bibliography" />
+            <key variable="issued" />
+        </sort>
+        <layout>
+            <choose>
+
+                <!--
+                    Livros (monografias) — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        As entradas @book e @mvbook (multi-volume) são convertidas pelo hayagriva para o tipo interno
+                        `book`.
+
+                        O @bookinbook também produz `book`, mas com
+                        um parent do mesmo tipo, representando o livro que o contém.
+
+                        As entradas @proceedings e @mvproceedings (anais completos, sem trabalho específico associado)
+                        são convertidas pelo hayagriva para o tipo interno `proceedings`.
+
+                    Como o CSL seleciona este branch:
+
+                        O hayagriva considera `book`, `anthology` e `proceedings` como categorias
+                        equivalentes de "obra autônoma contenedora".
+
+                        Ao determinar o tipo CSL, ele
+                        verifica qual das subcategorias se aplica:
+                        se a entrada for `anthology`, o tipo CSL resultante é `collection`;
+                        se for `periodical`, o tipo CSL é `periodical`.
+
+                        Caso nenhuma dessas condições seja atendida,
+                        o tipo CSL atribuído é `book` — o que engloba tanto `book` quanto `proceedings`.
+
+                    Atenção:
+                    
+                        @collection e @mvcollection produzem o tipo interno `anthology`,
+                        cujo tipo CSL resultante é `collection`.
+                        Esse tipo não possui branch dedicado neste
+                        estilo e cai no fallback genérico abaixo.
+                -->
+                <if type="book">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="translator" suffix=". " />
+                    <text macro="edition" suffix=". " />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="locators" suffix=". " />
+                    <text macro="access" />
+                </if>
+
+                <!--
+                    Capítulos de livro — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        As entradas @inbook e @inbookinbook são convertidas pelo hayagriva para o tipo interno `chapter`,
+                        sempre acompanhado de um parent do tipo `book` representando o livro que os contém.
+
+                    Como o CSL seleciona este branch:
+
+                        O hayagriva só atribui o tipo CSL `chapter` quando a entrada é do tipo interno `chapter`
+                        e possui um parent reconhecido como `book`, `anthology` ou `proceedings`.
+                        A presença do parent é obrigatória: sem ele, a entrada não é selecionada por este seletor.
+
+                    Atenção:
+
+                        @incollection produz o tipo interno `anthos` com parent `anthology`,
+                        estrutura que não é selecionada pelo seletor CSL `chapter` nem por nenhum outro tipo CSL nomeado.
+                        Essas entradas caem no fallback genérico.
+
+                        Já @inreference produz o tipo interno `entry` com parent `reference`,
+                        que resulta em CSL `entry-encyclopedia` — tratado no branch dedicado abaixo.
+                -->
+                <else-if type="chapter">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="in-container" />
+                    <text macro="translator" suffix=". " />
+                    <text macro="edition" suffix=". " />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="locators" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Artigos de periódico (jornal, revista, journal) — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        A entrada @article é convertida pelo hayagriva para o tipo interno `article`.
+                        O campo `crossref` (ou campos equivalentes de periódico)
+                        determina qual tipo de parent é gerado automaticamente:
+                        um @article cruzado com um @periodical produz um parent do tipo `periodical`;
+                        já com um @newspaper produz um parent `newspaper`.
+
+                    Como o CSL seleciona este branch:
+
+                        O tipo CSL final é determinado pelo parent da entrada.
+                        Se o parent for `periodical`, o tipo CSL é `article-journal`.
+                        Se for `newspaper`, o tipo CSL é `article-newspaper`.
+                        Sem parent reconhecido, o tipo CSL é o genérico `article`,
+                        que também é capturado pelo match="any" deste bloco.
+
+                    Atenção:
+
+                        @periodical produz o tipo interno `periodical`, cujo tipo CSL resultante é também `periodical` —
+                        tipo não listado no match deste bloco.
+                        Essas entradas caem no fallback genérico.
+
+                        O tipo CSL `article-magazine` nunca é gerado pelo hayagriva (a implementação está marcada como
+                        pendente).
+                -->
+                <else-if type="article-journal article-magazine article-newspaper" match="any">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="title-container" suffix=", " />
+                    <text variable="publisher-place" suffix=", " />
+                    <text macro="locators" suffix=", " />
+                    <text macro="date-full" suffix=". " />
+                    <text macro="doi" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Trabalhos em eventos (anais) — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        As entradas @inproceedings e @conference são convertidas pelo hayagriva para o tipo interno
+                        `article` com um parent do tipo `proceedings`,
+                        representando a coleção de trabalhos do evento.
+
+                    Como o CSL seleciona este branch:
+
+                        O tipo CSL `paper-conference` é atribuído quando a entrada é do tipo interno `article`
+                        e o seu parent é do tipo `proceedings`.
+
+                        Sem esse parent, a entrada cairia no branch de `article-journal` acima.
+
+                    Condição especial para dados do evento:
+
+                        Quando a entrada BibLaTeX possui os campos
+                        `venue` (local do evento), `eventtitle` (nome do evento) ou `eventdate` (data do evento),
+                        o hayagriva cria automaticamente um segundo parent do tipo `conference`.
+                        
+                        As variáveis CSL `event-place`, `event` e `event-date` —
+                        usadas pelo macro `event-proceedings` para formatar a identificação do evento
+                        conforme a NBR 6023:2025 —
+                        só ficam disponíveis quando esse parent `conference` existe.
+                        Sem ele, apenas o `container-title` dos anais é exibido.
+                -->
+                <else-if type="paper-conference">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="event-proceedings" />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="locators" suffix=". " />
+                    <text macro="doi" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Teses e dissertações — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        As entradas @thesis, @mastersthesis e @phdthesis são todas convertidas
+                        pelo hayagriva para o tipo interno `thesis`,
+                        que o CSL reconhece diretamente como tipo `thesis`.
+                        Caso queira definir o tipo do trabalho, utilize a entrada @thesis, com o atributo `type`.
+
+                    Como o CSL seleciona este branch:
+
+                        O tipo CSL é sempre `thesis`, independentemente da modalidade.
+                        Para diferenciar mestrado de doutorado, o hayagriva preenche automaticamente
+                        o campo `genre` com o rótulo correspondente ("Master's thesis" ou "PhD thesis").
+                        Este estilo exibe esse campo antes do publisher para indicar a modalidade,
+                        conforme previsto na NBR 6023:2025.
+                -->
+                <else-if type="thesis">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text variable="genre" suffix=" — " />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Projetos de lei e normas legais — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        A entrada @legislation é convertida pelo hayagriva para o tipo interno `legislation`.
+                        Não existe um tipo @legislation no BibLaTeX padrão; para
+                        criar entradas legais, utilize @misc com campos customizados
+                        ou um pacote de extensão como `biblatex-juradis`.
+
+                    Como o CSL seleciona este branch:
+
+                        O hayagriva distingue dois sub-tipos de `legislation` com base na presença do campo `publisher`.
+
+                        Se o publisher estiver ausente, a entrada é
+                        considerada um projeto não promulgado e recebe o tipo CSL `bill`, que chega a este branch.
+
+                        Se o publisher estiver preenchido, a entrada é
+                        considerada uma norma publicada e recebe o tipo CSL `legislation` —
+                        para o qual este estilo não tem branch dedicado, caindo no fallback.
+                -->
+                <else-if type="bill">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text variable="number" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text variable="references" font-weight="bold" suffix=", " />
+                    <text macro="locators" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Verbetes de dicionário e enciclopédia — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        A entrada @inreference é convertida pelo hayagriva para o tipo interno `entry`,
+                        sempre acompanhado de um parent do tipo `reference` representando
+                        a obra de referência (dicionário, enciclopédia) que contém o verbete.
+
+                    Como o CSL seleciona este branch:
+
+                        O hayagriva atribui o tipo CSL `entry-encyclopedia` a qualquer entrada que possua um parent
+                        do tipo `reference`, independentemente do tipo da própria entrada.
+
+                        O tipo CSL `entry-dictionary` nunca é gerado pelo
+                        hayagriva (a implementação está marcada como pendente na fonte),
+                        por isso este bloco trata ambos os tipos CSL com a mesma formatação unificada.
+                -->
+                <else-if type="entry-dictionary entry-encyclopedia" match="any">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="in-container" />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Páginas e documentos web — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        As entradas @online, @www e @electronic são convertidas pelo hayagriva
+                        para o tipo interno `web`, que o CSL seleciona como `webpage`.
+
+                        A entrada @misc também pode chegar a este branch, mas somente se o campo `url` estiver preenchido.
+                        Nesse caso, o tipo interno hayagriva é `misc`,
+                        mas o hayagriva identifica recursos online com a condição de presença do campo `url`;
+                        sem ele, a mesma entrada @misc resulta em CSL `document` e cai no fallback genérico.
+
+                    Como o CSL seleciona este branch:
+
+                        O tipo CSL `webpage` é atribuído tanto a entradas do tipo interno `web`
+                        quanto a entradas `misc` que tenham url preenchido.
+                        
+                        A condição é avaliada pelo hayagriva antes de o CSL ver o tipo:
+                        o que chega ao CSL já é `webpage` ou `document`, não `misc`.
+                -->
+                <else-if type="webpage">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="in-container" />
+                    <choose>
+                        <if variable="publisher-place publisher" match="any">
+                            <text macro="publisher" suffix=". " />
+                        </if>
+                    </choose>
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Relatórios técnicos — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        As entradas @report e @techreport são convertidas pelo hayagriva para o
+                        tipo interno `report`, que o CSL reconhece diretamente como `report`.
+
+                    Como o CSL seleciona este branch:
+
+                        O tipo CSL `report` é atribuído não apenas a entradas cujo tipo interno é `report`,
+                        mas também a qualquer entrada que possua um parent do tipo `report`.
+                        Isso significa que trabalhos publicados dentro de uma série de relatórios
+                        (com crossref para um @report) também chegam a este branch.
+                -->
+                <else-if type="report">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text variable="collection-title" prefix=": " suffix=". " />
+                    <text macro="locators" suffix=". " />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Mapas e documentos cartográficos — NBR 6023:2025.
+
+                    Entradas BibLaTeX que chegam a este branch: nenhuma.
+
+                        Este branch é inalcançável pelo pipeline BibLaTeX.
+                        O hayagriva não converte nenhum tipo BibLaTeX para o tipo CSL `map`;
+                        a verificação correspondente no código-fonte do hayagriva sempre retorna falso.
+
+                        O branch só seria ativado por uma entrada em formato CSL-JSON com o campo `"type": "map"`,
+                        sem passar pelas camadas BibLaTeX e hayagriva.
+                -->
+                <else-if type="map">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="date-full" suffix=". " />
+                    <text macro="access" />
+                    <text variable="note" prefix=" " suffix="." />
+                </else-if>
+
+                <!--
+                    Manuscritos e documentos não publicados.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        A entrada @unpublished é convertida pelo hayagriva para o tipo interno `manuscript`,
+                        que o CSL reconhece diretamente como `manuscript`.
+                -->
+                <else-if type="manuscript">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="edition" suffix=". " />
+                    <text variable="publisher-place" suffix=", " />
+                    <text macro="date-full" suffix=". " />
+                    <text macro="access" />
+                    <text variable="archive" prefix=" " suffix="." />
+                </else-if>
+
+                <!--
+                    Palestras e discursos.
+
+                    Entradas BibLaTeX que chegam a este branch: nenhuma.
+
+                        Este branch é inalcançável pelo pipeline BibLaTeX.
+                        O hayagriva não converte nenhum tipo BibLaTeX para os 
+                        tipos CSL `speech`, `hearing`, `interview` ou `performance`;
+                        todas essas verificações retornam falso no
+                        código-fonte do hayagriva.
+
+                        O branch só seria ativado por uma entrada em formato CSL-JSON com o campo `"type": "speech"`.
+                -->
+                <else-if type="speech">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="event-name" />
+                    <text macro="title-container" />
+                    <text macro="publisher" prefix=". " suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Eventos (sem trabalho específico associado).
+
+                    Entradas BibLaTeX que chegam a este branch: nenhuma.
+
+                        Este branch é inalcançável pelo pipeline BibLaTeX.
+                        O hayagriva só atribui o tipo CSL `event` a entradas do tipo interno `exhibition`,
+                        e nenhum tipo BibLaTeX é convertido para `exhibition`.
+                        
+                        Em particular, @proceedings e @mvproceedings (anais completos) produzem o
+                        tipo interno `proceedings`, que resulta em CSL `book` — chegando ao primeiro branch deste estilo.
+
+                        Para trabalhos individuais em eventos, use @inproceedings, que produz
+                        CSL `paper-conference` (branch acima).
+                -->
+                <else-if type="event">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="event-name" />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Repositórios e pacotes de software.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        A entrada @dataset é convertida pelo hayagriva para o tipo interno `repository`.
+
+                    Como o CSL seleciona este branch:
+
+                        O tipo CSL `software` é atribuído exclusivamente a entradas
+                        cujo tipo interno hayagriva é `repository`.
+
+                    Atenção:
+                    
+                    A entrada BibLaTeX @software não produz `repository` — o hayagriva a converte para `misc`, e
+                    ela seguirá o caminho do branch de documentos web (se tiver url preenchido)
+                    ou do fallback genérico (caso não tenha).
+
+                    Portanto, para que uma entrada de software chegue a este branch,
+                    o tipo BibLaTeX correto é @dataset.
+                -->
+                <else-if type="software">
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text variable="version" prefix="Versão " suffix=". " />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="doi" suffix=". " />
+                    <text macro="access" />
+                </else-if>
+
+                <!--
+                    Fallback genérico para demais tipos.
+
+                    Entradas BibLaTeX que chegam a este branch:
+
+                        @patent produz o tipo interno `patent`, que o CSL reconhece como `patent`.
+
+                        @misc e @booklet sem url produzem o tipo interno `misc`, que o CSL reconhece como `document`.
+                        O mesmo ocorre com @software sem url, pois esse tipo BibLaTeX também é
+                        convertido para `misc` pelo hayagriva.
+
+                        @collection e @mvcollection produzem o tipo interno `anthology`,
+                        que o CSL reconhece como `collection`.
+
+                        @reference, @mvreference e @manual produzem o tipo interno `reference`.
+                        @incollection produz o tipo interno `anthos` com parent `anthology`.
+                        Nenhum desses tipos possui um tipo CSL correspondente no hayagriva;
+                        o CSL os trata como tipo desconhecido, e nenhum branch anterior os seleciona,
+                        de modo que inevitavelmente chegam aqui.
+
+                    Como o CSL seleciona este branch:
+
+                        Por ser um `else`, este bloco renderiza tudo que não foi capturado
+                        por nenhum dos branches anteriores.
+
+                        Quando presente, o campo `collection-title` é exibido para indicar o título de série ou coleção.
+                -->
+                <else>
+                    <text macro="names-bibliography" suffix=". " />
+                    <text macro="title" suffix=". " />
+                    <text macro="edition" suffix=". " />
+                    <text macro="in-container" />
+                    <text variable="collection-title" prefix=": " suffix=". " />
+                    <text macro="locators" suffix=". " />
+                    <text macro="event-name" />
+                    <text macro="publisher" suffix=". " />
+                    <text macro="access" />
+                </else>
+
+            </choose>
+
+            <!-- Notas extras. -->
+            <text variable="note" prefix=" " suffix="." />
+        </layout>
+    </bibliography>
+
+</style>

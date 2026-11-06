@@ -1,0 +1,8 @@
+[package]
+name = "indic-numerals"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Ceco Elijah Maples"]
+license = "MIT"
+description = "convert arabic numerals to indic numerals and vice versa"
+repository = "https://github.com/cecoeco/indic-numerals"

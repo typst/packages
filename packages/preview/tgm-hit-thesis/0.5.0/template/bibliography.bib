@@ -1,0 +1,40 @@
+% Hier finden sich alle Referenzen aus Literatur und Internet, welche innerhalb der eigentlichen Arbeit verwendet wurden.
+% Zur einfachen Anwendung werden hier einige Beispiele gegeben.
+
+% Nutzung einer Quelle, welche über das Internet zugänglich ist.
+% Einige Parameter sollten bei jeder Referenz vorhanden sein:
+% - title: 			Der Titel der Website (wird meist in der Adresszeile angezeigt)
+% - author:			Alle Autoren, welche als für den Text verantwortlich gegeben sind. Sollte keiner angegeben sein, könnte etwa „Autoren von {Seitenname}“ verwendet werden
+% - url:			Ein eindeutiger Link zur referenzierten Quelle, welcher im Optimalfall über mehrere Jahre hinweg verfügbar ist
+% - urldate:		Ebenfalls sollte das Datum des letzten Zugriffs angegeben sein
+% - date:			Ebenfalls sollte das Datum der Erstellung angegeben sein
+@online{ wiki:syt,
+	title = {Systemtechnik},
+	url = {https://de.wikipedia.org/wiki/Systemtechnik},
+	organization = {Wikipedia},
+	urldate = {2024-04-04},
+	date = {2023-12-03}
+}
+
+% Nutzung von Inhalten eines Buchs.
+% Bei Büchern gibt es einige Angaben, welche auf jeden Fall angegeben werden müssen:
+% - title: 		Der Vollständige Titel des Buchs
+% - author: 	Alle beteiligten Autoren
+% - year:		Erscheinungsdatum der verwendeten Auflage (siehe auch Parameter „edition“)
+% - edition:	Aktuelle Auflage des Buchs (wenn nicht angegeben: 1. Auflage verwenden) und Markierung spezieller Versionen
+% - publisher:	Der Verlag, welcher das Buch herausgab (häufig werden vom Verlag noch kleiner Änderungen vorgenommen)
+% - pages:		Alle Seiten, durch Komma getrennt, welche innerhalb der Arbeit verwendet wurden (mehrere Seiten können auch mit „-“ angegeben werden)
+%
+% Optional sind auch folgende Parameter interessant:
+% - subtitle:	Falls Bücher sich etwa nur durch ihren Untertitel unterscheiden
+% - pagetotal:	Gesamte Anzahl der Seiten der verwendeten Quelle
+@book{ physik1,
+	title = {Physik 1},
+	author = {Schweitzer, Christian and Svoboda, Peter and Trieb, Lutz},
+	year = {2011},
+	subtitle = {Mechanik, Thermodynamik, Optik},
+	edition = {7. Auflage},
+	publisher = {Veritas},
+	pages = {140, 145-150},
+	pagetotal = {296}
+}

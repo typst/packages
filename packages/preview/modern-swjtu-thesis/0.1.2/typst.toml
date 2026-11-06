@@ -1,0 +1,17 @@
+[package]
+name = "modern-swjtu-thesis"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["somnus<@somnus0917>"]
+license = "MIT"
+description = " A modern Typst template for the thesis of Southwest Jiaotong University (SWJTU)"
+repository = "https://github.com/somnus0917/modern-swjtu-thesis"
+keywords = ["Southwest Jiaotong University", "thesis"]
+categories = ["thesis"]
+exclude = ["imgs", "fonts", "assets", "*.pdf", "*_FIXES*.md", "others"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

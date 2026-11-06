@@ -1,0 +1,129 @@
+{
+    "candidate-name": "John Doe",
+    "job-title": "Web Developer",
+    "links": [
+        {
+            "display": "john.doe@example.com",
+            "destination": "mailto:john.doe@example.com"
+        },
+        {
+            "display": "github.com/octocat",
+            "destination": "https://github.com/octocat"
+        },
+        {
+            "display": "linkedin.com/in/johndoe",
+            "destination": "https://linkedin.com/in/johndoe"
+        },
+        {
+            "display": "github.blog",
+            "destination": "https://github.blog"
+        }
+    ],
+    "sections": [
+        {
+            "title": "Summary",
+            "subsections": [
+                {
+                    "text": "Creative and detail-oriented web developer with a passion for building user-friendly and responsive websites. Skilled in modern web technologies and committed to delivering high-quality solutions. Adept at collaborating with cross-functional teams to achieve project goals and exceed client expectations."
+                }
+            ]
+        },
+        {
+            "title": "Skills",
+            "subsections": [
+                {
+                    "items": {
+                        "Programming Languages": "JavaScript, HTML, CSS, Python, PHP, TypeScript",
+                        "Frameworks and Libraries": "React, Angular, Vue.js, Node.js, Django, Tailwind CSS",
+                        "Tools and Platforms": "Git, Webpack, Docker, AWS, Firebase, Jenkins",
+                        "Databases": "MySQL, PostgreSQL, MongoDB, SQLite",
+                        "Development Practices": "Agile, Test-Driven Development, Continuous Integration, Code Reviews"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Work Experience",
+            "subsections": [
+                {
+                    "title": "Frontend Developer",
+                    "subtitle": "Tech Solutions Inc.",
+                    "location": "New York",
+                    "from": {
+                        "year": 2022,
+                        "month": 6
+                    },
+                    "items": [
+                        "Developed and maintained responsive web applications using React and Redux.",
+                        "Collaborated with designers and backend developers to create seamless user experiences.",
+                        "Optimized website performance, reducing load times by 30%.",
+                        "Implemented accessibility best practices to ensure compliance with WCAG standards.",
+                        "Mentored junior developers and conducted code reviews to maintain code quality."
+                    ]
+                },
+                {
+                    "title": "Junior Web Developer",
+                    "subtitle": "Creative Web Studio",
+                    "location": "San Francisco",
+                    "from": {
+                        "year": 2020,
+                        "month": 8
+                    },
+                    "to": {
+                        "year": 2022,
+                        "month": 5
+                    },
+                    "items": [
+                        "Built and maintained client websites using HTML, CSS, and JavaScript.",
+                        "Implemented SEO best practices to improve website rankings.",
+                        "Provided technical support and troubleshooting for website issues.",
+                        "Collaborated with clients to gather requirements and deliver tailored solutions.",
+                        "Created reusable components to streamline development processes."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Education",
+            "subsections": [
+                {
+                    "title": "Bachelor of Science in Computer Science",
+                    "subtitle": "State University",
+                    "from": {
+                        "year": 2016,
+                        "month": 9
+                    },
+                    "to": {
+                        "year": 2020,
+                        "month": 6
+                    },
+                    "items": [
+                        "Graduated with honors, specializing in web development and user experience design.",
+                        "Completed a senior capstone project focused on building a responsive e-commerce platform.",
+                        "Active member of the Computer Science Club, organizing coding workshops and hackathons."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Projects",
+            "subsections": [
+                {
+                    "title": "Portfolio Website",
+                    "subtitle": "Personal Project",
+                    "items": [
+                        "Designed and developed a personal portfolio website to showcase projects and skills.",
+                        "Implemented a blog section using a headless CMS for content management.",
+                        "Optimized for performance and SEO, achieving a 95+ score on Google Lighthouse."
+                    ]
+                }
+            ]
+        }
+    ],
+    "style": {
+        "font": "Noto Sans",
+        "font-size": "9pt",
+        "header-color": "#000035",
+        "divider-color": "#800000"
+    }
+}

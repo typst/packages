@@ -1,0 +1,11 @@
+[package]
+name = "dashy-todo"
+version = "0.0.1"
+entrypoint = "lib/todo.typ"
+authors = ["Otto-AA"]
+license = "MIT-0"
+description = "A method to display TODOs at the side of the page."
+repository = "https://github.com/Otto-AA/dashy-todo"
+keywords = ["todo"]
+categories = ["utility"]
+exclude = ["*.svg*"]

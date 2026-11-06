@@ -1,0 +1,22 @@
+[package]
+name = "parcio-slides"
+version = "0.1.1"
+entrypoint = "src/parcio.typ"
+authors = ["Kevin Kulot <@xkevio>", "Luke <@AdmiralLuke>"]
+license = "0BSD"
+description = "A simple polylux slide templated based on the ParCIO working group at OvGU Magdeburg."
+repository = "https://github.com/xkevio/parcio-typst/"
+categories = ["presentation", "thesis"]
+keywords = ["presentation", "slides", "polylux", "thesis", "university", "OvGU", "Magdeburg", "Otto von Guericke Universität"]
+compiler = "0.13.0"
+exclude = [
+  "justfile",
+  "scripts",
+  "thumbnails",
+  "*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/cover.png"

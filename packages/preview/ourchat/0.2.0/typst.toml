@@ -1,0 +1,12 @@
+[package]
+name = "ourchat"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["QuadnucYard", "WenSimEHRP"]
+license = "MIT"
+description = "Forge wonderful chat messages"
+categories = ["fun"]
+keywords = ["chat", "message"]
+homepage = "https://quadnucyard.github.io/ourchat-typ"
+repository = "https://github.com/QuadnucYard/ourchat-typ"
+exclude = ["assets"]

@@ -1,0 +1,1 @@
+#let colormap(name, n) = json("data.json").at(name).at(str(n)).map(c => color.rgb(c.at(0), c.at(1), c.at(2)))

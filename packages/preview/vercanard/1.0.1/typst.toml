@@ -1,0 +1,16 @@
+[package]
+name = "vercanard"
+version = "1.0.1"
+entrypoint = "template.typ"
+authors = ["Ana Gelez <https://ana.gelez.xyz>"]
+license = "GPL-3.0"
+description = "A colorful CV template"
+repository = "https://github.com/elegaanz/vercanard"
+categories = ["cv"]
+keywords = ["CV", "Resume", "Color"]
+exclude = ["*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

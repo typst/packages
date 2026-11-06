@@ -1,0 +1,17 @@
+[package]
+name = "fauve-cdb"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+    "Timothé Albouy <timothe.albouy@gmail.com>",
+    "Augustin Godinot <https://grodino.github.io>",
+]
+license = "MIT-0"
+description = "The unofficial implementation of the Collège Doctoral de Bretagne thesis manuscript template."
+categories = ["thesis"]
+disciplines = ["computer-science", "mathematics"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

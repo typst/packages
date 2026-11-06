@@ -1,0 +1,18 @@
+[package]
+name = "lagom-eit-lth"
+version = "0.1.0"
+entrypoint = "src/lagom-eit-lth.typ"
+authors = ["Lucas Ekholm @EkholmCodes"]
+license = "MIT"
+description = "Unofficial thesis for degree projects at Electrical and information technology at Lund University."
+repository = "https://github.com/EkholmCodes/novel-eit-lth-typst"
+categories = ["thesis", "layout", "scripting"]
+disciplines = ["engineering", "mathematics", "computer-science"]
+keywords = ["LTH", "lund faculty of engineering", "electrical and information technology", "elektro- och informationsteknik", "eit", "thesis", "bachelor", "master", "lunds tekniska högskola", "lunds universitet"]
+exclude = [".git", ".gitignore", ".DS_Store", ".github"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

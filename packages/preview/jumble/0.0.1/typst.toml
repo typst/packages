@@ -1,0 +1,14 @@
+[package]
+name = "jumble"
+version = "0.0.1"
+compiler = "0.12.0"
+repository = "https://git.kb28.ch/HEL/jumble"
+entrypoint = "src/lib.typ"
+authors = [
+    "Louis Heredero <https://git.kb28.ch/HEL>"
+]
+categories = ["scripting", "utility"]
+license = "Apache-2.0"
+description = "A package providing some hash functions and related stuff"
+keywords = ["hash", "algorithm", "cryptography", "md5", "sha1", "hmac", "totp", "ntlm"]
+exclude = [ "gallery", "gallery.bash", "manual.pdf" ]

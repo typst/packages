@@ -1,0 +1,11 @@
+[package]
+name = "vlna"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["iamanro"]
+license = "MIT"
+description = "Czech non-breaking spaces (vlna): short words, titles before/after a name and common abbreviations — with jump-to-source preserved."
+repository = "https://github.com/iamanro/typst-vlna"
+keywords = ["czech", "typography", "non-breaking space", "vlna", "luavlna"]
+categories = ["utility"]
+exclude = ["examples"]

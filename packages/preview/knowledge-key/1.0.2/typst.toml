@@ -1,0 +1,17 @@
+[package]
+name = "knowledge-key"
+version = "1.0.2"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+repository = "https://github.com/ngoetti/knowledge-key"
+authors = ["Nick Goetti"]
+license = "MIT-0"
+description = "A compact cheat-sheet"
+keywords = ["cheat-sheet", "cheat", "sheet", "university"]
+categories = ["flyer"]
+disciplines = ["computer-science", "engineering"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

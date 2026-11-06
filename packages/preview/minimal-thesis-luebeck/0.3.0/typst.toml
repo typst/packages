@@ -1,0 +1,14 @@
+[package]
+name = "minimal-thesis-luebeck"
+version = "0.3.0"
+entrypoint = "thesis-template.typ"
+authors = ["Falko Hemstra"]
+license = "MIT"
+description = "A minimalistic template for writing a thesis."
+categories = ["thesis"]
+repository = "https://github.com/fhemstra/minimal-thesis-luebeck"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

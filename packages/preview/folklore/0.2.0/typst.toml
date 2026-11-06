@@ -1,0 +1,15 @@
+[package]
+name = "folklore"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["<@wade-cheng>"]
+repository = "https://github.com/wade-cheng/folklore"
+license = "MIT"
+keywords = ["fiction", "novel"]
+categories = ["layout", "book"]
+description = "Typeset fiction novels, with facilities for author commentary."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,16 @@
+[package]
+name = "modern-cug-thesis"
+version = "0.2.6"
+entrypoint = "lib.typ"
+authors = ["Brevin"]
+license = "MIT"
+description = "中国地质大学（武汉）学位论文模板。China University of Geosciences Thesis based on Typst."
+repository = "https://github.com/Rsweater/cug-thesis-typst"
+keywords = ["China University of Geosciences", "thesis"]
+categories = ["thesis"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

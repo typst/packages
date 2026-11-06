@@ -1,0 +1,17 @@
+[package]
+name = "shokumu-keirekisho-ofa"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aldrick Tadeo <@aldrick-t>"]
+license = "MIT"
+description = "Japanese career history for role-focused applications."
+repository = "https://github.com/aldrick-t/typst-shokumu-keirekisho-ofa"
+keywords = ["shokumu-keirekisho", "career-history", "japanese", "cv"]
+categories = ["cv"]
+compiler = "0.15.0"
+exclude = ["docs/**", "examples/**"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

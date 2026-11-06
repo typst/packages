@@ -1,0 +1,12 @@
+[package]
+name = "arch-plotter"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Amit Singh <@amitsinghg1>"]
+license = "MIT"
+description = "A parametric 2D CAD and land surveying engine for architectural drafting, built on CeTZ."
+repository = "https://github.com/amitsinghg1/arch-plotter"
+keywords = ["architecture", "cad", "cetz", "drafting", "surveying", "floor-plan"]
+categories = ["visualization", "components"]
+compiler = "0.14.2"
+exclude = ["Manual.pdf", "tests/*", "Manual.typ"]

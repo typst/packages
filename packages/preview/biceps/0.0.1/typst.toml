@@ -1,0 +1,11 @@
+[package]
+name = "biceps"
+description = "Layout algorithm for CSS-style flex-wrap behavior. 💪"
+version = "0.0.1"
+license = "MIT"
+entrypoint = "lib.typ"
+exclude = ["example.*", "screenshots/*", "flake.*"]
+repository = "https://github.com/pikaju/typst-biceps"
+authors = ["Julien Scholz <https://www.julien-scholz.dev>"]
+categories = ["components", "layout"]
+keywords = ["flex", "flexbox", "wrap"]

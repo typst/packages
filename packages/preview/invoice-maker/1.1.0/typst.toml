@@ -1,0 +1,16 @@
+[package]
+authors = ["Adrian Sieber <@ad-si>"]
+categories = ["office"]
+description = "Generate beautiful invoices from a simple data record."
+disciplines = ["business"]
+entrypoint = "lib.typ"
+keywords = ["invoice", "accounting", "finance", "money"]
+license = "ISC"
+name = "invoice-maker"
+repository = "https://github.com/ad-si/invoice-maker"
+version = "1.1.0"
+
+[template]
+entrypoint = "main.typ"
+path = "template"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,28 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "graceful-genetics"
+version = "0.2.0"
+compiler = "0.12.0"
+entrypoint = "src/lib.typ"
+authors = ["James R. Swift"]
+license = "Unlicense"
+description = "A paper template with which to publish in journals and at conferences"
+repository = "https://github.com/JamesxX/graceful-genetics"
+keywords = ["paper", "article", "journal", "conference"]
+categories = ["paper"]
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"thumbnails",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/1.png"
+

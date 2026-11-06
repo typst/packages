@@ -1,0 +1,7 @@
+[package]
+name = "gentle-clues"
+version = "0.2.0"
+entrypoint = "admonish.typ"
+authors = ["Jomaway <https://github.com/jomaway>"]
+license = "MIT"
+description = "A package to simply create and add some admonitions to your documents." 

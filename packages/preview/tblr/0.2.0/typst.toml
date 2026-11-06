@@ -1,0 +1,11 @@
+[package]
+name = "tblr"
+version = "0.2.0"
+entrypoint = "tblr.typ"
+authors = ["Tom Short <@tshort>"]
+repository = "https://github.com/tshort/tblr"
+license = "MIT"
+keywords = ["tables"]
+categories = ["components", "layout"]
+exclude = ["examples"]
+description = "Table generation helpers inspired by LaTeX's Tabularray package"

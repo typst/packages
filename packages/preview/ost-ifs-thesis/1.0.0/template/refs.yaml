@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mkdjr/hayagriva/main/hayagriva.schema.json
+
+sample-article:
+  type: article
+  title: "An Example Journal Article Used as a Placeholder Reference"
+  author: ["Author, First", "Author, Second"]
+  date: 2023
+  parent:
+    type: periodical
+    title: "Journal of Example Studies"
+    volume: 12
+    issue: 3
+  page-range: "101-118"
+
+sample-book:
+  type: book
+  title: "An Example Book Title"
+  author: "Author, Third"
+  date: 2021
+  publisher: "Example Press"

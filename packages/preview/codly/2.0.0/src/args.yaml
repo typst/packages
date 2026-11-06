@@ -1,0 +1,1488 @@
+# Elembic declaration metadata, grouped by exported element and custom type.
+# Descriptions are plain text. type and default are Typst code strings;
+# required, named and folds are YAML booleans. Omit default to let Elembic infer it.
+# Field order is constructor argument order. Renderers, casts and parsers stay in Typst.
+# The callout field group is inserted after the named field: entry mode inherits
+# all defaults, callout mode inherits bubble styles, and bubble mode owns them
+# with the bubble- prefix removed.
+
+elements:
+  new:
+    doc: >-
+      A formatted code block constructed from raw content, source text, or a file path.
+    fields:
+      body:
+        type: 'e.types.option(e.types.union(str, path, content))'
+        doc: >-
+          Raw content, literal source text, or a caller-resolved file path.
+        required: true
+      file:
+        type: 'e.types.union(auto, none, str, path, content)'
+        doc: >-
+          Filename badge content; auto uses an input path basename, and none hides the badge.
+        default: 'auto'
+      lang:
+        type: 'e.types.union(auto, none, str)'
+        doc: >-
+          Language for source text or path inputs; auto infers the file extension.
+        default: 'auto'
+      lang-position:
+        type: 'e.types.union(auto, none, alignment)'
+        doc: >-
+          Language badge placement. Top or bottom places it in a header or footer; left or right
+          alone reserves space beside the first code row. auto uses ordinary placement; none hides
+          the badge.
+        default: 'auto'
+        folds: false
+      file-position:
+        type: 'e.types.option(alignment)'
+        doc: >-
+          Filename badge placement. Top or bottom places it in a header or footer; left or right
+          alone reserves space beside the first code row. none hides it.
+        default: 'top + left'
+        folds: false
+      block-label:
+        type: 'e.types.union(auto, none, label)'
+        doc: >-
+          Label used for block and item references. auto discovers the nearest enclosing figure's
+          label; none disables generated references.
+        default: 'auto'
+      alias:
+        type: 'e.types.option(str)'
+        doc: >-
+          Internal original language key identifying a block whose syntax alias has already been
+          resolved.
+        default: 'none'
+        required: false
+      number-enabled:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether to include the automatic line-number column.
+        default: 'true'
+      diff:
+        type: 'e.types.option(e.types.union(auto, diff))'
+        doc: >-
+          Diff configuration or enablement flag. auto detects diff-<language> and diff,<language>;
+          false or none disables processing. Diff code is highlighted independently for old and new
+          sides.
+        default: 'auto'
+        folds: false
+      __diff:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal prepared patch lines and per-row diff metadata.
+        default: 'none'
+        folds: false
+      __diff-pass:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal origin, group, and side metadata for a diff syntax-resolution pass.
+        default: 'none'
+        folds: false
+      __diff-colors:
+        type: 'dictionary'
+        doc: >-
+          Internal theme overrides applied to automatically detected diff backgrounds.
+        default: '(:)'
+        folds: false
+      gutters:
+        type: 'e.types.union(auto, e.types.array(e.types.union(auto, gutter-column)))'
+        doc: >-
+          Ordered gutter columns. auto includes the automatic number column when enabled; an empty
+          array hides all gutters. Custom columns remain when number-enabled is false.
+        default: 'auto'
+        folds: false
+      offset:
+        type: 'e.types.union(int, label, auto)'
+        doc: >-
+          Displayed-number offset. An integer is added to source numbers; auto starts the first
+          selected source line at one. A block or figure label continues after its last displayed
+          number.
+        default: '0'
+      range:
+        type: 'e.types.option(range)'
+        doc: >-
+          Inclusive one-based source-line range to display; none selects all lines.
+        default: 'none'
+        folds: false
+      ranges:
+        type: 'e.types.option(e.types.array(range))'
+        doc: >-
+          Inclusive one-based source-line ranges to display. Cannot be combined with range.
+        default: 'none'
+        folds: false
+      smart-skip:
+        type: 'e.types.option(smart-skip)'
+        doc: >-
+          Whether to generate omission rows around selected ranges, or a configuration controlling
+          leading, interior, and trailing omissions separately.
+        default: 'false'
+        folds: false
+      aliases:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Dictionary mapping displayed language keys to syntax-highlighting language keys.
+        default: '(:)'
+      smart-indent:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether wrapped continuations retain indentation from the normalized source text.
+        default: 'true'
+      wrap-marker:
+        type: 'e.types.option(content)'
+        doc: >-
+          Content displayed at each wrapped continuation when smart-indent is enabled.
+        default: 'none'
+      skip-last-empty:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether to omit the final source line when it contains only whitespace.
+        default: 'true'
+      breakable:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether the code block can span pages and columns.
+        default: 'true'
+      skips:
+        type: 'e.types.option(e.types.array(skip))'
+        doc: >-
+          Explicit omission rows inserted before one-based source lines. Their lengths increase
+          subsequent displayed numbers without removing supplied source lines.
+        default: 'none'
+        folds: false
+      skip-line:
+        type: 'e.types.option(e.types.union(content, e.types.array(e.types.option(content))))'
+        doc: >-
+          Omission-row content, or values indexed by explicit skip order. Further and smart skips
+          reuse the final value; an empty array uses the default.
+        default: 'align(center)[ ... ]'
+        folds: false
+      skip-number:
+        type: 'e.types.option(e.types.union(content, e.types.array(e.types.option(content))))'
+        doc: >-
+          Omission number-cell content, or values indexed by explicit skip order. Further and smart
+          skips reuse the final value; an empty array uses the default.
+        default: '[ ... ]'
+        folds: false
+      unnumbered:
+        type: 'e.types.option(e.types.array(unnumbered-line))'
+        doc: >-
+          One-based source lines excluded from numbering, with optional number-cell content. Their
+          references use the preceding displayed number and an ordinal suffix.
+        default: '()'
+        folds: false
+      annotations:
+        type: 'e.types.option(e.types.array(annotation-config))'
+        doc: >-
+          Brace annotation configurations covering inclusive one-based source-line ranges in the
+          rightmost grid column.
+        default: 'none'
+        folds: false
+      callouts:
+        type: 'e.types.option(e.types.array(callout-config))'
+        doc: >-
+          Content attached above or below one-based source lines. A pointer selects a source
+          character and enables a bubble. Entry styling overrides codly.callout settings, which
+          override codly.bubble defaults.
+        default: 'none'
+        folds: false
+      highlighted:
+        type: 'e.types.option(e.types.array(highlighted-line))'
+        doc: >-
+          Whole-row highlight configurations keyed by displayed line numbers, including offsets and
+          skips. Explicit paints override the default highlight palette.
+        default: '()'
+        folds: false
+      highlights:
+        type: 'e.types.option(e.types.array(highlight-config))'
+        doc: >-
+          Character highlight configurations keyed by displayed line numbers. Character bounds are
+          one-based and inclusive; omitted bounds select the complete line.
+        default: 'none'
+        folds: false
+      header:
+        type: 'e.types.option(content)'
+        doc: >-
+          Content displayed in a header row; codly.header content preserves its explicit cell
+          settings.
+        default: 'none'
+      footer:
+        type: 'e.types.option(content)'
+        doc: >-
+          Content displayed in a footer row; codly.footer content preserves its explicit cell
+          settings.
+        default: 'none'
+      radius:
+        type: 'e.types.option(length)'
+        doc: >-
+          Corner radius of the containing code grid.
+        default: '0.32em'
+      padding:
+        type: 'e.types.union(length, dictionary)'
+        doc: >-
+          Additional padding at block edges, separate from row inset and leading. Accepts a length
+          or a Typst inset dictionary.
+        default: '0pt'
+        folds: false
+      leading:
+        type: 'e.types.option(length)'
+        doc: >-
+          Vertical padding of each code row, overriding the vertical line inset while retaining its
+          horizontal component.
+        default: 'none'
+      gutter:
+        type: 'e.types.option(length)'
+        doc: >-
+          Default spacing between grid rows and columns.
+        default: 'none'
+      column-gutter:
+        type: 'e.types.option(length)'
+        doc: >-
+          Spacing between grid columns, overriding gutter horizontally.
+        default: 'none'
+      row-gutter:
+        type: 'e.types.option(length)'
+        doc: >-
+          Spacing between grid rows, overriding gutter vertically.
+        default: 'none'
+      sublangs:
+        type: 'e.types.option(e.types.array(sublang))'
+        doc: >-
+          Syntax-highlighting languages assigned to inclusive one-based source-line ranges.
+        default: 'none'
+      rainbow:
+        type: 'e.types.option(rainbow)'
+        doc: >-
+          Optional syntax-aware delimiter coloring; true enables the default configuration.
+        default: 'none'
+      indent-guides:
+        type: 'e.types.option(indent-guides)'
+        doc: >-
+          Optional indentation guides; true enables the default configuration.
+        default: 'none'
+      width:
+        type: 'e.types.union(length, ratio, auto)'
+        doc: >-
+          Block width; auto fits the natural width up to the available width.
+        default: '100%'
+        folds: false
+  line:
+    doc: >-
+      A code row that applies character highlights, wrapping indentation, and line reference
+      metadata.
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          The raw.line content to render; generated row content is passed through unchanged.
+        required: true
+      radius:
+        type: 'e.types.option(length)'
+        doc: >-
+          Corner radius used for the containing code grid.
+        default: '0.32em'
+      inset:
+        type: 'e.types.option(e.types.union(length, dictionary))'
+        doc: >-
+          Padding around each code row, as a length or a Typst inset dictionary.
+        default: '0.32em'
+      fill:
+        type: 'e.types.option(e.types.union( auto, e.types.paint,
+          e.types.array(e.types.option(e.types.paint)), function, ))'
+        doc: >-
+          Body-row paint, nonempty cycling palette, or row callback. The callback receives index,
+          kind, source-line, and number; index is zero-based and includes header rows. auto restores
+          the default palette, and whole-row highlights override this fill.
+        default: '(luma(240), none)'
+        folds: false
+      stroke:
+        type: 'e.types.option(stroke)'
+        doc: >-
+          Border stroke of the containing code grid.
+        default: '1pt + luma(240)'
+      highlights:
+        type: 'e.types.option(e.types.array(highlight-config))'
+        doc: >-
+          Character highlight configurations for displayed line numbers. Character bounds are
+          one-based and inclusive.
+        default: 'none'
+        folds: false
+      smart-indent:
+        type: 'bool'
+        doc: >-
+          Whether wrapped continuations retain indentation from the normalized source text.
+        default: 'true'
+      __wrap:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal block-owned continuation marker settings.
+        default: 'none'
+      __callout:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal source character anchors for pointed callouts.
+        default: 'none'
+      __highlight-colors:
+        type: 'e.types.option(e.types.array(e.types.paint))'
+        doc: >-
+          Internal palette colors assigned to this row before highlight spans are split.
+        default: 'none'
+        folds: false
+      block-label:
+        type: 'e.types.option(label)'
+        doc: >-
+          Label of the containing block used to generate line and highlight references.
+        default: 'none'
+      reference:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal displayed-number and suffix metadata for an unnumbered source line.
+        default: 'none'
+  number:
+    doc: >-
+      An automatic line-number cell carrying the containing block content for custom rendering.
+    fields:
+      number:
+        type: 'e.types.option(e.types.union(content, int, e.types.array(int)))'
+        doc: >-
+          Displayed line number, number tuple, or replacement content; none leaves the cell empty.
+        required: true
+      parent:
+        type: 'e.types.any'
+        doc: >-
+          Containing raw-block value supplied by the code renderer.
+        required: true
+      numbering:
+        type: 'e.types.union(str, function)'
+        doc: >-
+          Numbering pattern or formatter applied to numeric values.
+        default: 'numbering.with("1")'
+      align:
+        type: 'e.types.option(alignment)'
+        doc: >-
+          Alignment of the automatic number column.
+        default: 'left + horizon'
+      placement:
+        type: 'e.types.option(e.types.union("inside", "outside"))'
+        doc: >-
+          Whether gutter columns appear inside or outside the code block border.
+        default: '"inside"'
+      fill:
+        type: 'e.types.option(e.types.union(auto, e.types.paint))'
+        doc: >-
+          Number-column background; auto follows each body row's resolved fill.
+        default: 'auto'
+  lang:
+    doc: >-
+      A language badge with an optional name and icon, resolved from language definitions.
+    fields:
+      body:
+        type: 'str'
+        doc: >-
+          Language key used to select a language definition.
+        required: true
+      languages:
+        type: 'e.types.option(e.types.dict(language))'
+        doc: >-
+          Dictionary mapping language keys to definitions. Missing keys display the original
+          language key with default-color.
+        default: '(:)'
+      default-color:
+        type: 'e.types.option(e.types.paint)'
+        doc: >-
+          Badge color used when the language definition supplies no color.
+        default: 'rgb("#283593")'
+      inset:
+        type: 'e.types.option(e.types.union(length, dictionary))'
+        doc: >-
+          Padding inside the language badge, as a length or a Typst inset dictionary.
+        default: '0.32em'
+      outset:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Horizontal and vertical badge placement offsets, given by the x and y keys.
+        default: '(x: 0.32em, y: 0em)'
+      radius:
+        type: 'e.types.option(e.types.union(length, dictionary))'
+        doc: >-
+          Corner radius of the language badge.
+        default: '0.32em'
+      stroke:
+        type: 'e.types.option(e.types.union(stroke, function))'
+        doc: >-
+          Badge border, or a callback receiving the resolved name, icon, and color.
+        default: '(lang) => lang.color + 0.5pt'
+      fill:
+        type: 'e.types.option(e.types.union(e.types.paint, function))'
+        doc: >-
+          Badge background, or a callback receiving the resolved name, icon, and color. A scalar
+          none falls back to the language color.
+        default: '(lang) => lang.color.lighten(80%)'
+      display-name:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether to display the language name.
+        default: 'true'
+      display-icon:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether to display the language icon.
+        default: 'true'
+      align:
+        type: 'e.types.option(alignment)'
+        doc: >-
+          Alignment used for an ordinary inline language badge.
+        default: 'right + horizon'
+  file:
+    doc: >-
+      A filename badge placed beside code or in a header or footer.
+    fields:
+      body:
+        type: 'e.types.union(str, content)'
+        doc: >-
+          Displayed filename.
+        required: true
+      fill:
+        type: 'e.types.option(e.types.paint)'
+        doc: >-
+          Background paint of the filename badge.
+        default: 'luma(240)'
+      stroke:
+        type: 'e.types.option(stroke)'
+        doc: >-
+          Border stroke of the filename badge.
+        default: '0.5pt + luma(160)'
+      inset:
+        type: 'e.types.union(length, dictionary)'
+        doc: >-
+          Padding inside the filename badge.
+        default: '(x: 0.4em, y: 0.2em)'
+      radius:
+        type: 'e.types.union(length, dictionary)'
+        doc: >-
+          Corner radius of the filename badge.
+        default: '2pt'
+  header:
+    doc: >-
+      A styled header row spanning the code block columns.
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          Content displayed above the code rows.
+        required: true
+      repeat:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether the header repeats when the block spans multiple pages.
+        default: 'false'
+      align:
+        type: 'e.types.option(alignment)'
+        doc: >-
+          Alignment of the header cell content.
+        default: 'center + horizon'
+      inset:
+        type: 'e.types.option(e.types.union(length, dictionary, auto))'
+        doc: >-
+          Header cell padding; auto inherits the grid inset.
+        default: 'auto'
+      fill:
+        type: 'e.types.option(e.types.union(e.types.paint, auto))'
+        doc: >-
+          Header cell background, independent of code and number fills. none leaves it unfilled;
+          auto uses the default header fill.
+        default: 'luma(240)'
+      stroke:
+        type: 'e.types.option(e.types.union(stroke, auto))'
+        doc: >-
+          Header cell border; auto inherits the grid stroke.
+        default: 'auto'
+  footer:
+    doc: >-
+      A styled footer row spanning the code block columns.
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          Content displayed below the code rows.
+        required: true
+      repeat:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether the footer repeats when the block spans multiple pages.
+        default: 'false'
+      align:
+        type: 'e.types.option(alignment)'
+        doc: >-
+          Alignment of the footer cell content.
+        default: 'center + horizon'
+      inset:
+        type: 'e.types.option(e.types.union(length, dictionary, auto))'
+        doc: >-
+          Footer cell padding; auto inherits the grid inset.
+        default: 'auto'
+      fill:
+        type: 'e.types.option(e.types.union(e.types.paint, auto))'
+        doc: >-
+          Footer cell background, independent of code and number fills. none leaves it unfilled;
+          auto uses the default footer fill.
+        default: 'none'
+      stroke:
+        type: 'e.types.option(e.types.union(stroke, auto))'
+        doc: >-
+          Footer cell border; auto inherits the grid stroke.
+        default: 'auto'
+  highlight:
+    doc: >-
+      A styled character span, with optional tag and reference metadata.
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          The highlighted content.
+        required: true
+      highlight:
+        type: 'e.types.option(highlight-config)'
+        doc: >-
+          Configuration record for the span, including its line, bounds, tag, and label.
+        default: 'none'
+      __continuation-indent:
+        type: 'e.types.option(length)'
+        doc: >-
+          Internal indentation retained when a highlighted span wraps.
+        default: 'none'
+      color:
+        type: 'e.types.union(e.types.paint, e.types.array(e.types.paint))'
+        doc: >-
+          Default paint or nonempty cycling palette. Whole-row and span highlights have independent
+          per-block cycles; explicit paints do not consume a color.
+        default: 'themes-impl.presets.thesis.at("highlight-colors")'
+        folds: false
+      radius:
+        type: 'e.types.option(length)'
+        doc: >-
+          Corner radius of the highlight box.
+        default: '0.32em'
+      fill:
+        type: 'e.types.option(function)'
+        doc: >-
+          Function mapping the selected highlight color to a fill; none leaves the box unfilled.
+        default: '(color) => color.lighten(80%)'
+      baseline:
+        type: 'e.types.option(e.types.union(length, auto))'
+        doc: >-
+          Highlight box baseline shift; auto preserves the content's baseline.
+        default: '0pt'
+      stroke:
+        type: 'e.types.option(e.types.union(stroke, function))'
+        doc: >-
+          Border stroke, or a function mapping the selected highlight color to a stroke.
+        default: '(color) => 0.5pt + color'
+      inset:
+        type: 'e.types.option(e.types.union(length, dictionary))'
+        doc: >-
+          Padding inside the highlight box, as a length or a Typst inset dictionary.
+        default: '0.32em'
+      outset:
+        type: 'e.types.option(e.types.union(length, dictionary))'
+        doc: >-
+          Paint extent outside the highlight box, as a length or a Typst outset dictionary.
+        default: '0em'
+      clip:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether to clip highlighted content to the box boundary.
+        default: 'true'
+  annotation:
+    doc: >-
+      A brace annotation spanning code rows in the rightmost grid column.
+    labelable: false
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          Annotation content displayed after its number.
+        required: true
+      label:
+        type: 'e.types.option(content)'
+        doc: >-
+          Internal reference marker content appended to the annotation; this field is not a Typst
+          label.
+        required: true
+      height:
+        type: 'e.types.option(length)'
+        doc: >-
+          Resolved height of the spanned annotation cell, used to size the brace.
+        default: '0.0pt'
+      num:
+        type: 'e.types.option(int)'
+        doc: >-
+          Automatic annotation number within the block.
+        default: '0'
+      numbering:
+        type: 'e.types.option(function)'
+        doc: >-
+          Annotation number formatter; none hides the number.
+        default: 'numbering.with("(1)")'
+  callout:
+    doc: >-
+      A generated content row attached to a source line, optionally rendered as a pointed bubble.
+    field-groups:
+      - name: callout
+        after: stroke
+        mode: callout
+    fields:
+      body:
+        type: 'content'
+        doc: >-
+          Content displayed in the callout.
+        required: true
+      line:
+        type: 'int'
+        doc: >-
+          One-based source line to which the callout is attached.
+        required: true
+        named: true
+      align:
+        type: 'e.types.option(e.types.union(alignment, auto))'
+        doc: >-
+          Grid cell alignment; auto inherits the grid alignment.
+        default: 'auto'
+      breakable:
+        type: 'e.types.option(e.types.union(bool, auto))'
+        doc: >-
+          Whether the cell can break across pages; auto inherits the grid setting. Pointed bubble
+          groups remain together.
+        default: 'auto'
+      inset:
+        type: 'e.types.option(e.types.union(length, dictionary, auto))'
+        doc: >-
+          Grid cell padding; auto inherits the grid inset.
+        default: 'auto'
+      fill:
+        type: 'e.types.option(e.types.union(e.types.paint, auto))'
+        doc: >-
+          Grid cell background; auto inherits the body-row fill.
+        default: 'auto'
+      stroke:
+        type: 'e.types.option(e.types.union(stroke, auto))'
+        doc: >-
+          Grid cell border; auto inherits the grid stroke.
+        default: 'auto'
+      __layout:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal packed bubble dimensions and lane geometry.
+        default: 'none'
+      __anchor:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal source anchor metadata used to locate a pointer tip.
+        default: 'none'
+      __indent:
+        type: 'length'
+        doc: >-
+          Internal source indentation width used by plain indented callouts.
+        default: '0pt'
+  bubble:
+    doc: >-
+      The painted body and pointer of a pointed callout, with independent styling defaults.
+    field-groups:
+      - name: callout
+        after: body
+        mode: bubble
+    fields:
+      body:
+        type: 'content'
+        doc: >-
+          Content displayed inside the bubble.
+        required: true
+      line:
+        type: 'int'
+        doc: >-
+          One-based source line to which the bubble is attached.
+        required: true
+        named: true
+      pointer:
+        type: 'int'
+        doc: >-
+          One-based source character anchor; zero selects the line start.
+        required: true
+        named: true
+      placement:
+        type: 'e.types.union("above", "below")'
+        doc: >-
+          Whether the bubble appears above or below its source line.
+        default: '"below"'
+      __layout:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal packed bubble dimensions and lane geometry.
+        default: 'none'
+      __anchor:
+        type: 'e.types.option(dictionary)'
+        doc: >-
+          Internal source anchor metadata used to locate the pointer tip.
+        default: 'none'
+  ref:
+    doc: >-
+      Shared formatting settings for references to code lines, highlights, and annotations.
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          The reference content.
+        required: true
+      by:
+        type: 'e.types.option(e.types.union("line", "item"))'
+        doc: >-
+          Reference mode: "line" displays the line number; "item" displays the highlight tag or
+          annotation content.
+        default: '"line"'
+      sep:
+        type: 'e.types.option(e.types.union(str, content))'
+        doc: >-
+          Separator between the containing block reference and the referenced line or item.
+        default: '"-"'
+      numbering:
+        type: 'e.types.option(function)'
+        doc: >-
+          Line-number formatter used when by is "line"; none hides the line-number part.
+        default: 'numbering.with("1")'
+  line-ref:
+    doc: >-
+      A native reference to a displayed code line, including an optional unnumbered-line suffix.
+    labelable: false
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          Internal reference body.
+        required: true
+      block:
+        type: 'label'
+        doc: >-
+          Label of the containing code block or figure.
+        required: true
+        named: true
+      number:
+        type: 'int'
+        doc: >-
+          Displayed line number after offsets and skips.
+        required: true
+        named: true
+      suffix:
+        type: 'e.types.option(content)'
+        doc: >-
+          Suffix identifying an unnumbered line relative to the preceding displayed number.
+        default: 'none'
+      separator:
+        type: 'e.types.option(e.types.union(auto, str, content))'
+        doc: >-
+          Separator after the block reference; auto inherits codly.ref.sep.
+        default: 'auto'
+      numbering:
+        type: 'e.types.option(e.types.union(auto, function))'
+        doc: >-
+          Line-number formatter; auto inherits codly.ref.numbering, and none hides the line number.
+        default: 'auto'
+  highlight-ref:
+    doc: >-
+      A native reference to a labelled character highlight.
+    labelable: false
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          Internal reference body.
+        required: true
+      block:
+        type: 'label'
+        doc: >-
+          Label of the containing code block or figure.
+        required: true
+        named: true
+      line:
+        type: 'int'
+        doc: >-
+          Displayed line number containing the highlight.
+        required: true
+        named: true
+      item:
+        type: 'e.types.option(content)'
+        doc: >-
+          Highlight tag displayed when by is "item".
+        default: 'none'
+      by:
+        type: 'e.types.union("line", "item")'
+        doc: >-
+          Whether the reference displays the line number or highlight tag.
+        required: true
+        named: true
+      separator:
+        type: 'e.types.option(e.types.union(auto, str, content))'
+        doc: >-
+          Separator after the block reference; auto inherits codly.ref.sep.
+        default: 'auto'
+      numbering:
+        type: 'e.types.option(e.types.union(auto, function))'
+        doc: >-
+          Line-number formatter; auto inherits codly.ref.numbering, and none hides the line number.
+        default: 'auto'
+  annotation-ref:
+    doc: >-
+      A native reference to a labelled brace annotation.
+    labelable: false
+    fields:
+      body:
+        type: 'e.types.option(content)'
+        doc: >-
+          Internal reference body.
+        required: true
+      block:
+        type: 'label'
+        doc: >-
+          Label of the containing code block or figure.
+        required: true
+        named: true
+      line:
+        type: 'int'
+        doc: >-
+          Displayed number of the first line covered by the annotation.
+        required: true
+        named: true
+      item:
+        type: 'content'
+        doc: >-
+          Annotation content or automatic annotation number displayed when by is "item".
+        required: true
+        named: true
+      suffix:
+        type: 'e.types.option(content)'
+        doc: >-
+          Suffix identifying an unnumbered start line.
+        default: 'none'
+      by:
+        type: 'e.types.union("line", "item")'
+        doc: >-
+          Whether the reference displays the line number or annotation item.
+        required: true
+        named: true
+      separator:
+        type: 'e.types.option(e.types.union(auto, str, content))'
+        doc: >-
+          Separator after the block reference; auto inherits codly.ref.sep.
+        default: 'auto'
+      numbering:
+        type: 'e.types.option(e.types.union(auto, function))'
+        doc: >-
+          Line-number formatter; auto inherits codly.ref.numbering, and none hides the line number.
+        default: 'auto'
+  sublang-block:
+    doc: >-
+      An internal syntax-resolution block for a source range using another language.
+    fields:
+      body:
+        type: 'content'
+        doc: >-
+          Raw block used to resolve syntax styling for the sublanguage range.
+        required: true
+      idx:
+        type: 'int'
+        doc: >-
+          Zero-based index of the sublanguage configuration within the block.
+        required: true
+  theme-style:
+    doc: >-
+      Internal scoped theme state consulted by code syntax and typography show rules.
+    fields:
+      foreground:
+        type: 'e.types.paint'
+        doc: >-
+          Resolved default foreground paint for code content.
+        default: 'black'
+      syntax:
+        type: 'e.types.any'
+        doc: >-
+          Syntax theme applied to raw content within Codly blocks.
+        default: 'auto'
+        folds: false
+      typography:
+        type: 'dictionary'
+        doc: >-
+          Text-setting dictionaries keyed by Codly element section.
+        default: '(:)'
+        folds: false
+types:
+  language:
+    doc: >-
+      A language badge definition. Additional fields are retained as language-specific badge
+      settings.
+    allow-unknown-fields: true
+    fields:
+      name:
+        type: 'e.types.union(str, content)'
+        doc: >-
+          Displayed language name.
+        required: true
+        named: true
+      color:
+        type: 'e.types.option(e.types.paint)'
+        doc: >-
+          Language color; none uses codly.lang.default-color.
+        default: 'none'
+      icon:
+        type: 'e.types.option(e.types.union(str, content))'
+        doc: >-
+          Language icon; none hides the icon.
+        default: 'none'
+  sublang:
+    doc: >-
+      A syntax-highlighting language applied to an inclusive source-line range.
+    fields:
+      start:
+        type: 'int'
+        doc: >-
+          First source line of the range, one-based and positive.
+        required: true
+        named: true
+      end:
+        type: 'int'
+        doc: >-
+          Last source line of the range, inclusive and at least start.
+        required: true
+        named: true
+      lang:
+        type: 'str'
+        doc: >-
+          Syntax-highlighting language key.
+        required: true
+        named: true
+  diff:
+    doc: >-
+      Two-sided syntax highlighting, backgrounds, and gutters for diff-prefixed code.
+    fields:
+      enabled:
+        type: 'bool'
+        doc: >-
+          Whether to process diff-prefixed code.
+        default: 'true'
+      added-fill:
+        type: 'e.types.option(e.types.union(auto, e.types.paint, function))'
+        doc: >-
+          Added-row background. auto follows the ordinary row fill; none leaves it unfilled. A
+          callback receives the row and its diff record.
+        default: 'rgb("dafbe1")'
+      removed-fill:
+        type: 'e.types.option(e.types.union(auto, e.types.paint, function))'
+        doc: >-
+          Removed-row background. auto follows the ordinary row fill; none leaves it unfilled. A
+          callback receives the row and its diff record.
+        default: 'rgb("ffebe9")'
+      meta-fill:
+        type: 'e.types.option(e.types.union(auto, e.types.paint, function))'
+        doc: >-
+          Patch metadata background. auto follows the ordinary row fill; none leaves it unfilled. A
+          callback receives the row and its diff record.
+        default: 'rgb("ddf4ff")'
+      context-fill:
+        type: 'e.types.option(e.types.union(auto, e.types.paint, function))'
+        doc: >-
+          Unchanged-row background. auto follows the ordinary row fill; none leaves it unfilled. A
+          callback receives the row and its diff record.
+        default: 'auto'
+      numbers:
+        type: 'bool'
+        doc: >-
+          Whether the default diff gutters display old and new line numbers.
+        default: 'true'
+      markers:
+        type: 'bool'
+        doc: >-
+          Whether the default diff gutters display change markers.
+        default: 'true'
+      added-marker:
+        type: 'e.types.union(str, content)'
+        doc: >-
+          Marker displayed beside an added line.
+        default: '"+"'
+      removed-marker:
+        type: 'e.types.union(str, content)'
+        doc: >-
+          Marker displayed beside a removed line.
+        default: '"−"'
+      old-offset:
+        type: 'int'
+        doc: >-
+          Additional offset applied to old-side gutter numbers.
+        default: '0'
+      new-offset:
+        type: 'int'
+        doc: >-
+          Additional offset applied to new-side gutter numbers.
+        default: '0'
+  gutter-column:
+    doc: >-
+      An independently styled gutter column. Arrays use source-line positions; callbacks receive
+      rendered code and skip row records.
+    fields:
+      values:
+        type: 'e.types.union( e.types.array(e.types.option(e.types.union(str, int, float, content))),
+          function, )'
+        doc: >-
+          Source-line values or a callback receiving index, kind, source-line, number, and text.
+          Short arrays and none entries leave cells empty; generated rows have no source text.
+        required: true
+        named: true
+        folds: false
+      width:
+        type: 'e.types.union(auto, length, ratio, fraction)'
+        doc: >-
+          Nonnegative column width; auto sizes to its content.
+        default: 'auto'
+      align:
+        type: 'e.types.union(auto, alignment)'
+        doc: >-
+          Cell alignment; auto inherits the grid number alignment.
+        default: 'auto'
+      inset:
+        type: 'e.types.union(auto, length, dictionary)'
+        doc: >-
+          Cell padding; auto inherits the grid number inset.
+        default: 'auto'
+      stroke:
+        type: 'e.types.option(e.types.union(auto, stroke, dictionary))'
+        doc: >-
+          Cell border; auto inherits the grid stroke, and none disables it.
+        default: 'auto'
+      fill:
+        type: 'e.types.option(e.types.union( auto, e.types.paint,
+          e.types.array(e.types.option(e.types.paint)), function, ))'
+        doc: >-
+          Cell background, nonempty cycling palette, or row callback. auto follows the body-row
+          fill; none leaves the cell unfilled.
+        default: 'auto'
+        folds: false
+      text:
+        type: 'dictionary'
+        doc: >-
+          Text settings applied to the column content.
+        default: '(:)'
+  rainbow:
+    doc: >-
+      Color matching code delimiters by nesting depth, excluding strings and comments.
+    fields:
+      enabled:
+        type: 'bool'
+        doc: >-
+          Whether to color delimiters.
+        default: 'true'
+      palette:
+        type: 'e.types.array(color)'
+        doc: >-
+          Colors repeated at successive nesting depths; must not be empty.
+        default: 'r.palette'
+        folds: false
+      pairs:
+        type: 'e.types.array(e.types.union("()", "[]", "{}"))'
+        doc: >-
+          Delimiter pairs that contribute to nesting.
+        default: '("()", "[]", "{}")'
+        folds: false
+      depth-offset:
+        type: 'int'
+        doc: >-
+          Nonnegative offset into the palette.
+        default: '0'
+      unmatched:
+        type: 'e.types.option(color)'
+        doc: >-
+          Color for unmatched delimiters, or none to preserve their syntax style.
+        default: 'none'
+      code-scopes:
+        type: 'str'
+        doc: >-
+          Syntax scope selectors identifying code in the private classification theme.
+        default: 'r.code-scopes'
+      ignore-scopes:
+        type: 'str'
+        doc: >-
+          Syntax scope selectors excluding literals and comments.
+        default: 'r.ignore-scopes'
+  indent-guides:
+    doc: >-
+      Draw optional vertical guides at complete indentation levels.
+    fields:
+      enabled:
+        type: 'bool'
+        doc: >-
+          Whether to draw indentation guides.
+        default: 'true'
+      width:
+        type: 'e.types.union(auto, int)'
+        doc: >-
+          Spaces per level; auto votes on observed indentation changes.
+        default: 'auto'
+      blank-lines:
+        type: 'bool'
+        doc: >-
+          Continue shared levels across interior blank lines.
+        default: 'true'
+      rainbow:
+        type: 'e.types.union(auto, bool)'
+        doc: >-
+          Color guides by level; auto follows delimiter rainbow enablement.
+        default: 'auto'
+      palette:
+        type: 'e.types.union(auto, e.types.array(color))'
+        doc: >-
+          Nonempty guide palette; auto shares the delimiter palette.
+        default: 'auto'
+        folds: false
+      depth-offset:
+        type: 'e.types.union(auto, int)'
+        doc: >-
+          Nonnegative palette offset; auto shares the delimiter offset.
+        default: 'auto'
+      color:
+        type: 'color'
+        doc: >-
+          Guide color when rainbow guides are disabled.
+        default: 'luma(70%)'
+      thickness:
+        type: 'length'
+        doc: >-
+          Positive guide stroke thickness.
+        default: '0.5pt'
+      x-offset:
+        type: 'length'
+        doc: >-
+          Horizontal shift of every guide; positive moves right, negative moves left. Supports em
+          lengths.
+        default: '0pt'
+  range:
+    doc: >-
+      An inclusive range of one-based source-line numbers to display.
+    fields:
+      start:
+        type: 'int'
+        doc: >-
+          First source line of the range, one-based.
+        required: true
+      end:
+        type: 'e.types.option(int)'
+        doc: >-
+          Last source line, inclusive; none selects the remainder of the block.
+        default: 'none'
+        named: false
+  skip:
+    doc: >-
+      An explicit omission row that increases subsequent displayed line numbers.
+    fields:
+      position:
+        type: 'int'
+        doc: >-
+          One-based source line before which the omission row is inserted.
+        required: true
+      length:
+        type: 'int'
+        doc: >-
+          Number of omitted lines added to subsequent displayed line numbers.
+        default: '1'
+        named: false
+  smart-skip:
+    doc: >-
+      Controls generated omission rows before, between, and after selected source-line ranges.
+    fields:
+      first:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether to display an omission row before the first selected range.
+        default: 'none'
+      last:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether to display an omission row after the last selected range.
+        default: 'none'
+      rest:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Whether to display omission rows between disjoint selected ranges.
+        default: 'none'
+  unnumbered-line:
+    doc: >-
+      A source line omitted from automatic numbering, with replacement number-cell content.
+    fields:
+      line:
+        type: 'int'
+        doc: >-
+          One-based source line to leave unnumbered.
+        required: true
+      fill:
+        type: 'content'
+        doc: >-
+          Content displayed instead of the automatic line number.
+        default: '[]'
+        named: false
+  highlighted-line:
+    doc: >-
+      A whole-row highlight keyed by its displayed line number.
+    fields:
+      line:
+        type: 'int'
+        doc: >-
+          Displayed line number to highlight, including offsets and skips.
+        required: true
+      color:
+        type: 'e.types.option(e.types.paint)'
+        doc: >-
+          Explicit background paint; none uses the next default highlight color transformed by
+          codly.highlight.fill.
+        default: 'none'
+        named: false
+  highlight-config:
+    doc: >-
+      A styled character span identified by its displayed line number and inclusive one-based bounds.
+    fields:
+      line:
+        type: 'int'
+        doc: >-
+          Positive displayed line number, including offsets and inserted skips.
+        required: true
+      start:
+        type: 'e.types.option(int)'
+        doc: >-
+          First character to include, one-based; none or 0 selects the line start.
+        default: 'none'
+      end:
+        type: 'e.types.option(int)'
+        doc: >-
+          Last character to include, one-based and inclusive; none selects the line end.
+        default: 'none'
+      fill:
+        type: 'e.types.option(e.types.union(e.types.paint, function))'
+        doc: >-
+          Explicit paint or a callback receiving the next default palette paint. Explicit paints do
+          not consume a palette color; callbacks do. none uses the palette.
+        default: 'none'
+      tag:
+        type: 'e.types.option(e.types.union(str, content))'
+        doc: >-
+          Optional content displayed beside the highlighted span.
+        default: 'none'
+      inset:
+        type: 'e.types.option(e.types.union(length, dictionary))'
+        doc: >-
+          Override for codly.highlight.inset.
+        default: 'none'
+      baseline:
+        type: 'e.types.option(e.types.union(length, auto))'
+        doc: >-
+          Override for the highlight box baseline; auto preserves the content's baseline.
+        default: 'none'
+      clip:
+        type: 'e.types.option(bool)'
+        doc: >-
+          Override for codly.highlight.clip.
+        default: 'none'
+      outset:
+        type: 'e.types.option(e.types.union(length, dictionary))'
+        doc: >-
+          Override for codly.highlight.outset.
+        default: 'none'
+      radius:
+        type: 'e.types.option(length)'
+        doc: >-
+          Override for codly.highlight.radius.
+        default: 'none'
+      label:
+        type: 'e.types.option(label)'
+        doc: >-
+          Label for a native highlight reference when the containing block has a block-label.
+        default: 'none'
+      stroke:
+        type: 'e.types.option(e.types.union(stroke, function))'
+        doc: >-
+          Override for codly.highlight.stroke.
+        default: 'none'
+      depth:
+        type: 'e.types.option(int)'
+        doc: >-
+          Highlight nesting depth. The renderer derives and replaces this value from span
+          containment.
+  annotation-config:
+    doc: >-
+      A brace annotation spanning an inclusive range of source lines.
+    fields:
+      start:
+        type: 'int'
+        doc: >-
+          First covered source line, one-based and positive.
+        required: true
+      end:
+        type: 'e.types.option(int)'
+        doc: >-
+          Last covered source line, inclusive; none selects start only.
+        default: 'none'
+      content:
+        type: 'e.types.option(content)'
+        doc: >-
+          Annotation content; none displays only its automatic number.
+        default: 'none'
+      label:
+        type: 'e.types.option(label)'
+        doc: >-
+          Label for a native annotation reference when the containing block has a block-label.
+        default: 'none'
+      numbering:
+        type: 'e.types.option(function)'
+        doc: >-
+          Automatic annotation number formatter; none hides the number.
+        default: 'numbering.with("(1)")'
+  callout-config:
+    doc: >-
+      Content and optional bubble styling attached to a source line.
+    field-groups:
+      - name: callout
+        after: stroke
+        mode: entry
+    fields:
+      line:
+        type: 'int'
+        doc: >-
+          Attached source line, one-based and positive.
+        required: true
+        named: true
+      body:
+        type: 'content'
+        doc: >-
+          Content displayed in the callout.
+        required: true
+        named: true
+      align:
+        type: 'e.types.option(e.types.union(alignment, auto))'
+        doc: >-
+          Cell alignment; auto inherits the codly.callout setting.
+        default: 'auto'
+      breakable:
+        type: 'e.types.option(e.types.union(bool, auto))'
+        doc: >-
+          Whether the cell can break across pages; auto inherits the codly.callout setting.
+        default: 'auto'
+      inset:
+        type: 'e.types.option(e.types.union(length, dictionary, auto))'
+        doc: >-
+          Cell padding; auto inherits the codly.callout setting.
+        default: 'auto'
+      fill:
+        type: 'e.types.option(e.types.union(e.types.paint, auto))'
+        doc: >-
+          Cell background; auto inherits the codly.callout setting.
+        default: 'auto'
+      stroke:
+        type: 'e.types.option(e.types.union(stroke, auto))'
+        doc: >-
+          Cell border; auto inherits the codly.callout setting.
+        default: 'auto'
+field-groups:
+  callout:
+    source-indent:
+      type: 'bool'
+      doc: >-
+        Whether plain callouts retain source indentation and reserve the gutter columns. Pointed
+        bubbles keep their character anchors.
+      default: 'false'
+      folds: false
+    placement:
+      type: 'e.types.union("above", "below")'
+      doc: >-
+        Whether the callout appears above or below its source line.
+      default: '"below"'
+      folds: false
+    bubble-gap:
+      type: 'e.types.union(length, dictionary)'
+      doc: >-
+        Minimum horizontal and vertical separation between bubbles. A length sets both axes; omitted
+        dictionary axes use 0.5em.
+      default: '0.5em'
+      folds: false
+    pointer:
+      type: 'e.types.option(int)'
+      doc: >-
+        One-based character anchor in the source line; zero selects the line start. none disables
+        the pointed bubble.
+      default: 'none'
+      folds: false
+    pointer-align:
+      type: 'e.types.union("start", "center", "end")'
+      doc: >-
+        Preferred alignment of the bubble around its source character, clamped to the available row.
+      default: '"center"'
+      folds: false
+    pointer-size:
+      type: 'length'
+      doc: >-
+        Default arrow height and half-base width.
+      default: '0.4em'
+      folds: false
+    pointer-height:
+      type: 'e.types.union(length, auto)'
+      doc: >-
+        Arrow height; auto uses pointer-size.
+      default: 'auto'
+      folds: false
+    pointer-width:
+      type: 'e.types.union(length, auto)'
+      doc: >-
+        Full arrow base width; auto uses twice pointer-size.
+      default: 'auto'
+      folds: false
+    pointer-offset:
+      type: 'length'
+      doc: >-
+        Horizontal tip shift from the source character; positive moves right, negative moves left.
+        Clamped to the bubble without moving its body.
+      default: '0pt'
+      folds: false
+    bubble-align:
+      type: 'alignment'
+      doc: >-
+        Alignment of content inside the bubble, independent of grid cell alignment.
+      default: 'center'
+      folds: false
+    bubble-fill:
+      type: 'e.types.option(e.types.paint)'
+      doc: >-
+        Fill shared by the bubble body and pointer.
+      default: 'luma(245)'
+      folds: false
+    bubble-stroke:
+      type: 'e.types.option(stroke)'
+      doc: >-
+        Stroke around the single bubble and pointer outline.
+      default: '0.6pt + luma(80)'
+      folds: false
+    bubble-inset:
+      type: 'e.types.union(length, dictionary)'
+      doc: >-
+        Padding inside the bubble body.
+      default: '(x: 0.5em, y: 0.3em)'
+      folds: false
+    bubble-outset:
+      type: 'e.types.union(length, dictionary)'
+      doc: >-
+        Additional painted extent around the padded body, reserved in the row.
+      default: '0pt'
+      folds: false
+    bubble-radius:
+      type: 'length'
+      doc: >-
+        Corner radius of the bubble body.
+      default: '2pt'
+      folds: false
+    bubble-width:
+      type: 'e.types.union(length, ratio, auto)'
+      doc: >-
+        Preferred padded body width; auto fits the content within the available row.
+      default: 'auto'
+      folds: false

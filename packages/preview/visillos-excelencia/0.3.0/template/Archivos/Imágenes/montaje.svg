@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320" font-family="sans-serif" font-size="16">
+  <rect width="600" height="320" fill="#ffffff"/>
+  <!-- mesa -->
+  <rect x="20" y="270" width="560" height="14" fill="#c8a27a"/>
+  <!-- taza -->
+  <path d="M120 150 L135 270 L245 270 L260 150 Z" fill="#f4f4f4" stroke="#333" stroke-width="3"/>
+  <path d="M260 175 C305 175 305 240 252 240" fill="none" stroke="#333" stroke-width="3"/>
+  <path d="M124 170 L256 170 L244 262 L136 262 Z" fill="#6f4e37"/>
+  <!-- vapor -->
+  <path d="M160 135 C150 115 175 105 165 85" fill="none" stroke="#999" stroke-width="2"/>
+  <path d="M195 135 C185 115 210 105 200 85" fill="none" stroke="#999" stroke-width="2"/>
+  <path d="M230 135 C220 115 245 105 235 85" fill="none" stroke="#999" stroke-width="2"/>
+  <!-- sonda del termómetro -->
+  <line x1="215" y1="230" x2="300" y2="60" stroke="#555" stroke-width="4"/>
+  <path d="M300 60 C330 10 380 40 400 95" fill="none" stroke="#555" stroke-width="3"/>
+  <!-- termómetro digital -->
+  <rect x="380" y="95" width="130" height="80" rx="10" fill="#279985"/>
+  <rect x="392" y="108" width="106" height="40" rx="4" fill="#e8fff8"/>
+  <text x="445" y="135" text-anchor="middle" font-size="22" font-weight="bold" fill="#222">85.0 °C</text>
+  <text x="445" y="166" text-anchor="middle" font-size="12" fill="#fff">TERMÓMETRO</text>
+  <!-- cronómetro -->
+  <circle cx="470" cy="230" r="34" fill="#fff" stroke="#333" stroke-width="3"/>
+  <rect x="462" y="186" width="16" height="10" fill="#333"/>
+  <line x1="470" y1="230" x2="470" y2="206" stroke="#c0392b" stroke-width="3"/>
+  <line x1="470" y1="230" x2="488" y2="238" stroke="#333" stroke-width="3"/>
+  <!-- rótulos -->
+  <text x="190" y="305" text-anchor="middle">Taza con 250 ml de café</text>
+  <text x="470" y="305" text-anchor="middle">Cronómetro</text>
+</svg>

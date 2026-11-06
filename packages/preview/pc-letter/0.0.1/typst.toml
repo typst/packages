@@ -1,0 +1,17 @@
+[package]
+name = "pc-letter"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Florian Breit <florian@florian.me.uk>"]
+license = "MIT"
+description = "A simple letter template for personal correspondence."
+repository = "https://github.com/thatfloflo/typst-pc-letter"
+keywords = ["letter", "correspondence", "din5008"]
+compiler = "0.13.0"
+categories = ["office"]
+exclude = ["example"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

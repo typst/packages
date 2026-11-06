@@ -1,0 +1,418 @@
+{
+    "enabled": {
+        "title": "Enabled",
+        "description": "Whether codly is enabled or not.\nIf it is disabled, the code block will be displayed as a normal code block, without any additional codly-specific formatting. This is useful if you want to disable codly for a specific block. You can also disable codly locally using the #link(<no-codly>)[`no-codly`] function, or disable it and enable it again using the #link(<codly-disable>)[`codly-disable`] and #link(<codly-enable>)[`codly-enable`] functions.",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": true,
+        "reset": false,
+        "example": "*Enabled = true*:\n#codly(enabled: true)\n```typ\nHello, world!\n``` \n \n*Enabled = false*:\n#codly(enabled: false)\n```typ\nHello, world!\n```"
+    },
+    "header": {
+        "title": "Header",
+        "description": "An optional header to display above the code block. It can be optionally repeated on all subsequent pages with the #link(<arg-header-repeat>)[`header-repeat`] argument. And additional customizations are available with the #link(<arg-header-cell-args>)[`header-cell-args`] and #link(<arg-header-transform>)[`header-transform`] arguments.",
+        "default": "none",
+        "ty": [ "content", "type(none)" ],
+        "function": true,
+        "reset": true,
+        "example": "#codly(header: [*Hello, world!*])\n```typ\nHello, world!\n```"
+    },
+    "header-repeat": {
+        "title": "Header Repeat",
+        "description": "Whether to repeat the header on each page. This is only applicable if a header is provided, if the code block is #link(<arg-breakable>)[`breakable`], and if it actually breaks on more than one page. For more information see #link(\"https://typst.app/docs/reference/layout/grid/#definitions-header-repeat\")[`grid.header:repeat`].",
+        "default": "false",
+        "ty": [ "bool" ],
+        "function": true
+    },
+    "header-cell-args": {
+        "title": "Header Cell Args",
+        "description": "Additional arguments to be provided to the `grid.cell` containing the header. Lets you customize the header cell further. Internally, codly wraps the content of the #link(<arg-header>)[`header`] argument in a `grid.cell` with these arguments. The only argument that is always common is the `body` argument which is the value of the #link(<arg-header>)[`header`] argument, and the `colspan` which is always set to `2`.\n\n For a full description of the argument, look at the documentation of the #link(\"https://typst.app/docs/reference/layout/grid/#definitions-cell\")[`grid.cell`] function.",
+        "default": "()",
+        "ty": [ "array", "dictionary", "arguments" ],
+        "function": true,
+        "example": "//Centering the header:\n#codly(\n header: [*Hello, world!*],\n header-cell-args: (align: center, )\n)\n\n```typ\nHello, world!\n```"
+    },
+    "header-transform": {
+        "title": "Header Transform",
+        "description": "Function that transforms the header into arbitrary content to be stored in the `grid.cell`. Can be seen as a show-rule for the header. This allows to perform global transformation/show-rule like operations on the header.",
+        "default": "(x) => x",
+        "ty": [ "function" ],
+        "function": false,
+        "example": "//Making the header bold and blue:\n#codly(\n  header: [Hello, world!],\n  header-transform: (x) => {\n    set text(fill: blue)\n    strong(x)\n  }\n)\n\n```typ\nHello, world!\n```"
+    },
+    "footer": {
+        "title": "Footer",
+        "default": "none",
+        "ty": [ "content", "type(none)" ],
+        "function": true,
+        "reset": true,
+        "description": "An optional footer to display below the code block. See #link(<arg-header>)[`header`] for more information.",
+        "example": "#codly(footer: [*Hello, world!*])\n```typ\nHello, world!\n```"
+    },
+    "footer-repeat": {
+        "title": "Footer Repeat",
+        "description": "Whether to repeat the footer on each page. See #link(<arg-header-repeat>)[`header-repeat`] for more information.",
+        "default": "false",
+        "ty": [ "bool" ],
+        "function": true
+    },
+    "footer-cell-args": {
+        "title": "Footer Cell Args",
+        "description": "Additional arguments to be provided to the `grid.cell` containing the footer. See #link(<arg-header-cell-args>)[`header-cell-args`] for more information.",
+        "default": "()",
+        "ty": [ "array", "dictionary", "arguments" ],
+        "function": true,
+        "example": "//Centering the footer:\n#codly(\n footer: [*Hello, world!*],\n footer-cell-args: (align: center, )\n)\n\n```typ\nHello, world!\n```"
+    },
+    "footer-transform": {
+        "title": "Footer Transform",
+        "description": "Function that transforms the footer into arbitrary content to be stored in the `grid.cell`. Can be seen as a show-rule for the footer. See #link(<arg-header-transform>)[`header-transform`] for more information.",
+        "default": "(x) => x",
+        "ty": [ "function" ],
+        "function": false,
+        "example": "//Making the footer bold and blue:\n#codly(\n  footer: [Hello, world!],\n  footer-transform: (x) => {\n    set text(fill: blue)\n    strong(x)\n  }\n)\n\n```typ\nHello, world!\n```"
+    },
+    "offset": {
+        "title": "Offset",
+        "description": "The offset to apply to line numbers.\n\n This is purely cosmetic, only impacting the shown line numbers in the final output.",
+        "default": "0",
+        "ty": [ "int" ],
+        "function": true,
+        "reset": true,
+        "example": "*No offset:*\n```typ\nHello, world!\n```\n\n*Offset by 5:*\n#codly(offset: 5)\n```typ\nHello, world!\n```"
+    },
+    "offset-from": {
+        "title": "Offset from other code block",
+        "description": "The offset to apply to line numbers, relative to another code block. This is useful when you want to match line numbers between two code blocks. This code block will continue the line numbers from the other code block, with the specified offset.\n\n This is done by giving a `label` to the parent raw block, and then setting it as the `offset-from` on the second code block.\n#info[Note that the offset obtained from the other code block is added to the offset specified in the `offset` argument.]\n#warning[*Important*: this feature works with any `offset` set on the other code block, including `offset-from` but may give unexpected results if both code blocks have `offset-from` set to each other or if the preceeding code block has #link(<arg-range>)[`range`] or #link(<arg-skips>)[`skips`] set.]",
+        "default": "none",
+        "ty": [ "type(none)", "label" ],
+        "experimental": true,
+        "function": true,
+        "reset": true,
+        "example": "```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\n``` <fib-fn>\n\n*Will continue at line 5*\n#codly(offset-from: <fib-fn>)\n```py\nfib(25)\n```"
+    },
+    "range": {
+        "title": "Range",
+        "description": "The range of line numbers to display, one-indexed. If set to `none`, all lines are displayed. Can also be achieved using the convenience function #link(<codly-range>)[`codly-range`]. If set to `none`, all lines are displayed.#one-indexed",
+        "default": "none",
+        "ty": [ "type(none)", "array"],
+        "function": true,
+        "reset": true,
+        "example": "#codly(range: (2, 4))\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\nfib(25)\n```"
+    },
+    "ranges": {
+        "title": "Ranges",
+        "description": "The ranges of line numbers to display, one-indexed. If set to `none`, all lines are displayed. Can also be achieved using the convenience function #link(<codly-range>)[`codly-range`] if provided with more than one range. If set to `none`, all lines are displayed. Note that it override the #link(<arg-range>)[`range`] argument. #one-indexed",
+        "default": "none",
+        "ty": [ "type(none)", "array"],
+        "function": true,
+        "reset": true,
+        "example": "#codly(ranges: ((2, 2), (4, 4)))\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\nfib(25)\n```"
+    },
+    "smart-skip": {
+        "title": "Smart skip",
+        "description": "Whether to automatically insert a #link(<arg-skips>)[`skips`] entry between ranges of displayed values. They must be discontinuous for a skip to be added. The skip will be the size of the discontinuity. It can also be a dictionary with the keys:\n- `first`: whether to include a skip if the start of the block is outside of the ranges\n- `last`: whether to include a skip if the end of the code block is outside of the ranges\n- `rest`: whether to include a skip for unspecified values and/or in the middle of the code block.\nYou can specify one or more of these keys, if the `rest` is not specified, it defaults to `none`.",
+        "default": "false",
+        "ty": [ "bool", "dictionary" ],
+        "function": true,
+        "reset": false,
+        "example": "#codly(\n  smart-skip: true,\n  ranges: ((2, 2), (4, 4))\n)\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\nfib(25)\n```",
+        "examples": [
+            {
+                "title": "Using a dictionary",
+                "code": "#codly(\n  smart-skip: (\n    first: false,\n    last: false,\n    rest: true\n  ),\n  ranges: ((2, 2), (4, 4))\n)\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\nfib(25)\n```"
+            }
+        ],
+        "experimental": true,
+        "upcoming": false
+    },
+    "languages": {
+        "title": "Languages",
+        "description": "The language definitions to use for language block formatting. It is defined as a dictionary where the keys are the language names andeach value is another dictionary containing the following keys:\n - `name`: the \"pretty\" name of the language as a content/showable value\n - `color`: the color of the language, if omitted uses the default color\n - `icon`: the icon of the language, if omitted no icon is shown.\nIf an entry is missing, and language blocks are enabled, will show the \"un-prettified\" language name, with the default color.",
+        "post": "=== Pre-existing language definitions\n#info[Check out the #link(\"https://typst.app/universe/package/codly-languages\")[`codly-languages`] package on Typst universe. It contains pre-definition for many language and is extremely easy to use. You can consider it officially endorsed by the codly author as of the 19th of November 2024.]\n\n#example(````typ\n#import \"@preview/codly-languages:0.1.1\": *\n#codly(languages: codly-languages)\n```rust\nfn main() {\n  println!(\"Hello, world!\");\n}\n```\n```zig\nconst std = @import(\"std\");\n\npub fn main() void {\n  std.debug.print(\"Hello, world!\", .{});\n}\n```\n````)",
+        "default": "(:)",
+        "ty": [ "dictionary" ],
+        "function": true,
+        "example":"#codly(\n  languages: (\n    py: (\n      name: [Python], color: green, icon: \"🐍\"\n    ),\n  )\n)\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\nfib(25)\n```"
+    },
+    "default-color": {
+        "title": "Default language color",
+        "description": "The default color to use for language blocks. Used when a language is not defined in the #link(<arg-languages>)[`languages`] argument. Also note that it is only used when the #link(<arg-lang-format>)[`lang-format`] is its `auto` or you are using it in a custom formatter. If you are using a custom formatter, it is passed to the formatter as a named argument `color`.",
+        "default": "rgb(\"#283593\")",
+        "ty": [ "color", "gradient", "pattern" ],
+        "function": true,
+        "example": "*Default color:*\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```\n*Overriden default color:*\n#codly(default-color: orange)\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```"
+    },
+    "radius": {
+        "title": "Radius",
+        "description": "The radius of the border of the code block, see #link(\"https://typst.app/docs/reference/layout/block/#parameters-radius\")[`block.radius`] for more information.",
+        "default": "0.32em",
+        "ty": [ "length" ],
+        "function": true,
+        "example": "*Default radius:*\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```\n*Overriden radius:*\n#codly(radius: 2em)\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```\n*Zero radius:*\n#codly(radius: 0pt)\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```"
+    },
+    "inset": {
+        "title": "Inset",
+        "description": "Inset of the code lines, that is the distance between the border and the code lines. It can also be a dictionary with the keys same keys as in the Tyspt built-in #link(\"https://typst.app/docs/reference/layout/block/#parameters-inset\")[`block.inset`].",
+        "default": "0.32em",
+        "ty": [ "length", "dictionary" ],
+        "function": true,
+        "example": "*Default inset:*\n```py\nprint('Hello, world!')\n```\n*Overriden inset:*\n#codly(inset: 1em)\n```py\nprint('Hello, world!')\n```",
+        "examples":[
+            {
+                "title": "Dictionary inset",
+                "code": "*Default inset:*\n```py\nprint('Hello, world!')\n```\n*Overriden inset:*\n#codly(inset: (x: 0.32em, y: 0.1em))\n```py\nprint('Hello, world!')\n```"
+            }
+        ]
+    },
+    "fill": {
+        "title": "Fill",
+        "description": "The fill of the code block when not zebra-striped.",
+        "default": "none",
+        "ty": [ "type(none)", "color", "gradient", "pattern" ],
+        "function": true,
+        "example": "*Default fill:*\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```\n*Overriden fill:*\n#codly(fill: gradient.linear(..color.map.flare))\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```\n*No fill:*\n#codly(fill: none)\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```"
+    },
+    "zebra-fill": {
+        "title": "Zebra fill",
+        "description": "Background color of the code lines when zebra-stripped. If set to `none`, no zebra-striping is applied.",
+        "default": "luma(240)",
+        "ty": [ "type(none)", "color", "gradient", "pattern" ],
+        "function": true,
+        "example": "*Default zebra:*\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```\n*No zebra:*\n#codly(zebra-fill: none)\n```py\nprint('Hello, world!')\nprint('Hello, world!')\n```\n*Overriden zebra:*\n#codly(zebra-fill: gradient.linear(..color.map.flare))\n```py\nprint('Hello, world!')\n```"
+    },
+    "stroke": {
+        "title": "Stroke",
+        "description": "The stroke to surround the whole code block with?",
+        "default": "1pt + luma(240)",
+        "ty": [ "type(none)", "stroke" ],
+        "function": true,
+        "example": "*Default stroke:*\n```py\nprint('Hello, world!')\n```\n*No stroke:*\n#codly(stroke: none)\n```py\nprint('Hello, world!')\n```\n*Overriden stroke:*\n#codly(stroke: 1pt + blue)\n```py\nprint('Hello, world!')\n```"
+    },
+    "lang-inset": {
+        "title": "Language box inset",
+        "description": "The inset of the language block. This only applies if you're using the default language block formatter. It can also be a dictionary with the keys same keys as in the Tyspt built-in #link(\"https://typst.app/docs/reference/layout/block/#parameters-inset\")[`block.inset`]",
+        "default": "0.32em",
+        "ty": [ "length", "dictionary" ],
+        "function": true,
+        "example": "#codly(lang-inset: 5pt)\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```"
+    },
+    "lang-outset": {
+        "title": "Language box outset",
+        "description": "The X and Y outset of the language block, applied as a `dx` and `dy` during the `place` operation. This applies in every case, whether or not you're using the default language block formatter. The default value is chosen to get rid of the `inset` applied to each line.",
+        "default": "(x: 0.32em, y: 0em)",
+        "ty": [ "dictionary" ],
+        "function": true,
+        "example": "#codly(lang-outset: (x: -10pt, y: 5pt))\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```"
+    },
+    "lang-radius": {
+        "title": "Language box radius",
+        "description": "The radius of the border of the language block.",
+        "default": "0.32em",
+        "ty": [ "length" ],
+        "function": true,
+        "example": "#codly(lang-radius: 10pt)\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```"
+    },
+    "lang-stroke": {
+        "title": "Language box stroke",
+        "description": "The stroke of the language block. Can be a function that takes in the language `dictionary` or `none` (see argument #link(<arg-languages>)[`languages`]) and returns a stroke.",
+        "default": "(lang) => lang.color + 0.5pt",
+        "ty": [ "type(none)", "stroke", "function" ],
+        "function": false,
+        "example": "*Fixed stroke:*\n#codly(lang-stroke: 1pt + red)\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```\n*Function mapping:*\n#codly(lang-stroke: (lang) => 2pt + lang.color)\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```"
+    },
+    "lang-fill": {
+        "title": "Language box fill",
+        "description": "The background color of the language block. Can be a function that takes in the language `dictionary` or `none` (see argument #link(<arg-languages>)[`languages`]) and returns a stroke.",
+        "default": "(lang) => lang.color.lighten(80%)",
+        "ty": [ "type(none)", "color", "gradient", "pattern", "function" ],
+        "function": false,
+        "example": "*Fixed fill:*\n#codly(lang-fill: red)\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```\n*Function mapping:*\n#codly(lang-fill: (lang) => lang.color.lighten(40%))\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```"
+    },
+    "lang-format": {
+        "title": "Language box formatter",
+        "description": "The formatter for the language block. A value of `none` will not display the language block. To use the default formatter, set to `auto`. The function takes three arguments:\n - `lang`: the language key (e.g. `py`)\n - `icon`: the language icon, can be none or empty content\n - `color`: the language color\n\n The function should return a content/showable value.\n#info[The language formatter should avoid using #link(\"https://typst.app/docs/reference/introspection/state/\")[`state`] as this can lead to quadratic execution time, see #link(\"https://github.com/typst/typst/issues/5220\")[typst/typst \\#5220] for more information. Internally, when set to `auto`, codly uses an inlined function to avoid using states.]",
+        "default": "auto",
+        "ty": [ "type(auto)", "type(none)", "function" ],
+        "function": false,
+        "example": "*Default formatter:*\n```py\nprint('Hello, world!')\n```\n*Function mapping:*\n#codly(lang-format: (_, _, _) => [No!]))\n```py\nprint('Hello, world!')\n```"
+    },
+    "display-name": {
+        "title": "Display language name",
+        "description": "Whether to display the name of the language in the language block. This only applies if you're using the default language block formatter.",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": true,
+        "example": "#codly(\n  display-name: false,\n  languages: (\n    py: (\n      name: [Python], color: green,\n      icon: \"🐍\"\n    ),\n  ),\n)\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```"
+    },
+    "display-icon": {
+        "title": "Display language icon",
+        "description": "Whether to display the icon of the language in the language block. This only applies if you're using the default language block formatter.",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": true,
+        "example": "#codly(\n  display-icon: false,\n  languages: (\n    py: (\n      name: [Python], color: green,\n      icon: \"🐍\"\n    ),\n  ),\n)\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```"
+    },
+    "number-format": {
+        "title": "Line number format",
+        "description": "The format of the line numbers, a function that takes in number and returns a content. If set to none, disables line numbers.",
+        "default": "numbering.with(\"1\")",
+        "ty": [ "function", "type(none)" ],
+        "function": false,
+        "example": "#codly(number-format: numbering.with(\"I.\"))\n```py\nprint('Hello, world!')\nprint('Goodbye, world!')\n```"
+    },
+    "number-align": {
+        "title": "Line number alignment",
+        "description": "The alignment of the numbers.",
+        "default": "left + horizon",
+        "ty": [ "alignment" ],
+        "function": true,
+        "example": "#codly(number-align: right + top)\n```py\n# Iterative Fibonacci\n# As opposed to the recursive\n# version\ndef fib(n):\n  if n <= 1:\n    return n\n  last, current = 0, 1\n  for _ in range(2, n + 1):\n  last, current = current, last + current\n  return current\nfib(25)\n```"
+    },
+    "smart-indent": {
+        "title": "Smart indentation",
+        "description": "Whether to use smart indentation, which will check for indentation on a line and use a bigger left side inset instead of spaces. This allows for linebreaks to continue at the same level of indentation. This is on by default, but disabling it can improve performance.",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": false,
+        "example": "*Enabled (default):*\n```py\ndef quicksort(L):\n  qsort = lambda L: [] if L==[] else qsort([x for x in L[1:] if x< L[0]]) + L[0:1] + qsort([x for x in L[1:] if x>=L[0]])\n  qsort(L)\n```\n*Disabled:*\n#codly(smart-indent: false)\n```py\ndef quicksort(L):\n  qsort = lambda L: [] if L==[] else qsort([x for x in L[1:] if x< L[0]]) + L[0:1] + qsort([x for x in L[1:] if x>=L[0]])\n  qsort(L))\n```"
+    },
+    "skip-last-empty": {
+        "title": "Skip last line if empty",
+        "description": "Whether to automatically skip the last line of the code block if it is empty. This avoids having an unnecessary empty line at the end of the code block.",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": true,
+        "example": "*Enabled (default):*\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\n\n```\n*Disabled:*\n#codly(skip-last-empty: false)\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\n\n```",
+        "upcoming": false
+    },
+    "breakable": {
+        "title": "Breakable",
+        "description": "Whether the codeblocks are breakable across page and column breaks.",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": false
+    },
+    "skips": {
+        "title": "Skips",
+        "description": "Insert a skip at the specified line numbers, setting its offset to the length of the skip. The skip is formatted using the #link(<arg-skip-number>)[`skip-number`] argument. Each skip is an array with two values: the line where the skip is inserted (zero indexed) and the number of lines of the skip. The same behavior can be achieved using the #link(<codly-skip>)[`codly-skip`] function.",
+        "default": "none",
+        "ty": [ "array", "type(none)" ],
+        "function": true,
+        "reset": true,
+        "example": "#codly(skips: ((4, 32), ))\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\nfib(25)\n```"
+    },
+    "skip-line": {
+        "title": "Skip line",
+        "description": "Sets the content with which the line code is filled when a skip is encountered.",
+        "default": "align(center)[ ... ]",
+        "ty": [ "content", "type(none)" ],
+        "function": true,
+        "example": "#codly(\n  skips: ((4, 32), ),\n  skip-line: align(center, emoji.face.shock)\n)\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\nfib(25)\n```"
+    },
+    "skip-number": {
+        "title": "Skip number",
+        "description": "Sets the content with which the line number columns is filled when a skip is encountered. If line numbers are disabled, this has no effect.",
+        "default": "[ ... ]",
+        "ty": [ "content", "type(none)" ],
+        "function": true,
+        "example": "#codly(\n  skips: ((4, 32), ),\n  skip-number: align(center, emoji.face.shock)\n)\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  return fib(n - 1) + fib(n - 2)\nfib(25)\n```"
+    },
+    "annotations": {
+        "title": "Annotations",
+        "description": "The annotations to display on the code block. A list of annotations that are automatically numbered and displayed on the right side of the code block.\n\nEach entry is a dictionary with the following keys:\n - `start`: the line number to start the annotation\n- `end`: the line number to end the annotation, if missing or `none` the annotation will only contain the start line\n - `content`: the content of the annotation as a showable value, if missing or `none` the annotation will only contain the number\n - `label`: *if and only if* the code block is in a `figure`, sets the label by which the annotation can be referenced.\n\nGenerally you probably want the `content` to be contained within a `rotate(90deg)`.\n\n*Note*: Annotations cannot overlap.\n*Known issues*:\n - Annotations that spread over a page break will not work correctly\n - Annotations on the first line of a code block will not work correctly.\n - Annotations that span lines that overflow (one line of code <-> two lines of text) will not work correctly.\n#one-indexed",
+        "default": "none",
+        "ty": [ "array", "type(none)" ],
+        "function": true,
+        "reset": true,
+        "experimental": true,
+        "example": "#codly(\n  annotations: (\n    (\n      start: 2, end: 5,\n      content: block(\n        width: 2em,\n        rotate(-90deg, reflow: true, \n          align(center)[Function body])\n      )\n    ),\n  ),\n)\n```py\ndef fib(n):\n  if n <= 1:\n    return n\n  else:\n    return fib(n - 1) + fib(n - 2)\nfib(25)\n```"
+    },
+    "annotation-format": {
+        "title": "Annotation formatter",
+        "description": "The format of the annotation number. Can be `none` or a function that formats the annotation number.",
+        "default": "numbering.with(\"(1)\")",
+        "ty": [ "type(none)", "function" ],
+        "function": false
+    },
+    "highlights": {
+        "title": "Highlights",
+        "description": "You can apply highlights to the code block using the `highlights` argument. It consists of a list of dictionaries, each with the following keys:\n- `line`: the line number to start highlighting\n- `start`: the character position to start highlighting, zero if omitted or `none`\n- `end`: the character position to end highlighting, the end of the line if omitted or `none`\n- `fill`: the fill of the highlight, defaults to the default color\n- `tag`: an optional tag to be displayed alongside the highlight.\n- `label`: *if and only if* the code block is in a `figure`, sets the label by which the highlight can be referenced.\n\nAs with other code block settings, annotations are reset after each code block. #one-indexed #zero-indexed",
+        "default": "none",
+        "ty": [ "array", "type(none)" ],
+        "function": true,
+        "example": "#codly(highlights: (\n  (line: 4, start: 2, end: none, fill: red),\n  (line: 5, start: 13, end: 19, fill: green, tag: \"(a)\"),\n  (line: 5, start: 26, fill: blue, tag: \"(b)\"),\n))\n```py\ndef fib(n):\n if n <= 1:\n  return n\n else:\n  return fib(n - 1) + fib(n - 2)\nprint(fib(25))\n```"
+    },
+    "highlight-radius": {
+        "title": "Highlight radius",
+        "description": "The radius of the highlights.",
+        "default": "0.32em",
+        "ty": [ "length" ],
+        "function": true,
+        "reset": true
+    },
+    "highlight-fill": {
+        "title": "Highlight fill",
+        "description": "The fill transformer of the highlights, is a function that  takes in the highlight color and returns a fill.",
+        "default": "(color) => color.lighten(80%)",
+        "ty": [ "function" ],
+        "function": false
+    },
+    "highlight-stroke": {
+        "title": "Highlight stroke",
+        "description": "The stroke transformer of the highlights, is a function that takes in the highlight color and returns a stroke.",
+        "default": "(color) => 0.5pt + color",
+        "ty": [ "stroke", "function" ],
+        "function": false
+    },
+    "highlight-inset": {
+        "title": "Highlight inset",
+        "description": "The inset of the highlight blocks. It can also be a dictionary with the keys same keys as in the Tyspt built-in #link(\"https://typst.app/docs/reference/layout/block/#parameters-inset\")[`block.inset`].",
+        "default": "0.32em",
+        "ty": [ "length", "dictionary" ],
+        "function": true,
+        "examples": [{
+            "title": "Alignment of lines",
+            "desc": "If alignment between highlighted and non-highlighted lines is critical for your use case, as could be the case in presentation, you can set the horizontal inset to be zero, or close to zero, to maintain alignment between the lines.",
+            "code": "#codly(\n  highlight-inset: (x: 0pt, y: 0.32em),\n  highlights: ((line: 2, start: 0), )\n)\n```kotlin\nprivate val n = 0\nprivate val n = 0\n```"
+        }],
+        "upcoming": false
+    },
+    "highlight-outset": {
+        "title": "Highlight outset",
+        "description": "The outset of the highlight blocks. It can also be a dictionary with the keys same keys as in the Tyspt built-in #link(\"https://typst.app/docs/reference/layout/block/#parameters-outset\")[`block.outset`].",
+        "default": "0em",
+        "ty": [ "length", "dictionary" ],
+        "function": true,
+        "upcoming": false
+    },
+    "highlight-clip": {
+        "title": "Highlight clip",
+        "description": "Whether highlight box clips code. See the documentation of the Tyspt built-in #link(\"https://typst.app/docs/reference/layout/block/#parameters-clip\")[`block.clip`].",
+        "default": "true",
+        "ty": [ "bool" ],
+        "function": true,
+        "upcoming": false
+    },
+    "reference-by": {
+        "title": "Reference by",
+        "description": "The mode by which references are displayed. Two modes are available:\n- `line`: references are displayed as line numbers\n- `item`: references are displayed as items, i.e by the `tag` for highlights and `content` for annotations.",
+        "default": "\"line\"",
+        "ty": [ "str" ],
+        "function": true
+    },
+    "reference-sep": {
+        "title": "Reference separator",
+        "description": "The separator to use when referencing highlights and annotations.",
+        "default": "\"-\"",
+        "ty": [ "str", "content" ],
+        "function": true
+    },
+    "reference-number-format": {
+        "title": "Reference number format",
+        "description": "The format of the reference number line number, only used if `reference-by` is set to `\"line\"`.",
+        "default": "numbering.with(\"1\")",
+        "ty": [ "function" ],
+        "function": false
+    }
+}

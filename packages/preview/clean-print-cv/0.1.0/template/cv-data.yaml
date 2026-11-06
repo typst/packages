@@ -1,0 +1,133 @@
+# =============================================================================
+# clean-print-cv — CV Data File
+# Replace this placeholder data (Shrek) with your own!
+# Template: https://github.com/guillermodotn/clean-print-cv
+# =============================================================================
+
+personal:
+  name: "Shrek"
+  title: "Ogre | Swamp Owner | Onion Enthusiast"
+  email: "shrek@far.away"
+  phone: "+777 123123 "
+  location: "The Swamp, Far Far Away"
+  linkedin: "in/shrek"
+  github: "github.com/the-ogre"
+  website: "shrek.onion"
+
+summary: >-
+  Fiercely independent ogre with 15+ years of swamp management experience
+  and a proven track record of solving impossible problems that entire
+  kingdoms cannot handle. Expert in perimeter security, solo operations, and
+  rescuing princesses from dragon-guarded towers under tight deadlines.
+  Excellent at working alone but surprisingly effective in cross-functional
+  teams when properly motivated (usually by the threat of eviction).
+  Known for getting things done with minimal resources, maximum efficiency,
+  and zero interest in office politics.
+
+skills:
+  - category: "Swamp Management"
+    items: ["Mud Engineering", "Outhouse Construction", "Perimeter Defense", "Wildlife Control", "Swamp Drainage Prevention"]
+  - category: "Combat & Rescue"
+    items: ["Dragon Negotiation", "Tower Infiltration", "Princess Extraction", "Tournament Fighting", "Angry Mob Dispersal"]
+  - category: "Social & Diplomacy"
+    items: ["Intimidation (Advanced)", "Royal Court Etiquette (Beginner)", "Donkey Management", "Crowd Control", "Public Speaking"]
+  - category: "Culinary Arts"
+    items: ["Weedrat Stew", "Slug-and-Bug Flambe", "Eyeball Tartare", "Onion-Based Everything", "Parfait Appreciation"]
+  - category: "Construction & Trades"
+    items: ["Log Cabin Carpentry", "Mud Brick Masonry", "Signage", "Fence Building", "Interior Decorating (Rustic)"]
+  - category: "Survival & Outdoors"
+    items: ["Fire Making", "Star Navigation", "Foraging", "Mud Bathing (Therapeutic)", "Ear Wax Candle Crafting"]
+
+experience:
+  - role: "Lord of the Swamp & Head of Household"
+    company: "The Swamp (Family Estate)"
+    location: "The Swamp, Far Far Away"
+    period: "2004 — Present"
+    highlights:
+      - "Successfully transitioned from solo swamp hermit to family man, expanding the estate to accommodate a wife, three ogre babies, and one uninvited donkey"
+      - "Negotiated permanent land rights with the Kingdom of Far Far Away after initial eviction attempt, securing the swamp as sovereign ogre territory in perpetuity"
+      - "Managed a household budget of zero gold coins while maintaining 100% family satisfaction through resourcefulness and onion-based cuisine"
+      - "Resolved multiple kingdom-threatening crises on a volunteer basis, including the Fairy Godmother hostile takeover and the Rumpelstiltskin alternate reality incident"
+
+  - role: "Quest Contractor — Dragon Tower Rescue"
+    company: "Kingdom of Duloc (Lord Farquaad, Client)"
+    location: "Dragon's Keep, Far Far Away"
+    period: "2001 — 2004"
+    highlights:
+      - "Completed a full princess rescue mission in under 72 hours with zero prior quest experience and only a donkey as support staff"
+      - "Defeated an entire arena of knights in single combat during the contractor selection tournament, beating out hundreds of qualified applicants"
+      - "Navigated a dragon-guarded castle, extracted the client's requested princess, and delivered her across hostile territory with a 100% survival rate"
+      - "Identified and exposed critical fraud in the client's marriage contract (princess was an ogre at sunset), preventing a kingdom-wide compliance violation"
+      - "Formed a lasting strategic alliance with a dragon, converting a major threat into a long-term transportation asset"
+
+  - role: "Independent Swamp Resident"
+    company: "Self-Employed"
+    location: "The Swamp, Outskirts"
+    period: "1990 — 2001"
+    highlights:
+      - "Designed and built entire swamp homestead from scratch as a solo operator, including cabin, outhouse, and shower system using only local materials"
+      - "Maintained an unbroken 11-year streak of zero trespassers through a combination of reputation management, signage, and occasional roaring"
+      - "Developed proprietary 'GET OUT OF MY SWAMP' early warning system, reducing unwanted visitor incidents by 95%"
+      - "Achieved complete self-sufficiency through foraging, hunting, and the cultivation of a diverse onion garden"
+
+projects:
+  - name: "The Great Fairy Tale Creature Relocation"
+    url: "farfaraway.gov/decree/fairy-tale-relocation"
+    description: >-
+      Led the effort to reverse Lord Farquaad's illegal eviction of fairy tale
+      creatures from their homes. Successfully negotiated the return of all
+      displaced creatures including the Three Blind Mice, the Big Bad Wolf,
+      Pinocchio, and the Three Little Pigs.
+
+  - name: "Far Far Away Royal Succession Crisis"
+    url: "farfaraway.gov/archive/succession-crisis"
+    description: >-
+      When King Harold was incapacitated, recruited and mentored the next
+      rightful heir (Arthur Pendragon) from a medieval high school, preventing
+      Prince Charming's hostile takeover of the kingdom. Completed under
+      extreme deadline pressure with a team of fairy tale volunteers.
+
+  - name: "Rumpelstiltskin Reality Restoration"
+    url: "farfaraway.gov/archive/reality-restoration"
+    description: >-
+      After signing a fraudulent contract that erased an entire day of
+      existence, orchestrated the complete restoration of the Far Far Away
+      timeline. Rallied an ogre resistance army and defeated a tyrannical
+      regime within 24 hours. Key learning: always read the fine print.
+
+certifications:
+  - name: "Certified Swamp Sovereign"
+    issuer: "Kingdom of Far Far Away"
+    year: "2004"
+
+  - name: "Dragon Whisperer (Level II)"
+    issuer: "Far Far Away Creature Relations Board"
+    year: "2002"
+
+  - name: "Licensed Quest Contractor"
+    issuer: "Duloc Department of Heroic Affairs"
+    year: "2001"
+
+  - name: "Advanced Intimidation & Roaring"
+    issuer: "Ogre Academy of Traditional Arts"
+    year: "1995"
+
+education:
+  - degree: "School of Hard Knocks (No Formal Education)"
+    institution: "The Swamp, Self-Taught"
+    location: "Far Far Away"
+    period: "Ongoing"
+    details: "Autodidact. Learned everything from experience, stubbornness, and occasional near-death situations."
+
+languages:
+  - language: "English"
+    level: "Native"
+    dots: 5
+
+  - language: "Ogrese"
+    level: "Fluent"
+    dots: 5
+
+  - language: "Donkey"
+    level: "Involuntary"
+    dots: 4

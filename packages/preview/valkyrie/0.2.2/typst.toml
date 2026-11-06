@@ -1,0 +1,19 @@
+[package]
+name = "valkyrie"
+version = "0.2.2"
+entrypoint = "src/lib.typ"
+authors = ["James R. Swift", "tinger <tinger@tinger.dev>"]
+license = "MIT"
+description = "Type safe type validation"
+repository = "https://github.com/typst-community/valkyrie"
+keywords = ["type", "validation", "zod"]
+categories = ["scripting", "utility"]
+exclude = [
+	".github",
+	"docs",
+	"scripts",
+	"tests",
+	".typstignore",
+	"Justfile",
+	"thumbnails",
+]

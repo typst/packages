@@ -1,0 +1,27 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+jack = "jack"
+jack-symbol = "J"
+queen = "queen"
+queen-symbol = "Q"
+king = "king"
+king-symbol = "K"
+ace = "ace"
+ace-symbol = "A"
+
+[lang.it]
+jack = "fante"
+queen = "donna"
+king = "re"
+ace = "asso"
+
+[lang.fr]
+jack = "valet"
+jack-symbol = "V"
+queen = "dame"
+queen-symbol = "D"
+king = "roi"
+king-symbol = "R"
+ace = "as"

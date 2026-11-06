@@ -1,0 +1,14 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "language": "sk, en",
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "pagebreak",
+        "rigidbody",
+        "typst"
+    ],
+    "ignoreWords": [],
+    "import": []
+}

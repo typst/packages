@@ -1,0 +1,20 @@
+@media (min-width: 64rem) {
+  .exp {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 64rem) {
+  .exp {
+    display: block;
+  }
+}
+
+.frame {
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+  border-radius: 0.5em;
+  background: #fff;
+  padding: 0.5em;
+}

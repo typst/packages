@@ -1,0 +1,14 @@
+[package]
+name = "deckz"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+	"Michele Dusi <@micheledusi>",
+]
+license = "GPL-3.0-or-later"
+description = "Render poker-style cards and full decks."
+repository = "https://github.com/micheledusi/Deckz"
+keywords = ["card", "deck", "game", "suit", "emoji"]
+categories = ["visualization", "fun"]
+disciplines = []
+exclude = ["/examples/*", "/docs/*", ".git"]

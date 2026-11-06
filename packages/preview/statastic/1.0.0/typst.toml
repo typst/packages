@@ -1,0 +1,8 @@
+[package]
+name = "statastic"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = [ "dikkadev" ]
+license = "Unlicense"
+description = "A library to calculate statistics for numerical data"
+repository = "https://github.com/dikkadev/typst-statastic"

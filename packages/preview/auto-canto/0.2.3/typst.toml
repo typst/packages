@@ -1,0 +1,28 @@
+[package]
+name = "auto-canto"
+version = "0.2.3"
+entrypoint = "lib.typ"
+authors = ["Vincent Tam <https://github.com/VincentTam>"]
+license = "MIT"
+description = "Automatic conversion to Cantonese romanizations from Chinese characters."
+repository = "https://github.com/VincentTam/auto-canto"
+keywords = [
+    "Cantonese",
+    "jyutping",
+    "yale",
+    "Chinese",
+    "conversion",
+]
+categories = [
+    "text",
+    "languages",
+    "utility",
+]
+disciplines = [
+    "education",
+    "linguistics",
+]
+compiler = "0.14.0"
+exclude = ["example.png"]
+
+[tool]

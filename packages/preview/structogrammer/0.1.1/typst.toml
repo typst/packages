@@ -1,0 +1,7 @@
+[package]
+name = "structogrammer"
+description = "Draw Nassi-Shneiderman diagrams (or structograms)"
+version = "0.1.1"
+entrypoint = "main.typ"
+authors = ["Charlotte <https://cza.li>"]
+license = "MIT"

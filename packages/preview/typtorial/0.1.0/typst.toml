@@ -1,0 +1,18 @@
+[package]
+name = "typtorial"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jonas Kaiser"]
+license = "MIT AND MIT-0"
+description = "Step-by-step code tutorials with automatic diff highlighting."
+keywords = ["tutorial", "code", "diff", "slides", "html"]
+repository = "https://github.com/ionas-dev/typtorial"
+homepage = "https://ionas-dev.github.io/typtorial/"
+categories = ["presentation"]
+compiler = "0.15.0"
+exclude = ["/screenshots"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "screenshots/default-light.png"

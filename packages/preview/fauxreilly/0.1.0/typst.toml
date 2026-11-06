@@ -1,0 +1,11 @@
+[package]
+name = "fauxreilly"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Dei Layborer"]
+license = "GPL-3.0"
+compiler = "0.11.1"
+description = "A package for creating O'Rly- / O'Reilly-type cover pages"
+repository = "https://github.com/dei-layborer/o-rly-typst"
+categories = ["components", "layout", "fun"]
+exclude = ["$$$-gimmie.svg", "helpful mol.svg", "example.png"]

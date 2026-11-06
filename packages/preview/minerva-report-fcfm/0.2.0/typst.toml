@@ -1,0 +1,17 @@
+[package]
+name = "minerva-report-fcfm"
+version = "0.2.0"
+entrypoint = "minerva-report-fcfm.typ"
+authors = ["David Ibáñez <@Dav1com>"]
+repository = "https://github.com/Dav1com/minerva-report-fcfm"
+license = "MIT-0"
+description = "Template de artículos, informes y tareas para la Facultad de Ciencias Físicas y Matemáticas (FCFM)."
+keywords = ["fcfm", "Facultad de Ciencias Físicas y Matemáticas", "uchile", "Universidad de Chile", "tarea", "homework", "informe" , "report", "es", "español", "spanish"]
+categories = ["report"]
+compiler = "0.11.0"
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

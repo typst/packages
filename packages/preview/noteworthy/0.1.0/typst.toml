@@ -1,0 +1,15 @@
+[package]
+name = "noteworthy"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tarun Kumar Jana <https://tarunjana.in>"]
+license = "MIT"
+description = "A Typst template for creating class notes especially for Mathematics"
+repository = "https://github.com/tarunjana/noteworthy"
+keywords = ["typst-template", "class-notes", "mathematics"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

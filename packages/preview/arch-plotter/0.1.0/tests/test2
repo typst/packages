@@ -1,0 +1,191 @@
+// Demo to see how 
+
+#import "src/Arch.typ": *
+
+#set page(width: auto, height: auto, margin: 1.0cm,)
+
+#let t = true
+
+#let f = false
+
+#set text(size: 1.4em)
+
+
+#arch-canvas(scale: 0.6cm,{
+
+let w = 28
+let h = 25
+let nine = (9/12)
+let four = (4.5/12)
+
+  
+let wall = trace-walls(start: (0,0), align:"left", thickness:nine, 
+
+(R(w,), Mark("w1"),
+
+U(h,), Mark("w2"),
+
+L(w,), Mark("w3"),
+
+C(),
+
+Home(),
+
+JU(h/2,), Mark("pillar1"),
+
+JR(w), Mark("pillar2"),
+
+Home(),
+
+JR(w/3), Mark("c1"),
+
+JR(w/3), Mark("c2"),
+
+JumpToMark("pillar1"),
+
+JR(w/3), Mark("c3"),
+
+JR(w/3), Mark("c4"),
+
+JumpToMark("w3"),
+
+JR(w/3),
+
+Mark("c5"),
+
+JR(w/3), Mark("c6"),
+
+JumpToMark("pillar1"),
+
+
+JumpToMark("pillar1"), 
+
+JD(3+(8.5/12)), Mark("a"),
+
+DropX("c3", "c1", thickness:four), Mark("b"),
+
+DropY("w3", "c6", thickness:four),
+
+JumpToMark("c3"),
+
+DropX("pillar2","w1")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+)
+)
+
+draw-walls(wall,)
+
+let w = wall.anchors
+
+
+
+
+opening(w.c2, w.c1, 5.05, width: 8.5, align: "right", label: [GATE])
+
+
+
+column(w.start, align: "left", shift: (four,0),  size: nine, sides: 30,)
+
+column(w.w1, align: "left", shift: (-four,0))
+
+column(w.w2, align: "left", shift: (-four,-nine))
+
+column(w.w3, align: "left", shift: (four,-nine))
+
+column(w.pillar1, align: "left", shift: (four,0))
+
+column(w.pillar2, align: "left", shift: (-four,0))
+
+column(w.c1, align: "left", shift: (-four,0))
+
+column(w.c2, align: "left", shift: (-four,0))
+
+column(w.c3, align: "left", shift: (-four,0))
+
+column(w.c4, align: "left", shift: (-four,0))
+
+column(w.c5, align: "left", shift: (-four,-nine))
+
+column(w.c6, align: "left", shift: (-four,-nine))
+
+dim(w.start, w.w3, size: 18pt, offset: 1)
+
+dim(w.w3, w.w2, size: 18pt, offset: 1,)
+
+//dim(w.pillar1, w.w3, size: 14pt, offset: -2, shift: (four,nine))
+
+//dim(w.w3, w.c5, size: 14pt, offset: -2, shift: (nine,four),)
+
+dim(w.start, w.a, size: 14pt, offset: -3, shift: (nine,0))
+
+dim(w.c2, w.w1, size: 14pt, offset: -0.5, shift: (0,nine))
+
+door(w.b, w.c3, 2.2, thickness: four, align: "left", label: [#v(-2.5em)D], swing: "out")
+
+window(w.w3, w.pillar1, 4, align: "left", width: 5, label: [#text(size: 11pt)[W]])
+
+poly-room((w.w3, w.c5, w.b, w.a), [BED ROOM], fill: green.transparentize(94%), stroke: red+0pt, wall-widths: (-nine,-four, -four, -nine),  units: "imperial",)
+
+ots((w.start, w.c1, w.b, w.a), show-dim: t, show-area: t, wall-widths: (nine, 0,0,nine))
+
+stairs(move(w.c2, dx: 0.5, dy: 4), angle: 270deg, steps: (6,0,4), turn: "", split-landing: t)
+
+window(w.a, w.b, 5, thickness: four, align: "left", width: 3, label: [W])
+
+
+print-marks(wall, )
+
+
+
+
+
+//line((-2,-5),(30,-5))
+
+//content((14,-3),[#text(size: 1.6em, tracking: 1.5em)[*ROAD*]])
+
+import "src/Plotter.typ": *
+
+let ch1 = trace-plot(start: (0,0), 
+(D(1.5), R(2), D(1), Mark("ch1"),
+JumpHome(),
+JR(w.w1.at(0))
+)
+)
+
+let ch2 = trace-plot(start: w.w1, 
+(D(1.5), L(2), D(1), Mark("ch2")
+)
+)
+
+draw-plot(ch1, close-path: f, show-area: f)
+
+draw-plot(ch2, close-path: f, show-area: f)
+
+draw-arc-to(ch1.anchors.ch1, ch2.anchors.ch2, 30, steps: 8,)
+
+import "src/Furniture.typ": *
+
+dining-table(move(w.c4, dx: 2, dy: 4), label: [Dining table], scale: 3,size: (2,1), chairs: 6)
+
+bed(move(w.w3, dx: 6, dy: -3.1), scale: 2, rotation: 270deg, size: "king", )
+
+//drafting-grid(28,25, step: 1, text-size: 4pt,)
+
+drafting-ruler(28,25, step: 1, )
+
+
+})
+

@@ -1,0 +1,16 @@
+[package]
+name = "problemst"
+version = "0.1.1"
+entrypoint = "pset.typ"
+authors = ["Willow Carretero Chavez <@carreter>"]
+license = "MIT"
+repository = "https://github.com/carreter/problemst"
+description = "Simple and easy-to-use template for problem sets/homeworks/assignments." 
+keywords = ["template", "homework", "problem set", "pset", "assignment"]
+categories = ["report"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

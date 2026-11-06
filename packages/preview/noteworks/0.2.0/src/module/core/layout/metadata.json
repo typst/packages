@@ -1,0 +1,9 @@
+{
+    "name": "layout",
+    "description": "Page layouts and document configuration",
+    "dependencies": [],
+    "exports": [
+        "page-setup",
+        "outline-page"
+    ]
+}

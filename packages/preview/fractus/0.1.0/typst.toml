@@ -1,0 +1,9 @@
+[package]
+name = "fractus"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Étienne J. Basas <https://github.com/ejbasas>"]
+repository = "https://github.com/ejbasas/fractus"
+license = "MIT"
+description = "Operations on fractions."
+categories = ["utility","scripting"]

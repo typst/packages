@@ -1,0 +1,10 @@
+[package]
+name = "valkyrie"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["James R Swift", "tinger <me@tinger.dev>"]
+keywords = ["type", "validation", "zod"]
+license = "GPL-3.0-only"
+repository = "https://github.com/JamesxX/valkyrie"
+description = "Type validation"
+exclude = ["README.md", "CHANGELOG.md", "Justfile", "docs"]

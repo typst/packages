@@ -1,0 +1,30 @@
+{
+  "models": [
+    {
+      "name": "OLS",
+      "coefficients": {
+        "educ": {"coef": 0.092, "se": 0.007, "p": 0.0},
+        "exper": {"coef": 0.041, "se": 0.012, "p": 0.003},
+        "female": {"coef": -0.231, "se": 0.094, "p": 0.021}
+      },
+      "stats": {"N": 1203, "R2": 0.311, "Fixed effects": "No"}
+    },
+    {
+      "name": "FE",
+      "coefficients": {
+        "educ": {"coef": 0.081, "se": 0.009, "p": 0.0},
+        "exper": {"coef": 0.036, "se": 0.019, "p": 0.062}
+      },
+      "stats": {"N": 1203, "R2": 0.402, "Fixed effects": "Yes"}
+    },
+    {
+      "name": "IV",
+      "coefficients": {
+        "educ": {"coef": 0.119, "se": 0.031},
+        "exper": {"coef": 0.012, "se": 0.020}
+      },
+      "stats": {"N": 1203, "R2": 0.287, "Fixed effects": "No"}
+    }
+  ],
+  "labels": {"educ": "Education (years)", "exper": "Experience (years)", "female": "Female"}
+}

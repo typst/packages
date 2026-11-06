@@ -1,0 +1,11 @@
+[package]
+name = "iconic-salmon-svg"
+version = "2.1.0"
+repository = "https://github.com/Bi0T1N/typst-iconic-salmon-svg"
+entrypoint = "iconic-salmon-svg.typ"
+authors = ["Nico Neumann (Bi0T1N)"]
+license = "MIT"
+description = "A Typst library for Social Media references with scalable vector graphics icons."
+keywords = ["social", "media", "icons", "svg"]
+categories = ["components"]
+exclude = ["examples"]

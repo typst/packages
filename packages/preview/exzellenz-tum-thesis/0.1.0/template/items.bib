@@ -1,0 +1,28 @@
+@Comment{
+  from https://api.zotero.org/users/{xxx}/collections/{xxx}/items/top?key={xxx}&format=biblatex
+  --> you can use the following shell script to copy the data to the clipboard
+
+#!/bin/bash
+
+limit=25
+start=0
+your_user_id="98765"
+your_collection_id="ABC123"
+your_zotero_key="xxxxxx"
+
+# Retrieve data from the link
+while true; do
+  response=$(curl -s "https://api.zotero.org/users/$your_user_id/collections/$your_collection_id/items/top?key=$your_zotero_key&format=biblatex&limit=$limit&start=$start")
+  if [ -z "$response" ]; then
+    break
+  fi
+  echo "$response"
+  start=$((start + limit))
+done | pbcopy
+
+}
+
+@misc{cite_todo,
+  title = {todo},
+  author = {todo},
+}

@@ -1,0 +1,16 @@
+[package]
+name = "casson-uom-thesis"
+version = "0.1.2"
+entrypoint = "uom-thesis-casson.typ"
+authors = ["Alex Casson <https://research.manchester.ac.uk/en/persons/alex.casson> and Thenewmanator15 via github"]
+license = "MIT-0"
+description = "University of Manchester template based on the Presentation of Theses/Dissertations Policy. This template has been updated for 2026 policy versions. Responsibility for ensuring compliance with the University of Manchester Presentation of Theses Policy remains with the candidate."
+repository = "https://github.com/ALEX-CASSON-LAB/casson-uom-thesis"
+keywords = ["University of Manchester", "UK", "PhD", "thesis", "dissertation"]
+categories = ["thesis"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

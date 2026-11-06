@@ -1,0 +1,47 @@
+# Uncomment this if your project is hosted on GitHub:
+github_url = "https://github.com/jneug/typst-mantys/"
+
+[version]
+current = "0.1.4"
+
+# Example of a semver regexp.
+# Make sure this matches current_version before
+# using tbump
+regex = '''
+  (?P<major>\d+)
+  \.
+  (?P<minor>\d+)
+  \.
+  (?P<patch>\d+)
+  '''
+
+[git]
+message_template = "Bump to {new_version}"
+tag_template = "v{new_version}"
+
+[[file]]
+src = "typst.toml"
+search = 'version = "{current_version}"'
+
+[[file]]
+src = "README.md"
+search = '\(v{current_version}\)'
+[[file]]
+src = "README.md"
+search = "mantys:{current_version}"
+
+[[file]]
+src = "docs/mantys-manual.typ"
+search = 'mantys:{current_version}'
+
+[[file]]
+src = "template/manual.typ"
+search = 'mantys:{current_version}'
+
+
+[[before_commit]]
+name = "compile manual"
+cmd = "typst compile --root . docs/mantys-manual.typ"
+[[before_commit]]
+name = "create thumbnail"
+cmd = "typst compile --root . -f png --ppi 250 template/manual.typ docs/assets/thumbnail-{{n}}.png; mv docs/assets/thumbnail-1.png docs/assets/thumbnail.png; rm -f docs/assets/thumbnail-2.png"

@@ -1,0 +1,12 @@
+[package]
+name = "zero-calc"
+version = "0.7.0"
+entrypoint = "src/zero-calc.typ"
+authors = ["Ants Aare Alamaa <https://github.com/Ants-Aare>"]
+license = "MIT"
+compiler = "0.14.0"
+repository = "https://github.com/Ants-Aare/zero-calc"
+description = "Calculate and display operations with _Zero_ quantities and numbers."
+categories = ["utility", "scripting", "components"]
+disciplines = ["physics", "chemistry", "engineering", "mathematics", "economics", "computer-science"]
+keywords = ["number", "table", "siunitx", "numeral", "alignment", "formatting", "num", "ztable", "zero"]

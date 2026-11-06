@@ -1,0 +1,19 @@
+elfdict: 
+  type: Web
+  title: elfdict.com
+  url: https://www.elfdict.com/
+
+namarie:
+  type: Web
+  title: Namárië
+  url: https://tolkiengateway.net/wiki/Nam%C3%A1ri%C3%AB
+
+lotr:
+  type: Book
+  title: The Lord of the Rings
+  author: J.R.R. Tolkien
+
+tengwar-eruantalince:
+  type: Web
+  title: Quenya Tengwar – A mini course by Eruantalincë
+  url: https://www.councilofelrond.com/languages/QTL.htm

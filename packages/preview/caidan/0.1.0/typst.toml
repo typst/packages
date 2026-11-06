@@ -1,0 +1,17 @@
+[package]
+name = "caidan"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/cu1ch3n/caidan"
+authors = ["Chen Cui <@cu1ch3n>"]
+license = "MIT"
+description = "A clean and minimal food menu template"
+keywords = ["food", "cuisine", "restaurant", "cafe", "menu"]
+categories = ["flyer"]
+exclude = ["example.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

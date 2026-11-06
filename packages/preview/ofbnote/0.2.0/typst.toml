@@ -1,0 +1,15 @@
+[package]
+name = "ofbnote"
+version = "0.2.0"
+compiler = "0.11.0"
+entrypoint = "ofb_note.typ"
+authors = ["François Hissel"]
+license = "MIT-0"
+description = "A document template using French Office for biodiversity design guidelines"
+keywords = ["OFB"]
+categories = ["office", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"

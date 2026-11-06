@@ -1,0 +1,8 @@
+[package]
+name = "ornacover"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Naam Mohamed"]
+license = "MIT"
+description = "Ornamental covers package for educational documents"
+repository = "https://github.com/naam11/ornacover"

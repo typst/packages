@@ -1,0 +1,15 @@
+[package]
+name = "carrot-vvsu-report"
+version = "1.0.0"
+entrypoint = "carrot-vvsu-report.typ"
+authors = ["Mark Vodyanitskiy", "Arkadiy Schneider", "Seined Koda", "ElijahG"]
+license = "MIT"
+description = "Community template for VVSU reports"
+repository = "https://github.com/seinedkoda/typst-vvsu-report"
+categories = ["report"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

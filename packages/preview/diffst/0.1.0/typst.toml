@@ -1,0 +1,24 @@
+[package]
+name = "diffst"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Calvin Khor"]
+license = "MIT AND Apache-2.0"
+description = "Side-by-side document diff reports."
+keywords = ["diff", "comparison", "review"]
+categories = ["utility"]
+compiler = "0.15.0"
+exclude = [
+  "/src",
+  "/target",
+  "/scripts",
+  "/tests",
+  "/examples",
+  "/Cargo.toml",
+  "/Cargo.lock",
+  "/CONTRIBUTING.md",
+  "/impl.md",
+  "/audit.md",
+  "/previous-audit-fix.md",
+  "/clean_readme.md",
+]

@@ -1,0 +1,15 @@
+[package]
+name = "texst"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Shusuke Ioku"]
+license = "MIT"
+description = "LaTeX-like academic paper styling and theorem helpers for Typst."
+repository = "https://github.com/shusuke-ioku/texst"
+keywords = ["academic", "paper", "latex", "theorem"]
+categories = ["model", "layout"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

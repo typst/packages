@@ -1,0 +1,12 @@
+[package]
+name = "mitex"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Myriad-Dreamin", "OrangeX4"]
+license = "Apache-2.0"
+description = "LaTeX support for Typst, powered by Rust and WASM."
+
+homepage = "https://github.com/OrangeX4/mitex"
+repository = "https://github.com/OrangeX4/mitex"
+keywords = ["wasm", "rust", "LaTeX", "equation"]
+exclude = ["examples"]

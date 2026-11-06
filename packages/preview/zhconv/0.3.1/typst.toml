@@ -1,0 +1,8 @@
+[package]
+name = "zhconv"
+version = "0.3.1"
+entrypoint = "zhconv.typ"
+authors = ["Hung-I Wang <whygowe@gmail.com>"]
+license = "GPL-2.0" # GPL 2.0 or later
+description = "Convert Chinese text between Traditional/Simplified and regional variants. 中文简繁及地區詞轉換"
+repository = "https://github.com/Gowee/zhconv-rs"

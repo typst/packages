@@ -1,0 +1,15 @@
+[package]
+name = "xyznote"
+version = "0.4.0"
+entrypoint = "src/lib.typ"
+license = "GPL-3.0"
+description = "Simple and Functional Typst Note Template"
+repository = "https://github.com/wardenxyz/xyznote"
+authors = ["wardenxyz <https://github.com/wardenxyz>"]
+categories = ["book"]
+compiler = "0.13.1"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

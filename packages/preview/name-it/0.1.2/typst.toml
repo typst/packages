@@ -1,0 +1,8 @@
+[package]
+name = "name-it"
+version = "0.1.2"
+authors = ["RubixDev"]
+entrypoint = "name-it.typ"
+license = "GPL-3.0-only"
+repository = "https://github.com/RubixDev/typst-name-it"
+description = "Get the English names of integers."

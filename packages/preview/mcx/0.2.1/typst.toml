@@ -1,0 +1,12 @@
+[package]
+name = "mcx"
+version = "0.2.1"
+authors = ["1zumiSagiri <https://1zumisagiri.github.io/>"]
+entrypoint = "src/lib.typ"
+license = "MIT"
+description = "Typesetting randomized multiple-choice exams."
+repository = "https://github.com/1zumiSagiri/mcx"
+compiler = "0.14.0"
+categories = ["utility"]
+keywords = ["exam", "multiple-choice", "education", "randomization"]
+exclude = [".gitignore", "tests/*", "docs/*"]

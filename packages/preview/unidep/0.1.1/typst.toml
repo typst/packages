@@ -1,0 +1,11 @@
+[package]
+name = "unidep"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Eito Yoneyama"]
+license = "MIT"
+description = "Render beautiful, customizable Universal Dependencies (CoNLL-U) dependency trees."
+compiler = "0.13.1"
+repository = "https://github.com/rice8y/unidep"
+keywords = ["conllu", "dependency", "tree", "nlp", "linguistics", "cetz", "syntax"]
+exclude = ["/images"]

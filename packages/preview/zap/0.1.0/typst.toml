@@ -1,0 +1,14 @@
+[package]
+name = "zap"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "src/lib.typ"
+authors = ["Louis Grange <https://github.com/l0uisgrange>"]
+license = "LGPL-3.0-or-later"
+homepage = "https://l0uisgrange.github.io/zap/"
+description = "A package to draw amazing electronic circuits using CeTZ superpowers"
+repository = "https://github.com/l0uisgrange/zap"
+categories = ["visualization", "components"]
+disciplines = ["engineering"]
+keywords = ["zap", "electronic", "circuit", "cetz", "voltage", "draw", "schema", "engineering"]
+exclude = [".github", "docs", "examples"]

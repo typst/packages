@@ -1,0 +1,10 @@
+[package]
+name = "na-arabox"
+version = "0.1.0"
+authors = ["Naam Mohamed"]
+license = "MIT"
+description = "A package for creating Arabic RTL boxes with customizable styles and shadow effects."
+repository = "https://github.com/naam11/na-arabox"
+keywords = ["arabic", "rtl", "box", "layout"]
+categories = ["layout"]
+entrypoint = "lib.typ"

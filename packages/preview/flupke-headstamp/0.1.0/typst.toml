@@ -1,0 +1,10 @@
+[package]
+name = "flupke-headstamp"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Philippe Soubrier <philippe.soubrier@gmail.com>"]
+license = "MIT"
+description = "Surface Git reflog metadata in documents."
+repository = "https://github.com/flol3622/git-trace"
+keywords = ["git", "version-control", "metadata", "reflog", "traceability"]
+categories = ["utility"]

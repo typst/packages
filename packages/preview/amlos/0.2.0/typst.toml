@@ -1,0 +1,10 @@
+[package]
+name = "amlos"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["uwni <https://github.com/uwni>"]
+license = "MPL-2.0"
+description = "Amlos makes list of symbols."
+repository = "https://github.com/uwni/Amlos"
+categories = ["utility", "components"]
+disciplines = ["mathematics", "physics", "engineering", "computer-science"]

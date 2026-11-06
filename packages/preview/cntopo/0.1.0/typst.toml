@@ -1,0 +1,12 @@
+[package]
+name = "cntopo"
+version = "0.1.0"
+authors = [ "Georgiy Shevoroshkin <gshevoroshkin@proton.me>" ]
+license = "MIT"
+description = "Computer network topology icons for cetz or fletcher"
+repository = "https://github.com/omega-800/cntopo-typ.git"
+categories = [ "visualization", "components" ]
+keywords = [ "network", "graph", "topology", "diagram", "computer", "router" ]
+entrypoint = "src/main.typ"
+compiler = "0.14.0"
+exclude = [ "examples", "docs" ]

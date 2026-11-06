@@ -1,0 +1,19 @@
+[package]
+name = "stv-vub-huisstijl"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Wannes Malfait <https://github.com/WannesMalfait>"]
+license = "MIT"
+description = "An unofficial template to get the look of the Vrije Universiteit Brussel (VUB) huisstijl in Typst."
+# homepage = ""
+repository = "https://github.com/WannesMalfait/vub-huisstijl-typst/"
+keywords = ["VUB", "thesis"]
+categories = ["thesis"]
+disciplines = []
+# compiler = ""
+exclude = [".github", "docs", "scripts", "tests", ".typstignore", "Justfile"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

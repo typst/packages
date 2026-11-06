@@ -1,0 +1,11 @@
+[package]
+name = "zebraw"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["hongjr03 <https://github.com/hongjr03>"]
+description = "A lightweight and fast package for displaying code blocks with line numbers or highlighting."
+license = "MIT"
+repository = "https://github.com/hongjr03/typst-zebraw"
+categories = ["components", "layout"]
+keywords = ["code", "highlight", "raw", "line numbers"]
+exclude = ["assets"]

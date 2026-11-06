@@ -1,0 +1,17 @@
+[package]
+name = "modern-hfut-report"
+version = "0.1.0"
+compiler = "0.13.1"
+entrypoint = "lib.typ"
+repository = "https://github.com/KercyDing/modern-hfut-report"
+authors = ["KercyDing <dkx215417@gmail.com>"]
+license = "MIT"
+description = "合肥工业大学课程现代设计报告模板。Modern report template for HFUT."
+keywords = ["hfut", "HFUT", "report", "合肥工业大学", "报告"]
+exclude = ["*.pdf"]
+categories = ["report"]
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "thumbnail.png"

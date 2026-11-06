@@ -1,0 +1,12 @@
+[package]
+name = "goldstitch"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Roberto Di Remigio Eikås <@robertodr>"]
+license = "MIT"
+description = "Draw coupled-cluster Goldstone diagrams from compact notation."
+repository = "https://github.com/robertodr/ccdiagrams"
+keywords = ["chemistry", "coupled-cluster", "goldstone-diagrams", "diagrams"]
+categories = ["visualization"]
+compiler = "0.13.0"
+exclude = ["examples/**", "tests/**", "requirements-dev.txt"]

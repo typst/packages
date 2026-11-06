@@ -1,0 +1,22 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "prequery"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = [
+  "Clemens Koza <https://github.com/SillyFreak/>"
+]
+license = "MIT"
+description = "library for extracting metadata for preprocessing from a typst document"
+# homepage = ""
+repository = "https://github.com/SillyFreak/typst-prequery"
+keywords = ["query", "metadata", "preprocessing"]
+categories = ["scripting", "utility"]
+disciplines = []
+# compiler = "0.11.0"
+exclude = [
+  # docs and gallery are not needed in the final package
+  "docs",
+  "gallery",
+]

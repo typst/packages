@@ -1,0 +1,15 @@
+[package]
+name = "miage-rapide-tp"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Rémi Saurel"]
+categories = ["report"]
+keywords = ["miage", "computer-science", "report"]
+disciplines = ["education", "engineering", "computer-science"]
+license = "MIT-0"
+description = "A template to quickly generate a report for MIAGE practical work."
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

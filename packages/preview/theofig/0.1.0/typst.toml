@@ -1,0 +1,12 @@
+[package]
+name = "theofig"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "theofig.typ"
+authors = ["Danila Bain <danila.bain@yandex.com>"]
+license = "MIT"
+description = "Simple theorem environments based on std.figure."
+repository = "https://github.com/Danila-Bain/typst-theorems"
+keywords = ["theorem"]
+categories = ["model"]
+exclude = ["readme-examples/"]

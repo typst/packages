@@ -1,0 +1,12 @@
+[package]
+name = "delimitizer"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Wenzhuo Liu"]
+license = "MIT"
+description = "Customize the size of delimiters. Like \\big, \\Big, \\bigg, \\Bigg in LaTeX."
+
+homepage = "https://github.com/Enter-tainer/delimitizer"
+repository = "https://github.com/Enter-tainer/delimitizer"
+keywords = ["LaTeX", "math", "delimiter", "big", "Big", "bigg", "Bigg"]
+exclude = ["demo.svg"]

@@ -1,0 +1,8 @@
+SIP:
+  type : Book
+  title: Introduction to the Theory of Computation
+  author: Michael Sipser
+NAN:
+  type: Book
+  title: NAN
+  author: NAN

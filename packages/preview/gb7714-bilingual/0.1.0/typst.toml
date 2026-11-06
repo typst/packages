@@ -1,0 +1,12 @@
+[package]
+name = "gb7714-bilingual"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["pku-typst"]
+license = "MIT"
+description = "GB/T 7714-2015/2025 bilingual bibliography for Typst with automatic Chinese/English term switching"
+repository = "https://github.com/pku-typst/gb7714-bilingual"
+keywords = ["bibliography", "citation", "gb7714", "chinese", "bilingual", "gb7714-2015", "gb7714-2025"]
+categories = ["paper"]
+disciplines = []
+compiler = "0.14.0"

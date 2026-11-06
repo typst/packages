@@ -1,0 +1,12 @@
+[package]
+name = "blockcell"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["@daleione"]
+license = "MIT"
+description = "Composable block-and-cell diagrams for visualizing structured data layouts, memory maps, register fields, protocol formats, and more."
+repository = "https://github.com/daleione/blockcell"
+categories = ["visualization", "layout", "components"]
+keywords = ["diagram", "memory", "layout", "block", "cell"]
+compiler = "0.14.2"
+exclude = ["docs/**", "examples/**"]

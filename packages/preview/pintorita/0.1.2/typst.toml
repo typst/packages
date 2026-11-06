@@ -1,0 +1,20 @@
+[package]
+name = "pintorita"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["Min Chen (hikerpig)","Taylorh140"]
+license = "MIT"
+description = "Package to draw Sequence Diagrams, Entity Relationship Diagrams, Component Diagrams, Activity Diagrams, Mind Maps, Gantt Diagrams, and DOT Diagrams based on Pintora which is heavily influenced by mermaid.js and plantuml."
+categories = ["visualization"]
+
+repository = "https://github.com/taylorh140/typst-pintora"
+keywords = [
+    "js",
+    "javascript",
+    "pintora",
+    "gantt",
+    "sequence",
+]
+exclude = [
+    "pintorita.svg",
+]

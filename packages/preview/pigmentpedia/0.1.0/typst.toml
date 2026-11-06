@@ -1,0 +1,10 @@
+[package]
+name = "pigmentpedia"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["neuralpain <https://github.com/neuralpain>"]
+license = "MIT"
+description = "An extended color library for Typst."
+repository = "https://github.com/neuralpain/pigmentpedia"
+keywords = ["pigmentpedia", "palette", "color"]
+categories = ["utility", "text"]

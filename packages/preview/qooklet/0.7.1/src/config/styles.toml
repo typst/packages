@@ -1,0 +1,76 @@
+# Override with: typst compile --input qooklet-font-platform=macos
+font-platform = "windows"
+
+[paper]
+note = "a4"
+booklet = "iso-b5"
+
+[spaces]
+par-indent = 2
+par-leading = 1
+par-spacing = 1
+list-indent = 1.2
+block-above = 1
+block-below = 1
+contents-indent = 1.2
+
+[sizes]
+chapter = 24
+chapter-index = 50
+cover = 36
+author = 24
+date = 18
+epigraph = 16
+preface = 22
+contents = 22
+part = 36
+heading-1 = 16
+heading-2 = 14
+heading-3 = 12
+heading-4 = 10.5
+context = 10.5
+header = 8
+footer = 8
+
+[font-roles.en]
+chapter = "display"
+chapter-index = "display"
+cover = "display"
+author = "latin"
+date = "latin"
+epigraph = "text"
+preface = "text"
+contents = "text"
+part = "text"
+context = "text"
+math = "latin"
+
+[font-roles.zh]
+chapter = "cjk-kai"
+chapter-index = "cjk-kai"
+cover = "cjk-kai"
+author = "cjk-kai"
+date = "cjk-kai"
+epigraph = "cjk-song"
+preface = "cjk-song"
+contents = "cjk-song"
+part = "cjk-song"
+context = "cjk-song"
+math = "cjk-kai"
+
+[font-roles.cjk-latin]
+default = "latin"
+
+[fonts.macos]
+display = "Palatino"
+text = "Georgia"
+latin = "Times New Roman"
+cjk-kai = "Kaiti SC"
+cjk-song = "Songti SC"
+
+[fonts.windows]
+display = "Palatino Linotype"
+text = "Georgia"
+latin = "Times New Roman"
+cjk-kai = "KaiTi"
+cjk-song = "SimSun"

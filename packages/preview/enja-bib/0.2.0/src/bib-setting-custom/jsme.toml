@@ -1,0 +1,259 @@
+# 著者・年が同じ文献がある場合に番号を付与するため，その番号を付与する位置を指定する特殊文字列
+year-doubling = "%year-doubling"
+
+# アルファベット順にソートを行うか
+bib-sort = true
+
+# 引用されている順番にソートを行うか
+bib-sort-ref = false
+
+# 引用されている文献だけでなく全ての文献を表示するか
+bib-full = true
+
+# citeのスタイル設定
+bib-cite-author = "author-set-cite"
+bib-cite-year = "all-return"
+
+# vancouverスタイル設定
+bib-vancouver = "(1)"
+vancouver-style = false
+
+# 重複著者・年号文献の year-doubling に表示する文字列
+bib-year-doubling = "a"
+
+# 文献リストのタイトルを文頭大文字にするか
+sentence-case-titles = true
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# bib-vancouver = "manual"のときの設定
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+bib-vancouver-manual = "bib-vancouver-manual-default"
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 各引用の表示形式設定
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[cite]
+    bib-cite = ["", "bib-citet-default", "; ", ""]
+    bib-citet = ["", "bib-citet-default", "; ", ""]
+    bib-citep = ["(", "bib-citep-default", "; ", ")"]
+    bib-citen = ["(", "bib-citen-default", ", ", ")"]
+    bib-citefull = ["", "bib-citefull-default", "; ", ""]
+
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# 各要素の表示形式設定
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+[entry.article]
+    [entry.article.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        journal = ["", "", "set-url", "", ", ", [], "."]
+        volume = ["", "Vol.~", "all-return", "", ", ", [], "."]
+        number = ["", "No.~", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "journal", "volume", "number"], "%year-doubling)."]
+        pages = ["", "", "page-set", "", ", ", [], "."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.article.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        journal = ["", "", "set-url", "", ", ", [], "."]
+        volume = ["", "Vol.~", "all-return", "", ", ", [], "."]
+        number = ["", "No.~", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "journal", "volume", "number"], "%year-doubling)."]
+        pages = ["", "", "page-set", "", ", ", [], "."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.book]
+    [entry.book.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        publisher = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "publisher"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.book.ja]
+            author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        publisher = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "publisher"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.booklet]
+    [entry.booklet.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+            howpublished = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "howpublished"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.booklet.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        howpublished = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "howpublished"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.inbook]
+    [entry.inbook.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        publisher = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "publisher"], "%year-doubling)."]
+        pages = ["", "", "page-set", "", ", ", [], "."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.inbook.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        publisher = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "publisher"], "%year-doubling)."]
+        pages = ["", "", "page-set", "", ", ", [], "."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.incollection]
+    [entry.incollection.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        booktitle = ["", "", "all-return", "", ", ", [], "."]
+        publisher = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "booktitle", "publisher"], "%year-doubling)."]
+        pages = ["", "", "page-set", "", ", ", [], "."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.incollection.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        booktitle = ["", "", "all-return", "", ", ", [], "."]
+        publisher = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "booktitle", "publisher"], "%year-doubling)."]
+        pages = ["", "", "page-set", "", ", ", [], "."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.inproceedings]
+    [entry.inproceedings.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        booktitle = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "booktitle"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.inproceedings.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        booktitle = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "booktitle"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.conference]
+    [entry.conference.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        booktitle = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "booktitle"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.conference.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        booktitle = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "booktitle"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.manual]
+    [entry.manual.en]
+        author = ["", "", "all-return", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.manual.ja]
+        author = ["", "", "all-return", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.mastersthesis]
+    [entry.mastersthesis.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        school = ["", "Master's thesis", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "school"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.mastersthesis.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        school = ["", "", "set-url", "修士論文", ", ", [], "修士論文."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "school"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.misc]
+    [entry.misc.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        howpublished = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "howpublished"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.misc.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        howpublished = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "howpublished"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.online]
+    [entry.online.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        url = ["", "available from <", "set-url", ">", ", ", [], ">."]
+        access = ["", "(accessed on ", "all-return", "%year-doubling)", ", ", [], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.online.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        url = ["", "<", "set-url", ">", ", ", [], ">."]
+        access = ["", "(参照日 ", "all-return", "%year-doubling)", ", ", [], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.phdthesis]
+    [entry.phdthesis.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        school = ["", "Ph.D. dissertation", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "school"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.phdthesis.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        school = ["", "", "set-url", "博士論文", ", ", [], "博士論文."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "school"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.proceedings]
+    [entry.proceedings.en]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["title"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.proceedings.ja]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["title"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.techreport]
+    [entry.techreport.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        institution = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "institution"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.techreport.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        institution = ["", "", "set-url", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title", "institution"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+
+[entry.unpublished]
+    [entry.unpublished.en]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]
+    [entry.unpublished.ja]
+        author = ["", "", "author-set", "", ", ", [], "."]
+        title = ["", "", "all-return", "", ", ", [], "."]
+        year = [" ", "(", "all-return", "%year-doubling)", ", ", ["author", "title"], "%year-doubling)."]
+        note = ["", "", "all-return", "", ", ", [], "."]

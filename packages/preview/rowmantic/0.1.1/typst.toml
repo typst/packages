@@ -1,0 +1,32 @@
+[package]
+name = "rowmantic"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["Ulrik Sverdrup <ulrik.sverdrup@gmail.com>"]
+license = "EUPL-1.2"
+description = "Define tables row by row with inline separators between cells."
+repository = "https://github.com/typst-community/rowmantic"
+
+compiler = "0.13.0"
+categories = ["components"]
+keywords = [
+    "table",
+    "row",
+    "rowtable",
+    "delimiter",
+    "separator",
+    "latex",
+]
+
+# .typstignore decides what is (not) pushed to typst/packages
+# exclude decides what is (not) downloaded by the compiler
+exclude = [
+  "CHANGELOG.md",
+  ".typstignore",
+  "docs",
+  "Justfile",
+  ".github",
+  "scripts",
+  "tests",
+  "Justfile",
+]

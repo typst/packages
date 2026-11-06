@@ -1,0 +1,9 @@
+{
+  "atom_scale": 10,
+  "h_scale": 0.7,
+  "hide_bonds": true,
+  "atom_interlocking": true,
+  "auto_hide_h": false,
+  "atom_stroke_width": 5,
+  "bond_orders": false
+}

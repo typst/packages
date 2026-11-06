@@ -1,0 +1,25 @@
+[package]
+name = "revtyp"
+version = "0.14.0"
+entrypoint = "revtyp.typ"
+description = "Template for APS PRAB styled papers"
+authors = [ "Philipp Niedermayer <@eltos>" ]
+license = "GPL-3.0-only AND MIT-0"
+repository = "https://github.com/eltos/accelerated-jacow/"
+keywords = [
+  "paper",
+  "accelerator",
+  "physics",
+  "revtex",
+  "aps",
+  "physical review",
+  "prab"
+]
+categories = [ "paper" ]
+disciplines = [ "physics", "engineering" ]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "paper.typ"
+thumbnail = "thumbnail.webp"

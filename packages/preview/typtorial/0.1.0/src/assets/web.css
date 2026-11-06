@@ -1,0 +1,436 @@
+:root {
+  --background: #fdfdfd;
+  --line: #e4e5ea;
+  --accent: #239dad;
+  --heading: #239dad;
+  --text: #19181f;
+  --code-background: #eff0f3;
+  --header: linear-gradient(122deg, var(--background), var(--gradient-end)) fixed;
+  --added: #e6f4de;
+  --added-bar: #6cbf4b;
+  --removed: #fbe3de;
+  --removed-bar: #e8705c;
+  --syntax-filter: none;
+  --title-background: transparent;
+  --title-text: var(--text);
+  --abstract-background: transparent;
+  --abstract-text: var(--text);
+  --logo-light: block;
+  --logo-dark: none;
+  --header-text: var(--text);
+  --code-text: var(--text);
+  --gradient-end: var(--background);
+  --heading-bar: transparent;
+  --corner-radius: 0.75rem;
+  --text-position: center;
+  --code-border: transparent;
+  --button: var(--code-background);
+  --button-text: var(--code-text);
+  --button-border: var(--line);
+  --size-text: 1.125rem;
+  --size-heading: 1.2rem;
+  --size-title: 1.35rem;
+  --size-title-page: 2.6rem;
+  --size-brand: 1.6rem;
+  --size-code: 0.8rem;
+  --font-text: "Hanken Grotesk", sans-serif;
+  --font-code: "DejaVu Sans Mono", monospace;
+  --font-brand: "Libertinus Serif", serif;
+  --header-height: 4rem;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  scroll-snap-type: y proximity;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(122deg, var(--background), var(--gradient-end)) fixed;
+  color: var(--text);
+  font: var(--size-text)/1.5 var(--font-text);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 3rem;
+  background: var(--header);
+  border-bottom: 1px solid var(--line);
+  color: var(--header-text);
+}
+
+header .title {
+  font-size: var(--size-title);
+  text-decoration: underline 2px var(--accent);
+  text-underline-offset: 0.4em;
+}
+
+header .title.no-underline { text-decoration: none; }
+header .title.uppercase { text-transform: uppercase; letter-spacing: 0.04em; }
+
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font: 500 var(--size-brand) var(--font-brand);
+}
+
+header .brand .logo-light { display: var(--logo-light); }
+header .brand .logo-dark { display: var(--logo-dark); }
+
+.header-button {
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--header-text);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle::before { content: "\25D0"; }
+.download::before { content: "\2913"; }
+.header-button:hover { border-color: var(--header-text); }
+
+/* The same buttons inside the text of a step. */
+.header-button.inline {
+  margin: 0 0.15em;
+  vertical-align: -0.35em;
+  color: var(--text);
+  border-color: var(--accent);
+}
+.header-button.inline:hover { background: var(--accent); color: var(--background); }
+
+header .brand img {
+  height: 2.2rem;
+  width: auto;
+  max-width: 14rem;
+  object-fit: contain;
+  object-position: right;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  min-height: calc(100vh - var(--header-height));
+  padding: 3rem;
+  scroll-snap-align: start;
+  background: var(--title-background);
+  color: var(--title-text);
+}
+
+.intro.abstract-page {
+  background: var(--abstract-background);
+  color: var(--abstract-text);
+}
+
+.intro h1 {
+  margin: 0;
+  font-size: var(--size-title-page);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.intro .abstract { max-width: 42rem; font-size: calc(var(--size-text) * 1.07); }
+.intro .abstract p { margin: 0 0 0.7em; }
+
+.intro .next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--background);
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.intro .next::before { content: "\2193"; }
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - var(--header-height));
+  scroll-snap-align: start;
+}
+
+.step.no-code { grid-template-columns: 1fr; }
+
+.explanation {
+  align-self: var(--text-position);
+  padding: 3rem 3rem 3rem 4.5rem;
+}
+
+.explanation p { margin: 0 0 0.7em; }
+
+.explanation a, .intro .abstract a {
+  color: inherit;
+  text-decoration: underline 2px var(--accent);
+  text-underline-offset: 0.2em;
+}
+.explanation ul, .explanation ol { padding-left: 1.2em; }
+
+h2 {
+  position: relative;
+  margin: 0 0 0.6em;
+  font-size: var(--size-heading);
+  font-weight: 600;
+  color: var(--heading);
+}
+
+/* Heading on a bar: every line gets its own. */
+h2 .bar {
+  padding: 0.3em 0.5em;
+  line-height: 2.1;
+  background: var(--heading-bar);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+h2 nav {
+  position: absolute;
+  left: -1.75rem;
+  top: 0.42em;
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+h2 nav .current {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+h2 nav div { position: absolute; left: 0; }
+h2 nav .before { bottom: 100%; }
+h2 nav .after { top: 100%; }
+
+h2 nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.8rem;
+  height: 0.7rem;
+}
+
+h2 nav a::before {
+  content: "";
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+h2 nav a:hover::before { background: var(--accent); }
+
+code { font: 0.8em var(--font-code); }
+
+.code {
+  padding: 1.25rem 1rem 1rem 0.5rem;
+  overflow-x: auto;
+  background: var(--code-background);
+  border: 1px solid var(--code-border);
+  border-right: 0;
+  border-radius: var(--corner-radius) 0 0 var(--corner-radius);
+  color: var(--code-text);
+}
+
+.code pre { margin: 0; font: var(--size-code)/1.5 var(--font-code); }
+/* Head row of a code block: file name on the left, copy button on the right. They share
+   the row, so a long name wraps next to the button instead of running underneath it. */
+.code .block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 0.75rem;
+  row-gap: 0.9em;
+  align-items: center;
+}
+
+.code .block > * { grid-column: 1 / -1; }
+.code .block > p { grid-column: 2; grid-row: 1; margin: 0; }
+.code .block > .filename { grid-column: 1; grid-row: 1; }
+.code .tabs:not(.ready) .tab-panel + .tab-panel { margin-top: 1.5em; }
+
+/* Tabs: the bar replaces the file names. Without the script there is no bar, and the
+   blocks stay one below the other with their names. */
+.code .tab-bar { display: none; }
+
+/* Tab bar and copy button share a row; `stacked` puts the button above the bar. */
+.code .tabs.ready .tab-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.9em 0.75rem;
+}
+
+.code .tab-head.stacked {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.6em;
+}
+
+.code .tab-head .tab-copy { flex: none; }
+.code .tab-head.stacked .tab-copy { order: -1; align-self: flex-end; }
+.code .tab-head .tab-copy p { margin: 0; }
+
+.code .tabs.ready .tab-bar {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  gap: 0.3rem;
+  overflow-x: auto;
+  /* A shadow instead of a border, so the line of the selected tab can lie on top. */
+  box-shadow: inset 0 -1px var(--line);
+}
+
+.code .tabs.ready .filename { display: none; }
+
+.code .tab-bar .tab {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  flex: none;
+  padding: 0.2rem 0.7rem 0.6rem;
+  white-space: nowrap;
+  font: calc(var(--size-code) * 0.94) var(--font-code);
+  color: var(--code-text);
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  opacity: 0.55;
+}
+
+.code .tab-bar .tab:hover { filter: none; opacity: 1; }
+.code .tab-bar .tab[aria-selected="true"] { opacity: 1; border-bottom-color: var(--accent); }
+.code .tab img { width: auto; }
+.code .tab p { margin: 0; }
+
+.code button {
+  padding: 0.25rem 0.7rem;
+  font: 0.8rem var(--font-text);
+  color: var(--button-text);
+  background: var(--button);
+  border: 1px solid var(--button-border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.code .filename {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  min-width: 0;
+  padding-left: 0.75rem;
+  overflow-wrap: anywhere;
+  font: calc(var(--size-code) * 0.94) var(--font-code);
+  opacity: 0.65;
+}
+
+.code .filename img { width: auto; }
+.code .filename p { margin: 0; }
+
+.code button:hover { filter: brightness(0.92); }
+
+.code button.copied {
+  color: var(--button);
+  background: var(--button-text);
+  border-color: var(--button-text);
+  filter: none;
+}
+.code pre code { font: inherit; }
+
+.code .line {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 1.5em;
+  padding-left: 3.2em;
+  vertical-align: top;
+  border-left: 3px solid transparent;
+}
+
+.code .line::before {
+  content: attr(data-nr);
+  position: absolute;
+  left: 0;
+  width: 2em;
+  text-align: right;
+  opacity: 0.45;
+}
+
+.code .line.added { background: var(--added); border-left-color: var(--added-bar); }
+.code .line.removed { background: var(--removed); border-left-color: var(--removed-bar); }
+
+/* Syntax colors are set inline for a light panel; the dark scheme inverts them. */
+.code pre span[style*="color"] { filter: var(--syntax-filter); }
+
+/* With the script on wide screens: the code panel stays in place and the code fades
+   in and out to match the step in the middle of the screen. */
+@media (min-width: 50rem) {
+  .pinned .panel, .pinned .code {
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    bottom: 0;
+    width: 50%;
+  }
+
+  .pinned .panel {
+    background: var(--code-background);
+    border: 1px solid var(--code-border);
+    border-right: 0;
+    border-radius: var(--corner-radius) 0 0 var(--corner-radius);
+    transition: opacity 0.3s;
+    /* Only a backdrop: it must not catch clicks meant for what lies beneath it. */
+    pointer-events: none;
+  }
+
+  .pinned .panel.hidden { opacity: 0; }
+
+  .pinned .code {
+    overflow-y: auto;
+    background: none;
+    border-color: transparent;
+    visibility: hidden;
+    transition: visibility 0.3s;
+  }
+
+  .pinned .step.active .code { visibility: visible; }
+
+  /* Code and names fade, but the copy buttons switch at once: every step has one in the
+     same place, and two half-faded ones on top of each other would flicker. */
+  .pinned .code :is(.filename, .tab-bar, pre) { opacity: 0; transition: opacity 0.3s; }
+  .pinned .step.active .code :is(.filename, .tab-bar, pre) { opacity: 1; }
+  .pinned .code button[data-code] { visibility: hidden; }
+  .pinned .step.active .code button[data-code] { visibility: visible; }
+}
+
+@media (max-width: 50rem) {
+  header { padding: 0 1.25rem; }
+  header .title { font-size: 1rem; }
+  .step { grid-template-columns: 1fr; min-height: 0; }
+  .explanation { padding: 2.5rem 1.25rem 1.5rem 2.75rem; }
+  .code { padding: 1.25rem; border-left: 0; border-radius: 0; }
+}

@@ -1,0 +1,27 @@
+[package]
+name = "peano"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+description = "A mathematics utility library providing specialized number types, number theory operations and special mathematic functions, etc."
+authors = ["F.X.P. <https://github.com/vanleefxp>"]
+license = "MIT"
+repository = "https://github.com/vanleefxp/peano_typ"
+categories = ["utility", "scripting"]
+disciplines = ["mathematics"]
+keywords = [
+    "rational number",
+    "fraction",
+    "repeating decimal",
+    "complex number",
+    "number theory",
+    "prime factor",
+    "factorization",
+    "gcd",
+    "greatest common divisor",
+    "Bézout's identity",
+    "extended Euclidean algorithm",
+    "gamma function",
+    "beta function",
+    "Gauss error function",
+    "Riemann zeta function",
+]

@@ -1,0 +1,15 @@
+[package]
+name = "non-boring-notes"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["aruzdh <https://aruzdh.dev>"]
+license = "MIT"
+description = "Modular and colorful papers, reports, and notes."
+repository = "https://github.com/aruzdh/non-boring-notes"
+categories = ["paper", "report", "layout"]
+keywords = ["notes", "university", "college", "mathematics", "computer science"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

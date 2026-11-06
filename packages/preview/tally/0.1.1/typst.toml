@@ -1,0 +1,18 @@
+[package]
+name = "tally"
+version = "0.1.1"
+entrypoint = "src/lib.typ"
+authors = ["Tijme"]
+license = "MIT"
+description = "Automatically handle todos in your document."
+repository = "https://github.com/7ijme/tally"
+keywords = ["todo", "list"]
+categories = ["utility"]
+exclude = [
+  ".github",
+  "docs",
+  "scripts",
+  "tests",
+  ".typstignore",
+  "Justfile",
+]

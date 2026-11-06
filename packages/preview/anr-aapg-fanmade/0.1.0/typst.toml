@@ -1,0 +1,22 @@
+[package]
+name = "anr-aapg-fanmade"
+version = "0.1.0"
+entrypoint = "aapg.typ"
+authors = ["Gabriel Scherer"]
+license = "ISC"
+description = "Typst templates for ANR AAPG: grant proposals for the French National Research Agency"
+
+repository = "https://gitlab.com/gasche/anr-aapg-fanmade-typst-template/"
+categories = ["report"]
+
+## Typst only supports one template per package,
+## see https://github.com/typst/packages/issues/1059
+# [template]
+# path = "template"
+# entrypoint = "first-proposal.typ"
+# thumbnail = "first-proposal-thumbnail.webp"
+
+[template]
+path = "template"
+entrypoint = "second-proposal.typ"
+thumbnail = "second-proposal-thumbnail.webp"

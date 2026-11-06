@@ -1,0 +1,13 @@
+[package]
+name = "basalt-backlinks"
+version = "0.1.1"
+entrypoint = "src/exports.typ"
+authors = ["Gabriel Talbert Bunt"]
+license = "MIT"
+description = "Generate and get backlinks."
+repository = "https://github.com/GabrielDTB/basalt-backlinks"
+keywords = [
+  "link",
+  "backlink",
+  "basalt"
+]

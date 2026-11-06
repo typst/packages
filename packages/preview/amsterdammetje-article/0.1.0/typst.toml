@@ -1,0 +1,16 @@
+[package]
+name = "amsterdammetje-article"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["qu1ncyk <https://github.com/qu1ncyk>"]
+license = "MPL-2.0"
+description = "University of Amsterdam Computer Science article template"
+repository = "https://github.com/qu1ncyk/amsterdammetje-article-typst"
+categories = ["report"]
+disciplines = ["computer-science"]
+keywords = ["uva", "article", "informatica"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

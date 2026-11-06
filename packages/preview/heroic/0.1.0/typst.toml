@@ -1,0 +1,15 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+authors = ["J. Neugebauer"]
+name = "heroic"
+version = "0.1.0"
+entrypoint = "src/heroic.typ"
+license = "MIT"
+description = "Use Heroicons in Typst."
+homepage = "https://github.com/jneug/typst-heroic"
+repository = "https://github.com/jneug/typst-heroic"
+keywords = ["heroicons", "icons"]
+categories = ["visualization", "fun"]
+compiler = "0.13.0"
+exclude = [".github", "scripts", "tests", ".typstignore", "Justfile"]

@@ -1,0 +1,14 @@
+[package]
+name = "truthfy"
+version = "0.3.0"
+entrypoint = "main.typ"
+authors = ["Thumus"]
+license = "MIT"
+description = "Make empty or automatically filled truth table"
+repository = "https://github.com/Thumuss/truthfy"
+homepage = "https://github.com/Thumuss/truthfy"
+keywords = [
+    "truth",
+    "table",
+]
+exclude = ["example.pdf", "example.typ"]

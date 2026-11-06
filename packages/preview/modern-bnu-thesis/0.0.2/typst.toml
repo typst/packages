@@ -1,0 +1,16 @@
+[package]
+name = "modern-bnu-thesis"
+version = "0.0.2"
+entrypoint = "lib.typ"
+authors = ["MosRat"]
+license = "MIT"
+description = "北京师范大学学位论文模板。Modern Beijing Normal University Thesis."
+repository = "https://github.com/mosrat/modern-bnu-thesis"
+keywords = ["Beijing Normal University", "thesis"]
+categories = ["thesis"]
+exclude = ["imgs"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

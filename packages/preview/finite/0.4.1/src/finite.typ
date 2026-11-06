@@ -1,0 +1,2 @@
+
+#import "./cmd.typ": *

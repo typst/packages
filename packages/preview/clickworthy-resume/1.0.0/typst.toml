@@ -1,0 +1,21 @@
+# for a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "clickworthy-resume"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Abdullah Hendy <https://github.com/AbdullahHendy>"]
+license = "MIT"
+description = "A simple, flexible, responsive, ATS-friendly, and click-worthy resume. Extra cover letter and extendable to a CV."
+repository = "https://github.com/AbdullahHendy/clickworthy-resume"
+keywords = ["cv", "curriculum vitae", "resume", "cover letter"]
+categories = ["cv"]
+exclude = [
+	".github",
+	"tests",
+]
+
+[template]
+path = "template"
+entrypoint = "resume.typ"
+thumbnail = "thumbnail.png"

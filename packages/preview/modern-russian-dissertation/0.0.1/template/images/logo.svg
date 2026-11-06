@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512 512" xml:space="preserve">
+<path style="fill:#88C5CC;" d="M256,0C123.452,0,16,107.452,16,240s107.452,240,240,240s240-107.452,240-240S388.548,0,256,0z"/>
+<rect x="260" y="16" style="fill:#263740;" width="8" height="104"/>
+<path style="fill:#CCCCCC;" d="M56,512v-32c0-4.4,4.256-8,9.452-8H462.54c5.196,0,9.452,3.6,9.452,8v32H56z"/>
+<g>
+	<path style="fill:#B3B3B3;" d="M464,472h-16c4.4,0,8,3.6,8,8v32h16v-32C472,475.6,468.4,472,464,472z"/>
+	<rect x="56" y="508" style="fill:#B3B3B3;" width="416" height="4"/>
+</g>
+<rect x="136" y="240" style="fill:#406A80;" width="256" height="232"/>
+<rect x="116" y="256" style="fill:#E6E6E6;" width="48" height="200"/>
+<g>
+	<rect x="152" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="120" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="136" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+</g>
+<g>
+	<rect x="364" y="256" style="fill:#E6E6E6;" width="48" height="200"/>
+	<rect x="280" y="256" style="fill:#E6E6E6;" width="48" height="200"/>
+	<rect x="200" y="256" style="fill:#E6E6E6;" width="48" height="200"/>
+</g>
+<path style="fill:#CCCCCC;" d="M112,472v-12c0-2.2,1.8-4,4-4h48c2.2,0,4,1.8,4,4v12H112z"/>
+<rect x="112" y="468" style="fill:#B3B3B3;" width="56" height="4"/>
+<path style="fill:#CCCCCC;" d="M196,472v-12c0-2.2,1.8-4,4-4h48c2.2,0,4,1.8,4,4v12H196z"/>
+<rect x="196" y="468" style="fill:#B3B3B3;" width="56" height="4"/>
+<path style="fill:#CCCCCC;" d="M276,472v-12c0-2.2,1.8-4,4-4h48c2.2,0,4,1.8,4,4v12H276z"/>
+<rect x="276" y="468" style="fill:#B3B3B3;" width="56" height="4"/>
+<path style="fill:#CCCCCC;" d="M360,472v-12c0-2.2,1.8-4,4-4h48c2.2,0,4,1.8,4,4v12H360z"/>
+<rect x="360" y="468" style="fill:#B3B3B3;" width="56" height="4"/>
+<path style="fill:#CCCCCC;" d="M112,240v12c0,2.2,1.8,4,4,4h48c2.2,0,4-1.8,4-4v-12H112z"/>
+<rect x="112" y="240" style="fill:#B3B3B3;" width="56" height="4"/>
+<path style="fill:#CCCCCC;" d="M196,240v12c0,2.2,1.8,4,4,4h48c2.2,0,4-1.8,4-4v-12H196z"/>
+<rect x="196" y="240" style="fill:#B3B3B3;" width="56" height="4"/>
+<path style="fill:#CCCCCC;" d="M276,240v12c0,2.2,1.8,4,4,4h48c2.2,0,4-1.8,4-4v-12H276z"/>
+<rect x="276" y="240" style="fill:#B3B3B3;" width="56" height="4"/>
+<path style="fill:#CCCCCC;" d="M360,240v12c0,2.2,1.8,4,4,4h48c2.2,0,4-1.8,4-4v-12H360z"/>
+<g>
+	<rect x="360" y="240" style="fill:#B3B3B3;" width="56" height="4"/>
+	<polygon style="fill:#B3B3B3;" points="264,104 80,224 264,224 448,224 	"/>
+</g>
+<g>
+	<polygon style="fill:#F5F5F5;" points="133.824,208 264,123.1 394.176,208 	"/>
+	<path style="fill:#F5F5F5;" d="M268,224c-2.2,0-5.8,0-8,0H68c-2.2,0-4,1.8-4,4v8c0,2.2,1.8,4,4,4h192c2.2,0,5.8,0,8,0h192
+		c2.2,0,4-1.8,4-4v-8c0-2.2-1.8-4-4-4H268z"/>
+</g>
+<circle style="fill:#263740;" cx="264" cy="16" r="8"/>
+<g>
+	<polygon style="fill:#F2CF61;" points="344,80 296,80 296,40 344,40 328,60 	"/>
+	<rect x="264" y="24" style="fill:#F2CF61;" width="48" height="40"/>
+</g>
+<polygon style="fill:#E6C45C;" points="312,64 296,64 296,80 "/>
+<g>
+	<rect x="236" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="204" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="220" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="316" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="284" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="300" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="400" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="368" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+	<rect x="384" y="256" style="fill:#CCCCCC;" width="8" height="200"/>
+</g>
+</svg>

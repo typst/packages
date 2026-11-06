@@ -1,0 +1,17 @@
+[package]
+name = "visillos-excelencia"
+version = "0.3.0"
+entrypoint = "lib.typ"
+compiler = "0.13.0"
+authors = ["Jesús Manuel González Meneses"]
+license = "MIT"
+repository = "https://github.com/13Stokes31/visillos-excelencia"
+description = "Unofficial template for Excellence Baccalaureate projects at IES Carmen Martín Gaite (Spain) // Plantilla para los proyectos del Bachillerato de Excelencia del IES Carmen Martín Gaite."
+categories = ["report", "thesis"]
+keywords = ["proyecto", "investigación", "bachillerato", "excelencia", "spanish", "research"]
+exclude = ["ROADMAP.md", "TESTING.md", "tests"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

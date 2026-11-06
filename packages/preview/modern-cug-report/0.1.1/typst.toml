@@ -1,0 +1,16 @@
+[package]
+name = "modern-cug-report"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Dongdong Kong"]
+license = "MIT"
+description = "Chinese Technical report writing standards."
+compiler = "0.12.0"
+repository = "https://github.com/CUG-hydro/modern-cug-report.typ"
+exclude = ["example", ".gitignore"]
+categories = ["layout", "report"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
