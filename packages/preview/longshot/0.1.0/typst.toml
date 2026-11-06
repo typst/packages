@@ -1,0 +1,14 @@
+[package]
+name = "longshot"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Bet Better <https://betbetter.world>"]
+license = "MIT"
+description = "Convert odds formats and remove the bookmaker margin."
+homepage = "https://betbetter.world/tools/odds-converter"
+repository = "https://github.com/edushinka/longshot"
+keywords = ["odds", "probability", "decimal odds", "american odds", "fractional odds", "overround"]
+categories = ["utility", "scripting"]
+disciplines = ["mathematics", "economics"]
+compiler = "0.11.0"
+exclude = ["example.png"]
