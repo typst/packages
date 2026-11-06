@@ -1,4 +1,4 @@
-#import "../lib.typ": research-proposal, proposal-gantt, work-package, proposal-budget
+#import "@preview/satz:0.2.0": research-proposal, proposal-gantt, work-package, proposal-budget
 #show: research-proposal.with(
   title: [A reproducible measurement platform], short-title: [Project plan],
   applicants: [Dr. Example Researcher], institution: [Example University],

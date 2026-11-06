@@ -1,6 +1,6 @@
 // A complete glossary/abbreviation workflow through one satz import.
 // Compile: typst compile --root . examples/glossary.typ /tmp/satz-glossary.pdf
-#import "../lib.typ": report, satz-figure, glossarium
+#import "@preview/satz:0.2.0": report, satz-figure, glossarium
 
 // Install Glossarium before the report wrapper and register one shared list.
 #show: glossarium.make-glossary

@@ -1,4 +1,4 @@
-#import "../lib.typ": research-proposal, proposal-budget
+#import "@preview/satz:0.2.0": research-proposal, proposal-budget
 
 #show: research-proposal.with(
   title: [A Reproducible Measurement Platform],

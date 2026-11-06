@@ -532,7 +532,7 @@ the first paragraph after a heading. It does not set vertical line spacing.
 independent, so set it to `0pt` or another chosen value when you prefer
 indentation to provide the paragraph break cue. The same config works in
 journal entries. See
-the [native/KOMA typography comparison](https://github.com/kylekahraman/satz/blob/main/examples/latex-parity/README.md) for the
+the [native/KOMA typography comparison](https://github.com/kylekahraman/satz/blob/28f0595/examples/latex-parity/README.md) for the
 specimen and checks.
 
 ### Table text and padding
@@ -562,7 +562,7 @@ headings with `outlined: false` do not. Headers remain disabled by default.
 Custom header content takes precedence over the generated header.
 
 The existing report page-number offset and counter-based alignment are retained.
-See the [paired KOMA-Script comparison](https://github.com/kylekahraman/satz/blob/main/examples/latex-parity/README.md) for
+See the [paired KOMA-Script comparison](https://github.com/kylekahraman/satz/blob/28f0595/examples/latex-parity/README.md) for
 reproducible checks. Hydra also imports `oxifmt:1.0.0`; Typst downloads missing
 packages on the first compilation.
 

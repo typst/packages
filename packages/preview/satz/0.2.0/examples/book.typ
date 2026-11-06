@@ -1,5 +1,5 @@
-#import "../lib.typ": book, book-contents, book-mainmatter, book-appendix, book-backmatter, book-index
-#import "../lib.typ": worked-example, analysis-note, exercise
+#import "@preview/satz:0.2.0": book, book-contents, book-mainmatter, book-appendix, book-backmatter, book-index
+#import "@preview/satz:0.2.0": worked-example, analysis-note, exercise
 
 #show: book.with(
   title: [Mathematics for Data Analysis],

@@ -1,4 +1,4 @@
-#import "../lib.typ": article, placeholder
+#import "@preview/satz:0.2.0": article, placeholder
 #show: article.with(
   title: [Two-column writing with satz],
   authors: (name: "Example Author", affiliations: (1,)),

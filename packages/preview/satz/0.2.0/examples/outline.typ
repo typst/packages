@@ -1,5 +1,5 @@
 // Compile with --input compact=true to compare caption-free figure/table lists.
-#import "../lib.typ": report, satz-figure, placeholder
+#import "@preview/satz:0.2.0": report, satz-figure, placeholder
 
 #show: report.with(config: (
   page: (binding: left, headers: true),

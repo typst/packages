@@ -1,4 +1,4 @@
-#import "../lib.typ": nwo-proposal, nwo-text, nwo-key-output
+#import "@preview/satz:0.2.0": nwo-proposal, nwo-text, nwo-key-output
 
 #show: nwo-proposal.with(
   scheme: "vidi",

@@ -1,4 +1,4 @@
-#import "../lib.typ": report, callout
+#import "@preview/satz:0.2.0": report, callout
 #show: report.with(config: (
   toc: (depth: 0), lof: (depth: 0), lot: (depth: 0),
   page: (paper: "a6", margin: 12mm),

@@ -1,4 +1,4 @@
-#import "../lib.typ": nwo-proposal, nwo-text, nwo-page-budget, proposal-budget
+#import "@preview/satz:0.2.0": nwo-proposal, nwo-text, nwo-page-budget, proposal-budget
 
 #show: nwo-proposal.with(
   scheme: "vici", stage: "full", year: 2026,

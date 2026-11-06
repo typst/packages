@@ -1,4 +1,4 @@
-#import "../lib.typ": dfg-proposal, dfg-publications, proposal-citations
+#import "@preview/satz:0.2.0": dfg-proposal, dfg-publications, proposal-citations
 
 // Keep the citation rule after the document-layout rule.
 #show: dfg-proposal.with(

@@ -1,4 +1,4 @@
-#import "../lib.typ": report, scientific-table, scientific-tables
+#import "@preview/satz:0.2.0": report, scientific-table, scientific-tables
 #show: report.with(config: (toc: (depth: 0), lot: (depth: 0)))
 #show: scientific-tables
 

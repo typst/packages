@@ -1,6 +1,6 @@
 // DFG 53.01 — 09/26. Replace every placeholder before submission.
 // Keep the prescribed headings; consult the official form for instructions.
-#import "../lib.typ": dfg-proposal, dfg-supplement, dfg-publications, proposal-budget
+#import "@preview/satz:0.2.0": dfg-proposal, dfg-supplement, dfg-publications, proposal-budget
 
 #show: dfg-proposal.with(
   applicant: [Example Applicant, Example University, Example City],
