@@ -1,14 +1,15 @@
 #import "@preview/fontawesome:0.6.2": *
 
 #let _cv-line(left, right, ..args) = {
-  set block(below: 0pt, above: 1pt)
-  table(
+  // Wrap the table in a block so that the tight spacing only applies between
+  // CV lines and does not leak into the cell contents (e.g. lists, paragraphs).
+  block(below: 0pt, above: 1pt, table(
     columns: (1fr, 5fr),
     stroke: none,
     ..args.named(),
     left,
     right,
-  )
+  ))
 }
 // Renders an icon: strings are interpreted as fontawesome icon names,
 // any other content (e.g. emojis or icons from other packages) is used as is.
@@ -234,20 +235,27 @@
   )
 }
 
+// Collects the comma-separated parts of a CV entry, skipping optional parts
+// that were not provided.
+#let _cv-entry-elements(title, employer, location, description) = {
+  (
+    strong(title),
+    emph(employer),
+    location,
+    ..description.pos(),
+  ).filter(e => e != none)
+}
+
 #let cv-entry(
   date: [],
   title: [],
   employer: [],
+  location: none,
   ..description,
 ) = {
-  let elements = (
-    strong(title),
-    emph(employer),
-    ..description.pos(),
-  )
   cv-line(
     date,
-    elements.join(", "),
+    _cv-entry-elements(title, employer, location, description).join(", "),
   )
 }
 
@@ -255,13 +263,10 @@
   date: [],
   title: [],
   employer: [],
+  location: none,
   ..description,
 ) = {
-  let elements = (
-    strong(title),
-    emph(employer),
-    ..description.pos(),
-  )
+  let elements = _cv-entry-elements(title, employer, location, description)
   cv-line(
     date,
     elements.slice(0, -1).join(", ")
@@ -281,12 +286,11 @@
 }
 
 #let cv-double-item(left-1, right-1, left-2, right-2) = {
-  set block(below: 0pt)
-  table(
+  block(below: 0pt, table(
     columns: (1fr, 2fr, 1fr, 2fr),
     stroke: none,
     align(right, left-1), right-1, align(right, left-2), right-2,
-  )
+  ))
 }
 
 #let cv-list-item(item) = {
@@ -297,10 +301,9 @@
 }
 
 #let cv-list-double-item(item1, item2) = {
-  set block(below: 0pt)
-  table(
+  block(below: 0pt, table(
     columns: (1fr, 2.5fr, 2.5fr),
     stroke: none,
     [], list(item1), list(item2),
-  )
+  ))
 }
