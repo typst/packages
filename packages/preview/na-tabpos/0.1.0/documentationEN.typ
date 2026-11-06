@@ -1,6 +1,6 @@
 // na-tabpos — documentation (English)
 // Compile from the package folder:  typst compile documentationEN.typ
-#import "lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 
 #set page(paper: "a4", margin: (x: 2cm, y: 2cm), numbering: "1 / 1")
 #set text(font: ("New Computer Modern", "Amiri"), size: 11pt, lang: "en")
