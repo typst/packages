@@ -7,7 +7,7 @@
     <category field="engineering"/>
     <summary>Author-date style adapted to the supplied said2027.bst conventions.</summary>
     <updated>2026-11-04T00:00:00+00:00</updated>
-    <rights license="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</rights>
+    <rights license="https://opensource.org/license/mit/">MIT License. Copyright 2026 Olivier D'Ancona.</rights>
   </info>
   <macro name="author">
     <names variable="author">

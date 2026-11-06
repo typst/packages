@@ -23,10 +23,9 @@ choose the `aidays` template from Typst Universe and start a new project.
 The starter in `template/` contains `main.typ` and its bibliography `main.bib`.
 Replace the sample content with your manuscript.
 
-The repository's root `main.typ` contains the author instructions and examples
-of figures, tables, equations, algorithms, theorems, citations, and appendices.
-Run `typst compile main.typ` from the repository root to build those instructions,
-or see [example-paper.typst.pdf](example-paper.typst.pdf).
+The development repository also contains the adapted author instructions and
+examples in `main.typ`; see the
+[example PDF](https://gitlab.forge.hefr.ch/olivier.dancona/aidays-typst/-/blob/main/example-paper.typst.pdf).
 
 ## Configuration
 
@@ -88,14 +87,19 @@ prose instructions.
 
 ## License and attribution
 
-The implementation (`aidays.typ`), citation style (`aidays.csl`), and adapted
-author instructions (`main.typ`) are licensed under **CC BY 4.0**; see
-[LICENSE](LICENSE). Copyright 2026 Olivier D'Ancona for the Typst adaptation.
+The native Typst implementation (`aidays.typ`) and citation style (`aidays.csl`)
+are licensed under **MIT**; see [LICENSE](LICENSE).
+Copyright 2026 Olivier D'Ancona.
 
 The starter files in `template/` are licensed under **MIT-0**; see
 [template/LICENSE](template/LICENSE). Authors may use, modify, and distribute
 their manuscripts without attributing this template or including its license.
 The package licenses do not apply to authors' own research or manuscript content.
+
+The LaTeX-derived author instructions and their rendered example PDF remain
+**CC BY 4.0** in the development repository (`LICENSE-CC-BY`). These documentation
+files are not included in the published package. The MIT license does not
+relicense the original LaTeX material.
 
 Adapted from the Swiss AI Days 2027 LaTeX
 template by Andrei Kucharavy (21 September 2026), itself derived from the
@@ -110,3 +114,33 @@ Christoph Sawade, and Daniel Roy. See the original sources for their history.
 This adaptation replaces the LaTeX macros with Typst styling and a CSL citation
 style, adapts the example instructions, and adds institutional publisher fields
 to the sample bibliography for Typst compatibility.
+
+## Maintenance (development repository)
+
+Edit the sources in this repository. Prepare the release with:
+
+```sh
+python3 publish.py
+```
+
+This synchronizes the package into `.publication/typst-packages`, a persistent
+Git checkout of your GitHub fork. It prints the normal `git add`, `git commit`,
+and `git push` commands; pushing updates the existing PR. No GitHub API calls
+or temporary publication directories are needed.
+
+For a later release, after the preceding version has been accepted, change
+`version` in `typst.toml` and run the same command. The helper updates the
+versioned imports and prepares a new `aidays-VERSION` branch. Previous published
+versions are retained.
+
+To set up the publication checkout on another machine:
+
+```sh
+git clone --filter=blob:none --depth 1 --single-branch --branch aidays-0.1.0 --sparse \
+  https://github.com/ODAncona/typst-packages.git .publication/typst-packages
+git -C .publication/typst-packages sparse-checkout set packages/preview/aidays
+git -C .publication/typst-packages remote add upstream https://github.com/typst/packages.git
+```
+
+The source repository's `origin` remains on GitLab; the publication checkout's
+`origin` is your GitHub fork and its `upstream` is `typst/packages`.

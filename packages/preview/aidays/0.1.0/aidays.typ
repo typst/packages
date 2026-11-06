@@ -1,7 +1,7 @@
-// Swiss AI Days 2027 Typst adaptation of said2027.sty (2026-09-21).
+// Native Typst implementation of the Swiss AI Days 2027 paper format.
 // Copyright 2026 Olivier D'Ancona (@ODAncona).
 // The original style derives from ICML 2025; see README.md for attribution.
-// SPDX-License-Identifier: CC-BY-4.0
+// SPDX-License-Identifier: MIT
 
 // LaTeX uses TeX points (1/72.27 in); Typst uses PostScript points (1/72 in).
 #let tpt = 72pt / 72.27
