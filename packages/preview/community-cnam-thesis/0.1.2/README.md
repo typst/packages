@@ -2,10 +2,10 @@
 
 [![Generic badge](https://img.shields.io/badge/Version-0.1.2-cornflowerblue.svg)](https://github.com/maucejo/bookly/releases/tag/0.1.2)
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/book_template/blob/6727b3f4b5f0bad7e452102fcdac490c6dc69fc6/LICENSE)
-[![User Manual](https://img.shields.io/badge/Manual-.pdf-mediumpurple)](https://github.com/maucejo/community-cnam-thesis/blob/main/6727b3f4b5f0bad7e452102fcdac490c6dc69fc6/en/guide-en.pdf)
-[![User Manual (FR)](https://img.shields.io/badge/Manual%20(FR)-.pdf-mediumpurple)](https://github.com/maucejo/community-cnam-thesis/blob/main/6727b3f4b5f0bad7e452102fcdac490c6dc69fc6/docs/fr/guide-fr.pdf)
+[![User Manual](https://img.shields.io/badge/Manual-.pdf-mediumpurple)](https://github.com/maucejo/community-cnam-thesis/blob/6727b3f4b5f0bad7e452102fcdac490c6dc69fc6/en/guide-en.pdf)
+[![User Manual (FR)](https://img.shields.io/badge/Manual%20(FR)-.pdf-mediumpurple)](https://github.com/maucejo/community-cnam-thesis/blob/6727b3f4b5f0bad7e452102fcdac490c6dc69fc6/docs/fr/guide-fr.pdf)
 
-A Typst package to write Cnam PhD theses with a ready-to-use structure, title page, front/back matter helpers, and thesis-oriented styling. For more detailed information, see the [manual](https://github.com/maucejo/community-cnam-thesis/blob/main/6727b3f4b5f0bad7e452102fcdac490c6dc69fc6/en/guide-en.pdf).
+A Typst package to write Cnam PhD theses with a ready-to-use structure, title page, front/back matter helpers, and thesis-oriented styling. For more detailed information, see the [manual](https://github.com/maucejo/community-cnam-thesis/blob/6727b3f4b5f0bad7e452102fcdac490c6dc69fc6/en/guide-en.pdf).
 
 `community-cnam-thesis` provides:
 
