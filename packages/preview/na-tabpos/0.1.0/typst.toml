@@ -1,6 +1,6 @@
 [package]
 name = "na-tabpos"
-version = "1.0.0"
+version = "0.1.0"
 authors = ["Naam Mohamed"]
 license = "MIT"
 description = "Sign, variation and relative-position tables for Arabic math documents, built on vartable (adds a relative-position row with arcs)."
