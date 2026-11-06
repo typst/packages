@@ -10,7 +10,7 @@ Everything else is vartable: sign rows, variation rows, hatched undefined areas,
 
 The code in `lib.typ` is derived from vartable 0.2.5 (MIT). The `LICENSE` file carries both copyrights.
 
-**Documentation:** [English (PDF)](https://github.com/naam11/na-tabpos/blob/main/documentationEN.pdf) · [العربية (PDF)](https://github.com/naam11/na-tabpos/blob/main/documentationAR.pdf)
+**Documentation:** [English (PDF)](documentationEN.pdf) · [العربية (PDF)](documentationAR.pdf)
 
 ### Main features
 
