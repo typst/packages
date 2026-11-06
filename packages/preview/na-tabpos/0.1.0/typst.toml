@@ -1,8 +1,12 @@
 [package]
 name = "na-tabpos"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Naam Mohamed"]
 license = "MIT"
-description = "حزمة مخصصة لتحديد وإدارة مواضع الجداول والرسومات في Typst."
-readme = "README.md"
-repository = "https://github.com/naam11/packages"
+description = "Sign, variation and relative-position tables for Arabic math documents, built on vartable (adds a relative-position row with arcs)."
+repository = "https://github.com/naam11/na-tabpos"
+keywords = ["arabic", "rtl", "math", "variation table", "sign table", "relative position"]
+categories = ["visualization"]
+entrypoint = "lib.typ"
+compiler = "0.13.0"
+exclude = ["examples", "fichier_de_test", "documentationEN.typ", "documentationEN.pdf", "documentationAR.typ", "documentationAR.pdf"]
