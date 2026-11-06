@@ -1,0 +1,68 @@
+#import "deliberation.typ": deliberation
+#import "../../../lib/_mod.typ": translate
+
+/// #set raw(lang: "typst")
+/// Creates a consideration (handling) document. Apply with `#show: handling.with(...)` or `#show: consideration.with(...)`.
+///
+/// === Notes
+/// - Author signatures are appended automatically through the `authors` parameter.
+/// - A paragraph is given extra vertical space before it when it ends with a resolution
+///   phrase: Swedish `yrka … på` or `beslut`/`besluta`, or English `move`/`moves`/`decide`.
+///
+/// === Example
+/// ```typst
+/// #import "@preview/dsek:0.1.0": *
+/// #import strings: aktu
+///
+/// #show: handling.with(
+///   title: [3.0 flugor i en smäll],
+///   meeting: "HTM1",
+///   authors: (
+///     // position defaults to "Sektionsmedlem" / "Guild member",
+///     // message defaults to "Lund, dag som ovan" / "Lund, day as above"
+///     (name: "Truls Teknolog", position: aktu.dsportare),
+///     (name: "Trula Teknolog", message: "gaming"),
+///   ),
+/// )
+///
+/// = Bakgrund
+///
+/// Geekend är ett väldigt uppskattat event. Senast slog vi rekord med 247
+/// sittande. Jag är inte helt säker på hur vi fick plats, men kul var det.
+///
+/// = Sammanfattning
+///
+/// Geekend är kul, så vi vill ha mer Geekend
+///
+/// Aktivitetsutskottet yrkar på // extra space is inserted before this paragraph automatically
+/// - att införa ett månadslångt Geekend // becomes: *att* införa...
+/// ```
+///
+/// - title (content): The title of the consideration.
+/// - meeting (str, content): The meeting for which the document was written, e.g. `"HTM1"`.
+/// - authors (array): Signatories. Each signatory dict must have at least the key `name`, optionally `message`, `position` and `signature`.
+/// - lang (str): The language of the document (same format as `text.lang`).
+///               Only "sv" and "en" are supported.
+/// - date (datetime): The date at which the document was written.
+/// - body (content): The body of the document.
+///
+/// -> content
+#let consideration(
+  title: none,
+  meeting: none,
+  authors: (),
+  lang: "sv",
+  date: datetime.today(),
+  body,
+) = deliberation(
+  doc-type: translate("Handling", "Consideration"),
+  title: title,
+  meeting: meeting,
+  authors: authors,
+  date: date,
+  lang: lang,
+  body,
+)
+
+/// Swedish binding for `consideration`
+#let handling = consideration

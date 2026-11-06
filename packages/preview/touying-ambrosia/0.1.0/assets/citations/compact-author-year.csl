@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US">
+  <info>
+    <title>Ambrosia compact author–year markers</title>
+    <id>https://github.com/inspiros/touying-ambrosia/compact-author-year</id>
+    <updated>2026-10-13T00:00:00+00:00</updated>
+  </info>
+  <locale>
+    <terms><term name="et-al"></term></terms>
+  </locale>
+  <macro name="short-author">
+    <choose>
+      <if variable="author editor" match="any">
+        <names variable="author">
+          <name form="short" et-al-min="2" et-al-use-first="1" delimiter="" delimiter-precedes-et-al="never"/>
+          <et-al/>
+          <substitute><names variable="editor"/></substitute>
+        </names>
+      </if>
+      <else><text variable="title" form="short"/></else>
+    </choose>
+  </macro>
+  <macro name="year">
+    <choose>
+      <if variable="issued"><date variable="issued"><date-part name="year"/></date></if>
+      <else><text value="n.d."/></else>
+    </choose>
+  </macro>
+  <macro name="marker">
+    <group>
+      <text macro="short-author"/>
+      <text macro="year"/>
+      <text variable="year-suffix"/>
+    </group>
+  </macro>
+  <citation disambiguate-add-year-suffix="true">
+    <layout prefix="[" suffix="]" delimiter="; ">
+      <text macro="marker"/>
+      <text variable="locator" prefix=", "/>
+    </layout>
+  </citation>
+  <bibliography hanging-indent="true">
+    <sort><key variable="author"/><key macro="year"/><key variable="title"/></sort>
+    <layout suffix=".">
+      <group><text value="["/><text macro="marker"/><text value="] "/></group>
+      <group delimiter=". ">
+        <names variable="author"><name initialize-with=". "/></names>
+        <group><text macro="year"/><text variable="year-suffix"/></group>
+        <text variable="title"/>
+        <group delimiter=", ">
+          <text variable="container-title" font-style="italic"/>
+          <group><text variable="volume"/><text variable="issue" prefix="(" suffix=")"/></group>
+          <text variable="page"/>
+        </group>
+        <text variable="publisher"/>
+        <choose><if variable="DOI"><text variable="DOI" prefix="https://doi.org/"/></if>
+          <else><text variable="URL"/></else></choose>
+      </group>
+    </layout>
+  </bibliography>
+</style>

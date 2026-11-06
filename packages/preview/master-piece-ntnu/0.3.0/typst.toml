@@ -1,0 +1,17 @@
+[package]
+name = "master-piece-ntnu"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Theodor Johansson", "Rafael Oliveira <@RafDevX>"]
+license = "MIT AND MIT-0"
+description = "Unofficial thesis template for NTNU"
+repository = "https://github.com/Th3o4oR/master-piece-ntnu"
+categories = ["thesis", "layout"]
+keywords = ["NTNU", "Norwegian University of Science and Technology", "thesis"]
+compiler = "0.15.0"
+exclude = [".gitignore", "*.sh"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

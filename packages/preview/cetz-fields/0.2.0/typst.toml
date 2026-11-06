@@ -1,0 +1,15 @@
+[package]
+name = "cetz-fields"
+repository = "https://codeberg.org/lukahasch/cetz-fields"
+version = "0.2.0"
+entrypoint = "main.typ"
+authors = ["Luka Hasch"]
+license = "MIT"
+description = "Fast, configurable Coulomb-field diagrams drawn with CeTZ"
+keywords = ["physics", "electrostatics", "cetz", "diagram", "vector-field"]
+categories = ["visualization"]
+compiler = "0.14.0"
+exclude = ["/examples/", "/tests/"]
+
+[tool.typst-test]
+entrypoint = "tests/smoke.typ"

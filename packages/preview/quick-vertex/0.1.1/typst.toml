@@ -1,0 +1,12 @@
+[package]
+name = "quick-vertex"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Jesús Manuel González Meneses"]
+license = "MIT"
+description = "Feasible region plots for two-variable linear programming: bounded/unbounded regions, unique/multiple optima, level lines and gradient, with CeTZ."
+repository = "https://github.com/13Stokes31/quick-vertex"
+keywords = ["linear-programming", "optimization", "plot", "math", "education"]
+categories = ["visualization"]
+compiler = "0.14.0"
+exclude = ["tests", "gallery", "ROADMAP.md", "TESTING.md", ".gitignore"]

@@ -1,0 +1,17 @@
+[package]
+name = "ilkman"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["ilkermansur <https://github.com/ilkermansur>"]
+license = "MIT"
+description = "Modular book and slide kit with one design language: im- components, palettes, generative covers."
+repository = "https://github.com/ilkermansur/ilkman"
+keywords = ["book", "lecture notes", "slides", "template", "cover", "code", "table", "touying"]
+categories = ["book", "presentation", "report"]
+compiler = "0.15.0"
+exclude = ["examples", "tests", "docs", ".github"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

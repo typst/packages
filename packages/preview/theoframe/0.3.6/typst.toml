@@ -1,0 +1,13 @@
+[package]
+name = "theoframe"
+version = "0.3.6"
+entrypoint = "lib.typ"
+exclude = ["assets/*", "*.pdf"]
+authors = ["HeXiongwu"]
+license = "MIT"
+description = "A theorem environment package developed by an amateur, use with caution."
+repository = "https://github.com/hexiongwu1995/typst-theoframe"
+keywords = ["theorem", "lemma", "environment", "math"]
+disciplines = ["computer-science", "engineering", "mathematics", "physics", "education"]
+categories = ["components"]
+compiler = "0.15.0"

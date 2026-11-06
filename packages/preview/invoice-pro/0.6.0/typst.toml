@@ -1,0 +1,24 @@
+[package]
+name = "invoice-pro"
+version = "0.6.0"
+entrypoint = "src/lib.typ"
+authors = [ "Leonie Ziechmann" ]
+license = "MIT"
+description = "Professional invoicing engine with ZUGFeRD/Factur-X e-invoicing."
+homepage = "https://leonieziechmann.github.io/invoice-pro"
+repository = "https://github.com/leonieziechmann/invoice-pro"
+keywords = [
+  "invoice", "e-invoice", "zugferd", "factur-x", "xrechnung", "en16931",
+  "rechnung", "facture", "fattura", "factura",
+  "billing", "accounting", "freelance",
+  "sepa", "epc-qr", "girocode", "din-5008",
+]
+categories = [ "layout", "office", "integration" ]
+disciplines = [ "business", "accounting" ]
+compiler = "0.14.0"
+exclude = [ "/images/**", "/tools/**", "/build/**" ]
+
+[template]
+path = "template"
+entrypoint = "invoice.typ"
+thumbnail = "thumbnail.png"
