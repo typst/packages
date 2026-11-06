@@ -1,0 +1,14 @@
+*.o
+*.obj
+*.exe
+*.DS_Store
+*.log
+*.user
+*~
+.vs/
+Debug/
+Release/
+Build/
+# Ignore the executable, not the vendored source directory.
+/doomgeneric/doomgeneric
+doomgeneric.map
