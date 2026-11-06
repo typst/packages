@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "authors": [
+    {
+      "id": "c1",
+      "name": "Jane A. Smith",
+      "firstName": "Jane",
+      "middleName": "A",
+      "surname": "Smith",
+      "initials": "JAS",
+      "contributorType": "author",
+      "contributions": [
+        {
+          "role": "Conceptualization",
+          "score": 100
+        },
+        {
+          "role": "Data curation",
+          "score": 0
+        },
+        {
+          "role": "Formal analysis",
+          "score": 0
+        },
+        {
+          "role": "Funding acquisition",
+          "score": 0
+        },
+        {
+          "role": "Investigation",
+          "score": 0
+        },
+        {
+          "role": "Methodology",
+          "score": 0
+        },
+        {
+          "role": "Project administration",
+          "score": 0
+        },
+        {
+          "role": "Resources",
+          "score": 0
+        },
+        {
+          "role": "Software",
+          "score": 33
+        },
+        {
+          "role": "Supervision",
+          "score": 100
+        },
+        {
+          "role": "Validation",
+          "score": 0
+        },
+        {
+          "role": "Visualization",
+          "score": 0
+        },
+        {
+          "role": "Writing – original draft",
+          "score": 100
+        },
+        {
+          "role": "Writing – review & editing",
+          "score": 0
+        }
+      ],
+      "equalContribution": true,
+      "corresponding": true
+    },
+    {
+      "id": "c2",
+      "name": "Bob White",
+      "firstName": "Bob",
+      "middleName": "",
+      "surname": "White",
+      "initials": "BW",
+      "contributorType": "author",
+      "contributions": [
+        {
+          "role": "Conceptualization",
+          "score": 0
+        },
+        {
+          "role": "Data curation",
+          "score": 0
+        },
+        {
+          "role": "Formal analysis",
+          "score": 66
+        },
+        {
+          "role": "Funding acquisition",
+          "score": 0
+        },
+        {
+          "role": "Investigation",
+          "score": 100
+        },
+        {
+          "role": "Methodology",
+          "score": 0
+        },
+        {
+          "role": "Project administration",
+          "score": 0
+        },
+        {
+          "role": "Resources",
+          "score": 0
+        },
+        {
+          "role": "Software",
+          "score": 0
+        },
+        {
+          "role": "Supervision",
+          "score": 0
+        },
+        {
+          "role": "Validation",
+          "score": 0
+        },
+        {
+          "role": "Visualization",
+          "score": 0
+        },
+        {
+          "role": "Writing – original draft",
+          "score": 50
+        },
+        {
+          "role": "Writing – review & editing",
+          "score": 100
+        }
+      ],
+      "equalContribution": true,
+      "corresponding": false
+    },
+    {
+      "id": "c3",
+      "name": "Chen Li",
+      "firstName": "Chen",
+      "middleName": "",
+      "surname": "Li",
+      "initials": "CL",
+      "contributorType": "author",
+      "contributions": [
+        {
+          "role": "Conceptualization",
+          "score": 0
+        },
+        {
+          "role": "Data curation",
+          "score": 100
+        },
+        {
+          "role": "Formal analysis",
+          "score": 0
+        },
+        {
+          "role": "Funding acquisition",
+          "score": 0
+        },
+        {
+          "role": "Investigation",
+          "score": 0
+        },
+        {
+          "role": "Methodology",
+          "score": 0
+        },
+        {
+          "role": "Project administration",
+          "score": 0
+        },
+        {
+          "role": "Resources",
+          "score": 0
+        },
+        {
+          "role": "Software",
+          "score": 100
+        },
+        {
+          "role": "Supervision",
+          "score": 0
+        },
+        {
+          "role": "Validation",
+          "score": 0
+        },
+        {
+          "role": "Visualization",
+          "score": 66
+        },
+        {
+          "role": "Writing – original draft",
+          "score": 0
+        },
+        {
+          "role": "Writing – review & editing",
+          "score": 0
+        }
+      ],
+      "equalContribution": false,
+      "corresponding": false
+    },
+    {
+      "id": "c4",
+      "name": "Ana Costa",
+      "firstName": "Ana",
+      "middleName": "",
+      "surname": "Costa",
+      "initials": "AC",
+      "contributorType": "non-author",
+      "contributions": [
+        {
+          "role": "Conceptualization",
+          "score": 0
+        },
+        {
+          "role": "Data curation",
+          "score": 0
+        },
+        {
+          "role": "Formal analysis",
+          "score": 0
+        },
+        {
+          "role": "Funding acquisition",
+          "score": 0
+        },
+        {
+          "role": "Investigation",
+          "score": 0
+        },
+        {
+          "role": "Methodology",
+          "score": 0
+        },
+        {
+          "role": "Project administration",
+          "score": 0
+        },
+        {
+          "role": "Resources",
+          "score": 20
+        },
+        {
+          "role": "Software",
+          "score": 0
+        },
+        {
+          "role": "Supervision",
+          "score": 0
+        },
+        {
+          "role": "Validation",
+          "score": 0
+        },
+        {
+          "role": "Visualization",
+          "score": 0
+        },
+        {
+          "role": "Writing – original draft",
+          "score": 0
+        },
+        {
+          "role": "Writing – review & editing",
+          "score": 0
+        }
+      ],
+      "equalContribution": false,
+      "corresponding": false
+    }
+  ]
+}
