@@ -18,7 +18,7 @@ packages meet a certain quality standard and work properly for everyone.
   for bugs to slip in. If you find a mistake or bug after the package is
   accepted, you can simply submit a patch release.) If your package includes a
   template, it should compile out-of-the-box. In particular, it should use the
-  absolute package-style import and not a relative file import (i.e
+  absolute package-style import and not a relative file import (i.e.
   `@preview/my-package:0.1.0` rather than `../lib.typ`).
 
 - **Documentation:** Your package must include a `README.md` file, documenting
@@ -80,6 +80,15 @@ avoid common pitfalls. They are split into the following categories:
 When a package's PR has been merged and CI has completed, the package will be
 available for use. However, it can currently take up to 30 minutes until the package
 will be visible on [Typst Universe][universe].
+
+## Submission limits
+
+To encourage long term maintenance of packages, a single author can only
+maintain four different packages. If need be, this limit can be raised on a
+case by case basis. A maintainer willing to have their limit raised should
+send an email to `hello@typst.app` beforehand, explaining their situation. The
+Typst Universe team will then accept the demand or not, given the context and
+maintenance history.
 
 ## Fixing or removing a package
 
