@@ -10,7 +10,8 @@
 #let _rule(weight) = line(length: 100%, stroke: weight + black)
 
 // Separator for inline lists: Belgrade · email · phone
-#let sep = h(0.45em) + sym.dot.c + h(0.45em)
+// Lines break after a dot, never inside an item.
+#let sep = [#h(0.2em)~#sym.dot.c#h(0.2em) ]
 
 // Main template. Use with: #show: resume.with(name: "...", ...)
 #let resume(
@@ -49,7 +50,7 @@
   align(center, stack(
     spacing: 7pt,
     text(size: 2.25 * font-size, weight: "bold", fill: accent, name),
-    text(size: 0.93 * font-size, contact.join(sep)),
+    text(size: 0.93 * font-size, contact.map(box).join(sep)),
   ))
   if headline != none {
     v(4pt)
@@ -85,8 +86,7 @@
     )
   } else {
     // Each skill is an unbreakable box; lines break only after a dot.
-    let dot = [#h(0.2em)~#sym.dot.c#h(0.2em) ]
-    block(above: 0pt, below: 0pt, par(leading: 0.62em, all.map(box).join(dot)))
+    block(above: 0pt, below: 0pt, par(leading: 0.62em, all.map(box).join(sep)))
   }
 }
 
@@ -116,7 +116,7 @@
 ]
 
 // Plain line for certifications and languages: inline("A", "B", "C")
-#let inline(..items) = block(above: 0pt, below: 0pt, items.pos().join(sep))
+#let inline(..items) = block(above: 0pt, below: 0pt, items.pos().map(box).join(sep))
 
 // Cover letter body in the same style. Use after #show: resume.with(...)
 #let letter(recipient: [], date: none, signature: none, body) = context {
