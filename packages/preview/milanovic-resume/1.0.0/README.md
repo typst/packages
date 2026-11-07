@@ -4,7 +4,7 @@ A one-page, single-column resume for software engineers. One column means the or
 
 The same design exists as a LaTeX class at [github.com/milanm/Milanovic-Resume](https://github.com/milanm/Milanovic-Resume), with a matching cover letter and a CI check for page count and text extraction.
 
-![Resume made with milanovic-resume](https://raw.githubusercontent.com/milanm/Milanovic-Resume/main/images/resume.png)
+![Resume made with milanovic-resume](https://raw.githubusercontent.com/milanm/Milanovic-Resume/v1.0.0/images/resume.png)
 
 ## Start
 
