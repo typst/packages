@@ -9,7 +9,7 @@ repository = "https://github.com/xmdjy/sdu-touying-template"
 keywords = ["touying", "slides", "sdu", "Shandong University", "山东大学"]
 categories = ["presentation"]
 compiler = "0.14.2"
-exclude = ["/assets/", "/template/*.pdf", "/dist/", "/.git/", "/.qoder/", "/.qorder/", "/.gitignore", "/SUBMISSION.md"]
+exclude = ["/assets/", "/dist/", "/.git/", "/.qoder/", "/.qorder/", "/.gitignore", "/SUBMISSION.md"]
 
 [template]
 path = "template"
