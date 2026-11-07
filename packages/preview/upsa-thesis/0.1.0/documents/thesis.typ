@@ -375,13 +375,13 @@ El contenido de `quote` conserva una atribución explícita. Para una cita real 
   full: true,
 )
 
-= Curriculum Vitae
+// = Curriculum Vitae
 
-#image(
-  "cv.svg",
-  alt: "Curriculum Vitae",
-  height: 1fr,
-)
+// #image(
+//   "cv.svg",
+//   alt: "Curriculum Vitae",
+//   height: 1fr,
+// )
 
 = Carta de Aprobación
 
