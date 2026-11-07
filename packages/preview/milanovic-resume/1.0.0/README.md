@@ -42,7 +42,7 @@ Prefer another font? Pass it: `font: "Source Sans Pro"`.
 #skills([Go, Python], [PostgreSQL], [Kubernetes], [AWS])
 
 = Professional Experience
-#job("Company", title: "Senior Engineer", location: "Berlin, Germany", dates: "2023 – Present")[
+#job("Company GmbH", title: "Senior Software Engineer", location: "Berlin, Germany", dates: "Mar 2023 – Present")[
   - Cut p95 latency from 900 ms to 180 ms by moving reads to a cache.
 ]
 

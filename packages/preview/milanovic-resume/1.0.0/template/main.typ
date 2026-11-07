@@ -44,14 +44,15 @@
 
 = Professional Experience
 
-#job("Company", title: "Title", location: "City, Country", dates: "2023 – Present")[
+// Full job title, company with its legal form (Inc., LLC, GmbH), dates as Mon YYYY.
+#job("Company Inc.", title: "Full Job Title", location: "City, Country", dates: "Mar 2023 – Present")[
   // Verb first, result last, a number in between.
   - Built X that did Y, measured by Z.
   - Reduced A by N% by changing B.
   - Led a team of N to deliver C in M weeks.
 ]
 
-#job("Company", title: "Title", location: "City, Country", dates: "2020 – 2023")[
+#job("Company LLC", title: "Full Job Title", location: "City, Country", dates: "Jun 2020 – Feb 2023")[
   - Result with a number.
   - Result with a number.
 ]
