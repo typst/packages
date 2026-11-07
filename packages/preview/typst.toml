@@ -1,0 +1,12 @@
+[package]
+name = "na-corexamen"
+version = "0.1.0"
+authors = ["Naam Mohamed"]
+license = "MIT"
+description = "Exam / assignment CORRECTION template for Typst, Arabic (RTL) and Latin (LTR: French, English, Spanish, German): same header as na-examen, free-form solutions cut automatically into a marking table (answer | marks) at each #mk, automatic total of each exercise, and an optional summary table of the whole exam."
+repository = "https://github.com/naam11/na-corexamen"
+keywords = ["arabic", "rtl", "french", "english", "correction", "marking", "grading", "exam", "school", "algeria"]
+categories = ["office"]
+entrypoint = "lib.typ"
+compiler = "0.13.0"
+exclude = ["examples", "documentationEN.typ", "documentationAR.typ"]
