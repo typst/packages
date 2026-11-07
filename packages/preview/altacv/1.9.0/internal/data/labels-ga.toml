@@ -1,0 +1,39 @@
+# Aistriúchán Gaeilge ar labels-en.toml: the labels for
+# `#set text(lang: "ga")`, over the English ones (`_translations` in
+# `defaults.typ`), so a key left out stays English.
+#
+# Translator note: section headings use idiomatic Irish CV vocabulary.
+# Some choices are stylistic — e.g. "Caitheamh Aimsire" (pastimes) for
+# `interests` reads more naturally than a literal "Spéiseanna".
+
+work         = "Taithí Oibre"
+volunteer    = "Obair Dheonach"
+focus-areas   = "Réimsí Saineolais"
+skills       = "Scileanna"
+languages    = "Teangacha"
+education    = "Oideachas"
+certificates = "Teastais"
+publications = "Foilseacháin"
+awards       = "Gradaim"
+projects     = "Tionscadail"
+interests    = "Caitheamh Aimsire"
+references   = "Teistiméireachtaí"
+references-available-on-request = "Teistiméireachtaí ar fáil ar iarratas."
+
+present = "I láthair"
+
+date     = "Dáta"
+location = "Suíomh"
+
+last-modified = "Nuashonraithe go deireanach"
+
+page-number = "Leathanach {current} / {total}"
+document-title = "{name} — CV"
+
+months = [
+  "Ean", "Fea", "Már", "Aib", "Bea", "Mei",
+  "Iúil", "Lún", "MFó", "DFó", "Sam", "Nol",
+]
+
+[publication-types]
+article = "Ailt"
