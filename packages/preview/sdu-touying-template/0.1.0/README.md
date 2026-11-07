@@ -15,10 +15,10 @@
 ```sh
 mkdir -p .typst/packages/preview/sdu-touying-template
 ln -s "$PWD" .typst/packages/preview/sdu-touying-template/0.1.0
-typst compile --package-path .typst/packages template/example.typ assets/example.pdf
+typst compile --package-path .typst/packages template/main.typ assets/example.pdf
 ```
 
-软链接只需建立一次。修改 [template/example.typ](template/example.typ) 后重新执行编译命令即可；[references.bib](template/references.bib) 是配套文献数据。[查看完整示例 PDF](assets/example.pdf)。首次编译需要联网获取已发布的依赖。
+软链接只需建立一次。修改 [template/main.typ](template/main.typ) 后重新执行编译命令即可；[references.bib](template/references.bib) 是配套文献数据。[查看完整示例 PDF](assets/example.pdf)。首次编译需要联网获取已发布的依赖。
 
 预备发布名称统一为 `sdu-touying-template`，包导入、清单和文档均使用小写名称。
 
@@ -31,7 +31,7 @@ typst compile --package-path .typst/packages template/example.typ assets/example
 ```sh
 typst init @preview/sdu-touying-template:0.1.0 my-slides
 cd my-slides
-typst compile example.typ
+typst compile main.typ
 ```
 
 最小文稿：

@@ -56,13 +56,13 @@
 
 == 从示例开始
 
-+ 从模板创建项目，修改生成的 `example.typ`。
++ 从模板创建项目，修改生成的 `main.typ`。
 + 在 `config-info` 中填写标题、副标题、作者、单位和日期。
 + 用一级标题组织章节，用二级标题创建内容页。
 + 在生成的项目目录编译，打开 PDF 检查版面。
 
 ```sh
-typst compile example.typ example.pdf
+typst compile main.typ example.pdf
 ```
 
 == 配置封面
