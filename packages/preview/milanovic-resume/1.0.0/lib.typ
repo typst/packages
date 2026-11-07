@@ -69,16 +69,25 @@
 // Short paragraph under the header.
 #let summary(body) = block(above: 7pt, below: 0pt, par(leading: 0.62em, body))
 
-// Two-column skills list. Left column first, then right: the order parsers read it in.
-#let skills(..items) = {
+// Skills. Default: one paragraph of items separated by middle dots, so every parser
+// reads them right after the SKILLS heading. `columns: true` gives the two-column
+// bullet list instead; it looks closer to a classic resume, but pdfminer.six reads
+// its left column before the heading.
+#let skills(..items, columns: false) = {
   let all = items.pos()
-  let half = calc.ceil(all.len() / 2)
-  grid(
-    columns: (1fr, 1fr),
-    column-gutter: 1.6em,
-    list(..all.slice(0, half)),
-    list(..all.slice(half)),
-  )
+  if columns {
+    let half = calc.ceil(all.len() / 2)
+    grid(
+      columns: (1fr, 1fr),
+      column-gutter: 1.6em,
+      list(..all.slice(0, half)),
+      list(..all.slice(half)),
+    )
+  } else {
+    // Each skill is an unbreakable box; lines break only after a dot.
+    let dot = [#h(0.2em)~#sym.dot.c#h(0.2em) ]
+    block(above: 0pt, below: 0pt, par(leading: 0.62em, all.map(box).join(dot)))
+  }
 }
 
 // One position. Bullets go in the body as a normal list.

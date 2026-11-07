@@ -1,10 +1,10 @@
 # milanovic-resume
 
-A one-page, single-column resume for software engineers. One column means the order you see is the order an applicant tracking system (ATS) reads. Ligatures are off by default, so words like "efficient" stay plain text for keyword search. Your name, keywords and title go into the PDF metadata.
+A one-page, single-column resume for software engineers. Everything sits in one column, skills included, so there is no second column for an applicant tracking system (ATS) to interleave with your job history. Ligatures are off by default, so words like "efficient" stay plain text for keyword search. Your name, keywords and title go into the PDF metadata.
 
 The same design exists as a LaTeX class at [github.com/milanm/Milanovic-Resume](https://github.com/milanm/Milanovic-Resume), with a matching cover letter and a CI check for page count and text extraction.
 
-![Resume made with milanovic-resume](https://raw.githubusercontent.com/milanm/Milanovic-Resume/v1.0.0/images/resume.png)
+![Resume made with milanovic-resume](https://raw.githubusercontent.com/milanm/Milanovic-Resume/v1.1.0/images/resume.png)
 
 ## Start
 
@@ -67,7 +67,7 @@ Prefer another font? Pass it: `font: "Source Sans Pro"`.
 | `resume.with(..)` | Page setup and header: `name`, `contact`, `headline`, `tagline`, `keywords` |
 | `summary[..]` | Short paragraph under the header |
 | `= Heading` | Centred section heading with rules above and below |
-| `skills(..)` | Two-column bullet list, read left column first |
+| `skills(..)` | Skills on one line, separated by dots; `columns: true` gives a two-column bullet list |
 | `job(company, title:, location:, dates:)[..]` | Position header, bullets in the body |
 | `project(name, info:, stack:)[..]` | Project header, bullets in the body |
 | `education(degree, school:, year:)` | Education line, use inside a list |
