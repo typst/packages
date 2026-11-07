@@ -1,0 +1,18 @@
+[package]
+name = "aidays"
+version = "0.1.0"
+entrypoint = "aidays.typ"
+authors = ["Olivier D'Ancona <@ODAncona>"]
+license = "MIT AND MIT-0"
+description = "Official paper template for Swiss AI Days 2027."
+repository = "https://gitlab.forge.hefr.ch/olivier.dancona/aidays-typst"
+keywords = ["Swiss AI Days", "AIDays", "conference", "machine learning", "CSIE-PME"]
+categories = ["paper"]
+disciplines = ["computer-science"]
+compiler = "0.15.0"
+exclude = ["*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
