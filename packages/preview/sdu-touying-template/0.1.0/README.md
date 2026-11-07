@@ -10,7 +10,7 @@
 
 ### 当前仓库（发布前）
 
-需要 Typst 0.14.2 或更新版本。在仓库根目录注册本地开发包并编译：
+需要 Typst 0.15.0 或更新版本。在仓库根目录注册本地开发包并编译：
 
 ```sh
 mkdir -p .typst/packages/preview/sdu-touying-template
@@ -37,7 +37,7 @@ typst compile example.typ
 最小文稿：
 
 ```typst
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.8.0": *
 #import "@preview/sdu-touying-template:0.1.0": *
 
 #show: sdu-theme.with(config-info(
@@ -71,6 +71,12 @@ typst compile example.typ
 | 数学公式 | 作者—年份引用 |
 | --- | --- |
 | ![数学公式](assets/4.png) | ![引用](assets/5.png) |
+
+## 依赖版本与兼容性
+
+最低编译器版本为 **Typst 0.15.0**。主题使用 Touying 0.8.0、Codly 2.0.0、codly-languages 0.1.10、gentle-clues 1.3.1 和 Lovelace 0.3.1；pinit 0.2.2、cuti 0.4.0 保持不变。
+
+代码块已迁移到 Codly 2 的 `codly.new` 和组件配置规则；自定义代码样式时应使用新版接口，旧版 `codly-init` 和 `codly(...)` 配置方式不再适用。
 
 ## 自定义与字体
 

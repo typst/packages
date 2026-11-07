@@ -1,9 +1,9 @@
-#import "@preview/touying:0.6.1": *
-#import "@preview/touying:0.6.1" as touyingpkg
-#import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.1": *
-#import "@preview/gentle-clues:1.3.0": *
-#import "@preview/lovelace:0.3.0": *
+#import "@preview/touying:0.8.0": *
+#import "@preview/touying:0.8.0" as touyingpkg
+#import "@preview/codly:2.0.0" as codly
+#import "@preview/codly-languages:0.1.10": *
+#import "@preview/gentle-clues:1.3.1": *
+#import "@preview/lovelace:0.3.1": *
 #import "@preview/pinit:0.2.2": *
 #import "@preview/cuti:0.4.0": show-cn-fakebold, show-cn-fakeitalic
 
@@ -253,7 +253,7 @@
 // built from `=` headings alone — or lists sitting under a `===` — never got
 // continued numbering at all.
 #let _sdu-continue-enums(body) = {
-  let children = if touyingpkg.utils.is-sequence(body) { body.children } else { (body,) }
+  let children = if touyingpkg.utils.tree.is-sequence(body) { body.children } else { (body,) }
   let in-section = false
   let next-number = 1
   let result = ()
@@ -271,7 +271,7 @@
       let label = fields.at("label", default: none)
       child = enum.item(number, child.body)
       if label != none {
-        child = touyingpkg.utils.label-it(child, label)
+        child = touyingpkg.utils.tree.label-it(child, label)
       }
       next-number = number + 1
     }
@@ -282,6 +282,8 @@
   result.sum(default: none)
 }
 
+// Keep backgrounds in config-page: nested page rules create blank trailing
+// pages with Touying 0.8's slide layout anchor.
 #let sdu-footer-height = 0.95cm
 
 // Full-width bar along the bottom of every slide: author | title | page.
@@ -350,14 +352,13 @@
 ) = touying-slide-wrapper(self => {
   let self = touyingpkg.utils.merge-dicts(
     self,
-    config-page(header: sdu-header, footer: sdu-footer, margin: (top: 4.4em, bottom: 1.6cm, left: 1.72cm, right: 1.45cm)),
+    config-page(background: _sdu-background(self), header: sdu-header, footer: sdu-footer, margin: (top: 4.4em, bottom: 1.6cm, left: 1.72cm, right: 1.45cm)),
   )
   touying-slide(
     self: self,
     config: config,
     repeat: repeat,
     setting: body => {
-      set page(background: _sdu-background(self))
       // Keep the slide body in the normal page flow. A wrapping `pad` loses
       // the page's top margin when it fragments, causing continuation content
       // to overlap the header and footer.
@@ -380,11 +381,10 @@
   self = touyingpkg.utils.merge-dicts(
     self,
     config-common(),
-    config-page(margin: (top: 0.8cm, bottom: 1.3cm, x: 1.6cm)),
+    config-page(background: _sdu-background(self), margin: (top: 0.8cm, bottom: 1.3cm, x: 1.6cm)),
   )
   let info = self.info + args.named()
   let body = {
-    set page(background: _sdu-background(self))
     set align(center + horizon)
     block(width: 100%, height: 100%, {
       v(1fr)
@@ -432,7 +432,7 @@
   self = touyingpkg.utils.merge-dicts(
     self,
     config-common(),
-    config-page(margin: (top: 1.4cm, bottom: 1.6cm, left: 2.2cm, right: 1.45cm)),
+    config-page(background: _sdu-background(self), margin: (top: 1.4cm, bottom: 1.6cm, left: 2.2cm, right: 1.45cm)),
   )
   let marker(n) = box(
     circle(radius: 0.62em, fill: self.colors.primary, inset: 0pt, align(center + horizon, text(
@@ -444,7 +444,6 @@
     ))),
   )
   let body = {
-    set page(background: _sdu-background(self))
     set align(left + horizon)
     if title != none {
       text(size: 1.4em, weight: "bold", fill: self.colors.primary, title)
@@ -477,10 +476,9 @@
 #let new-section-slide(config: (:), body) = touying-slide-wrapper(self => {
   self = touyingpkg.utils.merge-dicts(
     self,
-    config-page(margin: (top: 1.1cm, bottom: 1.1cm, x: 1.6cm)),
+    config-page(background: _sdu-background(self), margin: (top: 1.1cm, bottom: 1.1cm, x: 1.6cm)),
   )
   let layout = {
-    set page(background: _sdu-background(self))
     set align(left + horizon)
     block(width: 100%, height: 100%, {
       v(0.95fr)
@@ -502,7 +500,7 @@
   self = touyingpkg.utils.merge-dicts(
     self,
     config-common(new-section-slide-fn: none),
-    config-page(margin: (top: 1.4cm, bottom: 1.4cm, x: 1.6cm)),
+    config-page(background: _sdu-background(self), margin: (top: 1.4cm, bottom: 1.4cm, x: 1.6cm)),
   )
   let final-body = if body == auto {
     [
@@ -517,7 +515,6 @@
     body
   }
   let layout = {
-    set page(background: _sdu-background(self))
     block(width: 100%, align(center + horizon, final-body))
   }
   touying-slide(self: self, config: config, align(center + horizon, layout))
@@ -560,7 +557,9 @@
       init: (self: none, body) => {
         set text(font: font)
         show raw: set text(font: mono-font)
-        show: codly-init.with()
+        show: codly.set_(gutters: ())
+        show: codly.lang-set_(languages: codly-languages)
+        show: codly.line-set_(fill: luma(245))
         show: show-cn-fakebold
         show: show-cn-fakeitalic
         show heading: set text(self.colors.primary)
@@ -607,13 +606,10 @@
           text(fill: self.colors.primary, it.supplement + [ ] + context it.counter.display(it.numbering) + it.separator)
           it.body
         }
-        codly(
-          languages: codly-languages,
-          number-format: none,
-          zebra-fill: none,
-          fill: luma(245),
+        show raw.where(block: true): it => align(
+          center,
+          block(width: 90%, align(left, codly.new(it))),
         )
-        show raw.where(block: true): it => align(center, block(width: 90%, align(left, it)))
         body
       },
       alert: touyingpkg.utils.alert-with-primary-color,

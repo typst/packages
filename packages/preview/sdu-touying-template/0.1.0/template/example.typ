@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.8.0": *
 #import "@preview/sdu-touying-template:0.1.0": *
 
 #show: sdu-theme.with(config-info(
@@ -70,7 +70,7 @@ typst compile example.typ example.pdf
 文件开头导入主题，再通过 `config-info` 填写报告信息。
 
 ```typst
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.8.0": *
 #import "@preview/sdu-touying-template:0.1.0": *
 #show: sdu-theme.with(config-info(
   title: [报告标题],
