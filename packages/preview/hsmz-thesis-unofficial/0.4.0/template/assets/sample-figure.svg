@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200" font-family="Arial, Liberation Sans, Arimo, sans-serif" font-size="12">
+  <!-- example chart for the sample thesis (fictitious data) -->
+  <line x1="50" y1="170" x2="380" y2="170" stroke="#000" />
+  <line x1="50" y1="20" x2="50" y2="170" stroke="#000" />
+  <rect x="80" y="110" width="50" height="60" fill="#7f7f7f" />
+  <rect x="170" y="80" width="50" height="90" fill="#7f7f7f" />
+  <rect x="260" y="40" width="50" height="130" fill="#7f7f7f" />
+  <text x="105" y="188" text-anchor="middle">2022</text>
+  <text x="195" y="188" text-anchor="middle">2023</text>
+  <text x="285" y="188" text-anchor="middle">2024</text>
+  <text x="105" y="104" text-anchor="middle">40 %</text>
+  <text x="195" y="74" text-anchor="middle">60 %</text>
+  <text x="285" y="34" text-anchor="middle">87 %</text>
+</svg>
