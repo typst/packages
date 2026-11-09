@@ -1,8 +1,8 @@
 #import "@preview/touying:0.8.0": *
-#import "@preview/sdu-touying-template:0.1.0": *
+#import "@preview/sdu-smpl-slides:0.1.0": *
 
 #show: sdu-theme.with(config-info(
-  title: [sdu-touying-template],
+  title: [sdu-smpl-slides],
   subtitle: [template example based on touying],
   author: [山东大学计算机学院 刁程明],
   institution: [#link("mailto:xmdjy703@gmail.com")[xmdjy703\@gmail.com]],
@@ -71,7 +71,7 @@ typst compile main.typ example.pdf
 
 ```typst
 #import "@preview/touying:0.8.0": *
-#import "@preview/sdu-touying-template:0.1.0": *
+#import "@preview/sdu-smpl-slides:0.1.0": *
 #show: sdu-theme.with(config-info(
   title: [报告标题],
   subtitle: [报告副标题],

@@ -1,8 +1,8 @@
-# sdu-touying-template
+# sdu-smpl-slides
 
 基于 Touying 的山东大学风格学术演示文稿，支持中文排版、目录、红色列表标记、三线表、数学公式、代码与作者—年份引用。
 
-展示名称为 **sdu-touying-template**，拟提交的包标识为 **`sdu-touying-template`**。这是社区维护的非官方模板，尚未发布到 Typst Universe。
+展示名称为 **sdu-smpl-slides**，拟提交的包标识为 **`sdu-smpl-slides`**。这是社区维护的非官方模板，尚未发布到 Typst Universe。
 
 ![封面](assets/1.png)
 
@@ -13,14 +13,14 @@
 需要 Typst 0.15.0 或更新版本。在仓库根目录注册本地开发包并编译：
 
 ```sh
-mkdir -p .typst/packages/preview/sdu-touying-template
-ln -s "$PWD" .typst/packages/preview/sdu-touying-template/0.1.0
+mkdir -p .typst/packages/preview/sdu-smpl-slides
+ln -s "$PWD" .typst/packages/preview/sdu-smpl-slides/0.1.0
 typst compile --package-path .typst/packages template/main.typ assets/example.pdf
 ```
 
 软链接只需建立一次。修改 [template/main.typ](template/main.typ) 后重新执行编译命令即可；[references.bib](template/references.bib) 是配套文献数据。[查看完整示例 PDF](assets/example.pdf)。首次编译需要联网获取已发布的依赖。
 
-预备发布名称统一为 `sdu-touying-template`，包导入、清单和文档均使用小写名称。
+预备发布名称统一为 `sdu-smpl-slides`，包导入、清单和文档均使用小写名称。
 
 仓库中的编译 PDF 保存在 `assets/`，供 README 预览使用；`assets/` 已从包下载内容排除。`template/` 仅保留初始化项目需要的源文件与文献数据。
 
@@ -29,7 +29,7 @@ typst compile --package-path .typst/packages template/main.typ assets/example.pd
 以下命令需等待包正式发布后使用：
 
 ```sh
-typst init @preview/sdu-touying-template:0.1.0 my-slides
+typst init @preview/sdu-smpl-slides:0.1.0 my-slides
 cd my-slides
 typst compile main.typ
 ```
@@ -38,7 +38,7 @@ typst compile main.typ
 
 ```typst
 #import "@preview/touying:0.8.0": *
-#import "@preview/sdu-touying-template:0.1.0": *
+#import "@preview/sdu-smpl-slides:0.1.0": *
 
 #show: sdu-theme.with(config-info(
   title: [报告标题],
@@ -97,7 +97,7 @@ typst compile main.typ
 
 ## 许可与素材来源
 
-项目原创代码及示例采用 [MIT](LICENSE) 许可，通过包系统导入的 Touying、Codly 等依赖保留各自许可。
+项目原创代码及示例采用 [MIT](LICENSE) 许可，通过包系统导入的 Touying、Codly 等依赖保留各自许可。素材图片符合[山东大学名誉管理办法](https://www.dbxb.sdu.edu.cn/info/1039/1984.htm)，所有素材来源均来自官方网站。
 
 ## 致谢
 

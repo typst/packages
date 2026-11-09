@@ -316,7 +316,7 @@
 
 #let _sdu-background(self) = {
   let width = if self.show-notes-on-second-screen == right { 50% } else { 100% }
-  place(left + bottom, image("image/sdu_bg.png", width: width))
+  place(left + bottom, block(width: width, self.store.background))
   place(left + bottom, block(width: width, _sdu-footer-bar(self)))
 }
 
@@ -335,7 +335,7 @@
         fill: self.colors.neutral-darkest,
         _display-page-heading(self),
       )),
-      align(right + horizon, image("image/sdu_logo.svg", height: 2.52cm)),
+      align(right + horizon, box(height: 2.52cm, self.store.logo)),
     ),
     align(left, line(length: 100%, stroke: (paint: self.colors.primary, thickness: 1.05pt))),
   )
@@ -417,7 +417,7 @@
         block(above: 1.1em, touyingpkg.utils.display-info-date(self))
       }
       v(0.8fr)
-      image("image/sdu_logo.svg", height: 3.2cm)
+      box(height: 3.2cm, self.store.logo)
       v(0.6fr)
     })
   }
@@ -531,6 +531,8 @@
   mono-font: ("Maple Mono", "Menlo", "DejaVu Sans Mono"),
   footer-right: context str(touyingpkg.utils.slide-counter.get().first() + 1) + " / " + touyingpkg.utils.last-slide-number,
   primary: rgb("#8C1D1D"),
+  logo: image("image/sdu_logo.svg", height: 100%),
+  background: image("image/sdu_bg.png", width: 100%),
   ..args,
   body,
 ) = {
@@ -623,6 +625,8 @@
     ),
     config-store(
       footer-right: footer-right,
+      logo: logo,
+      background: background,
     ),
     ..args,
   )
