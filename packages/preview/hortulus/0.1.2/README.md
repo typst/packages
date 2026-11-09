@@ -38,6 +38,10 @@ The same page with other options. Above: `density: 0.4`, `density: 2`, `visitors
 
 <img src="images/tuning.jpg" alt="Eight pages showing density, visitors, mix, palette, ornaments and draft" width="100%">
 
+The same four pages with `growth: "classic"` above and `growth: "natural"` below, in `spring`, `plum`, `winter` and `rose`: natural side branches leave the main stem, branch again and end in blooms.
+
+<img src="images/growth.jpg" alt="Eight pages: four with the classic shoots beside the main stem, and the same four with natural branches ending in blooms" width="100%">
+
 The plant grows around what the page holds: a gap in the text, a table and an equation, a floating figure, and two columns with `layout: "split"`.
 
 <img src="images/content.jpg" alt="Four pages where the flora fills a gap, surrounds a table and an equation, stops at a floating figure, and follows two columns" width="100%">
