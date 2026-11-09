@@ -34,7 +34,7 @@ Import the package and apply `mtt-thesis` as a show rule:
 Your thesis starts here.
 ```
 
-A complete example is available in [`simple.typ`](simple.typ). It demonstrates all modules and can be copied as a starting point for a thesis. Its bibliography data is in [`references.bib`](references.bib) (using a standard BibTeX file).
+A complete example is available in [`example.typ`](example.typ). It demonstrates all modules and can be copied as a starting point for a thesis. Its bibliography data is in [`references.bib`](references.bib) (using a standard BibTeX file).
 
 ## Modules
 
