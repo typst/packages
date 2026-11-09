@@ -1,6 +1,6 @@
 /// Markdown-style sugar: `> ` blockquotes, `---` section rules, `[label](url)` links, `![alt](path)` images, visible link styling.
-/// Package code can't resolve paths relative to the caller, so images need `#show: md_parity_prelude.with(img: p => image(p))`
-#let md_parity_prelude(doc, img: none) = {
+/// Package code can't resolve paths relative to the caller, so images need `#show: md-parity-prelude.with(img: p => image(p))`
+#let md-parity-prelude(doc, img: none) = {
   // `---` is already an em-dash shorthand by the time show rules run; alone in a paragraph it's a section split
   show regex("^—$"): _ => block(above: 1.4em, below: 1.4em, line(length: 100%, stroke: 0.5pt + luma(180)))
 

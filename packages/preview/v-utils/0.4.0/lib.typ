@@ -1,5 +1,6 @@
 #import "math.typ": *
 #import "md.typ": *
+#import "html.typ": *
 
 /// Recursively extract plain text from content
 #let to-string(content) = {
@@ -74,8 +75,8 @@
 }
 
 #let prelude(doc, img: none) = [
-  #show: md_parity_prelude.with(img: img)
-  #show: math_notes_prelude
+  #show: md-parity-prelude.with(img: img)
+  #show: math-notes-prelude
   #set page(margin: (y: 0.2cm)) //Q: was `0cm` before, but I'm trying to make a pagebreak not be less then literally space between line_1\n\nline_2
   #set text(fallback: false)
 
