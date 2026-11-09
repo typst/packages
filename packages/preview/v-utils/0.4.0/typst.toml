@@ -1,0 +1,12 @@
+[package]
+name = "v-utils"
+version = "0.4.0"
+entrypoint = "lib.typ"
+authors = ["Valera <@valeratrades>"]
+license = "MIT"
+description = "Math note presets: shorthands, heading labels, markdown sugar, HTML export for paper templates."
+repository = "https://github.com/valeratrades/typ_utils"
+keywords = ["math", "notes", "markdown", "labels", "shorthands"]
+categories = ["model", "text"]
+disciplines = ["mathematics"]
+compiler = "0.14.0"

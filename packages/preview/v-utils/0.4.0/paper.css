@@ -1,0 +1,46 @@
+/* `html-paper` default sheet: screen-reading counterpart of a print paper layout, one centered measure. */
+html { font-size: 19px; -webkit-text-size-adjust: 100%; color-scheme: light dark; }
+body {
+  max-width: 40em;
+  margin: 3rem auto 6rem;
+  padding: 0 1.1rem;
+  font-family: Charter, Georgia, "Times New Roman", serif;
+  line-height: 1.55;
+  color: #2a2a2a;
+  background: #fdfdfc;
+}
+p { margin: 0.9em 0; hyphens: auto; }
+a { color: #2a66d9; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+body > h1 { font-size: 1.8em; line-height: 1.2; text-align: center; margin: 0 0 0.4em; }
+body > .authors { text-align: center; font-style: italic; margin-bottom: 2.5em; }
+body > h2 { font-size: 1.15em; font-variant-caps: small-caps; text-align: center; margin: 2.2em 0 0.6em; }
+body > h3 { font-size: 1.05em; font-style: italic; font-weight: normal; margin: 1.8em 0 0.4em; }
+body > h4 { font-size: 1em; font-style: italic; font-weight: normal; margin: 1.4em 0 0.3em; }
+
+math[display="block"] { margin: 1em 0; overflow-x: auto; overflow-y: hidden; }
+
+figure { margin: 2em 0; }
+/* charged-ieee sets captions as a block, which HTML export emits as the figure's trailing div. */
+figure > :is(figcaption, div:last-child) { font-size: 0.85em; color: #666; line-height: 1.4; text-align: center; margin-top: 0.8em; }
+img, svg { max-width: 100%; height: auto; }
+
+/* A table wider than the measure scrolls itself rather than the page. */
+table {
+  border-collapse: collapse;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5em auto;
+  font-size: 0.9em;
+}
+th, td { border: 1px solid #ddd; padding: 0.35em 0.7em; white-space: nowrap; }
+
+@media (prefers-color-scheme: dark) {
+  body { color: #d9dce1; background: #14171c; }
+  a { color: #7aa7ff; }
+  figure > :is(figcaption, div:last-child) { color: #9aa1ab; }
+  th, td { border-color: #3a3f47; }
+}
