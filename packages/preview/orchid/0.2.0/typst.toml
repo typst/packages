@@ -2,7 +2,7 @@
 [package]
 name = "orchid"
 version = "0.2.0"
-exclude = ["docs/manual.typ"]
+exclude = ["docs/"]
 entrypoint = "lib.typ"
 authors = ["Jassiel Ovando <@jassielof>"]
 keywords = ["orcid", "orcidlink"]
