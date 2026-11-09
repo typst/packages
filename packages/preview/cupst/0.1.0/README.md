@@ -265,7 +265,7 @@ The repository contains two complete examples:
 
 - [`template/main.typ`](https://github.com/sun-jiao/cupst/blob/47359a1676fc9fcb95971e4bbe69479291d8b18c/template/main.typ) —
   English, two-column `publish` layout.
-- [`template/main.typ`](https://github.com/sun-jiao/cupst/blob/47359a1676fc9fcb95971e4bbe69479291d8b18c/template/main.typ) —
+- [`template_zh/main.typ`](https://github.com/sun-jiao/cupst/blob/47359a1676fc9fcb95971e4bbe69479291d8b18c/template_zh/main.typ) —
   Chinese, single-column `publish` layout.
 
 Compile them after cloning the repository:
