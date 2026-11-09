@@ -263,16 +263,15 @@ Please note that languages except English and Chinese are machine translated. Pl
 
 The repository contains two complete examples:
 
-- [`example.typ`](https://github.com/sun-jiao/cupst/blob/master/example.typ) —
+- [`template/main.typ`](https://github.com/sun-jiao/cupst/blob/47359a1676fc9fcb95971e4bbe69479291d8b18c/template/main.typ) —
   English, two-column `publish` layout.
-- [`example_zh.typ`](https://github.com/sun-jiao/cupst/blob/master/example_zh.typ) —
+- [`template/main.typ`](https://github.com/sun-jiao/cupst/blob/47359a1676fc9fcb95971e4bbe69479291d8b18c/template/main.typ) —
   Chinese, single-column `publish` layout.
 
 Compile them after cloning the repository:
 
 ```sh
-typst compile example.typ
-typst compile example_zh.typ
+typst compile main.typ
 ```
 
 Both examples import the development version of the package from `cupst.typ`
