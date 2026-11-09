@@ -1,11 +1,11 @@
-// pzai-expose.typ -- a Typst version of the pzai example from https://github.com/th-nuernberg/pzai-expose
+// pzai-expose-unofficial.typ -- a Typst version of the pzai example from https://github.com/th-nuernberg/pzai-expose
 //
 // Mirrors:  \documentclass[11pt, DIV=16, parskip=half]{scrartcl}
 //
 // Usage:
-// #import "pzai-expose.typ": pzai-expose
+// #import "pzai-expose-unofficial.typ": pzai-expose-unofficial
 //
-// #show: pzai-expose.with(
+// #show: pzai-expose-unofficial.with(
 //   title: [A fancy and very good title],
 //   author: [Mulmus Autorus],
 //   email: "mulmus.autorus@uni.edu",
@@ -27,7 +27,7 @@
   THN: "Technische Hochschule Nürnberg Georg Simon Ohm",
 )
 
-#let pzai-expose(
+#let pzai-expose-unofficial(
   title: none,
   subtitle: none,
   author: none,

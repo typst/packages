@@ -1,6 +1,6 @@
-# pzai-expose
+# pzai-expose-unofficial
 
-This is a template for a PhD expose at the [ Promotionszentrum Angewandte Informatik (PZAI)](https://www.oth-regensburg.de/forschen/promotion/promotionszentren/pzai). 
+This is an unofficial template for a PhD expose at the [ Promotionszentrum Angewandte Informatik (PZAI)](https://www.oth-regensburg.de/forschen/promotion/promotionszentren/pzai). 
 
 LaTeX template is on [GitHub](https://github.com/th-nuernberg/pzai-expose) and [Overleaf](https://www.overleaf.com/project/66fbc1c1774e1bb09da12308)
 

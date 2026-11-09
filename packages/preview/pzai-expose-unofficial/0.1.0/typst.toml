@@ -1,5 +1,5 @@
 [package]
-name = "pzai-expose"
+name = "pzai-expose-unofficial"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Simon Mederer <https://github.com/MedSim9906>"]
