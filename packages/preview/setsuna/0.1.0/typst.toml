@@ -1,0 +1,11 @@
+[package]
+
+name = "setsuna"
+version = "0.1.0"
+entrypoint = "setsuna.typ"
+authors = ["@Neruthes"]
+license = "MIT"
+description = "Freeze a moment of style state."
+repository = "https://github.com/neruthes/typstpkg-setsuna"
+keywords = ["Style", "Styling"]
+categories = ["utility"]
