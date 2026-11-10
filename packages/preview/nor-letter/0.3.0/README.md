@@ -27,7 +27,7 @@ The template is reasonably heavy on code and named fields, to ensure uniform out
 A simple example showing usage of the most common metadata fields:
 
 ```typ
-#import "@local/nor-letter:0.3.0": letter, indented, signature, colors
+#import "@preview/nor-letter:0.3.0": letter, indented, signature, colors
 
 #show: letter.with(
   // ── DOCUMENT DATA ───────────────────────────────────────────────────
