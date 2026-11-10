@@ -159,7 +159,7 @@ This is a simple usage example:
 
 # Sample slides
 
-<kbd><img src="img/slide-1.svg" alt="Slide 1" width="300"></kbd> <kbd><img src="img/slide-2.svg" alt="Slide 2" width="300"></kbd> <kbd><img src="img/slide-3.svg" alt="Slide 3" width="300"></kbd> <kbd><img src="img/slide-4.svg" alt="Slide 4" width="300"></kbd> <kbd><img src="img/slide-5.svg" alt="Slide 5" width="300"></kbd> <kbd><img src="img/slide-6.svg" alt="Slide 6" width="300"></kbd> <kbd><img src="img/slide-7.svg" alt="Slide 7" width="300"></kbd> <kbd><img src="img/slide-8.svg" alt="Slide 8" width="300"></kbd> <kbd><img src="img/slide-9.svg" alt="Slide 9" width="300"></kbd>
+<kbd><img src="img/slide-01.svg" alt="Slide 1" width="300"></kbd> <kbd><img src="img/slide-02.svg" alt="Slide 2" width="300"></kbd> <kbd><img src="img/slide-03.svg" alt="Slide 3" width="300"></kbd> <kbd><img src="img/slide-04.svg" alt="Slide 4" width="300"></kbd> <kbd><img src="img/slide-05.svg" alt="Slide 5" width="300"></kbd> <kbd><img src="img/slide-06.svg" alt="Slide 6" width="300"></kbd> <kbd><img src="img/slide-07.svg" alt="Slide 7" width="300"></kbd> <kbd><img src="img/slide-08.svg" alt="Slide 8" width="300"></kbd> <kbd><img src="img/slide-09.svg" alt="Slide 9" width="300"></kbd><kbd><img src="img/slide-10.svg" alt="Slide 10" width="300"></kbd><kbd><img src="img/slide-11.svg" alt="Slide 11" width="300"></kbd><kbd><img src="img/slide-12.svg" alt="Slide 12" width="300"></kbd>
 
 # Presentation setup
 
