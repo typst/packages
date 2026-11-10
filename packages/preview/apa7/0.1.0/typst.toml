@@ -8,7 +8,7 @@ description = "APA 7th Edition paper for student and professional manuscripts."
 repository = "https://github.com/Row0902/apa7"
 keywords = ["apa", "apa7", "paper", "academic", "accessible", "statistics"]
 categories = ["paper"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 exclude = ["/assets", "/docs", "/examples", ".git*"]
 
 [template]
