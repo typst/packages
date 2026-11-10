@@ -8,10 +8,14 @@ description = "Modular thesis template with configurable front matter and docume
 repository = "https://github.com/janjoch/typst-modular-thesis-template"
 keywords = ["thesis", "ETH Zurich", "academic writing", "front matter"]
 categories = ["thesis"]
-
 exclude = [
   "/playground*",
   "/example.typ",
   "/example.pdf",
   "/references.bib",
 ]
+
+[template]
+path = "template"
+entrypoint = "mtt.typ"
+thumbnail = "thumbnail.png"

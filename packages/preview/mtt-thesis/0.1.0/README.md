@@ -57,6 +57,9 @@ A complete example is available in [`example.typ`](example.typ). It demonstrates
 
 `mtt-figures`, `mtt-tables`, `mtt-codes`, and `mtt-todos` accept an optional `title` argument. `mtt-figures` also accepts a `kind` argument when a custom figure kind is needed.
 
+## Example
+![Example Cover Page](thumbnail.png)
+
 ## Dependencies
 
 The package uses these Typst Universe packages:
