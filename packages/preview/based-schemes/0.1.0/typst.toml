@@ -4,6 +4,6 @@ version = "0.1.0"
 entrypoint = "lib.typ"
 authors = [ "Madeline Hashcube" ]
 categories = [ "fun" ]
-exclude = [ "README.md" ]
+exclude = [ ]
 license = "MIT"
 description = "Use Base16/Base24 schemes with ease"
