@@ -103,7 +103,7 @@ This template does not include the official NTNU logo. There are usually copyrig
 
 ```typst
 #master-piece-ntnu(
-  ...
+  // ...
   logo: image("assets/ntnu-logo.png", width: 45mm),
 )
 ```
