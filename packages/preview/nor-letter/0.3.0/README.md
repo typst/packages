@@ -48,7 +48,7 @@ A simple example showing usage of the most common metadata fields:
     123 Post Street
     Anytown, USA
   ],
-  secondary-address: ("Copy:" [J. Chiles \ Attorney at Law]),
+  secondary-address: ("Copy:", [J. Chiles \ Attorney at Law]),
 
   // ── LABEL OVERRIDES ─────────────────────────────────────────────────
   labels: (handler: "Drafted by"),
