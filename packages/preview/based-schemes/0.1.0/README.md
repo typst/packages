@@ -1,7 +1,7 @@
 # based-schemes
 
 `based-schemes` is a [Typst](https://typst.app) package that lets you use 
-[Base16](https://github.com/tinted-theming/home/blob/main/styling.md) and
+[Base16](https://github.com/tinted-theming/home/blob/6ab665876b686f2da3212d61a782811fa9c1c2fa/styling.md) and
 [Base24](https://github.com/tinted-theming/base24) schemes in your documents.
 
 ```typ
@@ -32,7 +32,7 @@ Example: `red` is an alias for `base08`.
 ## Caveats
 
 - Only able to read from a file
-- Does not support [Tinted8](https://github.com/tinted-theming/home/blob/main/specs/tinted8/styling.md)
+- Does not support [Tinted8](https://github.com/tinted-theming/home/blob/6ab665876b686f2da3212d61a782811fa9c1c2fa/specs/tinted8/styling.md)
 - Rather leniant parsing (although this may be a good thing in some cases)
 - The code kinda sucks
 
