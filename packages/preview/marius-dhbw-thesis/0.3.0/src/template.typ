@@ -75,7 +75,9 @@
   // Titelblatt
   // ----------------------------------------------------------
   company-logo: none,
+  company-logo-align: left + top,
   university-logo: none,
+  university-logo-align: right + top,
 
   institution-name: auto,
 
@@ -423,27 +425,38 @@
     ),
   ).filter(row => has-value(row.at(1)))
 
+  let title-logos = context {
+    let company-logo-height = if company-logo == none {
+      0pt
+    } else {
+      measure(company-logo).height
+    }
+    let university-logo-height = if university-logo == none {
+      0pt
+    } else {
+      measure(university-logo).height
+    }
+    let logo-area-height = calc.max(
+      company-logo-height,
+      university-logo-height,
+    )
+
+    block(width: 100%, height: logo-area-height)[
+      #if company-logo != none {
+        place(company-logo-align, company-logo)
+      }
+      #if university-logo != none {
+        place(university-logo-align, university-logo)
+      }
+    ]
+  }
+
   // ==========================================================
   // Titelblatt
   // ==========================================================
 
   let titlepage = page(numbering: none)[
-    #grid(
-      columns: (1fr, 1fr),
-      column-gutter: 0pt,
-
-      align(left)[
-        #if company-logo != none {
-          company-logo
-        }
-      ],
-
-      align(right)[
-        #if university-logo != none {
-          university-logo
-        }
-      ],
-    )
+    #title-logos
 
     #v(2.5em)
 
