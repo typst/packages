@@ -2,7 +2,7 @@
 
 An easy way to render variation table on typst, built on [Cetz](https://github.com/cetz-package/cetz)\
 The [documention](https://github.com/Le-foucheur/Typst-VarTable/blob/f30b7a912bc8347ca6941f39d69997493f290fe1/documentationVE.pdf) ( English version )\
-La [documention](https://github.com/Le-foucheur/Typst-VarTable/blob/f30b7a912bc8347ca6941f39d69997493f290fe1/documentationVE.pdf) ( Version française )
+La [documention](https://github.com/Le-foucheur/Typst-VarTable/blob/f30b7a912bc8347ca6941f39d69997493f290fe1/documentationVF.pdf) ( Version française )
 
 
 ```js
