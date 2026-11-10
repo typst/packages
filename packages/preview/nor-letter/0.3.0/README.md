@@ -27,13 +27,13 @@ The template is reasonably heavy on code and named fields, to ensure uniform out
 A simple example showing usage of the most common metadata fields:
 
 ```typ
-#import "@preview/nor-letter:0.3.0": letter, indented, signature, colors
+#import "@local/nor-letter:0.3.0": letter, indented, signature, colors
 
 #show: letter.with(
   // ── DOCUMENT DATA ───────────────────────────────────────────────────
   subject:        "Very important message",
   doc-type:       none,         doc-type-code:  none,
-  marking:        Draft,
+  marking:        "Draft",
 
   date:       "2026-10-10",
   our-ref:    "26-1200/23",       revision: none,
@@ -44,8 +44,8 @@ A simple example showing usage of the most common metadata fields:
   // ── RECIPIENT ───────────────────────────────────────────────────────
   recipient-lead: "Electronic distribution",
   recipient: [
-    Recip Co
-    123 Post Street
+    Recip Co \
+    123 Post Street \ 
     Anytown, USA
   ],
   secondary-address: ("Copy:", [J. Chiles \ Attorney at Law]),
@@ -88,6 +88,7 @@ The body text of our very important and and well-considered letter goes here. So
 Yours,
 
 #signature()[Art Vandelay \ Architect][Babs K. \ Attendant]
+
 ```
 
 ## Development
