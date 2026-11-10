@@ -143,6 +143,8 @@ document page.
     [Place content in a breakable figure and infer its figure kind when requested.],
     [mtt-code-sample],
     [Place a breakable code sample in a raw figure with a configurable caption and label.],
+    [mtt-space-equally],
+    [Basically a grid, but with equal spacing in between the elements. \ Useful to distribute elements along a line or page.],
   ),
   caption: [Smaller helper functions.],
 )

@@ -119,6 +119,38 @@
   ]
 ]
 
+// Basically a grid, but with equal spacing in between the elements
+#let mtt-space-equally(
+  horizontal: true,
+  width: auto,
+  height: auto,
+  first-space: true,
+  last-space: true,
+  empty-cells: [],
+  ..args-grid,
+  elements,
+) = {
+  let N = elements.len()
+  let spacings = if first-space {(1fr, )} else {()} + (auto, 1fr) * N
+  let elems = if first-space {(empty-cells,)} else {()} + elements.zip((empty-cells,) * N).flatten()
+
+  box(
+    width: width,
+    height: height,
+    grid(
+      ..args-grid,
+      columns: if horizontal {
+        if last-space {spacings} else {spacings.slice(0, -1)}
+      } else {1fr},
+      rows: if not horizontal {
+        if last-space {spacings} else {spacings.slice(0, -1)}
+      } else {auto},
+        ..if last-space {elems} else {elems.slice(0, -1)},
+      //)
+    )
+  )
+}
+
 // Builds the thesis cover page
 #let mtt-coverpage(
   logo-left: [],
@@ -189,13 +221,24 @@
       set text(12pt)
 
       let elems = (
-        grid(
+
+        // logos
+        /*grid(
           columns: (auto, 1fr, auto),
           align: (left + horizon, center + horizon, right + horizon),
           //rows: 80pt,
           logo-left,
           logo-center,
           logo-right,
+        ),*/
+        mtt-space-equally(
+          first-space: false,
+          last-space: false,
+          (
+            logo-left,
+            logo-center,
+            logo-right,
+          ),
         ),
 
         // department
@@ -212,12 +255,9 @@
         
         // authors
         if(authors-horizontal) {
-          grid(
-            columns: (1fr, ) + (auto, 1fr) * authors.len(),
+          mtt-space-equally(
             align: center + top,
-            //stroke: 1pt + gray,
-            [],
-            ..authors.map(auth-mapper).zip(([],) * authors.len()).flatten(),
+            authors.map(auth-mapper)
           )
         } else {
           authors.map(auth-mapper)
@@ -264,14 +304,15 @@
         parse-supporters("Professor", "Professors", professors),
       ).flatten()
 
-      box(height: 100%, grid(
-        columns: auto,
-        rows: (auto,) + (1fr, auto) * (elems.len() - 1),
+      mtt-space-equally(
+        height: 100%,
+        width: 100%,
+        horizontal: false,
+        first-space: false,
+        last-space: false,
         align: horizon + center,
-        //stroke: blue,
-
-        ..elems.zip(([],) * elems.len()).flatten(),
-      ))
+        elems,
+      )
 
       
     },
