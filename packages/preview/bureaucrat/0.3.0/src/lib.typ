@@ -4,7 +4,7 @@
 // ╰─────────────────────────────────────────────────────────╯
 //
 // Project page: 
-// https://github.com/turbohanstad/typst-nor-letter
+// https://github.com/turbohanstad/typst-bureaucrat
 //
 // Norsk Standard 4129 (1995) is the latest (!) and most official Norwegian document
 // describing norms for business correspondence and other documents like minutes, memos

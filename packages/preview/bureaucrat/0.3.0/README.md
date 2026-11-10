@@ -1,4 +1,4 @@
-# typst-nor-letter
+# Bureaucrat
 A Typst business document/letter template conforming to the NS 4129:1995 standard (Kontordokumenter og blanketter - Utforming). This standard references ISO 6422:1985 (Layout key for trade documents).
 
 ## Purpose
@@ -27,7 +27,7 @@ The template is reasonably heavy on code and named fields, to ensure uniform out
 A simple example showing usage of the most common metadata fields:
 
 ```typ
-#import "@preview/nor-letter:0.3.0": letter, indented, signature, colors
+#import "@preview/bureaucrat:0.3.0": letter, indented, signature, colors
 
 #show: letter.with(
   // ── DOCUMENT DATA ───────────────────────────────────────────────────
@@ -92,4 +92,4 @@ Yours,
 ```
 
 ## Development
-Any comments or contributions are welcome, see https://github.com/turbohanstad/typst-nor-letter . 
+Any comments or contributions are welcome, see https://github.com/turbohanstad/typst-bureaucrat . 
