@@ -6,7 +6,7 @@
 
 [![Typst Compiler](https://img.shields.io/badge/typst-0.15.0-blue?style=flat-square&logo=typst)](https://typst.app/)
 [![Package Version](https://img.shields.io/badge/version-0.1.0-orange?style=flat-square)](typst.toml)
-[![Accessibility: PDF/UA-1](https://img.shields.io/badge/accessibility-PDF%2FUA--1-green?style=flat-square)](https://github.com/Row0902/apa7/blob/main/docs/accessibility.md)
+[![Accessibility: PDF/UA-1](https://img.shields.io/badge/accessibility-PDF%2FUA--1-green?style=flat-square)](https://github.com/Row0902/apa7/blob/v0.1.0/docs/accessibility.md)
 [![CI: Build Status](https://github.com/Row0902/apa7/actions/workflows/ci.yml/badge.svg)](https://github.com/Row0902/apa7/actions/workflows/ci.yml)
 [![released with: cutver](https://img.shields.io/badge/released%20with-cutver-0969da?style=flat-square&logo=git&logoColor=white)](https://github.com/cutver/cutver)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple?style=flat-square)](LICENSE)
@@ -40,15 +40,15 @@ Every preview below is compiled directly from our included Typst examples with n
 
 | Student Paper Title Page | Professional Paper Title Page |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Row0902/apa7/main/assets/preview-student-cover.png" width="380" alt="Preview of an APA 7 Student Title Page: Page number 1 in top-right header, bold centered paper title, author name Rowell Urbaez Reyes, institutional affiliation, course number, instructor name, and formatted assignment due date." /> | <img src="https://raw.githubusercontent.com/Row0902/apa7/main/assets/preview-professional-cover.png" width="380" alt="Preview of an APA 7 Professional Title Page: Running head MINIMAL APA7 in top-left, page number 1 in top-right, bold centered title, author name, affiliation, and Author Note section in the lower third with correspondence details." /> |
+| <img src="https://raw.githubusercontent.com/Row0902/apa7/v0.1.0/assets/preview-student-cover.png" width="380" alt="Preview of an APA 7 Student Title Page: Page number 1 in top-right header, bold centered paper title, author name Rowell Urbaez Reyes, institutional affiliation, course number, instructor name, and formatted assignment due date." /> | <img src="https://raw.githubusercontent.com/Row0902/apa7/v0.1.0/assets/preview-professional-cover.png" width="380" alt="Preview of an APA 7 Professional Title Page: Running head MINIMAL APA7 in top-left, page number 1 in top-right, bold centered title, author name, affiliation, and Author Note section in the lower third with correspondence details." /> |
 
 | Abstract & Keywords | Math & Statistics (APA 7) |
 | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/Row0902/apa7/main/assets/preview-abstract.png" width="380" alt="Preview of an APA 7 Abstract and Keywords page: Centered bold Level 1 heading Abstract, single unindented double-spaced paragraph, followed by an indented block with italicized label Keywords: and a list of five keywords." /> | <img src="https://raw.githubusercontent.com/Row0902/apa7/main/assets/preview-math-and-stats.png" width="380" alt="Preview of an APA 7 Spanish Body page: Theoretical definition block, display trigonometric limit with upright sen(x)/x = 1, indented block quote with double spacing, Level 2 heading Resultados Empíricos, and in-text statistical reporting with t-test and 95% confidence interval." /> |
+| <img src="https://raw.githubusercontent.com/Row0902/apa7/v0.1.0/assets/preview-abstract.png" width="380" alt="Preview of an APA 7 Abstract and Keywords page: Centered bold Level 1 heading Abstract, single unindented double-spaced paragraph, followed by an indented block with italicized label Keywords: and a list of five keywords." /> | <img src="https://raw.githubusercontent.com/Row0902/apa7/v0.1.0/assets/preview-math-and-stats.png" width="380" alt="Preview of an APA 7 Spanish Body page: Theoretical definition block, display trigonometric limit with upright sen(x)/x = 1, indented block quote with double spacing, Level 2 heading Resultados Empíricos, and in-text statistical reporting with t-test and 95% confidence interval." /> |
 
 | Tables and Figures (APA 7 Compliant) |
 | :---: |
-| <img src="https://raw.githubusercontent.com/Row0902/apa7/main/assets/preview-table-figure.png" width="550" alt="Preview of an APA 7 Table and Figure page: Table 1 with bold number and italic title, three horizontal borders with no vertical lines, table note at bottom, followed by Figure 1 with caption on top, diagram, and note below." /> |
+| <img src="https://raw.githubusercontent.com/Row0902/apa7/v0.1.0/assets/preview-table-figure.png" width="550" alt="Preview of an APA 7 Table and Figure page: Table 1 with bold number and italic title, three horizontal borders with no vertical lines, table note at bottom, followed by Figure 1 with caption on top, diagram, and note below." /> |
 
 </div>
 
@@ -62,10 +62,10 @@ We designed dedicated, low-cognitive-load guides organized with tables and pract
 
 | Guide | Description | Target Audience |
 | :--- | :--- | :--- |
-| 🚀 **[Getting Started](https://github.com/Row0902/apa7/blob/main/docs/getting-started.md)** | Quick setup, boilerplate templates, and CLI compile commands | First-time authors & students |
-| 📚 **[API Reference](https://github.com/Row0902/apa7/blob/main/docs/api-reference.md)** | Complete parameters, signatures, and default values | Developers & advanced users |
-| ♿ **[Accessibility Guide](https://github.com/Row0902/apa7/blob/main/docs/accessibility.md)** | PDF/UA-1 standard, screen reader shortcuts, and speech tagging | Screen reader users & accessibility audits |
-| 📐 **[STEM & Math Guide](https://github.com/Row0902/apa7/blob/main/docs/stem-and-math.md)** | Calculus formulas, linear algebra, theorem blocks, and Spanish math | Mathematics, physics & statistics courses |
+| 🚀 **[Getting Started](https://github.com/Row0902/apa7/blob/v0.1.0/docs/getting-started.md)** | Quick setup, boilerplate templates, and CLI compile commands | First-time authors & students |
+| 📚 **[API Reference](https://github.com/Row0902/apa7/blob/v0.1.0/docs/api-reference.md)** | Complete parameters, signatures, and default values | Developers & advanced users |
+| ♿ **[Accessibility Guide](https://github.com/Row0902/apa7/blob/v0.1.0/docs/accessibility.md)** | PDF/UA-1 standard, screen reader shortcuts, and speech tagging | Screen reader users & accessibility audits |
+| 📐 **[STEM & Math Guide](https://github.com/Row0902/apa7/blob/v0.1.0/docs/stem-and-math.md)** | Calculus formulas, linear algebra, theorem blocks, and Spanish math | Mathematics, physics & statistics courses |
 
 </div>
 
