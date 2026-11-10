@@ -1,0 +1,15 @@
+[package]
+name = "acorn-resume"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Ruchita Gosavi <https://github.com/Ruchita1010>"]
+license = "MIT"
+description = "A clean, minimal resume template with flexible, customizable sections."
+repository = "https://github.com/Ruchita1010/acorn-resume"
+keywords = ["resume", "cv", "curriculum vitae", "simple", "minimal"]
+categories = ["cv"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

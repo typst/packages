@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://jassielof.github.io/json-schemas/docs/hayagriva.schema.json
+xenvora:
+  type: article
+  title: A Layered Content-Addressable Storage Framework for User-Space Environments (Xenvora)
+  author:
+    - Hartwell, Elena Mavis
+    - Castevane, Rowan Elijah
+  date: 2026-02
+  page-range: 478-500
+  url: https://example.com/xenvora
+  serial-number:
+    doi: 10.54321/xenvora
+  parent:
+    type: periodical
+    title: International Journal of Computing and Emerging Systems
+    issue: 1
+    volume: 8

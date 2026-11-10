@@ -59,8 +59,10 @@ With something like:
 It is still possible to customize define some default values to configure how
 the image is displayed (its width for example), using a `set image(..)` rule.
 
-It will be possible to take paths as arguments directly, [once a dedicated
-type exists][path-type].
+Since Typst 0.15.0, it is possible to distinguish paths from regular strings,
+using [the path type][path-type].
+`path`s are resolved when created, which allows packages taking them as argument to
+access external files.
 
 ## Fonts are not supported in packages
 
@@ -87,5 +89,5 @@ versions.
 We have [specific guidelines][license] for licensing assets distributed in your
 packages.
 
-[path-type]: https://github.com/typst/typst/issues/971
+[path-type]: https://typst.app/docs/reference/foundations/path/#path-type
 [license]: licensing.md

@@ -1,0 +1,56 @@
+[meta]
+language-tag = "en"
+language-name = "English"
+
+[strings]
+title = "Title"
+author = "Author"
+degree = "Degree"
+period = "Processing period"
+supervisor-m = "Supervisor"
+supervisor-f = "Supervisor"
+date = "Date"
+location-date = "Location, Date"
+abstract = "Abstract"
+appendix = "Appendix"
+bibliography = "Bibliography"
+
+faculty = "Faculty"
+university = "at the Offenburg University of Applied Sciences"
+collaboration = "Conducted in cooperation with"
+and = "and"
+
+list-of-figures = "List of Figures"
+list-of-tables = "List of Tables"
+list-of-listings = "List of Listings"
+
+nomenclature = "Nomenclature"
+formular-symbols = "Formula Symbols"
+abbrevations = "Abbreviations"
+glossary = "Glossary"
+
+declaration-title = "Declaration of Authorship"
+declaration-text-thesis = """
+I hereby declare on oath that I have written the present #ctx.info.type independently and without unauthorized outside help, in particular that I have marked as such all passages taken literally or approximately literally or in spirit from publications, unpublished documents and conversations at the corresponding places within the work by citations, the extent of the original citations taken being indicated in each case in the citations. The work has not been submitted in the same or a similar version to any other examining authority and has not yet been published. I am aware that a false declaration will have legal consequences.
+"""
+
+ai-declaration-title = "Declaration of Independence Regarding the Use of AI"
+ai-declaration-text-1 = """
+I hereby declare that when using IT/AI-supported writing tools, I have fully listed these tools in the section #link(<appendix-ai-tools>)["Overview of used tools"] with their product name, source, and an overview of the range of functions used in the context of this thesis. This excludes those IT/AI-supported writing tools that were classified as not reportable ("whitelist") by the responsible examiner at the time of submission of my study performance. During the preparation of the submitted study performance, I worked independently throughout and in a controlling manner when using IT/AI-supported writing tools.
+"""
+ai-declaration-text-2 = """
+I hereby declare that I have marked all text passages generated through the use of AI-supported writing tools, stating the AI-supported writing tool used. During the preparation of the submitted study performance, I worked independently throughout and in a controlling manner when using AI-supported writing tools.
+"""
+ai-declaration-text-3 = """
+The study performance was created without the use of AI-supported writing tools.
+"""
+
+copyright-title = "Copyright Declaration"
+copyright-text = """This #ctx.info.type is protected by copyright, notwithstanding which the following transfers of rights are agreed to:
+- the transfer of the right to reproduce the #ctx.info.type for teaching purposes to Offenburg University of Applied Sciences (§ 16 UrhG),
+- the transfer of the right of recital, performance and presentation for teaching purposes by professors of Offenburg University of Applied Sciences (§ 19 UrhG),
+- the transfer of the right of reproduction by picture or sound carriers to Offenburg University of Applied Sciences (§ 21 UrhG).
+"""
+
+chapter = "Chapter"
+section = "Section"

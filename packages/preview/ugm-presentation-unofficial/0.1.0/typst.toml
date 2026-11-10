@@ -1,0 +1,56 @@
+[package]
+name = "ugm-presentation-unofficial"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Fitrafep"]
+description = "Unofficial UGM presentation."
+repository = "https://github.com/fepfitra/ugm-presentation-unofficial"
+keywords = ["ugm", "universitas-gadjah-mada", "presentation"]
+categories = ["presentation"]
+license = "MIT"
+exclude = ["*.pdf"]
+disciplines = [
+    "agriculture",
+    "anthropology",
+    "archaeology",
+    "architecture",
+    "biology",
+    "business",
+    "chemistry",
+    "communication",
+    "computer-science",
+    "design",
+    "drawing",
+    "economics",
+    "education",
+    "engineering",
+    "fashion",
+    "film",
+    "geography",
+    "geology",
+    "history",
+    "journalism",
+    "law",
+    "linguistics",
+    "literature",
+    "mathematics",
+    "medicine",
+    "music",
+    "painting",
+    "philosophy",
+    "photography",
+    "physics",
+    "politics",
+    "psychology",
+    "sociology",
+    "theater",
+    "theology",
+    "transportation",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool]

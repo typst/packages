@@ -1,0 +1,13 @@
+[package]
+name = "solveng"
+version = "2.0.0"
+entrypoint = "lib.typ"
+authors = ["David Bieregger <@BierDav>"]
+license = "MIT"
+description = "Calculate the math you write, with units and every step shown."
+repository = "https://github.com/BierDav/solveng"
+keywords = ["units", "solver", "equations", "engineering", "physics", "calculation", "quantities", "SI"]
+categories = ["scripting", "visualization", "utility"]
+disciplines = ["engineering", "physics", "education"]
+compiler = "0.14.0"
+exclude = ["tests", "docs", "editor", "names", "core", "plugin", "target", "Cargo.toml", "Cargo.lock", ".gitignore", ".github", ".githooks", "scripts", "AGENT.md"]

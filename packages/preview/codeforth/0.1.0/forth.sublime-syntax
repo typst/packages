@@ -1,0 +1,145 @@
+%YAML 1.2
+---
+# Forth syntax highlighting for Typst
+# Based on: https://github.com/mitranim/sublime-forth
+# Adapted for Typst's regex engine compatibility
+name: Forth
+file_extensions: [f, fs, fth, 4th, forth]
+scope: source.forth
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: strings
+    - include: numbers
+    - include: definitions
+    - include: control-flow
+    - include: stack-manipulation
+    - include: arithmetic
+    - include: memory
+    - include: variables-constants
+    - include: io
+    - include: comparison
+
+  comments:
+    # Line comment with backslash
+    - match: '\\.*$'
+      scope: comment.line.forth
+    # Block comment
+    - match: '\(\s'
+      push:
+        - meta_scope: comment.block.forth
+        - match: '\)'
+          pop: true
+
+  strings:
+    # Print string ."
+    - match: '\.\"\s'
+      push:
+        - meta_scope: string.quoted.double.forth
+        - match: '"'
+          pop: true
+    # String literal s"
+    - match: 's\"\s'
+      scope: support.function.forth
+      push:
+        - meta_scope: string.quoted.double.forth
+        - match: '"'
+          pop: true
+    # Character literals
+    - match: '\bchar\b'
+      scope: keyword.other.forth
+    - match: '\bchars\b'
+      scope: support.function.memory.forth
+
+  numbers:
+    # Hexadecimal with $ prefix
+    - match: '\$[0-9a-fA-F]+'
+      scope: constant.numeric.hex.forth
+    # Hexadecimal with 0x prefix
+    - match: '\b0x[0-9a-fA-F]+\b'
+      scope: constant.numeric.hex.forth
+    # Binary with % prefix
+    - match: '%[01]+'
+      scope: constant.numeric.binary.forth
+    # Decimal (negative or positive)
+    - match: '-?\b[0-9]+\b'
+      scope: constant.numeric.decimal.forth
+
+  definitions:
+    # Colon definition - word name follows
+    - match: ':\s+(\S+)'
+      captures:
+        0: keyword.control.definition.forth
+        1: entity.name.function.forth
+    # Semicolon definition end
+    - match: '\s;\s'
+      scope: keyword.control.definition.forth
+    - match: '\s;$'
+      scope: keyword.control.definition.forth
+    # Immediate
+    - match: '\bimmediate\b'
+      scope: keyword.other.forth
+    # Postpone and compile
+    - match: '\b(postpone|compile|literal)\b'
+      scope: keyword.other.forth
+
+  control-flow:
+    - match: '\b(if|else|then|endif)\b'
+      scope: keyword.control.conditional.forth
+    - match: '\b(begin|until|while|repeat|again)\b'
+      scope: keyword.control.loop.forth
+    - match: '\b(do|loop|leave|unloop)\b'
+      scope: keyword.control.loop.forth
+    - match: '\b(case|of|endof|endcase)\b'
+      scope: keyword.control.switch.forth
+    - match: '\b(exit|quit|abort)\b'
+      scope: keyword.control.flow.forth
+    - match: '\b(recurse|execute|evaluate)\b'
+      scope: keyword.control.forth
+
+  stack-manipulation:
+    - match: '\b(dup|drop|swap|over|rot|nip|tuck|pick|roll|depth)\b'
+      scope: support.function.stack.forth
+    - match: '\b(2dup|2drop|2swap|2over|2rot)\b'
+      scope: support.function.stack.forth
+    - match: '\b-rot\b'
+      scope: support.function.stack.forth
+
+  arithmetic:
+    - match: '\b(mod|negate|abs|min|max)\b'
+      scope: keyword.operator.arithmetic.forth
+    - match: '\b(and|or|xor|invert|lshift|rshift)\b'
+      scope: keyword.operator.bitwise.forth
+
+  memory:
+    - match: '\b(here|allot|cells|align|aligned)\b'
+      scope: support.function.memory.forth
+    - match: '\b(move|fill|erase|cmove)\b'
+      scope: support.function.memory.forth
+
+  variables-constants:
+    - match: '\b(variable|constant|value|2variable|2constant)\b'
+      scope: storage.type.forth
+    - match: '\b(create)\b'
+      scope: storage.type.forth
+    - match: '\bto\b'
+      scope: keyword.other.forth
+    - match: '\b(true|false)\b'
+      scope: constant.language.forth
+
+  io:
+    - match: '\b(emit|type|cr|space|spaces)\b'
+      scope: support.function.io.forth
+    - match: '\b(key|accept|expect)\b'
+      scope: support.function.io.forth
+    - match: '\b(open-file|close-file|read-file|write-file|read-line|write-line)\b'
+      scope: support.function.io.forth
+    - match: '\b(include|require|included)\b'
+      scope: keyword.control.import.forth
+
+  comparison:
+    - match: '\b(within)\b'
+      scope: keyword.operator.comparison.forth

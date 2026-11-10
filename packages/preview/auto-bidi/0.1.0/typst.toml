@@ -1,0 +1,12 @@
+[package]
+name = "auto-bidi"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Rotem Semah <@rotemsemah>"]
+license = "MIT"
+description = "Automatic bidirectional text direction for Hebrew, Arabic, and Farsi in Typst — write RTL without manual setup."
+repository = "https://github.com/manemajef/typst-auto-lang"
+keywords = ["rtl", "bidi", "hebrew", "arabic", "farsi", "direction"]
+categories = ["text", "utility"]
+compiler = "0.11.0"
+exclude = ["examples/*.pdf", "main.typ", "main.pdf"]

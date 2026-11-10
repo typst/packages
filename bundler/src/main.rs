@@ -11,12 +11,13 @@ use std::path::Path;
 use std::path::PathBuf;
 use std::sync::LazyLock;
 
-use anyhow::{bail, Context};
+use anyhow::{Context, bail};
 use image::codecs::webp::{WebPEncoder, WebPQuality};
 use image::imageops::FilterType;
 use semver::Version;
 use spdx::LicenseId;
-use typst_syntax::package::{PackageInfo, PackageManifest, TemplateInfo, UnknownFields};
+use typst_syntax::VirtualPath;
+use typst_syntax::package::{PackageInfo, PackageManifest, UnknownFields};
 use unicode_ident::{is_xid_continue, is_xid_start};
 
 use self::author::validate_author;
@@ -27,10 +28,16 @@ use self::timestamp::determine_timestamps;
 
 const DIST: &str = "dist";
 const THUMBS_DIR: &str = "thumbnails";
+const READMES_DIR: &str = "readmes";
 
 struct Config {
     out_dir: PathBuf,
     skip_license_validation: bool,
+}
+
+enum Msg<T> {
+    Data(T),
+    Done,
 }
 
 fn main() -> anyhow::Result<()> {
@@ -84,53 +91,79 @@ fn main() -> anyhow::Result<()> {
         let mut package_errors = vec![];
         fs::create_dir_all(namespace_dir.join(THUMBS_DIR))
             .context("could not create output directory")?;
+        fs::create_dir_all(namespace_dir.join(READMES_DIR))
+            .context("could not create directory for READMEs")?;
 
-        for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
-            let entry = entry.with_context(|| {
-                format!(
-                    "could not read item in namespace directory \"packages/{}\"",
-                    namespace
-                )
-            })?;
-
-            if !entry
-                .metadata()
-                .with_context(|| {
+        let (thumb_sender, thumb_receiver) = std::sync::mpsc::channel();
+        // The scope blocks until all thumbnails have been processed.
+        rayon::scope(|scope| {
+            for entry in walkdir::WalkDir::new(&path).min_depth(2).max_depth(2) {
+                let entry = entry.with_context(|| {
                     format!(
+                        "could not read item in namespace directory \"packages/{}\"",
+                        namespace
+                    )
+                })?;
+
+                if !entry
+                    .metadata()
+                    .with_context(|| {
+                        format!(
                         "could not read metadata for item in namespace directory \"packages/{}\"",
                         namespace
                     )
-                })?
-                .is_dir()
-            {
-                bail!(
-                    "{}: a package directory may only contain version sub-directories, not files.",
-                    entry.path().display()
-                );
-            }
-
-            let path = entry.into_path();
-
-            if path
-                .file_name()
-                .and_then(|name| name.to_str())
-                .and_then(|name| Version::parse(name).ok())
-                .is_none()
-            {
-                bail!(
-                    "{}: Directory is not a valid version number",
-                    path.display()
-                );
-            }
-
-            match process_package(&config, &path, &namespace_dir, namespace)
-                .with_context(|| format!("failed to process package at {}", path.display()))
-            {
-                Ok(info) => {
-                    paths.push(path);
-                    index.push(info);
+                    })?
+                    .is_dir()
+                {
+                    bail!(
+                        "{}: a package directory may only contain version sub-directories, not files.",
+                        entry.path().display()
+                    );
                 }
-                Err(err) => package_errors.push(err),
+
+                let path = entry.into_path();
+
+                if path
+                    .file_name()
+                    .and_then(|name| name.to_str())
+                    .and_then(|name| Version::parse(name).ok())
+                    .is_none()
+                {
+                    bail!(
+                        "{}: Directory is not a valid version number",
+                        path.display()
+                    );
+                }
+
+                let res = process_package(
+                    &config,
+                    scope,
+                    &thumb_sender,
+                    &path,
+                    &namespace_dir,
+                    namespace,
+                );
+                match res {
+                    Ok(info) => {
+                        paths.push(path);
+                        index.push(info);
+                    }
+                    Err(err) => package_errors.push(
+                        err.context(format!("failed to process package at {}", path.display())),
+                    ),
+                }
+            }
+
+            Ok(())
+        })?;
+
+        // Send the done message and wait for thumbnail processing to complete.
+        thumb_sender.send(Msg::Done).unwrap();
+        while let Ok(msg) = thumb_receiver.recv() {
+            match msg {
+                Msg::Data(Ok(())) => (),
+                Msg::Data(Err(err)) => package_errors.push(err),
+                Msg::Done => break,
             }
         }
 
@@ -142,15 +175,41 @@ fn main() -> anyhow::Result<()> {
         index.sort_by_key(|info| (info.package.name.clone(), info.package.version));
 
         println!("Writing index.");
+
+        // This index is allowed to be used by third parties: Both the Typst CLI
+        // and the web app download this index. However, we give no stability
+        // guarantees.
         fs::write(
             namespace_dir.join("index.json"),
             serde_json::to_vec(&index.iter().map(IndexPackageInfo::from).collect::<Vec<_>>())
                 .context("serialization of compact package index failed")?,
         )?;
+
+        // The index.extra.json is an implementation detail of typst.app. This
+        // file should not be used by third parties: They should instead use
+        // index.json.
         fs::write(
-            namespace_dir.join("index.full.json"),
-            serde_json::to_vec(&index).context("serialization of full package index failed")?,
+            namespace_dir.join("index.extra.json"),
+            serde_json::to_vec(
+                &index
+                    .iter()
+                    .map(ExtraIndexPackageInfo::from)
+                    .collect::<Vec<_>>(),
+            )
+            .context("serialization of extra package index failed")?,
         )?;
+
+        println!("Writing READMEs.");
+
+        let readme_dir = namespace_dir.join(READMES_DIR);
+
+        // The README files are an implementation detail of typst.app. They
+        // should not be used by third parties.
+        for item in &index {
+            let path =
+                readme_dir.join(format!("{}-{}.md", item.package.name, item.package.version));
+            fs::write(path, &item.readme)?;
+        }
 
         if !package_errors.is_empty() {
             namespace_errors.push((namespace.to_string(), package_errors));
@@ -178,11 +237,15 @@ fn main() -> anyhow::Result<()> {
 /// Create an archive for a package.
 fn process_package(
     config: &Config,
+    scope: &rayon::Scope,
+    thumb_sender: &std::sync::mpsc::Sender<Msg<anyhow::Result<()>>>,
     path: &Path,
     namespace_dir: &Path,
     namespace: &str,
 ) -> anyhow::Result<FullIndexPackageInfo> {
     println!("Bundling {}.", path.display());
+
+    validate_no_symlinks(path)?;
 
     let manifest =
         parse_manifest(config, path, namespace).context("failed to parse package manifest")?;
@@ -193,8 +256,25 @@ fn process_package(
     write_archive(&manifest.package, &buf, namespace_dir).context("failed to write archive")?;
 
     if let Some(template) = &manifest.template {
-        process_thumbnail(path, &manifest, template, namespace_dir)
-            .context("failed to process thumbnail")?;
+        let Some(thumbnail) = &template.thumbnail else {
+            bail!("thumbnails are required for templates");
+        };
+        let original_path = parse_relative_path(thumbnail.as_str())
+            .context("thumbnail path")?
+            .realize(path)
+            .context("thumbnail path")?;
+        let thumb_dir = namespace_dir.join(THUMBS_DIR);
+        let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
+        let thumb_sender = thumb_sender.clone();
+
+        // Offload thumbnail processing to the rayon thread pool, since it takes
+        // the majority of CPU time.
+        scope.spawn(move |_| {
+            let res = process_thumbnail(&original_path, &thumb_dir, filename).with_context(|| {
+                format!("failed to process thumbnail at {}", original_path.display())
+            });
+            thumb_sender.send(Msg::Data(res)).unwrap();
+        });
     }
 
     Ok(FullIndexPackageInfo {
@@ -206,6 +286,17 @@ fn process_package(
         updated_at: 0,
         released_at: 0,
     })
+}
+
+/// Ensure that the package contains no symlinks.
+fn validate_no_symlinks(dir_path: &Path) -> anyhow::Result<()> {
+    for entry in walkdir::WalkDir::new(dir_path) {
+        let entry = entry?;
+        if entry.path_is_symlink() {
+            bail!("symlinks are not allowed (at {})", entry.path().display());
+        }
+    }
+    Ok(())
 }
 
 fn validate_no_unknown_fields(
@@ -297,8 +388,20 @@ fn parse_manifest(
         }
     }
 
-    let entrypoint = path.join(manifest.package.entrypoint.as_str());
-    validate_typst_file(&entrypoint, "package entrypoint")?;
+    // We prefer relative paths, but two packages already have absolute paths,
+    // so there's an exception for these.
+    let virtual_entrypoint = match manifest.package.name.as_str() {
+        "shuxuejuan" | "pardioid" => {
+            VirtualPath::new(&manifest.package.entrypoint).map_err(Into::into)
+        }
+        _ => parse_relative_path(&manifest.package.entrypoint),
+    }
+    .context("package entrypoint")?;
+    let real_entrypoint = virtual_entrypoint
+        .realize(path)
+        .context("package entrypoint")?;
+
+    validate_typst_file(&real_entrypoint, "package entrypoint")?;
 
     if let Some(template) = &manifest.template {
         validate_no_unknown_fields(&template.unknown_fields, Some("template"))?;
@@ -307,13 +410,37 @@ fn parse_manifest(
             bail!("template packages must have at least one category");
         }
 
-        let entrypoint = path
-            .join(template.path.as_str())
-            .join(template.entrypoint.as_str());
-        validate_typst_file(&entrypoint, "template entrypoint")?;
+        let virtual_path = parse_relative_path(&template.path).context("template path")?;
+        let real_path = virtual_path.realize(path).context("template path")?;
+
+        let virtual_entrypoint =
+            parse_relative_path(&template.entrypoint).context("template entrypoint")?;
+        let real_entrypoint = virtual_entrypoint
+            .realize(&real_path)
+            .context("template entrypoint")?;
+
+        validate_typst_file(&real_entrypoint, "template entrypoint")?;
     }
 
     Ok(manifest)
+}
+
+/// Ensure that paths used in manifests are relative (as opposed to absolute).
+///
+/// Absolute paths are not needed in the context of manifests, so we don't
+/// want them on Universe.
+fn parse_relative_path(path: &str) -> anyhow::Result<VirtualPath> {
+    let virtualized = VirtualPath::new(path)?;
+    if path.starts_with('/') {
+        // Backslashes are already disallowed by `VirtualPath` and Windows drive
+        // letters require a colon which is rejected below.
+        bail!("path must not start with `/`");
+    }
+    if path.contains(':') {
+        // Windows drive letters.
+        bail!("path must not contain `:`");
+    }
+    Ok(virtualized)
 }
 
 /// Return the README file as a string.
@@ -338,13 +465,24 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
     }
 
     // Always ignore the thumbnail.
-    if let Some(template) = &manifest.template {
-        overrides.add(&format!("!{}", template.thumbnail))?;
+    if let Some(template) = &manifest.template
+        && let Some(thumbnail) = &template.thumbnail
+    {
+        overrides.add(&format!("!{thumbnail}"))?;
     }
 
     for entry in ignore::WalkBuilder::new(dir_path)
         .overrides(overrides.build()?)
         .sort_by_file_name(|a, b| a.cmp(b))
+        // Disable non-local ignore features
+        .parents(false)
+        .require_git(false)
+        .git_global(false)
+        .git_exclude(false)
+        // Keep local ignore features for now.
+        .git_ignore(true)
+        .ignore(true)
+        .hidden(true)
         .build()
     {
         let entry = entry?;
@@ -354,6 +492,16 @@ fn build_archive(dir_path: &Path, manifest: &PackageManifest) -> anyhow::Result<
             local_path = Path::new(".");
         }
         println!("  Adding {}", local_path.display());
+        if let Some(name) = local_path.file_name() {
+            let name = name.to_str().context("file name is invalid UTF-8")?;
+            if is_windows_reserved(name) {
+                bail!("file name `{name}` is reserved on Windows and disallowed");
+            }
+            if name.ends_with(['.', ' ']) {
+                // Windows strips trailing dots and spaces.
+                bail!("file name `{name}` must not end with a dot or space");
+            }
+        }
         builder.append_path_with_name(file_path, local_path)?;
     }
 
@@ -382,14 +530,10 @@ fn write_archive(info: &PackageInfo, buf: &[u8], namespace_dir: &Path) -> anyhow
 /// Process the thumbnail image for a package and write it to the `dist`
 /// directory in large and small version.
 fn process_thumbnail(
-    path: &Path,
-    manifest: &PackageManifest,
-    template: &TemplateInfo,
-    namespace_dir: &Path,
+    original_path: &Path,
+    thumb_dir: &Path,
+    filename: String,
 ) -> anyhow::Result<()> {
-    let original_path = path.join(template.thumbnail.as_str());
-    let thumb_dir = namespace_dir.join(THUMBS_DIR);
-    let filename = format!("{}-{}", manifest.package.name, manifest.package.version);
     let hopefully_max_encoded_size = 1024 * 1024;
 
     let extension = original_path
@@ -402,12 +546,12 @@ fn process_thumbnail(
     }
 
     // Get file size.
-    let file_size = fs::metadata(&original_path)?.len() as usize;
+    let file_size = fs::metadata(original_path)?.len() as usize;
     if file_size > 3 * 1024 * 1024 {
         bail!("thumbnail must be smaller than 3 MiB");
     }
 
-    let mut image = image::open(&original_path)?;
+    let mut image = image::open(original_path)?;
 
     // Ensure that the image has at least a certain minimum size.
     let longest_edge = image.width().max(image.height());
@@ -426,7 +570,7 @@ fn process_thumbnail(
 
     // Thumbnails that are WebP already and in the budget should be copied as-is.
     if extension == "webp" && file_size < hopefully_max_encoded_size {
-        fs::copy(&original_path, thumbnail_path)?;
+        fs::copy(original_path, thumbnail_path)?;
         return Ok(());
     }
 
@@ -507,4 +651,31 @@ fn is_allowed_cc(license: LicenseId) -> bool {
         LazyLock::new(|| regex::Regex::new(r"^CC(-BY|-BY-SA|0)-[0-9]\.[0-9](-[A-Z]+)?$").unwrap());
 
     RE.is_match(license.name)
+}
+
+/// Whether the given file name is reserved on Windows.
+///
+/// Copied from <https://github.com/typst/typst/blob/ddaaa2eeb1857fb1ad72b9122e0c57ba8e293e3f/crates/typst-syntax/src/path.rs#L499-L522>.
+fn is_windows_reserved(name: &str) -> bool {
+    #[rustfmt::skip]
+    fn is_reserved_base(basename: &str) -> bool {
+        matches!(
+            basename,
+            "CON" | "PRN" | "AUX" | "NUL"
+                | "COM0" | "COM1" | "COM2" | "COM3" | "COM4" | "COM5" | "COM6"
+                | "COM7" | "COM8" | "COM9" | "COM¹" | "COM²" | "COM³"
+                | "LPT0" | "LPT1" | "LPT2" | "LPT3" | "LPT4" | "LPT5" | "LPT6"
+                | "LPT7" | "LPT8" | "LPT9" | "LPT¹" | "LPT²" | "LPT³"
+                | "CONIN$" | "CONOUT$"
+        )
+    }
+
+    // Some Windows versions also allow arbitrary characters after a dot or
+    // colon in device names (and trailing spaces before that suffix).
+    let base = name
+        .split(['.', ':'])
+        .next()
+        .unwrap_or(name)
+        .trim_end_matches(' ');
+    base.len() <= 7 && is_reserved_base(&base.to_ascii_uppercase())
 }

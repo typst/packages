@@ -1,0 +1,11 @@
+[package]
+name = "larnt"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["HellOwhatAs"]
+license = "MIT"
+description = "3D line art engine using rust rewrite of fogleman/ln."
+repository = "https://github.com/HellOwhatAs/larnt/tree/master/examples/larnt_typst"
+keywords = ["3d", "line-art", "rendering"]
+categories = ["visualization", "integration", "fun"]
+exclude = ["/examples/*"]

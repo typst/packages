@@ -1,0 +1,18 @@
+[package]
+name = "uuidkit"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Iris Shi <0.0@owo.li>"]
+license = "MIT"
+description = "UUID parsing and deterministic UUID generation for Typst."
+repository = "https://github.com/el-ev/uuidkit"
+keywords = ["uuid", "plugin"]
+compiler = "0.14.0"
+exclude = [
+    "/.gitignore",
+    "/build.sh",
+    "/Cargo.toml",
+    "/Cargo.lock",
+    "/examples/*.pdf",
+    "/src/**",
+]

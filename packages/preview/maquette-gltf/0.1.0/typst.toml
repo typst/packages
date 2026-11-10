@@ -1,0 +1,28 @@
+[package]
+name = "maquette-gltf"
+version = "0.1.0"
+entrypoint = "maquette-gltf.typ"
+authors = ["bernsteining"]
+repository = "https://github.com/bernsteining/maquette/tree/master/crates/maquette-gltf"
+homepage = "https://bernsteining.github.io/maquette/?model=tokyo.glb"
+license = "MIT"
+description = "Render glTF 2.0 assets (.gltf / .glb) as raster images."
+keywords = [
+  "3D",
+  "glTF",
+  "GLB",
+  "PBR",
+  "render",
+  "IBL",
+  "shading",
+  "mesh",
+]
+categories = ["visualization"]
+compiler = "0.14.0"
+disciplines = [
+  "architecture",
+  "computer-science",
+  "design",
+  "drawing",
+  "engineering",
+]

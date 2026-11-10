@@ -1,0 +1,15 @@
+[package]
+name = "modernpro-coverletter"
+version = "1.0.2"
+entrypoint = "modernpro-coverletter.typ"
+authors = [ "Academic Template Collective",]
+license = "MIT"
+description = "A clean, modern cover letter and statement template for academic and professional applications."
+keywords = [ "coverletter", "cv", "academic", "job",]
+categories = [ "cv", "utility",]
+exclude = [ "/screenshots/",]
+
+[template]
+path = "template"
+entrypoint = "coverletter.typ"
+thumbnail = "thumbnail.png"

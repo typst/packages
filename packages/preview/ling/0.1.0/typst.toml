@@ -1,0 +1,16 @@
+[package]
+name = "ling"
+version = "0.1.0"
+entrypoint = "theme.typ"
+authors = ["dodok"]
+license = "MIT-0"
+description = "Korean-first technical presentations powered by Touying."
+keywords = ["presentation", "korean", "touying", "typography"]
+categories = ["presentation"]
+compiler = "0.15.0"
+exclude = ["README.ko.md", "docs", "tests", "scripts", "build", ".superpowers"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

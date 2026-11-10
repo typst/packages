@@ -1,0 +1,13 @@
+{
+    "name": "shape",
+    "description": "2D geometric primitives: points, lines, circles, polygons",
+    "dependencies": [],
+    "exports": [
+        "point",
+        "segment",
+        "line",
+        "circle",
+        "polygon",
+        "arc"
+    ]
+}

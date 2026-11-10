@@ -1,0 +1,12 @@
+[package]
+name = "synapse"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Robotechnic <@Robotechnic>"]
+license = "MIT"
+compiler = "0.14.0"
+repository = "https://github.com/Robotechnic/synapse"
+description = "Synapse is a package offering an easy way to have every reference of a concept linked to its introduction throughout a document. This is heavily inspired by the knowledge package for LaTeX, but with a more idiomatic API."
+exclude = [".gitignore","autosubmit.sh"]
+categories = ["model", "components"]
+keywords = ["knowledge", "glossary", "cross-reference", "definition", "term", "index"]

@@ -1,0 +1,96 @@
+# Localized words of the theme, by language (the `lang` of `ufac-theme`, read from `text.lang`); an unknown language
+# falls back to Portuguese. Read by `_words` and `_tr` (src/utils.typ).
+#   exercise, example, part     the pill of the exercise and example slides, the label of the section slides
+#   solution, answer            the words that open `#solution` and `#answer`, before the separator (".")
+#   caution, tip, remark, note, the titles of `callout` in the style "badge" (`example` too, the word above);
+#   examples                    [lang.xx.bar], the same in the style "bar", example included, which open the text (with
+#                               the punctuation of the language)
+#   output                      the label of the output of a program in a code block
+#   thanks                      the title of `#ending-slide` without a title
+#   and                         the last separator of a list of names ("A, B e C")
+#   months, date                the date in full; in `date`, {day}, {month} and {year} are replaced
+#   tcc, dissertation, thesis   the tag of the cover of those flavors
+
+[lang.pt]
+exercise = "Exercício"
+example = "Exemplo"
+part = "Parte"
+solution = "Solução"
+answer = "Resposta"
+caution = "Atenção"
+tip = "Dica"
+remark = "Relembrando"
+note = "Nota"
+examples = "Exemplos"
+output = "Saída"
+thanks = "Obrigado!"
+and = "e"
+months = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
+date = "{day} de {month} de {year}"
+tcc = "Trabalho de Conclusão de Curso"
+dissertation = "Dissertação de Mestrado"
+thesis = "Tese de Doutorado"
+
+[lang.pt.bar]
+caution = "Atenção!"
+tip = "Dica."
+remark = "Relembrando."
+note = "Nota."
+example = "Exemplo."
+examples = "Exemplos."
+
+[lang.en]
+exercise = "Exercise"
+example = "Example"
+part = "Part"
+solution = "Solution"
+answer = "Answer"
+caution = "Caution"
+tip = "Tip"
+remark = "Reminder"
+note = "Note"
+examples = "Examples"
+output = "Output"
+thanks = "Thank you!"
+and = "and"
+months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+date = "{month} {day}, {year}"
+tcc = "Undergraduate Thesis"
+dissertation = "Master's Dissertation"
+thesis = "Doctoral Thesis"
+
+[lang.en.bar]
+caution = "Caution!"
+tip = "Tip."
+remark = "Reminder."
+note = "Note."
+example = "Example."
+examples = "Examples."
+
+[lang.es]
+exercise = "Ejercicio"
+example = "Ejemplo"
+part = "Parte"
+solution = "Solución"
+answer = "Respuesta"
+caution = "Precaución"
+tip = "Consejo"
+remark = "Recordando"
+note = "Nota"
+examples = "Ejemplos"
+output = "Salida"
+thanks = "¡Gracias!"
+and = "y"
+months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+date = "{day} de {month} de {year}"
+tcc = "Trabajo de Fin de Grado"
+dissertation = "Tesis de Maestría"
+thesis = "Tesis Doctoral"
+
+[lang.es.bar]
+caution = "¡Precaución!"
+tip = "Consejo."
+remark = "Recordando."
+note = "Nota."
+example = "Ejemplo."
+examples = "Ejemplos."

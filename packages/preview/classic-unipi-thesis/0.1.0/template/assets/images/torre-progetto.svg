@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    
+  </defs>
+  <rect width="400" height="400" fill="#1e3a8a"/>
+  <path d="M20 0V400M40 0V400M60 0V400M80 0V400M100 0V400M120 0V400M140 0V400M160 0V400M180 0V400M200 0V400M220 0V400M240 0V400M260 0V400M280 0V400M300 0V400M320 0V400M340 0V400M360 0V400M380 0V400M0 20H400M0 40H400M0 60H400M0 80H400M0 100H400M0 120H400M0 140H400M0 160H400M0 180H400M0 200H400M0 220H400M0 240H400M0 260H400M0 280H400M0 300H400M0 320H400M0 340H400M0 360H400M0 380H400" stroke="#ffffff" stroke-opacity="0.08"/>
+  <path d="M100 0V400M200 0V400M300 0V400M0 100H400M0 200H400M0 300H400" stroke="#ffffff" stroke-opacity="0.2"/>
+  <path d="M160 62V352" stroke="#93c5fd" stroke-dasharray="8 4 2 4"/>
+  <g transform="translate(160 335)">
+    <rect x="-32" y="-208.8" width="64" height="208.8" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+    <rect x="-23.04" y="-240" width="46.08" height="31.2" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+    <path d="M-25.81 -2V-29.04A4.06 4.06 0 0 1 -17.69 -29.04V-2ZM-11.31 -2V-29.04A4.06 4.06 0 0 1 -3.19 -29.04V-2ZM3.19 -2V-29.04A4.06 4.06 0 0 1 11.31 -29.04V-2ZM17.69 -2V-29.04A4.06 4.06 0 0 1 25.81 -29.04V-2Z" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-34" y="-45.2" width="68" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <path d="M-27.36 -46.2V-60.79A3.36 3.36 0 0 1 -20.64 -60.79V-46.2ZM-15.36 -46.2V-60.79A3.36 3.36 0 0 1 -8.64 -60.79V-46.2ZM-3.36 -46.2V-60.79A3.36 3.36 0 0 1 3.36 -60.79V-46.2ZM8.64 -46.2V-60.79A3.36 3.36 0 0 1 15.36 -60.79V-46.2ZM20.64 -46.2V-60.79A3.36 3.36 0 0 1 27.36 -60.79V-46.2Z" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-34" y="-71.6" width="68" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <path d="M-27.36 -72.6V-87.19A3.36 3.36 0 0 1 -20.64 -87.19V-72.6ZM-15.36 -72.6V-87.19A3.36 3.36 0 0 1 -8.64 -87.19V-72.6ZM-3.36 -72.6V-87.19A3.36 3.36 0 0 1 3.36 -87.19V-72.6ZM8.64 -72.6V-87.19A3.36 3.36 0 0 1 15.36 -87.19V-72.6ZM20.64 -72.6V-87.19A3.36 3.36 0 0 1 27.36 -87.19V-72.6Z" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-34" y="-98" width="68" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <path d="M-27.36 -99V-113.59A3.36 3.36 0 0 1 -20.64 -113.59V-99ZM-15.36 -99V-113.59A3.36 3.36 0 0 1 -8.64 -113.59V-99ZM-3.36 -99V-113.59A3.36 3.36 0 0 1 3.36 -113.59V-99ZM8.64 -99V-113.59A3.36 3.36 0 0 1 15.36 -113.59V-99ZM20.64 -99V-113.59A3.36 3.36 0 0 1 27.36 -113.59V-99Z" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-34" y="-124.4" width="68" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <path d="M-27.36 -125.4V-139.99A3.36 3.36 0 0 1 -20.64 -139.99V-125.4ZM-15.36 -125.4V-139.99A3.36 3.36 0 0 1 -8.64 -139.99V-125.4ZM-3.36 -125.4V-139.99A3.36 3.36 0 0 1 3.36 -139.99V-125.4ZM8.64 -125.4V-139.99A3.36 3.36 0 0 1 15.36 -139.99V-125.4ZM20.64 -125.4V-139.99A3.36 3.36 0 0 1 27.36 -139.99V-125.4Z" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-34" y="-150.8" width="68" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <path d="M-27.36 -151.8V-166.39A3.36 3.36 0 0 1 -20.64 -166.39V-151.8ZM-15.36 -151.8V-166.39A3.36 3.36 0 0 1 -8.64 -166.39V-151.8ZM-3.36 -151.8V-166.39A3.36 3.36 0 0 1 3.36 -166.39V-151.8ZM8.64 -151.8V-166.39A3.36 3.36 0 0 1 15.36 -166.39V-151.8ZM20.64 -151.8V-166.39A3.36 3.36 0 0 1 27.36 -166.39V-151.8Z" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-34" y="-177.2" width="68" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <path d="M-27.36 -178.2V-192.79A3.36 3.36 0 0 1 -20.64 -192.79V-178.2ZM-15.36 -178.2V-192.79A3.36 3.36 0 0 1 -8.64 -192.79V-178.2ZM-3.36 -178.2V-192.79A3.36 3.36 0 0 1 3.36 -192.79V-178.2ZM8.64 -178.2V-192.79A3.36 3.36 0 0 1 15.36 -192.79V-178.2ZM20.64 -178.2V-192.79A3.36 3.36 0 0 1 27.36 -192.79V-178.2Z" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-34" y="-203.6" width="68" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-25.04" y="-210.8" width="50.08" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <path d="M-17.95 -211.8V-229.09A3.93 3.93 0 0 1 -10.1 -229.09V-211.8ZM-3.93 -211.8V-229.09A3.93 3.93 0 0 1 3.93 -229.09V-211.8ZM10.1 -211.8V-229.09A3.93 3.93 0 0 1 17.95 -229.09V-211.8Z" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+    <rect x="-25.04" y="-242" width="50.08" height="3" fill="none" stroke="#ffffff" stroke-width="1.05"/>
+  </g>
+  <path d="M70 335H250" stroke="#ffffff" stroke-width="1.6"/>
+  <path d="M78 335l-8 8M88 335l-8 8M98 335l-8 8M108 335l-8 8M118 335l-8 8M128 335l-8 8M138 335l-8 8M148 335l-8 8M158 335l-8 8M168 335l-8 8M178 335l-8 8M188 335l-8 8M198 335l-8 8M208 335l-8 8M218 335l-8 8M228 335l-8 8M238 335l-8 8M248 335l-8 8" stroke="#ffffff" stroke-opacity="0.6"/>
+  <path d="M224 95V335M216 95H232M216 335H232" stroke="#bfdbfe" stroke-width="1"/>
+  <path d="M224 95L220 105H228ZM224 335L220 325H228Z" fill="#bfdbfe"/>
+  <text transform="translate(240 215) rotate(-90)" font-size="16" font-family="New Computer Modern" fill="#ffffff" text-anchor="middle">56 m</text>
+  <path d="M128 356H192M128 349V363M192 349V363" stroke="#bfdbfe" stroke-width="1"/>
+  <path d="M128 356L138 352V360ZM192 356L182 352V360Z" fill="#bfdbfe"/>
+  <text x="160" y="377" font-size="15" font-family="New Computer Modern" fill="#ffffff" text-anchor="middle">15,5 m</text>
+  <rect x="262" y="330" width="126" height="58" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <path d="M262 356H388" stroke="#ffffff" stroke-opacity="0.6"/>
+  <text x="325" y="349" font-size="13" font-family="New Computer Modern" fill="#ffffff" text-anchor="middle">TORRE DI PISA</text>
+  <text x="325" y="371" font-size="12" font-family="New Computer Modern" fill="#ffffff" text-anchor="middle">progetto, 1173</text>
+  <text x="325" y="384" font-size="10" font-family="New Computer Modern" fill="#ffffff" text-anchor="middle" fill-opacity="0.75">scala 1:250</text>
+  <text x="20" y="34" font-size="20" font-family="New Computer Modern" fill="#ffffff">(a)</text>
+</svg>

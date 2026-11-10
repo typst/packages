@@ -1,0 +1,12 @@
+[package]
+name = "cartouche"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Paulmue0 <https://github.com/Paulmue0>"]
+license = "MIT"
+description = "Place styled epigraphs anywhere on the page."
+repository = "https://github.com/Paulmue0/cartouche"
+keywords = ["epigraph", "quote", "quotation", "motto", "dedication", "chapter opener"]
+categories = ["components", "layout"]
+compiler = "0.12.0"
+exclude = ["/docs/**", "/dev/**", "/tests/**", "/.github/**", "/Justfile"]

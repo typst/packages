@@ -1,0 +1,13 @@
+[package]
+name = "graph-gen"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["euwbah"]
+license = "MIT"
+description = "Graph view for your notes"
+compiler = "0.13.1"
+repository = "https://github.com/euwbah/graph-gen"
+keywords = ["graph", "visualization", "notes"]
+categories = ["integration", "visualization", "fun"]
+disciplines = ["mathematics", "education"]
+exclude = ["./example.pdf", "./example.typ", "./imgs"]

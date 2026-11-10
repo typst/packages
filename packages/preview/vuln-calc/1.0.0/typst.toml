@@ -1,0 +1,7 @@
+[package]
+name = "vuln-calc"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Wilco van Beijnum"]
+license = "BSD-2-Clause"
+description = "Calculate CVSS v4.0 scores."

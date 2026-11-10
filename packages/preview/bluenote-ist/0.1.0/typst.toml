@@ -1,0 +1,22 @@
+[package]
+name = "bluenote-ist"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["co-gy"]
+license = "MIT"
+description = "Seminar slides at the Institute of Science Tokyo."
+keywords = [
+    "touying",
+    "presentation",
+    "slides",
+    "seminar",
+    "Institute of Science Tokyo",
+]
+categories = ["presentation"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool]

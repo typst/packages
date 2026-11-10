@@ -1,0 +1,18 @@
+[package]
+name = "tiefcars"
+version = "0.2.1"
+compiler = "0.13.1"
+authors = ["Lena Tauchner"]
+entrypoint = "lib.typ"
+license = "MIT"
+description = "An LCARS-inspired layouting system."
+keywords = []
+categories = ["layout", "fun"]
+disciplines = []
+repository = "https://github.com/Tiefseetauchner/TiefCARS"
+homepage = "https://www.lukechriswalker.at/projects/6a26a30fb6efd69f6b527044"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

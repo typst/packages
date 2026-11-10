@@ -1,0 +1,6 @@
+[patterns]
+full = "dd MMMM y"
+long = "d MMMM y"
+medium = "dd/MM/y"
+short = "d/MM/yy"
+

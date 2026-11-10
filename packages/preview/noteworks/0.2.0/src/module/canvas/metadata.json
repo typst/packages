@@ -1,0 +1,12 @@
+{
+    "name": "canvas",
+    "description": "Plotting canvases for graphs, shapes, and diagrams",
+    "dependencies": [
+        "shape"
+    ],
+    "exports": [
+        "cartesian-canvas",
+        "polar-canvas",
+        "blank-canvas"
+    ]
+}

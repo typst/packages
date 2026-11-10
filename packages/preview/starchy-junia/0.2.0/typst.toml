@@ -1,0 +1,17 @@
+[package]
+name = "starchy-junia"
+version = "0.2.0"
+entrypoint = "template/squelette.typ"
+authors = ["MathYeiv"]
+license = "MIT"
+categories = ["report"]
+disciplines = ["engineering"]
+description = "Report template based on JUNIA engineering school's writing charter — three models (base, light, expert), bilingual FR/EN, auto-numbered figures and equations."
+keywords = ["junia", "report", "engineering", "french", "template"]
+compiler = "0.14.0"
+repository = "https://codeberg.org/MathYeiv/starchy-junia"
+
+[template]
+path = "template"
+entrypoint = "squelette.typ"
+thumbnail = "thumbnail.png"

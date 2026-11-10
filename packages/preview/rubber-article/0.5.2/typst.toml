@@ -1,0 +1,18 @@
+[package]
+  authors = ["Niko Pikall"]
+  categories = ["paper", "report"]
+  compiler = "0.13.0"
+  description = "A simple template recreating the look of the classic LaTeX article."
+  disciplines = ["biology", "chemistry", "engineering", "geography", "mathematics", "physics"]
+  entrypoint = "src/lib.typ"
+  exclude = [".github", "docs", "scripts", "tests", ".typstignore", "Justfile"]
+  keywords = ["template", "article"]
+  license = "MIT"
+  name = "rubber-article"
+  repository = "https://github.com/npikall/rubber-article.git"
+  version = "0.5.2"
+
+[template]
+  entrypoint = "main.typ"
+  path = "template"
+  thumbnail = "thumbnail.png"

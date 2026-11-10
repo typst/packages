@@ -1,0 +1,12 @@
+[package]
+name = "simple-csp"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Dara MacConville <https://macconville.ie>"]
+license = "MIT"
+description = "Common CSP operators."
+keywords = ["csp", "processes"]
+categories = ["components"]
+disciplines = ["computer-science", "engineering"]
+compiler = "0.14.0"
+repository = "https://github.com/DaraMac/simple-csp"

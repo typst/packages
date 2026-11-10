@@ -1,0 +1,49 @@
+# --- Formelzeichen ---
+alpha:
+  short: "$alpha$"
+  long: "Winkel"
+  group: "Formelzeichen"
+
+delta:
+  short: "$delta$"
+  long: "Zeitdauer"
+  group: "Formelzeichen"
+
+eta:
+  short: "$eta$"
+  long: "Wirkungsgrad"
+  group: "Formelzeichen"
+
+# --- Abkürzungen ---
+4PPM:
+  short: "4PPM"
+  long: "4 Pulse Position Modulation"
+  group: "Abkürzungen"
+
+ACL:
+  short: "ACL"
+  long: "Asynchronous Connection Less"
+  group: "Abkürzungen"
+
+ACK:
+  short: "ACK"
+  long: "Acknowledge"
+  group: "Abkürzungen"
+
+ADU:
+  short: "ADU"
+  long: "Analog-Digital-Umsetzer"
+  group: "Abkürzungen"
+
+# --- Begriffe und Definitionen (Glossar) ---
+Ad-hoc-Netze:
+  short: "Ad-hoc-Netze"
+  long: "Ad-hoc-Netze"
+  description: "Netzwerke, die ohne jegliche Infrastruktur auskommen, insbesondere ohne ausgezeichneten zentralen Koordinator, wie z.B. bei einer Stern-Topologie, welche den Medienzugriff zentral steuert. In Ad-hoc-Netzen sind spontane, nicht vorab geplante Kommunikationen zwischen den einzelnen Teilnehmern möglich."
+  group: "Glossar"
+
+Aloha:
+  short: "Aloha"
+  long: "Aloha"
+  description: "Beim Aloha-Verfahren kann eine Einheit zu einem beliebigen Zeitpunkt ohne vorherige Absprache mit anderen Einheiten das Medium Funkkanal belegen. Eine derartige Einheit koordiniert weder den Zugriff auf das Medium, noch löst es Wettbewerbssituationen."
+  group: "Glossar"

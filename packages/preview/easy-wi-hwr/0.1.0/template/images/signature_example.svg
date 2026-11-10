@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="80" viewBox="0 0 300 80">
+  <!-- Example signature — replace with your own scan or drawing -->
+  <path d="M 20,55 C 30,30 45,25 55,40 C 62,50 58,60 65,45 C 72,30 80,28 90,38 C 97,46 94,58 105,42 C 115,28 125,32 130,45 C 135,56 128,65 140,50 C 150,37 162,35 168,48 C 174,60 165,68 178,55 C 190,42 200,40 208,52 C 214,61 208,70 222,58 C 235,47 245,50 255,58 C 262,64 260,72 270,62"
+        fill="none"
+        stroke="#1a1a1a"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+  <path d="M 20,55 C 22,58 18,62 24,65"
+        fill="none"
+        stroke="#1a1a1a"
+        stroke-width="1.5"
+        stroke-linecap="round"/>
+</svg>

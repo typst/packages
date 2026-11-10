@@ -1,0 +1,19 @@
+[package]
+name = "clean-barm"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["thebread <https://thetread.dev>"]
+license = "MIT"
+description = "Various documents for the Berufsakademie Rhein-Main."
+repository = "https://git.thebread.dev/thebreadcompany/clean-barm"
+keywords = ["Berufsakademie", "Berufsakademie Rhein-Main"]
+categories = ["report", "thesis", "layout"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[[tool.prequery.jobs]]
+name = "download"
+kind = "web-resource"

@@ -1,0 +1,14 @@
+[package]
+name = "ethz-cadmo-inspired-thesis"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Dominik Schwaiger"]
+license = "MIT"
+description = "Thesis inspired by the ETHZ CADMO group"
+keywords = ["thesis", "bachelor thesis", "eth", "ethz", "cadmo"]
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

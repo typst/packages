@@ -1,0 +1,33 @@
+[package]
+name				= 'to-stuff'
+version				= '0.5.0'
+compiler			= '0.13.1'
+repository			= 'https://codeberg.org/boondoc/typst-to-stuff'
+license				= 'BSD-3-Clause'
+entrypoint			= 'exports.typ'
+description			= 'Safely parse string values into native data types: lengths, alignments, colors and more.'
+authors				= [
+	'Nik Mennega',
+]
+categories			= [
+	'scripting',
+	'utility',
+]
+keywords			= [
+	'string',
+	'parse',
+	'parsing',
+	'alignment',
+	'angle',
+	'color',
+	'direction',
+	'float',
+	'fraction',
+	'int',
+	'number',
+	'length',
+	'ratio',
+	'relative',
+	'stroke',
+]
+

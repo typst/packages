@@ -1,0 +1,17 @@
+[package]
+name = "elsevier-cas-unofficial"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Carlo Lucibello <@CarloLucibello>"]
+license = "MIT AND MIT-0 AND LPPL-1.3c"
+description = "Articles for Elsevier journals in the CAS layout."
+repository = "https://github.com/CarloLucibello/elsevier-cas.typ"
+keywords = ["Elsevier", "cas", "journal", "article", "paper", "cas-dc", "cas-sc"]
+categories = ["paper"]
+compiler = "0.15.0"
+exclude = ["els-cas-templates", "examples", "tests", "docs"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

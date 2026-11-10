@@ -1,0 +1,11 @@
+[package]
+name = "datify"
+version = "1.3.0"
+entrypoint = "src/main.typ"
+authors = ["Jeomhps"]
+license = "MIT"
+description = "Flexible, locale-aware date formatting. Leverages datify-core for internationalization and supports CLDR-style date patterns."
+repository = "https://github.com/Jeomhps/datify"
+compiler = "0.13.1"
+exclude = ["tests*"]
+

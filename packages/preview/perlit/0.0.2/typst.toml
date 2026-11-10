@@ -1,0 +1,11 @@
+[package]
+name = "perlit"
+version = "0.0.2"
+entrypoint = "lib.typ"
+authors = ["Luca Engelhard <https://github.com/lucaengelhard>"]
+license = "MIT"
+description = "Render Obsidian graphs using CeTZ."
+repository = "https://github.com/lucaengelhard/perlit"
+categories = [ "visualization" ]
+keywords = [ "draw", "canvas", "tree", "obsidian" ]
+exclude = [ "/examples/**/*" ]

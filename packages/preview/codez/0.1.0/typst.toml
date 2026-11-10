@@ -1,0 +1,15 @@
+[package]
+name = "codez"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Louis Ledoux <@Bynaryman>"]
+license = "MIT"
+description = "Annotate code blocks with marks and geometric overlays."
+repository = "https://github.com/Bynaryman/codez"
+keywords = ["code", "annotation", "slides", "poster", "overlay"]
+categories = ["components", "presentation", "poster"]
+exclude = [
+  "docs/*",
+  "examples/*",
+]
+compiler = "0.14.0"

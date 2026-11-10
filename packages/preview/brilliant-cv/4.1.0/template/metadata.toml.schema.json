@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "metadata.toml.schema.json",
+  "title": "brilliant-cv profile metadata",
+  "description": "Configuration for one self-contained brilliant-cv v4 profile.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "header_quote": {
+      "type": "string",
+      "description": "Optional italic tagline displayed below the name and contact information."
+    },
+    "cv_footer": {
+      "type": "string",
+      "description": "Optional text shown in the CV footer."
+    },
+    "letter_footer": {
+      "type": "string",
+      "description": "Optional text shown in the cover-letter footer."
+    },
+    "layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "awesome_color": {
+          "type": "string",
+          "description": "A built-in accent color name or a three- or six-digit hexadecimal RGB color.",
+          "pattern": "^(skyblue|red|nephritis|concrete|darknight|#[A-Fa-f0-9]{3}|#[A-Fa-f0-9]{6})$"
+        },
+        "before_section_skip": {
+          "$ref": "#/definitions/signedLength",
+          "description": "Vertical spacing before sections."
+        },
+        "before_entry_skip": {
+          "$ref": "#/definitions/signedLength",
+          "description": "Vertical spacing before entries."
+        },
+        "before_entry_description_skip": {
+          "$ref": "#/definitions/signedLength",
+          "description": "Vertical spacing before entry descriptions."
+        },
+        "paper_size": {
+          "type": "string",
+          "description": "Paper size used by CV and cover-letter pages.",
+          "enum": ["a4", "us-letter"]
+        },
+        "date_width": {
+          "$ref": "#/definitions/length",
+          "description": "Width of the date column in CV entries."
+        },
+        "font_size": {
+          "$ref": "#/definitions/length",
+          "description": "Base font size for document body text."
+        },
+        "fonts": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "regular_fonts": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 1 },
+              "description": "Ordered font fallback list for body and entry text."
+            },
+            "header_font": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Font used for the name and section headings."
+            }
+          }
+        },
+        "header": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "header_align": {
+              "type": "string",
+              "enum": ["left", "center", "right"],
+              "description": "Alignment of the complete header block."
+            },
+            "display_profile_photo": {
+              "type": "boolean",
+              "description": "Whether a supplied profile photo may be displayed."
+            },
+            "profile_photo_radius": {
+              "type": "string",
+              "description": "Corner radius used to clip the profile photo.",
+              "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?%$"
+            },
+            "info_font_size": {
+              "$ref": "#/definitions/length",
+              "description": "Font size of the contact-information row."
+            }
+          },
+          "required": ["header_align", "display_profile_photo"]
+        },
+        "entry": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "display_entry_society_first": {
+              "type": "boolean",
+              "description": "Whether entry layouts emphasize the organisation before the role."
+            },
+            "display_logo": {
+              "type": "boolean",
+              "description": "Whether organisation logos are displayed."
+            }
+          },
+          "required": ["display_entry_society_first", "display_logo"]
+        },
+        "section": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "title_highlight": {
+              "type": "string",
+              "enum": ["first-letters", "full", "none"],
+              "description": "How section titles receive the accent color."
+            },
+            "title_highlight_letters": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Leading grapheme clusters highlighted in first-letters mode."
+            }
+          }
+        },
+        "footer": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "display_footer": {
+              "type": "boolean",
+              "description": "Whether the footer is rendered."
+            },
+            "display_page_counter": {
+              "type": "boolean",
+              "description": "Whether CV pages include a page counter."
+            }
+          }
+        }
+      },
+      "required": ["awesome_color", "header", "entry"]
+    },
+    "inject": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional visually hidden page text. An empty table keeps injection disabled.",
+      "properties": {
+        "custom_ai_prompt_text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional visually hidden text placed in the document."
+        },
+        "injected_keywords_list": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Optional keywords placed as visually hidden page text."
+        }
+      }
+    },
+    "custom": {
+      "type": "object",
+      "description": "User-owned data for custom profile modules. The package does not interpret this namespace.",
+      "additionalProperties": true
+    },
+    "personal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "first_name": { "type": "string", "minLength": 1 },
+        "last_name": { "type": "string", "minLength": 1 },
+        "display_name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional single styled name that replaces the split first/last treatment."
+        },
+        "address": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional default sender address for cover letters."
+        },
+        "info": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "github": { "type": "string" },
+            "phone": { "type": "string" },
+            "email": { "type": "string" },
+            "linkedin": { "type": "string" },
+            "gitlab": { "type": "string" },
+            "homepage": { "type": "string" },
+            "orcid": { "type": "string" },
+            "researchgate": { "type": "string" },
+            "location": { "type": "string" },
+            "extraInfo": { "type": "string" },
+            "linebreak": {
+              "type": "string",
+              "maxLength": 0,
+              "description": "An empty sentinel value that starts a new contact-information row."
+            }
+          },
+          "patternProperties": {
+            "^custom-[a-z0-9][a-z0-9-]*$": {
+              "$ref": "#/definitions/customInfo"
+            }
+          }
+        }
+      },
+      "required": ["first_name", "last_name", "info"]
+    }
+  },
+  "required": ["layout", "personal"],
+  "definitions": {
+    "length": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:pt|mm|cm|in|em)$"
+    },
+    "signedLength": {
+      "type": "string",
+      "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:pt|mm|cm|in|em)$"
+    },
+    "customInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "awesomeIcon": {
+          "type": "string",
+          "description": "Optional Font Awesome icon name used when no custom image icon is supplied."
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Text displayed beside the icon."
+        },
+        "link": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional target URL."
+        }
+      },
+      "required": ["text"]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+it:
+  supervisor: Relatore
+  supervisors: Relatori
+  cosupervisor: Correlatore
+  cosupervisors: Correlatori
+  type-of-thesis: di
+  serial-number: Matr. Nr.
+  academic-year: Anno Accademico
+  acknowledgements: Riconoscimenti
+  chapter: Capitolo
+  appendix: Appendice
+  lab-prefix: Progetto sviluppato presso il laboratorio
+  toc: Indice
+  list-of-figures: Lista delle Figure
+  list-of-tables: Lista delle Tabelle
+en:
+  supervisor: Supervisor
+  supervisors: Supervisors
+  cosupervisor: Cosupervisor
+  cosupervisors: Cosupervisors
+  type-of-thesis: of
+  serial-number: Matr. No.
+  academic-year: Academic Year
+  acknowledgements: Acknowledgments
+  chapter: Chapter
+  appendix: Appendix
+  lab-prefix: Project developed at
+  toc: Table of Contents
+  list-of-figures: List of Figures
+  list-of-tables: List of Tables

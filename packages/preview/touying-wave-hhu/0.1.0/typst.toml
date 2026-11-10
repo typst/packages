@@ -1,0 +1,16 @@
+[package]
+name = "touying-wave-hhu"
+version = "0.1.0"
+entrypoint = "theme.typ"
+authors = ["HPDell <huyg0180110559@outlook.com>"]
+license = "MIT"
+description = "Touying Slide Theme for Hohai University"
+repository = "https://github.com/HPDell/touying-wave-hhu"
+keywords = ["touying", "slide", "theme", "hohai", "university"]
+categories = ["presentation"]
+exclude = [".github/", "tests/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

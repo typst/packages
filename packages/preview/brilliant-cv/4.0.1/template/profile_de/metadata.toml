@@ -1,0 +1,65 @@
+#:schema https://raw.githubusercontent.com/yunanwg/brilliant-CV/main/metadata.toml.schema.json
+
+# Profile: German. See profile_en/metadata.toml for inline documentation
+# of every field.
+header_quote = "Erfahrener Datenanalyst sucht ab sofort eine Vollzeitstelle"
+cv_footer = "Lebenslauf"
+letter_footer = "Anschreiben"
+
+[layout]
+    awesome_color = "skyblue"
+    before_section_skip = "1pt"
+    before_entry_skip = "1pt"
+    before_entry_description_skip = "1pt"
+    paper_size = "a4"
+    date_width = "3.6cm"
+
+    [layout.fonts]
+        regular_fonts = ["Source Sans 3"]
+        header_font = "Roboto"
+
+    [layout.header]
+        header_align = "left"
+        display_profile_photo = true
+        profile_photo_radius = "50%"
+        info_font_size = "10pt"
+
+    [layout.entry]
+        display_entry_society_first = true
+        display_logo = true
+
+    [layout.section]
+        title_highlight = "first-letters"
+        title_highlight_letters = 3
+
+    [layout.footer]
+        display_page_counter = false
+        display_footer = true
+
+
+[inject]
+    injected_keywords_list = ["Datenanalyst", "GCP", "Python", "SQL", "Tableau"]
+
+[personal]
+    first_name = "John"
+    last_name = "Doe"
+
+    [personal.info]
+        github = "yunanwg"
+        phone = "+49 30 12345678"
+        email = "john.doe@me.org"
+        linkedin = "johndoe"
+        gitlab = "yunanwg"
+        homepage = "johndoe.dev"
+        orcid = "0000-0000-0000-0000"
+        location = "Berlin, Deutschland"
+
+        [personal.info.custom-degree]
+            awesomeIcon = "graduation-cap"
+            text = "Doktorat in Datenwissenschaft"
+            link = "https://www.example.com"
+
+        [personal.info.custom-cert]
+            awesomeIcon = "certificate"
+            text = "AWS Certified"
+            link = "https://aws.amazon.com/certification/"

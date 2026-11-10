@@ -1,0 +1,16 @@
+code:    
+    type: book
+    title: "Code: The Hidden Language of Computer Hardware and Software"
+    author: Petzold, Charles
+    edition: 1
+    date: 1999-09-29
+    publisher: Microsoft Press
+    isbn: "978-0137909292"
+
+
+electronic:
+    type: Web
+    title: Ishkur's Guide to Electronic Music
+    serial-number: v2.5
+    author: Ishkur
+    url: http://www.techno.org/electronic-music-guide/

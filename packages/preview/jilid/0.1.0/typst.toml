@@ -1,0 +1,21 @@
+[package]
+name = "jilid"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Tri Rianto Utomo <@shuretokki>"]
+license = "MIT AND MIT-0"
+description = "Report, proposal, and thesis template for Indonesian universities."
+repository = "https://github.com/shuretokki/jilid"
+keywords = ["Indonesia", "laporan", "proposal", "skripsi", "report", "thesis", "university"]
+categories = ["report", "thesis"]
+disciplines = ["education"]
+compiler = "0.15.0"
+exclude = ["docs/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+[tool.tytanic]
+default.ppi = 50

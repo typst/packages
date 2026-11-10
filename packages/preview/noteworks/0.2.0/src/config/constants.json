@@ -1,0 +1,16 @@
+{
+  "show-solution": true,
+  "solutions-text": "Solutions",
+  "problems-text": "Problems",
+  "chapter-name": "Chapter",
+  "subchap-name": "Section",
+  "font": "IBM Plex Serif",
+  "title-font": "Noto Sans Adlam",
+  "box-margin": "5pt",
+  "box-inset": "15pt",
+  "display-mode": "aether",
+  "pad-chapter-id": true,
+  "pad-page-id": true,
+  "heading-numbering": "1.1",
+  "block-design": "modern"
+}

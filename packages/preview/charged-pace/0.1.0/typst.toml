@@ -1,0 +1,13 @@
+[package]
+name = "charged-pace"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Éloïse Zappala"]
+license = "MIT-0"
+description = "Dissertation or thesis in the format required by Pace University."
+categories = ["thesis"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

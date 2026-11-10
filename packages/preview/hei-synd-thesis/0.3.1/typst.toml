@@ -1,0 +1,36 @@
+[package]
+name = "hei-synd-thesis"
+version = "0.3.1"
+compiler = "0.14.2"
+authors = [
+  "Silvan Zahno <https://github.com/tschinz>",
+  "Rémi Heredero <https://github.com/Klagarge>",
+  "Louis Heredero <https://github.com/LordBaryhobal>",
+  "HEI-Vs <https://synd.hevs.io>",
+]
+repository = "https://github.com/hei-templates/hei-synd-thesis"
+homepage = "https://synd.hevs.io"
+license = "MIT"
+description = "A thesis template tailored to the Systems Engineering (Synd) program at the HEI-Vs School of Engineering, Sion, Switzerland."
+entrypoint = "lib/template-thesis.typ"
+categories = ["thesis", "report", "paper"]
+disciplines = ["engineering", "computer-science", "education"]
+keywords = [
+  "Thesis",
+  "Report",
+  "Project",
+  "University",
+  "HES-SO Valais//Wallis",
+  "HEI",
+  "HEI-Vs",
+  "School of engineering",
+  "Synd",
+  "Systems Engineering",
+  "Infotronics",
+  "Sion",
+]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

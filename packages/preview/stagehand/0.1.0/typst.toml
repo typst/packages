@@ -1,0 +1,18 @@
+[package]
+name = "stagehand"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aaron Prott <https://github.com/aarquelle>"]
+license = "MIT"
+description = "Easily create beautiful stageplays."
+repository = "https://github.com/aarquelle/stagehand"
+keywords = ["theatre", "theater", "stage", "stageplay", "drehbuch"]
+categories = ["book"]
+disciplines = ["theater", "literature"]
+compiler = "0.13.0"
+exclude = ["docs/*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

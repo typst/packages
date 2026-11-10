@@ -1,0 +1,8 @@
+bennett-sharpley:
+  type: Book
+  title: Interpolation of operators
+  author:
+    - Bennett, C.
+    - Sharpley, R.
+  publisher: Academic Press Professional, Inc.
+  date: 1987

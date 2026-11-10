@@ -1,0 +1,11 @@
+[package]
+name = "computer-framer"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Daniel Ayala"]
+license = "MIT-0"
+description = "Put content inside beautiful, immersive desktop window frames, with a variety of themes to choose from."
+repository = "https://github.com/dayala1/computer-framer"
+categories = ["fun", "components"]
+exclude = [".git", ".gitignore", "examples"]
+keywords = ["windows", "desktop", "frames"]

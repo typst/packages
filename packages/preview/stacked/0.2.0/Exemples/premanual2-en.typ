@@ -1,0 +1,918 @@
+/// Draws a convex polyhedron and its cross-section by a plane in oblique projection (CeTZ).
+/// The polyhedron is defined by its list of vertices: faces are inferred automatically (convex
+/// hull). Specify the plane using three points or the four coefficients of its Cartesian equation.
+/// Anchors: "0", "1", ... for vertices (in `vertices` order), followed by the intersection points of extensions (see `show-extensions` and `show-all`); `help: true` numbers them.
+/// ```example
+/// // Usage examples:
+/// #polysection((-1, -1, 0), (1, 0, 1), (0, 1, -1))
+/// ```
+/// ```example
+/// // Plane defined by three named points, with extensions of the cross-section edges
+/// #polysection((-1, -1, 0), (1, 0, 1), (0, 1, -1), plane-names: ($A$, $B$, $C$), show-extensions: true)
+/// ```
+/// ```example
+/// // Regular pyramid (vertices computed by `regpyramid`) with vertex labels
+/// #polysection(0, 1, 0, -0.5, vertices: regpyramid(4, side: 2, height: 3),
+///   vertices-names: ($A$, $B$, $C$, $D$, $S$))
+/// ```
+/// -> content
+#let polysection(
+  /// Vertices of the convex polyhedron, as points (x, y, z); defaults to the cube [-1, 1]³. The
+  /// `solidvertices` functions (`regpyramid`, `regprism`, `regpolyhedron`, ...) provide these -> array
+  vertices: (
+    (-1, -1, -1), (1, -1, -1), (1, 1, -1), (-1, 1, -1),
+    (-1, -1,  1), (1, -1,  1), (1, 1,  1), (-1, 1,  1)
+  ),
+  /// Cutting plane: three points (A, B, C), or four coefficients a, b, c, d of the equation ax + by + cz + d = 0, or a single argument (dictionary (a:, b:, c:, d:), array of 4 numbers, or array of 3 points) -> array | dictionary
+  ..plane-args,
+  /// Vertex names, in `vertices` order -> none | array
+  vertices-names: none,
+  /// Names of the three points defining the plane, shown in red (ignored if the plane is specified
+  /// by an equation) -> none | array
+  plane-names: none,
+  /// Computes and displays extensions of the cross-section edges and their intersection points -> bool
+  show-extensions: false,
+  /// Also displays intersections between the lines containing the cross-section edges and the lines containing the solid edges -> bool
+  show-all: false,
+  /// Screen image of the x-axis unit vector (oblique projection) -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector (oblique projection) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) : by default (-0.5,
+  /// -0.5), the z-axis points toward the viewer -> array
+  z: (-0.5, -0.5),
+  /// Numerical tolerance (distances) -> float
+  eps: 1e-6,
+  /// Additional CeTZ commands drawn on the same canvas (they can use the anchors)
+  /// -> cetz commands
+  more: (),
+  /// Cross-section outline color -> color
+  section-border: blue,
+  /// Cross-section fill (usually semi-transparent) -> color
+  section-fill: rgb(0, 102, 255, 35),
+  /// Displays anchor numbers in red (vertices, then intersection points) -> bool
+  help: false,
+  /// Hidden-line style: the value of `dash` for a Typst stroke ("dashed", "dotted", ...) -> str | array | dictionary
+  hidden-style:"dashed",
+  /// Extension guide-line style -> str | array | dictionary
+  extensions-style:"dotted"
+) = {}
+
+/// Point located at a fraction of segment [A C], measured from A (in 2D or 3D).
+/// Useful for placing points in `more`, for example the midpoint of an edge or cross-section segment. `ratio` is a number between 0 and 1 or a percentage: `point-ratio((0, 0, 0), 25%, (4, 0, 0))` returns `(1, 0, 0)`.
+/// -> array
+#let point-ratio(
+  /// Starting point (x, y) or (x, y, z) -> array
+  A,
+  /// Fraction of segment [A C]: number (0.25) or percentage (25%) -> int | float | ratio
+  ratio,
+  /// End point, with the same dimension as A -> array
+  C,
+) = {}
+
+/// Draws a cylinder and its cross-section by a plane in oblique projection (CeTZ).
+/// The cylinder is defined by its radius, height, base center, and axis direction. Specify the plane as for `polysection` (three points or four coefficients). Special cases are handled: a plane parallel to the axis (rectangle), perpendicular to the axis (circle); the ellipse can show its foci.
+/// Anchors: "c0", "c1" (base centers), "i0", "i1", ... (endpoints of the cross-section chords on the bases), "sc" (center of the cross-section when it is a complete ellipse), "f0", "f1" (foyers).
+/// ```example
+/// // Usage examples:
+/// #cylsection((0, 0.5, 0.5), (1, 0.3, -0.2), (-0.6, 1.4, 0.1), plane-names: ($A$, $B$, $C$))
+/// ```
+/// ```example
+/// // Plane parallel to the axis (rectangle)
+/// #cylsection(1, 0, 0, -0.5, radius: 1, height: 2)
+/// ```
+/// ```example
+/// // Complete ellipse with a radius, centers, and foci
+/// #cylsection(0.6, 1, 0, -1, show-radius: true, show-centers: true, show-foci: true,
+///   point-labels: (c0: $O$, c1: $O'$, f0: $F$, f1: $F'$))
+/// ```
+/// -> content
+#let cylsection(
+  /// Cutting plane: three points (A, B, C), or four coefficients a, b, c, d of the equation ax + by + cz + d = 0, or a single argument (dictionary (a:, b:, c:, d:), array of 4 numbers, or array of 3 points) -> array | dictionary
+  ..plane-args,
+  /// Cylinder radius -> int | float
+  radius: 1,
+  /// Cylinder height (distance between the two bases) -> int | float
+  height: 2,
+  /// Center of the “lower” base -> array
+  base: (0, 0, 0),
+  /// Axis direction, from the base toward the upper face (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Names of the three points defining the plane, shown in red (ignored if the plane is specified
+  /// by an equation) -> none | array
+  plane-names: none,
+  /// Draws the axis with a dash-dot line -> bool
+  show-axis: false,
+  /// Marks the foci of the cross-section when they exist (ellipse, parabola, hyperbola) -> bool
+  show-foci: false,
+  /// Draws a radius, with its label, on the visible base -> bool
+  show-radius: false,
+  /// Radius label; `none` omits it, auto give the value -> auto | none | content
+  radius-label: $r$,
+  /// Radius stroke -> stroke
+  radius-stroke: black + 0.8pt,
+  /// Marks the base centers and the cross-section center when unambiguous -> bool
+  show-centers: false,
+  /// show the section dimensions with their labels : circle radius, half-axis a and b for a full ellipse (and c, center to focal distance, with show-foci) -> bool
+  show-dims: false,
+  /// labels for the section dimensions : dictionary (r:, a:, b:, c:) whose values replace ($r'$, $a$, $b$, $c$) (auto gives true value), or auto to replace them all -> auto | dictionary
+  dims-labels: (:),
+  /// Labels placed at anchors (key = anchor name, value = content), for example (c0: $O$, s:
+  /// $S$) ; they are placed outside the solid -> dictionary
+  point-labels: (:),
+  /// Unit added to lengths in auto mode, "cm" for example -> none | str
+  label-unit: none,
+  /// Number of digits in auto mode -> int
+  label-digits: 2,
+  /// Decimal separator in auto mode : "," ou "." -> str
+  label-decimal: ",",
+  /// Screen image of the x-axis unit vector (oblique projection) -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector (oblique projection) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) : by default (-0.5,
+  /// -0.5), the z-axis points toward the viewer -> array
+  z: (-0.5, -0.5),
+  /// Numerical tolerance (distances) -> float
+  eps: 1e-6,
+  /// Number of segments used to draw one full circle or ellipse -> int
+  per-turn: 144,
+  /// Additional CeTZ commands drawn on the same canvas (they can use the anchors)
+  /// -> content
+  more: (),
+  /// Cross-section outline color -> color
+  section-border: blue,
+  /// Cross-section fill (usually semi-transparent) -> color
+  section-fill: rgb(0, 102, 255, 35),
+  /// Hidden-line style: the value of `dash` for a Typst stroke ("dashed", "dotted", ...) ->
+  /// str | array | dictionary
+  hidden-style: "dashed",
+  /// Unit length -> length
+  length: 1cm,
+) = {}
+
+/// Draws a cone and its cross-section by a plane in oblique projection (CeTZ).
+/// The cone is defined by the radius and center of its base, its height, and its axis direction. Specify the plane as for `polysection`. Depending on the plane, the cross-section is a circle, ellipse, parabola, or part of a hyperbola; a plane passing through the apex gives a triangle. The foci are computed using the Dandelin spheres. Hidden parts are dotted.
+/// Anchors: "c0" (base center), "s" (apex), "i0", "i1", ... (endpoints of the chord on the base), "sc" (center of the cross-section when it is a circle), "f0", "f1" (foyers).
+/// ```example
+/// // Usage examples:
+/// #conesection((0.3, 0.2, 0.5), (0.6, 0.4, -0.7), (-0.6, 0.3, 0.1), plane-names: ($A$, $B$, $C$))
+/// ```
+/// ```example
+/// // Plane containing the axis (triangle)
+/// #conesection(1, 0, 0, 0, show-axis: true)
+/// ```
+/// ```example
+/// // Ellipse with its foci
+/// #conesection(0.3, 1, 0, -0.9, show-foci: true, point-labels: (f0: $F$, f1: $F'$))
+/// ```
+/// -> content
+#let conesection(
+  /// Cutting plane: three points (A, B, C), or four coefficients a, b, c, d of the equation ax + by + cz + d = 0, or a single argument (dictionary (a:, b:, c:, d:), array of 4 numbers, or array of 3 points) -> array | dictionary
+  ..plane-args,
+  /// Base radius -> int | float
+  radius: 1,
+  /// Cone height (distance from the base to the apex) -> int | float
+  height: 2,
+  /// Base center -> array
+  base: (0, 0, 0),
+  /// Axis direction, from the base toward the apex (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Names of the three points defining the plane, shown in red (ignored if the plane is specified
+  /// by an equation) -> none | array
+  plane-names: none,
+  /// Draws the axis with a dash-dot line -> bool
+  show-axis: false,
+  /// Marks the foci of the cross-section when they exist (ellipse, parabola, hyperbola) -> bool
+  show-foci: false,
+  /// Draws a radius, with its label, on the base (dotted when hidden) -> bool
+  show-radius: false,
+  /// Radius label; `none` omits it, auto give the value -> auto | none | content
+  radius-label: $r$,
+  /// Radius stroke -> stroke
+  radius-stroke: black + 0.8pt,
+  /// Marks the base center and the cross-section center when it is a circle -> bool
+  show-centers: false,
+  /// Marks the apex -> bool
+  show-apex: false,
+  /// show the section dimensions with their labels : circle radius, half-axis a and b for a full ellipse (and c, center to focal distance, with show-foci) -> bool
+  show-dims: false,
+  /// labels for the section dimensions : dictionary (r:, a:, b:, c:) whose values replace ($r'$, $a$, $b$, $c$) (auto gives true value), or auto to replace them all -> auto | dictionary
+  dims-labels: (:),
+  /// Labels placed at anchors (key = anchor name, value = content), for example (c0: $O$, s:
+  /// $S$) ; they are placed outside the solid -> dictionary
+  point-labels: (:),
+  /// Unit added to lengths in auto mode, "cm" for example -> none | str
+  label-unit: none,
+  /// Number of digits in auto mode -> int
+  label-digits: 2,
+  /// Decimal separator in auto mode : "," ou "." -> str
+  label-decimal: ",",
+  /// Screen image of the x-axis unit vector (oblique projection) -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector (oblique projection) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) : by default (-0.5,
+  /// -0.5), the z-axis points toward the viewer -> array
+  z: (-0.5, -0.5),
+  /// Numerical tolerance (distances) -> float
+  eps: 1e-6,
+  /// Number of segments used to draw one full circle or ellipse -> int
+  per-turn: 144,
+  /// Additional CeTZ commands drawn on the same canvas (they can use the anchors)
+  /// -> content
+  more: (),
+  /// Cross-section outline color -> color
+  section-border: blue,
+  /// Cross-section fill (usually semi-transparent) -> color
+  section-fill: rgb(0, 102, 255, 35),
+  /// Hidden-line style: the value of `dash` for a Typst stroke ("dashed", "dotted", ...) ->
+  /// str | array | dictionary
+  hidden-style: "dashed",
+  /// Unit length -> length
+  length: 1cm,
+) = {}
+
+/// Draws a double cone (hourglass shape) and its cross-section by a plane in oblique projection (CeTZ).
+/// Two cones sharing an apex and axis, extending in opposite directions; each has height `height` and base radius `radius`. Possible cross-sections: circle, ellipse, parabola, hyperbola (two branches, one on each cone), two intersecting lines (plane through the apex), a point, or a line.
+/// Anchors: "s" (apex), "c0" (lower base center), "c1" (upper base center), "i0", "i1", ...
+/// (endpoints of the chords on the bases), "sc" (center of a circular section), "f0", "f1" (foyers).
+/// Limitation: the drawing assumes the two cone halves do not occlude each other, which holds as long as the angle between the viewing direction and the axis exceeds the cone half-angle.
+/// ```example
+/// // Usage examples:
+/// #doubleconesection(1, 0, 0, -0.4, show-foci: true, show-apex: true,
+///   point-labels: (s: $S$, f0: $F$, f1: $F'$))
+/// ```
+/// ```example
+/// // Parabola (plane parallel to a generator)
+/// #doubleconesection(0.894, -0.447, 0, 0.447, show-foci: true)
+/// ```
+/// ```example
+/// // Plane passing through the apex
+/// #doubleconesection(1, 0, 0, 0, show-axis: true, show-apex: true)
+/// ```
+/// -> content
+#let doubleconesection(
+  /// Cutting plane: three points (A, B, C), or four coefficients a, b, c, d of the equation ax + by + cz + d = 0, or a single argument (dictionary (a:, b:, c:, d:), array of 4 numbers, or array of 3 points) -> array | dictionary
+  ..plane-args,
+  /// Base radius of each cone half -> int | float
+  radius: 1,
+  /// Height of each cone half (distance from the apex to each base) -> int | float
+  height: 2,
+  /// Shared apex of the two cones -> array
+  apex: (0, 0, 0),
+  /// Axis direction, from the lower cone half to the upper one (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Names of the three points defining the plane, shown in red (ignored if the plane is specified
+  /// by an equation) -> none | array
+  plane-names: none,
+  /// Draws the axis with a dash-dot line -> bool
+  show-axis: false,
+  /// Marks the foci of the cross-section when they exist (ellipse, parabola, hyperbola) -> bool
+  show-foci: false,
+  /// Draws a radius, with its label, on the base facing the viewer -> bool
+  show-radius: false,
+  /// Radius label; `none` omits it, auto give the value -> auto | none | content
+  radius-label: $r$,
+  /// Radius stroke -> stroke
+  radius-stroke: black + 0.8pt,
+  /// Marks the centers of both bases and the cross-section center when it is a circle -> bool
+  show-centers: false,
+  /// Marks the apex -> bool
+  show-apex: false,
+  /// show the section dimensions with their labels : circle radius, half-axis a and b for a full ellipse (and c, center to focal distance, with show-foci) -> bool
+  show-dims: false,
+  /// labels for the section dimensions : dictionary (r:, a:, b:, c:) whose values replace ($r'$, $a$, $b$, $c$) (auto gives true value), or auto to replace them all -> auto | dictionary
+  dims-labels: (:),
+  /// Labels placed at anchors (key = anchor name, value = content), for example (c0: $O$, s:
+  /// $S$) ; they are placed outside the solid -> dictionary
+  point-labels: (:),
+  /// Unit added to lengths in auto mode, "cm" for example -> none | str
+  label-unit: none,
+  /// Number of digits in auto mode -> int
+  label-digits: 2,
+  /// Decimal separator in auto mode : "," ou "." -> str
+  label-decimal: ",",
+  /// Screen image of the x-axis unit vector (oblique projection) -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector (oblique projection) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) : by default (-0.5,
+  /// -0.5), the z-axis points toward the viewer -> array
+  z: (-0.5, -0.5),
+  /// Numerical tolerance (distances) -> float
+  eps: 1e-6,
+  /// Number of segments used to draw one full circle or ellipse -> int
+  per-turn: 144,
+  /// Additional CeTZ commands drawn on the same canvas (they can use the anchors) -> content
+  more: (),
+  /// Cross-section outline color -> color
+  section-border: blue,
+  /// Cross-section fill (usually semi-transparent) -> color
+  section-fill: rgb(0, 102, 255, 35),
+  /// Hidden-line style: the value of `dash` for a Typst stroke ("dashed", "dotted", ...) -> str | array | dictionary
+  hidden-style: "dashed",
+  /// Unit length -> length
+  length: 1cm,
+) = {}
+
+/// Draws a sphere and its cross-section by a plane in oblique projection (CeTZ).
+/// The apparent outline is computed exactly (it is an ellipse in oblique projection); an optional equator creates a sense of depth. The cross-section is a circle, with hidden parts shown as dotted lines.
+/// Anchors: "o" (center), "sc" (center of the cross-section circle).
+/// ```example
+/// // Usage examples:
+/// #spheresection(1, 1, 1, -0.5)
+/// ```
+/// ```example
+/// // Horizontal plane with a radius, centers, and labels
+/// #spheresection(0, 1, 0, -0.6, center: (0, 1, 0), show-radius: true, show-centers: true,
+///   point-labels: (o: $O$, sc: $I$))
+/// ```
+/// -> content
+#let spheresection(
+  /// Cutting plane: three points (A, B, C), or four coefficients a, b, c, d of the equation ax + by + cz + d = 0, or a single argument (dictionary (a:, b:, c:, d:), array of 4 numbers, or array of 3 points) -> array | dictionary
+  ..plane-args,
+  /// Sphere radius -> int | float
+  radius: 1,
+  /// Sphere center -> array
+  center: (0, 0, 0),
+  /// Pole direction (used only to draw the equator) -> array
+  axis: (0, 1, 0),
+  /// Draws the equator (a circle perpendicular to the axis), creating a sense of depth -> bool
+  show-equator: true,
+  /// Names of the three points defining the plane, shown in red (ignored if the plane is specified
+  /// by an equation) -> none | array
+  plane-names: none,
+  /// Draws a radius on the apparent outline, where it appears at true size -> bool
+  show-radius: false,
+  /// Radius label; `none` omits it, auto give the value -> auto | none | content
+  radius-label: $r$,
+  /// Radius stroke -> stroke
+  radius-stroke: black + 0.8pt,
+  /// Marks the sphere center and the center of the cross-section circle -> bool
+  show-centers: false,
+  /// show the section dimensions with their labels : circle radius -> bool
+  show-dims: false,
+  /// labels for the section dimensions : dictionary (r:, a:, b:, c:) whose values replace ($r'$, $a$, $b$, $c$) (auto gives true value), or auto to replace them all -> auto | dictionary
+  dims-labels: (:),
+  /// Labels placed at anchors (key = anchor name, value = content), for example (c0: $O$, s:
+  /// $S$) ; they are placed outside the solid -> dictionary
+  point-labels: (:),
+  /// Unit added to lengths in auto mode, "cm" for example -> none | str
+  label-unit: none,
+  /// Number of digits in auto mode -> int
+  label-digits: 2,
+  /// Decimal separator in auto mode : "," ou "." -> str
+  label-decimal: ",",
+  /// Screen image of the x-axis unit vector (oblique projection) -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector (oblique projection) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) : by default (-0.5,
+  /// -0.5), the z-axis points toward the viewer -> array
+  z: (-0.5, -0.5),
+  /// Numerical tolerance (distances) -> float
+  eps: 1e-6,
+  /// Number of segments used to draw one full circle or ellipse -> int
+  per-turn: 144,
+  /// Additional CeTZ commands drawn on the same canvas (they can use the anchors) -> content
+  more: (),
+  /// Cross-section outline color -> color
+  section-border: blue,
+  /// Cross-section fill (usually semi-transparent) -> color
+  section-fill: rgb(0, 102, 255, 35),
+  /// Hidden-line style: the value of `dash` for a Typst stroke ("dashed", "dotted", ...) -> str | array | dictionary
+  hidden-style: "dashed",
+  /// Unit length -> length
+  length: 1cm,
+) = {}
+
+/// View parameters (x, y, z) for an orthographic projection centered on the point at longitude `lon` and latitude `lat`. The sphere then appears as a circle, with the south–north axis vertical. Use with the default orientation of `globe` (axis (0, 1, 0), Greenwich (0, 0, 1)).
+/// The larger `lat` is, the more the equator opens (depth effect) and the farther the North Pole moves from the top edge of the drawing; between 10 and 20, it appears almost at the highest point.
+/// ```example
+/// // Usage example:
+/// #globe(..globe-view(lon: 0, lat: 15), show-axis: true)
+/// ```
+/// -> dictionary
+#let globe-view(
+  /// Longitude of the point at the center of the drawing, in degrees (east is positive) -> int | float
+  lon: 20,
+  /// Latitude of the point at the center of the drawing, in degrees (north is positive) -> int | float
+  lat: 25,
+) = {}
+
+/// Draws a globe (a variant of `spheresection`) to explain geographic coordinates.
+/// Latitude: angle measured from the equator, from -90° (south) to +90° (north). Longitude: angle from the Greenwich meridian, from -180° (west) to +180° (east). All angles are specified in degrees.
+/// You can display the equator, the tropics, the Greenwich meridian, parallels and meridians (individually or as a grid), the south–north axis, cities (see `globe-cities`), or points with arbitrary coordinates and, for a point, the construction of its coordinates: longitude angle in the equatorial plane and latitude angle in the plane of its meridian. A plane can also be specified to draw a cross-section (a parallel is a plane perpendicular to the axis, while a meridian is a plane containing it).
+/// Oblique projection distorts the sphere into an ellipse; `globe-view` provides an orthographic view.
+/// Anchors: "o" (center), "n", "s" (poles), "g" (point with coordinates (0, 0)), "p0", "p1", ... and the name of each point, "sc" (cross-section center).
+/// ```example
+/// // Usage examples:
+/// #globe(..globe-view(lon: 20, lat: 20), show-axis: true, show-tropics: true, graticule: 30,
+///   points: ("Paris", "Le Caire", "Dakar"))
+/// ```
+/// ```example
+/// // Constructing a city’s longitude and latitude
+/// #globe(..globe-view(lon: 60, lat: 20), show-axis: true, show-centers: true,
+///   points: (("city": "Tokyo", angles: true),), point-labels: (o: $O$, g: $G$))
+/// ```
+/// ```example
+/// // Point with arbitrary coordinates
+/// #globe(..globe-view(lon: 40, lat: 20), points: ((name: "M", lat: 35, lon: 60, angles: true),))
+/// ```
+/// -> content
+#let globe(
+  /// Cutting plane: three points (A, B, C), or four coefficients a, b, c, d of the equation ax + by + cz + d = 0, or a single argument (dictionary (a:, b:, c:, d:), array of 4 numbers, or array of 3 points) -> array | dictionary
+  ..plane-args,
+  /// Sphere radius -> int | float
+  radius: 1,
+  /// Sphere center -> array
+  center: (0, 0, 0),
+  /// Direction of the south–north axis, from the South Pole to the North Pole -> array
+  axis: (0, 1, 0),
+  /// Direction of the point at latitude 0 and longitude 0, projected perpendicular to the axis; with the
+  /// default values, the Greenwich meridian faces the viewer and east is on the right -> array
+  greenwich: (0, 0, 1),
+  /// Draws the equator -> bool
+  show-equator: true,
+  /// Draws the Greenwich meridian (semicircle from pole to pole) -> bool
+  show-greenwich: true,
+  /// Draws the Tropics of Cancer and Capricorn (latitudes ±23.44°) -> bool
+  show-tropics: false,
+  /// Additional latitudes to draw, in degrees, for example (30, -45) -> array
+  parallels: (),
+  /// Additional longitudes to draw, in degrees, for example (90, -120) -> array
+  meridians: (),
+  /// Step, in degrees, for a grid of parallels and meridians (e.g. 30); `none` disables the grid
+  /// -> none | int | float
+  graticule: none,
+  /// Draws the south–north axis (dotted inside and behind the sphere) -> bool
+  show-axis: false,
+  /// Length by which the axis extends beyond each pole, as a fraction of the radius -> int | float
+  axis-extension: 0.3,
+  /// Marks the sphere center and the cross-section center -> bool
+  show-centers: false,
+  /// Points to place: city names from `globe-cities` or dictionaries (name:, lat:, lon:, color:
+  /// label:, angles:); `angles: true` adds the coordinate construction for the point, `angles: auto` adds the numerical values -> array
+  points: (),
+  /// Label for the longitude angle -> content
+  lon-label: $theta$,
+  /// Label for the latitude angle -> content
+  lat-label: $phi$,
+  /// Color of the angle construction -> color
+  angle-color: rgb("#8e44ad"),
+  /// Equator stroke -> stroke
+  equator-stroke: rgb("#c0392b") + 1pt,
+  /// Greenwich meridian stroke -> stroke
+  greenwich-stroke: rgb("#2a9d4a") + 1pt,
+  /// Tropics stroke -> stroke
+  tropics-stroke: rgb("#e67e22") + 0.8pt,
+  /// Grid-parallel and meridian stroke -> stroke
+  grid-stroke: gray + 0.4pt,
+  /// South–north axis stroke -> stroke
+  axis-stroke: black + 0.8pt,
+  /// Names of the three points defining the plane, shown in red (ignored if the plane is specified
+  /// by an equation) -> none | array
+  plane-names: none,
+  /// Labels placed at anchors (key = anchor name, value = content), for example (o: $O$, n: $N$) -> dictionary
+  point-labels: (:),
+  /// Screen image of the x-axis unit vector (oblique projection) -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector (oblique projection) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) : by default (-0.5, -0.5), the z-axis points toward the viewer -> array
+  z: (-0.5, -0.5),
+  /// Numerical tolerance (distances) -> float
+  eps: 1e-6,
+  /// Number of segments used to draw one full circle or ellipse -> int
+  per-turn: 144,
+  /// Additional CeTZ commands drawn on the same canvas (they can use the anchors) -> content
+  more: (),
+  /// Cross-section outline color -> color
+  section-border: blue,
+  /// Cross-section fill (usually semi-transparent) -> color
+  section-fill: rgb(0, 102, 255, 35),
+  /// Hidden-line style: the value of `dash` for a Typst stroke ("dashed", "dotted", ...) -> str | array | dictionary
+  hidden-style: "dashed",
+  /// Unit length -> length
+  length: 1cm,
+) = {}
+
+/// Displays a convex polyhedron, its net, and intermediate unfolding steps (CeTZ).
+/// The progress parameter `t` ranges from 0 (closed solid) to 1 (flat net). The requested steps (`steps`) are drawn side by side at the same scale. The solid rests on its bottom face, which remains fixed: the other faces unfold around it. The net is selected from several unfolding trees (breadth-first and depth-first traversal): the first one whose faces do not overlap is selected. Faces are opaque, shaded, and sorted from farthest to nearest; the closed solid is drawn without hidden edges.
+/// Anchors, suffixed -1, -2, ... when there are multiple steps: "f0", "f1", ... (face centers) and "v0", "v1", ... (vertices, in `vertices` order; each vertex is taken from the first face in the tree that contains it).
+/// ```example
+/// // Usage examples:
+/// #polyunfold(steps: (0, 0.4, 0.75, 1), labels: ($t = 0$, $t = 0.4$, $t = 0.75$, $t = 1$))
+/// ```
+/// ```example
+/// // Flat net of a pyramid, at true scale
+/// #polyunfold(vertices: regpyramid(5, side: 2, height: 3), view: "top")
+/// ```
+/// ```example
+/// // One color per face and vertex numbering
+/// #polyunfold(t: 0, length: 1.2cm,
+///   palette: (red, green, blue, yellow, orange, purple).map(c => c.lighten(60%)),
+///   more: {
+///     import cetz.draw: *
+///     for i in range(8) {
+///       content("v" + str(i), text(size: 8pt, str(i)), anchor: "south-west", padding: 0.05)
+///     }
+///   })
+/// ```
+/// -> content
+#let polyunfold(
+  /// Vertices of the convex polyhedron (defaults to the cube [-1, 1]³), as for `polysection`; the
+  /// `solidvertices` functions provide them -> array
+  vertices: (
+    (-1, -1, -1), (1, -1, -1), (1, 1, -1), (-1, 1, -1),
+    (-1, -1, 1), (1, -1, 1), (1, 1, 1), (-1, 1, 1),
+  ),
+  /// Values of the unfolding parameter `t` to display side by side, from 0 (closed solid) to 1 (flat net).
+  /// By default (0, 0.5, 1), or (1,) with `view: "top"` -> auto | array
+  steps: auto,
+  /// A single value of `t` (takes precedence over `steps`) -> none | int | float
+  t: none,
+  /// Index of the face that remains fixed; `auto`: the bottom face -> auto | int
+  root: auto,
+  /// “Upward” direction, used to identify the bottom face -> array
+  up: (0, 1, 0),
+  /// "oblique": oblique x, y, z projection (default); "top": flat net viewed from above, at true
+  /// scale, oriented like the oblique view -> str
+  view: "oblique",
+  /// Number of figures per row; `auto`: all on one row -> auto | int
+  columns: auto,
+  /// Spacing between figures (coordinate units) -> int | float
+  gap: 0.8,
+  /// Captions displayed below the figures (one per step) -> none | array
+  labels: none,
+  /// Arrows between consecutive figures on the same row -> bool
+  arrows: true,
+  /// Face color -> color
+  fill: rgb("#a9cce3"),
+  /// Color of the fixed face (the base) -> color
+  base-fill: rgb("#f5b7b1"),
+  /// Face colors, repeated as needed; overrides `fill` and `base-fill` -> none | array
+  palette: none,
+  /// Edge stroke -> stroke
+  edge-stroke: 0.7pt + black,
+  /// Screen image of the x-axis unit vector ("oblique" view) ; no effect with `view: "top"` -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector ("oblique" view) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) ("oblique" view) -> array
+  z: (-0.5, -0.5),
+  /// Additional CeTZ commands drawn on the same canvas ; the first figure keeps its
+  /// original coordinates; anchors are available for all figures -> content
+  more: (),
+  /// Drawing scale: length of one coordinate unit -> length
+  length: 1cm,
+  /// Rotation angle for view:"top" -> angle
+  angle: 0deg,
+) = {}
+
+/// Displays a cylinder, its net, and intermediate unfolding steps (CeTZ).
+/// The progress parameter `t` ranges from 0 (closed solid) to 1 (flat net). The base disk remains fixed; the lateral surface unfolds (preserving arc lengths) into a rectangle of length 2πr tangent to the disk, and the second disk tilts with it. Faces are opaque, shaded, and sorted from farthest to nearest.
+/// With `cotes: true`, dimensions are added (r, h on the closed solid; 2πr, h, r on the net); labels are placed outside for heights and below the lines for the other dimensions.
+/// Anchors, suffixed -1, -2, ... when there are multiple steps: "c0" (center of the fixed disk), "c1" (center of the other disk), "pc", "qc" (contact points, at the bottom and top), "cote-r", "cote-h", "cote-p" (midpoints of dimension lines).
+/// ```example
+/// // Usage examples:
+/// #cylunfold(steps: (0, 0.3, 0.6, 1))
+/// ```
+/// ```example
+/// // Dimensions on the closed solid
+/// #cylunfold(t: 0, cotes: true)
+/// ```
+/// ```example
+/// // Flat net with actual values
+/// #cylunfold(view: "top", cotes: true, radius: 1.5, height: 2.5, cote-labels: auto, cote-unit: "cm")
+/// ```
+/// -> content
+#let cylunfold(
+  /// Cylinder radius -> int | float
+  radius: 1,
+  /// Cylinder height -> int | float
+  height: 2,
+  /// Center of the base disk, which remains fixed -> array
+  base: (0, 0, 0),
+  /// Axis direction, from the base toward the apex (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Direction in the base plane of the point where the solid meets its net; `auto`: the side opposite the observer, the net unfold to the back -> auto | array
+  contact: auto,
+  /// Position(s) of the base disks along the rectangle : ratio between 0 and 1 mesured from the left side of the rectangle in view:"top" ; one number for both disks, or an array (bottom, top) for independant positions -> int | float | array
+  base-ratio: 0.5,
+  /// Values of the unfolding parameter `t` to display side by side, from 0 (closed solid) to 1 (flat net).
+  /// By default (0, 0.5, 1), or (1,) with `view: "top"` -> auto | array
+  steps: auto,
+  /// A single value of `t` (takes precedence over `steps`) -> none | int | float
+  t: none,
+  /// "oblique": oblique x, y, z projection (default); "top": flat net viewed from above, at true
+  /// scale, oriented like the oblique view -> str
+  view: "oblique",
+  /// Number of figures per row; `auto`: all on one row -> auto | int
+  columns: auto,
+  /// Spacing between figures (coordinate units) -> int | float
+  gap: 0.8,
+  /// Captions displayed below the figures (one per step) -> none | array
+  labels: none,
+  /// Arrows between consecutive figures on the same row -> bool
+  arrows: true,
+  /// Face color -> color
+  fill: rgb("#a9cce3"),
+  /// Color of the fixed disk -> color
+  base-fill: rgb("#f5b7b1"),
+  /// Color of the second disk -> color
+  top-fill: rgb("#f9e79f"),
+  /// Lateral surface mesh resolution (number of facets per revolution) -> int
+  segments: 60,
+  /// Adds dimensions: r and h on the closed solid (t = 0, oblique view); 2πr, h, and r on the net
+  /// (view: "top") -> bool
+  cotes: false,
+  /// Dimension labels: dictionary (r:, h:, g:, p:, a:) whose values replace the symbolic labels
+  /// (the value `auto` uses the actual value), or `auto` to replace all labels -> auto | dictionary
+  cote-labels: (:),
+  /// Dimension color -> color
+  cote-color: rgb("#7b241c"),
+  /// Unit appended to lengths in automatic mode, for example "cm" -> none | str
+  cote-unit: none,
+  /// Number of decimal places in automatic mode -> int
+  cote-digits: 2,
+  /// Decimal separator in automatic mode: "," or "." -> str
+  cote-decimal: ",",
+  /// Edge stroke -> stroke
+  edge-stroke: 0.7pt + black,
+  /// Screen image of the x-axis unit vector ("oblique" view, like for polysection) ; no effect with `view: "top"` -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector ("oblique" view) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) ("oblique" view) -> array
+  z: (-0.5, -0.5),
+  /// Additional CeTZ commands drawn on the same canvas ; the first figure keeps its
+  /// original coordinates; anchors are available for all figures -> content
+  more: (),
+  /// Drawing scale: length of one coordinate unit -> length
+  length: 1cm,
+   /// Rotation angle for view:"top" -> angle
+  angle: 0deg,
+) = {}
+
+/// Displays a cone, its net, and intermediate unfolding steps (CeTZ).
+/// The progress parameter `t` ranges from 0 (closed solid) to 1 (flat net). The base disk remains fixed; the lateral surface unfolds into a circular sector whose radius equals the slant height, tangent to the disk. Faces are opaque, shaded, and sorted from farthest to nearest.
+/// With `cotes: true`, dimensions are added (r, h, g on the closed solid; g, 2πr, the sector angle, and r on the patron) ; the labels are outside for the generator and under for other lines.
+/// Anchors, suffixed -1, -2, ... when there are multiple steps: "c0" (base center), "s" (apex), "pc" (contact point), "cote-r", "cote-h", "cote-g", "cote-p", "cote-a" (midpoints of dimension lines).
+/// ```example
+/// // Usage examples:
+/// #coneunfold(steps: (0, 0.3, 0.6, 1))
+/// ```
+/// ```example
+/// // Dimensions on the closed solid, with actual values
+/// #coneunfold(t: 0, cotes: true, radius: 1.5, height: 2.5, cote-labels: auto, cote-unit: "cm")
+/// ```
+/// ```example
+/// // Flat net: slant height, arc length 2πr, and sector angle
+/// #coneunfold(view: "top", cotes: true, radius: 3, height: 4, cote-labels: auto, cote-unit: "cm", length: 0.6cm)
+/// ```
+/// -> content
+#let coneunfold(
+  /// Cone radius -> int | float
+  radius: 1,
+  /// Cone height -> int | float
+  height: 2,
+  /// Base center, fixed -> array
+  base: (0, 0, 0),
+  /// Axis direction, from the base toward the apex (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Direction in the base plane of the point where the solid meets its net; `auto`: the side opposite the observer, the net unfold to the back -> auto | array
+  contact: auto,
+  /// Position of the base disk along the lateral sector : ratio between 0 and 1 mesured from the top left limit of the arc in view:"top" (0.5 : middle) -> int | float
+  base-ratio: 0.5,
+  /// Values of the unfolding parameter `t` to display side by side, from 0 (closed solid) to 1 (flat net).
+  /// By default (0, 0.5, 1), or (1,) with `view: "top"` -> auto | array
+  steps: auto,
+  /// A single value of `t` (takes precedence over `steps`) -> none | int | float
+  t: none,
+  /// "oblique": oblique x, y, z projection (default); "top": flat net viewed from above, at true
+  /// scale, oriented like the oblique view -> str
+  view: "oblique",
+  /// Number of figures per row; `auto`: all on one row -> auto | int
+  columns: auto,
+  /// Spacing between figures (coordinate units) -> int | float
+  gap: 0.8,
+  /// Captions displayed below the figures (one per step) -> none | array
+  labels: none,
+  /// Arrows between consecutive figures on the same row -> bool
+  arrows: true,
+  /// Face color -> color
+  fill: rgb("#a9cce3"),
+  /// Base color -> color
+  base-fill: rgb("#f5b7b1"),
+  /// Lateral surface mesh resolution (number of facets per revolution) -> int
+  segments: 60,
+  /// Adds dimensions: r, h, and g on the closed solid (t = 0, oblique view); g, 2πr, and the sector angle
+  /// (key `a`) and r on the net (`view: "top"`) -> bool
+  cotes: false,
+  /// Dimension labels: dictionary (r:, h:, g:, p:, a:) whose values replace the symbolic labels
+  /// (the value `auto` uses the actual value), or `auto` to replace all labels -> auto | dictionary
+  cote-labels: (:),
+  /// Dimension color -> color
+  cote-color: rgb("#7b241c"),
+  /// Unit appended to lengths in automatic mode, for example "cm" -> none | str
+  cote-unit: none,
+  /// Number of decimal places in automatic mode -> int
+  cote-digits: 2,
+  /// Decimal separator in automatic mode: "," or "." -> str
+  cote-decimal: ",",
+  /// Edge stroke -> stroke
+  edge-stroke: 0.7pt + black,
+  /// Screen image of the x-axis unit vector ("oblique" view, like for polysection) ; no effect with `view: "top"` -> array
+  x: (1, 0),
+  /// Screen image of the y-axis unit vector ("oblique" view) -> array
+  y: (0, 1),
+  /// Screen image of the z-axis unit vector (depth direction) ("oblique" view) -> array
+  z: (-0.5, -0.5),
+  /// Additional CeTZ commands drawn on the same canvas ; the first figure keeps its
+  /// original coordinates; anchors are available for all figures -> content
+  more: (),
+  /// Drawing scale: length of one coordinate unit -> length
+  length: 1cm,
+   /// Rotation angle for view:"top" -> angle
+  angle: 0deg,
+) = {}
+
+/// Vertices of a regular polygon in the plane perpendicular to `axis`, ordered positively around the axis.
+/// The polygon is defined by its number of sides and its circumradius or side length. The
+/// points are coplanar: they are used to draw the polygon, but not as `vertices` for a solid.
+/// ```example
+/// // Usage example:
+/// #cetz.canvas({
+///   import cetz.draw: *
+///   line(..regpolygon(5, side: 2, axis: (0, 0, 1)), close: true)
+/// })
+/// ```
+/// -> array (of points (x, y, z))
+#let regpolygon(
+  /// Number of sides (at least 3) -> int
+  n,
+  /// Circumradius of the circle (or sphere), i.e. the distance from the center to a vertex;
+  /// specify either `radius` OR `side`, not both (default `radius: 1`) -> none | int | float
+  radius: none,
+  /// Side length (edge length for a solid); specify `side` OR `radius` -> none | int | float
+  side: none,
+  /// Polygon center -> array
+  center: (0, 0, 0),
+  /// Normal to the plane containing the polygon (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Additional rotation around the axis, in degrees, in the positive direction -> int | float
+  phase: 0,
+  /// "side": one side of the base polygon faces the viewer (the +z direction in the oblique view);
+  /// "vertex": a vertex -> str
+  start: "side",
+) = {}
+
+/// Vertices of a regular pyramid: the n base vertices (ordered positively around the axis), followed by the apex as the last vertex. Use as `vertices:` for `polysection` or `polyunfold`.
+/// ```example
+/// // Usage examples:
+/// #polysection(0, 1, 0, -0.1, vertices: regpyramid(5, side: 2, height: 3))
+/// ```
+/// ```example
+/// // Dépliage d'une pyramide à base carrée
+/// #polyunfold(vertices: regpyramid(4, side: 2, height: 3), steps: (0, 0.5, 1), length: 0.5cm)
+/// ```
+/// -> array (of points (x, y, z))
+#let regpyramid(
+  /// Number of sides of the base (at least 3) -> int
+  n,
+  /// Circumradius of the circle (or sphere), i.e. the distance from the center to a vertex;
+  /// specify either `radius` OR `side`, not both (default `radius: 1`) -> none | int | float
+  radius: none,
+  /// Side length (edge length for a solid); specify `side` OR `radius` -> none | int | float
+  side: none,
+  /// Pyramid height -> int | float
+  height: 1,
+  /// Base center (or midpoint of the height when `centered: true`) -> array
+  center: (0, 0, 0),
+  /// Axis direction, pointing upward (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Additional rotation around the axis, in degrees, in the positive direction -> int | float
+  phase: 0,
+  /// "side": one side of the base polygon faces the viewer (the +z direction in the oblique view);
+  /// "vertex": a vertex -> str
+  start: "side",
+  /// `true`: `center` is the midpoint of the height rather than the base center -> bool
+  centered: false,
+) = {}
+
+/// Vertices of a right prism with a regular base: the n base vertices, followed by the n vertices of the upper face in the same order. Use as `vertices:` for `polysection` or `polyunfold`.
+/// ```example
+/// // Usage examples:
+/// #polysection(1, 0.4, 0, 0.2, vertices: regprism(6, radius: 1.2, height: 2.5))
+/// ```
+/// ```example
+/// // Flat net of a triangular prism
+/// #polyunfold(vertices: regprism(3, side: 1, height: 2), view: "top")
+/// ```
+/// -> array (of points (x, y, z))
+#let regprism(
+  /// Number of sides of the base (at least 3) -> int
+  n,
+  /// Circumradius of the circle (or sphere), i.e. the distance from the center to a vertex;
+  /// specify either `radius` OR `side`, not both (default `radius: 1`) -> none | int | float
+  radius: none,
+  /// Side length (edge length for a solid); specify `side` OR `radius` -> none | int | float
+  side: none,
+  /// Prism height -> int | float
+  height: 1,
+  /// Base center (or midpoint of the height when `centered: true`) -> array
+  center: (0, 0, 0),
+  /// Axis direction, pointing upward (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Additional rotation around the axis, in degrees, in the positive direction -> int | float
+  phase: 0,
+  /// "side": one side of the base polygon faces the viewer (the +z direction in the oblique view);
+  /// "vertex": a vertex -> str
+  start: "side",
+  /// `true`: `center` is the midpoint of the height rather than the base center -> bool
+  centered: false,
+) = {}
+
+/// Vertices of an antiprism: as for a prism, but the upper face is rotated by 180°/n relative to the base, producing triangular lateral faces. The same conventions as for `regprism` apply.
+/// ```example
+/// // Usage example:
+/// #polyunfold(vertices: regantiprism(5, radius: 1.2, height: 1.2), view: "top")
+/// ```
+/// -> array (of points (x, y, z))
+#let regantiprism(
+  /// Number of sides on each base (at least 3) -> int
+  n,
+  /// Circumradius of the circle (or sphere), i.e. the distance from the center to a vertex;
+  /// specify either `radius` OR `side`, not both (default `radius: 1`) -> none | int | float
+  radius: none,
+  /// Side length (edge length for a solid); specify `side` OR `radius` -> none | int | float
+  side: none,
+  /// Distance between the planes of the two bases -> int | float
+  height: 1,
+  /// Base center (or midpoint of the height when `centered: true`) -> array
+  center: (0, 0, 0),
+  /// Axis direction, pointing upward (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Additional rotation around the axis, in degrees, in the positive direction -> int | float
+  phase: 0,
+  /// "side": one side of the base polygon faces the viewer (the +z direction in the oblique view);
+  /// "vertex": a vertex -> str
+  start: "side",
+  /// `true`: `center` is the midpoint of the height rather than the base center -> bool
+  centered: false,
+) = {}
+
+/// Vertices of a bipyramid: the n vertices of the middle polygon, followed by the top apex and then the bottom apex.
+/// ```example
+/// // Usage example:
+/// #polysection(0, 1, 0, -0.5, vertices: regbipyramid(5, side: 2, height: 3))
+/// ```
+/// -> array (of points (x, y, z))
+#let regbipyramid(
+  /// Number of sides of the middle polygon (at least 3) -> int
+  n,
+  /// Circumradius of the circle (or sphere), i.e. the distance from the center to a vertex;
+  /// specify either `radius` OR `side`, not both (default `radius: 1`) -> none | int | float
+  radius: none,
+  /// Side length (edge length for a solid); specify `side` OR `radius` -> none | int | float
+  side: none,
+  /// Height of each pyramid (distance from the middle polygon to each apex) -> int | float
+  height: 1,
+  /// Center of the middle polygon -> array
+  center: (0, 0, 0),
+  /// Axis direction, pointing upward (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Additional rotation around the axis, in degrees, in the positive direction -> int | float
+  phase: 0,
+  /// "side": one side of the base polygon faces the viewer (the +z direction in the oblique view);
+  /// "vertex": a vertex -> str
+  start: "side",
+) = {}
+
+/// Vertices of a regular polyhedron (Platonic solid): "tetrahedron", "cube", "octahedron", "dodecahedron", or "icosahedron" (English names are accepted). The solid rests on one of its faces, with the axis pointing upward, and one edge of that face facing the viewer; this is also the face that `polyunfold` keeps fixed by default.
+/// ```example
+/// // Usage examples:
+/// #polysection(0.3, 1, 0.2, 0, vertices: regpolyhedron("dodécaèdre", side: 1))
+/// ```
+/// ```example
+/// // Flat net of an icosahedron
+/// #polyunfold(vertices: regpolyhedron("icosaèdre", side: 1.5), view: "top", length: 0.6cm)
+/// ```
+/// -> array (of points (x, y, z))
+#let regpolyhedron(
+  /// Polyhedron name: "tetrahedron", "cube", "octahedron", "dodecahedron", or "icosahedron" -> str
+  name,
+  /// Circumradius of the circle (or sphere), i.e. the distance from the center to a vertex;
+  /// specify either `radius` OR `side`, not both (default `radius: 1`) -> none | int | float
+  radius: none,
+  /// Side length (edge length for a solid); specify `side` OR `radius` -> none | int | float
+  side: none,
+  /// Solid center -> array
+  center: (0, 0, 0),
+  /// Axis direction, pointing upward (need not be a unit vector) -> array
+  axis: (0, 1, 0),
+  /// Additional rotation around the axis, in degrees, in the positive direction -> int | float
+  phase: 0,
+) = {}

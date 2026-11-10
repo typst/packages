@@ -1,0 +1,5 @@
+slug = "3sum"
+title = "3Sum"
+difficulty = "medium"
+labels = ["array", "two-pointers", "sorting"]
+validator = "unordered-compare"
