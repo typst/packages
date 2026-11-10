@@ -1,7 +1,7 @@
 # simple-plot
 
 [![simple-plot on Typst Universe](https://img.shields.io/badge/Typst_Universe-v._1.1.1-239dad?labelColor=eee)](https://typst.app/universe/package/simple-plot)
-[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-simple-plot/blob/50ee4f4c26049da195473d76695587be8acbd0ba/docs/manual.pdf)
+[![Full package manual as PDF](https://img.shields.io/badge/Manual-pdf-333333?labelColor=eee)](https://github.com/nathan-ed/typst-package-simple-plot/blob/1a21a3de3e3bebcdb2237d3060b36a518422de8d/docs/manual.pdf)
 [![Distributed under the MIT license](https://img.shields.io/badge/License-MIT-333333?labelColor=eee)](LICENSE)
 
 A simple, pgfplots-like function plotting library for Typst. Create beautiful mathematical plots with minimal code.
@@ -10,7 +10,7 @@ A simple, pgfplots-like function plotting library for Typst. Create beautiful ma
 
 ## Manual
 
-A full manual is available in [docs/manual.pdf](https://github.com/nathan-ed/typst-package-simple-plot/blob/50ee4f4c26049da195473d76695587be8acbd0ba/docs/manual.pdf).
+A full manual is available in [docs/manual.pdf](https://github.com/nathan-ed/typst-package-simple-plot/blob/1a21a3de3e3bebcdb2237d3060b36a518422de8d/docs/manual.pdf).
 
 ## Gallery
 
@@ -467,7 +467,7 @@ drawn.
 
 ## Dependencies
 
-- [CeTZ](https://github.com/cetz-package/cetz) (v0.5.2+)
+- [CeTZ](https://github.com/cetz-package/cetz) (v0.5.3+)
 
 ## License
 
@@ -478,10 +478,11 @@ MIT License — see LICENSE file for details.
 ### [1.1.1] - 2026-11-10
 
 #### Changed
-- **Plots compile faster and hold about half the memory**, with pixel-identical output. On a document of 90 plots, compile time dropped by roughly 40% and peak memory from 547 MB to 263 MB.
+- **Plots compile faster and hold about half the memory**, with the same output under a given CeTZ version. On a document of 90 plots, compile time dropped by roughly 40% and peak memory from 547 MB to 263 MB.
   - **Markers**: all the markers of a series are drawn as one CeTZ element. The marker is built once and copied to each point, where every point used to be a full element with its own coordinate and style resolution, anchors and bounding box. Round markers no longer go through the CeTZ plugin, which was called four times per point, twice over.
   - **Curves, ticks and grid lines** are assembled directly from their canvas coordinates rather than resolved point by point as general CeTZ coordinates.
   - **Label placement**: the test that tells whether a curve crosses a tick label ran as tens of thousands of function calls per document; it is now a single loop of comparisons.
+- **CeTZ 0.5.3.** The dependency moves from 0.5.2 to 0.5.3, which places some labels (superscripts, single letters) about a pixel away from where 0.5.2 put them.
 
 ### [1.1.0] - 2026-08-19
 
