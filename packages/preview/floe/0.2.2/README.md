@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/banner.png" alt="Polar bear resting on an ice floe amidst arctic waters" width="100%" />
+  <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/banner.png" alt="Polar bear resting on an ice floe amidst arctic waters" width="100%" />
 </p>
 
 # Floe ❄️
@@ -12,7 +12,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
 
 ## Showcase
 
-> [!TIP]
+> **Tip**
 > **Complete Component & API Reference:** This showcase highlights selected components across all five architectural layers. Every primitive, mixin, component, and preset is documented in depth with live Typst code, parameter tables, and visual previews on the **[Documentation Site](https://spanishsyntax.github.io/Floe)**.
 
 <table>
@@ -28,7 +28,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#theorem(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/theorem.png" alt="Theorem Plaque" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/theorem.png" alt="Theorem Plaque" width="100%" />
       </td>
     </tr>
     <tr>
@@ -36,7 +36,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#pitfall(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/pitfall.png" alt="Exam Pitfall Callout" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/pitfall.png" alt="Exam Pitfall Callout" width="100%" />
       </td>
     </tr>
     <tr>
@@ -44,7 +44,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#formula-breakdown(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/formula_breakdown.png" alt="Formula Breakdown Canvas" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/formula_breakdown.png" alt="Formula Breakdown Canvas" width="100%" />
       </td>
     </tr>
     <tr>
@@ -52,7 +52,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#derivation-stepper(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/derivation_stepper.png" alt="Derivation Stepper" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/derivation_stepper.png" alt="Derivation Stepper" width="100%" />
       </td>
     </tr>
     <tr>
@@ -60,7 +60,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#plot-2d(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/plot_2d.png" alt="Native 2D Function and Scatter Plotter" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/plot_2d.png" alt="Native 2D Function and Scatter Plotter" width="100%" />
       </td>
     </tr>
     <tr>
@@ -68,7 +68,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#reaction(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/reaction.png" alt="Chemical Reaction and Thermodynamic Data Block" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/reaction.png" alt="Chemical Reaction and Thermodynamic Data Block" width="100%" />
       </td>
     </tr>
     <tr>
@@ -76,7 +76,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/primitives"><code>#figure-grid(...)</code><br><br><code>#figure-card(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/figure_card.png" alt="Framed Figure Grid and Cards" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/figure_card.png" alt="Framed Figure Grid and Cards" width="100%" />
       </td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/primitives"><code>#equal-grid(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/equal_grid.png" alt="Parent-Driven Equal-Height Row Engine" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/equal_grid.png" alt="Parent-Driven Equal-Height Row Engine" width="100%" />
       </td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#duality-grid(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/duality_grid.png" alt="Primal-Dual Duality Grid" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/duality_grid.png" alt="Primal-Dual Duality Grid" width="100%" />
       </td>
     </tr>
     <tr>
@@ -100,7 +100,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#pro-con(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/pro_con.png" alt="Pro-Con Tradeoffs" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/pro_con.png" alt="Pro-Con Tradeoffs" width="100%" />
       </td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#data-table(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/tables.png" alt="Adaptive Data Table" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/tables.png" alt="Adaptive Data Table" width="100%" />
       </td>
     </tr>
     <tr>
@@ -116,7 +116,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/components"><code>#comparison-table(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/comparison_table.png" alt="Feature Comparison Matrix" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/comparison_table.png" alt="Feature Comparison Matrix" width="100%" />
       </td>
     </tr>
     <tr>
@@ -124,7 +124,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/primitives"><code>#divider(...)</code><br><br><code>#chip-divider(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/divider.png" alt="Horizontal Dividers" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/divider.png" alt="Horizontal Dividers" width="100%" />
       </td>
     </tr>
     <tr>
@@ -132,7 +132,7 @@ Floe provides modular structural primitives, equal-height row engines, composabl
         <a href="https://spanishsyntax.github.io/Floe/#/presets"><code>#adr(...)</code></a>
       </td>
       <td valign="middle" align="center">
-        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/main/assets/examples/preset_adr_doc.png" alt="Architecture Decision Record Preset" width="100%" />
+        <img src="https://raw.githubusercontent.com/SpanishSyntax/Floe/v0.2.2/assets/examples/preset_adr_doc.png" alt="Architecture Decision Record Preset" width="100%" />
       </td>
     </tr>
   </tbody>
@@ -262,12 +262,12 @@ Six complete document engines configured with a single `#show` rule:
 
 | Preset | Format | Purpose | Preview & Docs |
 | :--- | :--- | :--- | :--- |
-| `#show: textbook.with(...)` | A4 Single-Column | Course readers, textbook companions, and study guides with Hydra chrome. | [Example](examples/textbook_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: report.with(...)` | A4 Sans-Serif | Engineering reports, design reviews, and technical whitepapers. | [Example](examples/report_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: slides.with(...)` | 16:9 Widescreen | Keynote-style presentation slides with dark and light themes. | [Example](examples/slides_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: cheatsheet.with(...)` | Landscape 3-Column | Dense closed-book exam revision and quick-reference formula sheets. | [Example](examples/cheatsheet_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: memo.with(...)` | A4 Briefing | Executive decision memos with structured metadata plaques and executive summaries. | [Example](examples/memo_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: adr.with(...)` | Dual-Mode A4 \| 16:9 | Architecture Decision Records compiling to an A4 record or 16:9 presentation deck. | [Example](examples/adr_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: textbook.with(...)` | A4 Single-Column | Course readers, textbook companions, and study guides with Hydra chrome. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/textbook_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: report.with(...)` | A4 Sans-Serif | Engineering reports, design reviews, and technical whitepapers. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/report_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: slides.with(...)` | 16:9 Widescreen | Keynote-style presentation slides with dark and light themes. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/slides_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: cheatsheet.with(...)` | Landscape 3-Column | Dense closed-book exam revision and quick-reference formula sheets. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/cheatsheet_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: memo.with(...)` | A4 Briefing | Executive decision memos with structured metadata plaques and executive summaries. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/memo_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: adr.with(...)` | Dual-Mode A4 \| 16:9 | Architecture Decision Records compiling to an A4 record or 16:9 presentation deck. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/adr_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
 
 ---
 
@@ -275,7 +275,7 @@ Six complete document engines configured with a single `#show` rule:
 
 Floe is structured into five decoupled layers. You can use high-level presets (`textbook`, `report`, `slides`, `adr`), cherry-pick individual components (`theorem`, `formula-breakdown`, `plot-2d`, `data-table`), or compose pure layout atoms (`equal-grid`, `card`, `plaque`, `figure-card`, `stepper`) with zero external side effects.
 
-```
+```text
 Floe/
 ├── core/                      # Layer 0: Tokens, metrics, palettes, universe packages & #ce chemistry
 ├── primitives/                # Layer 1: Equal-height grids, cards, plaques, figures, badges & dividers
@@ -348,7 +348,7 @@ Located in `mixins/`. Mixins are pure `#show` rules that configure document beha
 ```typst
 #show: with-heading-theme.with(numbering: "1.1") // Anti-orphan titles, clean chapter counters
 #show: with-running-chrome.with(...)             // Single-line Hydra headers & page footers
-#show: with-code-theme                           // macOS terminal blocks + native ```mermaid rendering
+#show: with-code-theme                           // macOS terminal blocks + native mermaid rendering
 #show: with-math-theme                           // Bracketed matrix delimiters and equation spacing
 #show: with-table-theme                          // Hairline striped table styling
 #show: with-gfm-theme                            // Maps GitHub blockquotes (> [!NOTE]) to cards
@@ -455,7 +455,7 @@ Located in `presets/`:
 
 ## Gallery and Visual Showcase
 
-[`examples/gallery.typ`](examples/gallery.typ) is a compact smoke test covering a subset of Floe's components; it is what CI compiles. The exhaustive layer-by-layer catalog (every component, with previews) is the `floe-showcase-vX.Y.Z.pdf` attached to each [GitHub release](https://github.com/SpanishSyntax/Floe/releases), and the per-layer pages in [`docs/`](docs/).
+[`examples/gallery.typ`](https://github.com/SpanishSyntax/Floe/blob/main/examples/gallery.typ) is a compact smoke test covering a subset of Floe's components; it is what CI compiles. The exhaustive layer-by-layer catalog (every component, with previews) is the `floe-showcase-vX.Y.Z.pdf` attached to each [GitHub release](https://github.com/SpanishSyntax/Floe/releases), and the per-layer pages in [`docs/`](https://github.com/SpanishSyntax/Floe/tree/main/docs).
 
 To compile the smoke-test gallery locally:
 
