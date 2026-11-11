@@ -2,7 +2,7 @@
 
 A community-maintained Typst reproduction of the official LaTeX `lipics-v2021.cls` template.
 
-See [`sample-article.typ`](https://github.com/para-lipics/para-lipics/blob/main/template/sample-article.typ) for a complete setup with placeholder content:
+See [`sample-article.typ`](template/sample-article.typ) for a complete setup with placeholder content:
 
 <img src="assets/thumbnail.png" alt="para-lipics thumbnail" width="50%">
 
@@ -18,7 +18,10 @@ Import the template in your project with:
 ```typst
 #import "@preview/para-lipics:0.1.4": *
 
-#show: para-lipics.with(...)
+#show: para-lipics.with(
+    title: [My Title],
+    // ...
+)
 
 // body of the paper
 
@@ -96,7 +99,6 @@ The user can define custom theorem-like and proof-like environments by reusing t
 
 #let remark = thm-base("Remark")
 #let proof-sketch = thm-base("Proof sketch")
-...
 ```
 
 ## Algorithms
