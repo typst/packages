@@ -333,11 +333,15 @@
   set heading(numbering: "1.1")
   show heading.where(level: 1): it => {
     let nb-block = if it.numbering == none { none } else {
-      block(fill: _colors.yellow, outset: (top: 0.7mm, bottom: -0.7mm),
-        height: 5mm, width: 5.9mm,
-        align(center, text(font: _fonts.sans, size: 12pt,
-          numbering(it.numbering, ..counter(heading).at(it.location()))
-        ))
+      block(
+        fill: _colors.yellow,
+        outset: (top: 1.2mm, bottom: -0.7mm),
+        height: 5mm,
+        width: 5.9mm,
+        align(center, text(font: _fonts.sans, size: 12pt, numbering(
+          it.numbering,
+          ..counter(heading).at(it.location()),
+        ))),
       )
     }
     stack(dir: ltr, nb-block, h(5mm), text(font: _fonts.sans, size: 12pt, it.body))
