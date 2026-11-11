@@ -3,11 +3,11 @@
   "authors": [
     {
       "id": "c1",
-      "name": "Jane A. Smith",
-      "firstName": "Jane",
-      "middleName": "A",
-      "surname": "Smith",
-      "initials": "JAS",
+      "name": "Marie Skłodowska-Curie",
+      "firstName": "Marie",
+      "middleName": "",
+      "surname": "Skłodowska-Curie",
+      "initials": "MS",
       "contributorType": "author",
       "contributions": [
         {
@@ -72,11 +72,11 @@
     },
     {
       "id": "c2",
-      "name": "Bob White",
-      "firstName": "Bob",
+      "name": "Antonie van Leeuwenhoek",
+      "firstName": "Antonie",
       "middleName": "",
-      "surname": "White",
-      "initials": "BW",
+      "surname": "van Leeuwenhoek",
+      "initials": "AL",
       "contributorType": "author",
       "contributions": [
         {
@@ -141,11 +141,11 @@
     },
     {
       "id": "c3",
-      "name": "Chen Li",
-      "firstName": "Chen",
+      "name": "Hua Luogeng",
+      "firstName": "Hua",
       "middleName": "",
-      "surname": "Li",
-      "initials": "CL",
+      "surname": "Luogeng",
+      "initials": "HL",
       "contributorType": "author",
       "contributions": [
         {
@@ -210,11 +210,11 @@
     },
     {
       "id": "c4",
-      "name": "Ana Costa",
-      "firstName": "Ana",
-      "middleName": "",
-      "surname": "Costa",
-      "initials": "AC",
+      "name": "Alan M. Turing",
+      "firstName": "Alan",
+      "middleName": "M",
+      "surname": "Turing",
+      "initials": "AMT",
       "contributorType": "non-author",
       "contributions": [
         {
