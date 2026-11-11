@@ -1,7 +1,5 @@
-#import "@preview/para-lipics:0.1.4": *
-// #import "../lib.typ": *
-
-
+// #import "@preview/para-lipics:0.1.4": *
+#import "../lib.typ": *
 #import "@preview/algol-code:0.1.0": algol
 
 
@@ -112,7 +110,24 @@ It uses the `para-lipics` template, which largely follows the official `lipics-v
   caption: [My listing],
 )
 
-#algorithm(algol[
+// #algorithm(algol[
+// - *function* $"binary-search"(A, e)$ *is*
+//   - $L <- 0$
+//   - $R <- "length"(A) - 1$
+//   - *while* $L <= R$ *do*
+//     - $m <- L + floor((R - L) / 2)$
+//     - *if* $A[m] < e$ *then*
+//       + $L <- m + 1$
+//     - *else if* $A[m] > e$ *then*
+//       + $R <- m - 1$
+//     - *else* *return* $m$     <line:found-element>
+//   - *return* $"error"$        <line:error>
+// ], caption: [
+//   Binary search algorithm
+// ])
+
+#algorithm(box(stroke: 1pt, inset: 0.5em)[
+#set align(left)
 - *function* $"binary-search"(A, e)$ *is*
   - $L <- 0$
   - $R <- "length"(A) - 1$
@@ -122,8 +137,8 @@ It uses the `para-lipics` template, which largely follows the official `lipics-v
       + $L <- m + 1$
     - *else if* $A[m] > e$ *then*
       + $R <- m - 1$
-    - *else* *return* $m$     <line:found-element>
-  - *return* $"error"$        <line:error>
+    - *else* *return* $m$
+  - *return* $"error"$
 ], caption: [
   Binary search algorithm
 ])
