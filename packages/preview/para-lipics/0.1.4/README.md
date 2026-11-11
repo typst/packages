@@ -15,7 +15,7 @@ Open an issue or submit a pull request, contributions are welcome!
 
 Import the template in your project with:
 
-```typ
+```typst
 #import "@preview/para-lipics:0.1.4": *
 
 #show: para-lipics.with(...)
