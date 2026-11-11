@@ -1,6 +1,6 @@
 #import "@preview/ctheorems:2.0.0": *
 
-#let colors = (
+#let _colors = (
   yellow: rgb(99%, 78%, 7%),
   gray: rgb(31%, 31%, 33%),
   bulletgray: rgb(60%, 60%, 61%),
@@ -8,7 +8,7 @@
   lightgray: rgb(85%, 85%, 86%),
 )
 
-#let fonts = (
+#let _fonts = (
   sans: ("CMU Sans Serif", "New Computer Modern Sans"),
   serif: "New Computer Modern",
   math: "New Computer Modern Math",
@@ -18,17 +18,17 @@
 
 // Defining the triangles used for the theorem environments
 // (DejaVu Sans Mono is integrated by default in the CLI)
-#let thm-tri-size = 1em
-#let thmtriR = text(sym.triangle.filled.r, font: "DejaVu Sans Mono", size: thm-tri-size, colors.gray)
-#let thmtriL = text(sym.triangle.filled.l, font: "DejaVu Sans Mono", size: thm-tri-size, colors.gray)
+#let _thm-tri-size = 1em
+#let _thm-tri-r = text(sym.triangle.filled.r, font: "DejaVu Sans Mono", size: _thm-tri-size, _colors.gray)
+#let _thm-tri-l = text(sym.triangle.filled.l, font: "DejaVu Sans Mono", size: _thm-tri-size, _colors.gray)
 
 #let thm-base(supplement) = thm.with(
   supplement: supplement,
   counter: "thm-like", base: none,
   fmt: thm-fmt-block.with(
-    title-fmt: it => text(font: fonts.sans, colors.gray)[#thmtriR *#it*],
-    name-fmt: it => text(font: fonts.sans, colors.gray)[(#it)],
-    separator: text(font: fonts.sans, colors.gray)[*.* ],
+    title-fmt: it => text(font: _fonts.sans, _colors.gray)[#_thm-tri-r *#it*],
+    name-fmt: it => text(font: _fonts.sans, _colors.gray)[(#it)],
+    separator: text(font: _fonts.sans, _colors.gray)[*.* ],
   ),
   inset: (top: .5em, bottom: .5em, left: 0pt, right: 0em),
 )
@@ -42,9 +42,9 @@
 #let prf-base(supplement) = thm.with(
   supplement: supplement, numbering: none,
   fmt: thm-fmt-block.with(
-    title-fmt: it => text(font: fonts.sans, colors.gray)[*#it*],
-    name-fmt: it => text(font: fonts.sans, colors.gray)[*#it*],
-    separator: text(font: fonts.sans, colors.gray)[*.* ],
+    title-fmt: it => text(font: _fonts.sans, _colors.gray)[*#it*],
+    name-fmt: it => text(font: _fonts.sans, _colors.gray)[*#it*],
+    separator: text(font: _fonts.sans, _colors.gray)[*.* ],
     body-fmt: proof-body-fmt,
   )
 )
@@ -105,7 +105,7 @@
     header: context {
       let current-page = counter(page).get().at(0)
       if current-page == 1 { return [] }
-      set text(11pt, font: fonts.sans, weight: "bold")
+      set text(11pt, font: _fonts.sans, weight: "bold")
       let art-no-page-no = if hide-lipics [#current-page]
         else if article-no != none [#article-no:#current-page]
         else [#text(red)[XX]:#current-page]
@@ -178,18 +178,18 @@
           inset: 2mm,
           width: 4cm,
           height: 7mm,
-          fill: colors.yellow,
-          text(tracking: 1.5pt, spacing: 1pt, colors.gray, font: fonts.sans, footer-box-text),
+          fill: _colors.yellow,
+          text(tracking: 1.5pt, spacing: 1pt, _colors.gray, font: _fonts.sans, footer-box-text),
         ))))
       }
     },
   )
-  set text(10pt, font: fonts.serif)
-  show smallcaps: set text(font: fonts.smallcaps)
-  show math.equation: set text(font: fonts.math)
+  set text(10pt, font: _fonts.serif)
+  show smallcaps: set text(font: _fonts.smallcaps)
+  show math.equation: set text(font: _fonts.math)
   set par(justify: true)
   set footnote.entry(separator: {
-    line(length: 40mm, stroke: colors.linegray)
+    line(length: 40mm, stroke: _colors.linegray)
     v(1.3mm)
   })
   show footnote.entry: it => context {
@@ -199,7 +199,7 @@
   }
 
   // Line numbering
-  let line-nbing(num) = text(font: fonts.sans, size: 5pt, numbering("1", num))
+  let line-nbing(num) = text(font: _fonts.sans, size: 5pt, numbering("1", num))
   set par.line(numbering: line-nbing) if line-numbers
   show selector(figure).or(footnote.entry): set par.line(numbering: none) if line-numbers
   // rely on ctheorems internals to select theorem envs (may break in the future)
@@ -218,7 +218,7 @@
       tracking: 0.6pt,
       spacing: 85%,
       weight: "bold",
-      font: fonts.sans,
+      font: _fonts.sans,
       title,
     ))
 
@@ -274,9 +274,9 @@
 
     grid(
       columns: (7mm, auto, 1fr), column-gutter: 1.6mm,
-      place(dy: 6.5pt, line(length: 100%, stroke: colors.linegray)),
-      text(11pt, font: fonts.sans, tracking: 0.01em, weight: "bold")[Abstract],
-      place(dy: 6.5pt, line(length: 100%, stroke: colors.linegray)),
+      place(dy: 6.5pt, line(length: 100%, stroke: _colors.linegray)),
+      text(11pt, font: _fonts.sans, tracking: 0.01em, weight: "bold")[Abstract],
+      place(dy: 6.5pt, line(length: 100%, stroke: _colors.linegray)),
     )
 
     v(3.1mm)
@@ -294,8 +294,8 @@
           size: 9pt,
           tracking: 0.1pt,
           weight: 700,
-          font: fonts.sans,
-          colors.gray,
+          font: _fonts.sans,
+          _colors.gray,
           title,
         )
         h(2mm)
@@ -333,18 +333,18 @@
   set heading(numbering: "1.1")
   show heading.where(level: 1): it => {
     let nb-block = if it.numbering == none { none } else {
-      block(fill: colors.yellow, outset: (top: 0.7mm, bottom: -0.7mm),
+      block(fill: _colors.yellow, outset: (top: 0.7mm, bottom: -0.7mm),
         height: 5mm, width: 5.9mm,
-        align(center, text(font: fonts.sans, size: 12pt,
+        align(center, text(font: _fonts.sans, size: 12pt,
           numbering(it.numbering, ..counter(heading).at(it.location()))
         ))
       )
     }
-    stack(dir: ltr, nb-block, h(5mm), text(font: fonts.sans, size: 12pt, it.body))
+    stack(dir: ltr, nb-block, h(5mm), text(font: _fonts.sans, size: 12pt, it.body))
     v(1.5mm)
   }
   show heading.where(level: 2).or(heading.where(level: 3)): it => {
-    set text(font: fonts.sans, size: 12pt)
+    set text(font: _fonts.sans, size: 12pt)
     block(above: 7mm, below: 5mm, par(first-line-indent: 0cm, {
       numbering(it.numbering, ..counter(heading).at(it.location()))
       h(5mm)
@@ -354,7 +354,7 @@
   show heading.where(level: 4): it => context {
     v(5.5mm)
     par(first-line-indent: 0cm, {
-      set text(font: fonts.sans, size: 10.5pt)
+      set text(font: _fonts.sans, size: 10.5pt)
       if it.numbering != none {
         numbering(it.numbering, ..counter(heading).get())
         h(2mm)
@@ -365,20 +365,20 @@
   }
   show heading.where(level: 5): it => context {
     v(4mm)
-    text(size: 10pt, font: fonts.sans, it.body)
+    text(size: 10pt, font: _fonts.sans, it.body)
     linebreak()
     v(2.5mm)
   }
 
   // Code font
-  show raw: set text(font: fonts.mono, size: 1.2em)
+  show raw: set text(font: _fonts.mono, size: 1.2em)
 
   // Paragraph settings for the rest of the document
   set par(first-line-indent: 15pt, spacing: 0.65em, leading: 0.62em)
 
   // Lists
   set list(body-indent: 5mm, spacing: 2.5mm, marker: place(dy: 3.5pt, box(
-    width: 2.4mm, height: 1.2mm, fill: colors.bulletgray,
+    width: 2.4mm, height: 1.2mm, fill: _colors.bulletgray,
   )))
 
   // Enumerations
@@ -386,7 +386,7 @@
     let nbings = ("1.", "a.", "i.", "A.")
     let depth = nums.pos().len()
     let nbing = nbings.at(nums.pos().len(), default: "A.")
-    place(dy: -1.5pt, text(font: fonts.sans, fill: colors.gray)[*#numbering(nbing, last)*])
+    place(dy: -1.5pt, text(font: _fonts.sans, fill: _colors.gray)[*#numbering(nbing, last)*])
   })
 
   // Bibliography
@@ -396,14 +396,14 @@
     grid(
       columns: (7mm, auto, 1fr),
       column-gutter: 1.6mm,
-      place(dy: 6.5pt, line(length: 100%, stroke: colors.linegray)),
-      text(11pt, font: fonts.sans, tracking: 0.01em, weight: "bold")[References],
-      place(dy: 6.5pt, line(length: 100%, stroke: colors.linegray)),
+      place(dy: 6.5pt, line(length: 100%, stroke: _colors.linegray)),
+      text(11pt, font: _fonts.sans, tracking: 0.01em, weight: "bold")[References],
+      place(dy: 6.5pt, line(length: 100%, stroke: _colors.linegray)),
     )
     show grid.cell.where(x: 0): it => {
       set align(right)
       show regex("\[.*\]"): s => s.text.slice(1, -1)
-      set text(size: .9em, font: fonts.sans, colors.gray)
+      set text(size: .9em, font: _fonts.sans, _colors.gray)
       show: strong
       it
       h(.8em)
@@ -429,7 +429,7 @@
     box(fill: color.yellow, inset: 1.4mm)
     let n = numbering(it.numbering, ..counter(figure.where(kind: it.kind)).get())
     h(3mm)
-    text(font: fonts.sans, weight: "bold")[#it.supplement #n]
+    text(font: _fonts.sans, weight: "bold")[#it.supplement #n]
     h(2mm)
     text(it.body)
   }
@@ -439,7 +439,7 @@
   ))
 
   // Math
-  show: thm-rules.with(qed-symbol: thmtriL)
+  show: thm-rules.with(qed-symbol: _thm-tri-l)
   
   // Content
   content
