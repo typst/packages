@@ -1,4 +1,4 @@
-#import "@local/butterick-resume:0.1.2": *
+#import "@preview/butterick-resume:0.1.2": *
 
 #show: template
 
