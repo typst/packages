@@ -262,12 +262,12 @@ Six complete document engines configured with a single `#show` rule:
 
 | Preset | Format | Purpose | Preview & Docs |
 | :--- | :--- | :--- | :--- |
-| `#show: textbook.with(...)` | A4 Single-Column | Course readers, textbook companions, and study guides with Hydra chrome. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/textbook_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: report.with(...)` | A4 Sans-Serif | Engineering reports, design reviews, and technical whitepapers. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/report_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: slides.with(...)` | 16:9 Widescreen | Keynote-style presentation slides with dark and light themes. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/slides_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: cheatsheet.with(...)` | Landscape 3-Column | Dense closed-book exam revision and quick-reference formula sheets. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/cheatsheet_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: memo.with(...)` | A4 Briefing | Executive decision memos with structured metadata plaques and executive summaries. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/memo_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
-| `#show: adr.with(...)` | Dual-Mode A4 \| 16:9 | Architecture Decision Records compiling to an A4 record or 16:9 presentation deck. | [Example](https://github.com/SpanishSyntax/Floe/blob/main/examples/adr_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: textbook.with(...)` | A4 Single-Column | Course readers, textbook companions, and study guides with Hydra chrome. | [Example](https://github.com/SpanishSyntax/Floe/blob/v0.2.2/examples/textbook_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: report.with(...)` | A4 Sans-Serif | Engineering reports, design reviews, and technical whitepapers. | [Example](https://github.com/SpanishSyntax/Floe/blob/v0.2.2/examples/report_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: slides.with(...)` | 16:9 Widescreen | Keynote-style presentation slides with dark and light themes. | [Example](https://github.com/SpanishSyntax/Floe/blob/v0.2.2/examples/slides_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: cheatsheet.with(...)` | Landscape 3-Column | Dense closed-book exam revision and quick-reference formula sheets. | [Example](https://github.com/SpanishSyntax/Floe/blob/v0.2.2/examples/cheatsheet_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: memo.with(...)` | A4 Briefing | Executive decision memos with structured metadata plaques and executive summaries. | [Example](https://github.com/SpanishSyntax/Floe/blob/v0.2.2/examples/memo_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
+| `#show: adr.with(...)` | Dual-Mode A4 \| 16:9 | Architecture Decision Records compiling to an A4 record or 16:9 presentation deck. | [Example](https://github.com/SpanishSyntax/Floe/blob/v0.2.2/examples/adr_example.typ) • [Docs](https://spanishsyntax.github.io/Floe/#/presets) |
 
 ---
 
@@ -347,7 +347,7 @@ Located in `mixins/`. Mixins are pure `#show` rules that configure document beha
 
 ```typst
 #show: with-heading-theme.with(numbering: "1.1") // Anti-orphan titles, clean chapter counters
-#show: with-running-chrome.with(...)             // Single-line Hydra headers & page footers
+#show: with-running-chrome.with()                // Single-line Hydra headers & page footers
 #show: with-code-theme                           // macOS terminal blocks + native mermaid rendering
 #show: with-math-theme                           // Bracketed matrix delimiters and equation spacing
 #show: with-table-theme                          // Hairline striped table styling
@@ -455,7 +455,7 @@ Located in `presets/`:
 
 ## Gallery and Visual Showcase
 
-[`examples/gallery.typ`](https://github.com/SpanishSyntax/Floe/blob/main/examples/gallery.typ) is a compact smoke test covering a subset of Floe's components; it is what CI compiles. The exhaustive layer-by-layer catalog (every component, with previews) is the `floe-showcase-vX.Y.Z.pdf` attached to each [GitHub release](https://github.com/SpanishSyntax/Floe/releases), and the per-layer pages in [`docs/`](https://github.com/SpanishSyntax/Floe/tree/main/docs).
+[`examples/gallery.typ`](https://github.com/SpanishSyntax/Floe/blob/v0.2.2/examples/gallery.typ) is a compact smoke test covering a subset of Floe's components; it is what CI compiles. The exhaustive layer-by-layer catalog (every component, with previews) is the `floe-showcase-vX.Y.Z.pdf` attached to each [GitHub release](https://github.com/SpanishSyntax/Floe/releases), and the per-layer pages in [`docs/`](https://github.com/SpanishSyntax/Floe/tree/v0.2.2/docs).
 
 To compile the smoke-test gallery locally:
 
