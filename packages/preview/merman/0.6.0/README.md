@@ -91,7 +91,7 @@ The `0.4.0` release keeps the previous wrapper entry points. Layout uses determi
 - [svg-export.typ](examples/svg-export.typ): raw SVG and structured render payloads.
 - [theme-authoring.typ](examples/theme-authoring.typ): materialize a shared design, inspect support, and copy an editable preset recipe.
 
-Package fixtures are grouped by behavior family under [tests](https://github.com/Latias94/merman/tree/main/distribution/typst/merman/tests): API, option normalization, render environments, context, errors, figures, raw blocks, README examples, historical issues, and visual smoke coverage. These links point to the source repository because examples and tests are not included in the published Typst package.
+Package fixtures are grouped by behavior family under [tests](https://github.com/Latias94/merman/tree/99d1d589f9682ef1c159d5e00865f20ae1a6a275/distribution/typst/merman/tests): API, option normalization, render environments, context, errors, figures, raw blocks, README examples, historical issues, and visual smoke coverage. These links point to the source repository because examples and tests are not included in the published Typst package.
 
 ## Choose a Layout
 
