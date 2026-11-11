@@ -9,7 +9,7 @@ repository = "https://github.com/para-lipics/para-lipics/"
 keywords = ["LIPIcs", "Dagstuhl"]
 categories = ["paper"]
 disciplines = ["computer-science", "mathematics"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 exclude = ["other/", "TODO.md", "CHANGELOG.md"]
 
 [template]
