@@ -4,7 +4,7 @@ syndicate generates **Atom feeds**, **RSS feeds** and **sitemaps** for websites 
 with Typst. It also encodes Typst values to **XML**. It is written in pure Typst and does not use
 plugins.
 
-The [manual](docs/manual.pdf) contains a guide and a full reference.
+The [manual](https://github.com/bfeitknecht/syndicate/releases/download/v0.1.0/manual.pdf) contains a guide and a full reference.
 
 ## Quick start
 
