@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90" role="img" aria-label="Mosaic">
+  <rect width="160" height="18" rx="5" fill="#EFC466"/>
+  <rect y="24" width="105" height="66" rx="6" fill="#8FD0EF"/>
+  <rect x="111" y="24" width="49" height="66" rx="6" fill="#66C5AB"/>
+</svg>
