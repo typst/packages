@@ -10,10 +10,9 @@ Everything else is vartable: sign rows, variation rows, hatched undefined areas,
 
 The code in `lib.typ` is derived from vartable 0.2.5 (MIT). The `LICENSE` file carries both copyrights.
 
-**Documentation & Examples:**
-* [English (PDF)](documentationEN.pdf)
-* [Arabic (PDF)](documentationAR.pdf)
-* Example Files: [`all-cases.typ`](all-cases.typ) · [`custom-names.typ`](custom-names.typ)
+**Examples:**
+- [`all-cases.typ`](all-cases.typ)
+- [`custom-names.typ`](custom-names.typ)
 ### Main features
 
 - The **difference row** `f(x) - g(x)` (a sign row placed right before a `"p"` row) is **1 cm high by default**. Change it with `diff-height`, or write `diff-height: none` for automatic height.
