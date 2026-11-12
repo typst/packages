@@ -1,4 +1,5 @@
 #import "@preview/pzai-expose-unofficial:0.1.1": pzai-expose-unofficial, universities
+#import "glossary.typ": entry-list
 
 #show: pzai-expose-unofficial.with(
   title: [A fancy and very good title],
@@ -6,6 +7,7 @@
   email: "mulmus.autorus@uni.edu",
   paper: "a4",
   university: universities.HM,
+  glossary: entry-list,
 )
 
 = Introduction
