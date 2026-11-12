@@ -1,0 +1,79 @@
+# Default labels — every display string the template emits, loaded by
+# `internal/data/defaults.typ`. Override any subset via `alta(labels: ...)`;
+# unknown keys panic.
+#
+# Keys mirror JSON Resume's section keys; values are editorial
+# ("Experience" reads better than "Work" as a heading).
+#
+# A translation (`labels-ga.toml`) sets only what it changes, over
+# these; add one to `_translations` (`defaults.typ`).
+
+# Deprecated (#239): use `set text(lang: ..)`. Drop with the `lang:`
+# in `_standalone`'s `set text`.
+lang = "en"
+
+# Section headings.
+work         = "Experience"
+volunteer    = "Volunteer"
+focus-areas   = "Areas of Focus"
+skills       = "Skills"
+languages    = "Languages"
+education    = "Education"
+certificates = "Certifications"
+publications = "Publications"
+awards       = "Awards"
+projects     = "Projects"
+interests    = "Interests"
+references   = "References"
+references-available-on-request = "References available upon request."
+
+# Deprecated for `publication-types.article`; still honoured when
+# overridden, removed in the next major (#239).
+articles = "Articles"
+
+# Heading for untyped projects when another project is typed (an
+# all-untyped list renders flat).
+other-projects = "Other"
+
+# Rendered in date ranges when `endDate` is empty.
+present = "Present"
+
+# Icon alt text for an entry's date and location; not printed.
+date     = "Date"
+location = "Location"
+
+# Footer label when `preferences.last-modified-footer` is true.
+last-modified = "Last updated"
+
+# Templates rather than prefixes, so a translation can reorder the
+# parts; unknown placeholders panic.
+#
+# `page-footer: auto` counter. `{current}` required, `{total}` optional.
+page-number = "Page {current} / {total}"
+
+# PDF Title; `{name}` required. A plain string, not markup, so write a
+# real em dash — `---` only becomes one in Typst markup.
+document-title = "{name} — CV"
+
+# Exactly twelve. Used by `date-format: "long"` and the
+# `[month repr:long]` / `[month repr:short]` template tokens.
+months = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+]
+
+# Subheadings for `publications[].type` codes (untyped counts as
+# `article`), matched case-insensitively; other types print as given
+# (deprecated: give each its heading here).
+# Overrides merge key by key.
+[publication-types]
+article = "Articles"
+book    = "Books"
+patent  = "Patents"
+thesis  = "Theses"
+talk    = "Talks"
+
+# Deprecated for `preferences.publication-icons`: icons are styling,
+# not text to translate. Still honoured beneath the preference, which
+# wins key by key; removed in the next major (#239).
+[publication-icons]
