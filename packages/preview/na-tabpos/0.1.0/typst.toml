@@ -9,4 +9,4 @@ keywords = ["arabic", "rtl", "math", "variation table", "sign table", "relative 
 categories = ["visualization"]
 entrypoint = "lib.typ"
 compiler = "0.13.0"
-exclude = ["examples", "fichier_de_test", "documentationEN.typ", "documentationEN.pdf", "documentationAR.typ", "documentationAR.pdf"]
+exclude = ["all-cases.pdf"]
