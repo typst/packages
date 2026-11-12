@@ -150,7 +150,7 @@ the same way on every computer and on typst.app. A font you set with
 For the Monash look, use **Arial**:
 
 ```typst
-#show: monash-theme.with(font: "Arial", ..)
+#show: monash-theme.with(font: "Arial")
 ```
 
 Typst warns `unknown font family` when a named font is not installed, and
@@ -161,7 +161,7 @@ For Chinese, Japanese, or Korean text, append a CJK font. Latin text keeps
 the first font; only the characters it lacks use the CJK font:
 
 ```typst
-#show: monash-theme.with(font: ("Arial", "Noto Sans CJK SC"), ..)
+#show: monash-theme.with(font: ("Arial", "Noto Sans CJK SC"))
 ```
 
 Math uses Typst's math font. To change it, add a show rule after the theme,
@@ -179,7 +179,7 @@ Put the file in your project, for example in the `assets/` folder that
 `typst init` creates, and pass it with one line. SVG and PNG both work:
 
 ```typst
-#show: monash-theme.with(logo: image("assets/logo.svg"), ..)
+#show: monash-theme.with(logo: image("assets/logo.svg"))
 ```
 
 The logo then appears in two places:
@@ -203,7 +203,6 @@ If you have more than one version of the logo, choose one per place:
     bar: image("assets/logo-white.svg"),
     bar-fill: none,
   ),
-  ..
 )
 ```
 
@@ -237,7 +236,7 @@ To show each citation as a footnote on the slide where it is made, turn on
 Touying's built-in option and keep the `#bibliography(..)` call:
 
 ```typst
-#show: monash-theme.with(config-common(show-bibliography-as-footnote: true), ..)
+#show: monash-theme.with(config-common(show-bibliography-as-footnote: true))
 ```
 
 See [`examples/research-talk.typ`](https://github.com/Eryc123Y/unofficial-monash-slides-typst/blob/v1.0.0/examples/research-talk.typ). Touying's
