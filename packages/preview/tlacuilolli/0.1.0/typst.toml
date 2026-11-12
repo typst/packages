@@ -1,0 +1,11 @@
+[package]
+name = "tlacuilolli"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Folio Notes contributors"]
+license = "MIT"
+description = "Typeset research notes and scholarly essays."
+repository = "https://github.com/MHAlberto/Tlacuilolli"
+keywords = ["research notes", "typography", "theorems"]
+categories = ["layout", "components"]
+compiler = "0.15.1"
