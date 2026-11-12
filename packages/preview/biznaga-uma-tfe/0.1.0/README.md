@@ -1,4 +1,4 @@
-# uma-tfe
+# biznaga-uma-tfe
 
 **English** · [Español](README.es.md)
 
@@ -7,7 +7,7 @@ Unofficial **Typst** template for bachelor's/master's theses (TFG/TFM) at the **
 ## Usage
 
 ```sh
-typst init @preview/uma-tfe
+typst init @preview/biznaga-uma-tfe
 ```
 
 Edit the parameters in `main.typ`:

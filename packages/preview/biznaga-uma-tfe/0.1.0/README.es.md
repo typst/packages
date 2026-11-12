@@ -1,4 +1,4 @@
-# uma-tfe
+# biznaga-uma-tfe
 
 [English](README.md) · **Español**
 
@@ -7,7 +7,7 @@ Plantilla no oficial para TFG/TFM de la **Escuela Técnica Superior de Ingenier�
 ## Uso
 
 ```sh
-typst init @preview/uma-tfe
+typst init @preview/biznaga-uma-tfe
 ```
 
 Edita los parámetros en `main.typ`:

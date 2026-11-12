@@ -211,6 +211,7 @@
       counter(figure.where(kind: "algorithm")).update(0)
 
       pagebreak(weak: true)
+      hide-header.update(false)
       v(2.4cm)
       set text(size: 25pt, weight: "bold")
 

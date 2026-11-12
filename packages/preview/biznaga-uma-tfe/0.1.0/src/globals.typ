@@ -28,7 +28,6 @@
 #let chapterend() = {
   hide-header.update(true)
   pagebreak(to: "odd", weak: false)
-  hide-header.update(false)
 }
 
 #let heading-num(it) = numbering(it.numbering, ..counter(heading).at(it.location()))

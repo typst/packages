@@ -1,4 +1,4 @@
-#import "@preview/uma-tfe:0.1.0": *
+#import "@preview/biznaga-uma-tfe:0.1.0": *
 
 #show heading: none
 #heading(level: 1, numbering: none)[Resumen]
