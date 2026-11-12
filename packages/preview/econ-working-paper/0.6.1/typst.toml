@@ -10,7 +10,7 @@ keywords = ["paper", "working-paper", "ssrn", "economics", "finance", "accountin
 categories = ["paper"]
 disciplines = ["accounting", "economics", "finance", "business", "sociology"]
 compiler = "0.14.0"
-exclude = []
+exclude = ["thumbnail-anonymize.png", "thumbnail-endfloat.png"]
 
 [template]
 path = "template"
