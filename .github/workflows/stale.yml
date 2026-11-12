@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
         with:
-          days-before-stale: -1 # Don't label as stale, close directly
-          days-before-close: 30
-          days-before-issue-close: -1 # Never close issues
+          days-before-pr-stale: 30
+          days-before-pr-close: 0 # Close immediately
+          days-before-issue-stale: -1 # Never close issues
           any-of-labels: waiting-on-author,waiting-on-validation
           close-pr-message: >
             Your package submission was not updated during the last month.
