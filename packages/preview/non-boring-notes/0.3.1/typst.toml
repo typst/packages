@@ -8,6 +8,7 @@ description = "Modular and colorful papers, reports, and notes."
 repository = "https://github.com/aruzdh/non-boring-notes"
 categories = ["paper", "report", "layout"]
 keywords = ["notes", "university", "college", "mathematics", "computer science"]
+exclude = ["docs", "examples"]
 
 [template]
 path = "template"
