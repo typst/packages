@@ -1,0 +1,13 @@
+[package]
+name = "gairm-import"
+version = "0.12.0"
+entrypoint = "lib.typ"
+authors = ["Shane Murphy <@smur89>"]
+license = "MIT"
+description = "Validate JSON against a JSON Schema; JSON Resume built in."
+repository = "https://github.com/smur89/gairm-import"
+keywords = ["json", "json-resume", "resume", "cv", "loader", "schema"]
+categories = ["utility", "integration"]
+compiler = "0.15.0"
+# Ship for the README's links, but the package never reads them.
+exclude = ["/CONTRIBUTING.md", "/REFERENCE.md"]
