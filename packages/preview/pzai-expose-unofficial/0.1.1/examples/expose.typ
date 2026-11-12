@@ -8,6 +8,7 @@
   paper: "a4",
   university: universities.HM,
   glossary: entry-list,
+  bibliography: bibliography("refs.bib"),
 )
 
 = Introduction

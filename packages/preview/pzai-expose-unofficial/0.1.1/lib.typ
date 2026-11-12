@@ -10,12 +10,18 @@
 //   author: [Mulmus Autorus],
 //   email: "mulmus.autorus@uni.edu",
 //   paper: "a4",
+//   university: universities.HM,
+//   glossary: entry-list,
+//   bibliography: bibliography("refs.bib"),
 // )
 //
-// Options (defaults match your LaTeX line):
+// Options
 //   fontsize  11pt      -- 10pt / 11pt / 12pt
 //   paper     "a4"
 //   lang      "en"
+//   university: none,
+//   glossary: none,
+//   bibliography: none,
 //
 
 #import "@preview/glossarium:0.5.10": gls, glspl, make-glossary, print-glossary, register-glossary
@@ -41,6 +47,7 @@
   heading-numbering: "1.1",
   university: none,
   glossary: none,
+  bibliography: none,
   body,
 ) = {
   let icon = if university == universities.HM {
@@ -166,9 +173,19 @@
 
   if glossary != none {
     register-glossary(glossary)
+    // heading(numbering:none)[Glossary]
+    // print-glossary(glossary, disable-back-references: true)
+  }
+
+  body
+
+  if glossary != none {
+    // register-glossary(glossary)
     heading(numbering: none)[Glossary]
     print-glossary(glossary, disable-back-references: true)
   }
 
-  body
+  if bibliography != none {
+    bibliography
+  }
 }
