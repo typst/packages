@@ -9,7 +9,7 @@ description = "Print double-sided flash cards that line up in duplex."
 keywords = ["flashcards", "cards", "duplex", "learning", "education", "vocabulary", "index cards", "csv"]
 categories = ["components", "layout"]
 disciplines = ["education"]
-compiler = "0.15.1"
+compiler = "0.15.0"
 
 [template]
 path = "template"

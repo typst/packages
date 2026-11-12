@@ -5,8 +5,8 @@
 - First version on Typst Universe.
 - The template (`template/`) is under MIT-0 (`license = "MIT AND MIT-0"`), so
   decks made from it need no licence notice; the rest stays MIT.
-- Needs Typst 0.15.1 or newer (`compiler = "0.15.1"`), the version it is
-  tested with.
+- Needs Typst 0.15.0 or newer (`compiler = "0.15.0"`, the version Typst
+  Universe checks with); the reference images are made with 0.15.1.
 - The examples import `@preview/flipside`; the README and the manual link to
   the examples and the manual of this version on GitHub; development notes
   moved to `CONTRIBUTING.md`.

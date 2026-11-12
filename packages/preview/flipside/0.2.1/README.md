@@ -23,7 +23,7 @@ The [manual](https://github.com/ffasbend/flipside/releases/download/v0.2.1/flips
 (PDF, attached to each [release](https://github.com/ffasbend/flipside/releases)) explains
 everything, with many examples.
 
-Needs Typst 0.15.1 or newer.
+Needs Typst 0.15.0 or newer.
 
 ## Getting started
 
