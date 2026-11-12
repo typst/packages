@@ -3,6 +3,8 @@
 ## 0.2.1
 
 - First version on Typst Universe.
+- The template (`template/`) is under MIT-0 (`license = "MIT AND MIT-0"`), so
+  decks made from it need no licence notice; the rest stays MIT.
 - Needs Typst 0.15.1 or newer (`compiler = "0.15.1"`), the version it is
   tested with.
 - The examples import `@preview/flipside`; the README and the manual link to

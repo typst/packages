@@ -188,4 +188,7 @@ Frank Fasbender, <ffasbend@gmail.com> ·
 (questions, ideas and bug reports: please open an
 [issue](https://github.com/ffasbend/flipside/issues)).
 
-MIT, © 2026 Frank Fasbender
+MIT, © 2026 Frank Fasbender ([LICENSE](LICENSE)). The template (`template/`,
+the files `typst init` copies into your project) is under MIT-0
+([LICENSE-MIT-0](LICENSE-MIT-0)): use and share your decks made from it
+without any notice.
