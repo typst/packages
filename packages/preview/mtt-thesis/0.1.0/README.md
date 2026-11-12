@@ -24,7 +24,7 @@ Import the package and apply `mtt-thesis` as a show rule:
     mtt-figures(),
     mtt-tables(),
     mtt-bibliography(
-      bibliography("references.bib"),
+      bibliography("references.bib"), // requires this file existing
     ),
   ),
 )
@@ -58,6 +58,9 @@ A complete example is available in [`example.typ`](example.typ). It demonstrates
 `mtt-figures`, `mtt-tables`, `mtt-codes`, and `mtt-todos` accept an optional `title` argument. `mtt-figures` also accepts a `kind` argument when a custom figure kind is needed.
 
 ## Example
+
+See the file [example.typ](example.typ) and the [PDF](example.pdf) compiled from it.
+
 ![Example Cover Page](thumbnail.png)
 
 ## Dependencies
