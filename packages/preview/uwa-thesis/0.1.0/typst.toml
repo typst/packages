@@ -1,0 +1,12 @@
+[package]
+name = "uwa-thesis"
+authors = ["Henry Chen"]
+version = "0.1.0"
+entrypoint = "template.typ"
+license = "MIT"
+description = "A thesis template for UWA School of Engineering Thesis"
+categories = ["thesis", "report", "university", "uwa"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
