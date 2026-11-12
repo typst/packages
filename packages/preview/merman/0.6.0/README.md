@@ -618,7 +618,7 @@ cargo run --locked -p xtask -- typst-package-smoke --profile publish --skip-wasm
 
 Append `--typst /path/to/typst` when the CLI is outside `PATH`. Each run owns an independent temporary directory under `target/typst-package-smoke/`. Positive fixtures preserve nested output paths; `tests/compile-fail/` fixtures must fail with their adjacent `.error.txt` diagnostic. Successful runs remove artifacts unless `--keep-artifacts` is passed.
 
-[Source fixtures](https://github.com/Latias94/merman/tree/main/distribution/typst/merman/tests) cover API, options, environments, context, errors, figures, raw blocks, README examples, historical issues, and visual smoke behavior. Tests are not bundled; documentation examples remain in the submission but are excluded from the runtime download.
+[Source fixtures](https://github.com/Latias94/merman/tree/2297416a021e769f03a2b0b9972b61b291268711/distribution/typst/merman/tests) cover API, options, environments, context, errors, figures, raw blocks, README examples, historical issues, and visual smoke behavior. Tests are not bundled; documentation examples remain in the submission but are excluded from the runtime download.
 
 The builder verifies artifact-recipe provenance in its private build directory, stages only the runtime wrapper, WASM, examples, and legal materials, then snapshots and verifies their complete file shape and contents. It rechecks live source identity before atomically replacing the version directory. Build receipts are not published.
 
