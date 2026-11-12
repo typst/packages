@@ -110,7 +110,6 @@
   // --- Headings: sans-serif bold, \Large / \large / \normalsize -------------
   set heading(numbering: heading-numbering)
   show heading: it => {
-    // let size = if it.level == 1 { 1.31em } else if it.level == 2 { 1.09em } else { 1em }
     let above = if it.level == 1 { 1.8em } else if it.level == 2 { 1.5em } else { 1.3em }
     let below = above * 0.8
     set text(font: sans-fonts, weight: "bold")
@@ -141,7 +140,6 @@
       date
     }
 
-    // let authors = if type(author) == array { author.join(", ") } else { author }
     let email = if type(email) == str {
       let dest = "mailto:" + email
       link(dest, email)
@@ -173,14 +171,11 @@
 
   if glossary != none {
     register-glossary(glossary)
-    // heading(numbering:none)[Glossary]
-    // print-glossary(glossary, disable-back-references: true)
   }
 
   body
 
   if glossary != none {
-    // register-glossary(glossary)
     heading(numbering: none)[Glossary]
     print-glossary(glossary, disable-back-references: true)
   }
