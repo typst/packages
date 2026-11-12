@@ -166,6 +166,7 @@
 
   if glossary != none {
     register-glossary(glossary)
+    heading(numbering: none)[Glossary]
     print-glossary(glossary, disable-back-references: true)
   }
 
