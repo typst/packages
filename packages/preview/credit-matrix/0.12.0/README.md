@@ -112,6 +112,6 @@ under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); the translators
 
 ## Contribution heatmap options
 
-See [figure options and examples](../heatmap.md) for palettes, shapes, sizing, labels and orientation.
+See [figure options and examples](https://github.com/simonvanlierde/credit-matrix/blob/v0.12.0/integrations/heatmap.md) for palettes, shapes, sizing, labels and orientation.
 Native figures use the document's fonts. See
-[font portability and PDF export](../figures/README.md) for the difference from app and CLI exports.
+[font portability and PDF export](https://github.com/simonvanlierde/credit-matrix/blob/v0.12.0/integrations/figures/README.md) for the difference from app and CLI exports.
