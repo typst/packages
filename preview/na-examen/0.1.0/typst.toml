@@ -10,12 +10,6 @@ categories = ["office"]
 entrypoint = "lib.typ"
 compiler = "0.13.0"
 exclude = [
-  "basic.pdf", "basic.typ",
-  "custom-header.pdf", "custom-header.typ",
-  "documentationAR.pdf", "documentationAR.typ",
-  "documentationEN.pdf", "documentationEN.typ",
-  "latin-en.pdf", "latin-en.typ",
-  "latin-fr.pdf", "latin-fr.typ",
-  "long-exam.pdf", "long-exam.typ",
-  "no-barcode.typ"
+  "documentationAR.typ",
+  "documentationEN.typ"
 ]
