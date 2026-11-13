@@ -4,8 +4,8 @@ English · [العربية](#العربية)
 ## Documentation / التوثيق
 
 You can read the full documentation files here:
-* English: [English Documentation](https://github.com/naam11/packages/blob/main/packages/preview/na-tabpos/0.1.0/documentationEN.typ)
-* Arabic: [التوثيق باللغة العربية](https://github.com/naam11/packages/blob/main/packages/preview/na-tabpos/0.1.0/documentationAR.typ)
+* English: [English Documentation](documentationEN.typ)
+* Arabic: [التوثيق باللغة العربية](documentationAR.typ)
 ## English
 
 `na-tabpos` is a Typst package (Typst ≥ 0.13) for math documents, Arabic ones in particular. It is built on [vartable](https://typst.app/universe/package/vartable) by Le_Foucheur and adds **one thing**: a *relative-position* row (curve vs line, or curve vs curve) with the two arcs at each intersection, like `\tkzTabPos`.
