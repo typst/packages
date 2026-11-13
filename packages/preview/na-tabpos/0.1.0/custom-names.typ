@@ -1,5 +1,5 @@
 // تغيير أسماء المنحنيين والمستقيم / Changing the names of the curves and the line
-#import "../lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 
 #set page(width: 20cm, height: auto, margin: 1cm)
 #set text(font: ("Amiri", "New Computer Modern"), size: 13pt)
