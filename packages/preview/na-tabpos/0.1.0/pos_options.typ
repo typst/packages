@@ -1,6 +1,6 @@
 // اختبار خيارات سطر الوضع النسبي : pos-height, arc-width, الكلمات
 // Test of the "p" row options: pos-height, arc-width, words
-#import "../lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 #set text(font: ("Amiri", "New Computer Modern"), lang: "ar", size: 14pt)
 #set page(width: 20cm, height: auto, margin: 1cm)
 
