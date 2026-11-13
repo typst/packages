@@ -1,4 +1,4 @@
-#import "@preview/apa7:0.1.0": *
+#import "@preview/pandect-apa7:0.1.0": *
 
 #show: apa7.with(
   paper-type: "student",
