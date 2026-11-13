@@ -30,35 +30,44 @@
   // Section numbering
   set heading(numbering: "1.1.1.1.1")
   
-  // Section styling (NBR 14724, USP Diretrizes 2.2.1 and 2.3): a section title
-  // starts at the top margin and is set off from the text by one 1.5-spaced
-  // line; the unnumbered titles (lists, abstracts, references...) have the same
-  // emphasis as the primary sections.
+  // Section styling
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
-    // Footnotes are numbered per chapter, not restarting on each page.
-    counter(footnote).update(0)
-    set text(size: 14pt, weight: "bold", hyphenate: false)
-    set par(justify: false)
-    set block(above: 1.5em, below: 1.5em)
+    v(1.5cm)
     if it.numbering == none {
-      // Unnumbered titles: centered.
+      // Pre-textual elements: Centered and All Caps
+      set text(size: 14pt, weight: "bold")
       align(center, upper(it.body))
     } else {
-      // Primary sections: "N Title" on one line, left-aligned, one space after
-      // the number. The supplement ("Chapter") stays for cross-references.
+      // Textual chapters (IME-USP / LaTeX `book` look): a "Chapter N" line,
+      // then the title on its own line, both left-aligned, bold and large.
+      // The heading's own supplement is the localised "Chapter"/"Capítulo".
+      set text(size: 24pt, weight: "bold", hyphenate: false)
+      set par(justify: false, leading: 0.4em, spacing: 0.4em)
       block(width: 100%, {
-        numbering(it.numbering, ..counter(heading).at(it.location()))
+        it.supplement
         [ ]
+        numbering(it.numbering, ..counter(heading).at(it.location()))
+        v(0.6cm, weak: true)
         it.body
       })
     }
+    v(1.5cm)
   }
 
-  show heading.where(level: 2): set text(size: 12pt, weight: "bold")
-  show heading.where(level: 3): set text(size: 12pt, weight: "bold")
-  show heading.where(level: 2): set block(above: 1.5em, below: 1.5em)
-  show heading.where(level: 3): set block(above: 1.5em, below: 1.5em)
+  show heading.where(level: 2): it => {
+    v(1em)
+    set text(size: 12pt, weight: "bold")
+    it
+    v(0.5em)
+  }
+
+  show heading.where(level: 3): it => {
+    v(0.5em)
+    set text(size: 12pt, weight: "bold")
+    it
+    v(0.5em)
+  }
 
   // Table of Contents styling: the same emphasis and spelling as in the text.
   show outline.entry.where(level: 1): it => {
@@ -80,8 +89,6 @@
       strong(it)
     }
   }
-  show outline.entry.where(level: 2): it => if it.element.func() == heading { strong(it) } else { it }
-  show outline.entry.where(level: 3): it => if it.element.func() == heading { strong(it) } else { it }
 
   // References (ABNT NBR 6023): left-aligned, not justified, in the IME-USP
   // author-date style, single spaced inside each entry with one blank line
@@ -148,11 +155,11 @@
   show heading.where(level: 1): set heading(supplement: supplement)
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
-    counter(footnote).update(0)
+    v(1.5cm)
     set text(size: 14pt, weight: "bold", hyphenate: false)
     set par(justify: false)
-    set block(above: 1.5em, below: 1.5em)
     align(center, upper[#it.supplement #counter(heading).display("A") - #it.body])
+    v(1.5cm)
   }
   counter(heading).update(0)
   body
