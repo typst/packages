@@ -82,63 +82,51 @@
     "into",
   )
 
-  let words = title.split(regex("\s+")).map(w => to-ascii(w)).filter(w => w.len() >= 4 and not stopwords.contains(w))
+  let words = title.split(regex("\\s+")).map(w => to-ascii(w)).filter(w => w.len() >= 4 and not stopwords.contains(w))
 
   if words.len() > 0 { words.at(0) } else { "thesis" }
 }
 
+/// Conversión de mejor esfuerzo: presupone hasta dos apellidos y conserva las partículas que los preceden. Los nombres ambiguos deben indicarse explícitamente como "Apellidos, Nombres" con author en el generador.
 #let normalize-author(raw-name) = {
-  if raw-name == none {
-    return none
-  }
+  if raw-name == none { return none }
 
-  let raw = str(raw-name).trim()
-
-  // Remove academic and professional titles.
-  let titles = regex(
-    "(?i)^((dr|dra|prof|profa|ing|lic|msc|m\\.sc|phd|ph\\.d)\\.?\\s+)+",
-  )
-
+  let raw = str(to-string(raw-name)).replace(regex("\\s+"), " ").trim()
+  // Solo se quitan tratamientos al comienzo; la escritura del nombre se conserva.
+  let titles = regex("(?i)^(?:(?:dr|dra|prof|profa|ing|lic|msc|m\\.sc|phd|ph\\.d|mg|mgs|mtr|mag|arq|abg)\\.? +)+")
   raw = raw.replace(titles, "").trim()
+  if raw == "" { return none }
 
+  // Una coma indica que el usuario ya separó apellidos y nombres.
   if raw.contains(",") {
-    return raw.split(",").map(s => s.trim()).join(", ")
+    return raw.split(",").map(part => part.trim()).join(", ")
   }
 
-  let s = raw
-  let multi-particles = (
-    (" de la ", " de~la "),
-    (" de los ", " de~los "),
-    (" de las ", " de~las "),
-    (" do ceu ", " do~ceu "),
-    (" Do Ceu ", " Do~Ceu "),
-    (" van der ", " van~der "),
-  )
-  for (orig, bound) in multi-particles {
-    s = s.replace(orig, bound)
+  let tokens = raw.split(" ")
+  if tokens.len() == 1 { return raw }
+
+  let particles = ("de", "del", "la", "las", "los", "da", "das", "do", "dos", "di", "du", "van", "von", "der", "den", "ter", "ten", "san", "santa")
+  let surname-start(end) = {
+    let start = end - 1
+    while start > 0 and lower(tokens.at(start - 1)) in particles {
+      start -= 1
+    }
+    start
   }
 
-  s = s.replace(regex("(\b\w+)\s+(de|del|da|di|von|van)\s+(\w+\b)"), "$1~$2~$3")
-  s = s.replace(regex("\b(de|del|san|santa|da|di|von|van)\s+(\w+\b)"), "$1~$2")
-
-  let tokens = s.split(regex("\s+")).filter(w => w.len() > 0).map(t => t.replace("~", " "))
-
-  let n = tokens.len()
-
-  if n <= 1 {
-    raw
-  } else if n == 2 {
-    tokens.at(1) + ", " + tokens.at(0)
-  } else if n == 3 {
-    tokens.slice(1).join(" ") + ", " + tokens.at(0)
-  } else {
-    tokens.slice(n - 2).join(" ") + ", " + tokens.slice(0, n - 2).join(" ")
+  let start = surname-start(tokens.len())
+  if start > 1 {
+    let second = surname-start(start)
+    if second > 0 { start = second }
   }
+  // No se inventa una separación si todo el nombre parece un apellido compuesto.
+  if start == 0 { return raw }
+  tokens.slice(start).join(" ") + ", " + tokens.slice(0, start).join(" ")
 }
 
 #let build-bibkey(normalized-author, year, title) = {
   let surnames = normalized-author.split(",").at(0).trim()
-  let primary-surname = surnames.split(regex("\s+")).at(0)
+  let primary-surname = surnames.split(regex("\\s+")).at(0)
   let clean-surname = to-ascii(primary-surname)
   let clean-year = to-ascii(year)
   let title-kw = extract-title-keyword(title)
@@ -176,6 +164,14 @@
   if result == "" { none } else { result }
 }
 
+#let supervisor-note(value) = {
+  let entries = info.supervisor-entries(value)
+  let notes = range(0, entries.len(), step: 2).map(index => {
+    to-string(entries.at(index + 1)).trim() + " (" + to-string(entries.at(index)).trim() + ")"
+  })
+  if notes.len() == 0 { none } else { "Supervisión académica: " + notes.join("; ") }
+}
+
 #let insert-optional(dict, key, value) = {
   if value != none {
     dict.insert(key, value)
@@ -185,7 +181,7 @@
 /// Genera la entrada BibLaTeX de la tesis en formato `.bib`.
 /// - author: Nombre en formato "Apellidos, Nombres". Si es none, se normaliza automáticamente.
 /// - bibkey: Clave de citación personalizada. Si es none, se genera `apellidoAÑO-palabra`.
-#let generate(author: none, bibkey: none) = context {
+#let generate(author: none, bibkey: none, url: none, doi: none, edition: none) = context {
   let final-author = if author != none {
     author
   } else {
@@ -230,7 +226,10 @@
     keywords: formatted-keywords,
     degree: info.degree-level.get() + " en " + info.degree-program.get(),
     pagetotal: info.work-pages.final(),
-    supervisor: normalize-author(optional-string(info.supervisor.get())),
+    note: supervisor-note(info.supervisor.get()),
+    url: optional-string(url),
+    doi: optional-string(doi),
+    edition: edition,
   )
 
   let biblatex = format-biblatex(
@@ -247,11 +246,16 @@
 /// - author: Autor en formato "Apellidos, Nombres".
 /// - citation-key: Clave personalizada de citación.
 /// - call-number: Signatura topográfica de la biblioteca.
-/// - supervisor-role: Rol Hayagriva del supervisor.
+/// - supervisor-role: Si es none, omite la nota de supervisión; los roles se toman de los datos de la portada.
 #let generate-hayagriva(
   author: none,
   citation-key: none,
   call-number: none,
+  archive: none,
+  archive-location: none,
+  url: none,
+  doi: none,
+  edition: none,
   supervisor-role: "director",
 ) = context {
   let final-author = if author != none {
@@ -278,9 +282,8 @@
   }
 
   let university = optional-string(info.university.get())
-  let university-short = optional-string(info.university-short.get())
   let city = optional-string(info.city.get())
-  let supervisor = normalize-author(optional-string(info.supervisor.get()))
+  let supervision-note = supervisor-note(info.supervisor.get())
   let abstract = optional-string(info.work-abstract.get())
 
   // Hayagriva thesis metadata.
@@ -293,17 +296,19 @@
     abstract: abstract,
     genre: thesis-type,
     organization: university,
-    publisher: (
-      name: (
-        value: university,
-        short: university-short,
-      ),
-      location: city,
-    ),
+    location: city,
     archive: "Biblioteca de la " + university,
     archive-location: city,
-    edition: 1,
   )
+
+  // La biblioteca y su ubicación son conocidas; las opciones permiten sustituirlas. No se presupone una edición.
+  for (key, value) in (archive: archive, archive-location: archive-location, url: url) {
+    if optional-string(value) != none { data.insert(key, optional-string(value)) }
+  }
+  if edition != none { data.insert("edition", edition) }
+  if optional-string(doi) != none {
+    data.insert("serial-number", (doi: optional-string(doi)))
+  }
 
   let pages = info.work-pages.final()
   if pages != none {
@@ -314,8 +319,8 @@
     data.insert("call-number", call-number)
   }
 
-  if supervisor != none and supervisor-role != none {
-    data.insert("note", "Supervisada por: " + supervisor)
+  if supervision-note != none and supervisor-role != none {
+    data.insert("note", supervision-note)
   }
 
   let entries = (:)

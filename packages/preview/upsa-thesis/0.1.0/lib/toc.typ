@@ -147,7 +147,7 @@
 }
 
 // Genera todos los índices del documento en su respectivo orden,
-#let all-outlines = context {
+#let all-outlines(extra: none) = context {
   show outline.entry: set text(number-type: "lining", number-width: "tabular")
   show outline.entry: set block(spacing: 0.75em)
   show outline.entry: set par(leading: 0.65em)
@@ -157,6 +157,7 @@
   table-outline
   math-outline
   listing-outline
+  extra
   appendix-outline
 }
 

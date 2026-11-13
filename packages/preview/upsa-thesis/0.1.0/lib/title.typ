@@ -1,23 +1,16 @@
-#let uni-logo(width: 50%) = image(
-  "../assets/images/upsa-logo-green.svg",
-  width: width,
-  alt: "Logo de la Universidad Privada de Santa Cruz de la Sierra",
-)
-
-// Art. 136: Carátula o tapa interna.
-//
-// En la carátula o tapa interna se debe colocar lo mismo que en la tapa (portada externa) con la sola adición de: "{modalidad de grado} para optar al grado de {grado} en {carrera}".
-#let title-page(is-front-cover: false) = context {
+/// Art. 136: Carátula o tapa interna.
+///
+/// La carátula o tapa interna contiene los mismos datos que la portada externa, con la adición de: "{modalidad de grado} para optar al grado de {grado} en {carrera}".
+#let new-title-page(is-front-cover: false) = context {
   import "info.typ"
   import "@preview/datify:1.3.0": custom-date-format
 
   let typeface = info.font.get()
-  let font-family = info.font-family.get()
+  let cover-typeface = typeface.title-page
+  let cover-title-typeface = typeface.title-page-title
   let author = info.author-name.get()
   let faculty = info.faculty.get()
-  let faculty-short = info.faculty-short.get()
   let major = info.degree-program.get()
-  let is-proposal = info.proposal.get()
   let degree-level = info.degree-level.get()
   let modality = info.thesis-modality.get()
   let year = info.work-date.get()
@@ -30,28 +23,13 @@
   set document(title: work-title)
 
   let cover-margins = if paper-size == "a4" {
-    (x: 30mm, y: 35mm)
+    (x: 30mm, bottom: 30mm, top: 30mm)
   } else {
-    (x: 1.2in, y: 1.4in)
+    (x: 1.2in, bottom: 1.4in, top: 1.8in)
   }
 
-  let meta-scale = if is-front-cover { 1.12 } else { 1.0 }
-  let title-scale = if is-front-cover { 1.14 } else { 1.0 }
-  let info-size = typeface.text.size * meta-scale
-
-  set text(
-    ..typeface.display,
-  )
-
-  show title: set text(
-    font: if font-family != "Reforma" { typeface.text.font } else { "Reforma 1969" },
-    features: (case: 1),
-    size: typeface.text.size * 1.6 * title-scale,
-    hyphenate: false,
-    number-type: "lining",
-  )
-
-  show title: set par(leading: 0.55em, justify: false)
+  let cover-scale = if is-front-cover { 1.125 } else { 1.2 }
+  let body-size = typeface.text.size * cover-scale
 
   set page(
     paper: paper-size,
@@ -61,71 +39,181 @@
     footer: none,
   ) if is-front-cover
 
+  set text(
+    ..cover-typeface,
+    size: body-size,
+    weight: "regular",
+    hyphenate: false,
+    number-type: "lining",
+  )
+
+  set par(
+    justify: false,
+    leading: 1em,
+  )
+
   set align(center)
 
-  uni-logo(width: if is-front-cover { 55% } else { 45% })
+  show title: set text(
+    ..cover-title-typeface,
+    size: (body-size * (if is-front-cover { 1.45 } else { 1.35 })),
+    weight: "medium",
+    tracking: 0.01em,
+    hyphenate: false,
+  )
 
-  v(3.5em)
+  show title: set block(
+    above: 3em,
+    width: 80%,
+  )
 
-  block(spacing: 0pt, {
-    text(weight: "bold", size: info-size * 1.15, tracking: 0.04em)[#upper(faculty-short) --- #smallcaps(faculty)]
-  })
+  show title: set par(
+    leading: 0.55em,
+    justify: false,
+  )
 
-  v(1.2fr)
+  image(
+    "../assets/images/upsa-logo-green.svg",
+    width: if is-front-cover { 47.5% } else { 40% },
+    alt: "Logo de la Universidad Privada de Santa Cruz de la Sierra",
+  )
 
-  block({
-    if is-proposal {
-      text(size: info-size * 0.9, weight: "medium", tracking: 0.08)[Plan de trabajo de graduación]
-      v(1.2em)
-    }
+  v(1em)
 
-    block(width: 90%, title())
+  text(
+    faculty,
+    size: 1em,
+    weight: "medium",
+    tracking: 0.05em,
+  )
 
-    if modality != none {
-      v(1.5em)
-      set text(..typeface.text)
+  title()
 
-      set par(leading: 1em)
+  v(0.75fr)
 
-      block(width: 80%, {
-        [#text(modality, weight: "medium") para optar por el grado de]
-        linebreak()
-        text(weight: "medium", style: "normal")[«#degree-level en #major»]
-      })
-    }
-  })
+  [por]
+
+  v(0.25fr)
+
+  text(author, size: 1.2em)
 
   v(1.5fr)
 
-  block(spacing: 0pt, {
-    text(author, size: info-size * 1.25, weight: "bold")
-  })
+  {
+    set par(leading: 0.65em)
+    set text(size: 1.1em)
+    upper(text(modality))
+    linebreak()
+    [que se presenta para optar al grado de]
+    linebreak()
+    emph[#degree-level en #major]
+  }
 
-  if author-id != none and not is-front-cover [
-    #v(1.25em)
-    #text(size: info-size * 0.95, number-type: "lining", number-width: "tabular")[Código de estudiante: #author-id]
-  ]
+  v(1fr)
 
   if supervisor != none {
-    v(1.5em)
-    text(size: info-size * 0.85, tracking: 0.05em)[Director de #modality]
-    v(0.5em)
-    text(supervisor, size: info-size * 1.05, weight: "medium")
+    set align(left)
+    v(1fr)
+
+    block(below: 0.5em, sticky: true)[
+      #text(size: 0.9em, weight: "regular", style: "normal")[Supervisión académica]
+    ]
+
+    table(
+      columns: 2,
+      stroke: none,
+      align: (right, left),
+      ..info.supervisor-entries(supervisor),
+    )
   }
 
   v(1fr)
 
   block(spacing: 0pt, {
-    text(city, size: info-size * 1.1, tracking: 0.04em)
-    v(0.3em)
-    text(size: info-size, weight: "bold", number-type: "lining")[#custom-date-format(
-      year,
-      pattern: "yyyy",
-      lang: text.lang,
-    )]
+    text(city)
+    v(0.4em)
+
+    text[
+      #custom-date-format(
+        year,
+        pattern: "yyyy",
+        lang: text.lang,
+      )
+    ]
   })
 
   if not is-front-cover {
     pagebreak(to: "odd", weak: true)
+  }
+}
+
+/// Diseño tradicional: encabezado institucional, título, autoría y fecha.
+#let old-title-page(is-front-cover: false) = context {
+  import "info.typ"
+  let typeface = info.font.get()
+  let faculty = info.faculty.get()
+  let major = info.degree-program.get()
+  let modality = info.thesis-modality.get()
+  let degree = info.degree-level.get()
+  let supervisor = info.supervisor.get()
+  let paper-size = info.paper-size.get()
+
+  set document(title: info.work-title.get())
+  set page(
+    paper: paper-size,
+    margin: if paper-size == "a4" { (x: 30mm, y: 30mm) } else { (x: 1.2in, top: 1.8in, bottom: 1.4in) },
+    numbering: none,
+    header: none,
+    footer: none,
+  ) if is-front-cover
+  set align(center)
+  set par(justify: false, leading: 0.75em)
+  set text(..typeface.title-page, size: 14pt, weight: "bold", number-type: "lining")
+
+  image(
+    "../assets/images/upsa-logo-green.svg",
+    width: if is-front-cover { 47.5% } else { 40% },
+    alt: "Logo de la Universidad Privada de Santa Cruz de la Sierra",
+  )
+  v(1em)
+  if faculty != none { block(upper(faculty)) }
+  block[#upper[Carrera: #major]]
+  v(1fr)
+  block(
+    width: 100%,
+    text(
+      ..typeface.title-page-title,
+      size: 15pt,
+      hyphenate: false,
+      upper(info.work-title.get()),
+    ),
+  )
+
+  v(1em)
+  block(upper(modality))
+  block(upper(degree))
+  if not is-front-cover {
+    v(1.5em)
+    block(width: 80%)[#modality para optar al grado de #degree en #major]
+  }
+  v(1fr)
+  block(info.author-name.get())
+  if supervisor != none {
+    v(1em)
+    let entries = if type(supervisor) == array { supervisor } else { ([Docente guía], supervisor) }
+    table(columns: 2, stroke: none, align: (right, left), ..info.supervisor-entries(entries))
+  }
+  v(1fr)
+  block(info.city.get())
+  block(str(info.work-date.get().year()))
+  if not is-front-cover { pagebreak(to: "odd", weak: true) }
+}
+
+#let title-page(is-front-cover: false) = context {
+  import "info.typ"
+  if info.title-page-mode.get() == "old" {
+    old-title-page(is-front-cover: is-front-cover)
+  } else {
+    new-title-page(is-front-cover: is-front-cover)
   }
 }

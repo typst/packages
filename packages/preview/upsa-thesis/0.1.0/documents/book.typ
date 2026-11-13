@@ -30,14 +30,32 @@
 
 /// Genera la referencia bibliográfica en formato BibLaTeX para que otros tesistas/estudiantes puedan referenciar tu trabajo fácilmente.
 #generate-biblatex(
-  /// El nombre del autor es opcional pero recomendable reescribirlo en formato académico (Apellidos, Nombres) para evitar problemas de normalización. La plantilla trata de normalizarlo automáticamente pero pueden ocurrir errores de interpretación.
-  author: "...",
+  // La conversión automática es de mejor esfuerzo: supone hasta dos apellidos y puede confundir nombres compuestos o un único apellido. Revisá thesis.bib; descomentá author para reemplazar el resultado por el nombre académico exacto, sin cambiar la portada.
+  // author: "Ovando Franco, Jassiel",
+  // Si necesitás una clave de cita propia en thesis.bib:
+  // bibkey: "apellido2026tema",
+  // Si la ficha de la biblioteca registra una primera edición, indicá edition: 1 en ambos generadores. No es el número de borradores del trabajo.
+  // edition: 1,
+  // Opcional: si publicás el trabajo por tu cuenta, agregá su enlace permanente o el DOI asignado (sin el prefijo https://doi.org/). Usá los mismos datos en ambos generadores.
+  // url: "https://example.org/mi-tesis.pdf",
+  // doi: "10.xxxx/identificador",
 )
 
 /// Genera la referencia pero en formato YAML Hayagriva (de Typst).
 #generate-hayagriva(
-  /// Mismo caso que BibLaTeX.
-  // author: "",
+  // Revisá también thesis.yaml. Si la conversión falla, descomentá author e indicá el mismo nombre académico que en el generador BibLaTeX.
+  // author: "Ovando Franco, Jassiel",
+  // Si necesitás una clave de cita propia en thesis.yaml:
+  // citation-key: "apellido2026tema",
+  // edition: 1,
   /// El número de clasificación es opcional ya que la Biblioteca de la UPSA lo asigna después de la entrega del trabajo.
-  call-number: "Th005.3 Ov1; CD005.3 Ov1",
+  // call-number: "Signatura asignada por la biblioteca",
+  // La biblioteca de la Universidad y su ubicación se incluyen automáticamente; modificá estas opciones solo si corresponde otro archivo.
+  // archive: "Biblioteca de la UPSA",
+  // archive-location: "Santa Cruz de la Sierra, Bolivia",
+  // Opcional para una publicación propia, como en el generador BibLaTeX:
+  // url: "https://example.org/mi-tesis.pdf",
+  // doi: "10.xxxx/identificador",
+  // Para omitir la nota con el nombre de la persona supervisora:
+  // supervisor-role: none,
 )

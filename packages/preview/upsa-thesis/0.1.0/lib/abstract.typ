@@ -7,7 +7,7 @@
   content-index: none,
 ) = context {
   let major = info.degree-program.get()
-  let supervisor = info.supervisor.get()
+  let supervisors = info.supervisor-entries(info.supervisor.get())
   let keywords = info.keywords.get()
   let email = info.author-email.get()
   let author = info.author-name.get()
@@ -61,9 +61,7 @@
     ..if major != none {
       ([Carrera], major)
     },
-    ..if supervisor != none {
-      ([Guía], supervisor)
-    },
+    ..supervisors,
     ..if keywords != none {
       ([Palabras clave], keywords.join(", "))
     },
@@ -110,7 +108,7 @@
   let year = info.work-date.get()
   let city = info.city.get()
   let modality = info.thesis-modality.get()
-  let supervisor = info.supervisor.get()
+  let supervisor = info.supervisor-names(info.supervisor.get()).join(", ")
   let abstract = if body == none { info.work-abstract.get() } else { body }
   let university = info.university.get()
   let degree = info.degree-program.get()

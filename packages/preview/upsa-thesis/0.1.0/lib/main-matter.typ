@@ -17,6 +17,8 @@
   let typeface = info.font.get()
   show heading: set text(weight: "bold", style: "normal")
   show heading.where(level: offset + 1): set text(..typeface.display)
+  show heading.where(level: offset + 2)
+    .or(heading.where(level: offset + 3), heading.where(level: offset + 4)): set text(..typeface.display)
   show heading.where(level: offset + 2): set align(center)
   show heading.where(level: offset + 4): set text(weight: "bold", style: "italic")
   show heading.where(level: offset + 6): set text(weight: "bold", style: "italic")
@@ -172,7 +174,7 @@
     ),
   ))
 
-  show math.equation: set text(..typeface.math)
+  show math.equation: set text(..typeface.math) if "math" in typeface
 
   set figure.caption(separator: parbreak(), position: top)
   show figure: set align(left)
@@ -184,7 +186,7 @@
     leading: 1em,
   )
   show footnote: set text(size: typeface.text.size * 0.8)
-  show raw: set text(font: typeface.mono.font, size: typeface.mono.size)
+  show raw: set text(font: typeface.mono.font, size: typeface.mono.size) if "mono" in typeface
   show figure.where(kind: math.equation): set figure(supplement: [Fórmula])
   set figure(
     gap: 1.25em,
@@ -231,12 +233,14 @@
   show: heading-styles.with(offset: chapter-level - 1)
 
   // Imported sections may also have markup depth 1 with a larger offset.
-  // Only resolved part/chapter levels receive a chapter-opening page.
-  show heading.where(level: 1).or(heading.where(level: chapter-level)): it => {
+  // Semantic roles stay valid when back matter resets the heading hierarchy.
+  show heading: it => {
     if it.supplement == [Parte] {
       part-page(it)
-    } else {
+    } else if it.supplement in ([Capítulo], [Anexo]) {
       smallcaps(chapter-page(it))
+    } else {
+      it
     }
   }
 

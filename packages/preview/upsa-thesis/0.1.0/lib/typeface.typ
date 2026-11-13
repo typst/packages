@@ -47,7 +47,11 @@
     font: "Reforma 1918",
     size: 11pt,
   ),
-  display: (font: "Reforma 2018"),
+  display: (
+    font: "Reforma 2018",
+    stylistic-set: (1,),
+    discretionary-ligatures: true,
+  ),
   math: (
     font: "TeX Gyre Pagella Math",
     size: 11pt,
@@ -78,7 +82,7 @@
 #let alegreya = (
   text: (
     font: "Alegreya",
-    size: 11pt,
+    size: 11.5pt,
   ),
   display: (font: "Alegreya Sans"),
   math: (

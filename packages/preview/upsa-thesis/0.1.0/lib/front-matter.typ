@@ -40,6 +40,8 @@
     )
   },
   acknowledgements: none,
+  // Índices adicionales definidos en el documento, después de los índices de figuras y antes de los anexos.
+  extra-outlines: none,
 ) = context {
   import "info.typ"
   import "abstract.typ"
@@ -120,5 +122,5 @@
     }
   }
 
-  all-outlines
+  all-outlines(extra: extra-outlines)
 }

@@ -1,90 +1,79 @@
 # Plantilla para documentos de grado de la UPSA
 
-Plantilla para documentos de grado de la Universidad Privada de Santa Cruz de la Sierra (UPSA), Bolivia.
+Plantilla para trabajos de grado de la Universidad Privada de Santa Cruz de la Sierra (UPSA), Bolivia. El repositorio incluye el código de formato y un **Starter Kit** con documentos editables y ejemplos de citas, tablas, figuras y estructura académica. Adaptá el contenido a tu disciplina.
 
-## Uso de la plantilla
+## Qué incluye
 
-El documento principal de la plantilla es `thesis.typ`. Este documento funciona como un **Starter Kit** que a la vez sirve de ejemplo de como usar la plantilla.
+- Formato para páginas preliminares, capítulos, índices y bibliografía.
+- Documentos necesarios para la entrega de tesis, BIME, propuesta, y currículum.
+- Entrega BIME con tesis, carátula, lomo, resumen y referencias bibliográficas.
+- En el repositorio de GitHub:
+  - Tareas de generación y actualización automática, fuentes y opciones de exportación configuradas.
+  - Ajustes y extensiones recomendadas para VS Code.
+  - Ejemplo de un «Estudio de factibilidad»
 
-## Recomendaciones de uso
+## Preparar tu documento
 
-Hay dos maneras de usar la plantilla: mediante *GitHub Templates & Releases*, y *Typst Universe*
+La plantilla inicializa los documentos necesarios para tu trabajo. Seguí las indicaciones dentro de cada documento para completar tus datos y reemplazar el contenido de demostración.
 
-### Typst Universe
+### Fuentes y exportación
 
-Usar la plantilla desde Typst Universe permite usarla sin tener que descargar o administrar la libraría de la plantilla, uno puede usarla directamente desde la Web de Typst o desde la termianl con el comando `typst init @preview/upsa-thesis`.
+La distribución de Universe no incluye fuentes. Descargá las familias indicadas en [Tipografía](#tipografía) si no están disponibles en tu entorno. En la aplicación web, subí los archivos `.otf` o `.ttf` al proyecto. En tu equipo, instalalos o indicá su ubicación al compilar.
 
-Es la manera más sencilla (con Typst Web App) y recomendable de usar la plantilla.
+La combinación usada en los documentos de ejemplo necesita Reforma 1918, Reforma 2018, TeX Gyre Pagella Math e IBM Plex Mono. El currículum usa además Source Sans 3 y Source Serif 4. Las advertencias de fuente desconocida indican sustituciones que pueden cambiar el diseño. Elegir otro conjunto con `typeface` también requiere disponer de sus fuentes.
 
-### GitHub Templates & Releases
+Consultá los comandos de compilación y sus opciones en el [Taskfile.yaml del repositorio](https://github.com/FAI-UPSA/thesis-template/blob/main/Taskfile.yaml), que mantiene los ejemplos de exportación actualizados. Si trabajás desde Universe, adaptá las rutas a tu proyecto y a la ubicación de tus fuentes.
 
-Usar la plantilla mediante GitHub te permite descargar la plantilla junto al código fuente de la plantilla misma, es un más complejo que el método anterior, pero permite modificar la plantilla y adaptarla a tus necesidades.
+La entrega BIME reúne la tesis, las cubiertas, el resumen y las referencias bibliográficas del trabajo. Usa Bundle, una función experimental de Typst cuya interfaz puede cambiar. Revisá los metadatos y las indicaciones del documento de entrega antes de generarla.
 
-Además de que ya viene con *Task* para compilar fácilmente todos los documentos.
+## Empezar desde el repositorio de GitHub
 
-Al usarla totalmente desde GitHub y localmente, necesitarás instalar Typst, Task, Git y un editor de texto como Visual Studio Code. En este caso, este repositorio es un *GitHub Template*, por lo que podés crear un repositorio nuevo basado en este, y luego clonar tu repositorio para trabajar localmente. Ya viene configurado con Task y extensiones de VS Code para Typst, por lo que no tendrás que configurar mucho.
+Necesitás [Typst](https://typst.app/) y [Task](https://taskfile.dev/). Si usás [Visual Studio Code](https://code.visualstudio.com/), el repositorio incluye su configuración. Consultá las páginas oficiales para instalar estas herramientas.
 
-## Tipografía
+Creá tu copia con **Use this template** y abrí la raíz del repositorio. Empezá por [documents/thesis.typ](documents/thesis.typ): cambiá los datos de `settings.with(...)` y reemplazá el contenido de demostración por tu trabajo.
 
-*Alegreya* es el conjunto predeterminado, con *Alegreya Sans* para títulos, *TeX Gyre Pagella Math* para fórmulas e *IBM Plex Mono* para código.
+Los ejemplos contienen datos ficticios y texto de relleno que debés sustituir antes de entregar.
 
-### Conjuntos de tipografía
+## Generar documentos desde el repositorio
 
-Los tipos de letra usados en la plantilla son los siguientes:
+Elegí la tarea correspondiente en el [Taskfile.yaml](https://github.com/FAI-UPSA/thesis-template/blob/main/Taskfile.yaml): allí se describen los documentos, los modos de generación y las opciones de exportación. Ejecutá las tareas desde la raíz del repositorio. En VS Code también podés ejecutarlas desde la vista de la extensión **Task**, incluida entre las recomendaciones del proyecto.
 
-- [GUST's TeX Gyre Collection of Fonts](https://www.gust.org.pl/projects/e-foundry/tex-gyre)
-  - TeX Gyre *Termes*, como alternativa a Times New Roman
-  - TeX Gyre *Heros*, como alternativa a Helvetica y Arial.
-- [IBM Plex](https://www.ibm.com/plex/)
-- PampaType: [Reforma](https://pampatype.com/reforma/)
-- [New Computer Modern](https://www.ctan.org/pkg/newcomputermodern)
-- Adobe Source: [Sans](https://github.com/adobe-fonts/source-sans), [Serif](https://github.com/adobe-fonts/source-serif) & [Code Pro](https://github.com/adobe-fonts/source-code-pro)
-- HT Fonts:
-  - [Alegreya](https://htfonts.com/en/fonts/alegreya/) & [Alegreya Sans](https://htfonts.com/en/fonts/alegreya-sans/)
-  - [Andada](https://htfonts.com/en/fonts/andada/)
-  - [Piazzolla](https://htfonts.com/en/fonts/piazzolla/)
+Los archivos generados quedan junto a los documentos fuente y no se incluyen en Git.
 
-Las fuentes mencionadas pueden ser instaladas tanto de sus repositorios oficiales bajo ningun costo así como desde [Google Fonts](https://fonts.google.com/). La mayoría de las fuentes están licenciadas bajo SIL Open Font License (OFL) y pueden ser usadas tranquilamente en proyectos académicos.
+## Aprendé con los ejemplos
 
-Adicionalmente, la plantilla permite usar las siguientes fuentes proprietarias que vienen preinstaladas en la mayoría de sistemas operativos:
+Los documentos inicializados incluyen ejemplos y comentarios junto a los datos, las páginas preliminares y la bibliografía. Seguí esas indicaciones para adaptar tu trabajo y preparar la entrega BIME.
 
-- Times New Roman
-- Arial
-- Helvetica
-- Helvetica Neue
+## Personalizar la plantilla
 
-#### Fuentes suplementarias
+### Tipografía
 
-Para mantener la consistencia visual con los conjuntos predeterminados, algunas fuentes no cuentan con variantes para fórmulas o código. En esos casos, la plantilla ya selecciona fuentes complementarias para mantener la coherencia tipográfica. Para revisar la lista completa de fuentes con sus variantes, consultá el archivo de [Typefaces](lib/typeface.typ).
+El formato usa Alegreya por defecto. Los documentos de ejemplo seleccionan Reforma explícitamente; la página de agradecimientos incluye su crédito tipográfico en el pie al usarla.
 
-### Como instalar y usar fuentes
+Los documentos de ejemplo combinan [Reforma 1918 y Reforma 2018](https://pampatype.com/reforma/), de PampaType, [TeX Gyre Pagella Math](https://www.gust.org.pl/projects/e-foundry/tex-gyre) e [IBM Plex Mono](https://www.ibm.com/plex/). También podés elegir entre:
 
-Hay 2 maneras de usar fuentes en Typst: instalarlas o referenciarlas dentro del proyecto. Se recomienda copiar las fuentes en la carpeta `assets/fonts` y referenciarlas en Typst, por ejemplo:
+- [TeX Gyre Termes y Heros](https://www.gust.org.pl/projects/e-foundry/tex-gyre), alternativas a Times New Roman y Arial/Helvetica.
+- [Alegreya](https://htfonts.com/en/fonts/alegreya/) y [Alegreya Sans](https://htfonts.com/en/fonts/alegreya-sans/).
+- Adobe Source: [Sans](https://github.com/adobe-fonts/source-sans), [Serif](https://github.com/adobe-fonts/source-serif) y [Code Pro](https://github.com/adobe-fonts/source-code-pro).
+- [Piazzolla](https://htfonts.com/en/fonts/piazzolla/) y [Andada](https://htfonts.com/en/fonts/andada/).
+- [New Computer Modern](https://www.ctan.org/pkg/newcomputermodern).
+- Arial, Helvetica, Helvetica Neue y Times New Roman, si están instaladas en tu sistema.
 
-```sh
-typst compile --font-path assets/fonts thesis.typ
-```
+El ejemplo de currículum usa además Source Sans 3 y Source Serif 4; si no están instaladas, su paquete puede mostrar advertencias de sustitución. Las combinaciones disponibles están en [lib/typeface.typ](lib/typeface.typ). En `typeface-options`, `text` es obligatorio; `display` es opcional y usa `text` como valor predeterminado. `math` y `mono` también son opcionales y solo personalizan fórmulas y código cuando se proporcionan. Los roles opcionales `title-page` (texto complementario) y `title-page-title` (título del trabajo) se configuran en el mismo diccionario y también usan `text` como valor predeterminado.
 
-Esto permite que el proyecto sea portable.
+### Bibliografía
 
-## Bibliografía y exportación
+Se configura en cada documento. La plantilla incluye estilos APA y ASCE, además de funciones para generar referencias de tu trabajo en BibLaTeX y Hayagriva.
 
-La bibliografía usa APA de forma predeterminada. Podés seleccionar otro estilo en `bibliography`. El módulo `csl-styles` expone los estilos APA y ASCE incluidos.
+El parámetro `supervisor` acepta un nombre único, que se muestra con el rol predeterminado «Guía», o una lista plana de pares rol y nombre. Por ejemplo, el Starter Kit muestra cómo añadir director, asesora y coasesor. Los pares aparecen en una tabla sin bordes en la portada y en la tabla del abstracto.
 
-La plantilla ofrece funciones para componer cubiertas, lomos y resúmenes BIME, y para generar registros bibliográficos en BibLaTeX y Hayagriva. El Starter Kit muestra cómo reunir estas funciones en una exportación local mediante Bundle.
+## Recursos y consultas
 
-La plantilla utiliza encabezados, figuras y tablas semánticos para conservar la estructura del documento al exportar. Las descripciones alternativas y el orden lógico del contenido dependen de la autoría. Consultá la [guía de accesibilidad de Typst](https://typst.app/docs/guides/accessibility/).
-
-## Documentación de Typst en español
-
-Como recurso complementario, se encuentra disponible la [documentación de Typst en español](https://jassielof.github.io/typst/) tanto en version Web como en formato PDF.
-
-## Dudas y problemas
-
-Para dudas y problemas, usá [GitHub Issues](https://github.com/FAI-UPSA/thesis-template/issues) para reportar errores y [GitHub Discussions](https://github.com/FAI-UPSA/thesis-template/discussions) para consultas generales.
+- [Documentación de Typst en español](https://jassielof.github.io/typst/).
+- [Accesibilidad de la plantilla](ACCESSIBILITY.md).
+- [Historial de cambios](CHANGELOG.md).
+- [Issues](https://github.com/FAI-UPSA/thesis-template/issues) para errores y [Discussions](https://github.com/FAI-UPSA/thesis-template/discussions) para consultas.
 
 ## Licencia
 
-La plantilla se distribuye bajo la [licencia Apache 2.0](LICENSE.txt).
-
-Esta licencia aplica solamente a la librería y código de la plantilla. El contenido generado por los tesistas con la plantilla es propiedad de los autores y no está sujeto a esta licencia. De igual forma, tampoco aplica al logo de la UPSA ni a los elementos de identidad visual de la universidad, que son propiedad de la institución y están sujetos a sus propias licencias.
+El código de la plantilla se distribuye bajo [Apache 2.0](LICENSE.txt). El contenido de los trabajos pertenece a sus autores. El logo y los elementos de identidad visual de la UPSA pertenecen a la institución y están sujetos a sus propias licencias.

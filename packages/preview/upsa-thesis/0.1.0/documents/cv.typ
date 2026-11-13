@@ -1,14 +1,19 @@
-#import "@preview/butterick-resume:0.1.1": introduction, template, two-grid
-
-#set text(lang: "es", region: "bo")
+#import "@preview/butterick-resume:0.1.2": introduction, template, two-grid
 
 #show: template.with()
 
-#set page(margin: 0.5in)
+#set text(
+  lang: "es",
+  region: "bo",
+  font: "Reforma 1918",
+)
+
+#show heading.where(level: 1): set text(font: "Reforma 2018")
+#show heading.where(level: 2): set text(font: "Reforma 1918")
 
 #introduction(
-  name: [Nombre y Apellido],
-  details: [
+  name: text(font: "Reforma 1918")[Nombre y Apellido],
+  details: text(font: "Reforma 2018")[
     LinkedIn
     #h(1em)
     GitHub

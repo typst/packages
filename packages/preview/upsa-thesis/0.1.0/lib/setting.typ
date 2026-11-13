@@ -10,13 +10,11 @@
   author-university-id: none,
   /// Afiliación factultativa institucional.
   faculty: none,
-  /// Acroónimo de la facultad.
-  faculty-acronym: none,
   /// Nivel del grado académico a optar.
   degree-level: none,
   /// Programa académico (carrera o especialidad) del grado a optar.
   degree-program: none,
-  /// Nombre del/os asesor/es o guía/s del trabajo de grado.
+  /// Nombre de una persona supervisora, o una lista plana de pares rol y nombre.
   supervisor: none,
   /// Título del trabajo de grado.
   work-title: none,
@@ -32,7 +30,7 @@
   modality-acronym: none,
   /// Nombre de un conjunto predefinido. Si se omiten ambas opciones, se usa Alegreya.
   typeface: none,
-  /// Conjunto personalizado con text, display, math y mono. Usar en lugar de typeface.
+  /// Conjunto personalizado: text es obligatorio; display, math y mono son opcionales.
   typeface-options: none,
   /// El formato de impresión del documento.
   ///
@@ -44,11 +42,15 @@
   paper-size: "us-letter",
   /// Si el documento necesita ser dividido en partes (por ejemplo, tesis de doctorado), en lugar de solo capítulos.
   multi-part: false,
+  /// Diseño de carátula y portada: "old" (tradicional) o "new".
+  title-page-mode: "old",
   /// Tomos o volúmenes del trabajo de grado, si aplica. Por defecto es "none".
   volumes: none,
   body,
 ) = context {
   import "info.typ"
+  assert(title-page-mode in ("old", "new"), message: "title-page-mode debe ser old o new.")
+  info.title-page-mode.update(title-page-mode)
 
   info.supervisor.update(supervisor)
   info.degree-program.update(degree-program)
@@ -59,17 +61,7 @@
   )
   info.work-abstract.update(abstract)
 
-  assert(
-    faculty != none,
-    message: "La facultad (faculty) es obligatoria.",
-  )
   info.faculty.update(faculty)
-
-  assert(
-    faculty-acronym != none,
-    message: "El acrónimo de la facultad (faculty-acronym) es obligatorio.",
-  )
-  info.faculty-short.update(faculty-acronym)
 
   assert(
     modality != none,
@@ -115,31 +107,53 @@
     assert(
       type(font-family) == str and font-family in typefaces,
       message: "El parámetro typeface debe ser uno de los siguientes: "
-        + typefaces.keys().join(", ", last: " o ") + ".",
+        + typefaces.keys().join(", ", last: " o ")
+        + ".",
     )
     typefaces.at(font-family)
   } else {
     assert(type(typeface-options) == dictionary, message: "typeface-options debe ser un diccionario.")
+    assert("text" in typeface-options, message: "Falta typeface-options.text.")
     let roles = ("text", "display", "math", "mono")
-    let missing = roles.filter(role => role not in typeface-options)
-    assert(missing.len() == 0, message: "Faltan estas claves en typeface-options: " + missing.join(", ", last: " y ") + ".")
     for role in roles {
-      let options = typeface-options.at(role)
-      let field = "typeface-options." + role
-      assert(type(options) == dictionary, message: field + " debe ser un diccionario.")
-      assert("font" in options, message: "Falta " + field + ".font.")
-      let font = options.font
-      assert(
-        type(font) == str or (type(font) == array and font.len() > 0 and font.all(name => type(name) == str)),
-        message: field + ".font debe ser un nombre de fuente o una lista de nombres.",
-      )
-      assert(role == "display" or "size" in options, message: "Falta " + field + ".size (por ejemplo, 11pt).")
-      if "size" in options {
-        assert(type(options.size) == length, message: field + ".size debe ser una longitud (por ejemplo, 11pt).")
+      if role in typeface-options {
+        let options = typeface-options.at(role)
+        let field = "typeface-options." + role
+        assert(type(options) == dictionary, message: field + " debe ser un diccionario.")
+        assert("font" in options, message: "Falta " + field + ".font.")
+        let font = options.font
+        assert(
+          type(font) == str or (type(font) == array and font.len() > 0 and font.all(name => type(name) == str)),
+          message: field + ".font debe ser un nombre de fuente o una lista de nombres.",
+        )
+        assert(role == "display" or "size" in options, message: "Falta " + field + ".size (por ejemplo, 11pt).")
+        if "size" in options {
+          assert(type(options.size) == length, message: field + ".size debe ser una longitud (por ejemplo, 11pt).")
+        }
+      }
+    }
+    for role in ("title-page", "title-page-title") {
+      if role in typeface-options {
+        let options = typeface-options.at(role)
+        assert(type(options) == dictionary, message: "typeface-options." + role + " debe ser un diccionario.")
+        assert("font" in options, message: "Falta typeface-options." + role + ".font.")
+        assert(
+          type(options.font) == str
+            or (type(options.font) == array and options.font.len() > 0 and options.font.all(name => type(name) == str)),
+          message: "typeface-options." + role + ".font debe ser un nombre de fuente o una lista de nombres.",
+        )
       }
     }
     typeface-options
   }
+
+  let display-typeface = selected-typeface.at("display", default: selected-typeface.text)
+  let selected-typeface = (
+    ..selected-typeface,
+    display: display-typeface,
+    title-page: selected-typeface.at("title-page", default: display-typeface),
+    title-page-title: selected-typeface.at("title-page-title", default: display-typeface),
+  )
 
   info.font.update(selected-typeface)
   info.font-family.update(font-family)
