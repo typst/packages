@@ -1,0 +1,101 @@
+IBMCarbonDesign:
+  type: web
+  title: IBM Carbon Design System
+  author: IBM
+  url:
+    value: https://carbondesignsystem.com/
+    date: 2025
+  language: en
+  publisher: IBM
+UMLDistilled3rd:
+  type: book
+  title: "UML Distilled: A Brief Guide to the Standard Object Modeling Language"
+  author: Fowler, Martin
+  language: en
+  edition: 3
+  affiliated:
+    - role: foreword
+      names:
+        - Kobryn, Cris
+        - Booch, Grady
+        - JAcobson Ivar
+        - Rumbaugh, Jim
+  publisher: Addison-Wesley
+  date: 2004
+  organization: Pearson Education, Inc.
+The5thDiscipline:
+  type: book
+  author: Senge, Peter M.
+  title: "The Fifth Discipline: The Art and Practice of the Learning Organization"
+  language: en
+  date: 1990
+  publisher: Doubleday
+
+FexpoCruz:
+  type: web
+  language: es
+  title: Fexpo Cruz
+  author: Fexpo Cruz
+  url:
+    value: https://www.fexpocruz.com.bo/
+    date: 2025
+SafetyCultureEventos:
+  type: web
+  url:
+    value: https://safetyculture.com/topics/event-management/
+    date: 2025
+  language: en
+  title: What You Need to Know about Event Management
+  date: 2024-05-04
+  author: Altomonte, Leon
+# MARK: Administración
+OrganizaciónDeEmpresas3:
+  type: book
+  title: Organización de Empresas
+  edition: 3
+  language: es
+  publisher: McGraw-Hill
+  author: Franklin Fincowsky, Enrique Benjamín
+  date: 2009
+Administración14:
+  type: book
+  edition: 14
+  language: es
+  title: "Administración: Una perspectiva global, empresarial y de innovación"
+  publisher: McGraw-Hill Education
+  date: 2012
+  serial-number:
+    isbn: 978-607-15-0759-4
+  author:
+    - Weihrich, Heinz
+    - Cannice, Mark V.
+    - Koontz, Harold
+Administración15:
+  type: book
+  edition: 15
+  language: es
+  title: "Administración: Una perspectiva global, empresarial y de innovación"
+  publisher: McGraw-Hill Education
+  date: 2017
+  serial-number:
+    isbn: 978-607-15-1391-5
+  author:
+    - Weihrich, Heinz
+    - Cannice, Mark V.
+    - Koontz, Harold
+# MARK: UML
+ModelaciónDeBDProcesoUMLAlanoca:
+  type: reference
+  title: "Modelación de Bases de Datos: Proceso de Desarrollo con UML"
+  author: Alanoca Gutiérrez, Javier
+  date: 2016
+  language: es-BO
+  publisher: UPSA Bolivia
+DiagramasUMLdeCUyRequisitos:
+  type: conference
+  title: "Diagramas UML de Casos de Uso y Requisitos"
+  author: Dr. Gutiérrez Rodríguez, Javier Jesús
+  publisher: Universidad de Sevilla, ETS Ingeniería Informática
+  location: Sevilla, España
+  date: 2008-01-20
+  language: es
