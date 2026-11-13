@@ -53,8 +53,19 @@
   info.title-page-mode.update(title-page-mode)
 
   info.supervisor.update(supervisor)
+
+  assert(
+    degree-program != none,
+    message: "El programa académico (carrera o especialidad) del grado a optar (degree-program) es obligatorio.",
+  )
   info.degree-program.update(degree-program)
+
+  assert(
+    degree-level != none,
+    message: "El nivel del grado académico a optar (degree-level) es obligatorio.",
+  )
   info.degree-level.update(degree-level)
+
   assert(
     abstract != none,
     message: "El resumen o abstracto del trabajo de grado (abstract) es obligatorio.",
