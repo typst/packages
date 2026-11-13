@@ -1,6 +1,6 @@
 // na-examen — الدليل (العربية)
 // الترجمة من مجلد الحزمة :  typst compile documentationAR.typ
-#import "lib.typ": *
+  #import "@preview/na-examen:1.1.0": *
 
 #set page(paper: "a4", margin: (x: 2cm, y: 2cm), numbering: "1")
 // ======================================================================
