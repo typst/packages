@@ -1,6 +1,6 @@
 // اختبار لغة الكلمات : تتبع #set text(lang: ...) تلقائيًا
 // Test of the words language: they follow #set text(lang: ...)
-#import "../lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 #set page(width: 20cm, height: auto, margin: 1cm)
 #set text(font: ("Amiri", "New Computer Modern"), size: 13pt)
 
