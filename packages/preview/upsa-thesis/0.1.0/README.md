@@ -22,7 +22,7 @@ La distribución de Universe no incluye fuentes. Descargá las familias indicada
 
 La combinación usada en los documentos de ejemplo necesita Reforma 1918, Reforma 2018, TeX Gyre Pagella Math e IBM Plex Mono. El currículum usa además Source Sans 3 y Source Serif 4. Las advertencias de fuente desconocida indican sustituciones que pueden cambiar el diseño. Elegir otro conjunto con `typeface` también requiere disponer de sus fuentes.
 
-Consultá los comandos de compilación y sus opciones en el [Taskfile.yaml del repositorio](https://github.com/FAI-UPSA/thesis-template/blob/main/Taskfile.yaml), que mantiene los ejemplos de exportación actualizados. Si trabajás desde Universe, adaptá las rutas a tu proyecto y a la ubicación de tus fuentes.
+Consultá el archivo `Taskfile.yaml` en la raíz del repositorio para ver los comandos de compilación y sus opciones. Si trabajás desde Universe, adaptá las rutas a tu proyecto y a la ubicación de tus fuentes.
 
 La entrega BIME reúne la tesis, las cubiertas, el resumen y las referencias bibliográficas del trabajo. Usa Bundle, una función experimental de Typst cuya interfaz puede cambiar. Revisá los metadatos y las indicaciones del documento de entrega antes de generarla.
 
@@ -36,7 +36,7 @@ Los ejemplos contienen datos ficticios y texto de relleno que debés sustituir a
 
 ## Generar documentos desde el repositorio
 
-Elegí la tarea correspondiente en el [Taskfile.yaml](https://github.com/FAI-UPSA/thesis-template/blob/main/Taskfile.yaml): allí se describen los documentos, los modos de generación y las opciones de exportación. Ejecutá las tareas desde la raíz del repositorio. En VS Code también podés ejecutarlas desde la vista de la extensión **Task**, incluida entre las recomendaciones del proyecto.
+Elegí la tarea correspondiente en el archivo `Taskfile.yaml` de la raíz del repositorio: allí se describen los documentos, los modos de generación y las opciones de exportación. Ejecutá las tareas desde la raíz del repositorio. En VS Code también podés ejecutarlas desde la vista de la extensión **Task**, incluida entre las recomendaciones del proyecto.
 
 Los archivos generados quedan junto a los documentos fuente y no se incluyen en Git.
 
