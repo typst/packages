@@ -1,6 +1,6 @@
 // منحنيان (C_f) و (C_g)
 // Two curves (C_f) and (C_g)
-#import "../lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 #set text(font: ("Amiri", "New Computer Modern"), lang: "ar", size: 16pt)
 #set page(width: 18cm, height: auto, margin: 1cm)
 
