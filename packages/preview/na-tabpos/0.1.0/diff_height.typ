@@ -1,6 +1,6 @@
 // اختبار ارتفاع سطر الفرق : 1 سم افتراضيًا
 // Test of the difference-row height: 1 cm by default
-#import "../lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 #set text(font: ("Amiri", "New Computer Modern"), lang: "ar", size: 14pt)
 #set page(width: 20cm, height: auto, margin: 1cm)
 
