@@ -1,0 +1,12 @@
+[package]
+name = "na-courbe"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Naam Mohamed"]
+license = "MIT"
+description = "Function plotting on top of CeTZ: millimetre graph paper, free label placement, piecewise functions, areas, tangents and trigonometric axes"
+keywords = ["plot", "function", "graph", "curve", "millimetre", "graph paper", "cetz", "math"]
+categories = ["visualization"]
+disciplines = ["mathematics", "education"]
+compiler = "0.13.0"
+exclude = ["*.pdf"]
