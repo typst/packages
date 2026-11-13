@@ -1,6 +1,6 @@
 // اللغات المدعومة : كلمات سطر الوضع النسبي تتبع lang تلقائيًا
 // Supported languages: the words of the "p" row follow lang automatically
-#import "../lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 
 #set page(width: 20cm, height: auto, margin: 1cm)
 #set text(font: ("Amiri", "New Computer Modern"), size: 13pt)
