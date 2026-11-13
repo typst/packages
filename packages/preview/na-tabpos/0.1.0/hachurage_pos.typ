@@ -1,6 +1,6 @@
 // اختبار التهشير والأشرطة في سطر الوضع النسبي
 // Test of hatching and bars in the "p" row
-#import "../lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 #set text(font: ("Amiri", "New Computer Modern"), lang: "ar", size: 14pt)
 #set page(width: 20cm, height: auto, margin: 1cm)
 
