@@ -1,0 +1,18 @@
+[package]
+name = "ctz-trigo"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Arthur Meyer"]
+license = "MIT"
+description = "Draw the trigonometric unit circle with CeTZ, after ProfLycee."
+repository = "https://github.com/amjmeyer/ctz-trigo"
+homepage = "https://amjmeyer.github.io/ctz-trigo/"
+keywords = [
+  "cercle trigonométrique", "trigonometric circle", "unit circle",
+  "trigonometry", "trigonométrie", "radian", "ProfLycee",
+  "lycée", "enseignement", "teaching", "cetz",
+]
+categories = ["visualization", "components"]
+disciplines = ["education", "mathematics"]
+compiler = "0.15.0"
+exclude = ["tests/*", "exemples/*", "images/*", "toot/*", "CHANGELOG.md", "CLAUDE.md", "AGENTS.md"]
