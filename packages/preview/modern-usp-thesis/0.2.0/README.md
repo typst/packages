@@ -15,7 +15,7 @@ Example output PDF generated with this template: [usp-example.pdf](https://githu
 - **PDF Bookmarks**: Cover, lists and table of contents appear in the PDF viewer's outline.
 - **References**: ABNT (NBR 6023) layout in the IME-USP author-date style by default.
 - **Appendices and Annexes**: `#show: appendix` / `#show: annex` give lettered headings ("APPENDIX A - TITLE") in the text and the table of contents.
-- **Captions and sources**: captions read "Figure 1 - Title" (on top, 10 pt) in the text and the lists; `#figure-source[Elaborated by the author.]` prints the 10 pt "Source: ..." line ("Fonte: ..." in Portuguese). Put it inside the figure, after the content: `#figure(image("a.png") + figure-source[...], caption: [...])`. Footnotes are 10 pt.
+- **Captions and sources**: captions read "Figure 1 - Title" (on top, 10 pt) in the text and the lists; `#figure-source[Elaborated by the author.]` prints the 10 pt "Source: ..." line ("Fonte: ..." in Portuguese). Put it inside the figure, after the content: `#figure(image("a.png") + figure-source[...], caption: [...])`. Footnotes are 10 pt and numbered per chapter.
 - **Drafting Notes**: `#todo(kind: "verify")[...]` inline notes, colored by kind, listed by `#note-outline()`.
 
 ## Table of Contents

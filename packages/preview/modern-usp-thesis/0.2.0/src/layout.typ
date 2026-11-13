@@ -33,6 +33,9 @@
   // Section styling
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
+    // Footnotes are numbered per chapter, not restarting on each page
+    // (USP Diretrizes 4.7).
+    counter(footnote).update(0)
     v(1.5cm)
     if it.numbering == none {
       // Pre-textual elements: Centered and All Caps
@@ -155,6 +158,7 @@
   show heading.where(level: 1): set heading(supplement: supplement)
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
+    counter(footnote).update(0)
     v(1.5cm)
     set text(size: 14pt, weight: "bold", hyphenate: false)
     set par(justify: false)
