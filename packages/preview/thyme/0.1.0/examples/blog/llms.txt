@@ -1,0 +1,8 @@
+# Notes
+
+> Algebraic invariants, automata, and bilingual static notes.
+
+## Posts
+
+- [Bilingual Notes](https://notes.example.org/posts/bilingual-notes/): One post, two languages.
+- [State Machine](https://notes.example.org/posts/state-machine/): A finite automaton, drawn.

@@ -1,0 +1,1190 @@
+/* thyme / blog -- Perceptual oklch() & oklab monochrome typography + margin sidenotes.
+   Theme-driven font stacks (STIX Two Text + STIX Two Math + Helvetica Neue + Commit Mono
+   by default), Obsidian-style post metadata, spicky-style math boxes, Tadi .typ top bar,
+   zero-JS i18n switcher, and two-column Ctrl+P print. */
+
+__FONT_FACES__
+
+:root {
+  color-scheme: dark light;
+
+  /* Dark tokens first, overridden for light & light-dark() below */
+  --bg: __BG_DARK__;
+  --fg: __FG_DARK__;
+  --muted: __MUTED_DARK__;
+  --line: __LINE_DARK__;
+  --frame: __FRAME_DARK__;
+  --surface-1: __SURF1_DARK__;
+  --surface-2: __SURF2_DARK__;
+
+  --serif: __FONT_SERIF__;
+  --math: __FONT_MATH__;
+  --sans: __FONT_SANS__;
+  --mono: __FONT_MONO__;
+
+  --step--2: clamp(0.75rem, 0.73rem + 0.10vw, 0.81rem);
+  --step--1: clamp(0.84rem, 0.81rem + 0.14vw, 0.92rem);
+  --step-0: clamp(1.07rem, 1.02rem + 0.22vw, 1.17rem);
+  --step-1: clamp(1.24rem, 1.14rem + 0.42vw, 1.46rem);
+  --step-2: clamp(1.54rem, 1.38rem + 0.75vw, 1.90rem);
+  --step-3: clamp(2.05rem, 1.72rem + 1.50vw, 2.75rem);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: __BG_LIGHT__;
+    --fg: __FG_LIGHT__;
+    --muted: __MUTED_LIGHT__;
+    --line: __LINE_LIGHT__;
+    --frame: __FRAME_LIGHT__;
+    --surface-1: __SURF1_LIGHT__;
+    --surface-2: __SURF2_LIGHT__;
+  }
+}
+
+@supports (color: light-dark(oklch(0% 0 0), oklch(100% 0 0))) {
+  :root {
+    --bg: light-dark(__BG_LIGHT__, __BG_DARK__);
+    --fg: light-dark(__FG_LIGHT__, __FG_DARK__);
+    --muted: light-dark(__MUTED_LIGHT__, __MUTED_DARK__);
+    --line: light-dark(__LINE_LIGHT__, __LINE_DARK__);
+    --frame: light-dark(__FRAME_LIGHT__, __FRAME_DARK__);
+    --surface-1: light-dark(__SURF1_LIGHT__, __SURF1_DARK__);
+    --surface-2: light-dark(__SURF2_LIGHT__, __SURF2_DARK__);
+  }
+}
+
+:where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+  }
+}
+
+body {
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(2.75rem, 6.5vw, 5rem) clamp(1.25rem, 4vw, 2.5rem) clamp(4rem, 8vw, 6.5rem) clamp(1.5rem, 8vw, 7rem);
+  max-width: 76rem;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  font-size: var(--step-0);
+  line-height: 1.66;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  counter-reset: sidenote-counter sec-counter;
+}
+
+math {
+  font-family: var(--math);
+  font-size: 1em;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+}
+
+math mtext {
+  font-family: var(--serif);
+}
+
+math[display="block"] {
+  margin: 0.75rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--fg) 22%, transparent);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--fg);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Main reading measure + wide right margin for sidenotes */
+main {
+  width: 62%;
+}
+
+/* Strictly monotone links mixed in oklab */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in oklab, var(--fg) 42%, transparent);
+  text-underline-offset: 0.2em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--fg);
+  text-decoration-color: var(--fg);
+}
+
+/* Top utility bar: `/..` backlink on left, optional `en · de` + Tadi `.typ` source link on right */
+nav.back-home {
+  margin-bottom: 1.4rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+
+nav.back-home.only-end {
+  justify-content: flex-end;
+}
+
+nav.back-home .top-actions {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.85rem;
+}
+
+nav.back-home a {
+  color: var(--muted);
+  text-decoration-color: transparent;
+}
+
+nav.back-home a:hover {
+  color: var(--fg);
+  text-decoration-color: var(--fg);
+}
+
+/* Headings & Prose */
+:is(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-3);
+  margin: 0 0 0.55rem 0;
+}
+
+main > h1 > code {
+  font-size: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
+  letter-spacing: -0.03em;
+}
+
+/* Uniform hover underline across mixed `<code>` + prose titles */
+.entry-head h3 a > code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.92em;
+}
+
+/* Optional hover-revealed section heading permalinks */
+a.heading-anchor {
+  margin-left: 0.38em;
+  font-family: var(--mono);
+  font-size: 0.72em;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+:is(h2, h3, h4, h5, h6):hover > a.heading-anchor,
+a.heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+a.heading-anchor:hover {
+  color: var(--fg);
+  text-decoration-color: var(--fg);
+}
+
+p {
+  margin: 0 0 1.1rem 0;
+  text-wrap: pretty;
+}
+
+/* Keep greedy line breaking on blocks containing sidenotes or margin notes so
+   expanding a floated mobile note never flips Chromium's ScoreLineBreaker
+   (`text-wrap: pretty`) back to `wrap` and shifts surrounding words mid-read. */
+:is(p, li, dd, blockquote):has(.sidenote, .marginnote) {
+  text-wrap: wrap;
+}
+
+header.article-header {
+  margin-bottom: 2.2rem;
+}
+
+.lede,
+.article-subtitle {
+  margin: 0.3rem 0 0.9rem 0;
+  font-size: var(--step-1);
+  line-height: 1.48;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Obsidian-style frontmatter / properties metadata block */
+dl.post-props {
+  margin: 1.1rem 0 0 0;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  row-gap: 0.28rem;
+  column-gap: 1rem;
+  font-family: var(--mono);
+  font-size: var(--step--2);
+  line-height: 1.5;
+}
+
+dl.post-props dt {
+  color: var(--muted);
+  user-select: none;
+}
+
+dl.post-props dd {
+  margin: 0;
+  color: var(--fg);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+}
+
+.prop-tag,
+a.prop-tag {
+  color: var(--muted);
+  text-decoration-color: transparent;
+}
+
+a.prop-tag:hover {
+  color: var(--fg);
+  text-decoration-color: var(--fg);
+}
+
+/* Section headings with Commit Mono 01 / 02 index */
+h2 {
+  margin: 2.35rem 0 0.95rem 0;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--step-2);
+}
+
+article.numbered-sections h2::before {
+  counter-increment: sec-counter;
+  content: counter(sec-counter, decimal-leading-zero);
+  margin-right: 0.65rem;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+h3 {
+  font-size: var(--step-1);
+  margin: 1.65rem 0 0.6rem 0;
+}
+
+h4 {
+  font-size: var(--step-0);
+  margin: 1.35rem 0 0.45rem 0;
+}
+
+ul, ol {
+  margin: 0.4rem 0 1.15rem 0;
+  padding-left: 1.45rem;
+}
+
+li {
+  margin-bottom: 0.32rem;
+}
+
+li > p {
+  margin-bottom: 0.35rem;
+}
+
+li > p:last-child {
+  margin-bottom: 0;
+}
+
+li > ul,
+li > ol {
+  margin: 0.3rem 0 0.5rem 0;
+}
+
+/* Minimal hollow / filled circle task-list markers (@preview/cheq HTML export) */
+ul:has(> li > input[type="checkbox"]:first-child:not(.margin-toggle)) {
+  padding-left: 1.35rem;
+}
+
+li:has(> input[type="checkbox"]:first-child:not(.margin-toggle)) {
+  list-style: none;
+}
+
+li > input[type="checkbox"]:first-child:not(.margin-toggle) {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.48em;
+  height: 0.48em;
+  margin: 0 0.60em 0.19em -1.08em !important;
+  vertical-align: middle !important;
+  border: 1px solid var(--fg);
+  border-radius: 50%;
+  background: transparent;
+  display: inline-block;
+  pointer-events: none;
+}
+
+li > input[type="checkbox"]:first-child:not(.margin-toggle):not(:checked) {
+  border-color: var(--muted);
+}
+
+li > input[type="checkbox"]:first-child:not(.margin-toggle):checked {
+  background: var(--fg);
+  border-color: var(--fg);
+}
+
+blockquote {
+  margin: 1.25rem 0;
+  padding: 0.15rem 0 0.15rem 1.1rem;
+  border-left: 2px solid var(--fg);
+  color: var(--muted);
+  font-style: italic;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
+}
+
+/* Optional horizontal Commit Mono link list (for thin homepages) */
+ul.links {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 1.75rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.3rem;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+ul.links li {
+  margin-bottom: 0;
+}
+
+ul.links li + li::before {
+  content: "·";
+  margin-inline: 0.55em;
+  color: var(--muted);
+}
+
+ul.links a {
+  text-decoration-color: color-mix(in oklab, var(--muted) 45%, transparent);
+}
+
+/* Table of contents (`#toc()`) */
+nav.blog-toc {
+  margin: 1.25rem 0 1.85rem 0;
+  padding: 0.2rem 0 0.2rem 1rem;
+  border-left: 1.5px solid var(--line);
+  font-size: var(--step--1);
+}
+
+.blog-toc-title {
+  margin-bottom: 0.4rem;
+  font-family: var(--sans);
+  font-size: var(--step--2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  color: var(--muted);
+}
+
+nav.blog-toc ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.24rem;
+}
+
+nav.blog-toc li {
+  margin: 0;
+}
+
+nav.blog-toc li[data-level="2"] {
+  padding-left: 1rem;
+}
+
+nav.blog-toc li[data-level="3"] {
+  padding-left: 2rem;
+}
+
+nav.blog-toc .toc-num {
+  font-family: var(--mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+  margin-right: 0.5rem;
+}
+
+/* Margin Sidenotes & Margin Notes */
+.sidenote,
+.marginnote {
+  float: right;
+  clear: right;
+  margin-right: -56%;
+  width: 48%;
+  margin-top: 0.15rem;
+  margin-bottom: 1.05rem;
+  font-size: 0.88rem;
+  line-height: 1.46;
+  color: var(--muted);
+  vertical-align: baseline;
+  position: relative;
+}
+
+.sidenote-number {
+  counter-increment: sidenote-counter;
+}
+
+.sidenote-number::after,
+.sidenote::before {
+  font-family: var(--serif);
+  font-weight: 400;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.sidenote-number::after {
+  content: counter(sidenote-counter);
+  font-size: 0.72em;
+  top: -0.45em;
+  margin-left: 0.06em;
+  margin-right: 0.08em;
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-thickness: 0.75px;
+  text-underline-offset: 0.14em;
+}
+
+.sidenote::before {
+  content: counter(sidenote-counter);
+  font-size: 0.76em;
+  top: -0.32em;
+  color: var(--fg);
+  margin-right: 0.28em;
+}
+
+input.margin-toggle {
+  display: none;
+}
+
+label.sidenote-number {
+  display: inline;
+  cursor: pointer;
+}
+
+label.margin-toggle:not(.sidenote-number) {
+  display: none;
+  font-family: var(--mono);
+  font-size: 0.8em;
+  color: var(--muted);
+}
+
+/* Inline Code & Keyboard Shortcuts */
+code, pre, kbd, samp {
+  font-family: var(--mono);
+  font-feature-settings: "liga" 0;
+}
+
+:where(:not(pre)) > code {
+  overflow-wrap: break-word;
+}
+
+:where(:not(pre):not(a)) > code {
+  font-size: 0.84em;
+  padding: 0.1rem 0.34rem;
+  border-radius: 3px;
+  background: var(--surface-1);
+  border: 1px solid var(--line);
+}
+
+a > code {
+  font-size: 0.86em;
+}
+
+pre {
+  margin: 1.2rem 0;
+  padding: 0.85rem 1rem;
+  background: var(--surface-1);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.52;
+}
+
+kbd {
+  font-family: var(--mono);
+  font-size: 0.78em;
+  padding: 0.08rem 0.36rem;
+  border: 1px solid var(--frame);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  background: var(--surface-1);
+}
+
+/* Zebraw Expressive-Code Blocks (monochrome oklch frame + native syntax highlighting) */
+.expressive-code {
+  position: relative;
+  margin: 1.25rem 0;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--surface-1);
+  overflow: hidden;
+}
+
+.expressive-code pre {
+  margin: 0;
+  padding: 0.8rem 0;
+  border: none;
+  background: transparent;
+  overflow-x: auto;
+}
+
+.expressive-code code {
+  display: block;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  font-size: 0.83rem;
+  line-height: 1.52;
+}
+
+@media (prefers-color-scheme: dark) {
+  .expressive-code .code span[style*="color"],
+  pre code span[style*="color"] {
+    filter: brightness(1.36) saturate(1.08);
+  }
+}
+
+.expressive-code .ec-header.ec-ext,
+.expressive-code .ec-footer.ec-ext {
+  display: none;
+}
+
+.expressive-code .ec-line {
+  display: flex;
+  align-items: baseline;
+  padding: 0 1rem;
+  min-height: 1.45em;
+}
+
+.expressive-code .ec-line.highlight {
+  background: var(--surface-2) !important;
+  border-left: 2.5px solid var(--fg);
+  padding-left: calc(1rem - 2.5px);
+}
+
+.expressive-code .gutter {
+  user-select: none;
+  flex-shrink: 0;
+  padding-right: 0.85rem;
+  margin-right: 0.85rem;
+  border-right: 1px solid var(--line);
+  color: var(--muted);
+  text-align: right;
+  min-width: 2.3ch;
+  font-size: 0.78rem;
+}
+
+.expressive-code .code {
+  flex: 1;
+  white-space: pre;
+}
+
+.expressive-code pre.wrap .code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.expressive-code .ec-comment {
+  margin-left: 1rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 2px;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--muted);
+  background: var(--surface-2) !important;
+}
+
+.expressive-code .code-lang {
+  position: absolute;
+  top: 0.35rem;
+  right: 4.3rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.expressive-code .copy-button {
+  position: absolute;
+  top: 0.28rem;
+  right: 0.4rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  border-radius: 3px;
+  padding: 0.12rem 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.expressive-code .copy-button:hover {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+.expressive-code .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.expressive-code .copy-button .copy-feedback {
+  display: none;
+}
+
+.expressive-code .copy-button[data-state="copied"] .copy-label {
+  display: none;
+}
+
+.expressive-code .copy-button[data-state="copied"] .copy-feedback {
+  display: inline;
+  color: var(--fg);
+}
+
+/* Tables: Monochrome Booktabs + spicky Crosshair Grid */
+table {
+  border-collapse: collapse;
+  margin: 1.3rem 0;
+  width: 100%;
+  font-size: 0.95rem;
+  border-top: 1.5px solid var(--fg);
+  border-bottom: 1.5px solid var(--fg);
+}
+
+th, td {
+  padding: 0.48rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+thead th,
+tr:first-child th {
+  font-weight: 600;
+  border-bottom: 1px solid var(--fg);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.blog-grid-table {
+  overflow-x: auto;
+}
+
+.blog-grid-table table {
+  border-top: none;
+  border-bottom: none;
+  width: auto;
+  min-width: 55%;
+}
+
+.blog-grid-table th,
+.blog-grid-table td {
+  text-align: center;
+  border-bottom: none;
+  border-top: 1px solid var(--frame);
+  border-left: 1px solid var(--frame);
+}
+
+.blog-grid-table tr:first-child > :is(th, td) {
+  border-top: none;
+}
+
+.blog-grid-table tr > :is(th, td):first-child {
+  border-left: none;
+}
+
+/* spicky-Inspired Monochrome Boxes (definition, theorem, example, recipe) */
+.blog-sbox {
+  margin: 1.35rem 0;
+  border: 1px solid var(--frame);
+  border-radius: 3px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.blog-sbox[data-variant="definition"],
+.blog-sbox[data-variant="theorem"],
+.blog-sbox[data-variant="lemma"],
+.blog-sbox[data-variant="proposition"] {
+  background: var(--surface-2);
+}
+
+.blog-sbox[data-variant="example"] {
+  background: var(--surface-1);
+}
+
+.blog-sbox[data-variant="recipe"] {
+  background: var(--bg);
+}
+
+.blog-sbox-part {
+  padding: 0.72rem 0.95rem;
+  overflow-x: auto;
+}
+
+.blog-sbox-part + .blog-sbox-part {
+  border-top: 1px dotted var(--muted);
+}
+
+.blog-sbox-part > p:last-child,
+.blog-sbox-part > ul:last-child,
+.blog-sbox-part > ol:last-child,
+.blog-sbox-part > table:last-child,
+.blog-sbox-part > .blog-grid-table:last-child {
+  margin-bottom: 0;
+}
+
+.blog-sbox-head {
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.blog-sbox-kind,
+.blog-proof-head,
+.blog-callout-title {
+  font-family: var(--sans);
+  font-size: var(--step--2);
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  color: var(--fg);
+}
+
+.blog-sbox-title {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+/* Proof environment with hollow square tombstone */
+.blog-proof {
+  margin: 1.15rem 0;
+  padding: 0.2rem 0 0.2rem 1rem;
+  border-left: 1.5px solid var(--line);
+}
+
+.blog-proof-head {
+  margin-bottom: 0.4rem;
+}
+
+.blog-proof > p:last-of-type {
+  margin-bottom: 0.2rem;
+}
+
+.blog-qed-row {
+  text-align: right;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+
+.blog-qed {
+  display: inline-block;
+  width: 0.56em;
+  height: 0.56em;
+  border: 1px solid var(--fg);
+}
+
+/* Monochrome Callouts, Epigraphs, Wide Blocks, Diagrams */
+.blog-callout {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 2.5px solid var(--fg);
+  background: var(--surface-1);
+  border-radius: 0 3px 3px 0;
+}
+
+.blog-callout-title {
+  margin-bottom: 0.35rem;
+}
+
+.blog-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.blog-epigraph {
+  margin: 1.35rem 0 1.85rem 0;
+}
+
+.blog-epigraph blockquote {
+  border-left: 1.5px solid var(--line);
+  color: var(--fg);
+  margin-bottom: 0.3rem;
+}
+
+.blog-epigraph-source {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+
+.blog-wide {
+  width: 156%;
+  max-width: calc(100vw - 4rem);
+  margin: 1.4rem 0;
+  clear: right;
+}
+
+.blog-diagram {
+  margin: 1.35rem 0;
+  text-align: center;
+}
+
+.blog-diagram svg,
+figure svg,
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .blog-diagram:not([data-invert="false"]) svg {
+    filter: invert(0.92) hue-rotate(180deg);
+  }
+}
+
+.blog-diagram figcaption {
+  font-family: var(--mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+  margin-top: 0.45rem;
+}
+
+/* Post-list & Tag-archive helpers */
+ul.entries {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+li.entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0;
+}
+
+div.entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 1rem 0 1.4rem 0;
+}
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.entry-head h3 {
+  margin: 0;
+  font-size: var(--step-0);
+  font-weight: 600;
+}
+
+.when {
+  font-family: var(--mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.entry-summary {
+  margin: 0.1rem 0 0 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+ul.tag-cloud {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.1rem;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+}
+
+ul.tag-cloud li {
+  margin: 0;
+}
+
+ul.tag-cloud .tag-count {
+  color: var(--muted);
+  font-size: var(--step--2);
+  margin-left: 0.28em;
+}
+
+/* Backlinks & Chronological Post Navigation Footers */
+footer.blog-backlinks {
+  margin-top: 2.75rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.blog-backlinks-title {
+  margin-bottom: 0.55rem;
+  font-family: var(--mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+  text-transform: lowercase;
+}
+
+ul.blog-backlinks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  font-size: var(--step--1);
+}
+
+ul.blog-backlinks-list li {
+  margin: 0;
+}
+
+nav.blog-post-nav {
+  margin-top: 2.75rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  font-size: var(--step--1);
+}
+
+nav.blog-post-nav .post-nav-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  max-width: 48%;
+}
+
+nav.blog-post-nav .post-nav-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+nav.blog-post-nav .post-nav-label {
+  font-family: var(--mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+
+.thyme-unresolved-ref,
+.blog-unresolved-ref {
+  border-bottom: 1px dashed var(--muted);
+}
+
+/* Responsive collapse on viewports < 1100px */
+@media only screen and (max-width: 1100px) {
+  body {
+    padding: 2rem 1.25rem 3.5rem 1.25rem;
+  }
+  main,
+  .blog-wide {
+    width: 100%;
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+  .blog-wide {
+    overflow-x: auto;
+  }
+  :is(th, td) code {
+    overflow-wrap: anywhere;
+  }
+  input.margin-toggle {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+    pointer-events: none;
+  }
+  label.margin-toggle:has(+ input.margin-toggle:focus-visible) {
+    outline: 1.5px solid var(--fg);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  label.margin-toggle:not(.sidenote-number) {
+    display: inline;
+    cursor: pointer;
+    padding: 0 0.18rem;
+  }
+  .sidenote,
+  .marginnote {
+    display: none;
+  }
+  .margin-toggle:checked + .sidenote,
+  .margin-toggle:checked + .marginnote {
+    display: block;
+    float: left;
+    clear: both;
+    width: 100%;
+    margin: 0.65rem 0;
+    padding: 0.55rem 0.85rem;
+    background: var(--surface-1);
+    border-left: 2px solid var(--fg);
+    border-radius: 0 3px 3px 0;
+  }
+  :is(p, li, dd, blockquote):has(.margin-toggle:checked)::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+/* Ctrl+P Print Stylesheet: pure achromatic oklch paper + right-margin sidenotes */
+@media print {
+  :root {
+    --bg: oklch(100% 0 0) !important;
+    --fg: oklch(0% 0 0) !important;
+    --muted: oklch(35% 0 0) !important;
+    --line: oklch(84% 0 0) !important;
+    --frame: oklch(0% 0 0) !important;
+    --surface-1: oklch(97% 0 0) !important;
+    --surface-2: oklch(94% 0 0) !important;
+  }
+  @page {
+    margin: 1.6cm 1.4cm;
+  }
+  body {
+    background: oklch(100% 0 0) !important;
+    color: oklch(0% 0 0) !important;
+    padding: 0 !important;
+    max-width: none !important;
+    font-size: 10.5pt !important;
+    line-height: 1.52 !important;
+  }
+  nav.back-home,
+  nav.blog-post-nav,
+  a.heading-anchor,
+  input.margin-toggle,
+  .expressive-code .copy-button {
+    display: none !important;
+  }
+  main {
+    width: 63% !important;
+  }
+  .sidenote,
+  .marginnote {
+    display: block !important;
+    float: right !important;
+    clear: right !important;
+    width: 50% !important;
+    margin-right: -56% !important;
+    font-size: 8.5pt !important;
+    color: oklch(30% 0 0) !important;
+  }
+  .blog-wide {
+    width: 156% !important;
+    max-width: none !important;
+  }
+  .blog-sbox,
+  .blog-callout,
+  .expressive-code,
+  pre,
+  table,
+  figure,
+  blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h1, h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  a {
+    text-decoration: none !important;
+    color: oklch(0% 0 0) !important;
+  }
+  li > input[type="checkbox"]:first-child:not(.margin-toggle) {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .blog-diagram svg {
+    filter: none !important;
+  }
+}
