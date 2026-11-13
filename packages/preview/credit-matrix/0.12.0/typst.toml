@@ -1,0 +1,13 @@
+[package]
+name = "credit-matrix"
+version = "0.12.0"
+entrypoint = "lib.typ"
+authors = ["Simon van Lierde"]
+license = "MIT AND CC-BY-4.0"
+description = "Write CRediT author statements, role tables and heatmaps."
+repository = "https://github.com/simonvanlierde/credit-matrix"
+keywords = ["CRediT", "contributor roles", "authorship", "contribution statement", "heatmap"]
+categories = ["model", "visualization", "languages"]
+disciplines = []
+compiler = "0.14.0"
+exclude = ["examples/", "out/", "*.png", "*.test.ts"]

@@ -1,0 +1,37 @@
+[package]
+name = "touying-ufac-unofficial"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Lucas Lima Rodrigues <https://github.com/lucaslrodri>"]
+license = "MIT AND MIT-0"
+description = "Slides for the Federal University of Acre (UFAC): lectures, coursework and thesis defenses."
+repository = "https://github.com/lucaslrodri/touying-ufac-unofficial"
+keywords = ["touying", "slide", "theme", "ufac", "universidade federal do acre", "university", "lecture", "acre"]
+categories = ["presentation"]
+compiler = "0.14.0"
+# Not part of the package on Typst Universe: the example decks, the tests, the manual and its sources, the scripts, the
+# skill for AI agents, the development guide, the changelog and the configuration of git, the CI, act and VS Code. gotpm (install,
+# publish) leaves out these and what .gitignore ignores; scripts/package.sh assembles the same files.
+exclude = [".actrc", ".gitattributes", ".githooks", ".github", ".vscode", "CHANGELOG.md", "CONTRIBUTING.md", "docs", "example",
+  "scripts", "skills", "tests"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+# Regression tests (Tytanic, `tt`): `tt run --use-system-fonts` inside this folder. See tests/README.md.
+[tool.tytanic]
+tests = "tests"
+
+# The theme uses New Computer Modern Sans, which is not bundled with Typst: always run with the system fonts,
+# `tt run --use-system-fonts` (tytanic 0.4.1 does not accept that option here; only `dir`, `ppi`, `max-delta`, `max-deviations`).
+[tool.tytanic.default]
+# 96 ppi: a 16:9 slide becomes 1123 × 631 px; enough for pixel comparison and keeps the reference PNGs small.
+ppi = 96.0
+max-delta = 1
+max-deviations = 0
+
+# Publishing (gotpm, CONTRIBUTING.md): `gotpm publish` runs this gate first and stops when it fails.
+[tool.gotpm]
+pre-publish-hook = ["sh scripts/package.sh --check"]
