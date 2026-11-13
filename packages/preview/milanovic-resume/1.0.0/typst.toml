@@ -1,0 +1,17 @@
+[package]
+name = "milanovic-resume"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Milan Milanović <@milanm>"]
+license = "MIT AND MIT-0"
+description = "One-page, single-column resume that parsers read in order"
+repository = "https://github.com/milanm/Milanovic-Resume"
+keywords = ["resume", "cv", "ats", "one-page", "cover letter", "job application", "software engineer"]
+categories = ["cv"]
+compiler = "0.14.0"
+exclude = ["resume.typ", "template.typ", "cover-letter.typ", "*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

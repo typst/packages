@@ -1,0 +1,18 @@
+[package]
+name = "biznaga-uma-tfe"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.15.1"
+authors = ["Óscar Parra Alonso"]
+license = "MIT-0"
+description = "Unofficial thesis template (TFG/TFM) for the School of Telecommunication Engineering (ETSIT), University of Málaga."
+repository = "https://github.com/oscarpaa/typst-uma-template"
+keywords = ["thesis", "tfg", "tfm", "universidad de málaga", "uma"]
+categories = ["thesis"]
+disciplines = ["engineering"]
+exclude = ["*.pdf", "*.synctex.gz", ".git*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

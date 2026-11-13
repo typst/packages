@@ -1,0 +1,18 @@
+language = "it"
+
+[stats]
+ac = "Classe Armatura"
+hp = "Punti Ferita"
+speed = "Velocità"
+
+[sections]
+actions = "Azioni"
+reactions = "Reazioni"
+limited_usage = "Uso Limitato"
+equip = "Equipaggiamento"
+legendary_act = "Azioni Leggendarie"
+
+[npc]
+description = "Descrizione"
+background = "Storia"
+roleplay = "Note di Interpretazione"

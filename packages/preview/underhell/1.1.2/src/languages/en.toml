@@ -1,0 +1,21 @@
+language = "en"
+
+# === 正文标点按语言渲染:源(半角) -> 目标符号(英文为原样,故不定义) ===
+["标点"]
+
+[stats]
+ac = "Armor Class"
+hp = "Hit Points"
+speed = "Speed"
+
+[sections]
+actions = "Actions"
+reactions = "Reactions"
+limited_usage = "Limited Usage"
+equip = "Equipment"
+legendary_act = "Legendary Actions"
+
+[npc]
+description = "Description"
+background = "Background"
+roleplay = "Roleplay Hints"

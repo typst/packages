@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Syntax colours of the code blocks of touying-ufac-unofficial, in the palette of the theme and with general scopes,
+  so that it suits any language: keywords in blue, comments in green, strings in red and numbers in ochre. Function
+  calls and operators stay in the colour of the text.
+-->
+<plist version="1.0">
+<dict>
+  <key>name</key><string>UFAC</string>
+  <key>settings</key>
+  <array>
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key><string>#FFFFFF</string>
+        <key>foreground</key><string>#1F2328</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Comment</string>
+      <key>scope</key><string>comment, punctuation.definition.comment</string>
+      <key>settings</key><dict><key>foreground</key><string>#067B5A</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>String</string>
+      <key>scope</key><string>string, punctuation.definition.string</string>
+      <key>settings</key><dict><key>foreground</key><string>#BE1E2D</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Format specifier and escape sequence in a string</string>
+      <key>scope</key><string>constant.character</string>
+      <key>settings</key><dict><key>foreground</key><string>#85151F</string><key>fontStyle</key><string>bold</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Keyword</string>
+      <key>scope</key><string>keyword.control, keyword.other</string>
+      <key>settings</key><dict><key>foreground</key><string>#0C4DA2</string><key>fontStyle</key><string>bold</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Number and constant</string>
+      <key>scope</key><string>constant.numeric, constant.language</string>
+      <key>settings</key><dict><key>foreground</key><string>#8A5A00</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Name of a function in its definition</string>
+      <key>scope</key><string>entity.name.function</string>
+      <key>settings</key><dict><key>foreground</key><string>#08367A</string><key>fontStyle</key><string>bold</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Function calls and operators: the colour of the text</string>
+      <key>scope</key><string>support.function, storage, keyword.operator, punctuation, variable</string>
+      <key>settings</key><dict><key>foreground</key><string>#1F2328</string></dict>
+    </dict>
+  </array>
+</dict>
+</plist>

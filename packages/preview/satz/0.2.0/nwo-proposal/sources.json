@@ -1,0 +1,34 @@
+{
+  "checked_on": "2026-10-20",
+  "scope": "Source structure and constraints; no official submission certification or pixel parity.",
+  "sources": [
+    {
+      "url": "https://www.nwo.nl/sites/nwo/files/media-files/veni_pre-proposal_form_2026.docx",
+      "sha256": "cf7b7d15ae973aa0bcfedef0c3f68eae09cc7136abe289d18dc29ec8b1da9bbd"
+    },
+    {
+      "url": "https://www.nwo.nl/sites/nwo/files/media-files/Vidi-2026-Pre-proposal-form.docx",
+      "sha256": "c9e74742aad5707f235fd060b226f3c640937040adc570f6141e3da20914cf75"
+    },
+    {
+      "url": "https://www.nwo.nl/sites/nwo/files/media-files/Vici-2026-pre-proposal-form_3.docx",
+      "sha256": "630b707867aa40155c7b2fdbba071ad57ed8d719932af1ecf01df469d3957ffe"
+    },
+    {
+      "url": "https://www.nwo.nl/sites/nwo/files/media-files/vici-2026-full-proposal-form_2.docx",
+      "sha256": "ab6abc1e5b6b7c6e5ea656379552ba1aaeff8ebd531fbe6a6462befa72a96d65"
+    },
+    {
+      "url": "https://www.zonmw.nl/sites/zonmw/files/2026-07/Veni-2026-Pre-proposal-form-ZonMw.docx",
+      "sha256": "454714e88dad739baf50acbff122f50e12f9527b1c01a347835a8224949fb805"
+    },
+    {
+      "url": "https://www.zonmw.nl/sites/zonmw/files/2026-08/Vidi-2026-Pre-proposal-form-ZonMw_2.docx",
+      "sha256": "a19774052a2e42d7690fec9d7dcf6c8247c51998b20d7eeb980514368420f632"
+    },
+    {
+      "url": "https://www.zonmw.nl/sites/zonmw/files/2026-07/Vici-2026-Full-proposal-form-ZonMw.docx",
+      "sha256": "3601d3f460d42a7fdf0d05116bd17374dd54edc356af5e2466216f45df82f7d1"
+    }
+  ]
+}
