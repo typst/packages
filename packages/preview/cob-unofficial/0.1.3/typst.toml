@@ -1,0 +1,16 @@
+[package]
+name = "cob-unofficial"
+version = "0.1.3"
+entrypoint = "src/lib.typ"
+authors = ["Robin Eklind"]
+license = "0BSD"
+description = "Unofficial CoB (The Company of Biologists) template."
+repository = "https://github.com/mewmew/cob-unofficial"
+categories = ["paper"]
+disciplines = ["biology", "chemistry", "medicine"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "inc/thumbnail.png"

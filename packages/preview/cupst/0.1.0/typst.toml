@@ -1,0 +1,24 @@
+[package]
+name = "cupst"
+version = "0.1.0"
+compiler = "0.13.0"
+entrypoint = "cupst.typ"
+authors = ["Jiao Sun <sunjiao19@mails.ucas.ac.cn>"]
+license = "MIT"
+description = "Journal article layout inspired by Cambridge University Press."
+repository = "https://github.com/sun-jiao/cupst"
+exclude = ["/template_zh/main.typ", "/template_zh/references.bib"]
+keywords = [
+  "Cambridge University Press",
+  "journal article",
+  "academic paper",
+  "preprint",
+  "two-column",
+  "camera-ready",
+]
+categories = ["paper"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

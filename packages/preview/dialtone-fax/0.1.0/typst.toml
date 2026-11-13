@@ -1,0 +1,18 @@
+[package]
+name = "dialtone-fax"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["JSB Holdings LLC <https://faxforagents.com>"]
+license = "MIT AND MIT-0"
+description = "Fax pages with a cover block, a type size floor and no shading."
+homepage = "https://faxforagents.com"
+repository = "https://github.com/faxforagents/dialtone-fax"
+keywords = ["fax", "facsimile", "cover sheet", "fax cover", "letter", "a4", "fax for agents"]
+categories = ["office"]
+compiler = "0.12.0"
+exclude = ["/scripts/", "/examples/", "/.github/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,9 @@
+[package]
+name = "hallon"
+version = "0.1.4"
+entrypoint = "src/lib.typ"
+authors = ["Robin Eklind"]
+license = "0BSD"
+description = "Subfigures, named references and other utility functions."
+repository = "https://github.com/mewmew/hallon-typ"
+exclude = ["/example"]
