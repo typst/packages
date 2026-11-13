@@ -1,0 +1,16 @@
+{
+  "simple_icons": {
+    "repository": "https://github.com/simple-icons/simple-icons",
+    "commit": "4d29a35c954699b389a834aacc97dd6e7e74143c",
+    "license": "CC0-1.0",
+    "assets": ["typescript.svg", "react.svg", "svelte.svg"],
+    "adaptation": "Added brand fill colours without changing path geometry. The renderer recolours the Svelte mark to TypeScript blue for .svelte.ts files."
+  },
+  "lucide": {
+    "repository": "https://github.com/lucide-icons/lucide",
+    "commit": "1ef60af944de207e0d5176905a0759ba12e6ee8d",
+    "license": "ISC",
+    "assets": ["file-code.svg"],
+    "adaptation": "None. The renderer replaces currentColor with the requested tint."
+  }
+}

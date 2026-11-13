@@ -1,0 +1,75 @@
+  ts-main:
+    - match: '//'
+      scope: punctuation.definition.comment.ts
+      push:
+        - meta_scope: comment.line.double-slash.ts
+        - match: '$'
+          pop: true
+    - match: '/\*'
+      scope: punctuation.definition.comment.begin.ts
+      push:
+        - meta_scope: comment.block.ts
+        - match: '\*/'
+          scope: punctuation.definition.comment.end.ts
+          pop: true
+    - match: '"'
+      scope: punctuation.definition.string.begin.ts
+      push: ts-double-string
+    - match: "'"
+      scope: punctuation.definition.string.begin.ts
+      push: ts-single-string
+    - match: '`'
+      scope: punctuation.definition.string.begin.ts
+      push: ts-template-string
+    - match: '\$(?:state|derived|effect|props|bindable|inspect|host)(?:\.(?:raw|snapshot|by|pre|tracking|root|pending|eager|trace))?\b'
+      scope: support.function.rune.svelte
+    - match: '\b(?:abstract|as|asserts|async|await|break|case|catch|class|const|constructor|continue|debugger|declare|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|infer|instanceof|interface|is|keyof|let|namespace|new|of|override|private|protected|public|readonly|return|satisfies|set|static|super|switch|throw|try|type|typeof|var|void|while|with|yield)\b'
+      scope: keyword.control.ts
+    - match: '\b(?:any|bigint|boolean|never|number|object|string|symbol|unknown)\b'
+      scope: storage.type.ts
+    - match: '\b(?:true|false|null|undefined|NaN|Infinity)\b'
+      scope: constant.language.ts
+    - match: '\b(?:0[xX][0-9A-Fa-f]+|0[bB][01]+|\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)n?\b'
+      scope: constant.numeric.ts
+    - match: '\b[A-Z][A-Za-z0-9_$]*\b'
+      scope: entity.name.type.ts
+    - match: '[$A-Za-z_][A-Za-z0-9_$]*(?=\s*\()'
+      scope: entity.name.function.ts
+    - match: '[+*/%=!<>?:&|~^-]+'
+      scope: keyword.operator.ts
+    - match: '[{}\[\](),.;]'
+      scope: punctuation.ts
+  ts-double-string:
+    - meta_scope: string.quoted.double.ts
+    - match: '\\.'
+      scope: constant.character.escape.ts
+    - match: '"'
+      scope: punctuation.definition.string.end.ts
+      pop: true
+  ts-single-string:
+    - meta_scope: string.quoted.single.ts
+    - match: '\\.'
+      scope: constant.character.escape.ts
+    - match: "'"
+      scope: punctuation.definition.string.end.ts
+      pop: true
+  ts-template-string:
+    - meta_scope: string.template.ts
+    - match: '\\.'
+      scope: constant.character.escape.ts
+    - match: '\$\{'
+      scope: punctuation.section.interpolation.begin.ts
+      push: ts-interpolation
+    - match: '`'
+      scope: punctuation.definition.string.end.ts
+      pop: true
+  ts-interpolation:
+    - meta_scope: meta.interpolation.ts
+    - clear_scopes: 1
+    - match: '\}'
+      scope: punctuation.section.interpolation.end.ts
+      pop: true
+    - match: '\{'
+      scope: punctuation.section.interpolation.begin.ts
+      push: ts-interpolation
+    - include: ts-main
