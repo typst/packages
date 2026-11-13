@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" width="360" height="110">
+  <g fill="none" stroke="#222" stroke-width="1.5" font-family="monospace" font-size="13">
+    <circle cx="80" cy="55" r="28" fill="#f6f6f6"/>
+    <circle cx="80" cy="55" r="23"/>
+    <circle cx="270" cy="55" r="28" fill="#f6f6f6"/>
+    <path d="M 109 44 Q 175 16 241 44" marker-end="url(#arrow)"/>
+    <path d="M 241 66 Q 175 94 109 66"/>
+    <polygon points="241,44 232,39 234,48" fill="#222" stroke="none"/>
+    <polygon points="109,66 118,71 116,62" fill="#222" stroke="none"/>
+  </g>
+  <g fill="#222" font-family="monospace" font-size="13" text-anchor="middle">
+    <text x="80" y="59">q0</text>
+    <text x="270" y="59">q1</text>
+    <text x="175" y="24">1</text>
+    <text x="175" y="98">1</text>
+  </g>
+</svg>
