@@ -1,6 +1,6 @@
 // منحنى ومستقيم : سطر الفرق (ارتفاعه 1 سم) ثم سطر الوضع النسبي
 // A curve and a line: the difference row (1 cm high) then the relative-position row
-#import "../lib.typ": *
+#import "@preview/na-tabpos:0.1.0": *
 #set text(font: ("Amiri", "New Computer Modern"), lang: "ar", size: 16pt)
 #set page(width: 22cm, height: auto, margin: 1cm)
 
