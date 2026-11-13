@@ -4,8 +4,8 @@
 
 ## Documentation and Files
 
-- Arabic Documentation: documentationAR.typ
-- English Documentation: documentationEN.typ
+- Arabic Documentation: [documentationAR.typ](documentationAR.typ)
+- English Documentation: [documentationEN.typ](documentationEN.typ)
 ## English
 
 `na-examen` is a Typst package (Typst ≥ 0.13) for exams and assignments in Arabic (RTL) and in Latin-script languages (LTR: French, English, Spanish, German). The author only writes the exercises; the package draws the page: a header with a barcode, a line of text under it, the school, the school year, the level, the term, the subject and the duration, and a footer "page X of Y". Exercises, parts and question boxes are numbered automatically.
