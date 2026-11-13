@@ -1,3 +1,5 @@
+#import "code.typ": code-theme, listing-layout
+
 /// Apply the editorial style and insert a title in the running document.
 #let note-document(
   title: none,
@@ -10,11 +12,13 @@
   show-byline: false,
   lang: "en",
   paper: "us-letter",
-  font: ("Libertinus Serif", "New Computer Modern"),
+  font: ("New Computer Modern", "Libertinus Serif"),
   font-size: 13pt,
+  equation-size: 0.95em,
   margin: (x: 0.64in, top: 0.56in, bottom: 0.58in),
   show-page-number: false,
   title-size: 3.8em,
+  title-font: auto,
   subtitle-size: 1.34em,
   category-size: 0.86em,
   leading: 0.66em,
@@ -39,13 +43,15 @@
 
   show heading: set text(weight: "semibold")
   show heading: set block(above: 1.14em, below: 0.63em, sticky: true)
-  show math.equation.where(block: true): set text(size: 1.1em)
+  show math.equation.where(block: true): set text(size: equation-size)
   show math.equation.where(block: true): set block(above: 1.18em, below: 1.18em)
   show quote.where(block: true): set block(inset: (x: 1.35em), above: 0.9em, below: 0.9em)
   show figure.caption: set text(size: 0.88em, fill: rgb("#343434"))
   show figure.caption: set par(justify: false, leading: 0.55em)
   show footnote.entry: set text(size: 0.8em)
   show footnote.entry: set par(justify: false, leading: 0.5em)
+  show raw.where(block: true): set raw(theme: code-theme, tab-size: 4)
+  show raw.where(block: true): listing-layout
   show bibliography: set text(size: 0.92em)
   show bibliography: set par(justify: false, leading: 0.45em)
   show bibliography: it => {
@@ -57,7 +63,12 @@
   block(width: 100%, below: 2.33em, sticky: true, breakable: false, align(center, context {
     let size = title-size.to-absolute()
     show std.title: it => block(above: 0pt, below: 0pt, {
-      set text(size: size, weight: "regular", bottom-edge: "descender")
+      set text(
+        font: if title-font == auto { font } else { title-font },
+        size: size,
+        weight: "regular",
+        bottom-edge: "descender",
+      )
       set par(leading: 0.23em)
       it.body
     })
