@@ -1,0 +1,26 @@
+[package]
+name = "cuni-thesis"
+version = "0.1.0"
+compiler = "0.15.0"
+authors = ["Miroslav Sklenář"]
+repository = "https://github.com/Need44/thesis-template-typst"
+license = "MIT-0 AND CC-BY-SA-3.0 AND CC0"
+description = "Unofficial bachelors thesis template for Faculty of Education, Charles University (Pedagogická fakulta Univerzita Karlova)"
+entrypoint = "lib.typ"
+categories = ["thesis"]
+keywords = [
+    "cuni", 
+    "Charles University",
+    "Univerzita Karlova", 
+    "Karlovka", 
+    "Pedagogická fakulta", 
+    "pedf", 
+    "bachelor", 
+    "czech", 
+    "bakalářka",
+    "bakalářská práce"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
