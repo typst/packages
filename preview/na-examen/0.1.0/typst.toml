@@ -1,0 +1,16 @@
+[package]
+name = "na-examen"
+version = "0.1.0"
+authors = ["Naam Mohamed"]
+license = "MIT"
+description = "Exam / assignment template for Typst, Arabic (RTL) and Latin (LTR: French, English, Spanish, German): header with barcode, school, year, term, level, subject and duration, footer 'page X of Y', and auto-numbered exercises, parts and question boxes."
+repository = "https://github.com/naam11/na-examen"
+keywords = ["arabic", "rtl", "french", "english", "ltr", "exam", "assignment", "template", "school", "algeria"]
+categories = ["office"]
+entrypoint = "lib.typ"
+compiler = "0.13.0"
+exclude = [
+  "documentationAR.typ",
+  "documentationEN.typ",
+  "long-exam.typ"
+]
