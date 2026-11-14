@@ -1,0 +1,20 @@
+[package]
+name = "uniovi-epi-tfg"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Martín Canga (Carver)"]
+license = "MIT"
+description = "Template for TFG (Trabajo de Fin de Grado) at the E.P.I University of Oviedo (E.P.I Universidad de Oviedo)."
+repository = "https://github.com/martincanga/uniovi-epi-tfg"
+categories = ["thesis"]
+keywords = [
+    "university", 
+    "tfg", 
+    "oviedo", 
+    "report",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
