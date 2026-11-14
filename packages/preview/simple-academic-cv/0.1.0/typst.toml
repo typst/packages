@@ -1,0 +1,17 @@
+[package]
+name = "simple-academic-cv"
+version = "0.1.0"
+entrypoint = "cv.typ"
+authors = ["Josh Forer"]
+license = "MIT-0"
+description = "Simple (academic) CV"
+repository = "https://github.com/banana-bred/simple-academic-cv"
+keywords = ["cv", "curriculum vitae", "resume", "academic", "publications"]
+categories = ["cv"]
+compiler = "0.15.0"
+exclude = ["bin/"]
+
+[template]
+path = "template"
+entrypoint = "example.typ"
+thumbnail = "thumbnail.png"
