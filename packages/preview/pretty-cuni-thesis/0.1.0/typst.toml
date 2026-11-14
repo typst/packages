@@ -1,5 +1,5 @@
 [package]
-name = "cuni-thesis"
+name = "pretty-cuni-thesis"
 version = "0.1.0"
 compiler = "0.15.0"
 authors = ["Miroslav Sklenář"]

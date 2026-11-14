@@ -1,4 +1,4 @@
-#import "@preview/cuni-thesis:0.1.0": template_conf, datetime_today_translated
+#import "@preview/pretty-cuni-thesis:0.1.0": template_conf, datetime_today_translated
 
 //Calling template function to apply to document
 #show: template_conf.with(vars: (

@@ -20,11 +20,11 @@ This template for the Typst typesetting system for a bachelor's thesis at the Fa
 
 ## Quick start
 
-In the Typst web app, click Start from template and search for cuni-thesis.
+In the Typst web app, click Start from template and search for pretty-cuni-thesis.
 Or initialize a fresh project locally with the Typst CLI:
 
 ```bash
-typst init @preview/cuni-thesis:0.1.0 my-thesis
+typst init @preview/pretty-cuni-thesis:0.1.0 my-thesis
 cd my-thesis
 typst watch main.typ
 ```
@@ -37,7 +37,7 @@ The new project contains main.typ (main file, for linking everything together), 
 To use the template in an existing project:
 
 ```typst
-#import "@preview/cuni-thesis:0.1.0": template_conf, datetime_today_translated
+#import "@preview/pretty-cuni-thesis:0.1.0": template_conf, datetime_today_translated
 
 #show: template_conf.with(
   vars: (
