@@ -1,5 +1,5 @@
 // اختبار : عدة صفحات (التذييل «صفحة X من Y») وعناوين لا تبقى وحدها في آخر الصفحة
-#import "../lib.typ": *
+#import "@preview/na-examen:0.1.0": *
 
 #show: examen.with(code: "long test", duration: "3 ســا")
 
