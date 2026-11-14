@@ -11,5 +11,6 @@ entrypoint = "lib.typ"
 compiler = "0.13.0"
 exclude = [
   "documentationAR.typ",
-  "documentationEN.typ"
+  "documentationEN.typ",
+  "long-exam.typ"
 ]
