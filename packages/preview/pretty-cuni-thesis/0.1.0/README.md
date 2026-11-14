@@ -1,7 +1,7 @@
 <h1 align="center">thesis-template-typst</h1>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/typst-0.15%2B-239dad?logo=typst&logoColor=white">
+  <img src="https://img.shields.io/badge/typst-0.15%2B-239dad?logo=typst&logoColor=white" alt="Typst version 0.15+ badge">
 </div>
 <p align="center">
 Unofficial bachelors thesis template for Faculty of Education, Charles University (Pedagogická fakulta Univerzita Karlova)
@@ -140,7 +140,7 @@ thesis-template-typst/
 ## Resources
 
 - [ISO 690 biblatex style](https://ftp.cvut.cz/tex-archive/macros/latex/contrib/biblatex-contrib/biblatex-iso690/biblatex-iso690.pdf)
-- [ISO 690 biblatex examples](https://github.com/michal-h21/biblatex-iso690/blob/master/biblatex-iso690-examples.bib)
+- [ISO 690 biblatex examples](https://github.com/michal-h21/biblatex-iso690/blob/85ed8f3172b86a58fd2098de325aa1faa1d6bbf1/biblatex-iso690-examples.bib)
 - [LaTeX template used as inspiration](https://github.com/pedf-uk/thesis-template-latex/)
 - [Citation Styles according to ČSN ISO 690:2022 by Kristina Millerová](https://www.techlib.cz/en/85389-csn-iso-690-2022-citation-styles-for-zotero-and-mendeley)[^1]
 - [Example bank svg icon](https://www.svgrepo.com/svg/530586/bank)
@@ -159,7 +159,7 @@ thesis-template-typst/
 
 ## License
 
-Everything in template/ is licensed under [MIT-0](https://github.com/Need44/thesis-template-typst/blob/main/LICENSE) License except:
+Everything in template/ is licensed under [MIT-0](https://github.com/Need44/thesis-template-typst/blob/30abc4957ffa0744c787a9b1d315a9dccc42c2dc/LICENSE) License except:
 
-- `template/src/bank-svgrepo-com.svg` ([source](https://www.svgrepo.com/svg/530586/bank)) - [CC0 license](https://www.svgrepo.com/page/licensing/#CC0)
+- `template/src/bank-svgrepo-com.svg` ([source](https://www.svgrepo.com/svg/530586/bank)) - [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/)
 - `template/bib/iso-690-2022-numeric-ntk.csl` ([source](https://www.techlib.cz/en/85389-csn-iso-690-2022-citation-styles-for-zotero-and-mendeley)) - citation style by Kristina Millerová, licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)

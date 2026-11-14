@@ -9,7 +9,7 @@ This package is licensed under license MIT-0:
 
 Exceptions, which keep their own terms and are not covered by MIT license:
 
-- `template/src/bank-svgrepo-com.svg`: CC0 license
+- `template/src/bank-svgrepo-com.svg`: CC0 1.0
 - `template/bib/iso-690-2022-numeric-ntk.csl`: citation style by Kristina
   Millerová, licensed under CC BY-SA 3.0.
 
