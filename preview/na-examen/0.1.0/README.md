@@ -45,7 +45,8 @@
 The same template also exists in Latin script. Choose it with `lang`; the direction becomes left-to-right, the fonts, the fixed words and the exercise names follow the language:
 
 ```typst
-#import "@preview/na-examen:1.1.0": *
+#import "@preview/na-examen:0.1.0
+": *
 
 #show: examen.with(
   lang: "fr",                       // "fr", "en", "es" or "de"  (default "ar")
