@@ -192,6 +192,7 @@ Oh well.
 
 ## License
 
-MIT.
+MIT-0.
+Do whatever you want.
 
 See [LICENSE](LICENSE).
