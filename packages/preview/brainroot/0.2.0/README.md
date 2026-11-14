@@ -202,8 +202,8 @@ often each line is drawn).
 
 ## Manual
 
-The manual is online in [English](https://loewe1000.github.io/brainroot/en.html)
-and [German](https://loewe1000.github.io/brainroot/). Both build from `docs/`
+The manual is online in [English](https://loewe1000.github.io/brainroot/v0.2.0/en.html)
+and [German](https://loewe1000.github.io/brainroot/v0.2.0/). Both build from `docs/`
 with
 
 ```bash
