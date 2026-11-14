@@ -2,7 +2,11 @@
 
 Function plotting for Typst on top of CeTZ / cetz-plot.
 رسم الدوال في Typst فوق CeTZ / cetz-plot.
+## Documentation and Files
 
+- Arabic Documentation: [doc.typ](doc.typ)
+- English Documentation: [doc-en.typ](doc-en.typ)
+- Example: [example.typ](example.typ)
 ## Install from Typst Universe / من Typst Universe
 ```typ
 #import "@preview/na-courbe:0.1.0": courbe, integrale, papier-milli
