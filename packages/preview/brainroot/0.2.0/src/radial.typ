@@ -1,6 +1,6 @@
 // The layouts that are not trees: star, radial and fishbone.
 
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 #import "draw.typ": _stroke, _path, _seg, _root-edge, _draw-tree, _draw-node, _edge-label, _edge-label-beside, _mid, _bez, _ghost
 #import "layout.typ": _leaves, _weight, _sectors, _level-sizes
 

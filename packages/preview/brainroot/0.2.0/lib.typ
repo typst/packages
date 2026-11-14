@@ -8,7 +8,7 @@
 // wobbles lines, `src/layout.typ` places subtrees by contour, `src/draw.typ`
 // draws the tree layouts and `src/radial.typ` the rest.
 
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 #import "src/util.typ": _pt
 #import "src/input.typ": branch, connect, _norm, _expand
 #import "src/palettes.typ": palettes, _palette

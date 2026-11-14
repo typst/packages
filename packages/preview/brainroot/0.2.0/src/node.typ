@@ -1,7 +1,7 @@
 // A single node: its fill, ink and box, its hand-drawn outline, and how it
 // is measured.
 
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 #import "util.typ": _pt, _luma
 #import "input.typ": branch
 #import "hand.typ": _rounded-rect, _ellipse-pts, _hand-line, _seed

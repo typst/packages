@@ -1,7 +1,7 @@
 // Drawing: edges, nodes, braces, clouds and cross-links, in the tree
 // layouts.
 
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 #import "util.typ": _pt
 #import "hand.typ": _wobble, _seed, _flatten-bezier, _rounded-rect, _hand-line
 #import "node.typ": _nodebox, _framed, _hand-shape

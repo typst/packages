@@ -7,7 +7,7 @@
 // LaTeX. All computed in Typst: a mind map has only a few dozen short
 // paths, which needs no plugin.
 
-#import "@preview/cetz:0.5.2"
+#import "@preview/cetz:0.5.3"
 #import "util.typ": _pt
 
 // --- Hand-drawn lines ------------------------------------------------------
