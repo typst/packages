@@ -1,6 +1,6 @@
 // na-courbe v0.1.0 : حزمة متكاملة لرسم المنحنيات فوق CeTZ
-#import "@preview/cetz:0.3.1": canvas, draw
-#import "@preview/cetz-plot:0.1.0": plot
+#import "@preview/cetz:0.3.2": canvas, draw
+#import "@preview/cetz-plot:0.1.1": plot
 // ── أدوات داخلية ────────────────────────────────────────────
 // أنواع الخط: continu | tirets | pointille | mixte  (و points | lie للنقاط)
 #let _dash(tr) = if tr == "tirets" { "dashed" } else if tr == "pointille" { "dotted" } else if tr == "mixte" { "dash-dotted" } else { none }
