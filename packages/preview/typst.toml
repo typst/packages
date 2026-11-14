@@ -9,4 +9,10 @@ keywords = ["plot", "function", "graph", "curve", "millimetre", "graph paper", "
 categories = ["visualization"]
 disciplines = ["mathematics", "education"]
 compiler = "0.13.0"
-exclude = ["*.pdf"]
+exclude = [
+  "doc.typ",
+  "doc-en.typ",
+  "example.typ",
+  "1.png",
+  "2.png"
+]
