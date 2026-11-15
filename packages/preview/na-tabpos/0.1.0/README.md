@@ -17,6 +17,15 @@ The code in `lib.typ` is derived from vartable 0.2.5 (MIT). The `LICENSE` file c
 **Examples:**
 - [`all-cases.typ`](all-cases.typ)
 - [`custom-names.typ`](custom-names.typ)
+- [`diff_height.typ`](diff_height.typ)
+- [`hachurage_pos.typ`](hachurage_pos.typ)
+- [`hatched-domain.typ`](hatched-domain.typ)
+- [`languages.typ`](languages.typ)
+- [`langues.typ`](langues.typ)
+- [`line-and-curve.typ`](line-and-curve.typ)
+- [`pos_options.typ`](pos_options.typ)
+- [`signs-variations-position.typ`](signs-variations-position.typ)
+- [`two-curves.typ`](two-curves.typ)
 ### Main features
 
 - The **difference row** `f(x) - g(x)` (a sign row placed right before a `"p"` row) is **1 cm high by default**. Change it with `diff-height`, or write `diff-height: none` for automatic height.
