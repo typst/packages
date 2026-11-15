@@ -188,7 +188,6 @@ second number must not be zero.
 ## Documentation and source
 
 - [Source code and issue tracker](https://github.com/Uhrendoktor/kalt)
-- [Development examples](https://github.com/Uhrendoktor/kalt/tree/main/typst/docs/examples)
-- [Typst package documentation guidelines](https://github.com/typst/packages/blob/main/docs/documentation.md)
+- [Development examples](https://github.com/Uhrendoktor/kalt/tree/0f5452108debf77e355ccca099418fd80484fe27/typst/docs/examples)
 
 Kalt is released under the [MIT License](LICENSE).
