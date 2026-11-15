@@ -1,10 +1,10 @@
-![lookscanned](https://raw.githubusercontent.com/kornstein/lookscanned/v0.2.0/assets/banner.png)
+![An image showing the lookscanned readme banner](https://raw.githubusercontent.com/kornstein/lookscanned/v0.2.0/assets/banner.png)
 
 <p align="center">
   <b><a href="https://kornstein.github.io/lookscanned/">Documentation</a></b> ·
   <a href="https://kornstein.github.io/lookscanned/reference/api/">API reference</a> ·
-  <a href="https://github.com/kornstein/lookscanned/tree/main/examples">Examples</a> ·
-  <a href="https://github.com/kornstein/lookscanned/blob/main/CHANGELOG.md">Changelog</a>
+  <a href="https://github.com/kornstein/lookscanned/tree/v0.2.0/examples">Examples</a> ·
+  <a href="https://github.com/kornstein/lookscanned/blob/v0.2.0/CHANGELOG.md">Changelog</a>
 </p>
 
 **lookscanned** turns any Typst document into a convincing scan, photocopy, fax, typewritten letter, stencil copy, microfilm or
@@ -124,4 +124,4 @@ Part of the Rust code and documentation was build using [Claude](https://claude.
 
 ## License
 
-lookscanned is released under the [Apache License 2.0](https://github.com/kornstein/lookscanned/blob/main/LICENSE).
+lookscanned is released under the [Apache License 2.0](https://github.com/kornstein/lookscanned/blob/v0.2.0/LICENSE).
