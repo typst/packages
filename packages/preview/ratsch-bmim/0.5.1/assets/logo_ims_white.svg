@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: Corel DESIGNER 2018 (64 Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="46.2997mm" height="22.7743mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 50954.65 25064.02"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:275.13;stroke-linejoin:round;stroke-miterlimit:22.9256}
+    .str2 {stroke:white;stroke-width:2201.08;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.9256}
+    .str1 {stroke:white;stroke-width:2201.08;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1145.92}
+    .str3 {stroke:white;stroke-width:220.11;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.9256}
+    .fil0 {fill:none}
+    .fil2 {fill:white}
+    .fil1 {fill:white;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Ebene_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2574992896192">
+   <path class="fil0 str0" d="M2291.98 12381.95c420.74,166.51 697.08,573.16 697.08,1025.59 0,452.43 -276.35,859.08 -697.08,1025.59"/>
+   <path class="fil0 str0" d="M2510.11 11785.9c665.28,263.25 1102.19,906.18 1102.19,1621.65 0,715.46 -436.91,1358.4 -1102.19,1621.76"/>
+   <path class="fil0 str0" d="M2728.13 11189.74c909.82,360.1 1507.41,1239.32 1507.41,2217.81 0,978.49 -597.59,1857.71 -1507.41,2217.81"/>
+  </g>
+  <line class="fil0 str1" x1="1100.54" y1="1232.6" x2="1100.54" y2= "23963.48" />
+  <polyline class="fil0 str2" points="5272.35,18479.16 16444.48,1100.32 19711.32,13034.46 "/>
+  <polyline class="fil0 str2" points="34150.29,18479.16 22978.06,1100.32 19711.32,13034.46 "/>
+  <g>
+   <path class="fil1" d="M6209.9 13792.73c-212.62,0 -385.19,-172.56 -385.19,-385.19 0,-212.62 172.56,-385.19 385.19,-385.19l0 770.38zm29315.29 0l-29315.29 0 0 -770.38 29315.29 0 0 770.38zm1970.63 -385.19l-1996.82 998.41 0 -1996.82 1996.82 998.41zm-1970.63 -385.19c212.62,0 385.19,172.56 385.19,385.19 0,212.62 -172.56,385.19 -385.19,385.19l0 -770.38z"/>
+  </g>
+  <ellipse class="fil2 str3" cx="5410.13" cy="13407.54" rx="844.21" ry="879.87"/>
+  <polyline class="fil0 str2" points="38463.53,23960.84 49854.11,23960.84 49854.11,12568.38 38463.53,12568.38 38463.53,1175.93 45492.67,1225.34 "/>
+ </g>
+</svg>

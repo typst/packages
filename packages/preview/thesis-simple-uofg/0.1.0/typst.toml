@@ -1,0 +1,21 @@
+[package]
+name = "thesis-simple-uofg"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+
+authors = [
+  "Olivia Weston <olivia@weston.enterprises>"
+]
+license = "GPL-3.0-only"
+description = "Simple PhD thesis template for the University of Glasgow."
+
+repository = "https://github.com/surobaki/thesis-simple-uofg-typst"
+keywords = ["thesis", "uofg", "university-of-glasgow", "english"]
+categories = ["thesis"]
+compiler = "0.15.0"
+exclude = ["*.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

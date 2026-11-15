@@ -1,0 +1,27 @@
+[package]
+name = "nibart"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Calligraphy and ornament: Hobby paths, broad/pointed/variable pens, knots and Celtic interlace, calligraphic braces, path surgery (Rust/WASM plugin)."
+repository = "https://github.com/fergousA/nibart"
+keywords = ["calligraphy", "knot", "celtic", "metapost", "hobby", "pen", "nib", "drawing", "path"]
+categories = ["visualization", "text"]
+compiler = "0.15.0"
+exclude = [
+  "rust",
+  "tests",
+  "scripts",
+  "Makefile",
+  ".github",
+  "dist",
+  ".gitignore",
+  "*.zip",
+  "*.tar.gz",
+  "examples/*.pdf",
+  "docs/gallery",
+  "docs/gallery.typ",
+  "docs/*.pdf",
+  "PUBLISHING.md",
+]

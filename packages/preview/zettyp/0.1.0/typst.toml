@@ -1,0 +1,17 @@
+[package]
+name = "zettyp"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Xinyu Xiang"]
+license = "MIT AND MIT-0"
+repository = "https://github.com/project-zettypst/zettypst"
+compiler = "0.15.0"
+exclude = ["**/tests/**"]
+description = "A Typst-native Zettelkasten note system."
+keywords = ["zettelkasten", "knowledge", "graph", "semantics"]
+categories = ["model"]
+
+[template]
+path = "kickstart/template"
+entrypoint = "index.typ"
+thumbnail = "kickstart/thumbnail.png"

@@ -1,0 +1,238 @@
+/*
+SPDX-FileCopyrightText: 2026 Toon Verstraelen <Toon.Verstraelen@UGent.be>
+SPDX-License-Identifier: Apache-2.0
+*/
+
+/*
+  The stylesheet of an animo deck.
+  The deck's own geometry is appended to this file as custom properties on `:root`,
+  so everything below is the same for every deck.
+*/
+
+/*
+  A reader who asked for less motion gets none, whatever the deck asks for.
+
+  The time that motion takes is the deck's own.
+  `--animo-primitive-duration`, `--animo-transition-duration` and `--animo-easing` are
+  written from the `primitive-duration:`, `transition-duration:` and `easing:` arguments of
+  the show rule, into the `:root` block that is appended to this file.
+  The runtime reads them at every step, so a value reaches every operation that asked for
+  nothing of its own.
+
+  That appended block comes after this rule, and a stylesheet added to the page comes after
+  both, so the two declarations here are `!important` and the guard wins by cascade weight
+  rather than by source order. Measured in chromium 151 and firefox 153, a later `:root`
+  declaration of the same property outranks this query without it.
+
+  A duration of zero means a step snaps, which is what a deep link and a reload get in any
+  case. The zero reaches an operation that states a `duration:` of its own as well, because
+  the runtime reads these properties at every step and a media query cannot reach a number
+  written in a typst source.
+*/
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --animo-primitive-duration: 0s !important;
+    --animo-transition-duration: 0s !important;
+  }
+}
+
+/*
+  The surround the slide is centred on, which is not part of any slide.
+  It is a declaration on the page's own root elements rather than on the deck below.
+  The deck isolates the blend that crossfades two slides, and the ground of the isolating
+  element is inside the group it isolates, so a surround written there would be summed into
+  both slides.
+  Measured with a white surround, which shifted the midpoint of a crossfade by 239/255 in
+  chromium 151 and firefox 153. A black surround adds zero and hides the mistake.
+  See *Findings*.
+*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+}
+
+/*
+  The window: the current slide, centred on the surround.
+  The slides are stacked in a single grid cell, on a stacking context of their own, which
+  is what lets the slide being entered and the slide being left cross without the two
+  taking two rows of a grid.
+  It carries no background of its own, because the deck isolates the crossfade.
+*/
+.animo-deck {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.animo-deck > * {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+/*
+  The viewport: the slide's visible box.
+  It is as large as the window allows at the deck's aspect ratio, and it clips,
+  because content outside it belongs to the canvas and is reached by panning.
+
+  Two slides are laid out at a time and never more: the one being shown, and the one a
+  boundary is crossing from, which keeps its layout until the deck moves again so that
+  stepping back over the same boundary needs no layout.
+  Every other slide is `display: none`, which keeps the layout of a long deck small.
+  Laying every slide out for the whole session doubled the first paint of a sixty-slide
+  deck. See *Findings*.
+
+  `plus-lighter` makes the crossfade between two slides add rather than cover, and
+  it is on every slide rather than only on the two a boundary involves, so that a slide
+  rasterises the same whether or not it is in a transition. A single slide added to the
+  transparent backdrop of the isolated deck is that slide, so this changes nothing outside
+  a boundary.
+*/
+.animo-slide {
+  display: none;
+  position: relative;
+  overflow: hidden;
+  width: var(--animo-viewport);
+  aspect-ratio: var(--animo-aspect);
+  background: #ffffff;
+  mix-blend-mode: plus-lighter;
+}
+
+.animo-slide[data-animo-current],
+.animo-slide[data-animo-leaving] {
+  display: block;
+}
+
+/*
+  The canvas: what the body is laid out on, at least as large as the viewport.
+  It sits at the viewport's origin and is sized in `--animo-unit`, one typst point as the
+  window currently renders it, so a typst point is the unit of everything inside it at any
+  window size.
+  Sizing rather than scaling leaves both `translate` and `scale` free on this element.
+  The runtime writes a pan as its `translate`, and nothing writes its `scale`.
+  It holds one frame, and that frame holds the epoch renderings of the slide.
+  The blend that crossfades two of those renderings is confined by the frame rather than
+  by this element. See the rule on the frame below.
+*/
+.animo-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*
+  The two outer layers, one behind the canvas and one in front of it.
+  Each is the size of the viewport and belongs to it rather than to the canvas, so a pan
+  moves the canvas between them and leaves both where they are.
+  Both are frames of the slide rather than renderings inside the canvas's frame, which keeps
+  them out of the `plus-lighter` blend below and independent of the number of epochs.
+  A slide with four epochs still carries one of each.
+  The three are positioned elements with no z-index of their own, so they paint in document
+  order, which is the order the slide emits them in.
+  A layer that is a colour rather than content needs no frame.
+  The background colour is a declaration on the slide container, which is already behind the
+  canvas, and an overlay colour is one on the element below, which is already in front of it.
+*/
+.animo-background,
+.animo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.animo-background > svg,
+.animo-overlay > svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/*
+  The frame fills the canvas exactly, because the canvas is the size animo computed and
+  the frame's viewBox is that same rectangle in typst points.
+  `html.frame` writes the frame's size as an inline style in `em`, against the text size
+  of the document rather than against the font size of the page, so a plain rule loses to
+  it and the frame comes out a few percent too large. Overriding an inline style that
+  animo does not control is what `!important` is for.
+
+  The frame isolates, because the blend that crossfades two epoch renderings sits on groups
+  inside it, and how far such a blend reaches differs between engines.
+  Firefox 153 stops it at the root of the inline SVG. Chromium 151 sums the ground under the
+  SVG into it and stops at an ancestor that isolates. Playwright's webkit 26.5 stops at
+  neither, and a blend on a group reaches the page behind an isolating ancestor, which makes
+  black ink vanish under `plus-lighter` because black adds nothing.
+  An isolating ancestor written in HTML therefore does not state the containment in every
+  engine, while the inline SVG that holds the groups does. See *Findings*.
+*/
+.animo-canvas > svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  isolation: isolate;
+}
+
+/*
+  One epoch rendering at a time, which is the first one until the runtime says otherwise,
+  so a deck whose script never ran still shows a slide.
+  The renderings are groups placed at one point in the slide's single frame, so that
+  typst's deduplicator, whose scope is the frame, defines each glyph they share once
+  between them. See *Findings*.
+  Visibility rather than opacity or display, because it hides the ink without making the
+  group a stacking context, which the blend below needs, and without taking the layout away,
+  so a group in a rendering that is not shown still reports its geometry.
+  A descendant may take its visibility back.
+  The crossfade below uses that to scope the outgoing rendering down to the regions it is
+  handing over.
+*/
+.animo-canvas [data-typst-label^="animo-epoch-"] {
+  visibility: hidden;
+}
+
+.animo-canvas [data-typst-label="animo-epoch-0"] {
+  visibility: visible;
+}
+
+/*
+  What makes the crossfade add rather than cover.
+  Two renderings whose regions are mid-transition paint into the frame's isolated group,
+  and `plus-lighter` sums them there, so the outgoing region at `1 - t` and the incoming
+  one at `t` come to exactly one opaque region and nothing dips.
+  The epoch renderings are the outermost groups their frame has, so each adds to the ink
+  beside it, which a blend needs.
+  The declaration sits on the rendering rather than on the region's own group, so that one
+  element carries both this blend and the `visibility` above that a boundary scopes with.
+  Measured in chromium 151, firefox 153 and webkit 26.5; see *Findings*.
+  A single visible rendering added to a transparent backdrop is that rendering, so this
+  changes nothing outside a transition, and a slide with one epoch is exempted anyway.
+*/
+.animo-canvas [data-typst-label^="animo-epoch-"]:not(:only-child) {
+  mix-blend-mode: plus-lighter;
+}
+
+/*
+  A stack of renderings, one per state of the slide, of which the runtime shows the one
+  belonging to the state the deck is on.
+  A number finer than a slide number is made of these renderings, because one frame covers a
+  run of states, so the value cannot be ink chosen when the frame is rendered and every value
+  is rendered instead.
+  Opacity rather than visibility, because a stack in the body sits inside an epoch frame, and
+  a frame that is not being shown is hidden with `visibility`, which a descendant may take
+  back.
+  A rendering that took its visibility back would then paint out of a frame nobody is
+  watching, where one at opacity 1 inside a hidden frame stays hidden.
+  The first rendering is the one a deck whose script never ran shows, which is the same
+  rule the first epoch frame follows.
+*/
+.animo-slide [data-typst-label^="animo-subslide-"] {
+  opacity: 0;
+}
+
+.animo-slide [data-typst-label="animo-subslide-0"] {
+  opacity: 1;
+}

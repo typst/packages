@@ -1,0 +1,10 @@
+[package]
+name = "zettyp-lsp"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Xinyu Xiang"]
+license = "MIT"
+repository = "https://github.com/Project-ZetTypst/ZetTypst"
+compiler = "0.14.2"
+description = "Declare source-backed LSP results through Typst announcements."
+keywords = ["lsp", "diagnostics", "provenance"]

@@ -1,0 +1,17 @@
+[package]
+name = "starchy-junia"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["MathYeiv"]
+license = "MIT-0"
+categories = ["report"]
+disciplines = ["engineering"]
+description = "Reports following JUNIA's writing charter."
+keywords = ["junia", "report", "engineering", "french", "template"]
+compiler = "0.15.0"
+repository = "https://codeberg.org/MathYeiv/starchy-junia"
+
+[template]
+path = "template"
+entrypoint = "squelette.typ"
+thumbnail = "thumbnail.png"

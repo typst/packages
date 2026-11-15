@@ -1,0 +1,41 @@
+//metadata emitters
+#import "core/animation.typ": (
+  alternatives, alternatives-cases, alternatives-fn, alternatives-match,
+  animate, animate-hidden, animate-removed, effect, handout-only, item-by-item,
+  item-by-item-fn, item-by-item-functions, jump, meanwhile, only, pause,
+  presentation-only, slides-only, swap, touying-fn-wrapper, touying-render,
+  touying-slide-wrapper, uncover,
+)
+#import "core/blocks.typ": (
+  alert, lr-navigation, speaker-note, touying-diagram, touying-equation,
+  touying-fn-wrapper-raw, touying-mitex, touying-raw, touying-reduce,
+  touying-reducer,
+)
+#import "core/waypoints.typ": (
+  from-wp, get-first, get-last, next-wp, not-wp, prev-wp, until-wp, waypoint,
+)
+// rendering logic: for article-mode and slides-mode: rely on parser.typ for parsing the metadata
+#import "core/article.typ": (
+  article-keep-layout, article-linearize, article-only, article-text,
+  graphic-marker, graphic-marker-of,
+)
+#import "core/parser.typ": measure
+#import "core/slides.typ": (
+  appendix, empty-slide, slide, touying-notes, touying-recall,
+  touying-set-config, touying-slide,
+)
+//configs
+#import "configs.typ": (
+  config-article, config-colors, config-common, config-info, config-methods,
+  config-page, config-store, default-config, touying-get-config,
+)
+//entrypoint
+#import "entrypoint.typ": touying-slides
+//other
+#import "utils.typ"
+#import "magic.typ"
+#import "pdfpc.typ"
+#import "components.typ": cols, lazy-h, lazy-layout, lazy-v, side-by-side
+#import "components.typ"
+
+#import "extern.typ": touying-disable-warnings, touying-enable-warnings

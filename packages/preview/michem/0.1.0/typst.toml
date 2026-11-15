@@ -1,0 +1,31 @@
+[package]
+name = "michem"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["AshGrey"]
+license = "Apache-2.0"
+repository = "https://github.com/chitin-dev/michem"
+description = "Chemical structures and reaction diagrams powered by Chitin"
+compiler = "0.14.0"
+keywords = ["chemistry", "smiles", "molecule", "reaction", "wasm"]
+categories = ["visualization"]
+exclude = [
+    "assets/readme/**",
+    "crates/**",
+    "target/**",
+    "scripts/**",
+    "examples/**",
+    "docs/**",
+    "tests/**",
+    "Cargo.toml",
+    "Cargo.lock",
+    "justfile",
+    "rustfmt.toml",
+    ".gitignore",
+    ".github/**",
+    ".cargo/**",
+    ".temp/**",
+    ".agents/**",
+    ".aws/**",
+    ".codex/**",
+]

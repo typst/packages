@@ -1,0 +1,12 @@
+[package]
+name = "stair-division"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Jesús Manuel González Meneses"]
+license = "MIT"
+description = "Synthetic division (Ruffini's rule) tableaux: the three-row division box and the stacked factorization staircase. Computes the arithmetic and draws it, no dependencies."
+repository = "https://github.com/13Stokes31/stair-division"
+keywords = ["ruffini", "synthetic-division", "polynomial", "algebra", "education"]
+categories = ["visualization"]
+compiler = "0.14.0"
+exclude = ["tests", "gallery", "TESTING.md", ".gitignore"]

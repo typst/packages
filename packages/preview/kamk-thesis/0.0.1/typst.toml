@@ -1,0 +1,43 @@
+[package]
+name = "kamk-thesis"
+version = "0.0.1"
+entrypoint = "src/lib.typ"
+authors = [
+    "Jani Sourander <jani.sourander@kamk.fi>",
+]
+license = "MIT-0"
+description = "Thesis for Kajaani University of Applied Sciences (KAMK)."
+repository = "https://github.com/sourander/kamk-thesis-typst"
+keywords = [
+    "Kajaani University of Applied Sciences",
+    "kamk",
+    "thesis",
+    "opinnäytetyö",
+]
+categories = [
+    "thesis",
+    "layout",
+]
+disciplines = []
+exclude = [
+    ".github",
+    "build",
+    "docs",
+    "scripts",
+    "tests",
+    ".typstignore",
+    "AGENTS.md",
+    "/Justfile",
+    ".gitignore",
+    "CONTRIBUTE.md",
+    "site",
+    "siteinfo.json",
+    "zensical.toml",
+    ".cache",
+    ".DS_Store",
+]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

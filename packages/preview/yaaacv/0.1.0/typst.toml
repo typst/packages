@@ -1,0 +1,16 @@
+[package]
+name = "yaaacv"
+version = "0.1.0"
+compiler = "0.11.0"
+authors = ["Rafael Bachmann"]
+repository = "https://github.com/barafael/yaaacv-typst"
+license = "MIT OR LPPL-1.3c"
+description = "Yet Another Also Awesome CV — a faithful port of the yaac-another-awesome-cv LaTeX class."
+categories = ["cv"]
+keywords = ["cv", "resume", "curriculum-vitae", "yaac", "font-awesome"]
+entrypoint = "lib.typ"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

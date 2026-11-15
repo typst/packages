@@ -1,0 +1,17 @@
+[package]
+name = "easy-internship"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Pierre Lapolla <@PierreLapolla>"]
+license = "MIT-0"
+description = "Internship and school reports with cover and logos."
+repository = "https://github.com/PierreLapolla/easy-internship"
+keywords = ["report", "internship", "school", "university", "french"]
+categories = ["report"]
+disciplines = []
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

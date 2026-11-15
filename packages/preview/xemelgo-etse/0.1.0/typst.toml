@@ -1,0 +1,33 @@
+[package]
+name = "xemelgo-etse"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Hugo Coto Flórez <hugo.coto@outlook.com>"]
+license = "MIT AND MIT-0"
+description = "Unofficial TFG report for Computer Engineering at ETSE-USC."
+repository = "https://github.com/hugoocoto/xemelgo-etse"
+keywords = [
+  "tfg",
+  "trabajo de fin de grado",
+  "traballo de fin de grao",
+  "thesis",
+  "usc",
+  "universidade de santiago de compostela",
+  "universidad de santiago de compostela",
+  "etse",
+  "escola técnica superior de enxeñaría",
+  "grei",
+  "enxeñaría informática",
+  "ingeniería informática",
+  "galician",
+  "spanish",
+]
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering"]
+compiler = "0.15.0"
+exclude = ["examples/", "docs/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

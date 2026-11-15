@@ -1,0 +1,414 @@
+{
+  "generated": "By scripts/build-typst-translations.mjs from src/core/credit-i18n. Do not edit.",
+  "roles": [
+    {
+      "slug": "conceptualization",
+      "name": "Conceptualization"
+    },
+    {
+      "slug": "data-curation",
+      "name": "Data curation"
+    },
+    {
+      "slug": "formal-analysis",
+      "name": "Formal analysis"
+    },
+    {
+      "slug": "funding-acquisition",
+      "name": "Funding acquisition"
+    },
+    {
+      "slug": "investigation",
+      "name": "Investigation"
+    },
+    {
+      "slug": "methodology",
+      "name": "Methodology"
+    },
+    {
+      "slug": "project-administration",
+      "name": "Project administration"
+    },
+    {
+      "slug": "resources",
+      "name": "Resources"
+    },
+    {
+      "slug": "software",
+      "name": "Software"
+    },
+    {
+      "slug": "supervision",
+      "name": "Supervision"
+    },
+    {
+      "slug": "validation",
+      "name": "Validation"
+    },
+    {
+      "slug": "visualization",
+      "name": "Visualization"
+    },
+    {
+      "slug": "writing-original-draft",
+      "name": "Writing – original draft"
+    },
+    {
+      "slug": "writing-review-editing",
+      "name": "Writing – review & editing"
+    }
+  ],
+  "locales": {
+    "en": {
+      "roles": {
+        "conceptualization": "Conceptualization",
+        "data-curation": "Data curation",
+        "formal-analysis": "Formal analysis",
+        "funding-acquisition": "Funding acquisition",
+        "investigation": "Investigation",
+        "methodology": "Methodology",
+        "project-administration": "Project administration",
+        "resources": "Resources",
+        "software": "Software",
+        "supervision": "Supervision",
+        "validation": "Validation",
+        "visualization": "Visualization",
+        "writing-original-draft": "Writing – original draft",
+        "writing-review-editing": "Writing – review & editing"
+      },
+      "ui": {
+        "acknowledgements": "Acknowledgements",
+        "lead": "Lead",
+        "equal": "Equal",
+        "supporting": "Supporting",
+        "none": "None",
+        "contributed": "Contributed",
+        "heatmapTitle": "Contribution heatmap",
+        "equalContributionNote": "{names} contributed equally to this work.",
+        "correspondenceNote": "Correspondence: {names}.",
+        "labelSeparator": ": ",
+        "nameListSeparator": ", ",
+        "segmentSeparator": "; ",
+        "levelAnnotation": "{label} ({level})"
+      },
+      "list": {
+        "pair": " and ",
+        "start": ", ",
+        "middle": ", ",
+        "end": ", and "
+      }
+    },
+    "fr": {
+      "roles": {
+        "conceptualization": "Conceptualisation",
+        "data-curation": "Préparation des données",
+        "formal-analysis": "Analyse formelle",
+        "funding-acquisition": "Acquisition de financements",
+        "investigation": "Investigation",
+        "methodology": "Méthodologie",
+        "project-administration": "Administration du projet",
+        "resources": "Ressources",
+        "software": "Logiciel(s)",
+        "supervision": "Supervision",
+        "validation": "Validation",
+        "visualization": "Présentation visuelle",
+        "writing-original-draft": "Rédaction - ébauche du manuscrit initial",
+        "writing-review-editing": "Rédaction - relectures et corrections"
+      },
+      "ui": {
+        "acknowledgements": "Remerciements",
+        "lead": "Principal",
+        "equal": "Égal",
+        "supporting": "Secondaire",
+        "none": "Aucun",
+        "contributed": "Contribué",
+        "heatmapTitle": "Heatmap des contributions",
+        "equalContributionNote": "{names} ont contribué à parts égales à ce travail.",
+        "correspondenceNote": "Correspondance : {names}.",
+        "labelSeparator": " : ",
+        "nameListSeparator": ", ",
+        "segmentSeparator": " ; ",
+        "levelAnnotation": "{label} ({level})"
+      },
+      "list": {
+        "pair": " et ",
+        "start": ", ",
+        "middle": ", ",
+        "end": " et "
+      }
+    },
+    "de": {
+      "roles": {
+        "conceptualization": "Konzeptualisierung",
+        "data-curation": "Datenpflege",
+        "formal-analysis": "Formale Analyse",
+        "funding-acquisition": "Akquise von Finanzmitteln",
+        "investigation": "Untersuchung",
+        "methodology": "Methodik",
+        "project-administration": "Projektverwaltung",
+        "resources": "Ressourcen",
+        "software": "Software",
+        "supervision": "Supervision",
+        "validation": "Validierung",
+        "visualization": "Visualisierung",
+        "writing-original-draft": "Schreiben – Originalentwurf",
+        "writing-review-editing": "Schreiben - Überprüfung und Überarbeitung"
+      },
+      "ui": {
+        "acknowledgements": "Danksagungen",
+        "lead": "Führend",
+        "equal": "Gleichwertig",
+        "supporting": "Unterstützend",
+        "none": "Keine",
+        "contributed": "Beigetragen",
+        "heatmapTitle": "Beitragsheatmap",
+        "equalContributionNote": "{names} haben gleichermaßen zu dieser Arbeit beigetragen.",
+        "correspondenceNote": "Korrespondenz: {names}.",
+        "labelSeparator": ": ",
+        "nameListSeparator": ", ",
+        "segmentSeparator": "; ",
+        "levelAnnotation": "{label} ({level})"
+      },
+      "list": {
+        "pair": " und ",
+        "start": ", ",
+        "middle": ", ",
+        "end": " und "
+      }
+    },
+    "es": {
+      "roles": {
+        "conceptualization": "Conceptualización",
+        "data-curation": "Curación de datos",
+        "formal-analysis": "Análisis formal",
+        "funding-acquisition": "Captación de fondos",
+        "investigation": "Investigación",
+        "methodology": "Metodología",
+        "project-administration": "Administración del proyecto",
+        "resources": "Recursos",
+        "software": "Software",
+        "supervision": "Supervisión",
+        "validation": "Validación",
+        "visualization": "Visualización",
+        "writing-original-draft": "Redacción - borrador original",
+        "writing-review-editing": "Redacción - revisión y edición"
+      },
+      "ui": {
+        "acknowledgements": "Agradecimientos",
+        "lead": "Principal",
+        "equal": "Igual",
+        "supporting": "De apoyo",
+        "none": "Ninguno",
+        "contributed": "Contribuyó",
+        "heatmapTitle": "Mapa de calor de contribuciones",
+        "equalContributionNote": "{names} contribuyeron por igual a este trabajo.",
+        "correspondenceNote": "Autoría de correspondencia: {names}.",
+        "labelSeparator": ": ",
+        "nameListSeparator": ", ",
+        "segmentSeparator": "; ",
+        "levelAnnotation": "{label} ({level})"
+      },
+      "list": {
+        "pair": " y ",
+        "start": ", ",
+        "middle": ", ",
+        "end": " y "
+      }
+    },
+    "it": {
+      "roles": {
+        "conceptualization": "Ideazione",
+        "data-curation": "Cura dei dati",
+        "formal-analysis": "Analisi formale",
+        "funding-acquisition": "Acquisizione di fondi",
+        "investigation": "Indagine",
+        "methodology": "Metodologia",
+        "project-administration": "Amministrazione di progetto",
+        "resources": "Risorse",
+        "software": "Programma",
+        "supervision": "Supervisore",
+        "validation": "Validazione",
+        "visualization": "Visualizzazione",
+        "writing-original-draft": "Redazione - bozza originale",
+        "writing-review-editing": "Scrittura - revisione e modifica"
+      },
+      "ui": {
+        "acknowledgements": "Ringraziamenti",
+        "lead": "Principale",
+        "equal": "Paritario",
+        "supporting": "Di supporto",
+        "none": "Nessuno",
+        "contributed": "Contribuito",
+        "heatmapTitle": "Heatmap dei contributi",
+        "equalContributionNote": "{names} hanno contribuito in egual misura a questo lavoro.",
+        "correspondenceNote": "Corrispondenza: {names}.",
+        "labelSeparator": ": ",
+        "nameListSeparator": ", ",
+        "segmentSeparator": "; ",
+        "levelAnnotation": "{label} ({level})"
+      },
+      "list": {
+        "pair": " e ",
+        "start": ", ",
+        "middle": ", ",
+        "end": " e "
+      }
+    },
+    "pt-PT": {
+      "roles": {
+        "conceptualization": "Conceptualização",
+        "data-curation": "Curadoria de dados",
+        "formal-analysis": "Análise formal",
+        "funding-acquisition": "Obtenção de financiamento",
+        "investigation": "Investigação",
+        "methodology": "Metodologia",
+        "project-administration": "Gestão do projeto",
+        "resources": "Recursos",
+        "software": "Software",
+        "supervision": "Supervisão",
+        "validation": "Validação",
+        "visualization": "Visualização",
+        "writing-original-draft": "Redação – rascunho original",
+        "writing-review-editing": "Redação – revisão e edição"
+      },
+      "ui": {
+        "acknowledgements": "Agradecimentos",
+        "lead": "Principal",
+        "equal": "Igual",
+        "supporting": "De apoio",
+        "none": "Nenhum",
+        "contributed": "Contribuiu",
+        "heatmapTitle": "Mapa de calor das contribuições",
+        "equalContributionNote": "{names} contribuíram de forma igual para este trabalho.",
+        "correspondenceNote": "Correspondência: {names}.",
+        "labelSeparator": ": ",
+        "nameListSeparator": ", ",
+        "segmentSeparator": "; ",
+        "levelAnnotation": "{label} ({level})"
+      },
+      "list": {
+        "pair": " e ",
+        "start": ", ",
+        "middle": ", ",
+        "end": " e "
+      }
+    },
+    "nl": {
+      "roles": {
+        "conceptualization": "Conceptualisatie",
+        "data-curation": "Datacuratie",
+        "formal-analysis": "Formele analyse",
+        "funding-acquisition": "Fondsenwerving",
+        "investigation": "Onderzoek",
+        "methodology": "Methodologie",
+        "project-administration": "Projectadministratie",
+        "resources": "Middelen",
+        "software": "Software",
+        "supervision": "Supervisie",
+        "validation": "Validatie",
+        "visualization": "Visualisatie",
+        "writing-original-draft": "Schrijven – eerste versie",
+        "writing-review-editing": "Schrijven – review en bewerking"
+      },
+      "ui": {
+        "acknowledgements": "Dankbetuigingen",
+        "lead": "Leidend",
+        "equal": "Gelijk",
+        "supporting": "Ondersteunend",
+        "none": "Geen",
+        "contributed": "Bijgedragen",
+        "heatmapTitle": "Bijdrageheatmap",
+        "equalContributionNote": "{names} hebben in gelijke mate aan dit werk bijgedragen.",
+        "correspondenceNote": "Correspondentie: {names}.",
+        "labelSeparator": ": ",
+        "nameListSeparator": ", ",
+        "segmentSeparator": "; ",
+        "levelAnnotation": "{label} ({level})"
+      },
+      "list": {
+        "pair": " en ",
+        "start": ", ",
+        "middle": ", ",
+        "end": " en "
+      }
+    },
+    "zh-Hans": {
+      "roles": {
+        "conceptualization": "概念化",
+        "data-curation": "数据管理",
+        "formal-analysis": "正式分析",
+        "funding-acquisition": "基金获取",
+        "investigation": "做研究",
+        "methodology": "方法学",
+        "project-administration": "项目管理",
+        "resources": "资源供给",
+        "software": "软件",
+        "supervision": "指导",
+        "validation": "验证",
+        "visualization": "可视化",
+        "writing-original-draft": "撰写 - 原始草稿",
+        "writing-review-editing": "撰写 - 评论和编辑"
+      },
+      "ui": {
+        "acknowledgements": "致谢",
+        "lead": "主导",
+        "equal": "同等",
+        "supporting": "辅助",
+        "none": "无",
+        "contributed": "有贡献",
+        "heatmapTitle": "贡献热力图",
+        "equalContributionNote": "{names}对本项工作贡献相同。",
+        "correspondenceNote": "通讯作者：{names}。",
+        "labelSeparator": "：",
+        "nameListSeparator": "、",
+        "segmentSeparator": "；",
+        "levelAnnotation": "{label}（{level}）"
+      },
+      "list": {
+        "pair": "和",
+        "start": "、",
+        "middle": "、",
+        "end": "和"
+      }
+    },
+    "ja": {
+      "roles": {
+        "conceptualization": "研究の立案",
+        "data-curation": "データ収集・整理",
+        "formal-analysis": "正式な解析の実施",
+        "funding-acquisition": "研究資金の調達",
+        "investigation": "調査・検証",
+        "methodology": "研究方法",
+        "project-administration": "研究プロジェクトの管理",
+        "resources": "研究を行う上で必要な諸要素",
+        "software": "研究に使うソフトウェア関連",
+        "supervision": "研究の監督",
+        "validation": "研究の検証",
+        "visualization": "研究の可視化",
+        "writing-original-draft": "執筆 – 草稿作成",
+        "writing-review-editing": "執筆 – レビューおよび校閲"
+      },
+      "ui": {
+        "acknowledgements": "謝辞",
+        "lead": "主導",
+        "equal": "同等",
+        "supporting": "補助",
+        "none": "なし",
+        "contributed": "貢献あり",
+        "heatmapTitle": "貢献ヒートマップ",
+        "equalContributionNote": "{names}は本研究に同等に貢献しました。",
+        "correspondenceNote": "責任著者：{names}。",
+        "labelSeparator": "：",
+        "nameListSeparator": "、",
+        "segmentSeparator": "；",
+        "levelAnnotation": "{label}（{level}）"
+      },
+      "list": {
+        "pair": "、",
+        "start": "、",
+        "middle": "、",
+        "end": "、"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# for a description of available keys, see https://github.com/typst/packages/blob/main/docs/manifest.md
+
+[package]
+name = "cubst"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Lai, Hong-An (Anson Lai) <@ANCuber>"]
+license = "MIT"
+description = "Draw N*N Rubik's cubes, skewb, pyraminx, megaminx and Square-1 diagrams"
+repository = "https://github.com/ANCuber/cubst"
+keywords = ["rubik's cube", "twisty puzzle", "speedcubing", "skewb", "pyraminx", "megaminx", "square-1", "cetz"]
+categories = ["visualization"]
+disciplines = []
+# CeTZ 0.5.2 requires this compiler version; keep in sync with src/deps.typ
+compiler = "0.14.0"
+# Committed to typst/packages so the README can link to them, but not bundled
+# (docs/ holds only manual.pdf and the thumbnails there; see .typstignore for
+# what never reaches typst/packages at all).
+exclude = [
+  "/docs",
+  "/CHANGELOG.md",
+]

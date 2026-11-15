@@ -1,0 +1,18 @@
+[package]
+name = "xwysyy"
+version = "0.5.0"
+entrypoint = "xwysyy.typ"
+authors = ["xwysyy"]
+license = "MIT"
+description = "Create academic slides with touying."
+repository = "https://github.com/xwysyy/xwysyy-typst"
+keywords = ["slides", "presentation", "academic", "touying", "theme"]
+categories = ["presentation", "components"]
+disciplines = ["computer-science"]
+compiler = "0.15.0"
+exclude = []
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

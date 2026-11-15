@@ -1,0 +1,18 @@
+[package]
+name = "modern-jsu-thesis"
+version = "0.1.1"
+entrypoint = "template.typ"
+authors = ["han0126"]
+license = "MIT"
+description = "江苏大学学位论文模板（Jiangsu University Thesis Template）"
+repository = "https://github.com/han0126/modern-jsu-thesis"
+keywords = ["dissertation", "thesis", "template", "Jiangsu University"]
+categories = ["thesis"]
+disciplines = ["computer-science"]
+compiler = "0.15.0"
+exclude = [".gitignore", "*.sh", "*.ps1", "main.pdf", "tests", "release"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

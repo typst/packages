@@ -1,0 +1,17 @@
+[package]
+name = "touying-ambrosia"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Hoang-Nhat Tran <hnhat.tran@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/inspiros/touying-ambrosia"
+description = "Touying slides with configurable layouts and color palettes."
+keywords = ["touying", "presentation", "slides", "theme", "palette"]
+categories = ["presentation"]
+compiler = "0.15.0"
+exclude = ["CONTRIBUTING.md", "AGENTS.md", "CLAUDE.md", ".git", ".github", ".agents", ".codex", ".aws", "develop", "target", "tests", "docs", "scripts", "skills", "examples", "assets/samples", "assets/kyklo.webp", "assets/logos/kyklo-*.svg", "assets/logos/olympus-institute*.svg", "assets/logos/helios-polytechnic*.svg", "assets/logos/delphi-forum*.svg", "assets/logos/nectarion-college*.svg", "assets/gallery", "assets/thumbnail.svg", "assets/slide-previews", "*.pdf", "**/*.pdf", "__pycache__", "**/__pycache__", ".venv", ".pytest_cache", "*.py[cod]"]
+
+[template]
+path = "template"
+entrypoint = "template.typ"
+thumbnail = "assets/template-thumbnail.webp"

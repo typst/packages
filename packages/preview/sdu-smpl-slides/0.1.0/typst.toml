@@ -1,0 +1,17 @@
+[package]
+name = "sdu-smpl-slides"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["xmdjy <@xmdjy>"]
+license = "MIT"
+description = "Touying slides with Shandong University styling."
+repository = "https://github.com/xmdjy/sdu-touying-template"
+keywords = ["touying", "slides", "sdu", "Shandong University", "山东大学"]
+categories = ["presentation"]
+compiler = "0.15.0"
+exclude = ["/assets/", "/dist/", "/.git/", "/.qoder/", "/.qorder/", "/.gitignore", "/SUBMISSION.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

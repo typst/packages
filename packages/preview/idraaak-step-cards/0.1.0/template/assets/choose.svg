@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240">
+ <rect width="720" height="240" rx="14" fill="#edf4f5"/>
+ <rect x="26" y="20" width="668" height="200" rx="9" fill="#fff" stroke="#bdcfd4" stroke-width="2"/>
+ <path d="M27 30q0-9 9-9h648q9 0 9 9v27H27Z" fill="#203c49"/>
+ <circle cx="47" cy="39" r="5" fill="#8fbbb9"/>
+ <circle cx="64" cy="39" r="5" fill="#bfd7d7"/>
+ <text x="90" y="45" fill="white" font-family="DejaVu Sans,sans-serif" font-size="15">Illustrative file picker</text>
+ <rect x="47" y="78" width="140" height="120" rx="6" fill="#edf4f5"/>
+ <text x="65" y="105" fill="#425c68" font-family="DejaVu Sans,sans-serif" font-size="14">Working copies</text>
+ <rect x="210" y="78" width="460" height="50" rx="6" fill="#e4f3ed" stroke="#12675f" stroke-width="2"/>
+ <rect x="225" y="90" width="29" height="25" rx="3" fill="#91b9b3"/>
+ <path d="m227 111 8-9 7 5 9-12v17Z" fill="#12675f"/>
+ <text x="269" y="108" fill="#203c49" font-family="DejaVu Sans,sans-serif" font-size="17">photo-copy.png</text>
+ <rect x="210" y="144" width="460" height="48" rx="6" fill="#f5f7f9"/>
+ <text x="230" y="174" fill="#75828a" font-family="DejaVu Sans,sans-serif" font-size="15">original-photo.png</text>
+</svg>

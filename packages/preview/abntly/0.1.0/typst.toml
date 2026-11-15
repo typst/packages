@@ -1,0 +1,29 @@
+[package]
+name = "abntly"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Lucas Lima Rodrigues <https://github.com/lucaslrodri>"]
+license = "MIT"
+description = "Academic works in the Brazilian ABNT standard (NBR 14724, 6023, 6024, 6027, 6028, 10520)."
+repository = "https://github.com/lucaslrodri/abntly"
+keywords = ["abnt", "thesis", "dissertation", "tcc", "brazil", "academic"]
+categories = ["thesis"]
+compiler = "0.15.0"
+# Not part of the package on Typst Universe: the test suite, the docs (the manuals and the PDFs of the examples, which
+# the README reaches by their address in the repository), the examples, the scripts, the English README (reached the
+# same way), the notes on the development and the CI.
+exclude = ["tests", "docs", "examples", "scripts", "README.en.md", "CONTRIBUTING.md", "CONTRIBUTING.en.md", ".github"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
+
+# Regression tests (Tytanic, `tt`): `sh scripts/fonts.sh` once, then `tt run --font-path fonts`.
+[tool.tytanic]
+tests = "tests"
+
+[tool.tytanic.default]
+ppi = 96.0
+max-delta = 1
+max-deviations = 0

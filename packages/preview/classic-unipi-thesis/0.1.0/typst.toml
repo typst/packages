@@ -1,0 +1,16 @@
+[package]
+name = "classic-unipi-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Gabriele Benedetti <@gbenedetti22>"]
+license = "MIT-0"
+description = "Thesis at the University of Pisa (unofficial)."
+keywords = ["unipi", "University of Pisa", "Università di Pisa", "tesi", "tesi di laurea", "frontespizio"]
+categories = ["thesis"]
+compiler = "0.13.0"
+exclude = ["/docs/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

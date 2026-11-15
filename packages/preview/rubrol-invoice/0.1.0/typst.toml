@@ -1,0 +1,12 @@
+[package]
+name = "rubrol-invoice"
+version = "0.1.0"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+repository = "https://github.com/maxcomperatore/rubrol"
+authors = ["Max Comperatore <@maxcomperatore>"]
+license = "Apache-2.0"
+description = "Modern B2B invoice template engineered for European e-invoicing compliance (EN 16931, Factur-X, ZUGFeRD 2.2)."
+keywords = ["invoice", "factur-x", "zugferd", "en16931", "e-invoicing", "accounting", "b2b"]
+categories = ["layout", "office"]
+disciplines = []
