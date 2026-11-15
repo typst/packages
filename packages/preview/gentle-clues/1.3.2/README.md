@@ -9,7 +9,7 @@ Inspired from [mdbook-admonish](https://tommilligan.github.io/mdbook-admonish/).
 
 ## Usage
 
-For detailed information, see the [documentation (PDF)](https://github.com/jomaway/typst-gentle-clues/blob/main/docs.pdf).
+For detailed information, see the [documentation (PDF)](https://github.com/jomaway/typst-gentle-clues/blob/v1.3.2/docs.pdf).
 
 To use this package, simply add the following code to your document:
 ```typst
@@ -34,7 +34,7 @@ This package provides some features which help to customize the clues to your li
 - Define your own clues very easily.
 - ...
 
-For a full list see the [documentation (PDF)](https://github.com/jomaway/typst-gentle-clues/blob/main/docs.pdf).
+For a full list see the [documentation (PDF)](https://github.com/jomaway/typst-gentle-clues/blob/v1.3.2/docs.pdf).
 
 ## Language support
 
