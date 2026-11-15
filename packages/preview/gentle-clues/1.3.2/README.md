@@ -42,7 +42,7 @@ This package does use [linguify](https://github.com/jomaway/typst-linguify) to s
 
 **Header titles:**
 The language of the header titles is detected automatically from the `context text.lang`.
-See the file [lang.toml](https://github.com/jomaway/typst-gentle-clues/blob/main/lib/lang.toml) for currently supported languages.
+See the file [lang.toml](lib/lang.toml) for currently supported languages.
 
 If an unsupported language is set, it will fall back to English as default.
 Feel free to open a PR with your language added to the `lang.toml` file.
