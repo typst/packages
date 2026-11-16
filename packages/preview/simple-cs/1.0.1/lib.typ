@@ -1,18 +1,23 @@
 #import "@preview/hydra:0.6.3": hydra
 
-#let logos-cs = ().to-dict()
 
-#for protection in ("avec", "sans") {
-  let prot = protection + "-protection"
-  logos-cs.insert(prot, ().to-dict())
+#let get-logos() = {
+  let logos-cs = (:)
+  let root-path = "images/"
 
-  for orientation in ("horizontal", "vertical") {
-    logos-cs.at(prot).insert(orientation, ().to-dict())
+  for protection in ("avec", "sans") {
+    let prot = protection + "-protection"
+    logos-cs.insert(prot, ().to-dict())
 
-    for couleur in ("noir", "blanc", "rvb") {
-      logos-cs.at(prot).at(orientation).insert(couleur, image("images/" + prot + "/" + orientation + "/" + couleur + ".svg"))
+    for orientation in ("horizontal", "vertical") {
+      logos-cs.at(prot).insert(orientation, ().to-dict())
+
+      for couleur in ("noir", "blanc", "rvb") {
+        logos-cs.at(prot).at(orientation).insert(couleur, image(root-path + prot + "/" + orientation + "/" + couleur + ".svg"))
+      }
     }
   }
+  logos-cs
 }
 
 // TODO: better indentation (depending on heading level) ?
@@ -27,7 +32,8 @@
 /// If `cs-logo` is not `none`, it is either appended or prepended (depending on `append`).
 //
 /// `logo-list()` therefore returns the CS logo (vertical, in color) by default.
-#let logo-list(cs-logo: logos-cs.sans-protection.vertical.rvb, append: true, ..other-logos) = {
+// #let logo-list(cs-logo: logos-cs.sans-protection.vertical.rvb, append: true, ..other-logos) = {
+#let logo-list(cs-logo, append: true, ..other-logos) = {
   let logos = other-logos.pos()
   if cs-logo != none {
     let index = if append { logos.len() } else { 0 }
@@ -96,29 +102,17 @@
   name: "",
   footer-name-size: 0.8em,
   dates: "",
-  title-page-header: logo-list(),
+  title-page-header: [],
   title-page-bottom: [],
   heading-pagebreak: true,
   /// Vertical spacing added before level > 1 headings, and for level 1 heading
   /// with pagebreak disabled.
   pre-heading-spacing: 2em,
   enable-title-page: true,
-  logos: (:),
+  logos: none,
   doc
 ) = {
-  let cs-logos = logos-cs
-
-  for protection in ("avec", "sans") {
-    let prot = protection + "-protection"
-    cs-logos.insert(prot, (:))
-
-    for orientation in ("horizontal", "vertical") {
-      let default = logos-cs.at(prot).at(orientation)
-      let override = logos.at(prot, default: (:)).at(orientation, default: (:))
-      cs-logos.at(prot).insert(orientation, (: ..default, ..override))
-    }
-  }
-
+  let cs-logos = if logos == none { get-logos() } else { logos }
 
   let background = context {
     if here().page() == 1 and enable-title-page {
