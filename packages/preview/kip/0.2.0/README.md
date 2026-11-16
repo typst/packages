@@ -230,7 +230,7 @@ For complete Pikchr syntax and examples, visit:
 
 > **Note:** This section is only relevant for contributors who have cloned the repository. If you just want to use the package, see the [Installation](#installation) section above.
 
-If you need to rebuild the WASM module (e.g., for updates or modifications), see the [build-scripts/BUILD.md](build-scripts/BUILD.md) file.
+If you need to rebuild the WASM module (e.g., for updates or modifications), see the [build-scripts/BUILD.md](https://github.com/ragtux/kip/blob/main/build-scripts/BUILD.md) file.
 
 ## Known Limitations
 
