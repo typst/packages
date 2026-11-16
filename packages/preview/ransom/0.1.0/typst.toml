@@ -1,0 +1,16 @@
+[package]
+name = "ransom"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Kian Eliasi"]
+repository = "https://github.com/kianelbo/ransom"
+license = "MIT"
+description = "Generate cut-out letters and ransom notes."
+keywords = ["ransom", "note", "letters", "collage", "cutout", "fun", "typography"]
+categories = ["fun", "text"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
