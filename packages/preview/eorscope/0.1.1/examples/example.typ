@@ -1,5 +1,5 @@
-// typst compile --root . examples/example.typ
-#import "../lib.typ": employer-cost, employer-rate-text, employer-cost-table, employer-rates-table, format-amount
+// typst compile examples/example.typ
+#import "@preview/eorscope:0.1.1": employer-cost, employer-rate-text, employer-cost-table, employer-rates-table, format-amount
 
 #set page(paper: "a4", margin: 2cm)
 #set text(size: 10pt)
