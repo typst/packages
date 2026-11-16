@@ -199,7 +199,7 @@
   show figure.caption: set align(left)
   show figure.caption: set text(font: typeface.text.font)
   show figure.caption: set par(first-line-indent: 0em)
-  show figure.caption: set block(breakable: false, sticky: true, spacing: double-spacing / 2)
+  show figure.caption: set block(breakable: false, sticky: true, spacing: 1.5em)
   show figure.caption: it => context block({
     strong[#it.supplement #it.counter.display(it.numbering)]
     it.separator
