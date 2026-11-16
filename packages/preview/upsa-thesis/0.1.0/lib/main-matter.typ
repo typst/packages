@@ -17,7 +17,8 @@
   let typeface = info.font.get()
   show heading: set text(weight: "bold", style: "normal")
   show heading.where(level: offset + 1): set text(..typeface.display)
-  show heading.where(level: offset + 2)
+  show heading
+    .where(level: offset + 2)
     .or(heading.where(level: offset + 3), heading.where(level: offset + 4)): set text(..typeface.display)
   show heading.where(level: offset + 2): set align(center)
   show heading.where(level: offset + 4): set text(weight: "bold", style: "italic")
@@ -180,6 +181,8 @@
   show figure: set align(left)
   show figure.where(kind: image): set block(breakable: false, sticky: true)
   show figure.where(kind: table): set block(breakable: true, sticky: false)
+  // Defaults to none until auto placement breakable is fixed. See https://github.com/typst/typst/issues/6392.
+  show figure.where(kind: table): set figure(placement: none)
   show table: set text(size: typeface.text.size * 0.9)
   show table: set par(
     spacing: 1.5em,
@@ -196,11 +199,12 @@
   show figure.caption: set align(left)
   show figure.caption: set text(font: typeface.text.font)
   show figure.caption: set par(first-line-indent: 0em)
-  show figure.caption: it => {
-    strong[#it.supplement #context it.counter.display(it.numbering)]
+  show figure.caption: set block(breakable: false, sticky: true, spacing: double-spacing / 2)
+  show figure.caption: it => context block({
+    strong[#it.supplement #it.counter.display(it.numbering)]
     it.separator
     emph(it.body)
-  }
+  })
 
   show quote.where(block: true): set block(spacing: 1.5em)
 
