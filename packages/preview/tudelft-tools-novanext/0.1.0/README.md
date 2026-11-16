@@ -20,4 +20,4 @@ This package provides some Utility functions to be used by tudelft-thesis-novane
 
 Submodules `tud-color-cmyk` and `tud-color-rgb` define the colors of the TUDelft corporate style in cmyk and rgb color space, respectively.
 
-Licensed under the MIT License. You do not need to include attribution in PDFs or documents generated using this template, though credit in redistributed template source code is required.
+Licensed under the MIT-0 License. No attribution is required, but it is appreciated.
