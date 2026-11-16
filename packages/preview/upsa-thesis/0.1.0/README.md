@@ -20,7 +20,7 @@ La plantilla inicializa los documentos necesarios para tu trabajo. Seguí las in
 
 La distribución de Universe no incluye fuentes. Descargá las familias indicadas en [Tipografía](#tipografía) si no están disponibles en tu entorno. En la aplicación web, subí los archivos `.otf` o `.ttf` al proyecto. En tu equipo, instalalos o indicá su ubicación al compilar.
 
-La combinación usada en los documentos de ejemplo necesita Reforma 1918, Reforma 2018, TeX Gyre Pagella Math e IBM Plex Mono. El currículum usa además Source Sans 3 y Source Serif 4. Las advertencias de fuente desconocida indican sustituciones que pueden cambiar el diseño. Elegir otro conjunto con `typeface` también requiere disponer de sus fuentes.
+La combinación usada en los documentos de ejemplo necesita _Reforma 1918, Reforma 2018, TeX Gyre Pagella Math e IBM Plex Mono_. El currículum usa Reforma 1918 y Reforma 2018. Las advertencias de fuente desconocida indican sustituciones que pueden cambiar el diseño. Elegir otra combinación tipográfica también requiere disponer de sus fuentes.
 
 Consultá el archivo `Taskfile.yaml` en la raíz del repositorio para ver los comandos de compilación y sus opciones. Si trabajás desde Universe, adaptá las rutas a tu proyecto y a la ubicación de tus fuentes.
 
@@ -30,7 +30,7 @@ La entrega BIME reúne la tesis, las cubiertas, el resumen y las referencias bib
 
 Necesitás [Typst](https://typst.app/) y [Task](https://taskfile.dev/). Si usás [Visual Studio Code](https://code.visualstudio.com/), el repositorio incluye su configuración. Consultá las páginas oficiales para instalar estas herramientas.
 
-Creá tu copia con **Use this template** y abrí la raíz del repositorio. Empezá por [documents/thesis.typ](documents/thesis.typ): cambiá los datos de `settings.with(...)` y reemplazá el contenido de demostración por tu trabajo.
+Creá tu copia con **Use this template** y abrí la raíz del repositorio. Empezá por el documento principal de tesis: completá tus datos en la configuración y reemplazá el contenido de demostración por tu trabajo, siguiendo las indicaciones del propio documento.
 
 Los ejemplos contienen datos ficticios y texto de relleno que debés sustituir antes de entregar.
 
@@ -59,7 +59,7 @@ Los documentos de ejemplo combinan [Reforma 1918 y Reforma 2018](https://pampaty
 - [New Computer Modern](https://www.ctan.org/pkg/newcomputermodern).
 - Arial, Helvetica, Helvetica Neue y Times New Roman, si están instaladas en tu sistema.
 
-El ejemplo de currículum usa además Source Sans 3 y Source Serif 4; si no están instaladas, su paquete puede mostrar advertencias de sustitución. Las combinaciones disponibles están en [lib/typeface.typ](lib/typeface.typ). En `typeface-options`, `text` es obligatorio; `display` es opcional y usa `text` como valor predeterminado. `math` y `mono` también son opcionales y solo personalizan fórmulas y código cuando se proporcionan. Los roles opcionales `title-page` (texto complementario) y `title-page-title` (título del trabajo) se configuran en el mismo diccionario y también usan `text` como valor predeterminado.
+Personalizá la tipografía desde la configuración de cada documento, siguiendo los ejemplos y comentarios incluidos.
 
 ### Bibliografía
 
