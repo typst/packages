@@ -58,3 +58,21 @@ find . -name '*.eps' -print0 |
 		inkscape --export-filename="${file%.*}.svg" "$file"
 	done
 ```
+
+## Add the logos
+Once you have converted the logos to svg, you can import them. The template provides
+a code snippet to put them in a dictionary, that is then passed to the template.
+
+Folder structure
+```
+images/
+    avec-protection/
+        vertical/
+            noir.svg
+            blanc.svg
+            rvb.svg
+        horizontal/
+            ...
+    sans-protection/
+        ...
+```
