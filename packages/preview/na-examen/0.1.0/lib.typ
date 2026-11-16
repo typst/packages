@@ -18,7 +18,8 @@
 // auto-numbered exercises / parts and question boxes.
 // ======================================================================
 
-#import "@preview/tiaoma:0.3.0": barcode as _tiaoma
+#import "@preview/tiaoma:0.4.0"
+
 
 // ---------------------------------------------------------------------
 // خطوط افتراضية / Default fonts
@@ -209,7 +210,7 @@
     text(fill: black, strong(body)),
   )
 }
-#let coB = q
+#let co-b = q
 
 // ---------------------------------------------------------------------
 // تمرين : عنوانه «التمرين <الترتيبي> (<النقاط> نقاط)» أو «Exercice <n> (<n> points)»
