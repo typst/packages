@@ -1,5 +1,5 @@
-#import "@preview/unify:0.7.1": qty, num
-#import "@preview/cetz:0.4.2": canvas, draw
+#import "@preview/unify:0.8.1": qty, num
+#import "@preview/cetz:0.5.3": canvas, draw
 #import "@preview/tudelft-thesis-novanext:0.1.0": *
 #import "@preview/nomos:0.1.0": *
 

@@ -1,6 +1,6 @@
-#import "@preview/unify:0.7.1": qty
-#import "@preview/cetz:0.4.2": canvas, draw
-#import "@preview/cetz-plot:0.1.3": chart
+#import "@preview/unify:0.8.1": qty
+#import "@preview/cetz:0.5.3": canvas, draw
+#import "@preview/cetz-plot:0.1.4": chart
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
 #import "@preview/tudelft-presentation-novanext:0.1.0": tud-presentation, tud-presentation-classic, tud-logo, flame, toolbox, tud-blue, tud-turquoise, tud-royal-blue, tud-orange, tud-green, tud-red, set-footer-fill, show-heading, list-marker, slide, AR, if-classic-else
@@ -268,7 +268,7 @@ For a more classic look, use the Typst default font Libertinus Serif#footnote[ht
 ]
 
 #slide[
-#import "@preview/lilaq:0.5.0" as lq
+#import "@preview/lilaq:0.6.0" as lq
 https://lilaq.org/docs/reference/bar
 
 

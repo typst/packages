@@ -1,7 +1,7 @@
 /* Package Entrypoint */
 
 #import "@preview/polylux:0.4.0": slide, toolbox
-#import "@preview/hydra:0.6.2": hydra, anchor
+#import "@preview/hydra:0.6.3": hydra, anchor
 #import "@preview/tudelft-tools-novanext:0.1.0": *
 
 #let footer-fill = state("footer-fill", (auto,))

@@ -1,4 +1,4 @@
-#import "@preview/unify:0.7.1": qty
+#import "@preview/unify:0.8.1": qty
 #import "@preview/drafting:0.2.2"
 #import "@preview/tudelft-thesis-novanext:0.1.0": subtitle, thesis, thesis-classic, front-matter, main-matter, appendix, back-matter, ipsum
 

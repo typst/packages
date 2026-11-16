@@ -9,7 +9,7 @@ compiler = "0.15.0"
 repository = "https://gitlab.com/novanext/tudelft-thesis-typst/"
 keywords = ["TU Delft", "Delft University of Technology", "PhD Thesis"]
 categories = ["thesis", "layout"]
-exclude = ["docs/*"]
+exclude = ["docs/thesis.pdf"]
 
 [template]
 path = "template"

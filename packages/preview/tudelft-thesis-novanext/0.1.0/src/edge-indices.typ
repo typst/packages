@@ -1,6 +1,6 @@
 //  https://forum.typst.app/t/how-to-create-a-chapter-edge-index-thumb-index/3883/7
 
-#import "@preview/hydra:0.6.2": hydra, anchor
+#import "@preview/hydra:0.6.3": hydra, anchor
 #import "@preview/tudelft-tools-novanext:0.1.0": *
 #let current-page() = {
   if page.numbering == none {} else {
