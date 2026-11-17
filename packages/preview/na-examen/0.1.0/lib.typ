@@ -4,7 +4,7 @@
 // وتذييل «صفحة X من Y» وتمارين مرقّمة تلقائيًا.
 //
 // الاستعمال (عربي) :
-//   #import "@preview/na-examen:1.1.0": *
+//   #import "@preview/na-examen:0.1.0": *
 //   #show: examen.with(school: [...], year: "2026-2027", ...)
 //   #exercise(points: 8)[ ... #q[1] ... ]
 //
