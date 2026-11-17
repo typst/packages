@@ -1,5 +1,37 @@
 #import "@preview/simple-cs:1.0.1" : template, logo-list, set-heading-pagebreak, tuteurs, appendix, get-logos
 
+// For the original file structure
+#let root-path = "images/"
+#let logos = (
+  avec-protection: (
+    horizontal: (
+      noir : image(root-path + "Logos-avec-zone-protection/CentraleSup Logo H_noir-RVB.svg"),
+      blanc: image(root-path + "Logos-avec-zone-protection/CentraleSup Logo H_blanc-RVB.svg"),
+      rvb  : image(root-path + "Logos-avec-zone-protection/CentraleSup Logo H_RVB.svg"),
+    ),
+    vertical: (
+      noir : image(root-path + "Logos-avec-zone-protection/CentraleSup Logo V_Noir RVB.svg"),
+      blanc: image(root-path + "Logos-avec-zone-protection/CentraleSup Logo V_BlancRVB.svg"),
+      rvb  : image(root-path + "Logos-avec-zone-protection/CentraleSup Logo V_RVB.svg"),
+    )
+  ),
+  sans-protection: (
+    horizontal: (
+      noir : image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo H_noir-RVB.svg"),
+      blanc: image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo H_blanc-RVB.svg"),
+      rvb  : image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo H_RVB.svg"),
+    ),
+    vertical: (
+      noir : image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo V_Noir RVB.svg"),
+      blanc: image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo V_blanc RVB.png"),
+      rvb  : image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo V_RVB.svg"),
+    )
+  ),
+  )
+)
+
+/*
+// Or, for a more organized file structure
 #let logos = {
   let logos = (:)
   let root-path = "images/"
@@ -18,6 +50,8 @@
   }
   logos
 }
+*/
+
 
 
 #show: template.with(

@@ -47,7 +47,7 @@ by converting the ".eps" files into ".svg" files.
 
 Note: some logos are supposed to have a border but don't, I have reported the issue to CS.
 
-I used this script:
+I used this script to convert eps files to svg (requires inkscape):
 
 ```bash
 #!/bin/sh
@@ -61,9 +61,12 @@ find . -name '*.eps' -print0 |
 
 ## Add the logos
 Once you have converted the logos to svg, you can import them. The template provides
-a code snippet to put them in a dictionary, that is then passed to the template.
+two code snippets to put them in a dictionary, that is then passed to the library.
 
-Folder structure
+The first one uses the original (disorganised) structure used by CS, allowing to directly use the files
+without file renaming.
+
+The second one uses a more organised folder structure:
 ```
 images/
     avec-protection/
