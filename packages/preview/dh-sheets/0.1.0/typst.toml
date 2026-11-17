@@ -9,7 +9,7 @@ repository = "https://github.com/Maimas2/answering-sheets"
 keywords = ["typst", "exam"]
 disciplines = ["education"]
 exclude = ["example.typ"]
-categories = ["layout", "component"]
+categories = ["layout", "components"]
 
 [template]
 path = "template"
