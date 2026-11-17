@@ -1,0 +1,16 @@
+[package]
+name = "dh-sheets"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alex Seltzer"]
+license = "AGPL-3.0-or-later"
+description = "Create answer sheets for exams, purpose-built for Carneige Mellon Science Olympiad exams."
+repository = "https://github.com/Maimas2/answering-sheets"
+keywords = ["typst", "exam"]
+disciplines = ["education"]
+exclude = ["./example.typ"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
