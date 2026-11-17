@@ -1,0 +1,14 @@
+[package]
+name = "eorscope"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["Trésor Kaya <https://eorscope.com/about/>"]
+license = "MIT AND CC-BY-4.0"
+description = "Statutory employer cost of an employee in 76 countries, with sources."
+homepage = "https://eorscope.com/data/"
+repository = "https://github.com/eorscope/eorscope-typst"
+keywords = ["employer cost", "payroll", "social security", "employer of record", "EOR", "salary", "HR"]
+categories = ["office", "utility"]
+disciplines = ["business", "economics", "accounting"]
+compiler = "0.12.0"
+exclude = ["/examples/", "/tests/", "/scripts/", "/.github/"]
