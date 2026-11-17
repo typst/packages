@@ -8,6 +8,7 @@ description = "Create answer sheets for exams, purpose-built for Carneige Mellon
 repository = "https://github.com/Maimas2/answering-sheets"
 keywords = ["typst", "exam"]
 disciplines = ["education"]
+exclude = ["./example.typ"]
 
 [template]
 path = "template"
