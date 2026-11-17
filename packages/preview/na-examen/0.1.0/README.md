@@ -112,15 +112,6 @@ The document language follows `lang`, so other packages that follow `#set text(l
 
 The document language is `ar`, so other packages that follow `#set text(lang: ...)` (for example `na-tabpos`) use Arabic words automatically.
 
-### Files
-
-```
-lib.typ  typst.toml  LICENSE  README.md
-documentationEN.typ  documentationAR.typ     (compile them to get the PDFs)
-examples/          basic.typ  custom-header.typ  no-barcode.typ  latin-fr.typ  latin-en.typ
-fichier_de_test/   long-exam.typ
-```
-
 ---
 
 <div dir="rtl">
