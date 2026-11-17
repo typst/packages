@@ -5,7 +5,7 @@
 // Uncomment to show any specified solutions.
 //#show-solutions()
 
-#show: dh-sheet.with(
+#show: dh-sheets.with(
   // Paper size. Default `us-letter`.
   paper-size: "us-letter",
   
