@@ -23,10 +23,9 @@
     ),
     vertical: (
       noir : image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo V_Noir RVB.svg"),
-      blanc: image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo V_blanc RVB.png"),
+      blanc: image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo V_blanc RVB.svg"),
       rvb  : image(root-path + "Logos-sans-zone-protection/CentraleSupelec-Logo V_RVB.svg"),
     )
-  ),
   )
 )
 
