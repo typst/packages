@@ -157,7 +157,7 @@
 
   // Link color (theme, with internal cross-references in a distinct color)
   show link: it => {
-    let label-color = rgb("#57B94F")
+    let label-color = theme-color.darken(35%)
     if type(it.dest) == label {
       underline(text(fill: label-color, it))
     } else {
