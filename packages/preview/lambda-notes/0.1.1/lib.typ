@@ -144,6 +144,17 @@
     v(0.4em)
   }
 
+  // Lists: items stay separated even without blank lines
+  set list(spacing: 1em, indent: 0.5em, body-indent: 0.6em)
+  set enum(spacing: 1em, indent: 0.5em, body-indent: 0.6em)
+  let list-gap(it) = {
+    v(1.2em, weak: true)
+    it
+    v(1.2em, weak: true)
+  }
+  show list: list-gap
+  show enum: list-gap
+
   // Link color (theme, with internal cross-references in a distinct color)
   show link: it => {
     let label-color = rgb("#57B94F")
