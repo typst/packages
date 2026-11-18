@@ -58,6 +58,7 @@
   subject: none,
   keywords: (),
   color: none,
+  font: none,
   show-outline: true,
   outline-title: [Contents],
   chapter-label: [Chapter],
@@ -68,6 +69,10 @@
     author: if type(author) == str or type(author) == array { author } else { () },
     description: subject,
     keywords: keywords,
+  )
+
+  set text(
+    font: if font == none { "Libertinus Serif" } else { font },
   )
 
   // Header with h1 — kept local, only lambda-notes needs it
