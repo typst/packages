@@ -1,0 +1,6 @@
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: Synthetic example key for thyme portfolio demo
+
+mDMEX00000YJKwYBBAHaRw8BAQdA000000000000000000000000000000000000
+=DEMO
+-----END PGP PUBLIC KEY BLOCK-----
