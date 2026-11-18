@@ -1,7 +1,5 @@
 #import "@preview/algorithmic:1.0.7": *
 #import "@preview/algorithmic:1.0.7": algorithm-figure as base-algorithm-figure, style-algorithm as base-style-algorithm
-#import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.10": *
 
 // --- "note" component ---
 #let note(body) = block(
@@ -200,19 +198,17 @@
     #v(2.5em)
   ]
 
-  // Code snippets
+  // Code
+  let mono = ("CMU Typewriter Text", "DejaVu Sans Mono")
+  show raw: set text(font: mono, size: 1.25em)
   show raw.where(block: true): it => block(
-    fill: rgb("#f4f4f4"),
-    inset: 8pt,
-    radius: 4pt,
     width: 100%,
-    text(size: 9pt, font: "DejaVu Sans Mono", it),
-  )
-  show raw.where(block: false): it => box(
-    fill: rgb("#f0f0f0"),
-    inset: (x: 4pt, y: 2pt),
+    breakable: false,
+    above: 1em,
+    below: 1em,
+    inset: (x: 6pt, y: 7pt),
     radius: 2pt,
-    text(font: "DejaVu Sans Mono", size: 9.5pt, it),
+    text(it),
   )
 
   set page(header: running-header())
