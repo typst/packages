@@ -7,13 +7,13 @@ A clean [Typst](https://typst.app) template for university computer science note
 Import the template from the local package:
 
 ```typ
-#import "@local/lambda-notes:0.1.0": *
+#import "@local/lambda-notes:0.1.1": *
 ```
 
 or, once published, from the Typst Universe:
 
 ```typ
-#import "@preview/lambda-notes:0.1.0": *
+#import "@preview/lambda-notes:0.1.1": *
 ```
 
 ## Quick start
