@@ -1,0 +1,11 @@
+[package]
+name = "typart"
+version = "0.3.0"
+entrypoint = "src/typart.typ"
+authors = ["Crag"]
+license = "GPL-2.0-only"
+description = "Fast SmartArt-style diagrams, flowcharts and paper figures that fit their container."
+repository = "https://github.com/CRAG666/typart"
+keywords = ["diagram", "smartart", "infographic", "poster", "flowchart", "sequence", "prisma", "neural network", "confusion matrix", "process", "venn", "gantt", "timeline", "cycle", "pyramid", "hierarchy", "matrix", "tree", "swot"]
+categories = ["visualization", "poster"]
+exclude = ["images", "tests", "bench"]
