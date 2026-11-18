@@ -50,7 +50,7 @@ Some notes here.
   author: "Your Name",
   date: "2026",
   subject: "Lecture notes",
-  keywords: ("notes"),
+  keywords: ("notes",),
   color: blue,
   show-outline: true,
   outline-title: [Contents],
@@ -59,13 +59,14 @@ Some notes here.
 ```
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `title` | `content`/`str` | `none` | Document title. Set in `document()` metadata and rendered on the title page. |
 | `author` | `str`/`array` | `none` | Author(s). Passed to `document()` metadata (only if a `str` or `array`) and shown on the title page. |
 | `date` | `content`/`str` | `none` | Date or academic year, shown next to the author on the title page. |
 | `subject` | `content`/`str` | `none` | Document description, set in `document()` metadata (e.g. for PDF metadata). |
 | `keywords` | `array` | `()` | PDF keywords metadata. |
 | `color` | `color` | `none` (→ black) | Theme accent color used for headings, the title page, links, table headers, and rules. |
+| `font` | `str` or `array` | `none` (→ Libertinus Serif) | Body text font. |
 | `show-outline` | `bool` | `true` | Whether to render a table of contents after the title block. |
 | `outline-title` | `content` | `[Contents]` | Title of the table of contents. |
 | `chapter-label` | `content` | `[Chapter]` | Label prefixed to the chapter number above each level-1 heading title (e.g. "Chapter 1"). Override this to localize or reword it. |
@@ -79,11 +80,12 @@ Applying `lambda-notes` configures the whole document:
 - **Page numbering** — Arabic numbering (`"1"`), right-aligned.
 - **Heading numbering** — sections numbered as `1.1`, `1.1.1`, etc.
 - **Level-1 headings ("chapters")** — outlined level-1 headings start on a new page (`pagebreak(weak: true)`) and are rendered as a large chapter title: a small tracked `chapter-label N` label (e.g. "Chapter 1"), the chapter title in large bold themed text, and a themed horizontal rule underneath.
-- **All headings** — get extra vertical spacing and are tinted with the theme color.
-- **Links** — underlined and colored; internal cross-references (links to a `label`) use a distinct green (`#57B94F`) instead of the theme color, so you can visually tell navigation links from external links.
+- **All headings** — get extra vertical spacing and are tinted with the theme color; h2 is 17pt, h3 13.5pt and h4 11.5pt italic.
+- **Links** — underlined and colored; internal cross-references (links to a `label`) use a darker shade of the theme color, so you can visually tell navigation links from external links.
 - **Tables** — wrapped in a non-breakable block with extra spacing above; header row (`y == 0`) is filled with a light tint of the theme color, even body rows get a light gray fill (zebra striping), cells are centered/middle-aligned except the first column (left-aligned), and cells get an 8pt inset with a light gray stroke.
-- **Figures** — numbered `"1"`.
-- **Code blocks** — powered by [codly](https://typst.app/universe/package/codly) with line numbers disabled and language labels disabled, using [codly-languages](https://typst.app/universe/package/codly-languages) for language icons/colors. In addition, block-level raw text gets a light gray rounded background box, and inline raw text gets a smaller rounded highlight box; both use `DejaVu Sans Mono`.
+- **Figures** — LaTeX-style captions ("**Figure 1.2**: text"), numbered per chapter.
+- **Lists** — items are spaced even without blank lines between them.
+- **Code blocks** — Plain monospace in `CMU Typewriter Text` (falls back to `DejaVu Sans Mono`), syntax highlighting when a language is given. Inline code is plain monospace.
 - **Algorithms** — powered by [algorithmic](https://typst.app/universe/package/algorithmic) with a custom style (see below).
 - **Running header** — every page except the one where the current level-1 heading starts shows a small italic header with the current chapter title (left) and current level-2 section title (right), separated by a rule.
 - **Title page** — a centered block showing the title (large, bold, themed), a themed rule, and the author/date line (small, tracked, gray, separated by a centered dot).
@@ -108,7 +110,7 @@ Renders as a non-breakable block with a thick black left border, a thin border o
 A colored, titled callout box for tips, warnings, definitions, etc.
 
 | Parameter | Type | Default | Description |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `title` | `content` | `none` | Optional bold title shown at the top, tinted with `color`. |
 | `color` | `color` | `blue` | Accent color for the title, left border, border, and background tint. |
 | `body` | `content` | — | Callout content (positional). |
