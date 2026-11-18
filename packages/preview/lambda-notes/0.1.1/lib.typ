@@ -129,15 +129,21 @@
       ]
       v(1em)
     } else {
-      it
+      // Unnumbered/non-outlined h1 (e.g. the outline title)
+      v(1em)
+      text(fill: theme-color, it)
+      v(0.5em)
     }
   }
-  // Heading spacing + dynamic color
-  show heading: it => {
-    v(1em)
-    text(fill: theme-color, it)
-    v(0.5em)
+
+  show heading.where(level: 2): set text(size: 17pt)
+  show heading.where(level: 3): set text(size: 13.5pt)
+  show heading.where(level: 4): set text(size: 11.5pt, style: "italic")
+  show heading.where(level: 2).or(heading.where(level: 3)).or(heading.where(level: 4)): it => {
+    block(sticky: true, text(fill: theme-color, it))
+    v(0.4em)
   }
+
   // Link color (theme, with internal cross-references in a distinct color)
   show link: it => {
     let label-color = rgb("#57B94F")
