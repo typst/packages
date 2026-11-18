@@ -115,7 +115,7 @@ A vertical numbered list that fills the width. Items without a colour of their o
 ]
 ```
 
-![steps](images/steps.png)
+![A vertical numbered list that fills the width](images/steps.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -135,7 +135,7 @@ Equal blocks side by side that share the width. All blocks take the height of th
 ]
 ```
 
-![hlist](images/hlist.png)
+![Equal blocks side by side that share the width](images/hlist.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -157,7 +157,7 @@ A zig-zag honeycomb strip. The hexagons keep their size; the labels shrink to on
 ]
 ```
 
-![hexagons](images/hexagons.png)
+![A zig-zag honeycomb strip](images/hexagons.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -181,7 +181,7 @@ A coloured header over a tinted body: a horizontal bullet list. Cards in one row
 ]
 ```
 
-![cards](images/cards.png)
+![A coloured header over a tinted body](images/cards.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -203,7 +203,7 @@ Strengths, weaknesses, opportunities and threats as a 2×2 of `cards`, in the pa
 )
 ```
 
-![swot](images/swot.png)
+![Strengths, weaknesses, opportunities and threats as a 2×2 of cards](images/swot.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -226,7 +226,7 @@ Blocks joined by block arrows: the basic process. `dir: ttb` stacks it top to bo
 ]
 ```
 
-![flow](images/flow.png)
+![Blocks joined by block arrows](images/flow.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -249,7 +249,7 @@ Sequential chevrons pointing right, for phases that follow each other.
 ]
 ```
 
-![chevron](images/chevron.png)
+![Sequential chevrons pointing right, for phases that follow each other](images/chevron.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -273,7 +273,7 @@ A process that wraps into rows, each row running the opposite way to the one abo
 ]
 ```
 
-![snake](images/snake.png)
+![A process that wraps into rows, each row running the opposite way to the one above](images/snake.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -295,7 +295,7 @@ An ascending staircase joined by elbow arrows, for growth or maturity levels.
 ]
 ```
 
-![stairs](images/stairs.png)
+![An ascending staircase joined by elbow arrows, for growth or maturity levels](images/stairs.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -318,7 +318,7 @@ Numbered milestones on a line with done, current and upcoming states: where a pr
 ]
 ```
 
-![stepper](images/stepper.png)
+![Numbered milestones on a line with done, current and upcoming states](images/stepper.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -339,7 +339,7 @@ Milestones along a horizontal arrow, alternating above and below it.
 ]
 ```
 
-![timeline](images/timeline.png)
+![Milestones along a horizontal arrow, alternating above and below it](images/timeline.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -359,7 +359,7 @@ A vertical timeline that fills the width: cards alternate left and right of a ce
 ]
 ```
 
-![vtimeline](images/vtimeline.png)
+![A vertical timeline that fills the width](images/vtimeline.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -384,7 +384,7 @@ A Gantt chart that fills the width: task bars with progress, period headers, gri
 )
 ```
 
-![gantt](images/gantt.png)
+![A Gantt chart that fills the width](images/gantt.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -416,7 +416,7 @@ A ring split into equal labelled segments, with an optional label in the hole.
 ]
 ```
 
-![donut](images/donut.png)
+![A ring split into equal labelled segments, with an optional label in the hole](images/donut.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -438,7 +438,7 @@ Nodes on a ring joined by curved arrows. Labels share one size that fits every c
 ]
 ```
 
-![cycle](images/cycle.png)
+![Nodes on a ring joined by curved arrows](images/cycle.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -460,7 +460,7 @@ One root over a single row of children. The root takes the first palette colour 
 ]
 ```
 
-![hierarchy](images/hierarchy.png)
+![One root over a single row of children](images/hierarchy.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -485,7 +485,7 @@ A multi-level hierarchy, top-down by default, written as a nested list. The root
 ]
 ```
 
-![tree](images/tree.png)
+![A multi-level hierarchy, top-down by default, written as a nested list](images/tree.png)
 
 `dir` lays the levels out along any direction, `filled: false` draws outlined boxes, and `#fill(..)` after a label colours that node:
 
@@ -503,7 +503,7 @@ A multi-level hierarchy, top-down by default, written as a nested list. The root
 
 A tree can also be written as data: a node is a label, `(label, children)`, `(label, color)`, `((label, color), children)` or `(label: .., children: .., color: ..)`.
 
-![tree-ltr](images/tree-ltr.png)
+![A tree laid out left to right with outlined boxes and two coloured nodes](images/tree-ltr.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -529,7 +529,7 @@ Two or three overlapping circles.
 ]
 ```
 
-![venn](images/venn.png)
+![Two or three overlapping circles](images/venn.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -549,7 +549,7 @@ Concentric rings, outermost first; the last item is the bullseye.
 ]
 ```
 
-![target](images/target.png)
+![Three concentric rings with the goal in the centre](images/target.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -569,7 +569,7 @@ A centre joined by spokes to satellite circles.
 ]
 ```
 
-![radial](images/radial.png)
+![A centre joined by spokes to satellite circles](images/radial.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -592,7 +592,7 @@ Boxes around a centre with arrows converging on it, or diverging from it with `d
 ]
 ```
 
-![arrows](images/arrows.png)
+![Three boxes with arrows converging on a centre](images/arrows.png)
 
 ```typst
 #arrows(core: [Root], diverge: true)[
@@ -603,7 +603,7 @@ Boxes around a centre with arrows converging on it, or diverging from it with `d
 ]
 ```
 
-![arrows-diverging](images/arrows-diverging.png)
+![Four boxes with arrows diverging from a centre](images/arrows-diverging.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -627,7 +627,7 @@ Two block arrows facing each other, for contrasts and trade-offs.
 ]
 ```
 
-![opposing](images/opposing.png)
+![Two block arrows facing each other, for contrasts and trade-offs](images/opposing.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -649,7 +649,7 @@ Boxes joined by `+` signs, with `=` before the last one: A + B = C. `operators` 
 ]
 ```
 
-![equation](images/equation.png)
+![Three boxes joined by a plus sign and an equals sign](images/equation.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -671,7 +671,7 @@ Up to three interlocking cogs.
 ]
 ```
 
-![gears](images/gears.png)
+![Up to three interlocking cogs](images/gears.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -693,7 +693,7 @@ A pyramid of stacked levels, or a funnel with `flip: true`. Labels share one siz
 ]
 ```
 
-![pyramid](images/pyramid.png)
+![A pyramid of three stacked levels](images/pyramid.png)
 
 ```typst
 #pyramid(flip: true)[
@@ -703,7 +703,7 @@ A pyramid of stacked levels, or a funnel with `flip: true`. Labels share one siz
 ]
 ```
 
-![pyramid-funnel](images/pyramid-funnel.png)
+![A funnel: an inverted pyramid of three levels](images/pyramid-funnel.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -726,7 +726,7 @@ A 2×2 matrix with optional axis labels.
 ]
 ```
 
-![matrix](images/matrix.png)
+![A 2×2 matrix with optional axis labels](images/matrix.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -751,7 +751,7 @@ Stat cards with a headline value and a caption, filling the width. Items are `(v
 ]
 ```
 
-![kpi](images/kpi.png)
+![Stat cards with a headline value and a caption, filling the width](images/kpi.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -773,7 +773,7 @@ Labelled horizontal bars with their values: a results table made visual. One ser
 ]
 ```
 
-![bars](images/bars.png)
+![Labelled horizontal bars with their values](images/bars.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -797,7 +797,7 @@ Progress rings with a headline percentage and a caption. Items are `(value, labe
 ]
 ```
 
-![gauges](images/gauges.png)
+![Progress rings with a headline percentage and a caption](images/gauges.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -818,7 +818,7 @@ A grid of squares showing shares of a whole, with a legend. Items are `(label, c
 ]
 ```
 
-![waffle](images/waffle.png)
+![A grid of squares showing shares of a whole, with a legend](images/waffle.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -843,7 +843,7 @@ A central ring joined to icon cards on both sides: the first three items go on t
 ))
 ```
 
-![process](images/process.png)
+![A central ring joined to icon cards on both sides](images/process.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -869,7 +869,7 @@ A table of rounded cells with a coloured header and alternating row tints, filli
 )
 ```
 
-![card-table](images/card-table.png)
+![A table of rounded cells with a coloured header and alternating row tints, filling the width](images/card-table.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -897,7 +897,7 @@ A hub joined to numbered pill rows, each with a title, a body and an optional ic
 )
 ```
 
-![pill-steps](images/pill-steps.png)
+![A hub joined to numbered pill rows, each with a title, a body and an optional icon](images/pill-steps.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -929,7 +929,7 @@ A fully connected neural network: one column of neurons per layer, every neuron 
 ]
 ```
 
-![network](images/network.png)
+![A fully connected neural network with four layers](images/network.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -952,7 +952,7 @@ An autoencoder: layers as bars whose height follows their size, narrowing to the
 ]
 ```
 
-![autoencoder](images/autoencoder.png)
+![An autoencoder drawn as bars narrowing to a latent code and widening back](images/autoencoder.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -973,7 +973,7 @@ The branches of a contrastive model. One input fans out into two views that go t
 ]
 ```
 
-![contrastive](images/contrastive.png)
+![A contrastive model: one input, two branches of three stages and a loss](images/contrastive.png)
 
 ```typst
 #contrastive(loss: [Triplet loss])[
@@ -1005,7 +1005,7 @@ K-fold cross-validation: one row per fold, split into `k` parts with the validat
 #kfold(k: 5, test: 20%)
 ```
 
-![kfold](images/kfold.png)
+![Five-fold cross-validation with a held-out test block](images/kfold.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1029,7 +1029,7 @@ One bar divided in proportion to its parts: a train / validation / test partitio
 ]
 ```
 
-![split](images/split.png)
+![One bar divided into train, validation and test parts](images/split.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1046,7 +1046,7 @@ A signal cut into sliding windows: each window is drawn under the stretch it cov
 #windows(signal("ecg", cycles: 6, width: 24em, height: 3em), count: 4, overlap: 50%)
 ```
 
-![windows](images/windows.png)
+![An ECG signal cut into four overlapping windows](images/windows.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1065,7 +1065,7 @@ A confusion matrix: actual classes in rows, predicted classes in columns, each c
 #confusion(((46, 3, 1), (4, 41, 5), (0, 6, 44)), ([Walk], [Run], [Rest]))
 ```
 
-![confusion](images/confusion.png)
+![A confusion matrix of three classes shaded by value](images/confusion.png)
 
 `normalize: true` shades and prints every cell as a share of its row, so classes of different sizes compare directly:
 
@@ -1073,7 +1073,7 @@ A confusion matrix: actual classes in rows, predicted classes in columns, each c
 #confusion(((46, 3, 1), (4, 41, 5), (0, 6, 44)), ([Walk], [Run], [Rest]), normalize: true)
 ```
 
-![confusion-normalized](images/confusion-normalized.png)
+![A confusion matrix with each row shown as percentages](images/confusion-normalized.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1093,7 +1093,7 @@ Two helpers for figure content: `icon` sets a glyph from an icon font ([Font Awe
 #hstack(icon("\u{f023}", fill: palette.at(0)), [OR], icon("\u{f084}", fill: palette.at(3)))
 ```
 
-![hstack](images/hstack.png)
+![Two icons and the word OR side by side on one line](images/hstack.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1112,7 +1112,7 @@ A short waveform drawn natively, to stand for a signal inside a node, a panel or
 #hstack(signal("ecg", stroke: palette.at(3)), signal("ppg", stroke: palette.at(4)), signal("sine"), signal("square"), signal("sawtooth"))
 ```
 
-![signal](images/signal.png)
+![Five short waveforms: ECG, PPG, sine, square and sawtooth](images/signal.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1130,7 +1130,7 @@ An open ellipse with an arrowhead around any content, for "repeat" or "continuou
 #loop-ring[Verification]
 ```
 
-![loop-ring](images/loop-ring.png)
+![An open ellipse with an arrowhead around any content, for "repeat" or "continuous" steps](images/loop-ring.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1146,7 +1146,7 @@ A graph: nodes on a ring joined by the edges you write, `"A -- B"` for a link an
 #graph(("A -- B", "B -- C", "C -- D", "D -- A", "A -- C"))
 ```
 
-![graph](images/graph.png)
+![A graph of four nodes on a ring joined by five edges](images/graph.png)
 
 ```typst
 #graph(
@@ -1185,7 +1185,7 @@ A grid of framed sub-figures, each with an optional caption inside and a number 
 ))
 ```
 
-![panels](images/panels.png)
+![A grid of framed sub-figures, each with an optional caption inside and a number below](images/panels.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1211,7 +1211,7 @@ A layered architecture or protocol stack: one full-width band per layer, with it
 ))
 ```
 
-![layers](images/layers.png)
+![A layered architecture of four bands with their blocks](images/layers.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1232,7 +1232,7 @@ A digital timing diagram: one row per signal, each written as a string with one 
 ]
 ```
 
-![timing](images/timing.png)
+![A digital timing diagram of four signals](images/timing.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1256,7 +1256,7 @@ A matrix drawn cell by cell: an image patch, a convolution kernel, an S-box, an 
 )
 ```
 
-![pixels](images/pixels.png)
+![An image patch, a convolution kernel and their result drawn cell by cell](images/pixels.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1282,7 +1282,7 @@ A convolutional network as stacks of feature maps that shrink and multiply along
 ))
 ```
 
-![convnet](images/convnet.png)
+![A convolutional network as stacks of feature maps ending in vectors](images/convnet.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1307,7 +1307,7 @@ A recurrent network unrolled in time. Each step is `(input, state, output)`, rea
 )
 ```
 
-![rnn](images/rnn.png)
+![A recurrent network, folded and unrolled over three time steps](images/rnn.png)
 
 A step may be just its input: the state then shows `cell`, and a step without an output has none. A many-to-one LSTM:
 
@@ -1353,7 +1353,7 @@ A PRISMA flow diagram for systematic reviews: the records go down a column of st
 )
 ```
 
-![prisma](images/prisma.png)
+![A PRISMA flow diagram with three stages](images/prisma.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1379,7 +1379,7 @@ A comparison matrix for related-work sections: methods in rows, criteria in colu
 )
 ```
 
-![checks](images/checks.png)
+![A comparison matrix of four methods with check marks and crosses](images/checks.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1406,7 +1406,7 @@ A UML-style sequence diagram: participants across the top, their lifelines, and 
 )
 ```
 
-![sequence](images/sequence.png)
+![A sequence diagram of a user, a device and a server](images/sequence.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1433,7 +1433,7 @@ A convolutional network as blocks in perspective, the VGG-style figure (`convnet
 ))
 ```
 
-![convnet3d](images/convnet3d.png)
+![A VGG-16 network drawn as blocks in perspective](images/convnet3d.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1467,7 +1467,7 @@ Callouts on any content — an image, a plot, another diagram: a dot at each poi
 )
 ```
 
-![annotate](images/annotate.png)
+![An ECG beat with four labelled callouts](images/annotate.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1497,7 +1497,7 @@ The layout of a packet header, a frame or a register: fields as wide as their bi
 ]
 ```
 
-![packet](images/packet.png)
+![The fields of an IPv4 header laid out in rows of 32 bits](images/packet.png)
 
 | Parameter | Default | Description |
 |---|---|---|
@@ -1628,10 +1628,11 @@ A research pipeline: the frames hold their boxes, a row of boxes is a line of co
 **Larger figures.** When one call gets long, give each part a name and let the last line show the structure; a part is whatever `flowchart` accepts:
 
 ```typst
-#let fusion = group([Signal fusion], title-pos: bottom, dct("dct1", (1, 1), [DCT]), ..)
-#let arrows = (edge("pwd", "sha", "map", "smat", "tpl"), ..)
+#let fusion = group([Signal fusion], node("dct", (0, 0), [DCT]), node("cat", right, [Concatenate]))
+#let features = group([Features], node("mfcc", right, [MFCC]), node("x", right, [Features]))
+#let arrows = (edge("dct", "cat", "mfcc", "x"),)
 
-#flowchart(gap: 3em, inputs, projection, fusion, features, template, evaluation, arrows)
+#flowchart(fusion, features, arrows)
 ```
 
 ### flowchart
