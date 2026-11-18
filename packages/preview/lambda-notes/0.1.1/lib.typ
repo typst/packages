@@ -90,7 +90,9 @@
         h2 = e
       }
     }
-    let show-header = h1 != none and h1.location().page() != here().page()
+    let chapter-starts-here = query(heading.where(level: 1))
+      .any(h => h.outlined and h.location().page() == here().page())
+    let show-header = h1 != none and not chapter-starts-here and h1.location().page() != here().page()
     if show-header {
       set text(size: 9pt, fill: luma(100), weight: "regular")
       grid(
