@@ -10,7 +10,6 @@ disciplines = ["education", "mathematics"]
 entrypoint = "lib.typ"
 compiler = "0.13.0"
 exclude = [
-  "documentationAR.typ",
-  "documentationEN.typ",
-  "long-exam.typ"
+  "documentationAR.pdf",
+  "documentationEN.pdf"
 ]
