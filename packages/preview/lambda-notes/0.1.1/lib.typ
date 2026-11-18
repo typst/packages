@@ -115,6 +115,9 @@
   show heading.where(level: 1): it => {
     if it.outlined {
       pagebreak(weak: true)
+      counter(figure.where(kind: image)).update(0)
+      counter(figure.where(kind: table)).update(0)
+      counter(figure.where(kind: "algorithm")).update(0)
       v(1.5em)
       block(breakable: false)[
         #text(size: 11pt, fill: theme-color, tracking: 2pt, weight: "bold")[
@@ -176,13 +179,15 @@
     inset: 8pt,
   )
 
-  set figure(numbering: "1")
-  show: codly-init.with()
-  codly(
-    number-format: none,
-    display-name: false,
-    languages: codly-languages,
-  )
+  // Figures: numbered per chapter
+  set figure(numbering: n => numbering("1.1", counter(heading).get().first(), n))
+  set figure.caption(separator: [: ])
+  show figure.caption: it => block[
+    #v(0.5em)
+    #strong[#it.supplement #context it.counter.display(it.numbering)]#it.separator#it.body
+  ]
+  show figure: set block(above: 1.8em, below: 1.8em)
+
   show: style-algorithm
   // Title block — matches the theme-color + rule + tracked-meta language used by headings
   align(center)[
