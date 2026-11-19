@@ -2,7 +2,7 @@
 
 A homework template for Hasso Plattner Institute (HPI) math courses, in
 German and English. The first page has a framed assignment header. Later pages
-show the authors, course, assignment type and page number. [Preview the example sheet (PDF).](template.pdf)
+show the authors, course, assignment type and page number.
 
 ## Start an assignment
 
