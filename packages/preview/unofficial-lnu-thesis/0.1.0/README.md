@@ -1,7 +1,5 @@
 # Unofficial Linnaeus University (LNU) Thesis & Essay Template for Typst
-Created by prompting Antigravity Cli gemini flash 3.8 "`en-essay-template-v260219.docx` make a typst version of the file"
 
-> [!NOTE]
 > **Disclaimer**: This is an independent, **unofficial** student-created template for Linnaeus University (*Linnéuniversitetet*). It is adapted from the official university Word template (`en-essay-template-v260219.docx`) to provide a modern Typst alternative for students writing degree projects and academic essays. It is not officially maintained, endorsed, or certified by Linnaeus University.
 
 Designed for both the **Typst Online Web App** ([typst.app](https://typst.app)) and local **Typst CLI / IDE** writing.
@@ -64,7 +62,7 @@ typst compile main.typ output.pdf
 ## Usage Example (`main.typ`)
 
 ```typst
-#import "lib.typ": essay, appendix-section
+#import "@preview/unofficial-lnu-thesis:0.1.0": essay, appendix-section
 
 #show: essay.with(
   // Title & Subtitle
