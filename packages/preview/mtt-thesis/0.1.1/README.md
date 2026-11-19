@@ -91,5 +91,5 @@ The package uses these Typst Universe packages:
 
 Apache-2.0. See [`LICENSE`](LICENSE).
 
-The ETH Zürich logo (`template/eth_logo_kurz_cropped.svg`) is a trademark of ETH Zürich and is not covered by the Apache-2.0 license. It is reproduced as publicly available on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ETH_Z%C3%BCrich_Logo_black.svg).
+The ETH Zürich logo (`examples/assets/eth_logo_kurz_cropped.svg`) is a trademark of ETH Zürich and is not covered by the Apache-2.0 license. It is reproduced as publicly available on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ETH_Z%C3%BCrich_Logo_black.svg).
 Users must comply with [ETH Zürich's branding guidelines](https://ethz.ch/staffnet/en/service/communication/corporate-design/eth-logo.html).
