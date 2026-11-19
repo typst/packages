@@ -1,0 +1,17 @@
+[package]
+name = "kindling-packing-list"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Camp Kitchen US <https://campkitchen.us/>"]
+license = "MIT"
+description = "Printable camping trip kit: a packing list from a plain-text .camp checklist with water estimate and section icons, plus a meal plan page."
+homepage = "https://campkitchen.us/pages/campchecklist"
+keywords = ["camping", "packing list", "checklist", "meal plan", "outdoor", "printable", "trip"]
+categories = ["office", "fun"]
+compiler = "0.14.0"
+exclude = ["thumbnail.png", "preview-desert.png", "tests"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
