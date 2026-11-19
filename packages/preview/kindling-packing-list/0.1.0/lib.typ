@@ -91,6 +91,46 @@
   (gallons: gallons, liters: calc.round(gallons * 3.785, digits: 1))
 }
 
+/// Colour themes. Pass a name to `theme:` or any colour to `accent:`.
+#let themes = (
+  forest: rgb("#2f5d50"),
+  lake: rgb("#2d5c7f"),
+  desert: rgb("#9a5b2e"),
+  ember: rgb("#a23b2c"),
+  slate: rgb("#3d4a5c"),
+)
+
+/// Resolve the accent colour: an explicit `accent` wins, then a theme name.
+#let theme-color(theme: "forest", accent: none) = {
+  if accent != none { return accent }
+  themes.at(theme, default: themes.forest)
+}
+
+/// Words in a section title that pick an icon. The first match wins.
+#let icon-words = (
+  fire: ("fire", "stove", "fuel", "burn"),
+  cold: ("cold", "cooler", "fridge", "ice", "food safety"),
+  water: ("water", "drink", "hydration"),
+  prep: ("prep", "knife", "utensil", "tool"),
+  clean: ("clean", "wash", "dish", "trash", "hygiene"),
+  store: ("store", "storage", "bear", "pantry", "food box"),
+  cook: ("cook", "kitchen", "meal", "pan", "pot"),
+  camp: ("camp", "shelter", "tent", "sleep", "site"),
+  pack: ("pack", "gear", "bag", "bring", "clothes", "misc"),
+)
+
+/// The icon key ("fire", "cold", ...) for a section title, or none.
+#let icon-key(title) = {
+  let t = lower(title)
+  for (key, words) in icon-words {
+    if words.any(w => t.contains(w)) { return key }
+  }
+  none
+}
+
+/// The bundled illustration for a key, `height` tall.
+#let icon(key, height: 1.4em) = image("icons/" + key + ".png", height: height)
+
 #let _box(packed, accent) = box(
   width: 0.8em, height: 0.8em, baseline: 0.1em,
   stroke: 0.7pt + accent, radius: 1.5pt,
@@ -99,7 +139,7 @@
 
 /// Render parsed sections as a checklist in `columns` columns. Whole sections
 /// are kept together and spread over the columns so they end at similar heights.
-#let checklist(sections, columns: 2, accent: rgb("#2f5d50")) = {
+#let checklist(sections, columns: 2, accent: rgb("#2f5d50"), icons: true) = {
   set par(justify: false, leading: 0.5em)
   let cols = range(columns).map(_ => ())
   let load = range(columns).map(_ => 0)
@@ -109,7 +149,13 @@
     load.at(i) += s.items.len() + 2
   }
   let render(s) = block(breakable: false, below: 0.9em, {
-    text(weight: "bold", fill: accent, upper(s.title))
+    let k = if icons { icon-key(s.title) } else { none }
+    if k != none {
+      grid(columns: (auto, 1fr), column-gutter: 0.5em, align: horizon,
+        icon(k, height: 1.6em), text(weight: "bold", fill: accent, upper(s.title)))
+    } else {
+      text(weight: "bold", fill: accent, upper(s.title))
+    }
     v(-0.4em)
     line(length: 100%, stroke: 0.5pt + accent.lighten(40%))
     v(-0.2em)
@@ -129,12 +175,33 @@
   )
 }
 
-/// A one-page printable packing sheet.
+/// The header block shared by both pages: trip name, dates, a summary line and
+/// the camp illustration on the right.
+#let _header(trip, dates, summary, accent, art: "camp") = block(
+  width: 100%, inset: (bottom: 0.6em), stroke: (bottom: 1.2pt + accent),
+  grid(
+    columns: (1fr, auto),
+    column-gutter: 1em,
+    align: (left + bottom, right + bottom),
+    {
+      text(size: 20pt, weight: "bold", fill: accent, trip)
+      if dates != none { h(0.8em); text(fill: luma(90), dates) }
+      v(0.3em)
+      text(fill: luma(70), summary)
+    },
+    if art != none { icon(art, height: 3.4em) },
+  ),
+)
+
+/// A printable packing sheet.
 ///
 /// - camp: .camp text (for example `read("trip.camp")`); defaults to the starter list
 /// - trip, dates: header text
 /// - people, days, hot: used for the water estimate
+/// - theme: "forest", "lake", "desert", "ember" or "slate"; `accent` overrides it
+/// - icons: draw the bundled illustration next to sections it recognises
 /// - extra: rows of empty lines for items you add by hand
+/// - notes: content shown in a shaded box at the end
 #let packing-sheet(
   camp: starter-list,
   trip: "Camping trip",
@@ -143,33 +210,30 @@
   days: 2,
   hot: false,
   columns: 2,
-  accent: rgb("#2f5d50"),
+  theme: "forest",
+  accent: none,
+  icons: true,
   notes: none,
   extra: 0,
 ) = {
+  let accent = theme-color(theme: theme, accent: accent)
   let sections = parse-camp(camp)
   let p = progress(sections)
   let w = water-estimate(people: people, days: days, hot: hot)
   set text(size: 10pt)
-  block(width: 100%, inset: (bottom: 0.6em), stroke: (bottom: 1.2pt + accent), {
-    grid(
-      columns: (1fr, auto),
-      align: (left + bottom, right + bottom),
-      text(size: 20pt, weight: "bold", fill: accent, trip),
-      text(fill: luma(90), if dates != none { dates }),
-    )
-    v(0.3em)
-    text(fill: luma(70))[
-      #people #if people == 1 [person] else [people] · #days #if days == 1 [day] else [days]
-      · water about #w.gallons gal (#w.liters L)#if hot [, hot weather] else []
-      #if p.total > 0 [· #status-text(p.packed, p.total)]
-    ]
-  })
+  _header(trip, dates, [
+    #people #if people == 1 [person] else [people] · #days #if days == 1 [day] else [days]
+    · water about #w.gallons gal (#w.liters L)#if hot [, hot weather] else []
+    #if p.total > 0 [· #status-text(p.packed, p.total)]
+  ], accent, art: if icons { "camp" } else { none })
   v(0.8em)
-  checklist(sections, columns: columns, accent: accent)
+  checklist(sections, columns: columns, accent: accent, icons: icons)
   if extra > 0 {
     v(0.4em)
-    text(weight: "bold", fill: accent, upper("Also bring"))
+    if icons {
+      grid(columns: (auto, 1fr), column-gutter: 0.5em, align: horizon,
+        icon("pack", height: 1.6em), text(weight: "bold", fill: accent, upper("Also bring")))
+    } else { text(weight: "bold", fill: accent, upper("Also bring")) }
     v(-0.4em)
     line(length: 100%, stroke: 0.5pt + accent.lighten(40%))
     grid(
@@ -186,5 +250,93 @@
   if notes != none {
     v(0.6em)
     block(width: 100%, inset: 0.7em, radius: 3pt, fill: accent.lighten(90%), notes)
+  }
+}
+
+/// Day labels for a trip: "Day 1", "Day 2", ... or the names you pass.
+#let day-labels(days, names: none) = {
+  if names != none { return names }
+  range(days).map(d => "Day " + str(d + 1))
+}
+
+/// A printable meal plan: one row per day, one column per meal, with room to
+/// write dishes, and a cooler / shopping column. Pre-filled cells come from
+/// `plan`, a dictionary such as ("Day 1": (Dinner: "Foil-pack tacos")).
+///
+/// - days or day-names: the rows
+/// - meals: the columns (default Breakfast, Lunch, Dinner, Snacks)
+/// - shopping: add the "Cooler / shop" column
+/// - rules: show the food-safety reminders strip at the bottom
+/// - note-lines: ruled lines for trip notes under the table (0 for none)
+#let meal-plan(
+  trip: "Camping trip",
+  dates: none,
+  people: 2,
+  days: 2,
+  day-names: none,
+  meals: ("Breakfast", "Lunch", "Dinner", "Snacks"),
+  plan: (:),
+  shopping: true,
+  rules: true,
+  theme: "forest",
+  accent: none,
+  icons: true,
+  row-height: 6.5em,
+  note-lines: 8,
+) = {
+  let accent = theme-color(theme: theme, accent: accent)
+  let labels = day-labels(days, names: day-names)
+  set text(size: 10pt)
+  _header(trip + " - meal plan", dates, [
+    #people #if people == 1 [person] else [people] · #labels.len() #if labels.len() == 1 [day] else [days]
+    · #(labels.len() * meals.len()) meal slots
+  ], accent, art: if icons { "cook" } else { none })
+  v(0.8em)
+  let cols = meals + if shopping { ("Cooler / shop",) } else { () }
+  table(
+    columns: (auto,) + (1fr,) * cols.len(),
+    stroke: 0.5pt + accent.lighten(55%),
+    fill: (x, y) => if y == 0 { accent.lighten(85%) } else if x == 0 { accent.lighten(93%) },
+    inset: 0.55em,
+    align: (x, y) => if y == 0 or x == 0 { left + horizon } else { left + top },
+    table.header(
+      [],
+      ..cols.map(c => text(weight: "bold", fill: accent, c)),
+    ),
+    ..labels.map(d => (
+      box(height: row-height, align(horizon, text(weight: "bold", fill: accent, d))),
+      ..cols.map(c => {
+        let entry = plan.at(d, default: (:)).at(c, default: none)
+        if entry != none { entry } else { [] }
+      }),
+    )).flatten(),
+  )
+  if rules {
+    v(0.8em)
+    block(width: 100%, inset: 0.7em, radius: 3pt, fill: accent.lighten(90%), grid(
+      columns: (auto, 1fr),
+      column-gutter: 0.8em,
+      align: horizon,
+      if icons { icon("cold", height: 2.6em) },
+      [
+        *Cooler rules.* Keep it at 40F / 4C or below and pack raw meat sealed on
+        the bottom (USDA). Perishable food left out more than 2 hours, or 1 hour
+        above 90F / 32C, goes in the trash (USDA). Plan the first night's dinner
+        from the coldest food; eat shelf-stable meals last.
+      ],
+    ))
+  }
+  if note-lines > 0 {
+    v(0.8em)
+    if icons {
+      grid(columns: (auto, 1fr), column-gutter: 0.5em, align: horizon,
+        icon("pack", height: 1.6em), text(weight: "bold", fill: accent, upper("Trip notes")))
+    } else { text(weight: "bold", fill: accent, upper("Trip notes")) }
+    v(-0.4em)
+    line(length: 100%, stroke: 0.5pt + accent.lighten(40%))
+    for _ in range(note-lines) {
+      v(1.15em)
+      line(length: 100%, stroke: 0.4pt + luma(170))
+    }
   }
 }

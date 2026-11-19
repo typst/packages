@@ -26,4 +26,18 @@
 #assert.eq(water-estimate(people: 4, days: 2), (gallons: 8, liters: 30.3))
 #assert.eq(water-estimate(people: 4, days: 2, hot: true).gallons, 12.0)
 
+
+
+#assert.eq(theme-color(theme: "lake"), rgb("#2d5c7f"))
+#assert.eq(theme-color(theme: "nope"), rgb("#2f5d50"))
+#assert.eq(theme-color(theme: "lake", accent: red), red)
+#assert.eq(icon-key("Fire"), "fire")
+#assert.eq(icon-key("COOLER & ice"), "cold")
+#assert.eq(icon-key("Dishes"), "clean")
+#assert.eq(icon-key("Sleeping"), "camp")
+#assert.eq(icon-key("Books"), none)
+#assert.eq(s.map(x => icon-key(x.title)), ("fire", "cold", "water", "prep", "clean", "store"))
+#assert.eq(day-labels(3), ("Day 1", "Day 2", "Day 3"))
+#assert.eq(day-labels(2, names: ("Sat", "Sun")), ("Sat", "Sun"))
+
 All tests passed.
