@@ -15,7 +15,7 @@ keywords = [
 ]
 categories = ["thesis", "report", "layout"]
 exclude = [
-  "/examples/*.pdf",
+  "**/*.pdf",
 ]
 
 [template]
