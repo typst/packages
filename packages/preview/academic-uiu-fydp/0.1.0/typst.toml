@@ -1,0 +1,17 @@
+[package]
+name = "academic-uiu-fydp"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Shaad Ahmmed <@shaadahmmed>", "Swakkhar Shatabda (original LaTeX template)"]
+license = "CC-BY-4.0"
+description = "Final year design project reports for UIU CSE."
+repository = "https://github.com/shaadahmmed/uiu-fydp-template"
+keywords = ["United International University", "UIU", "CSE", "FYDP", "report"]
+categories = ["thesis", "report"]
+compiler = "0.15.0"
+exclude = ["/build/", "/dist/", "/scripts/", "/packaging/", "/local-assets/", "/.github/", "/.vscode/", "/Makefile", "/.gitignore", "/.typst-version", "/docs/", "/CHANGELOG.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,13 @@
+[package]
+name = "oicana"
+version = "0.2.1"
+entrypoint = "src/lib.typ"
+authors = ["Oicana <hello@oicana.com>"]
+license = "MIT"
+description = "Generate PDFs from your app's data in any language."
+homepage = "https://oicana.com"
+repository = "https://github.com/oicana/oicana"
+keywords = ["oicana", "templating", "tool"]
+categories = ["scripting", "utility", "integration"]
+compiler = "0.14.0"
+exclude = ["tests", "Development.md"]

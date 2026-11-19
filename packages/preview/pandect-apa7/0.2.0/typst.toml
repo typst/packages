@@ -1,0 +1,25 @@
+[package]
+name = "pandect-apa7"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Rowell Urbaez Reyes <https://github.com/Row0902>"]
+license = "MIT"
+description = "APA 7th Edition paper for student and professional manuscripts."
+repository = "https://github.com/Row0902/pandect-apa7"
+keywords = [
+  "apa",
+  "apa7",
+  "American Psychological Association",
+  "paper",
+  "academic",
+  "accessible",
+  "statistics",
+]
+categories = ["paper"]
+compiler = "0.15.0"
+exclude = ["/assets", "/docs", "/examples", ".git*"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

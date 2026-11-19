@@ -1,0 +1,6 @@
+#!/bin/sh
+
+command -v perl   >/dev/null || { echo "Needs perl"   >&2 ; exit 1; }
+command -v pandoc >/dev/null || { echo "Needs pandoc" >&2 ; exit 1; }
+
+exec perl "$(dirname "$(readlink -f "$0")")/tex2typst.pl" "$@"

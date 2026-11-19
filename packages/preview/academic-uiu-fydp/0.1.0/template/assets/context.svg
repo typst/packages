@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="190" viewBox="0 0 720 190">
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8Z" fill="#333"/></marker></defs>
+  <g fill="white" stroke="#333" stroke-width="2">
+    <rect x="10" y="55" width="145" height="80" rx="4"/>
+    <rect x="275" y="35" width="170" height="120" rx="4"/>
+    <rect x="565" y="55" width="145" height="80" rx="4"/>
+    <path d="M165 95H265" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <path d="M455 95H555" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  </g>
+  <g font-family="serif" font-size="20" text-anchor="middle" fill="#111">
+    <text x="82" y="102">Users</text><text x="360" y="90">Project</text><text x="360" y="116">system</text>
+    <text x="637" y="90">External</text><text x="637" y="116">service</text>
+    <text x="215" y="72" font-size="15">Requests</text><text x="505" y="72" font-size="15">Data</text>
+  </g>
+</svg>

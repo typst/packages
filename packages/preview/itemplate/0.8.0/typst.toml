@@ -1,0 +1,12 @@
+[package]
+name = "itemplate"
+version = "0.8.0"
+entrypoint = "lib.typ"
+exclude = ["assets/test.png"]
+authors = ["HeXiongwu"]
+license = "MIT"
+description = "A modern academic HTML documentation template with a numbered, collapsible sidebar and a responsive app shell."
+repository = "https://github.com/hexiongwu1995/itemplate"
+keywords = ["html", "template"]
+categories = ["components", "model", "utility"]
+compiler = "0.15.0"

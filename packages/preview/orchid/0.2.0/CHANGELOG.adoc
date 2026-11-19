@@ -1,0 +1,11 @@
+= Orchid Changelog
+
+== 0.2.0
+
+* Replaced `generate-link` with `orcid`. Write the author's name alongside the call.
+* The default displays the icon and full HTTPS URL as a single link. Use
+  `orcid(id, display: none)` for the previous icon-only default or
+  `orcid(id, display: "id")` for the compact format.
+* Added separate options for icon position, displayed text, and which parts are linked.
+* Added `orcid-url` for the canonical URL and `orcid-icon` for the icon alone.
+* Accept ORCID URLs as input and validate the ISO 7064 check digit.

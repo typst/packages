@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" default-locale="en-US" version="1.0" demote-non-dropping-particle="never">
+  <!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
+  <info>
+    <title>Universidade de São Paulo - Instituto de Matemática e Estatística</title>
+    <title-short>USP-IME</title-short>
+    <id>http://www.zotero.org/styles/universidade-de-sao-paulo-instituto-de-matematica-e-estatistica</id>
+    <link href="http://www.zotero.org/styles/universidade-de-sao-paulo-instituto-de-matematica-e-estatistica" rel="self"/>
+    <link href="http://www.zotero.org/styles/ecology" rel="template"/>
+    <author>
+      <name>Igor Steinmacher</name>
+    </author>
+    <category citation-format="author-date"/>
+    <updated>2026-11-07T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+  <!-- Labels follow the document language: Typst picks the CSL locale from `set text(lang: ...)`
+       (a style locale block overrides the built-in term of the same language; any other language
+       falls back to its built-in terms). Terms overridden here:
+       "in"          ABNT keeps "In:" in Portuguese (the built-in pt term is "em");
+       "accessed"    "Accessed on:" / "Acesso em:" (the built-in pt term is "acedido");
+       "report"      label of a technical report, used by the report entries;
+       "thesis"      label of a thesis whose entry has no `type`/genre. -->
+  <locale xml:lang="en">
+    <terms>
+      <term name="in">in</term>
+      <term name="accessed">accessed on</term>
+      <term name="report">Technical report</term>
+      <term name="thesis">Thesis</term>
+    </terms>
+  </locale>
+  <locale xml:lang="pt">
+    <terms>
+      <term name="in">in</term>
+      <term name="available at">disponível em</term>
+      <term name="accessed">acesso em</term>
+      <term name="report">Relatório técnico</term>
+      <term name="thesis">Tese</term>
+    </terms>
+  </locale>
+  <macro name="author">
+    <names variable="author">
+      <name and="text" sort-separator=", " initialize="false" initialize-with=". " delimiter=", " delimiter-precedes-last="never"/>
+      <label form="short" prefix=" (" suffix=".)" text-case="capitalize-first" strip-periods="true"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" and="text" delimiter=", " initialize-with=". "/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <choose>
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+            <text variable="title" form="short" font-style="italic"/>
+          </if>
+          <else>
+            <text variable="title" form="short" quotes="true"/>
+          </else>
+        </choose>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-ea">
+    <names variable="author">
+      <name form="short" and="text" initialize-with=". "/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <choose>
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+            <text variable="title" form="short" font-style="italic"/>
+          </if>
+          <else>
+            <text variable="title" form="short" quotes="true"/>
+          </else>
+        </choose>
+      </substitute>
+    </names>
+  </macro>
+  <!-- Bibliography macros (ABNT NBR 6023-like layout). The citation macros above are unchanged. -->
+  <macro name="author-bib">
+    <names variable="author">
+      <name name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter="; " delimiter-precedes-last="always">
+        <name-part name="family" text-case="uppercase"/>
+      </name>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text variable="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="editor-bib">
+    <names variable="editor">
+      <name name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter="; " delimiter-precedes-last="always">
+        <name-part name="family" text-case="uppercase"/>
+      </name>
+      <label form="short" prefix=" (" suffix=")" strip-periods="false"/>
+    </names>
+  </macro>
+  <macro name="year-bib">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short" prefix="[" suffix="]"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="imprint">
+    <group delimiter=", ">
+      <group delimiter=": ">
+        <text variable="publisher-place"/>
+        <text variable="publisher"/>
+      </group>
+      <text macro="year-bib"/>
+    </group>
+  </macro>
+  <macro name="pages-bib">
+    <text variable="page" prefix="p. "/>
+  </macro>
+  <macro name="part-of-book">
+    <group delimiter=". ">
+      <text variable="title"/>
+      <group delimiter=" ">
+        <text term="in" text-case="capitalize-first" suffix=":"/>
+        <group delimiter=". ">
+          <text macro="editor-bib"/>
+          <text variable="container-title" font-style="italic"/>
+        </group>
+      </group>
+      <text macro="imprint"/>
+      <text macro="pages-bib"/>
+    </group>
+  </macro>
+  <macro name="access-bib">
+    <choose>
+      <if variable="DOI">
+        <text variable="DOI" prefix="DOI: "/>
+      </if>
+      <else-if variable="URL">
+        <group delimiter=". ">
+          <group delimiter=": ">
+            <text term="available at" text-case="capitalize-first"/>
+            <text variable="URL"/>
+          </group>
+          <group delimiter=": ">
+            <text term="accessed" text-case="capitalize-first"/>
+            <date variable="accessed">
+              <date-part name="day" suffix=" "/>
+              <date-part name="month" form="short" suffix=" "/>
+              <date-part name="year"/>
+            </date>
+          </group>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+  <macro name="issued-year">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="citation-locator">
+    <group delimiter=" ">
+      <label variable="locator" form="short"/>
+      <text variable="locator"/>
+    </group>
+  </macro>
+  <!-- No collapse="year": Typst's Hayagriva applies cite-group-delimiter to every join, not only
+       to the years of a collapsed author, so collapsing gives either "Ghosh and Basu 2013a; 2013b"
+       (works separated by ";" but the repeated author lost) or commas between unrelated works.
+       Without it each work keeps its author, as in plainnat without sort&compress. -->
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true">
+    <sort>
+      <key macro="author"/>
+      <key variable="issued"/>
+    </sort>
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text macro="author-short"/>
+          <text macro="issued-year"/>
+        </group>
+        <text macro="citation-locator"/>
+      </group>
+    </layout>
+  </citation>
+  <bibliography et-al-min="4" et-al-use-first="1" hanging-indent="false" entry-spacing="1" line-spacing="1">
+    <sort>
+      <key macro="author-bib" names-min="1" names-use-first="1"/>
+      <key variable="issued"/>
+    </sort>
+    <layout suffix=".">
+      <group delimiter=". ">
+        <text macro="author-bib"/>
+        <choose>
+          <if type="article-journal article-magazine article-newspaper" match="any">
+            <text variable="title"/>
+            <group delimiter=", ">
+              <text variable="container-title" font-style="italic"/>
+              <text variable="volume" prefix="v. "/>
+              <choose>
+                <if is-numeric="issue">
+                  <text variable="issue" prefix="n. "/>
+                </if>
+              </choose>
+              <text macro="pages-bib"/>
+              <text macro="year-bib"/>
+            </group>
+          </if>
+          <else-if type="chapter paper-conference" match="any">
+            <text macro="part-of-book"/>
+          </else-if>
+          <else-if type="thesis">
+            <text variable="title" font-style="italic"/>
+            <text macro="year-bib"/>
+            <group delimiter=", ">
+              <group delimiter=" – ">
+                <!-- Thesis label. CSL cannot compare a variable with a string, so the label is
+                     the entry's genre, as Typst fills it: BibLaTeX @phdthesis gives "Doctoral
+                     dissertation", @mastersthesis gives "Master's thesis" (always English), and
+                     a `type` field replaces it verbatim. For ABNT labels in Portuguese set
+                     `type = {Tese (Doutorado em ...)}` or `type = {Dissertação (Mestrado em ...)}`
+                     in the entry. Only an entry without genre (@thesis without `type`) falls
+                     back to the localized "thesis" term. -->
+                <choose>
+                  <if variable="genre">
+                    <text variable="genre"/>
+                  </if>
+                  <else>
+                    <text term="thesis" text-case="capitalize-first"/>
+                  </else>
+                </choose>
+                <choose>
+                  <!-- Hayagriva exposes BibLaTeX "school" as "authority". -->
+                  <if variable="publisher">
+                    <text variable="publisher"/>
+                  </if>
+                  <else>
+                    <text variable="authority"/>
+                  </else>
+                </choose>
+              </group>
+              <text variable="publisher-place"/>
+              <text macro="year-bib"/>
+            </group>
+          </else-if>
+          <else-if type="report">
+            <text variable="title" font-style="italic"/>
+            <text macro="imprint"/>
+            <group delimiter=" ">
+              <text term="report" text-case="capitalize-first"/>
+              <text variable="number"/>
+            </group>
+          </else-if>
+          <else-if type="book">
+            <text variable="title" font-style="italic"/>
+            <group delimiter=" ">
+              <text variable="edition" suffix="."/>
+              <text term="edition" form="short"/>
+            </group>
+            <text macro="imprint"/>
+          </else-if>
+          <else-if variable="container-title">
+            <!-- Hayagriva does not always type BibLaTeX @incollection as "chapter". -->
+            <text macro="part-of-book"/>
+          </else-if>
+          <else>
+            <text variable="title" font-style="italic"/>
+            <text macro="imprint"/>
+          </else>
+        </choose>
+        <text macro="access-bib"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>

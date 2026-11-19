@@ -1,0 +1,19 @@
+[package]
+name = "syndicate"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Basil Feitknecht <@bfeitknecht>"]
+license = "MIT"
+description = "Encode XML and generate Atom feeds, RSS feeds and sitemaps"
+repository = "https://github.com/bfeitknecht/syndicate"
+keywords = ["xml", "atom", "rss", "sitemap", "feed", "syndication", "blog"]
+categories = ["integration", "scripting", "utility"]
+compiler = "0.15.0"
+exclude = [
+  ".github",
+  "docs",
+  "tests",
+  ".typos.toml",
+  "CONTRIBUTING.md",
+  "Justfile",
+]
