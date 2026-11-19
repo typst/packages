@@ -1,0 +1,23 @@
+[package]
+name = "hpi-math-homework"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Philipp Knoch <@kn0kh>"]
+license = "MIT AND MIT-0"
+description = "Math homework assignments at the Hasso Plattner Institute."
+repository = "https://github.com/kn0kh/hpi-homework-template"
+keywords = [
+    "Hasso Plattner Institute",
+    "Hasso-Plattner-Institut",
+    "homework",
+    "Hausaufgabe",
+    "Potsdam",
+]
+categories = ["report"]
+compiler = "0.11.0"
+exclude = ["/template.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
