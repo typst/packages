@@ -33,9 +33,10 @@ packages meet a certain quality standard and work properly for everyone.
   file should be correct. Your package should not contain any copyrighted
   material for which you don't have distribution rights.
 
-- **Size:** Packages should not contain large files or a large number of files.
-  This will be judged on a case-by-case basis, but any exception should be
-  well-motivated. To keep the package small and fast to download, please
+- **Size:** There are two [limits][size] for the size of packages, and packages
+  should also not contain large files or a large number of files. This will be
+  judged on a case-by-case basis, but any exception should be well-motivated.
+  To keep the package small and fast to download, please
   `exclude` images for the README or PDF files with documentation from the
   bundle. For more detailed guidelines, please refer to [the "What to commit?
   What to exclude?"][exclusion] section.
@@ -96,5 +97,6 @@ submit a new version of your package.
 [documentation]: documentation.md
 [license]: licensing.md
 [naming rules]: manifest.md#naming-rules
+[size]: files.md#package-size
 [tips]: tips.md
 [universe]: https://typst.app/universe/
