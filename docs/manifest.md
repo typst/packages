@@ -4,7 +4,7 @@ A Typst package should contain a file named `typst.toml`. It is called the
 "package manifest" or "manifest" for short. This file contains metadata about
 the package, such as its name, version or the names of its authors.
 
-As suggested by the extension, manifest are written in [TOML].
+As suggested by the extension, manifests are written in [TOML].
 
 ## Package metadata
 
@@ -67,7 +67,7 @@ Optional:
   work.
 - `exclude`: An array of globs specifying files that should not be part of the
   published bundle that the compiler downloads when importing the package. These
-  files will still be available on typst universe to link to from the README.\
+  files will still be available on Typst Universe to link to from the README.\
   To be used for large support files like images or PDF documentation that would
   otherwise unnecessarily increase the bundle size. Don't exclude the README or
   the LICENSE, see [what to exclude]. Globs provided here have the same semantics
@@ -182,7 +182,7 @@ Required for submissions to this repository:
   can use the following command for that: `typst compile -f png --pages 1 --ppi
   250 main.typ thumbnail.png`. You are encouraged to use [oxipng] to reduce the
   thumbnail's file size. The thumbnail will automatically be excluded from the
-  package files and must not be referenced anywhere in the package.
+  bundle and must not be referenced anywhere in the package.
 
 Template packages must specify at least one category in `categories` (under the
 `[package]` section).
@@ -193,9 +193,9 @@ system. The recommended workflow for this is as follows:
 - Add a symlink from `$XDG_DATA_HOME/typst/packages/preview` to the `preview`
   folder of your fork of this repository (see the documentation on [local
   packages]).
-- Run `typst init @{namespace}/{name}:{version}`. Note that you must manually specify
-  the version as the package is not yet in the index, so the latest version
-  won't be detected automatically.
+- Run `typst init @{namespace}/{name}:{version}`. Note that you must manually
+  specify the version as the package is not yet in the index, so the latest
+  version won't be detected automatically.
 - Compile the freshly instantiated template.
 
 ## Third-party metadata
@@ -211,6 +211,73 @@ their Typst-specific configuration to the manifest.
 foo = "bar"
 ```
 
+## Package check
+
+[typst-package-check] may produce a number of diagnostic lints that are false
+positives. To make the package-check less noisy during development and review,
+these can be explicitly allowed. Diagnostics that can be allowed will be marked
+as `[overridable]`.
+
+Lints can be scoped to three different levels:
+
+- Project level: Global lints that typically only apply to a single item.
+- File level: Lints that apply to individual files as a whole.
+- Text level: Lints that apply to pieces of text in different files.
+
+All overrides are defined inside a `[tool.package-check.lints]` table in the
+`typst.toml` manifest. Here are examples with the three different categories of
+lints and what their selectors look like:
+
+### Project level selectors
+
+```toml
+[tool.package-check.lints]
+"manifest/package/description/typst" = "allow"
+```
+
+A project level lint can only be allowed or disallowed globally. The example
+above will allow the package description to contain the word Typst. Note that
+when submitting a package to Typst Universe, the description should still be in
+line with [our rules][description]. So in this case the package *should* be a
+meta package that deals directly with Typst or its ecosystem.
+
+### File selectors
+
+```toml
+[tool.package-check.lints]
+"size/large" = { allow-files = ["docs/gallery/*"] }
+```
+
+To override a file level lint, you can provide a list of globs that will allow
+the lint for all files that are matched. Matching of these globs works the same
+way as the `exclude` list.
+
+The selector above will allow all warnings for large individual files in the
+`docs/gallery` directory. Note that the [size limits][size] for the whole
+package still apply.
+
+### Text selectors
+
+```toml
+[tool.package-check.lints]
+"src/kebab-case" = { allow-matches = ["__private_.*"] }
+```
+
+To override text level lints, you can provide a list of regular expressions.
+The lint will be allowed for all diagnostics that are about a name/string that
+matches the regex. The regex must match the *whole* piece of text.
+
+In the example above all kebab-case warnings for identifiers that start with
+`__private_` will be allowed.
+
+### Unmatched selectors
+
+To keep this list of lints organized, there are warnings for lints that don't
+match any diagnostics. For the project level this just means if the
+corresponding diagnostic was emitted or not. For file and text selectors every
+pattern is also checked individually, so there will be a warning for each glob
+or regex that doesn't match any diagnostic.
+
 [TOML]: https://toml.io/
 [below]: #naming-rules
 [list]: https://typst.app/universe/search/
@@ -224,3 +291,5 @@ foo = "bar"
 [license]: licensing.md
 [description]: #writing-a-good-description
 [what to exclude]: tips.md#what-to-commit-what-to-exclude
+[size]: files.md#package-size
+[typst-package-check]: https://github.com/typst/package-check

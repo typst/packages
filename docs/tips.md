@@ -39,32 +39,35 @@ Git will replace the copied files with a submodule.
 
 ## What to commit? What to exclude?
 
-In some case, simply copying and pasting the contents of the repository in which
-you developed your package to a new directory in this repository is enough to
-publish a package. However, this naive approach may result in unnecessary files
-being included, making the size of this repository and of the final archives
-larger than they need to be.
+In some cases, simply copying and pasting the contents of the repository in
+which you developed your package to a new directory in this repository is
+enough to publish a package. However, this naive approach may result in
+unnecessary files being included, making the size of this repository and of the
+final [archives][archive] and [bundles][bundle] larger than they need to be.
 
-There are two solutions to limit this problem: excluding files from the archive
+There are two solutions to limit this problem: excluding files from the bundle
 (using the `exclude` key in your [package manifest][manifest]), or simply not
 committing the files to this repository in the first place.
 
 To know which strategy to apply to each file, we can split them in three groups:
 
 __1. Required files (commit & include)__\
-Files that are necessary for the package to work. If any of these files are
-removed, the package would break for the end user. This includes the manifest
-file, main Typst file as well as its dependencies, and in case of a template
-package, any file in the template directory. Also required are: the LICENSE,
-which should always be available alongside the source code, and the README,
-which is generally a lightweight file that can provide minimal offline
+Files that are necessary for the package to work ([bundle]). If any of these
+files are removed, the package would break for the end user. This includes the
+manifest file, main Typst file as well as its dependencies, and in case of a
+template package, any file in the template directory. Also required are: the
+LICENSE, which should always be available alongside the source code, and the
+README, which is generally a lightweight file that can provide minimal offline
 documentation.
 
 __2. Documentation files (commit & exclude)__\
 Files that are necessary for the package to be displayed correctly on Typst
 Universe. This includes all files that are linked from the README: manuals,
-examples, illustrations, etc. These files can easily be accessed by opening the
-package README.
+examples, illustrations, etc. They can easily be accessed by opening the
+package README. These and the required files make up the [archive].
+
+Note that the README itself and the thumbnail are exceptions and should not be
+excluded. The template thumbnail will be automatically left out of the [bundle].
 
 __3. Other files (don't commit)__\
 This generally includes test files, build scripts, but also examples or manuals
@@ -81,9 +84,6 @@ some of the remaining files are important, they probably belong to the second
 group and should be linked in the README, so that they are easily discoverable.
 A good example showing how to link examples and a manual is [CeTZ][cetz].
 
-Also note that there is no need to exclude template thumbnails: they are
-automatically left out of the archive.
-
 ## Tools that can be useful
 
 The community created some tools that can help when developing your package:
@@ -99,3 +99,5 @@ maintained by the community.
 [tytanic]: https://typst-community.github.io/tytanic/
 [tcdm-pkg]: https://ydx-2147483647.github.io/best-of-typst/#pkg
 [manifest]: manifest.md
+[bundle]: files.md#bundle
+[archive]: files.md#archive
