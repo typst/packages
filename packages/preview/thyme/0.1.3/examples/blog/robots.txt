@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://notes.example.org/sitemap.xml
