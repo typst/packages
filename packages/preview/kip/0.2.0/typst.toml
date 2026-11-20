@@ -10,15 +10,4 @@ keywords = ["diagram", "visualization", "graphics", "pikchr", "svg", "drawing"]
 categories = ["visualization"]
 disciplines = ["computer-science", "engineering"]
 compiler = "0.13.0"
-
-[tool.typst-package]
-# Exclude build artifacts, tests, and source files
-exclude = [
-  "build-scripts/pikchr.c",
-  "build-scripts/pikchr-src",
-  "build-scripts/*.wasm",
-  "build-scripts/*.o",
-  "test_*",
-  "example*.pdf",
-  "/gallery/*"
-]
+exclude = ["gallery"]
