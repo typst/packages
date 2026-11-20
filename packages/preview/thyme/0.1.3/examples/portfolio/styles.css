@@ -1,0 +1,48 @@
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(oklch(96% 0 0), oklch(17% 0 0));
+  --fg: light-dark(oklch(21% 0 0), oklch(95% 0 0));
+  --muted: light-dark(oklch(47% 0 0), oklch(70% 0 0));
+  --rule: light-dark(oklch(47% 0 0), oklch(70% 0 0));
+}
+
+* { box-sizing: border-box; }
+
+body {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  background: var(--bg);
+  color: var(--fg);
+  font: 1rem/1.65 "Helvetica Neue", system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.hero {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.4rem;
+}
+
+h1 { font-size: 1.85rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 2rem 0 0.75rem; }
+
+.meta-links {
+  display: flex;
+  gap: 1rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+}
