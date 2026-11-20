@@ -1,16 +1,16 @@
 /*
- * review-comments
+ * revisio
  *
  * Word-style review comments. `#comment[note][text]` attaches a note to a
  * passage. Comments are invisible by default; with
- * `#show: review-comments.with(enabled: true)` the passage is highlighted and
+ * `#show: revisio.with(enabled: true)` the passage is highlighted and
  * the note appears in an extra right-hand margin (the page is widened on the
  * right only, so text layout and page breaks stay the same).
  */
 
-#let _enabled = state("review-comments-enabled", false)
-#let _text-right = state("review-comments-text-right", 0cm)
-#let _show-resolved = state("review-comments-show-resolved", true)
+#let _enabled = state("revisio-enabled", false)
+#let _text-right = state("revisio-text-right", 0cm)
+#let _show-resolved = state("revisio-show-resolved", true)
 #let _counter = counter("review-comment")
 
 // Page widths (portrait) of the standard Typst paper sizes.
@@ -21,7 +21,7 @@
   "us-executive": 18.42cm, "us-tabloid": 27.94cm,
 )
 
-/// Document-level setup. Apply with `#show: review-comments.with(...)`.
+/// Document-level setup. Apply with `#show: revisio.with(...)`.
 ///
 /// - enabled (bool): show the comments (default `false`: they are hidden).
 /// - paper (str): paper size of the document, e.g. `"a4"` (default),
@@ -36,7 +36,7 @@
 ///   `enabled` is off.
 /// - fill, accent (color): highlight/card colour and the card's left border.
 /// - resolved-fill, resolved-accent (color): the same for resolved comments.
-#let review-comments(
+#let revisio(
   enabled: false,
   show-resolved: true,
   paper: "a4",
@@ -54,7 +54,7 @@
   _enabled.update(enabled)
   _text-right.update(paper-width - margin-right)
   _show-resolved.update(show-resolved)
-  state("review-comments-style").update((
+  state("revisio-style").update((
     margin-width: margin-width,
     fill: fill,
     accent: accent,
@@ -78,7 +78,7 @@
   let note = pos.at(0)
   let body = if pos.len() == 2 { pos.at(1) } else { none }
   context if _enabled.get() and (not resolved or _show-resolved.get()) {
-    let style = state("review-comments-style").get()
+    let style = state("revisio-style").get()
     let (fill, accent) = if resolved {
       (style.resolved-fill, style.resolved-accent)
     } else {
@@ -120,7 +120,7 @@
     box(width: 0pt, context {
       let pos = here().position()
       let h = measure(card).height
-      let earlier = query(selector(<review-comments-note>).before(here(), inclusive: false))
+      let earlier = query(selector(<revisio-note>).before(here(), inclusive: false))
       let bottom = none
       for m in earlier {
         let v = m.value
@@ -130,7 +130,7 @@
         }
       }
       let dy = if bottom == none { 0pt } else { calc.max(0pt, bottom + 3pt - pos.y) }
-      [#metadata((page: pos.page, y: pos.y, h: h)) <review-comments-note>]
+      [#metadata((page: pos.page, y: pos.y, h: h)) <revisio-note>]
       place(top + left, dx: _text-right.get() - pos.x + gap, dy: dy, card)
     })
   } else {

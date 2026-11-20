@@ -1,4 +1,4 @@
-# review-comments
+# revisio
 
 Word-style review comments for [Typst](https://typst.app). Attach a note to a
 passage of text; comments are **hidden by default** and can be switched on to
@@ -10,10 +10,10 @@ an extra right-hand margin.
 ## Quick start
 
 ```typ
-#import "@preview/review-comments:0.3.0": *
+#import "@preview/revisio:0.3.0": *
 
 // enabled: true shows the comments, false (default) hides them.
-#show: review-comments.with(enabled: true)
+#show: revisio.with(enabled: true)
 
 This sentence has a
 #comment(author: "Pedro Alves", date: "15 Nov 2026")[Please add citations.][claim that needs support]
@@ -42,14 +42,14 @@ Hidden comments take no space and do not use up a number, so the remaining
 ones stay numbered 1, 2, 3, ...
 
 ```typ
-#show: review-comments.with(enabled: true, show-resolved: false)
+#show: revisio.with(enabled: true, show-resolved: false)
 
 #comment(author: "Pedro Alves", resolved: true)[Citation added.][done]
 ```
 
 ## Setup options
 
-`review-comments` is applied with `#show: review-comments.with(...)`:
+`revisio` is applied with `#show: revisio.with(...)`:
 
 | Option          | Default   | Description                                                  |
 | --------------- | --------- | ------------------------------------------------------------ |
@@ -81,16 +81,16 @@ many comments on one page the stack may run past the bottom of the page.
 
 ## Using it with a template
 
-Apply `review-comments` **after** the template (and after any `#set page`
+Apply `revisio` **after** the template (and after any `#set page`
 rules): the later rule wins, so the widened page and margin are not
 overwritten.
 
 ```typ
 #import "@preview/some-template:1.0.0": *
-#import "@preview/review-comments:0.3.0": *
+#import "@preview/revisio:0.3.0": *
 
 #show: some-template.with(title: "My thesis")
-#show: review-comments.with(enabled: true, paper: "a4", margin-right: 3cm)
+#show: revisio.with(enabled: true, paper: "a4", margin-right: 3cm)
 ```
 
 Import the package in every chapter file where you use `#comment`.
