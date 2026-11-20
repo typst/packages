@@ -1,0 +1,29 @@
+[package]
+name = "heh-template"
+version = "1.0.0"
+description = "Unofficial HEH reports and presentations template"
+authors = ["Woomymy", "Hana"]
+license = "MIT"
+repository = "https://github.com/heh-dst-students/typst-template"
+keywords = ["heh", "report-template", "presentation-template", "haute-ecole-en-hainaut"]
+categories = ["presentation", "report"]
+disciplines = ["computer-science", "education", "engineering", "mathematics", "physics"]
+
+entrypoint = "lib.typ"
+compiler = "0.15.0"
+exclude = [
+    "*.pdf",
+    "manuel.typ",
+    "demo_presentation.typ",
+    "Justfile",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "STYLE.md",
+    ".gitignore",
+    ".github"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
