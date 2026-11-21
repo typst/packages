@@ -27,9 +27,9 @@ cd my-cv && typst compile main.typ
 
 ### 字体
 
-设计使用两款免费字体：[Inter](https://rsms.me/inter/) 和 [Noto Sans CJK SC](https://github.com/notofonts/noto-cjk)。Typst 包不能自带字体，所以仓库的 [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/main/fonts) 文件夹附带了模板需要的 5 个 Inter 文件。
+设计使用两款免费字体：[Inter](https://rsms.me/inter/) 和 [Noto Sans CJK SC](https://github.com/notofonts/noto-cjk)。Typst 包不能自带字体，所以仓库的 [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/v0.1.0/fonts) 文件夹附带了模板需要的 5 个 Inter 文件。
 
-- **网页版**：把 [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/main/fonts) 里的文件上传到项目即可，网页版已内置 Noto Sans CJK SC。
+- **网页版**：把 [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/v0.1.0/fonts) 里的文件上传到项目即可，网页版已内置 Noto Sans CJK SC。
 - **命令行**：安装这些字体，或者把它们放在 `fonts/` 文件夹里，编译时加 `--font-path fonts`。
 - **中文**：安装 Noto Sans CJK SC（Linux 可安装 `fonts-noto-cjk`）。没有 Inter 时，它自带的拉丁字形也能顶上。
 - **改用系统字体**：`theme: (font: "Helvetica Neue", cjk-font: "PingFang SC")`。
@@ -85,5 +85,5 @@ assets/gallery/build.sh            # 重新生成 assets/images 中所有插件�
 
 - `template/`（`typst init` 复制到你项目里的文件）采用 [MIT-0](https://spdx.org/licenses/MIT-0.html)，用它写出的简历无需署名。
 - `icons/` 基于 [Lucide](https://lucide.dev)，采用 ISC 许可（`orcid.svg` 除外），见 `icons/LICENSE`。
-- [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/main/fonts) 中的 Inter 采用 SIL Open Font License 1.1（见 `fonts/OFL.txt`），不属于 Typst 包的一部分。
+- [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/v0.1.0/fonts) 中的 Inter 采用 SIL Open Font License 1.1（见 `fonts/OFL.txt`），不属于 Typst 包的一部分。
 - 其余文件采用 MIT 许可，见 `LICENSE`。

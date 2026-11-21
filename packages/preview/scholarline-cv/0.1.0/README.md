@@ -27,9 +27,9 @@ cd my-cv && typst compile main.typ
 
 ### Fonts
 
-The design uses two free fonts: [Inter](https://rsms.me/inter/) and [Noto Sans CJK SC](https://github.com/notofonts/noto-cjk). Typst packages cannot ship fonts, so the repository's [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/main/fonts) folder includes the five Inter files the template needs.
+The design uses two free fonts: [Inter](https://rsms.me/inter/) and [Noto Sans CJK SC](https://github.com/notofonts/noto-cjk). Typst packages cannot ship fonts, so the repository's [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/v0.1.0/fonts) folder includes the five Inter files the template needs.
 
-- **Web app:** upload the files from [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/main/fonts) to your project. Noto Sans CJK SC is already built in.
+- **Web app:** upload the files from [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/v0.1.0/fonts) to your project. Noto Sans CJK SC is already built in.
 - **Command line:** install the fonts, or keep them in a `fonts/` folder and compile with `--font-path fonts`.
 - **Chinese:** install Noto Sans CJK SC (for example `fonts-noto-cjk` on Linux). Its Latin glyphs also stand in if Inter is missing.
 - **System fonts instead:** `theme: (font: "Helvetica Neue", cjk-font: "PingFang SC")`.
@@ -78,5 +78,5 @@ assets/gallery/build.sh            # re-render assets/images for every plugin co
 
 - `template/` (the files `typst init` copies into your project) is licensed under [MIT-0](https://spdx.org/licenses/MIT-0.html), so your CV needs no attribution.
 - `icons/` is derived from [Lucide](https://lucide.dev) and licensed under ISC, except `orcid.svg`; see `icons/LICENSE`.
-- [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/main/fonts) contains Inter, licensed under the SIL Open Font License 1.1 (`fonts/OFL.txt`). It is not part of the Typst package.
+- [`fonts/`](https://github.com/KevinHuge/scholarline-cv/tree/v0.1.0/fonts) contains Inter, licensed under the SIL Open Font License 1.1 (`fonts/OFL.txt`). It is not part of the Typst package.
 - Everything else is licensed under MIT; see `LICENSE`.
