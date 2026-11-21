@@ -1,0 +1,16 @@
+[package]
+name = "spbu-theses"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Plotnikov Daniil <@Pepengu>"]
+license = "MIT"
+description = "Research report (НИР) and thesis at Saint Petersburg State University, formatted per GOST 7.32-2017."
+repository = "https://github.com/Pepengu/spbu-theses"
+keywords = ["SPbU", "СПбГУ", "Санкт-Петербургский государственный университет", "НИР", "GOST", "ГОСТ", "thesis", "report"]
+categories = ["report"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
