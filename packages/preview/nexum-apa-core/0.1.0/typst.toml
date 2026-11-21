@@ -1,0 +1,11 @@
+[package]
+name = "nexum-apa-core"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Jorge Devia <@workwithdevia>"]
+license = "MIT"
+repository = "https://github.com/workwithdevia/docs-apa-workbench"
+description = "Compose reusable APA document components and layout rules."
+compiler = "0.15.0"
+keywords = ["apa", "academic", "figures", "tables", "bibliography"]
+categories = ["components", "layout", "model"]
