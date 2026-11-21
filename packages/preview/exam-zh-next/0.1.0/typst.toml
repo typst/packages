@@ -1,0 +1,18 @@
+[package]
+name = "exam-zh-next"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Youwei Zhuo <@youweizhuo>"]
+license = "MIT AND MIT-0"
+description = "Chinese exam papers with student and teacher versions."
+repository = "https://github.com/pku-lemonade/exam-zh-next"
+keywords = ["exam", "test paper", "chinese", "试卷", "考试", "exam-zh", "answer key"]
+categories = ["office", "components", "layout"]
+disciplines = ["education"]
+compiler = "0.15.0"
+exclude = ["/docs", "/ROADMAP.md", "/README.en.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

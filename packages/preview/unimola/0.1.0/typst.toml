@@ -1,0 +1,19 @@
+[package]
+name = "unimola"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["RepolloDev <https://github.com/RepolloDev>"]
+license = "MIT"
+compiler = "0.14.0"
+repository = "https://github.com/RepolloDev/unimola"
+description = "Render PlantUML diagrams natively as SVG."
+categories = ["visualization", "integration"]
+keywords = ["diagram", "uml", "plantuml", "svg", "c4"]
+exclude = [
+  "/draft/**",
+  "/plugin/**",
+  "/example/**",
+  "/tests/**",
+  "/.github/**",
+  "/gallery/**",
+]

@@ -1,0 +1,28 @@
+UIU CSE Final Year Design Project Report — Typst adaptation of the UIU CSE FYDP template
+
+Original work: United International University FYDP Template - Department of CSE
+Original author: Swakkhar Shatabda
+Source: https://www.overleaf.com/latex/templates/united-international-university-fydp-template-department-of-cse/xbkpdgkgjdhc
+Original license: Creative Commons Attribution 4.0 International (CC BY 4.0),
+as stated on the Overleaf template listing (verified 16 November 2026).
+No original copyright year was supplied; none is asserted here.
+
+Typst adaptation: Shaad Ahmmed, 2026.
+Changes: translated LaTeX structure to Typst; added configurable title and front
+matter, automated numbering and outlines, reusable styling, rewritten guidance,
+an original example context diagram, local tooling, documentation, and packaging.
+The adapted template and new contributions are licensed under CC BY 4.0.
+Full license: LICENSE, or https://creativecommons.org/licenses/by/4.0/legalcode
+
+This is a community adaptation. It does not claim endorsement by United
+International University, Swakkhar Shatabda, Overleaf, or Typst.
+
+No university logo is distributed with the template or its thumbnail. An optional
+logo can be supplied locally; no separate redistribution policy has been
+established for the original supplied logo. University names, logos, and marks
+are not licensed as trademarks by this project.
+
+The original LaTeX sources, auxiliary files, and reference PDF have been removed
+after conversion. The conversion followed the supplied .tex structure rather
+than the older reference PDF. IEEE numeric references replace LaTeX's unsrt
+formatting; line and page breaks are not intended to match exactly.

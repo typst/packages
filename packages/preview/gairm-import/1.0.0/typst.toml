@@ -1,0 +1,15 @@
+[package]
+name = "gairm-import"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Shane Murphy <@smur89>"]
+license = "MIT"
+description = "Validate JSON against a JSON Schema or a schema you build, and get typed values."
+repository = "https://github.com/smur89/gairm-import"
+keywords = ["json", "json-schema", "schema", "validation", "json-pointer"]
+categories = ["utility", "integration"]
+compiler = "0.15.0"
+# In the typst/packages submission, so the README's links to them work
+# on Universe, but left out of the bundle users download: the package
+# never reads them.
+exclude = ["/CONTRIBUTING.md", "/REFERENCE.md"]

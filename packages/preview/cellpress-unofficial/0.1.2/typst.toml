@@ -1,0 +1,16 @@
+[package]
+name = "cellpress-unofficial"
+version = "0.1.2"
+entrypoint = "src/lib.typ"
+authors = ["Robin Eklind"]
+license = "0BSD"
+description = "Unofficial Cell Press template."
+repository = "https://github.com/mewmew/cellpress-unofficial"
+categories = ["paper"]
+disciplines = ["biology", "chemistry", "medicine"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "inc/thumbnail.png"

@@ -1,0 +1,11 @@
+[package]
+name = "kalt"
+version = "0.1.2"
+entrypoint = "lib.typ"
+authors = ["Uhrendoktor <docclock85@gmail.com>"]
+license = "MIT"
+description = "Calculate arithmetic, complex numbers, vectors, and matrices with native syntax."
+repository = "https://github.com/Uhrendoktor/kalt"
+keywords = ["math", "calculator", "complex-numbers", "vectors", "matrices"]
+categories = ["utility", "scripting"]
+exclude = ["tests/", "assets/", "docs/"]

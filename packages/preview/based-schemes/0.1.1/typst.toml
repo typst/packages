@@ -1,0 +1,9 @@
+[package]
+name = "based-schemes"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = [ "Madeline Hashcube" ]
+categories = [ "fun" ]
+exclude = [ ]
+license = "MIT"
+description = "Use Base16/Base24 schemes with ease"

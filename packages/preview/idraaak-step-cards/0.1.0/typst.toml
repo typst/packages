@@ -1,0 +1,17 @@
+[package]
+name = "idraaak-step-cards"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Idraaak <https://idraaak.com/>"]
+license = "MIT-0"
+description = "Illustrated instruction cards in Arabic or English."
+repository = "https://github.com/nedal-dev/idraaak-step-cards"
+keywords = ["instructions", "screenshots", "Arabic", "RTL", "handout"]
+categories = ["office", "layout"]
+compiler = "0.14.2"
+exclude = ["tests/", "validation/", ".github/", "VALIDATION.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.webp"

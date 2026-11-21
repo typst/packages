@@ -29,7 +29,7 @@ The following fields are required by the compiler:
 - `version`: The package's version as a full major-minor-patch triple.
   Package versioning should follow [SemVer].
 - `entrypoint`: The path to the main Typst file that is evaluated when the
-  package is imported.
+  package is imported (should be a relative path).
 
 If you plan to use your package only on your machine or to distribute
 it by your own means, you don't have to include more than these three fields.
@@ -167,10 +167,10 @@ thumbnail = "thumbnail.png"
 Required by the compiler:
 
 - `path`: The directory within the package that contains the files that should
-  be copied into the user's new project directory.
+  be copied into the user's new project directory (should be a relative path).
 - `entrypoint`: A path _relative to the template's path_ that points to the file
-  serving as the compilation target. This file will become the previewed file in
-  the Typst web application.
+  serving as the compilation target (should be a relative path). This file will
+  become the previewed file in the Typst web application.
 
 Required for submissions to this repository:
 

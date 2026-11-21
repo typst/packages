@@ -1,0 +1,13 @@
+[package]
+name = "sapling"
+version = "0.1.0"
+compiler = "0.15.0"
+entrypoint = "src/lib.typ"
+authors = ["revo2123 <https://github.com/revo2123>"]
+license = "MIT"
+description = "Draw binary trees, AVL trees, heaps, treaps and B-trees."
+repository = "https://github.com/revo2123/sapling"
+keywords = ["tree", "binary tree", "bst", "avl", "heap", "treap", "b-tree", "algorithms", "data structures", "node"]
+categories = ["visualization", "components"]
+disciplines = ["computer-science"]
+exclude = ["docs/", "SPECIFICATION.md"]

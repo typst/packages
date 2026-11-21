@@ -1,0 +1,39 @@
+
+[package]
+name = "upsa-thesis"
+version = "0.1.0"
+compiler = "0.15.0"
+repository = "https://github.com/FAI-UPSA/thesis-template"
+entrypoint = "lib.typ"
+authors = ["Jassiel Ovando <@jassielof>"]
+license = "Apache-2.0"
+description = "Documentos de grado de la UPSA, Bolivia."
+keywords = [
+  "UPSA",
+  "Universidad Privada de Santa Cruz de la Sierra",
+  "Bolivia",
+  "tesis",
+  "trabajos de grado",
+  "tfg",
+  "documentos de grado",
+]
+categories = ["thesis"]
+disciplines = ["computer-science", "engineering", "business", "psychology", "communication"]
+exclude = [
+  ".github",
+  ".vscode",
+  "assets/fonts",
+  ".git*",
+  "documents/*.pdf",
+  "documents/*.svg",
+  "documents/feasibility/",
+  "documents/book/",
+  "NOTICE*",
+  ".task/",
+  "Taskfile.yaml",
+]
+
+[template]
+path = "documents"
+entrypoint = "thesis.typ"
+thumbnail = "thumbnail.png"

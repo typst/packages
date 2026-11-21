@@ -1,0 +1,36 @@
+# 地狱之下模板 / UnderHell Template —— Typst 包与脚手架
+# 见 https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "underhell"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Colin Jacobs", "跨越晨昏"]
+license = "MIT"
+description = "用于创建架空世界内容的文档模板,包括冒险、属性方块、法术卡、世界设定文档。A template for building worldbuilding content: adventures, stat blocks, spell cards, and setting documents."
+repository = "https://github.com/kych-net/UHTemp"
+keywords = ["roleplaying", "rpg", "template", "gaming", "worldbuilding", "fiction"]
+categories = ["layout", "report"]
+compiler = "0.15.0"
+# 包入口在 src/ 下,故 web.css / languages / img 也随之置于 src/(lib.typ 以相对自身
+# 目录的路径读取它们)。开发脚手架(CI、脚本、测试、文档、技能)不进包。
+# 前缀 / 锚定包根,只匹配本仓库自己的这些目录与文件。
+exclude = [
+  "/.github",
+  "/.skills",
+  "/.typstignore",
+  "/Justfile",
+  "/scripts",
+  "/tests",
+  "/docs",
+  "/CHANGELOG.md",
+  "/thumbnail-dark.svg",
+  "/thumbnail-light.svg",
+]
+
+# 模板脚手架:typst init @preview/underhell 会把 template/ 整份复制成新项目。
+# template/ 必须进包,故不在 exclude 内;thumbnail.png 由 Universe 打包时自动排除。
+[template]
+path = "template"
+entrypoint = "内容/index.typ"
+thumbnail = "thumbnail.png"

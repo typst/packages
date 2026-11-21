@@ -1,0 +1,18 @@
+[package]
+name = "ling-handout"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Turner Jordan"]
+license = "MIT-0"
+description = "Linguistics handouts with continuously numbered examples."
+compiler = "0.15.0"
+categories = ["report"]
+disciplines = ["linguistics"]
+keywords = ["handout", "linguistics", "examples"]
+repository = "https://github.com/tgj5/ling-handout"
+exclude = ["DEVELOPMENT.md", ".gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,9 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <title>Layer 1</title>
+  </g>
+  <text x="34.56" y="49.62" fill="#000000" font-family="sans-serif" font-size="20" data-tb-w="160.77" data-tb-h="79.69" data-tb-text="Placeholder logo" text-anchor="middle" transform="translate(44.8 -124.32) rotate(43.83) scale(1.675) skewX(1.22)">
+    <tspan x="114.95" y="69.62" transform="translate(-59.04 30.46)">Placeholder</tspan>
+    <tspan x="114.95" y="93.62">logo</tspan>
+  </text>
+</svg>

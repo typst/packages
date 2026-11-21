@@ -1,0 +1,6 @@
+# official source sheets: download from https://designguide.ku.dk/
+tools/sources/
+*.pdf
+!examples/*.pdf
+!template/main.pdf
+__pycache__/

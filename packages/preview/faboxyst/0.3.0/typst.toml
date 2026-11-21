@@ -1,0 +1,28 @@
+[package]
+name = "faboxyst"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Draw RTL-aware boxes, paper components, frames, and covers."
+repository = "https://github.com/fergousA/faboxyst"
+compiler = "0.15.1"
+categories = ["components", "layout"]
+disciplines = ["education", "computer-science", "mathematics"]
+keywords = [
+  "tcolorbox", "boxes", "frames", "callout", "rtl", "arabic", "fabox",
+  "ornate", "zellij", "ornaments", "flag", "meter", "pictogram", "wood",
+  "sign", "plank", "torn", "paper", "note", "antique", "vintage",
+  "engraving", "nib", "plate", "patent", "garamond", "print", "cover",
+  "theme", "sticky-note", "folded-banner", "abstract-textbox", "alternating-line-block-process",
+  "banners-with-circles", "calendar-list", "capsule-text-boxes", "cards-with-corner-sleeve",
+  "connected-cards-process", "cornered-cards", "cube-block-list", "double-duo-neumorphic", "three-step-highlight-cards", "hand-drawn-speech-bubbles", "four-feature-icon-cards", "six-step-numbered-card-list", "concentric-tier-cards", "l-shaped-header-box", "text-box-tags", "frame-accent-block", "tabbed-folder-box", "perspective-text-box", "peak-header-box", "pocket-card-box", "folder-step-box", "folder-text-block", "folder-text-blocks", "folder-text-box", "folder-text-boxes", "folder-step-trio", "pocket-card", "peak-header", "perspective", "folder-tab", "notched-tag", "tags", "hierarchy", "feature-cards", "numbered-list", "powerpoint", "ribbon", "slide", "textbox",
+]
+exclude = [
+  "/docs/build",
+  "**/*.pdf",
+  "/FB_IMG_*",
+  "/showcase/gen.py",
+  "/thumbnail.typ",
+  "/tests/**",
+]
