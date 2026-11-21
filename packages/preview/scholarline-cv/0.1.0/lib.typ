@@ -90,7 +90,7 @@
 
 /// Muted metadata text (dates, roles, authors). `none` stays `none`.
 #let entry-meta(body) = if body != none {
-  context text(size: cv-theme().size * 0.94, fill: cv-theme().muted, number-width: "tabular", body)
+  context text(size: cv-theme().size * 0.94, fill: cv-theme().muted, body)
 }
 
 /// Joins the non-`none` parts with " · "; returns `none` when nothing is left.
@@ -138,7 +138,9 @@
   let t = cv-theme()
   let s = t.spacing
   let lines = lines.filter(x => x != none)
-  let aside = aside.filter(x => x != none).map(entry-meta)
+  // Tabular figures line up dates in the right column. They stay out of other muted text:
+  // in Inter they also widen hyphens, which would split names such as "Wen-Jie".
+  let aside = aside.filter(x => x != none).map(x => entry-meta(text(number-width: "tabular", x)))
   let single = lines.len() <= 1 and aside.len() <= 1 and body == none
   let gap = if single { 6pt * s } else { 10pt * s }
   let cells = ()
