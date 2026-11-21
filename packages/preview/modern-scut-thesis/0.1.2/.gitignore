@@ -1,0 +1,8 @@
+/local/
+
+/out/
+*.pdf
+
+.typst/
+
+.agents/
