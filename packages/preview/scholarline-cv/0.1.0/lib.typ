@@ -141,8 +141,10 @@
   // Tabular figures line up dates in the right column. They stay out of other muted text:
   // in Inter they also widen hyphens, which would split names such as "Wen-Jie".
   let aside = aside.filter(x => x != none).map(x => entry-meta(text(number-width: "tabular", x)))
+  // Gaps grow with what an entry holds: single lines sit tight, and entries with a
+  // description sit clearly further apart than their own list items.
   let single = lines.len() <= 1 and aside.len() <= 1 and body == none
-  let gap = if single { 6pt * s } else { 10pt * s }
+  let gap = if single { 6pt * s } else if body == none { 10pt * s } else { 14pt * s }
   let cells = ()
   for i in range(calc.max(lines.len(), aside.len())) {
     cells.push(lines.at(i, default: []))
