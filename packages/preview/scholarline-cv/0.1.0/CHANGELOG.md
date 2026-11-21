@@ -12,6 +12,7 @@
 - Redrawn Lucide-style icon set (including GitHub and ORCID), tinted by the theme and centred on the text line
 - Chinese and bilingual support via `lang: "zh"`; short default font lists (Inter + Noto Sans CJK SC) so compiles stay free of missing-font warnings
 - Components for education (with `details`), experience (role · advisor), publications (with `venue`), projects, awards, and skills
+- Inter (OFL-1.1) bundled in the repository's `fonts/` folder for the web app and `--font-path`; excluded from the package
 - Compile-based tests and a CI workflow that installs fonts and uploads PDF previews and a plugin gallery
 - Plugin guide in English and Chinese (`docs/PLUGINS.md`) with rendered images of every built-in plugin combination
 - Anonymous English, Chinese, and plugin examples

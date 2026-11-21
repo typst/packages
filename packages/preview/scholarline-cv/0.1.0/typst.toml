@@ -9,7 +9,7 @@ keywords = ["cv", "resume", "academic", "publications", "research", "minimal", "
 categories = ["cv"]
 compiler = "0.13.0"
 repository = "https://github.com/KevinHuge/scholarline-cv"
-exclude = ["/tests", "/docs", "/assets", "/examples", "/main.typ", "/CONTRIBUTING.md", "/.github"]
+exclude = ["/tests", "/docs", "/assets", "/fonts", "/examples", "/main.typ", "/CONTRIBUTING.md", "/.github"]
 
 [template]
 path = "template"

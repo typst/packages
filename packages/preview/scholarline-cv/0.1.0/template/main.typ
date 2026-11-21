@@ -1,6 +1,7 @@
 // Anonymous sample CV. Replace every placeholder with your own information.
-// Fonts: for the intended look, add Inter (https://rsms.me/inter/) to your project or system,
-// including InterDisplay-Bold.ttf for the name. Without it, Noto Sans CJK SC is used.
+// Fonts: for the intended look, add Inter to your project or system, including InterDisplay-Bold.ttf
+// for the name: https://github.com/KevinHuge/scholarline-cv/tree/main/fonts
+// Without it, Noto Sans CJK SC is used.
 #import "@preview/scholarline-cv:0.1.0": *
 
 #show: cv.with(
