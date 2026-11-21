@@ -1,0 +1,17 @@
+[package]
+name = "scholarline-cv"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["KevinHuge <@KevinHuge>"]
+license = "MIT AND MIT-0 AND ISC"
+description = "Minimal, monochrome academic CV with plugins."
+keywords = ["cv", "resume", "academic", "publications", "research", "minimal", "chinese"]
+categories = ["cv"]
+compiler = "0.13.0"
+repository = "https://github.com/KevinHuge/scholarline-cv"
+exclude = ["/tests", "/docs", "/assets", "/fonts", "/examples", "/CONTRIBUTING.md", "/.github"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
