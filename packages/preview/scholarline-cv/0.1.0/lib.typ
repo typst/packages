@@ -180,9 +180,18 @@
 #let default-header(name, subtitle, contacts) = context {
   let t = cv-theme()
   let s = t.spacing
-  let rows = (text(font: t.display-font + t.font + t.cjk-font, size: t.size * 2.4, weight: "bold", tracking: -0.02em, name),)
+  // The name's box includes descenders, so "y" or "g" never crowd the subtitle and the
+  // gap below the name is the same whatever letters it contains.
+  let rows = (text(
+    font: t.display-font + t.font + t.cjk-font,
+    size: t.size * 2.4,
+    weight: "bold",
+    tracking: -0.02em,
+    bottom-edge: "descender",
+    name,
+  ),)
   if subtitle != none {
-    rows += (6pt * s, text(fill: t.muted, subtitle))
+    rows += (4pt * s, text(fill: t.muted, subtitle))
   }
   if contacts.len() > 0 {
     // Icons already lead each item, so plain space separates them instead of `·`.
