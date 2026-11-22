@@ -22,7 +22,7 @@
   entendi: none,
   duvidas: none,
   conexoes: none,
-  proxima_revisao: none,
+  proxima-revisao: none,
 ) = context {
   let s = settings.get()
   block(
@@ -37,6 +37,6 @@
     #campo-reflexao("O que entendi e consigo explicar sem consultar?", entendi, "Escreva a ideia principal com suas próprias palavras.")
     #campo-reflexao("O que ainda ficou confuso?", duvidas, "Anote conceitos, etapas ou exceções que precisa esclarecer.")
     #campo-reflexao("Com que outro assunto ou situação isso se conecta?", conexoes, "Registre relações com outras matérias, questões ou exemplos práticos.")
-    #campo-reflexao("Qual será meu próximo passo de revisão?", proxima_revisao, "Defina uma ação concreta: resolver questões, reler um artigo ou revisar um ponto.")
+    #campo-reflexao("Qual será meu próximo passo de revisão?", proxima-revisao, "Defina uma ação concreta: resolver questões, reler um artigo ou revisar um ponto.")
   ]
 }

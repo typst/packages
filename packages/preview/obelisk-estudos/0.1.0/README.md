@@ -40,13 +40,13 @@ Importe a versão completa do pacote no seu arquivo Typst:
   entendi: [Escreva a ideia principal com suas próprias palavras.],
   duvidas: [Anote o que ainda ficou confuso.],
   conexoes: [Relacione o assunto a outras matérias ou exemplos.],
-  proxima_revisao: [Defina uma próxima ação de estudo.],
+  proxima-revisao: [Defina uma próxima ação de estudo.],
 )
 ```
 
 ## Componentes
 
-`init` configura o layout. `capa` cria uma página de abertura com título, subtítulo, concurso, órgão, estudante e ano. `blank-page`, `sidenote` e `v-step` oferecem recursos de layout. `reflexao` destaca quatro registros pós-estudo: `entendi`, `duvidas`, `conexoes` e `proxima_revisao`. Cada resposta é conteúdo Typst escrito entre colchetes; não são campos de formulário interativos no PDF.
+`init` configura o layout. `capa` cria uma página de abertura com título, subtítulo, concurso, órgão, estudante e ano. `blank-page`, `sidenote` e `v-step` oferecem recursos de layout. `reflexao` destaca quatro registros pós-estudo: `entendi`, `duvidas`, `conexoes` e `proxima-revisao`. Cada resposta é conteúdo Typst escrito entre colchetes; não são campos de formulário interativos no PDF.
 
 Para anotações gerais, use `conceito`, `norma`, `jurisprudencia`, `questao`, `caso_pratico` e `dica`. Cada ambiente aceita `[conteúdo]` ou `[título][conteúdo]`. Para matérias quantitativas, continuam disponíveis `theorem`, `proposition`, `corollary`, `lemma`, `definition`, `example`, `remark` e `proof`, além dos nomes em português `teorema`, `proposicao`, `corolario`, `lema`, `definicao`, `exemplo`, `observacao` e `prova`.
 

@@ -29,7 +29,7 @@
   entendi: [O acesso à informação é um direito fundamental, mas admite hipóteses legais de sigilo.],
   duvidas: [Quero revisar como esse direito se articula com a Lei de Acesso à Informação.],
   conexoes: [Relacionar o tema a transparência pública e controle da administração.],
-  proxima_revisao: [Resolver questões sobre o art. 5º, XXXIII, e revisar os erros.],
+  proxima-revisao: [Resolver questões sobre o art. 5º, XXXIII, e revisar os erros.],
 )
 
 = Administração Pública
