@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Calque_1"
+   data-name="Calque 1"
+   viewBox="0 0 168.91 144.19999"
+   version="1.1"
+   sodipodi:docname="rocq.svg"
+   width="168.91"
+   height="144.2"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.80642942"
+     inkscape:cx="295.12812"
+     inkscape:cy="142.60392"
+     inkscape:window-width="1512"
+     inkscape:window-height="781"
+     inkscape:window-x="110"
+     inkscape:window-y="69"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g5" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .cls-1 {
+        fill: #260085;
+      }
+
+      .cls-2 {
+        fill: #ff540a;
+      }
+    </style>
+  </defs>
+  <path
+     class="cls-1"
+     d="m 144.5,95.79 c -7.21,-5.22 -15.35,-7.83 -24.41,-7.83 -11.54,0 -22.11,4.81 -31.72,14.42 L 46.55,144.2 C 35.84,137.06 27.32,127.72 21.01,116.19 14.69,104.65 11.53,92.23 11.53,78.9 c 0,-9.06 1.65,-18.19 4.94,-27.4 H 76.41 V 42.85 H 14.42 C 10.57,37.49 7.48,31.73 5.15,25.55 H 76.42 V 16.9 H 2.47 C 1.1,11.54 0.27,5.91 0,0 l 90.22,0.21 c 14.28,0 27.43,3.54 39.45,10.61 12.01,7.07 21.56,16.62 28.63,28.63 7.07,12.02 10.61,25.17 10.61,39.45 0,13.32 -3.09,25.75 -9.27,37.29 -2.88,-8.38 -7.93,-15.17 -15.14,-20.39 z m -8.44,-36.57 c 1.71,-1.72 2.57,-3.81 2.57,-6.28 0,-2.47 -0.86,-4.56 -2.57,-6.28 -1.72,-1.72 -3.81,-2.58 -6.28,-2.58 -2.47,0 -4.57,0.86 -6.28,2.58 -1.72,1.72 -2.58,3.81 -2.58,6.28 0,2.47 0.86,4.57 2.58,6.28 1.71,1.72 3.81,2.58 6.28,2.58 2.47,0 4.56,-0.86 6.28,-2.58 z"
+     id="path1" />
+  <g
+     id="g5"
+     transform="translate(0,-2.06)" />
+</svg>

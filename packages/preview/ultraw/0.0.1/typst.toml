@@ -1,0 +1,13 @@
+[package]
+name = "ultraw"
+version = "0.0.1"
+compiler = "0.15.0"
+entrypoint = "export/main.typ"
+authors = ["Jules Viennot Franca"]
+license = "MIT"
+description = "Customizable code blocks, diffs and pseudo code."
+repository = "https://github.com/JulesViennotFranca/ultraw"
+keywords = ["raw", "code", "diff", "pseudocode"]
+categories = ["components", "visualization", "scripting"]
+disciplines = ["computer-science"]
+exclude = ["assets"]

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="#777bb4"
+   role="img"
+   viewBox="0 0 24 12.625"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="php.svg"
+   width="24"
+   height="12.625"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.2083333"
+     inkscape:cx="12.226415"
+     inkscape:cy="5.8867925"
+     inkscape:window-width="1368"
+     inkscape:window-height="723"
+     inkscape:window-x="282"
+     inkscape:window-y="140"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">PHP</title>
+  <path
+     d="M 7.01,4.519 H 6.066 L 5.551,7.167 h 0.838 c 0.556,0 0.97,-0.105 1.242,-0.314 C 7.903,6.643 8.086,6.294 8.181,5.804 8.273,5.334 8.231,5.002 8.057,4.809 7.882,4.616 7.534,4.519 7.01,4.519 Z M 12,0 C 5.373,0 0,2.826 0,6.312 c 0,3.486 5.373,6.313 12,6.313 6.627,0 12,-2.827 12,-6.313 C 24,2.826 18.627,0 12,0 Z M 8.74,7.451 C 8.479,7.701 8.165,7.889 7.823,8.002 7.487,8.11 7.058,8.166 6.538,8.166 H 5.357 L 5.03,9.847 H 3.652 l 1.23,-6.326 h 2.65 c 0.797,0 1.378,0.209 1.744,0.628 0.366,0.418 0.476,1.002 0.33,1.752 A 2.836,2.836 0 0 1 9.301,6.748 C 9.158,7.003 8.971,7.238 8.74,7.451 Z m 4.024,0.715 0.543,-2.799 C 13.37,5.049 13.346,4.831 13.239,4.716 13.132,4.6 12.903,4.542 12.552,4.542 H 11.46 L 10.756,8.167 H 9.388 l 1.23,-6.327 h 1.367 l -0.327,1.682 h 1.218 c 0.767,0 1.295,0.134 1.586,0.401 0.291,0.267 0.378,0.7 0.263,1.299 l -0.572,2.944 z m 7.597,-2.265 a 2.782,2.782 0 0 1 -0.305,0.847 c -0.143,0.255 -0.33,0.49 -0.561,0.703 A 2.44,2.44 0 0 1 18.578,8.002 C 18.242,8.11 17.813,8.166 17.292,8.166 h -1.18 l -0.327,1.682 h -1.378 l 1.23,-6.326 h 2.649 c 0.797,0 1.378,0.209 1.744,0.628 0.366,0.417 0.477,1.001 0.331,1.751 z M 17.766,4.519 h -0.943 l -0.516,2.648 h 0.838 c 0.557,0 0.971,-0.105 1.242,-0.314 0.272,-0.21 0.455,-0.559 0.551,-1.049 0.092,-0.47 0.049,-0.802 -0.125,-0.995 -0.174,-0.193 -0.524,-0.29 -1.047,-0.29 z"
+     id="path1" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>PHP</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
