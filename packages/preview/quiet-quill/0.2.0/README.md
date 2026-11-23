@@ -10,7 +10,7 @@ format and submission requirements.
 
 ## Start a document
 
-Requires **Typst 0.15.1 or newer**; this candidate was tested with 0.15.1.
+Requires **Typst 0.15.0 or newer**; tested with 0.15.0 and 0.15.1.
 The proposed package version is **0.2.0**. Before it is accepted into the preview
 registry, the commands below require a local installation of this candidate.
 
