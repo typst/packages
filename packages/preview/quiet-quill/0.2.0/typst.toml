@@ -9,13 +9,6 @@ repository = "https://github.com/Cyberl-ty02/EcsGeneralTypstTemplate"
 keywords = ["dissertation", "academic", "msc", "anonymous", "synthetic-example"]
 categories = ["thesis", "report"]
 compiler = "0.15.1"
-# Development files are not part of the minimal submission, but also keep them
-# out of runtime archives if this manifest is used from the development checkout.
-exclude = [
-  "/build/", "/scripts/", "/chapters/", "/main.typ", "/config.typ",
-  "/appendix.typ", "/references.bib", "/DEVELOPMENT.md",
-  "/release-files.txt", "/universe-files.txt", "/.gitignore",
-]
 
 [template]
 path = "template"
