@@ -34,6 +34,8 @@
 !template/main.typ
 !template/meta.typ
 !template/preamble.typ
+!command-dictionary.typ
+!formula.typ
 
 ## Allow typst files in appropriate folders.
 
