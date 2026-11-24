@@ -1,7 +1,14 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/logo-dark.svg">
+  <img alt="Cooklang logo" src="images/logo.svg" width="80">
+</picture>
+
 # Cooklang for Typst
 
 Read [Cooklang](https://cooklang.org) recipes (`.cook` files) into Typst and
 lay them out however you like.
+
+![A Cooklang recipe on the left and the page Typst renders from it on the right](images/preview.jpg)
 
 The parsing is done by the official Rust parser
 ([cooklang-rs](https://github.com/cooklang/cooklang-rs)), compiled to a

@@ -9,4 +9,4 @@ description = "Parse Cooklang recipes into dictionaries."
 repository = "https://github.com/cooklang/cooklang-rs"
 keywords = ["cooklang", "recipe", "cooking", "cookbook"]
 categories = ["integration"]
-exclude = ["cooklang-core", "examples", "build.sh"]
+exclude = ["cooklang-core", "examples", "images", "build.sh"]
