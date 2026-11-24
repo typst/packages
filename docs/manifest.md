@@ -232,7 +232,7 @@ lints and what their selectors look like:
 
 ```toml
 [tool.package-check.lints]
-"manifest/package/description/typst" = "allow"
+"manifest/package/description/typst" = { allow = true }
 ```
 
 A project level lint can only be allowed or disallowed globally. The example
@@ -245,7 +245,7 @@ meta package that deals directly with Typst or its ecosystem.
 
 ```toml
 [tool.package-check.lints]
-"size/large" = { allow-files = ["docs/gallery/*"] }
+"size/large" = { allow.files = ["docs/gallery/*"] }
 ```
 
 To override a file level lint, you can provide a list of globs that will allow
@@ -260,7 +260,7 @@ package still apply.
 
 ```toml
 [tool.package-check.lints]
-"src/kebab-case" = { allow-matches = ["__private_.*"] }
+"src/kebab-case" = { allow.matches = ["__private_.*"] }
 ```
 
 To override text level lints, you can provide a list of regular expressions.

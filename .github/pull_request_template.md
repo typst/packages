@@ -1,12 +1,8 @@
 <!--
-Thanks for submitting a package! Please read and follow the submission guidelines detailed in the repository's README and check the boxes below. Please name your PR as `name:version` of the submitted package.
+Thanks for submitting a package! Please read and follow the submission guidelines detailed in the repository's README and check the boxes below.
 
 If you want to make a PR for something other than a package submission, just delete all this and make a plain PR.
 -->
-
-I am submitting
-- [ ] a new package
-- [ ] an update for a package
 
 <!--
 Please add a brief description of your package below and explain why you think it is useful to others. If this is an update, please briefly say what changed.
@@ -15,12 +11,12 @@ Please add a brief description of your package below and explain why you think i
 Description: Explain what the package does and why it's useful.
 
 <!--
-These things need to be checked for a new submission to be merged. If you're just submitting an update, you can delete the following section.
+These things only need to be checked for a new packages. If you're just submitting an update, you can delete the following section.
 -->
 
 I have read and followed the submission guidelines and, in particular, I
 - [ ] selected [a name](https://github.com/typst/packages/blob/main/docs/manifest.md#naming-rules) that isn't the most obvious or canonical name for what the package does
-  - Explanation:
+  - Explanation: `YOUR EXPLANATION`
     <!--
     Please write one or two sentences explaining:
     1. the name of your package, if necessary, e.g:
@@ -29,7 +25,7 @@ I have read and followed the submission guidelines and, in particular, I
       - The name is a related but creative term
       - The name is a neologism combining the words … and …
       - The name contains a non-descriptive prefix
-      - The package is official ⇒ an email will be sent to hello@typst.app
+      - The package is official ⇒ an email needs to be sent to hello@typst.app
     -->
 - [ ] added a [`typst.toml`](https://github.com/typst/packages/blob/main/docs/manifest.md#package-metadata) file with all required keys
 - [ ] added a [`README.md`](https://github.com/typst/packages/blob/main/docs/documentation.md) with documentation for my package
