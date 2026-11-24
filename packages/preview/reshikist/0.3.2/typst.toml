@@ -1,0 +1,26 @@
+# For a description of available keys, see https://github.com/typst/packages/?tab=readme-ov-file#package-format
+
+[package]
+name = "reshikist"
+version = "0.3.2"
+entrypoint = "lib.typ"
+authors = ["Abraham Mendoza"]
+license = "MIT OR Apache-2.0"
+description = "Plugin for rendering chemical structure drawings from RSK, SMILES, MOL, CDXML, and more"
+repository = "https://github.com/amlab-icmol/reshikist"
+keywords = ["reshiki", "chemistry", "molecule", "svg", "wasm", "smiles", "cdxml", "mol"]
+categories = ["visualization"]
+disciplines = ["chemistry"]
+compiler = "0.14.2"
+exclude = [
+  # Documentation files: committed to registry, viewable on Universe,
+  # but not downloaded when users install the package.
+  "examples",
+  # Remaining dev/build files are excluded via .typstignore and should
+  # never reach the registry, but are listed here as a safety net.
+  ".github",
+  "scripts",
+  ".typstignore",
+  "Justfile",
+  "CHANGELOG.md",
+]

@@ -1,0 +1,22 @@
+{
+  "version": 8,
+  "atoms": [
+    {"id":1,"element":"C","position":{"x":0,"y":0}},
+    {"id":2,"element":"C","position":{"x":42,"y":0}}
+  ],
+  "bonds": [
+    {"a":1,"b":2,"order":1}
+  ],
+  "annotations": [
+    {
+      "id":100,
+      "position":{"x":-20,"y":60},
+      "text":"Custom Font Test: αβγ δεζ",
+      "format":{
+        "style":{
+          "family":"DejaVu Sans Mono"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1608 @@
+{
+  "drawing_style": {
+    "name": "Nature",
+    "font_family": "Helvetica",
+    "bond_length_world": 31.496584,
+    "bond_length_pt": 10.798828,
+    "font_size_pt": 6.0,
+    "line_width_pt": 0.5952606,
+    "bold_width_pt": 1.5590515,
+    "margin_width_pt": 1.1905365,
+    "hash_spacing_pt": 1.7007751,
+    "bond_spacing_ratio": 0.18,
+    "png_dpi": 1200
+  },
+  "atom_labels": {
+    "carbons": "skeletal",
+    "hydrogens": true,
+    "stereo": false
+  },
+  "version": 33,
+  "atoms": [
+    {
+      "id": 1,
+      "element": "C",
+      "position": {
+        "x": -115.75871,
+        "y": -83.06188
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 0
+    },
+    {
+      "id": 2,
+      "element": "C",
+      "position": {
+        "x": -131.507,
+        "y": -55.78504
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 3,
+      "element": "C",
+      "position": {
+        "x": -163.00357,
+        "y": -55.78504
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 0
+    },
+    {
+      "id": 4,
+      "element": "C",
+      "position": {
+        "x": -178.75186,
+        "y": -83.06188
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 5,
+      "element": "C",
+      "position": {
+        "x": -163.00357,
+        "y": -110.33873
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 6,
+      "element": "C",
+      "position": {
+        "x": -131.507,
+        "y": -110.33872
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 0
+    },
+    {
+      "id": 7,
+      "element": "C",
+      "position": {
+        "x": -84.26213,
+        "y": -83.06189
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 0
+    },
+    {
+      "id": 8,
+      "element": "C",
+      "position": {
+        "x": -68.513855,
+        "y": -110.33873
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 0
+    },
+    {
+      "display": {
+        "carbons": null,
+        "hydrogens": true,
+        "hydrogen_position": "auto",
+        "number": null,
+        "stereo": {
+          "show": null,
+          "offset": null,
+          "style": {
+            "family": "Arial",
+            "size_pt": 7.5,
+            "bold": false,
+            "italic": true,
+            "underline": false,
+            "color": [
+              0,
+              0,
+              0
+            ],
+            "script": "normal",
+            "formula": false
+          }
+        }
+      },
+      "id": 9,
+      "element": "N",
+      "position": {
+        "x": -84.262146,
+        "y": -137.61557
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 0
+    },
+    {
+      "id": 10,
+      "element": "C",
+      "position": {
+        "x": -115.75873,
+        "y": -137.61555
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 1
+    },
+    {
+      "id": 11,
+      "element": "C",
+      "position": {
+        "x": -37.017273,
+        "y": -110.338745
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 12,
+      "element": "C",
+      "position": {
+        "x": -21.268967,
+        "y": -83.061905
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 13,
+      "element": "C",
+      "position": {
+        "x": -37.017258,
+        "y": -55.785065
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 0
+    },
+    {
+      "id": 14,
+      "element": "C",
+      "position": {
+        "x": -68.51384,
+        "y": -55.78506
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 15,
+      "element": "C",
+      "position": {
+        "x": 19.197784,
+        "y": -32.50004
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 16,
+      "element": "C",
+      "position": {
+        "x": 23.308914,
+        "y": -1.2729149
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 17,
+      "element": "C",
+      "position": {
+        "x": -1.6790009,
+        "y": -20.44682
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 18,
+      "element": "C",
+      "position": {
+        "x": -32.906128,
+        "y": -24.557941
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 20,
+      "element": "C",
+      "position": {
+        "x": -12.029327,
+        "y": -36.61116
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 21,
+      "element": "C",
+      "position": {
+        "x": -155.0615,
+        "y": 4.5411224
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 22,
+      "element": "C",
+      "position": {
+        "x": -180.04941,
+        "y": 23.715027
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 23,
+      "element": "C",
+      "position": {
+        "x": -175.93826,
+        "y": -7.512089
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 24,
+      "element": "C",
+      "position": {
+        "x": -187.99152,
+        "y": -36.61113
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    },
+    {
+      "id": 26,
+      "element": "C",
+      "position": {
+        "x": -167.11472,
+        "y": -24.557919
+      },
+      "charge": 0,
+      "radical_electrons": 0,
+      "isotope": 0,
+      "explicit_h": 0,
+      "no_implicit": false,
+      "aromatic": false,
+      "stereo": null,
+      "map_num": 0,
+      "label_h": 2
+    }
+  ],
+  "bonds": [
+    {
+      "z_order": 0,
+      "a": 1,
+      "b": 2,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 2,
+      "b": 3,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 3,
+      "b": 4,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 4,
+      "b": 5,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 5,
+      "b": 6,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 6,
+      "b": 1,
+      "order": 2,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 1,
+      "b": 7,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 7,
+      "b": 8,
+      "order": 2,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 8,
+      "b": 9,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 9,
+      "b": 10,
+      "order": 2,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 10,
+      "b": 6,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 8,
+      "b": 11,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 11,
+      "b": 12,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 12,
+      "b": 13,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 13,
+      "b": 14,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 14,
+      "b": 7,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 15,
+      "b": 16,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 16,
+      "b": 17,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 17,
+      "b": 18,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 18,
+      "b": 13,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 13,
+      "b": 20,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 20,
+      "b": 15,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 21,
+      "b": 22,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 22,
+      "b": 23,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 23,
+      "b": 24,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 24,
+      "b": 3,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 3,
+      "b": 26,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "z_order": 0,
+      "a": 26,
+      "b": 21,
+      "order": 1,
+      "display": "plain",
+      "stereo": null,
+      "stereo_atoms": [],
+      "double_position": "auto",
+      "color": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": 27,
+      "position": {
+        "x": -185.5,
+        "y": 60.26172
+      },
+      "text": "This is a label with custom formatting",
+      "format": {
+        "style": {
+          "family": "Helvetica",
+          "size_pt": 6.0,
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "color": [
+            0,
+            0,
+            0
+          ],
+          "script": "normal",
+          "formula": false
+        },
+        "spans": [
+          {
+            "start": 0,
+            "end": 38,
+            "style": {
+              "family": "Helvetica",
+              "size_pt": 10.0,
+              "bold": true,
+              "italic": false,
+              "underline": false,
+              "color": [
+                0,
+                0,
+                0
+              ],
+              "script": "normal",
+              "formula": false
+            }
+          }
+        ],
+        "alignment": "left",
+        "line_spacing": 1.2,
+        "width_pt": null
+      }
+    }
+  ],
+  "arrows": [],
+  "graphics": [],
+  "groups": [],
+  "models": [
+    {
+      "display": "both",
+      "atoms": [
+        {
+          "id": 0,
+          "xyz": [
+            -0.81539136,
+            0.39455083,
+            -0.9427771
+          ]
+        },
+        {
+          "id": 1,
+          "xyz": [
+            -1.2691303,
+            0.4805553,
+            0.5018095
+          ]
+        },
+        {
+          "id": 2,
+          "xyz": [
+            -2.7891233,
+            0.7199664,
+            0.7186565
+          ]
+        },
+        {
+          "id": 3,
+          "xyz": [
+            -3.2301722,
+            1.8370459,
+            -0.25498298
+          ]
+        },
+        {
+          "id": 4,
+          "xyz": [
+            -3.0010338,
+            1.4592601,
+            -1.7168362
+          ]
+        },
+        {
+          "id": 5,
+          "xyz": [
+            -1.6369487,
+            0.88340116,
+            -1.9697219
+          ]
+        },
+        {
+          "id": 6,
+          "xyz": [
+            0.45687592,
+            -0.12839006,
+            -1.2750992
+          ]
+        },
+        {
+          "id": 7,
+          "xyz": [
+            0.80899036,
+            -0.20215175,
+            -2.6291506
+          ]
+        },
+        {
+          "id": 8,
+          "xyz": [
+            0.008809137,
+            0.24648738,
+            -3.6250045
+          ]
+        },
+        {
+          "id": 9,
+          "xyz": [
+            -1.1806501,
+            0.7732133,
+            -3.2770252
+          ]
+        },
+        {
+          "id": 10,
+          "xyz": [
+            2.1371138,
+            -0.7427923,
+            -3.0840604
+          ]
+        },
+        {
+          "id": 11,
+          "xyz": [
+            2.9268548,
+            -1.4750353,
+            -2.0026023
+          ]
+        },
+        {
+          "id": 12,
+          "xyz": [
+            2.8787737,
+            -0.77429557,
+            -0.6260055
+          ]
+        },
+        {
+          "id": 13,
+          "xyz": [
+            1.3858255,
+            -0.6702626,
+            -0.21120216
+          ]
+        },
+        {
+          "id": 14,
+          "xyz": [
+            4.2195907,
+            -0.8758344,
+            1.5572503
+          ]
+        },
+        {
+          "id": 15,
+          "xyz": [
+            5.2653427,
+            0.12824622,
+            1.0718353
+          ]
+        },
+        {
+          "id": 16,
+          "xyz": [
+            5.0047936,
+            0.629628,
+            -0.34890154
+          ]
+        },
+        {
+          "id": 17,
+          "xyz": [
+            3.5131676,
+            0.6495218,
+            -0.6684016
+          ]
+        },
+        {
+          "id": 18,
+          "xyz": [
+            3.6365402,
+            -1.6744813,
+            0.39677918
+          ]
+        },
+        {
+          "id": 19,
+          "xyz": [
+            -4.379891,
+            0.8449181,
+            2.7223427
+          ]
+        },
+        {
+          "id": 20,
+          "xyz": [
+            -4.5922017,
+            -0.66831976,
+            2.769432
+          ]
+        },
+        {
+          "id": 21,
+          "xyz": [
+            -3.7937262,
+            -1.4232923,
+            1.7066575
+          ]
+        },
+        {
+          "id": 22,
+          "xyz": [
+            -3.601071,
+            -0.582287,
+            0.4482292
+          ]
+        },
+        {
+          "id": 23,
+          "xyz": [
+            -2.9970813,
+            1.1978091,
+            2.1856022
+          ]
+        }
+      ],
+      "hydrogens": [
+        {
+          "parent": 1,
+          "xyz": [
+            -0.9859372,
+            -0.43762618,
+            1.03078
+          ]
+        },
+        {
+          "parent": 1,
+          "xyz": [
+            -0.707221,
+            1.307554,
+            0.9577019
+          ]
+        },
+        {
+          "parent": 3,
+          "xyz": [
+            -2.66499,
+            2.7539144,
+            -0.036417045
+          ]
+        },
+        {
+          "parent": 3,
+          "xyz": [
+            -4.2883377,
+            2.086431,
+            -0.10943423
+          ]
+        },
+        {
+          "parent": 4,
+          "xyz": [
+            -3.1431813,
+            2.3559685,
+            -2.3325837
+          ]
+        },
+        {
+          "parent": 4,
+          "xyz": [
+            -3.752304,
+            0.7264302,
+            -2.0351028
+          ]
+        },
+        {
+          "parent": 9,
+          "xyz": [
+            -1.783652,
+            1.1160899,
+            -4.1137958
+          ]
+        },
+        {
+          "parent": 10,
+          "xyz": [
+            1.9749413,
+            -1.4279281,
+            -3.9253993
+          ]
+        },
+        {
+          "parent": 10,
+          "xyz": [
+            2.7293015,
+            0.092750594,
+            -3.475465
+          ]
+        },
+        {
+          "parent": 11,
+          "xyz": [
+            3.9628284,
+            -1.5985714,
+            -2.3418953
+          ]
+        },
+        {
+          "parent": 11,
+          "xyz": [
+            2.5156198,
+            -2.4892411,
+            -1.8991183
+          ]
+        },
+        {
+          "parent": 13,
+          "xyz": [
+            1.0069021,
+            -1.6679143,
+            0.04964715
+          ]
+        },
+        {
+          "parent": 13,
+          "xyz": [
+            1.3190084,
+            -0.05819909,
+            0.695993
+          ]
+        },
+        {
+          "parent": 14,
+          "xyz": [
+            4.6747885,
+            -1.5507262,
+            2.2910419
+          ]
+        },
+        {
+          "parent": 14,
+          "xyz": [
+            3.4139953,
+            -0.34615102,
+            2.0801582
+          ]
+        },
+        {
+          "parent": 15,
+          "xyz": [
+            6.263238,
+            -0.32535174,
+            1.1072077
+          ]
+        },
+        {
+          "parent": 15,
+          "xyz": [
+            5.2897363,
+            0.97520566,
+            1.7681667
+          ]
+        },
+        {
+          "parent": 16,
+          "xyz": [
+            5.430112,
+            1.6331314,
+            -0.46437737
+          ]
+        },
+        {
+          "parent": 16,
+          "xyz": [
+            5.5252013,
+            -0.01325178,
+            -1.0693189
+          ]
+        },
+        {
+          "parent": 17,
+          "xyz": [
+            3.0219917,
+            1.304078,
+            0.06417384
+          ]
+        },
+        {
+          "parent": 17,
+          "xyz": [
+            3.3637369,
+            1.1328609,
+            -1.6382755
+          ]
+        },
+        {
+          "parent": 18,
+          "xyz": [
+            4.462506,
+            -2.1999826,
+            -0.10154054
+          ]
+        },
+        {
+          "parent": 18,
+          "xyz": [
+            2.9768348,
+            -2.4590926,
+            0.78652203
+          ]
+        },
+        {
+          "parent": 19,
+          "xyz": [
+            -5.1482363,
+            1.3043715,
+            2.0887656
+          ]
+        },
+        {
+          "parent": 19,
+          "xyz": [
+            -4.514747,
+            1.2637866,
+            3.726104
+          ]
+        },
+        {
+          "parent": 20,
+          "xyz": [
+            -5.66229,
+            -0.8773503,
+            2.6508243
+          ]
+        },
+        {
+          "parent": 20,
+          "xyz": [
+            -4.31368,
+            -1.0534734,
+            3.7578237
+          ]
+        },
+        {
+          "parent": 21,
+          "xyz": [
+            -4.3083234,
+            -2.359207,
+            1.4606856
+          ]
+        },
+        {
+          "parent": 21,
+          "xyz": [
+            -2.8147867,
+            -1.7053643,
+            2.1130161
+          ]
+        },
+        {
+          "parent": 22,
+          "xyz": [
+            -4.595891,
+            -0.33124623,
+            0.056571763
+          ]
+        },
+        {
+          "parent": 22,
+          "xyz": [
+            -3.1166685,
+            -1.1955019,
+            -0.3205461
+          ]
+        },
+        {
+          "parent": 23,
+          "xyz": [
+            -2.2484298,
+            0.7357452,
+            2.8435059
+          ]
+        },
+        {
+          "parent": 23,
+          "xyz": [
+            -2.8383243,
+            2.2804003,
+            2.262989
+          ]
+        }
+      ],
+      "fingerprint": "44ec021d76266c2f",
+      "generated": {
+        "sources": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          20,
+          21,
+          22,
+          23,
+          24,
+          26
+        ],
+        "elements": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "N",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C"
+        ],
+        "bonds": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            9,
+            5
+          ],
+          [
+            7,
+            10
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            13,
+            6
+          ],
+          [
+            14,
+            15
+          ],
+          [
+            15,
+            16
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            17,
+            12
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            18,
+            14
+          ],
+          [
+            19,
+            20
+          ],
+          [
+            20,
+            21
+          ],
+          [
+            21,
+            22
+          ],
+          [
+            22,
+            2
+          ],
+          [
+            2,
+            23
+          ],
+          [
+            23,
+            19
+          ]
+        ]
+      },
+      "linked_atoms": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24,
+        26
+      ],
+      "seed": 5395275,
+      "rotation": [
+        0.85894364,
+        0.4962324,
+        -0.025921224,
+        -0.123682395
+      ],
+      "offset": {
+        "x": 279.15186,
+        "y": 0.0
+      },
+      "size": 320.44366,
+      "style": "ball_stick",
+      "look": "flat",
+      "depth_fade": 0.35,
+      "perspective": 0.2,
+      "show_hydrogens": "all",
+      "background": "none",
+      "force_field": "mmff94s"
+    }
+  ]
+}

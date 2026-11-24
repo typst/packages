@@ -1,0 +1,20 @@
+ReShiki licensing
+=================
+
+Original ReShiki code and documentation are licensed, at your option, under
+either the MIT License (LICENSE-MIT) or the Apache License, Version 2.0
+(LICENSE-APACHE). The SPDX expression for this choice is:
+
+    MIT OR Apache-2.0
+
+Third-party material is excluded from this dual-license grant. Code, data,
+and other material copied, ported, adapted, or bundled from other projects
+remain subject to their respective licenses and notices. Translating code
+into Rust does not replace those terms. File-specific notices and the
+licenses and attribution records in licenses/ and vendor/ take precedence
+for that material. See NOTICE for the locations of those records.
+
+Choosing a license for original ReShiki code does not remove obligations
+under the licenses of included third-party material. Preserve the applicable
+copyright notices, license texts, disclaimers, and attribution records when
+redistributing source or binaries.
