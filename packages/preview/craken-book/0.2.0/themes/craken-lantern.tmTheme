@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict><key>name</key><string>Captain Craken Lantern</string><key>settings</key><array>
+<dict><key>settings</key><dict><key>background</key><string>#282019</string><key>foreground</key><string>#f0e6d8</string></dict></dict>
+<dict><key>name</key><string>Keywords</string><key>scope</key><string>keyword, storage, storage.type, support.function.builtin, support.type, constant.language.python, variable.language, entity.name.function.decorator, meta.decorator, punctuation.definition.decorator</string><key>settings</key><dict><key>foreground</key><string>#f08b6e</string></dict></dict>
+<dict><key>name</key><string>Strings</string><key>scope</key><string>string, string.quoted, punctuation.definition.string</string><key>settings</key><dict><key>foreground</key><string>#adba7a</string></dict></dict>
+<dict><key>name</key><string>Numbers</string><key>scope</key><string>constant.numeric, constant.language</string><key>settings</key><dict><key>foreground</key><string>#deac55</string></dict></dict>
+<dict><key>name</key><string>Comments</string><key>scope</key><string>comment, punctuation.definition.comment, string.quoted.docstring</string><key>settings</key><dict><key>foreground</key><string>#b9a695</string><key>fontStyle</key><string>italic</string></dict></dict>
+<dict><key>name</key><string>Functions</string><key>scope</key><string>entity.name.function, entity.name.class, entity.name.type</string><key>settings</key><dict><key>foreground</key><string>#f0e6d8</string><key>fontStyle</key><string>bold</string></dict></dict>
+</array></dict></plist>
