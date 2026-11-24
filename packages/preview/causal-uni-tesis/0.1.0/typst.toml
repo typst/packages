@@ -1,0 +1,13 @@
+[package]
+name = "causal-uni-tesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Grupo de Estudio de Inferencia Causal — UNI (Perú) <https://github.com/jelincovil>"]
+license = "CC-BY-4.0"
+description = "Plantilla de tesis de Maestría/Doctorado para la Universidad Nacional de Ingeniería (Perú): composición clásica de libro, entornos matemáticos numerados, cabeceras vivas, tablas booktabs y bibliografía APA en español."
+homepage = "https://github.com/jelincovil/grupo_estudio_inferencia_causal_uni_peru"
+repository = "https://github.com/jelincovil/grupo_estudio_inferencia_causal_uni_peru"
+keywords = ["tesis", "thesis-template", "apa", "uni", "peru", "posgrado", "universidad", "plantilla", "causal-inference"]
+categories = ["thesis", "layout"]
+disciplines = ["engineering", "mathematics", "education"]
+compiler = "0.15.0"
