@@ -6,7 +6,7 @@ Federico Marotta, which in turn grew out of the doctoral thesis of Ken Arroyo
 Ohori and the Tufte-LaTeX classes. kaodiss reimplements kaobook's design in
 Typst, without code from kaobook (see [Acknowledgements](#acknowledgements)).
 
-[![Chapter page of the example document](https://raw.githubusercontent.com/BWeigell/kaodiss/main/thumbnail.png)](https://github.com/BWeigell/kaodiss/releases/latest/download/kaodiss-example.pdf)
+[![Chapter page of the example document](https://raw.githubusercontent.com/BWeigell/kaodiss/v0.1.0/thumbnail.png)](https://github.com/BWeigell/kaodiss/releases/latest/download/kaodiss-example.pdf)
 
 📄 **[Example document (PDF, 35 pages)](https://github.com/BWeigell/kaodiss/releases/latest/download/kaodiss-example.pdf)**: the document that
 `typst init` creates, showing every element of the template.
@@ -213,10 +213,12 @@ and grey as in kaobook (only citation years are blue).
 | `definition` | Definition, corollary, theorem, lemma, proposition, example and remark boxes |
 
 ```typ
-colors: (primary: rgb("#1d4e89"), challenge: rgb("#b5403a")),  // missing roles keep the default
-colors: "ocean",                                               // or "forest", "berry"
-colors: palettes.ocean + (challenge: rgb("#c0392b")),         // adapt a palette
-box-style: "tinted",                                           // or "bar", "banner"
+#show: kaodiss.with(
+  colors: (primary: rgb("#1d4e89"), challenge: rgb("#b5403a")),  // missing roles keep the default
+  // colors: "ocean",                                            // or "forest", "berry"
+  // colors: palettes.ocean + (challenge: rgb("#c0392b")),       // adapt a palette
+  box-style: "tinted",                                           // or "bar", "banner"
+)
 ```
 
 `box-style` selects the look of all boxes: `"tinted"` (light background,
@@ -227,14 +229,16 @@ because the banner title is set in white.
 ### Abbreviations and glossary
 
 ```typ
-abbreviations: (
-  ai: ("AI", "Artificial Intelligence"),
-  api: (short: "API", long: "Application Programming Interface",
-        long-plural: "Application Programming Interfaces"),
-),
-glossary: (
-  oracle: (name: "Oracle", description: [A human annotator ...]),
-),
+#show: kaodiss.with(
+  abbreviations: (
+    ai: ("AI", "Artificial Intelligence"),
+    api: (short: "API", long: "Application Programming Interface",
+          long-plural: "Application Programming Interfaces"),
+  ),
+  glossary: (
+    oracle: (name: "Oracle", description: [A human annotator ...]),
+  ),
+)
 ```
 
 Abbreviations can also be loaded from a file: `abbreviations: yaml("abbreviations.yaml")`.
@@ -294,7 +298,7 @@ your normal settings.
 
 ## Files
 
-```
+```text
 lib.typ               entry point, the kaodiss() function
 src/metrics.typ       all measurements (page, type sizes, spacing)
 src/i18n.typ          English and German terms
