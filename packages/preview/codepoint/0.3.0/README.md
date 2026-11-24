@@ -19,7 +19,7 @@ The exams module manages constraints for student testing, providing native suppo
 
 - Numbered Code Snippets (`#code-block`): Formats code containers into distinct line-numbered (optional) code blocks
 ```typst
-#import "@preview/codepoint:0.2.2": exams, code-block
+#import "@preview/codepoint:0.3.0": exams, code-block
 
 #show: exams.init
 
@@ -78,7 +78,7 @@ The labs module configures layout, custom raw-code themes, and uniform section l
 - Rubrics (`#labs.lab-rubric` / `#labs.rubric`): Renders point-breakdown blocks alongside automated, and supplemental notes
 
 ```typst
-#import "@preview/codepoint:0.2.2": labs
+#import "@preview/codepoint:0.3.0": labs
 
 #show: labs.init
 
@@ -133,7 +133,7 @@ The calendars module creates customizable calendars for class scheduling purpose
 - Supports ability to add a topic overview per week (`#calendars.draw-calendar(week-overviews: )`)
 
 ```typst
-#import "../src/calendars.typ" as cal
+#import "@preview/codepoint:0.3.0": calendar as cal
 
 #show: cal.init
 
