@@ -1,0 +1,24 @@
+[package]
+name = "mtt-thesis"
+version = "0.1.1"
+entrypoint = "template/mtt.typ"
+authors = ["Janjo <https://github.com/janjoch>"]
+license = "Apache-2.0"
+description = "Modular thesis template with configurable front matter and document sections."
+repository = "https://github.com/janjoch/typst-modular-thesis-template"
+keywords = [
+  "thesis",
+  "ETH Zurich",
+  "academic writing",
+  "front matter",
+  "modular",
+]
+categories = ["thesis", "report", "layout"]
+exclude = [
+  "/examples/*.pdf",
+]
+
+[template]
+path = "examples"
+entrypoint = "detailed.typ"
+thumbnail = "thumbnail.png"
