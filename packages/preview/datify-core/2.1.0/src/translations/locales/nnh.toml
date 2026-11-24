@@ -1,0 +1,98 @@
+[days.format.wide]
+1 = "mvfò lyɛ̌ʼ"
+2 = "mbɔ́ɔntè mvfò lyɛ̌ʼ"
+3 = "tsètsɛ̀ɛ lyɛ̌ʼ"
+4 = "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ"
+5 = "mvfò màga lyɛ̌ʼ"
+6 = "màga lyɛ̌ʼ"
+7 = "lyɛʼɛ́ sẅíŋtè"
+
+[days.format.abbreviated]
+1 = "mvfò lyɛ̌ʼ"
+2 = "mbɔ́ɔntè mvfò lyɛ̌ʼ"
+3 = "tsètsɛ̀ɛ lyɛ̌ʼ"
+4 = "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ"
+5 = "mvfò màga lyɛ̌ʼ"
+6 = "màga lyɛ̌ʼ"
+7 = "lyɛʼɛ́ sẅíŋtè"
+
+[days.stand-alone.wide]
+1 = "mvfò lyɛ̌ʼ"
+2 = "mbɔ́ɔntè mvfò lyɛ̌ʼ"
+3 = "tsètsɛ̀ɛ lyɛ̌ʼ"
+4 = "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ"
+5 = "mvfò màga lyɛ̌ʼ"
+6 = "màga lyɛ̌ʼ"
+7 = "lyɛʼɛ́ sẅíŋtè"
+
+[days.stand-alone.abbreviated]
+1 = "mvfò lyɛ̌ʼ"
+2 = "mbɔ́ɔntè mvfò lyɛ̌ʼ"
+3 = "tsètsɛ̀ɛ lyɛ̌ʼ"
+4 = "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ"
+5 = "mvfò màga lyɛ̌ʼ"
+6 = "màga lyɛ̌ʼ"
+7 = "lyɛʼɛ́ sẅíŋtè"
+
+[months.format.wide]
+1 = "saŋ tsetsɛ̀ɛ lùm"
+2 = "saŋ kàg ngwóŋ"
+3 = "saŋ lepyè shúm"
+4 = "saŋ cÿó"
+5 = "saŋ tsɛ̀ɛ cÿó"
+6 = "saŋ njÿoláʼ"
+7 = "saŋ tyɛ̀b tyɛ̀b mbʉ̀ŋ"
+8 = "saŋ mbʉ̀ŋ"
+9 = "saŋ ngwɔ̀ʼ mbÿɛ"
+10 = "saŋ tàŋa tsetsáʼ"
+11 = "saŋ mejwoŋó"
+12 = "saŋ lùm"
+
+[months.format.abbreviated]
+1 = "saŋ tsetsɛ̀ɛ lùm"
+2 = "saŋ kàg ngwóŋ"
+3 = "saŋ lepyè shúm"
+4 = "saŋ cÿó"
+5 = "saŋ tsɛ̀ɛ cÿó"
+6 = "saŋ njÿoláʼ"
+7 = "saŋ tyɛ̀b tyɛ̀b mbʉ̀ŋ"
+8 = "saŋ mbʉ̀ŋ"
+9 = "saŋ ngwɔ̀ʼ mbÿɛ"
+10 = "saŋ tàŋa tsetsáʼ"
+11 = "saŋ mejwoŋó"
+12 = "saŋ lùm"
+
+[months.stand-alone.wide]
+1 = "saŋ tsetsɛ̀ɛ lùm"
+2 = "saŋ kàg ngwóŋ"
+3 = "saŋ lepyè shúm"
+4 = "saŋ cÿó"
+5 = "saŋ tsɛ̀ɛ cÿó"
+6 = "saŋ njÿoláʼ"
+7 = "saŋ tyɛ̀b tyɛ̀b mbʉ̀ŋ"
+8 = "saŋ mbʉ̀ŋ"
+9 = "saŋ ngwɔ̀ʼ mbÿɛ"
+10 = "saŋ tàŋa tsetsáʼ"
+11 = "saŋ mejwoŋó"
+12 = "saŋ lùm"
+
+[months.stand-alone.abbreviated]
+1 = "saŋ tsetsɛ̀ɛ lùm"
+2 = "saŋ kàg ngwóŋ"
+3 = "saŋ lepyè shúm"
+4 = "saŋ cÿó"
+5 = "saŋ tsɛ̀ɛ cÿó"
+6 = "saŋ njÿoláʼ"
+7 = "saŋ tyɛ̀b tyɛ̀b mbʉ̀ŋ"
+8 = "saŋ mbʉ̀ŋ"
+9 = "saŋ ngwɔ̀ʼ mbÿɛ"
+10 = "saŋ tàŋa tsetsáʼ"
+11 = "saŋ mejwoŋó"
+12 = "saŋ lùm"
+
+[patterns]
+full = "EEEE , 'lyɛ'̌ʼ d 'na' MMMM, y"
+long = "'lyɛ'̌ʼ d 'na' MMMM, y"
+medium = "d MMM, y"
+short = "dd/MM/yy"
+

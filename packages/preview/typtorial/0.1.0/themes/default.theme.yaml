@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../theme.schema.json
+# Default theme of typtorial: minimal, white, with a teal accent. It applies to
+# every tutorial that does not pass its own theme. Copy this file as a
+# starting point for your own theme and pass it like this:
+#   #show: tutorial.with(theme: yaml("my.theme.yaml"))
+# Lookup order per setting: values passed to the function, your own theme,
+# this file, then the values built into the package. A logo is not part of the
+# theme; pass it to the function with `logo: image("logo.svg")`.
+
+fonts:
+  # Each font is one family or a list of fallbacks; the first one installed is used.
+  text: [Hanken Grotesk, Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]     # body text, headings, title
+  code: DejaVu Sans Mono     # code blocks and inline code
+  brand: Libertinus Serif   # text at the top right
+
+# Font sizes in pt. The website scales its sizes by the same proportions.
+sizes:
+  text: 14                  # body text
+  heading: 15               # heading of a step
+  title: 17                 # title at the top left
+  title-page: 30            # title on the title page
+  brand: 20                 # text at the top right
+  code: 10.9                # code blocks and inline code
+
+colors:
+  background: "#fdfdfd"     # page background
+  text: "#19181f"           # body text
+  accent: "#239dad"         # dot, underline of the title, arrow button
+  heading: "#239dad"        # heading of a step
+  line: "#e4e5ea"           # separator lines, small dots, borders
+  code-background: "#eff0f3"   # background of the code panel
+  button: "#127885"         # copy button of the website; empty = same as code-background
+  button-text: "#ffffff"    # text of the copy button; empty = same as code-text
+  background-gradient:      # second color for a gradient towards the bottom right; empty = solid
+  header:                   # background of the header; empty = same as background
+  header-text:              # text color of the header; empty = same as text
+  code-text:                # text color in the code panel; empty = same as text
+  heading-background:       # bar behind the heading of a step; empty = none
+  title-background:         # background of the title page; empty = same as the other pages
+  title-text:               # text color of the title page; empty = same as text
+  abstract-background:      # background of the abstract page; empty = same as the other pages
+  abstract-text:            # text color of the abstract page; empty = same as text
+
+brand:
+  text: typtorial           # text at the top right; "" hides it
+
+layout:
+  dots: false               # progress dots next to the heading
+  corner-radius: 0.5        # rounding of the code panel; 0 = square
+  code-border: false        # thin line around the code panel
+  title-underline: false    # underline the title at the top left in the accent color
+  title-uppercase: false    # title at the top left in capitals
+  text-position: center     # heading and text of a step: center (vertically centered) or top
+  title-page: true          # start with a page that shows the title large and centered
+  abstract: with-title      # where the abstract goes: with-title (below the title) or separate (own page)
+
+# Values for the dark color scheme. Anything missing here falls back to the
+# light values above. A theme of your own gets a dark scheme by adding its
+# own `dark` section; without one it is shown in its light colors only.
+dark:
+  colors:
+    background: "#15141a"
+    text: "#e4e5ea"
+    accent: "#3fb8c8"
+    heading: "#3fb8c8"
+    line: "#2e2d36"
+    code-background: "#1f1e26"
+    button: "#127885"
+    button-text: "#ffffff"

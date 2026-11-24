@@ -1,0 +1,20 @@
+{
+  "atom_scale": 2.3,
+  "bond_width": 26,
+  "atom_stroke_width": 3,
+  "hue_shift_factor": 0.15,
+  "light_shift_factor": 0.2,
+  "saturation_shift_factor": 0.1,
+  "bond_orders": false,
+  "bond_color_by_element": true,
+  "nci_element": true,
+  "bond_gradient": true,
+  "bond_gradient_strength": 0.15,
+  "bond_outline_color": "#000000",
+  "bond_outline_width": 3.0,
+  "colors": {
+    "C": "#D9D9D9",
+    "H": "#FAFAFA",
+    "N": "#7F7FBF"
+  }
+}

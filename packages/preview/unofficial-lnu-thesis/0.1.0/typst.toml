@@ -1,0 +1,14 @@
+[package]
+name = "unofficial-lnu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Oskar <ol222rr@student.lnu.se>"]
+license = "MIT-0"
+description = "Unofficial essay and thesis template for Linnaeus University (LNU)."
+keywords = ["thesis", "essay", "lnu", "linnaeus-university", "unofficial", "sweden", "academic"]
+categories = ["thesis", "paper"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

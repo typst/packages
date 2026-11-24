@@ -1,0 +1,13 @@
+[package]
+name = "kangaroo"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Simone Ragusa <https://interrato.dev>"]
+license = "MIT"
+description = "Cryptographic notation and game-hopping proofs in the style of The Joy of Cryptography."
+repository = "https://github.com/interrato/kangaroo"
+keywords = ["cryptography", "proof", "library", "hybrid"]
+categories = ["components"]
+disciplines = ["computer-science", "mathematics"]
+compiler = "0.13.0"
+exclude = ["docs"]

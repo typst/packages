@@ -1,0 +1,18 @@
+[package]
+name = "community-fmi-jena-thesis"
+version = "0.2.0"
+entrypoint = "fmi.typ"
+authors = ["Friedrich Answin Daniel Motz <https://github.com/HerrMotz>"]
+license = "MIT-0"
+description = "Theses at the Faculty of Mathematics and Computer Science (FMI), University of Jena."
+repository = "https://github.com/HerrMotz/Jena-FMI-Thesis-for-Typst"
+keywords = ["thesis", "jena", "fsu", "fmi", "bachelor", "master", "university", "Friedrich Schiller University Jena", "Friedrich-Schiller-Universität Jena", "Faculty of Mathematics and Computer Science", "Fakultät für Mathematik und Informatik"]
+categories = ["thesis"]
+disciplines = ["computer-science", "mathematics"]
+compiler = "0.13.0"
+exclude = [".gitignore"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

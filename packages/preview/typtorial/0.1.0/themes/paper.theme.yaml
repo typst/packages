@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../theme.schema.json
+# "Paper" theme of typtorial: warm paper tones, a serif text font and a yellow
+# accent. It ships with the package:
+#   #import "@preview/typtorial:0.1.0": tutorial, themes
+#   #show: tutorial.with(theme: themes.paper)
+# Settings that are missing here are taken from default.theme.yaml next to this file.
+
+fonts:
+  # Each font is one family or a list of fallbacks; the first one installed is used.
+  text: [Source Serif 4, Georgia, Times New Roman, Liberation Serif, Libertinus Serif]     # body text, headings, title
+  code: [Menlo, Consolas, DejaVu Sans Mono]     # code blocks and inline code
+  brand: [Helvetica Neue, Arial, Liberation Sans, DejaVu Sans]   # text at the top right
+
+colors:
+  background: "#f6f4ee"     # page background
+  text: "#26231c"           # body text
+  accent: "#ffc800"         # dot, underline of the title, arrow button
+  heading: "#eba900"        # heading of a step
+  line: "#dcd8cc"           # separator lines, small dots, borders
+  code-background: "#ffffff"   # background of the code panel
+  background-gradient:      # second color for a gradient towards the bottom right; empty = solid
+  header:                   # background of the header; empty = same as background
+  header-text:              # text color of the header; empty = same as text
+  code-text:                # text color in the code panel; empty = same as text
+  button: "#ffffff"         # copy button of the website
+  button-text: "#26231c"    # text of the copy button
+  heading-background:       # bar behind the heading of a step; empty = none
+  title-background:         # background of the title page; empty = same as the other pages
+  title-text:               # text color of the title page; empty = same as text
+  abstract-background:      # background of the abstract page; empty = same as the other pages
+  abstract-text:            # text color of the abstract page; empty = same as text
+
+brand:
+  text: typtorial           # text at the top right; "" hides it
+
+layout:
+  dots: false               # progress dots next to the heading
+  corner-radius: 1          # rounding of the code panel; 0 = square
+  code-border: false        # thin line around the code panel
+  title-underline: true     # underline the title at the top left in the accent color
+  title-uppercase: false    # title at the top left in capitals
+  text-position: center     # heading and text of a step: center (vertically centered) or top
+  title-page: true          # start with a page that shows the title large and centered
+  abstract: with-title      # where the abstract goes: with-title (below the title) or separate (own page)
+
+# Values for the dark color scheme.
+dark:
+  colors:
+    background: "#1c1a17"
+    text: "#ece8df"
+    accent: "#ffc800"
+    heading: "#ffcf33"
+    line: "#3d3931"
+    code-background: "#27241f"
+    button: "#27241f"
+    button-text: "#ece8df"

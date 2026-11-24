@@ -1,0 +1,13 @@
+[package]
+name = "kip"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Kip Plugin Contributors"]
+license = "MIT"
+description = "Render diagrams written in Pikchr, a PIC-like markup language, as SVG"
+repository = "https://github.com/ragtux/kip"
+keywords = ["diagram", "visualization", "graphics", "pikchr", "svg", "drawing"]
+categories = ["visualization"]
+disciplines = ["computer-science", "engineering"]
+compiler = "0.13.0"
+exclude = ["gallery"]

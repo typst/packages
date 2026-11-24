@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="ru-RU" page-range-format="expanded" demote-non-dropping-particle="never">
+  <!--
+    ГОСТ 7.1-2003 для Typst, GRID-вариант: номер и запись — разные ячейки grid (second-field-align="flush"),
+    запись без номера и без абзацного отступа забирается через show grid.cell.where(x: 1) и state.
+    Соглашения для Hayagriva (.yml):
+      title                — основное заглавие
+      genre                — сведения, относящиеся к заглавию («справ. пособие», «Datasheet»)
+      author               — первый автор → заголовок записи (1–3 автора)
+      affiliated: role: collaborator — авторы БЕЗ заголовка (≥4 авторов, коллективный автор)
+      editor               — «под ред.» (для глав/докладов «отв. ред.»), фамилию — в родительном падеже
+      volume-total / volume — «В 2 т.» / «Т. 1»
+      publisher.location   — «М.», «СПб.», «Минск»…
+      page-total (число) или note (текст, напр. «1 компакт-диск (CD-R)») — объём
+      url                  — «Режим доступа : …»
+      type: web / repository — автоматически «[Электронный ресурс]»
+  -->
+  <info>
+    <title>ГОСТ 7.1-2003 для Typst (grid: номер и запись в разных ячейках)</title>
+    <title-short>ГОСТ 7.1-2003</title-short>
+    <id>http://www.zotero.org/styles/gost-7-1-2003-numeric-typst-grid</id>
+    <link href="http://www.zotero.org/styles/gost-7-1-2003-numeric-typst-grid" rel="self"/>
+    <category citation-format="numeric"/>
+    <category field="generic-base"/>
+    <summary>Библиографическое описание по ГОСТ 7.1-2003 с нумерацией [1] в порядке цитирования.</summary>
+    <updated>2026-10-24T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0</rights>
+  </info>
+
+  <locale xml:lang="ru">
+    <terms>
+      <term name="et-al"> [и др.]</term>
+      <term name="and others"></term>
+    </terms>
+  </locale>
+
+  <!-- Заголовок записи: первый автор («Фамилия, И. О.»), только для творца типа «Автор» -->
+  <macro name="heading">
+    <names variable="author" suffix=" ">
+      <name name-as-sort-order="all" sort-separator=", " initialize-with=". " et-al-min="2" et-al-use-first="1"/>
+      <et-al term="and others"/>
+    </names>
+  </macro>
+
+  <!-- [Электронный ресурс] -->
+  <macro name="e-mark">
+    <choose>
+      <if variable="medium">
+        <text variable="medium" prefix="[" suffix="]"/>
+      </if>
+      <else-if type="webpage post post-weblog software dataset" match="any">
+        <text value="[Электронный ресурс]"/>
+      </else-if>
+    </choose>
+  </macro>
+
+  <!-- Заглавие [ОМ] : сведения, относящиеся к заглавию. В N т. -->
+  <macro name="title-block">
+    <group delimiter=". ">
+      <group delimiter=" : ">
+        <group delimiter=" ">
+          <text variable="title"/>
+          <text macro="e-mark"/>
+        </group>
+        <text variable="genre"/>
+      </group>
+      <group delimiter=" ">
+        <text value="В"/>
+        <text variable="number-of-volumes"/>
+        <text value="т."/>
+      </group>
+    </group>
+  </macro>
+
+  <!-- Сведения об ответственности (после « / ») -->
+  <macro name="responsibility">
+    <group delimiter=" ; ">
+      <names variable="author contributor">
+        <name initialize-with=". " delimiter=", " et-al-min="4" et-al-use-first="1"/>
+      </names>
+      <choose>
+        <if type="chapter paper-conference entry-encyclopedia entry-dictionary" match="none">
+          <names variable="editor" prefix="под ред. ">
+            <name initialize-with=". " delimiter=", "/>
+          </names>
+          <names variable="translator" prefix="пер. ">
+            <name initialize-with=". " delimiter=", "/>
+          </names>
+        </if>
+      </choose>
+    </group>
+  </macro>
+
+  <!-- Источник (после « // »): периодическое издание, сборник -->
+  <macro name="container">
+    <group delimiter=" / ">
+      <text variable="container-title"/>
+      <choose>
+        <if type="chapter paper-conference entry-encyclopedia entry-dictionary" match="any">
+          <names variable="editor" prefix="отв. ред. ">
+            <name initialize-with=". " delimiter=", "/>
+          </names>
+        </if>
+      </choose>
+    </group>
+  </macro>
+
+  <macro name="area-title">
+    <group delimiter=" // ">
+      <group delimiter=" / ">
+        <group>
+          <text macro="heading"/>
+          <text macro="title-block"/>
+        </group>
+        <text macro="responsibility"/>
+      </group>
+      <text macro="container"/>
+    </group>
+  </macro>
+
+  <!-- Сведения об издании: «2-е изд., перераб. и доп.» -->
+  <macro name="edition">
+    <choose>
+      <if is-numeric="edition">
+        <group delimiter=" ">
+          <number variable="edition" form="ordinal"/>
+          <text value="изд."/>
+        </group>
+      </if>
+      <else>
+        <text variable="edition"/>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- Место : издательство, год -->
+  <macro name="publication">
+    <choose>
+      <if type="article-journal article-magazine article-newspaper" match="any">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <group delimiter=", ">
+          <group delimiter=" : ">
+            <choose>
+              <if variable="publisher-place">
+                <text variable="publisher-place"/>
+              </if>
+              <else-if variable="publisher">
+                <text value="[Б. м.]"/>
+              </else-if>
+            </choose>
+            <text variable="publisher"/>
+          </group>
+          <date variable="issued">
+            <date-part name="year"/>
+          </date>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <macro name="newspaper-date">
+    <choose>
+      <if type="article-newspaper">
+        <date variable="issued">
+          <date-part name="day" suffix=" "/>
+          <date-part name="month" form="long"/>
+        </date>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- Т. 1  /  Т. 5, №12 -->
+  <macro name="volume-issue">
+    <choose>
+      <if type="article-journal article-magazine article-newspaper" match="any">
+        <group delimiter=", ">
+          <group delimiter=" ">
+            <text value="Т."/>
+            <text variable="volume"/>
+          </group>
+          <group>
+            <text value="№"/>
+            <text variable="issue"/>
+          </group>
+        </group>
+      </if>
+      <else>
+        <group delimiter=" ">
+          <text value="Т."/>
+          <text variable="volume"/>
+        </group>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- 288 с.  /  С. 21–25 -->
+  <macro name="extent">
+    <choose>
+      <if type="article-journal article-magazine article-newspaper chapter paper-conference entry-encyclopedia entry-dictionary" match="any">
+        <group delimiter=" ">
+          <text value="С."/>
+          <text variable="page"/>
+        </group>
+      </if>
+      <else-if variable="number-of-pages">
+        <choose>
+          <if is-numeric="number-of-pages">
+            <group delimiter=" ">
+              <text variable="number-of-pages"/>
+              <text value="с."/>
+            </group>
+          </if>
+          <else>
+            <text variable="number-of-pages"/>
+          </else>
+        </choose>
+      </else-if>
+      <else-if variable="note">
+        <text variable="note"/>
+      </else-if>
+    </choose>
+  </macro>
+
+  <macro name="access">
+    <group delimiter=" : ">
+      <text value="Режим доступа"/>
+      <text variable="URL"/>
+    </group>
+  </macro>
+
+  <macro name="record">
+    <group delimiter=". – ">
+      <text macro="area-title"/>
+      <text macro="edition"/>
+      <text macro="publication"/>
+      <text macro="newspaper-date"/>
+      <text macro="volume-issue"/>
+      <text macro="extent"/>
+      <text macro="access"/>
+    </group>
+  </macro>
+
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout prefix="[" suffix="]" delimiter=", ">
+      <group delimiter=", ">
+        <text variable="citation-number"/>
+        <group delimiter=" ">
+          <label variable="locator" form="short"/>
+          <text variable="locator"/>
+        </group>
+      </group>
+    </layout>
+  </citation>
+
+  <bibliography entry-spacing="0" second-field-align="flush">
+    <layout suffix=".">
+      <text variable="citation-number"/>
+      <text macro="record"/>
+    </layout>
+  </bibliography>
+</style>

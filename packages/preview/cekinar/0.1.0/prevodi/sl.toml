@@ -1,0 +1,61 @@
+# Vsa prednatisnjena besedila, z izjemo decimalne vejice in logotipa trgovine oziroma tiskarne
+
+# Ker je vse prednatisnjeno na UPN QR iste pisave, je tukaj razvrščeno po velikosti pisave, a z neupoštevanjem njene debeline
+
+# Ponavljajoče besedilo spremlja prikladen komentar
+
+[pet]
+
+# Na UPN QR se pojavi dvakrat
+# Napaka v standardu jima pripisuje različni velikosti, pri čemer bi moralo biti več pozornosti namenjene uporabi vsake
+prostor = "Prostor za vpise ponudnika plačilnih storitev"
+
+["šest"]
+
+podpis = "Podpis plačnika (neobvezno žig)"
+
+[sedem]
+
+# Spet je vredno omeniti, da je razvrščeno po velikosti pisave, ne po barvitih predelih
+namen-rok = "Namen in rok plačila"
+
+# Na UPN QR se pojavi dvakrat
+znesek = "Znesek"
+
+qr = "Koda QR"
+polog = "Polog"
+dvig = "Dvig"
+nujno = "Nujno"
+datum = "Datum plačila"
+koda = "Koda namena"
+namen = "Namen plačila"
+rok = "Rok plačila"
+
+[sedem."plačnik"]
+
+ime = "Ime plačnika"
+iban = "IBAN plačnika"
+referenca = "Referenca plačnika"
+ime-ulica-kraj = "Ime, ulica in kraj plačnika"
+
+[sedem.prejemnik]
+
+ime = "Ime prejemnika"
+iban = "IBAN prejemnika"
+referenca = "Referenca prejemnika"
+iban-referenca = "IBAN in referenca prejemnika"
+ime-ulica-kraj = "Ime, ulica in kraj prejemnika"
+
+[devet]
+
+# Napaka v standardu priporoča `10pt`, ne uporabljenih `9pt`
+upn-qr-potrdilo = "UPN QR - potrdilo"
+
+[deset]
+
+upn-qr = "UPN QR"
+
+[enajst]
+
+# Na UPN QR se pojavi dvakrat
+eur = "EUR"

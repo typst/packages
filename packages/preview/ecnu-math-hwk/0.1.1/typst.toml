@@ -1,0 +1,17 @@
+[package]
+name = "ecnu-math-hwk"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["syqwq-OMG"]
+license = "MIT"
+description = "Mathematics homework at East China Normal University."
+repository = "https://github.com/syqwq-OMG/ecnu-math-hwk"
+keywords = ["ECNU", "homework", "East China Normal University"]
+categories = ["report"]
+exclude = ["/pic", "/README.zh-CN.md"]
+compiler = "0.15.1"
+
+[template]
+path = "template"
+entrypoint = "hw.typ"
+thumbnail = "thumbnail.png"

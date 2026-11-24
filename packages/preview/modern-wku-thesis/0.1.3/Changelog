@@ -1,0 +1,39 @@
+# Changelog
+
+The format of this changelog is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [Unreleased]
+
+## [0.1.3] - 2026-08-24
+
+### Changed
+
+- Package renamed to `modern-wku-thesis` (typst.toml name now matches the repository and publish workflow)
+- Split `src/lib.typ` into modules: `cover.typ` (cover pages), `front-matter.typ` (abstract/TOC/lists/acronyms); style rules remain in `lib.typ`
+- Declared minimum Typst version (`compiler = "0.13.0"`); verified identical output on Typst 0.13.0 and 0.15.1
+
+### Fixed
+
+- Acronyms default changed from `(:)` to `none`, so an empty acronyms table no longer renders when omitted
+- README: fixed `modren-wku-thesis` typo and underscore parameter names (`graduate_thesis` → `graduate-thesis`)
+
+## [0.1.2] - 2025-10-29
+
+### Changed
+
+- Add pagebreak for each level 1 heading
+- Make level 1 heading center align
+
+## [0.1.1] - 2025-09-18
+
+### Fixed
+
+- Some fixes and documentation improvements
+
+## [0.1.0] - 2025-09-10
+
+### Added
+
+- Init & release the first version
+- Graduate thesis template with cover page, cover backfront page, abstract, acknowledgements, definition of acronyms, table of contents, list of tables/figures
+- General style settings for heading, paragraph and so on...

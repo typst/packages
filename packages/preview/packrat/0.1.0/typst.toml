@@ -1,0 +1,11 @@
+[package]
+name = "packrat"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Tim Voßhenrich <@T1mVo>"]
+license = "MIT OR Apache-2.0"
+description = "Decode and extraction functions"
+repository = "https://github.com/T1mVo/packrat"
+keywords = ["bzip2", "gzip", "tar", "xz", "zip", "zstd", "archive", "decode"]
+categories = ["integration"]
+compiler = "0.15.0"

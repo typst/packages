@@ -1,0 +1,18 @@
+[package]
+name = "tudelft-thesis-novanext"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["@roel"]
+license = "MIT-0"
+description = "A thesis template following the TU Delft corporate style."
+compiler = "0.15.0"
+repository = "https://gitlab.com/novanext/tudelft-thesis-typst/"
+keywords = ["TU Delft", "Delft University of Technology", "PhD Thesis"]
+categories = ["thesis", "layout"]
+exclude = ["docs/thesis.pdf"]
+
+[template]
+path = "template"
+entrypoint = "thesis.typ"
+thumbnail = "docs/thumbnail.png"
+

@@ -1,0 +1,180 @@
+{
+  "title": "Premier League Season 2024-25",
+
+  "standings": {
+    "labels": ["Arsenal", "Liverpool", "Man City", "Chelsea", "Spurs", "Newcastle"],
+    "values": [72, 68, 65, 58, 52, 48]
+  },
+
+  "team-stats": {
+    "labels": ["Arsenal", "Liverpool", "Man City", "Chelsea", "Spurs"],
+    "series": [
+      {"name": "Goals",   "values": [68, 72, 65, 52, 48]},
+      {"name": "Assists", "values": [55, 60, 58, 42, 38]},
+      {"name": "Cards",   "values": [48, 52, 40, 62, 58]}
+    ]
+  },
+
+  "player-stats": {
+    "labels": ["Pace", "Shooting", "Passing", "Dribbling", "Defense", "Physical"],
+    "series": [
+      {"name": "Striker",    "values": [88, 92, 75, 85, 35, 78]},
+      {"name": "Midfielder", "values": [72, 68, 90, 82, 70, 75]}
+    ]
+  },
+
+  "team-scatter": {
+    "x": [68, 72, 65, 52, 48, 55],
+    "y": [28, 32, 30, 45, 50, 42],
+    "labels": ["Arsenal", "Liverpool", "Man City", "Chelsea", "Spurs", "Newcastle"]
+  },
+
+  "home-away": {
+    "series": [
+      {"name": "Home", "points": [[38, 12], [40, 14], [35, 16], [28, 22], [25, 25]]},
+      {"name": "Away", "points": [[30, 16], [32, 18], [30, 14], [24, 23], [23, 25]]}
+    ]
+  },
+
+  "team-bubble": {
+    "x": [68, 72, 65, 52, 48],
+    "y": [58, 55, 62, 48, 45],
+    "size": [850, 720, 950, 580, 420],
+    "labels": ["Arsenal", "Liverpool", "Man City", "Chelsea", "Spurs"]
+  },
+
+  "weekly-goals": {
+    "labels": ["GW1", "GW2", "GW3", "GW4", "GW5", "GW6", "GW7", "GW8", "GW9", "GW10"],
+    "series": [
+      {"name": "Arsenal",   "values": [2, 1, 3, 0, 2, 4, 1, 2, 3, 1]},
+      {"name": "Liverpool", "values": [1, 3, 2, 2, 1, 0, 3, 2, 1, 4]},
+      {"name": "Man City",  "values": [3, 2, 1, 2, 3, 1, 2, 0, 4, 2]}
+    ]
+  },
+
+  "season-rankings": {
+    "labels": ["GW5", "GW10", "GW15", "GW20", "GW25"],
+    "series": [
+      {"name": "Arsenal",   "values": [2, 1, 1, 1, 1]},
+      {"name": "Liverpool", "values": [1, 2, 2, 3, 2]},
+      {"name": "Man City",  "values": [3, 3, 3, 2, 3]}
+    ]
+  },
+
+  "home-vs-away-pct": {
+    "labels": ["Arsenal", "Liverpool", "Man City", "Chelsea", "Spurs"],
+    "left-values":  [30, 32, 28, 35, 38],
+    "right-values": [70, 68, 72, 65, 62]
+  },
+
+  "season-slope": {
+    "labels": ["Arsenal", "Liverpool", "Man City", "Chelsea"],
+    "start-values": [3, 1, 2, 4],
+    "end-values":   [1, 2, 3, 4]
+  },
+
+  "head-to-head": {
+    "labels": ["Arsenal", "Liverpool", "Man City", "Chelsea", "Spurs"],
+    "values": [
+      [1.0, 0.6, 0.4, 0.8, 0.9],
+      [0.4, 1.0, 0.5, 0.7, 0.8],
+      [0.6, 0.5, 1.0, 0.6, 0.7],
+      [0.2, 0.3, 0.4, 1.0, 0.5],
+      [0.1, 0.2, 0.3, 0.5, 1.0]
+    ]
+  },
+
+  "goals-per-match": [2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 9, 9, 10, 10, 11, 12, 14, 15, 18, 22, 25, 30, 35, 42, 55, 70, 95],
+
+  "minutes-played": {
+    "labels": ["Forwards", "Midfield", "Defense", "Keepers"],
+    "boxes": [
+      {"min": 15, "q1": 45, "median": 68, "q3": 82, "max": 90},
+      {"min": 20, "q1": 55, "median": 72, "q3": 85, "max": 90},
+      {"min": 30, "q1": 60, "median": 78, "q3": 88, "max": 90},
+      {"min": 45, "q1": 75, "median": 85, "q3": 90, "max": 90}
+    ]
+  },
+
+  "ratings": {
+    "labels": ["Forwards", "Midfield", "Defense"],
+    "datasets": [
+      [5, 8, 12, 15, 18, 22, 25, 28, 30, 32, 35, 38, 40, 42, 45, 48, 50, 52, 55, 58],
+      [10, 15, 20, 22, 25, 28, 30, 32, 35, 38, 40, 42, 45, 48, 50, 55, 58, 60, 62, 65],
+      [15, 18, 22, 25, 28, 30, 32, 35, 38, 40, 42, 45, 48, 50, 52, 55, 58, 60, 65, 70]
+    ]
+  },
+
+  "season-targets": [
+    {"name": "Wins",         "value": 24, "max": 38},
+    {"name": "Goals",        "value": 68, "max": 80},
+    {"name": "Clean Sheets", "value": 12, "max": 20}
+  ],
+
+  "points-target": {"actual": 72, "target": 70, "ranges": [40, 60, 80]},
+
+  "match-calendar": {
+    "dates": [
+      "2024-08-17", "2024-08-24", "2024-08-31", "2024-09-14", "2024-09-21",
+      "2024-09-28", "2024-10-05", "2024-10-19", "2024-10-26", "2024-11-02",
+      "2024-11-09", "2024-11-23", "2024-11-30", "2024-12-04", "2024-12-07",
+      "2024-12-14", "2024-12-21", "2024-12-26", "2024-12-30", "2025-01-04",
+      "2025-01-15", "2025-01-18", "2025-01-25", "2025-02-01", "2025-02-15",
+      "2025-02-22", "2025-03-08", "2025-03-15"
+    ],
+    "values": [22, 18, 25, 15, 28, 20, 31, 24, 19, 27, 16, 30, 22, 35, 21, 26, 18, 33, 29, 14, 24, 28, 20, 32, 17, 25, 23, 30]
+  },
+
+  "season-timeline": {
+    "events": [
+      {"date": "Aug 2024", "title": "Opening Day",        "description": "Season kicks off"},
+      {"date": "Sep 2024", "title": "Transfer Deadline",   "description": "Summer window closes"},
+      {"date": "Dec 2024", "title": "Boxing Day",          "description": "Traditional fixture round"},
+      {"date": "Jan 2025", "title": "January Window",      "description": "Winter transfers open"},
+      {"date": "May 2025", "title": "Final Day",           "description": "Title decided"}
+    ]
+  },
+
+  "transfers": {
+    "nodes": ["Arsenal", "Liverpool", "Man City", "Chelsea", "Spurs", "Foreign"],
+    "flows": [
+      {"from": 5, "to": 0, "value": 65},
+      {"from": 5, "to": 1, "value": 45},
+      {"from": 5, "to": 2, "value": 80},
+      {"from": 5, "to": 3, "value": 110},
+      {"from": 1, "to": 3, "value": 40},
+      {"from": 0, "to": 5, "value": 25},
+      {"from": 3, "to": 4, "value": 30},
+      {"from": 2, "to": 5, "value": 35}
+    ]
+  },
+
+  "squad-value": {
+    "labels": ["Arsenal", "Man City", "Liverpool", "Chelsea", "Spurs", "Newcastle"],
+    "values": [850, 950, 720, 580, 420, 380]
+  },
+
+  "squad-tree": {
+    "name": "League",
+    "children": [
+      {"name": "Arsenal", "value": 850, "children": [
+        {"name": "GK",  "value": 80},
+        {"name": "DEF", "value": 250},
+        {"name": "MID", "value": 300},
+        {"name": "FWD", "value": 220}
+      ]},
+      {"name": "Man City", "value": 950, "children": [
+        {"name": "GK",  "value": 90},
+        {"name": "DEF", "value": 280},
+        {"name": "MID", "value": 320},
+        {"name": "FWD", "value": 260}
+      ]},
+      {"name": "Chelsea", "value": 580, "children": [
+        {"name": "GK",  "value": 50},
+        {"name": "DEF", "value": 160},
+        {"name": "MID", "value": 210},
+        {"name": "FWD", "value": 160}
+      ]}
+    ]
+  }
+}

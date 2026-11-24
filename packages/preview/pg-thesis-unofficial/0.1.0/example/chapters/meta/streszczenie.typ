@@ -1,0 +1,5 @@
+(maksymalnie 1 strona, strona nr 3, numer widoczny)
+
+Streszczenie powinno zawierać określenie problemu naukowego lub praktycznego do rozwiązania, cel i zakres pracy, zastosowane metody badań, wyniki i najważniejsze wnioski.
+
+Jeżeli praca jest realizowana przez co najmniej 2 studentów, to w Streszczeniu należy określić indywidualny udział każdego studenta w realizowanej pracy, podając jakie zagadnienia przez każdego ze studentów zostały opracowane i wykonane. Należy również zamieścić informację jakie rozdziały lub podrozdziały dany student opracował (patrz Spis treści). Należy przyjąć, że punkty podrozdziałów muszą być opracowywane przez studenta odpowiedzialnego za realizację podrozdziału. Przykładowo, jeżeli praca jest realizowana przez studenta A i studenta B, to można przytoczyć zapis: imię i nazwisko studenta A -- udział w rozdziałach 1, 7 oraz indywidualnie rozdział 2 oraz podrozdziały 3.1 i 4.2, itd., imię i nazwisko studenta B -- udział w rozdziałach 1, 7 oraz indywidualnie rozdział 5 i 6 oraz podrozdziały 3.2 i 4.1, itd.

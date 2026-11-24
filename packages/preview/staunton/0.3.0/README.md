@@ -1,0 +1,377 @@
+# staunton
+
+**Publish chess with [Typst](https://typst.app).** staunton goes beyond 
+board drawings and turns games and positions into publication-quality
+**diagrams**, **move notation**, and **tournament tables** — all referenceable `#figure`s.
+A move generator in pure Typst reads **FEN** and **PGN**, and everything is
+localized to seven languages.
+
+Requires **Typst 0.14.2+**. HTML export is the one exception — it builds on
+compiler features added in 0.15, so it needs **0.15+**; paged output (PDF, PNG,
+SVG) and every other feature work on 0.14.2.
+
+## A game, published
+
+Install the package, parse a PGN, and drop a captioned diagram of any position —
+the players, the year, and the move just played are filled in automatically:
+
+```typ
+#import "@preview/staunton:0.3.0": parse-pgn, diagram-after, chess-notation, standings-table
+
+#let opera = parse-pgn(```
+[White "Morphy"] [Black "Allies"] [Date "1858"]
+1. e4 e5 2. Nf3 d6 3. d4 Bg4 4. dxe5 Bxf3 5. Qxf3 dxe5 6. Bc4 Nf6 7. Qb3 Qe7
+8. Nc3 c6 9. Bg5 b5 10. Nxb5 cxb5 11. Bxb5+ Nbd7 12. O-O-O Rd8 13. Rxd7 Rxd7
+14. Rd1 Qe6 15. Bxd7+ Nxd7 16. Qb8+ Nxb8 17. Rd8# 1-0
+```).first()
+
+// The final position: roster → info line, last move → caption, check → king glow.
+#diagram-after(opera, "17w", check: true)
+```
+
+![Morphy – Allies (1858): the final mate, the black king glowing, captioned "Position after 17. Rd8#"](https://raw.githubusercontent.com/ndg6/staunton/v0.3.0/docs/img/showcase-diagram.png)
+
+## Move notation
+
+Numbered movetext with figurine glyphs, inline **variations**, NAGs and comments,
+localized to the document language — output no board-only package produces:
+
+```typ
+#let g = parse-pgn("1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 (5... Nxe4!? 6. d4 b5) 6. Re1 b5 7. Bb3 d6 *").first()
+
+#chess-notation(g, figurine: true, variations: true, nags: true)
+```
+
+![Figurine Ruy Lopez notation with an inline variation and a “!?” annotation](https://raw.githubusercontent.com/ndg6/staunton/v0.3.0/docs/img/showcase-notation.png)
+
+## Tournament tables
+
+Standings, cross-tables and progress tables straight from the games' result tags,
+with Buchholz / Sonneborn-Berger tie-breaks:
+
+```typ
+#let games = parse-pgn(```
+[White "Carlsen"][Black "Nakamura"][Result "1-0"][Round "1"] 1-0
+[White "Caruana"][Black "Nepomniachtchi"][Result "1/2-1/2"][Round "1"] 1/2-1/2
+[White "Carlsen"][Black "Caruana"][Result "1/2-1/2"][Round "2"] 1/2-1/2
+[White "Nepomniachtchi"][Black "Nakamura"][Result "1-0"][Round "2"] 1-0
+[White "Carlsen"][Black "Nepomniachtchi"][Result "1-0"][Round "3"] 1-0
+[White "Nakamura"][Black "Caruana"][Result "0-1"][Round "3"] 0-1
+```)
+
+#standings-table(games, caption: [Final standings])
+```
+
+![A final-standings table: rank, player, played, +/=/−, points, Buchholz and Sonneborn-Berger tie-breaks](https://raw.githubusercontent.com/ndg6/staunton/v0.3.0/docs/img/showcase-table.png)
+
+## Annotated diagrams
+
+`%cal` / `%csl` drawing commands in a move's comment become arrows and highlights,
+and a `!` / `?` grade becomes a move-quality badge — composited onto the board:
+
+```typ
+#let g = parse-pgn("1. e4 e5 2. Nf3! {[%cal Gf3e5,Rf1c4][%csl Ge5]} Nc6 *").first()
+
+#diagram-after(g, "2w", annotations: true, move-quality: true)
+```
+
+![Board after 2.Nf3 with a green and a red arrow, a highlighted square, and a blue “!” badge](https://raw.githubusercontent.com/ndg6/staunton/v0.3.0/docs/img/showcase-annotations.png)
+
+## Themed boards
+
+Reusable `color-theme` / `board-theme` values — eleven built-ins each — cover
+everything from a flat two-color pairing to a full "look": square patterns
+(stripes, marble, wood) and a matching material band around the board:
+
+```typ
+#board(
+  "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+  label-mode: "border",
+  border-theme: "marble",
+  color-theme: color-theme(base: "coral", pattern: "marble", brightness: -15%, contrast: 30%),
+)
+```
+
+![A board with a marble-veined border band and marbled squares, the "coral" theme darkened and sharpened](https://raw.githubusercontent.com/ndg6/staunton/v0.3.0/docs/img/showcase-marble.png)
+
+## …and the basics
+
+A **bare `board`** for an inline or decorative position; a **`chess-diagram`**
+whenever you want it captioned, counted, `@`-referenceable and listed by an
+outline. Sources are the same everywhere — a FEN string, a `position(..)` object,
+or a squares dict:
+
+```typ
+#chess-diagram("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2")
+```
+
+![A chess diagram of the position after 1.e4 c5 2.Nf3, captioned "Black to move"](https://raw.githubusercontent.com/ndg6/staunton/v0.3.0/docs/img/quickstart-1.png)
+
+## Features
+
+- **PGN engine** — parse multi-game files, navigate the mainline and (nested)
+  **variations** by locator, play "what-if" lines, and export FEN, all on a
+  pure-Typst legal-move engine (lazy parsing stays fast on large files).
+- **Notation** — numbered movetext, inline/indented variations, figurine glyphs,
+  NAGs, comments, and diagrams **embedded at markers**; localized piece letters.
+- **Tournament tables** — standings, cross-tables and progress (player or team),
+  with Buchholz / Sonneborn-Berger tie-breaks, and a curated set of styling
+  options (rule presets, header / body fills including zebra rows, alignment,
+  winner highlighting) settable per call or document-wide.
+- **Annotations & markings** — `%cal` / `%csl` arrows and highlights from PGN, an
+  in-check glow, and move-quality badges; add NAGs / comments / variations to a
+  game programmatically, then render it like any parsed one.
+- **Styling** — reusable `color-theme` / `board-theme` values (11 built-ins each,
+  derivable from one another), brightness / contrast adjustment, square patterns
+  (stripes, marble, wood), seven `"border"`-mode band looks including wood and
+  marble material frames, six label placements, flip, piece sets, grid;
+  proportional highlights (filled / cross / circle) and arrows; size-adaptive
+  layout.
+- **Bring-your-own & fairy pieces** — any downloaded set via a `piece-set` loader
+  (`named-piece-set` / `svg-piece-set`), plus non-standard kinds and whole variants
+  (`define-variant`, `with-fallback`).
+- **Chess960 / Fischer Random** — board, engine, PGN pipeline and notation all
+  handle 960 (X-FEN castling, the FRC PGN tags, Scharnagl start numbers).
+- **Publishing niceties** — everything is a `#figure`: `@label` cross-references,
+  dedicated **outlines** (lists of diagrams / tables), localization (en, de, es,
+  fr, it, pt, ru), and limited **HTML export**.
+
+## Documentation
+
+- **User manual** — the complete reference (every function, option, and example),
+  with each feature shown as the code you type beside the board it produces.
+  Download the compiled **[PDF](https://github.com/ndg6/staunton/releases/download/v0.3.0/manual.pdf)** (attached to each release), or build it yourself
+  from its Typst source, [`docs/manual.typ`](https://github.com/ndg6/staunton/blob/v0.3.0/docs/manual.typ). The manual is part
+  of the repo only — it is not shipped in the package bundle.
+- **[Showcase](https://github.com/ndg6/staunton/blob/v0.3.0/docs/examples/showcase.typ)** — a runnable capability tour.
+
+Compile the manual and the showcase locally with the package folder as root
+(the manual's own styling uses a 0.15 builtin, so *building* it needs Typst
+0.15+ even though *using* the package does not):
+
+```sh
+typst compile --root . docs/manual.typ docs/manual.pdf
+typst compile --root . docs/examples/showcase.typ showcase.pdf
+```
+
+### API at a glance
+
+| area | entry points |
+|---|---|
+| diagrams | `chess-diagram`, `diagram`, `board`, `chess-board`, `chess960-board`, `chess960-diagram` |
+| positions | `position`, `parse-fen`, `to-fen`, `starting-fen`, `chess960-start`, `chess960-start-fen` |
+| games (PGN) | `parse-pgn`, `movetext`, `mainline`, `diagram-after`, `position-after`, `chess-moves`, `game-start`, `game-variant` |
+| annotate / build | `with-nags`, `with-comments`, `with-variation` |
+| notation | `chess-notation`, `notation` |
+| tables | `standings-table`, `crosstable-table`, `progress-table`, `games-by-event` (+ compute: `standings`, `crosstable`, `progress`) |
+| outlines | `chess-diagram-outline`, `chess-table-outline`, `chess-outlines` |
+| themes | `color-theme`, `board-theme` |
+| engine | `legal-moves`, `apply`, `in-check`, `move-to-san` |
+| defaults | `set-chess-defaults`, `set-board-defaults`, `set-diagram-defaults`, `set-table-defaults`, `set-pgn-defaults`, `set-lang`, `set-piece-set` |
+
+## Pieces & licensing
+
+The **code** (`lib.typ`, `src/**/*.typ`) is **MIT**. The bundled **piece SVGs**
+are **GPLv2+** — two sets ship: `cburnett` (default, © Colin M.L. Burnett) and
+`merida` (© Armando Hernandez Marroquin), from the
+[lichess](https://github.com/lichess-org/lila) collection. See [LICENSE](LICENSE)
+and [LICENSE-PIECES](LICENSE-PIECES). The package manifest declares
+`MIT AND GPL-2.0-or-later`.
+
+A `"unicode"` glyph fallback needs no SVGs. To use other art, pass `piece-set` a
+loader (`named-piece-set` / `svg-piece-set`, or `with-fallback` for mixed and
+fairy boards) — see the *Pieces and fonts* and *Non-standard pieces* sections of
+the [manual](https://github.com/ndg6/staunton/blob/v0.3.0/docs/manual.typ).
+(Other popular lichess sets carry non-commercial licenses and are not bundled.)
+The manual and tests also embed **CC BY-SA 4.0** fairy demo art (under `docs/` and
+`tests/`), which is *not* part of the shipped package — see [LICENSE-PIECES](LICENSE-PIECES).
+
+## Repository layout
+
+```
+typst.toml          package manifest          LICENSE / LICENSE-PIECES  MIT / GPLv2+
+lib.typ             public API + figure wrapper
+src/                engine, FEN/PGN/SAN, notation, tournament, board renderer, i18n
+src/assets/         piece-set SVGs (cburnett, merida), square/band pattern SVGs, i18n files
+docs/manual.typ     user manual (-> PDF)      docs/examples/  runnable showcase
+tests/              test suite (bash tests/run.sh)   scripts/  release bundle build
+```
+
+## Tests
+
+```sh
+bash tests/run.sh        # compiles pass-cases; asserts fail-cases error as expected
+bash tests/run.sh -j1    # force serial (default: one worker per CPU)
+bash tests/run.sh --system-fonts   # real fonts (slower) — the release gate
+```
+
+Test files are independent compiles, so the runner dispatches them across one
+worker per CPU and skips the system-font scan by default (`--ignore-system-fonts`)
+— together a multiple-times-faster suite. Fonts affect only rendered glyphs, never
+pass/fail, so the release gate re-runs with `--system-fonts` for the visual eyeball.
+
+The runner walks every `.typ` under `tests/`; a file with a `// EXPECT: <substr>`
+header must error with that message, any other must compile. Files/dirs prefixed
+`_` (shared fixtures) are skipped; `docs/examples/*.typ` are compiled too.
+
+## Roadmap
+
+- **Tournament tables**: read results from non-PGN sources (JSON / structured
+  input), so standings can be published without a PGN at all.
+- A **`table-theme(..)` value object**, bundling the table styling fields the way
+  `color-theme` / `board-theme` bundle the board ones.
+- Engine **performance** (the narrow `legal-moves` / `apply` seam can swap to WASM).
+- An opt-in **show-rule hook** for styling staunton's own figure captions
+  (supplement, alignment) — currently only possible as a snippet in your own
+  document, because a rule installed from inside the package would break
+  `@` cross-references.
+
+## Changelog
+
+<!-- RELEASE NOTE (not user-facing): the top changelog section is the version
+     currently in development. Keep its heading version-only (e.g. "### 0.3.0") —
+     never add "(unreleased)" or similar to user-visible text. -->
+
+### 0.3.0
+
+- **More border themes**: `border-theme` (the `label-mode: "border"` band) gains
+  `"creme"` (creme band, saddle-brown labels) and `"light"` (light-grey band,
+  charcoal labels — the mirror of `"dark"`), joining `"square"`, `"brown"` and
+  `"dark"`.
+- **Material border themes**: `border-theme` also gains `"wood"` and `"marble"`,
+  the band counterparts of the `"wood"` / `"marble"` square `pattern`s — a
+  wood-grain or marble-veining texture composited over the band, for matching
+  a wood- or marble-patterned board. `"wood"` reuses `"brown"`'s exact band and
+  label colors; `"marble"` is a bottle-green band with creme labels.
+- **`"brown"` border theme retuned**: its band is now a lighter espresso brown
+  (was a very dark near-black brown). ⚠️ This changes how existing documents
+  using `border-theme: "brown"` look — the frame is visibly lighter. Set the old
+  color explicitly if you need the previous appearance.
+- **Color and board themes**: `color-theme(light:, dark:)` bundles a square-color
+  pairing, and `board-theme(..)` bundles a full board look (any board style field
+  plus a nested color theme). Both accept a built-in name or a constructor value,
+  and are set via the new `color-theme` / `board-theme` board style fields
+  (per-call or document-wide). Eleven built-ins ship: `"staunton-default"`,
+  `"dutch-gray"`, and nine themes reproduced from kokopu-react (`"scid"`,
+  `"wikipedia"`, `"xboard"`, `"coral"`, `"dusk"`, `"emerald"`, `"marine"`,
+  `"sandcastle"`, `"wheat"`), whose square colors are reproduced from
+  [kokopu-react](https://github.com/yo35/kokopu-react) (LGPL-3.0, © Yoann Le
+  Montagner). See the manual for the full catalogue and the precedence rule.
+- **Square patterns**: `color-theme(.., pattern: ..)` lays a texture over the
+  squares — `"stripes"` (diagonal hatching on dark squares), `"marble"` (both
+  squares) or `"wood"` (dark squares only). The overlay composites *over* the
+  theme's own colors and never replaces them, so the result still follows the
+  `light` / `dark` pair you pick.
+- **Brightness and contrast**: `color-theme(.., brightness: .., contrast: ..)`
+  post-adjusts a square-color pair — `brightness` shifts both toward white or
+  black, `contrast` spreads or compresses the lightness gap between them. Both
+  take signed ratios, are clamped to ±100%, and the pair is always held at least
+  5% apart in lightness, so an extreme setting cannot collapse or invert the
+  checkerboard.
+- **Tournament-table styling**: standings tables, cross-tables and progress
+  charts gain eight styling options — `grid` (`"complete"` / `"no-outer"` /
+  `"header-rule"`), `header-align`, `header-fill`, `body-align`, `body-fill`
+  (including `"zebra"` rows), `table-align`, `caption-bold` and
+  `highlight-winners`. Each is settable per call or document-wide via the new
+  `set-table-defaults(..)`, and raw `#table` arguments passed straight through
+  still override any preset. Table headers now also repeat when a table breaks
+  across a page boundary.
+- **`move-to-san`**: names an engine-generated move from a bare position — the
+  inverse of the SAN parser, with the same disambiguation, check / mate suffix
+  and castling rules. Movetext can now be produced without a pre-existing PGN
+  (puzzle solutions, generated lines, legal-move listings).
+- **Faster board rendering**: the checkerboard is memoized, so diagrams sharing
+  geometry and colors build it once instead of per board; square parsing has a
+  fast path, and the in-check probe is gated so it only runs when a glow is
+  actually requested.
+- **Lower compiler floor — Typst 0.14.2**: the manifest previously required
+  0.15. The library's only hard 0.15 dependency was the HTML-export path
+  (`target()` / `html.frame`), which is now guarded on `sys.version`, so paged
+  output works on 0.14.2. Verified on both compilers: 175/175 on 0.15.1, and on
+  0.14.2 the only gaps are the two HTML-export tests plus two expected-fail
+  fixtures whose asserted *error wording* differs between compiler versions —
+  no behavioural difference in the library. ⚠️ HTML export still requires 0.15+.
+
+### 0.2.2
+
+- **Proportional markers**: cross / circle / arrow strokes — and the new
+  `cross-margin` / `circle-margin` — scale with the square by default (stroke 15%,
+  cross tip 10% from the corners, circle margin 3%), so marks read the same at any
+  board size. Default arrows are also more opaque now (35% transparency, was 85%),
+  so they no longer look faint.
+  Each is settable per call or document-wide, as a ratio or an absolute length.
+- **Notation spacing**: move numbers render spaced by default ("1. e4 e5 2. Nf3";
+  a forced Black move as "24... Nf6"). A new `spaced` option (document-settable via
+  `set-pgn-defaults`) opts back into the dense "1.e4" / "24...Nf6" form.
+- **Uniform captions**: automatic below-captions are consistent — a `diagram-after`
+  reads "Position after 24. Nf3", and a FEN `chess-diagram` reads "White to move" /
+  "Black to move" (localized).
+
+### 0.2.1
+
+- **i18n**: automatic diagram captions ("Position after move …" / "Position at
+  move N, X to play") and tournament-table column headers are now localized —
+  previously they stayed English regardless of `set-lang`. The chess language
+  (`set-lang`) is independent of the document language (`#set text(lang: ..)`),
+  and `set-lang("auto")` follows the document language for these too.
+- **docs**: the README Quick-Start examples now show their rendered output.
+
+### 0.2.0
+
+- **Chess960 / Fischer Random**: variant-named `chess960-board` / `chess960-diagram`;
+  start positions by Scharnagl number (`chess960-start`, `chess960-start-fen`, 0–959,
+  518 = standard); X-FEN castling in `parse-fen` / `to-fen`; PGN recognition of
+  `[Variant]`, `[SetUp]`, `[FEN]` and `[FRCPosition]` / `[Chess960Position]`
+  (`game-variant`, `game-start`). The engine's castling is generalised, so 960
+  shares the standard move generator.
+- **Bring-your-own piece art**: `piece-set` accepts a loader `(color, kind) → bytes`
+  (or a bytes dict), so any downloaded or custom set renders. Helpers build one:
+  `named-piece-set` (filename pattern), `svg-piece-set` (lichess layout), and
+  `with-fallback` (custom pieces over a standard base). Reads live in your
+  document, so it works from an installed package (Typst's file sandbox).
+- **Non-standard / fairy pieces**: define custom piece kinds and whole variants
+  with `define-variant`; the squares-dict and string-form parsers understand the
+  new letters, with a Unicode-glyph fallback for kinds you have no art for.
+- **Move markings**: an in-check glow (`check: true`, auto-locates the king) and a
+  move-quality badge (`move-quality: true` on `diagram-after`; the `!` `?` `!!`
+  `??` `!?` `?!` codes).
+- **Outlines**: caption-less diagrams and tables are no longer listed (they stay
+  referenceable but leave no blank outline row), and `title: none` fully drops an
+  outline title.
+- **Changed**: `position.castling` is now the castling rook's *file index* (or
+  `none`) per side, not a boolean — breaking if you read that field directly.
+  `to-fen` now emits X-FEN castling when `KQkq` is ambiguous and writes en-passant
+  targets strictly (only when a capture is available); standard positions are
+  otherwise unchanged and still round-trip exactly.
+- **Changed**: `set-board-defaults` / `set-chess-defaults` now reject the
+  position-specific options `highlight`, `arrows` and `move-quality-mark` as
+  document-wide defaults (they apply per call, or via `diagram-after` for the
+  badge); their *styling* options stay settable document-wide.
+
+### 0.1.0
+
+Initial release.
+
+- Boards and diagrams from a FEN string, a `position(..)` object, or a squares
+  dict; themes, six label placements, flip, piece sets, grid, highlights, arrows.
+- Pure-Typst legal-move engine; PGN parsing with mainline and nested variations,
+  locator navigation, "what-if" play, and FEN export.
+- Localized move notation with variations, figurine glyphs, NAGs, comments, and
+  embedded diagrams; programmatic NAG / comment / variation builders.
+- Tournament tables (standings, cross-tables, progress; player or team) with
+  Buchholz / Sonneborn-Berger tie-breaks.
+- Figure-based references and diagram / table outlines; document-wide defaults
+  and localization (en, de, es, fr, it, pt, ru).
+- Limited HTML export (notation, tables, outlines and references as native HTML;
+  boards and diagrams as inline SVG).
+
+## Acknowledgements
+
+- The [boards-n-pieces](https://typst.app/universe/package/boards-n-pieces) Typst
+  package was an inspiration for some features.
+- Developed with assistance from Claude (Opus 4.8) by Anthropic.
+
+## License
+
+Code: **MIT** (© 2026 Frank Lippert). Bundled piece images: **GPL-2.0-or-later**.
+See [LICENSE](LICENSE) and [LICENSE-PIECES](LICENSE-PIECES).

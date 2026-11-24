@@ -1,0 +1,118 @@
+:root {
+    /* Colors */
+    --pf-text: #1a1a1a !important;
+    --pf-text-secondary: #666 !important;
+    --pf-text-muted: #767676 !important;
+    --pf-background: #fff !important;
+    --pf-border: #e0e0e0 !important;
+    --pf-border-focus: #999 !important;
+    --pf-skeleton: #eee !important;
+    --pf-skeleton-shine: #f5f5f5 !important;
+    --pf-hover: #f5f5f5 !important;
+    --pf-mark: #1a1a1a !important;
+    --pf-scroll-shadow: rgba(0, 0, 0, 0.08) !important;
+
+    /* Shadows */
+    --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.2) !important;
+
+    /* Error states */
+    --pf-error-bg: #fef2f2 !important;
+    --pf-error-border: #fecaca !important;
+    --pf-error-text: #dc2626 !important;
+    --pf-error-text-secondary: #b91c1c !important;
+
+    /* Focus ring */
+    --pf-outline-focus: #0969da !important;
+    --pf-outline-width: 2px !important;
+    --pf-outline-offset: 2px !important;
+
+    /* Typography */
+    --pf-font:
+        Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+        Arial, sans-serif !important;
+
+    /* Sizing */
+    --pf-input-height: 36px !important;
+    --pf-input-font-size: 16px !important; /* Keep at 16px+ to prevent iOS auto-zoom on focus */
+    --pf-summary-font-size: 12px !important;
+    --pf-result-title-font-size: 14px !important;
+    --pf-result-excerpt-font-size: 13px !important;
+
+    /* Results layout */
+    --pf-results-display: flex !important;
+    --pf-results-flex-direction: column !important;
+    --pf-results-flex-wrap: nowrap !important;
+    --pf-results-columns: none !important; /* grid-template-columns value, used when display is grid */
+    --pf-results-gap: 8px !important;
+
+    --pf-border-radius: 6px !important;
+    --pf-image-width: 64px !important;
+    --pf-image-height: 48px !important;
+
+    /* Modal */
+    --pf-modal-backdrop: rgba(0, 0, 0, 0.5) !important;
+    --pf-modal-max-width: 560px !important;
+    --pf-modal-max-height: min(80dvh, 800px) !important;
+    --pf-modal-top: 10dvh !important;
+
+    /* Searchbox dimensions */
+    --pf-searchbox-max-width: 480px !important;
+    --pf-searchbox-dropdown-max-height: 320px !important;
+
+    /* Dropdown settings */
+    --pf-dropdown-max-height: 280px !important;
+    --pf-dropdown-z-index: 9999 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --pf-text: #e5e5e5 !important;
+        --pf-text-secondary: #a0a0a0 !important;
+        --pf-text-muted: #949494 !important;
+        --pf-background: oklch(21% 0.006 285.885) !important;
+        --pf-border: #333 !important;
+        --pf-border-focus: #555 !important;
+        --pf-skeleton: #2a2a2a !important;
+        --pf-skeleton-shine: #333 !important;
+        --pf-hover: #252525 !important;
+        --pf-mark: #e5e5e5 !important;
+        --pf-scroll-shadow: rgba(255, 255, 255, 0.1) !important;
+        --pf-outline-focus: #58a6ff !important;
+
+        --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+        --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+        --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5) !important;
+
+        --pf-error-bg: #2a1a1a !important;
+        --pf-error-border: #5c2828 !important;
+        --pf-error-text: #f87171 !important;
+        --pf-error-text-secondary: #ef4444 !important;
+    }
+}
+
+button.pf-trigger-btn {
+    border-radius: 0px !important;
+    border-color: transparent !important;
+    height: 100% !important;
+}
+
+button.pf-trigger-btn:hover {
+    border-color: var(--pf-border-focus) !important;
+}
+
+.pf-modal-header,
+.pf-result-card,
+.pf-trigger-key,
+.pf-heading-chip,
+.pf-keyboard-key,
+.pf-modal,
+.pf-input {
+    border-radius: 0px !important;
+}
+
+.pf-trigger-text,
+.pf-input-clear {
+    font-family: Lato !important;
+}

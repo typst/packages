@@ -1,0 +1,116 @@
+[days.format.wide]
+1 = "móndie"
+2 = "muányáŋmóndie"
+3 = "metúkpíápɛ"
+4 = "kúpélimetúkpiapɛ"
+5 = "feléte"
+6 = "séselé"
+7 = "sɔ́ndiɛ"
+
+[days.format.abbreviated]
+1 = "md"
+2 = "mw"
+3 = "et"
+4 = "kl"
+5 = "fl"
+6 = "ss"
+7 = "sd"
+
+[days.format.narrow]
+1 = "m"
+2 = "m"
+3 = "e"
+4 = "k"
+5 = "f"
+6 = "s"
+7 = "s"
+
+[days.stand-alone.wide]
+1 = "móndie"
+2 = "muányáŋmóndie"
+3 = "metúkpíápɛ"
+4 = "kúpélimetúkpiapɛ"
+5 = "feléte"
+6 = "séselé"
+7 = "sɔ́ndiɛ"
+
+[days.stand-alone.abbreviated]
+1 = "md"
+2 = "mw"
+3 = "et"
+4 = "kl"
+5 = "fl"
+6 = "ss"
+7 = "sd"
+
+[days.stand-alone.narrow]
+1 = "m"
+2 = "m"
+3 = "e"
+4 = "k"
+5 = "f"
+6 = "s"
+7 = "s"
+
+[months.format.wide]
+1 = "pikítíkítie, oólí ú kutúan"
+2 = "siɛyɛ́, oóli ú kándíɛ"
+3 = "ɔnsúmbɔl, oóli ú kátátúɛ"
+4 = "mesiŋ, oóli ú kénie"
+5 = "ensil, oóli ú kátánuɛ"
+6 = "ɔsɔn"
+7 = "efute"
+8 = "pisuyú"
+9 = "imɛŋ i puɔs"
+10 = "imɛŋ i putúk,oóli ú kátíɛ"
+11 = "makandikɛ"
+12 = "pilɔndɔ́"
+
+[months.format.abbreviated]
+1 = "o.1"
+2 = "o.2"
+3 = "o.3"
+4 = "o.4"
+5 = "o.5"
+6 = "o.6"
+7 = "o.7"
+8 = "o.8"
+9 = "o.9"
+10 = "o.10"
+11 = "o.11"
+12 = "o.12"
+
+[months.stand-alone.wide]
+1 = "pikítíkítie, oólí ú kutúan"
+2 = "siɛyɛ́, oóli ú kándíɛ"
+3 = "ɔnsúmbɔl, oóli ú kátátúɛ"
+4 = "mesiŋ, oóli ú kénie"
+5 = "ensil, oóli ú kátánuɛ"
+6 = "ɔsɔn"
+7 = "efute"
+8 = "pisuyú"
+9 = "imɛŋ i puɔs"
+10 = "imɛŋ i putúk,oóli ú kátíɛ"
+11 = "makandikɛ"
+12 = "pilɔndɔ́"
+
+[months.stand-alone.abbreviated]
+1 = "o.1"
+2 = "o.2"
+3 = "o.3"
+4 = "o.4"
+5 = "o.5"
+6 = "o.6"
+7 = "o.7"
+8 = "o.8"
+9 = "o.9"
+10 = "o.10"
+11 = "o.11"
+12 = "o.12"
+
+[patterns]
+full = "EEEE d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "d/M/y"
+

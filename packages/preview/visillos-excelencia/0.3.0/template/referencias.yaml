@@ -1,0 +1,47 @@
+# Bibliografía en formato Hayagriva (el de Typst). También vale un fichero .bib.
+# Cada entrada tiene una etiqueta (newton1701, vollmer2009…) que se cita en el
+# texto con @etiqueta. El estilo (APA, IEEE…) se elige en main.typ.
+
+newton1701:
+  type: Article
+  title: "Scala graduum caloris. Calorum descriptiones & signa"
+  author: Newton, Isaac
+  date: 1701
+  page-range: 824-829
+  serial-number:
+    doi: "10.1098/rstl.1700.0082"
+  parent:
+    type: Periodical
+    title: Philosophical Transactions of the Royal Society of London
+    volume: 22
+    issue: 270
+
+vollmer2009:
+  type: Article
+  title: "Newton's law of cooling revisited"
+  author: Vollmer, Michael
+  date: 2009
+  page-range: 1063-1084
+  serial-number:
+    doi: "10.1088/0143-0807/30/5/014"
+  parent:
+    type: Periodical
+    title: European Journal of Physics
+    volume: 30
+    issue: 5
+
+zill2009:
+  type: Book
+  title: Ecuaciones diferenciales con aplicaciones de modelado
+  author: Zill, Dennis G.
+  edition: 9
+  date: 2009
+  publisher: Cengage Learning
+
+wikipedia-enfriamiento:
+  type: Web
+  title: Ley del enfriamiento de Newton
+  author: Wikipedia
+  url:
+    value: https://es.wikipedia.org/wiki/Ley_del_enfriamiento_de_Newton
+    date: 2026-10-17

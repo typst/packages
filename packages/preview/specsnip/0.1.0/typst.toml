@@ -1,0 +1,18 @@
+[package]
+name = "specsnip"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nikolai Neff-Sarnow"]
+license = "Apache-2.0"
+description = "A package to query C code and headers using Tree-Sitter."
+repository = "https://github.com/nineff/specsnip"
+keywords = [
+  "tree-sitter",
+  "c",
+  "header",
+  "code",
+  "interface",
+]
+categories = ["scripting", "integration", "model"]
+compiler = "0.15.0"
+exclude = ["examples/*", "docs/*"]

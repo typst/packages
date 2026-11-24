@@ -10,7 +10,8 @@ licenses, it should be stated clearly (in your README for example) which license
 applies to which file.
 
 In addition to specifying the license in the TOML manifest, a package must
-either contain a `LICENSE` file or link to one in its `README.md`.
+either contain a `LICENSE` file (not `LICENSE.txt` or other names) or link
+to one in its `README.md`.
 
 *Additional details for template packages:* If you expect the package
 license's provisions to apply to the contents of the template directory (used

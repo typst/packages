@@ -1,0 +1,25 @@
+[package]
+name = "qrypst"
+version = "0.1.1"
+entrypoint = "qrypst.typ"
+authors = ["Kyle Jensen <@kljensen>"]
+license = "Unlicense AND MIT"
+description = "Draw QR codes with an exact printed module size."
+repository = "https://github.com/kljensen/qrypst"
+keywords = ["qr", "qr-code", "qrcode", "barcode", "wasm"]
+categories = ["integration", "components"]
+compiler = "0.13.0"
+# Only typst.toml, qrypst.typ, qrypst.wasm, README.md, LICENSE and
+# LICENSE-qrcodegen reach the registry bundle. Rust source and build files
+# stay in the repository.
+exclude = [
+  "src",
+  "tests",
+  "target",
+  ".github",
+  "Cargo.toml",
+  "Cargo.lock",
+  "Justfile",
+  "rust-toolchain.toml",
+  ".gitignore",
+]

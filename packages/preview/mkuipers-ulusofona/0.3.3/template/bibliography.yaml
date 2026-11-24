@@ -1,0 +1,26 @@
+DEISI24:
+  type: web
+  title: Regulamento de Trabalho Final de Curso
+  author: DEISI
+  date: 2024-10
+DEISI24b:
+  type: web
+  title: DEISI
+  author: DEISI
+  url: http://www.deisi.ulusofona.pt
+  date: 2024-10
+TaWe20:
+  type: book
+  title: Computer Networks
+  author:
+    - Tanenbaum, Andrew
+    - Wetherall, David
+  publisher: Prentice Hall
+  edition: 6
+  date: 2020
+ULHT21:
+  type: web
+  title: Universidade Lusófona de Humanidades e Tecnologias
+  author: Universidade Lusófona de Humanidades e Tecnologia
+  url: http://www.ulusofona.pt
+  date: 2024-10

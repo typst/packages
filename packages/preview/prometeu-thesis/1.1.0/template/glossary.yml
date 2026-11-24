@@ -1,0 +1,17 @@
+- key: maths
+  short: Maths
+  long: Mathematics
+  description: Mathematics is what mathematicians do
+
+- key: typst
+  short: Typst
+  description: A markup-based typesetting system that is powerful and easy to learn
+
+- key: latex
+  short: LaTeX
+  description: Is a markup language specially suited for scientific document
+
+- key: formula
+  short: Formula
+  plural: Formulas
+  description: A mathematical expression

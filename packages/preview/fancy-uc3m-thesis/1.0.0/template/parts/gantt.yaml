@@ -1,0 +1,77 @@
+# Example of a gantt chart configuration in YAML format, source: https://gitlab.com/john_t/typst-gantty/-/blob/master/example/gantt.yaml
+
+# A start date. Not required.
+start: 2024-11-01
+# An end date. Not required.
+end: 2025-03-24
+# A list of tasks
+tasks:
+    # The name of the task.
+  - name: Research
+    # Tasks with subtasks _can_ specify a start, end, and done date.
+    # If not, then the date will be calculated from its sub tasks.
+    #
+    # Thus it is rarely needed to specify this field, so it is unlikely
+    # you will need to use this field alongside the `subtasks` field.
+    intervals:
+      - start: 2024-11-27
+        end: 2024-12-04
+        done: 2024-11-29
+
+    # Optional: tasks, subtasks, milestones, intervals, and dependencies all
+    # support an `x` dictionary which can be used to attatch custom properties
+    # to them for custom drawers
+    #
+    # x:
+    #   my-awesome-library:
+    #     asignee: Simon
+
+    # This task's subtasks.
+    #
+    # Each has the same format as an element of the `tasks` array.
+    subtasks:
+      - name: "Read Statements"
+        start: 2024-11-27
+        end: 2024-12-04
+        # Optional: indicates a completion date of a task, so that the
+        # task will be highlighted differently.
+        done: 2024-11-29
+  - name: Drafting
+    subtasks:
+      - name: α draft
+        # Optional: give this task an `id` to be referenced
+        # by a dependency
+        id: alpha-draft
+        start: 2024-12-12
+        end: 2024-12-31
+      - name: β draft
+        id: beta-draft
+        start: 2024-12-31
+        end: 2025-01-31
+        # Optional: dependencies for this task.
+        # 
+        # These are rendered as an arrow between the tasks.
+        # 
+        # dependencies:
+        #   - id: alpha-draft
+      - name: Final Draft
+        # If a task has a hiatus in it, it can be specified like this:
+        # Each interval can have its own `start`, `end`, and `date`.
+        intervals:
+          - start: 2025-03-07
+            end: 2025-03-14
+          - start: 2025-03-18
+            end: 2025-03-24
+  - name: Production Log
+    subtasks:
+      - name: Record initial ideas
+        start: 2024-11-27
+        end: 2024-12-04
+        done: 2024-12-08
+milestones:
+  - name: 1st Draft Hand In
+    date: 2025-02-14
+    # Optional: whether or not the date should be shown in this milestone
+    show-date: true 
+  - name: Final Hand In
+    date: 2025-03-24

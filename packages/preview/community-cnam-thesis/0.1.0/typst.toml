@@ -1,0 +1,15 @@
+[package]
+name = "community-cnam-thesis"
+version = "0.1.0"
+entrypoint = "src/cnam-thesis.typ"
+authors = ["Mathieu Aucejo"]
+license = "MIT"
+description = "Template for writing theses of Cnam"
+categories = ["book", "model"]
+repository = "https://github.com/maucejo/community-cnam-thesis"
+exclude = ["docs/en/guide-en.pdf", "docs/fr/guide-fr.pdf"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"

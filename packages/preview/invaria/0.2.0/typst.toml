@@ -1,0 +1,14 @@
+[package]
+name = "invaria"
+version = "0.2.0"
+entrypoint = "src/lib.typ"
+authors = ["Clemens Sonnleitner <clemens.sonnleitner@web.de>"]
+license = "MIT"
+description = "Access to (physical) constants and their associated metadata."
+# homepage = ""
+repository = "https://github.com/q-wertz/invaria"
+keywords = ["constant", "physics", "nist", "codata"]
+categories = ["scripting", "fun", "utility"]
+disciplines = ["chemistry", "education", "engineering", "physics"]
+# compiler = "0.13.1" # Should work on any Typst version
+exclude = ["/data-sources/*", "/tools/*"]

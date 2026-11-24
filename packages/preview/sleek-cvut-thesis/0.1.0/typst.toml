@@ -1,0 +1,16 @@
+[package]
+name = "sleek-cvut-thesis"
+version = "0.1.0"
+compiler = "0.11.0"
+authors = ["Filip Růžička <https://firu.dev>"]
+repository = "https://github.com/firu11/sleek-cvut-thesis"
+license = "MIT-0 AND CC-BY-SA-3.0"
+description = "Unofficial thesis layout for ČVUT (CTU in Prague)."
+entrypoint = "lib.typ"
+categories = ["thesis", "report", "paper"]
+keywords = ["cvut", "ctu", "Czech Technical University in Prague", "České vysoké učení technické v Praze", "fel", "Faculty of Electrical Engineering", "bachelor", "master", "czech", "bakalářka", "bakalářská práce"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

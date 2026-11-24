@@ -1,0 +1,114 @@
+- name: fandol
+  family:
+  - shape: song
+    id: FandolSong
+  - shape: hei
+    id: FandolHei
+  - shape: kai
+    id: FandolKai
+  - shape: fang
+    id: FandolFang R
+- name: |
+    fangzheng
+    (方正字库)
+  family:
+  - shape: song
+    id: "FZNewShuSong-Z10S"
+    name: "方正新书宋简体"
+  - shape: hei
+    id: "FZHei-B01S"
+    name: "方正黑体简体"
+  - shape: kai
+    id: "FZKai-Z03S"
+    name: "方正楷体简体"
+  - shape: fang
+    id: "FZFangSong-Z02S"
+    name: "方正仿宋体简体"
+  - shape: songhei
+    id: "FZSongHei-B07S"
+    name: "方正宋黑简体"
+  - shape: cusong
+    id: "FZCuSong-B09S"
+    name: "方正粗宋简体"
+  - shape: xiaobiaosong
+    id: "FZXiaoBiaoSong-B05S"
+    name: "方正小标宋简体"
+  - shape: dabiaosong
+    id: "FZDaBiaoSong-B06S"
+    name: "方正大标宋简体"
+  - shape: dahei
+    id: "FZDaHei-B02S"
+    name: "方正大黑简体"
+- name: |
+    windows
+    (Windows字库)
+  family:
+  - shape: song
+    id: "SimSun"
+    name: 宋体
+  - shape: hei
+    id: "SimHei"
+    name: 黑体
+  - shape: kai
+    id: "KaiTi"
+    name: 楷体
+  - shape: fang
+    id: "FangSong"
+    name: 仿宋
+  - shape: lishu
+    id: "LiSu"
+    name: 隶书
+  - shape: youyuan
+    id: "YouYuan"
+    name: 幼圆
+- name: |
+    huawen
+    (华文字库)
+  family:
+  - shape: song
+    id: "STSong"
+    name: 华文宋体
+  - shape: hei
+    id: "STXiHei"
+    name: 华文细黑
+  - shape: kai
+    id: "STKaiti"
+    name: 华文楷体
+  - shape: fang
+    id: "STFangsong"
+    name: 华文仿宋
+  - shape: zhongsong
+    id: "STZhongsong"
+    name: 华文中宋
+  - shape: lishu
+    id: "STLiti"
+    name: 华文隶书
+  - shape: caiyun
+    id: "STCaiyun"
+    name: 华文彩云
+  - shape: hupo
+    id: "STHupo"
+    name: 华文琥珀
+  - shape: xingkai
+    id: "STXingkai"
+    name: 华文行楷
+  - shape: xinwei
+    id: "STXinwei"
+    name: 华文新魏
+- name: |
+    source
+    (思源字体)
+  family:
+  - shape: song
+    id: "Source Han Serif SC"
+    name: 思源宋体
+  - shape: hei
+    id: "Source Han Sans SC"
+    name: 思源黑体
+- name: |
+    noto
+  family:
+  - shape: song
+    id: "Noto Serif CJK SC"
+  - shape: hei
+    id: "Noto Sans CJK SC"

@@ -1,0 +1,25 @@
+[package]
+name = "fretwork"
+version = "0.3.0"
+entrypoint = "src/lib.typ"
+authors = ["Mattias Eriksson <snaggen@tuta.com>"]
+license = "EUPL-1.2"
+description = "Publication-quality guitar tablature: rhythm stems, technique symbols and ASCII tab import."
+repository = "https://github.com/snaggen/fretwork"
+keywords = ["guitar", "tablature", "tab", "music", "notation"]
+categories = ["visualization"]
+compiler = "0.15.0"
+# Documentation files: committed so Typst Universe can show them, excluded so
+# nothing importing the package ever downloads them.
+exclude = [
+  "research",
+  "examples",
+  "tests",
+  "docs",
+  "SPEC.md",
+  # Every page of it is an image under docs/, which is excluded above, so a
+  # bundled copy would be a list of broken links. Read it on the repository.
+  "GUIDE.md",
+  "NEXT.md",
+  ".gitignore",
+]

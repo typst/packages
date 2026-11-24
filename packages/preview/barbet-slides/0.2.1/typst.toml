@@ -1,0 +1,18 @@
+[package]
+name = "barbet-slides"
+version = "0.2.1"
+entrypoint = "lib.typ"
+authors = ["Zhen Huang <https://github.com/zhenhuang-tw>"]
+license = "GPL-3.0-or-later AND MIT-0"
+description = "Traditional Chinese slides for law school presentations."
+repository = "https://github.com/zhenhuang-tw/barbet-slides"
+compiler = "0.15.0"
+categories = ["presentation", "components", "layout"]
+disciplines = ["law"]
+keywords = ["slides", "presentation", "typslides", "chinese", "traditional-chinese", "zh-TW", "taiwan", "law"]
+exclude = ["/install.ps1", "/examples/", "/README-zh.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

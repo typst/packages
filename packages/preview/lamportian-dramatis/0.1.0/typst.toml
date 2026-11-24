@@ -1,0 +1,22 @@
+[package]
+name = "lamportian-dramatis"
+version = "0.1.0"
+compiler = "0.14.0"
+entrypoint = "lib.typ"
+authors = ["Manuel Vázquez Acosta <https://github.com/mvaled>"]
+license = "MIT"
+description = "Draw Lamport diagrams of replicas exchanging messages (with all the drama it entails)."
+repository = "https://github.com/mvaled/lamportian-dramatis"
+categories = ["visualization"]
+disciplines = ["computer-science"]
+keywords = [
+  "lamport",
+  "lamport diagram",
+  "lamport clocks",
+  "happens-before",
+  "distributed systems",
+  "event sourcing",
+  "causality",
+  "concurrency",
+]
+exclude = ["/gallery/*"]

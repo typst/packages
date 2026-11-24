@@ -1,0 +1,11 @@
+[package]
+name = "revisio"
+version = "0.3.0"
+entrypoint = "lib.typ"
+authors = ["Martijn Kuipers <martijn.kuipers@ulusofona.pt>"]
+license = "MIT"
+description = "Word-style review comments: hidden by default, shown as highlighted text with notes in a right-hand margin."
+repository = "https://github.com/p8094/typst-revisio"
+keywords = ["comments", "review", "annotations", "margin", "notes"]
+categories = ["text", "utility"]
+compiler = "0.14.0"

@@ -1,0 +1,23 @@
+[package]
+name = "triple-aaai"
+version = "0.8.0"
+compiler = "0.15.0"
+entrypoint = "aaai.typ"
+repository = "https://github.com/daskol/typst-templates"
+authors = ["Daniel Bershatsky <https://github.com/daskol>"]
+license = "MIT"
+description = """
+AAAI-style paper template for the AAAI Conference on Artificial Intelligence,
+including main and auxiliary tracks and workshops"""
+keywords = [
+    "AAAI Conference on Artificial Intelligence", "AAAI",
+    "Machine Learning", "ML", "Deep Learning", "DL",
+    "Artificial Intelligence", "AI",
+]
+categories = ["paper"]
+disciplines = ["computer-science", "mathematics"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

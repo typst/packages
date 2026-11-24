@@ -1,0 +1,8 @@
+/build/
+/.vscode/
+/.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.ps1

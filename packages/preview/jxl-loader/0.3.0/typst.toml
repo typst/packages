@@ -1,0 +1,12 @@
+[package]
+name = "jxl-loader"
+version = "0.3.0"
+compiler = "0.15.0"
+entrypoint = "lib.typ"
+authors = ["frabera"]
+license = "MIT"
+description = "JPEG XL (JXL) decoder and loader."
+keywords = ["JPEG XL", "image", "jxl", "plugin", "typst", "wasm"]
+repository = "https://github.com/frabera/jxltypst"
+categories = ["visualization"]
+exclude = ["/docs"]

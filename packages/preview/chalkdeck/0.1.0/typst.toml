@@ -1,0 +1,30 @@
+[package]
+name = "chalkdeck"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <@fergousA>"]
+license = "MIT"
+description = "Chalkboard, notebook and graph-paper slides, right-to-left ready."
+repository = "https://github.com/fergousA/chalkdeck"
+keywords = [
+	"slides",
+	"presentation",
+	"blackboard",
+	"rtl",
+	"arabic",
+	"teaching",
+]
+categories = ["presentation", "layout"]
+disciplines = ["education"]
+compiler = "0.12.0"
+
+# La galerie et les PDF sont référencés depuis le README : on les livre au
+# dépôt pour qu'Universe puisse les montrer, mais on les tient hors du
+# téléchargement. Le paquet lui-même n'a besoin que de `lib.typ`.
+exclude = [
+	".DS_Store",
+	"/examples",
+	"/gallery",
+	"/tools",
+	"*.pdf",
+]

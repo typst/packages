@@ -1,0 +1,118 @@
+%YAML 1.2
+---
+name: riscv
+file_extensions: [s, S, asm]
+scope: source.rvasm
+contexts:
+  main:
+    # Comments
+    - match: '(//|#)'
+      scope: punctuation.definition.comment.rvasm
+      push:
+        - meta_scope: comment.line.rvasm
+        - match: $
+          pop: true
+    - match: /\*
+      scope: punctuation.definition.comment.rvasm
+      push:
+        - meta_scope: comment.block.rvasm
+        - match: \*/
+          scope: punctuation.definition.comment.rvasm
+          pop: true
+        - match: ^\s*(\*)(?!/)
+          captures:
+            1: punctuation.definition.comment.rvasm
+
+    - include: strings
+
+    # Symbols
+    - match: '^<(.*?)>:'
+      captures:
+        1: entity.name.function.rvasm
+    - match: '^([^0-9\s][^\s]*?):'
+      captures:
+        1: entity.name.function.rvasm
+
+    # Options
+    - match: \.(option|section|globl)\s+([\w\.]+)
+      captures:
+        1: keyword.operator.rvasm
+        2: variable.language.rvasm
+    - match: \.(option|section|globl)
+      scope: keyword.operator.rvasm
+
+    # Offsets
+    - match: <([^>+-]+)([+-]((0x)?[0-9a-fA-F]+))?>
+      captures:
+        1: support.function.rvasm
+        3: constant.numeric.rvasm
+
+    # CSRs
+    - match: \b(mhartid|misa)\b
+      scope: support.type.rvasm
+
+    - include: operators
+
+    # Instructions
+    - match: \b(add|addi|addiw|addw|amoadd\.d|amoadd\.w|amoand\.d|amoand\.w|amomax\.d|amomax\.w|amomaxu\.d|amomaxu\.w|amomin\.d|amomin\.w|amominu\.d|amominu\.w|amoor\.d|amoor\.w|amoswap\.d|amoswap\.w|amoxor\.d|amoxor\.w|and|andi|andn|auipc|bdep|beq|bext|bfp|bge|bgeu|bgez|beqz|blt|bltu|bne|bnez|ret|call|snez|j|c\.add|c\.addi|c\.addi16sp|c\.addi4spn|c\.addiw|c\.addw|c\.and|c\.andi|c\.beqz|c\.bnez|c\.ebreak|c\.fld|c\.fldsp|c\.flw|c\.flwsp|c\.fsd|c\.fsdsp|c\.fsw|c\.fswsp|c\.j|c\.jal|c\.jalr|c\.jr|c\.ld|c\.ldsp|c\.li|c\.lui|c\.lw|c\.lwsp|c\.mv|c\.nop|c\.or|c\.sd|c\.sdsp|c\.slli|c\.srai|c\.srli|c\.sub|c\.subw|c\.sw|c\.swsp|c\.xor|clmul|clmulh|clmulr|clz|cmix|cmov|crc32\.b|crc32\.h|crc32\.w|crc32c\.b|crc32c\.h|crc32c\.w|csrrc|csrrci|csrrs|csrrsi|csrrw|csrr|csrw|csrrwi|ctz|div|divu|divuw|divw|dret|ebreak|ecall|fadd\.d|fadd\.q|fadd\.s|fclass\.d|fclass\.q|fclass\.s|fcvt\.d\.l|fcvt\.d\.lu|fcvt\.d\.q|fcvt\.d\.s|fcvt\.d\.w|fcvt\.d\.wu|fcvt\.l\.d|fcvt\.l\.q|fcvt\.l\.s|fcvt\.lu\.d|fcvt\.lu\.q|fcvt\.lu\.s|fcvt\.q\.d|fcvt\.q\.l|fcvt\.q\.lu|fcvt\.q\.s|fcvt\.q\.w|fcvt\.q\.wu|fcvt\.s\.d|fcvt\.s\.l|fcvt\.s\.lu|fcvt\.s\.q|fcvt\.s\.w|fcvt\.s\.wu|fcvt\.w\.d|fcvt\.w\.q|fcvt\.w\.s|fcvt\.wu\.d|fcvt\.wu\.q|fcvt\.wu\.s|fdiv\.d|fdiv\.q|fdiv\.s|fence|fence\.i|fence\.tso|feq\.d|feq\.q|feq\.s|fld|fle\.d|fle\.q|fle\.s|flq|flt\.d|flt\.q|flt\.s|flw|fmadd\.d|fmadd\.q|fmadd\.s|fmax\.d|fmax\.q|fmax\.s|fmin\.d|fmin\.q|fmin\.s|fmsub\.d|fmsub\.q|fmsub\.s|fmul\.d|fmul\.q|fmul\.s|fmv\.d\.x|fmv\.q\.x|fmv\.s\.x|fmv\.w\.x|fmv\.x\.d|fmv\.x\.q|fmv\.x\.s|fmv\.x\.w|fnmadd\.d|fnmadd\.q|fnmadd\.s|fnmsub\.d|fnmsub\.q|fnmsub\.s|frcsr|frflags|frrm|fscsr|fsd|fsflags|fsflagsi|fsgnj\.d|fsgnj\.q|fsgnj\.s|fsgnjn\.d|fsgnjn\.q|fsgnjn\.s|fsgnjx\.d|fsgnjx\.q|fsgnjx\.s|fsl|fsq|fsqrt\.d|fsqrt\.q|fsqrt\.s|fsr|fsri|fsrm|fsrmi|fsub\.d|fsub\.q|fsub\.s|fsw|gorc|gorci|grev|grevi|hfence\.bvma|hfence\.gvma|jal|jalr|li|la|neg|lb|lbu|ld|lh|lhu|lr\.d|lr\.w|lui|lw|lwu|max|maxu|min|minu|mret|mul|mulh|mulhsu|mulhu|mulw|mv|or|ori|orn|pack|packh|packu|pcnt|rdcycle|rdcycleh|rdinstret|rdinstreth|rdtime|rdtimeh|rem|remu|remuw|remw|rol|ror|rori|sb|sbclr|sbclri|sbext|sbexti|sbinv|sbinvi|sbreak|sbset|sbseti|sc\.d|sc\.w|scall|sd|sext\.b|sext\.h|sfence\.vma|sh|sh1add|sh2add|sh3add|shfl|shfli|sll|slli|slli\.rv32|slliw|sllw|slo|sloi|slt|slti|sltiu|sltu|sra|srai|srai\.rv32|sraiw|sraw|sret|srl|srli|srli\.rv32|srliw|srlw|sro|sroi|sub|subw|sw|unshfl|unshfli|uret|wfi|xnor|xor|xori)\b
+      scope: keyword.mnemonic.rvasm
+
+    # Registers
+    - match: \b(ra|[sgtf]p)\b
+      scope: support.type.rvasm
+    - match: \b([xf][0-9]|[xf][012][0-9]|[xf]3[012]|ra|[sgtf]p|t[0-6]|f?s[0-9]|f?s1[01]|ft[0-7])\b
+      scope: storage.type.rvasm
+    - match: \b(f?a[0-7])\b
+      scope: keyword.operator.rvasm
+    - match: \bzero\b
+      scope: support.type.rvasm
+
+    # Numbers
+    - match: \b-?(0x)?[0-9a-fA-F]+\b
+      scope: constant.numeric.rvasm
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.rvasm
+      push:
+        - meta_scope: string.quoted.double.rvasm
+        - match: '"'
+          scope: punctuation.definition.string.end.rvasm
+          pop: true
+        - include: string_escaped_char
+        - include: string_placeholder
+    - match: "'"
+      scope: punctuation.definition.string.begin.rvasm
+      push:
+        - meta_scope: string.quoted.single.rvasm
+        - match: "'"
+          scope: punctuation.definition.string.end.rvasm
+          pop: true
+        - include: string_escaped_char
+
+  string_escaped_char:
+    - match: '(\\)$\n'
+      captures:
+        1: punctuation.separator.continuation.rvasm
+    - match: \\(?:\\|[abefnrtv\'"?]|[0-3][0-9]{0,2}|[4-7][0-9]?|x[a-fA-F0-9]+|u[a-fA-F0-9]{4}|U[a-fA-F0-9]{8})
+      scope: constant.character.escape.rvasm
+    - match: \\.
+      scope: invalid.illegal.unknown-escape.rvasm
+
+  operators:
+    - match: <<|>>|&&|\|\|
+      scope: keyword.operator.rvasm
+    - match: <\=|>\=|\=\=|<|>|\!\=
+      scope: keyword.operator.rvasm
+    - match: \+|\-|\*|/|%|&|\||\^|~|!
+      scope: keyword.operator.rvasm
+    - match: '\?|:'
+      scope: keyword.operator.rvasm
+    - match: \(|{|\[
+      scope: punctuation.section.group.begin.rvasm
+    - match: \)|}|\]
+      scope: punctuation.section.group.end.rvasm
+    - match: ',|\.'
+      scope: punctuation.separator.rvasm
+    - match: ';|:'
+      scope: punctuation.terminator.rvasm

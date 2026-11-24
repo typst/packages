@@ -1,0 +1,16 @@
+[package]
+name = "cv-nikudanngo"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Nikudanngo"]
+license = "MIT"
+description = "Create a Japanese-style résumé (履歴書) in the standard format used for job applications in Japan."
+repository = "https://github.com/Nikudanngo/typst-ja-resume-template"
+categories = ["cv"]
+keywords = ["resume", "cv", "japanese", "japan", "履歴書", "jis"]
+exclude = ["example.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

@@ -1,0 +1,11 @@
+.DS_Store
+*.pdf
+.edist
+testing/
+/site/
+AGENTS.md
+letter/heading-test.typ
+workbook-conversion/
+
+/node_modules/
+/.astro/

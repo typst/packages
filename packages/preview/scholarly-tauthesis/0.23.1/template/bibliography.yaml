@@ -1,0 +1,475 @@
+#
+# bibliography.yaml
+#
+# A bibliography file written in the Hayagriva bibliography format:
+#
+#   https://github.com/typst/hayagriva
+#
+# The format is a subset of YAML. Any compilation dissertation articles
+# should also be added here, with the additional keys "license" (string)
+# "tauthesis-publication" (boolean) and "author-contribution" (multiline string).
+#
+
+Bezanson2017Julia:
+  type: article
+  title: >-
+    Julia: A fresh approach to numerical computing
+  author:
+  - Bezanson, Jeff
+  - Edelman, Alan
+  - Karpinski, Stefan
+  - Shah, Viral B
+  date: 2017
+  page-range: 65-98
+  serial-number:
+    doi: 10.1137/141000671
+  url:
+    value: https://doi.org/10.1137/141000671
+    date: 2025-10-10
+  parent:
+    type: periodical
+    title: SIAM review
+    publisher: SIAM
+    issue: 1
+    volume: 59
+
+kirjoitusohje2019:
+  type: reference
+  title: Tampereen yliopiston tekniikan alan opinnäytteiden kirjoitusohje
+  date: 2019
+  publisher:
+    name: null
+    location: Tampere
+  organization: Tampereen yliopisto
+  url:
+    value: https://content-webapi.tuni.fi/proxy/public/2019-10/tau_tekniikan_alan_opinnaytetyoohje_2019_versio3.pdf
+    date: 2023-11-18
+
+thesiswriting2019:
+  type: reference
+  title: Guide to writing a thesis in technical fields
+  date: 2019
+  publisher:
+    name: null
+    location: Tampere
+  organization: Tampere University
+  url:
+    value: https://content-webapi.tuni.fi/proxy/public/2019-10/tau_thesis_guide_for_technical_fields_2019_version-3-1.pdf
+    date: 2023-11-18
+
+typst-documentation-bibliography:
+  type: reference
+  title: Bibliography
+  author: Typst
+  organization: Typst
+  url:
+    value: https://typst.app/docs/reference/model/bibliography/
+    date: 2025-03-02
+
+typst-math:
+  type: reference
+  title: Math
+  author: Typst
+  organization: Typst
+  url:
+    value: https://typst.app/docs/reference/math/
+    date: 2023-11-24
+
+typst-equation:
+  type: reference
+  title: equation
+  author: Typst
+  organization: Typst
+  url:
+    value: https://typst.app/docs/reference/math/equation/
+    date: 2025-10-09
+
+pubadvice2009:
+  type: reference
+  title: Practical advice for writing publications
+  author: Salminen, E.
+  date: 2012
+  publisher:
+    name: null
+    location: Tampere
+  organization: Tampere University of Technology
+  url: http://www.cs.tut.fi/~ege/Misc/salminen_figures_styles_v14.pdf
+  note: Course material for TKT-9617 Scientific Publishing
+
+wikipedia-vapor-pressure:
+  type: web
+  title: Vapor pressure
+  author: Wikipedia
+  url:
+    value: https://en.wikipedia.org/wiki/Vapor_pressure
+    date: 2023-11-25
+
+tau-logo-image:
+  type: misc
+  title: Tampere University logo
+  author: Tampere University
+  organization: Tampere University
+  url:
+    value: https://mediapankki.tuni.fi/main/thumbnailview/fc=50%3A731
+    date: 2023-11-25
+
+eu-accessibility-directive:
+  type: web
+  title: DIRECTIVE (EU) 2016/2102 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL - of 26 October 2016 - on the accessibility of the websites and mobile applications of public sector bodies
+  author: European Parliament
+  url:
+    value: https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016L2102
+    date: 2025-05-01
+
+latex-tagging-examples:
+  type: web
+  title: WTPDF / PDF/UA-2 Examples by the LaTeX Project
+  author: Carlisle, David
+  url:
+    value: https://github.com/latex3/tagging-project/discussions/72
+    date: 2025-05-01
+
+typst-roadmap:
+  type: web
+  title: Typst Roadmap
+  author: Typst
+  url:
+    value: https://typst.app/docs/roadmap/
+    date: 2025-05-01
+
+typst-accessibility-issue-133:
+  type: web
+  title: PDF Accessibility (tags, alt text, ...)
+  author: Ellis, Jade
+  url:
+    value: https://github.com/typst/typst/issues/133
+    date: 2025-05-01
+
+pdf-association-wtpdf:
+  type: web
+  title: Well-Tagged PDF (WTPDF)
+  author: PDF Association
+  url:
+    value: https://pdfa.org/wtpdf/
+    date: 2025-05-01
+
+mozilla-mathml:
+  type: web
+  title: MathML
+  author: Mozilla Developer Network
+  url:
+    value: https://developer.mozilla.org/en-US/docs/Web/MathML
+    date: 2025-05-05
+
+typst-documentation-attach:
+  type: web
+  title: attach
+  author: Typst
+  url:
+    value: https://typst.app/docs/reference/pdf/attach/
+    date: 2025-10-15
+
+muchpdf:
+  type: web
+  title: MuchPDF
+  author: frozolotl
+  url:
+    value: https://typst.app/universe/package/muchpdf/
+    date: 2025-05-08
+
+dirac-new-notation:
+  type: article
+  title: A new notation for quantum mechanics
+  author: Dirac, P. A. M.
+  date: 1939
+  page-range: 416-418
+  serial-number:
+    doi: 10.1017/S0305004100021162
+  parent:
+    type: periodical
+    title: Mathematical Proceedings of the Cambridge Philosophical Society
+    issue: 3
+    volume: 35
+
+oulu-acta-pdfa-2025:
+  type: web
+  title: The Acta Universitatis Ouluensis series will be renewed in autumn 2025
+  author: Acta editorial office
+  url:
+    value: https://libguides.oulu.fi/ld.php?content_id=35812208
+    date: 2025-05-22
+
+helsinki-thesis-accessibility-2025:
+  type: web
+  title: Did you know that your thesis must be accessible? Instructions now available also for LaTex users
+  author: University of Helsinki
+  url:
+    value: https://studies.helsinki.fi/instructions/news/did-you-know-your-thesis-must-be-accessible-instructions-now-available-also-latex-users
+    date: 2025-05-22
+
+typst-krilla-pull-request:
+  type: web
+  title: Switch PDF backend to krilla
+  author: Stampfl, Laurenz
+  url:
+    value: https://github.com/typst/typst/pull/5420
+    date: 2025-05-22
+laki-306-2019:
+  type: web
+  title: Laki digitaalisten palveluiden tarjoamisesta 306/2019
+  author: Finlex
+  url:
+    value: https://finlex.fi/fi/lainsaadanto/2019/306
+    date: 2025-05-22
+
+typst-image-function:
+  type: web
+  title: image
+  author: Typst
+  url:
+    value: https://typst.app/docs/reference/visualize/image/
+    date: 2025-05-23
+
+typst-figure-function:
+  type: web
+  title: figure
+  author: Typst
+  url:
+    value: https://typst.app/docs/reference/model/figure/
+    date: 2025-10-09
+
+saavutettavasti-vaihtoehtoiset-tekstit:
+  type: web
+  title: Kuvien vaihtoehtoiset tekstit
+  author: Saavutettavasti.fi
+  url:
+    value: https://www.saavutettavasti.fi/kuva-ja-aani/kuvat/
+    date: 2025-05-26
+
+saavutettavasti-pdf:
+  type: web
+  author: Saavutettavasti.fi
+  title: >-
+    Saavutettavat asiakirjat: PDF
+  url:
+    value: https://www.saavutettavasti.fi/saavutettavat-asiakirjat/pdf/
+    date: 2025-10-23
+
+helsinki-saavutettavuusmalli:
+  type: web
+  title: Alt text
+  author: City of Helsinki
+  url:
+    value: https://saavutettavuusmalli.hel.fi/en/guidelines/alt-tekstin-pikaohje/
+    date: 2025-05-26
+
+tuni-intra-image-accessibility:
+  type: web
+  title: Accessible images and infographics
+  author: Tampere University
+  url:
+    value: https://intra.tuni.fi/en/communications-and-marketing/web-accessibility/accessible-images-and-infographics
+    date: 2025-05-26
+
+pdftotext-debian-manpage:
+  type: web
+  title: pdftotext - Portable Document Format (PDF) to text converter (version 3.03)
+  url:
+    value: https://manpages.debian.org/stretch/poppler-utils/pdftotext.1.en.html
+    date: 2025-10-09
+
+texlive-showtags:
+  type: web
+  title: showtags
+  author: LaTeX Project
+  url:
+    value: https://texlive.net/showtags
+    date: 2025-10-09
+
+axes4-pac-software:
+  type: web
+  author: axes4
+  title: PAC
+  url:
+    value: https://pac.pdf-accessibility.org/en
+    date: 2025-10-17
+
+verapdf:
+  type: web
+  author: veraPDF
+  title: Industry-Supported PDF/A validation
+  url:
+    value: https://verapdf.org/home/
+    date: 2025-10-17
+
+hayagriva-github:
+  type: web
+  author: Typst
+  title: Hayagriva
+  url:
+    value: https://github.com/typst/hayagriva
+    date: 2025-10-10
+
+biblatex-ctan:
+  type: web
+  author: The LaTeX Project
+  title: BibLaTeX – Sophisticated Bibliographies in LaTeX
+  url:
+    value: https://ctan.org/pkg/biblatex
+    date: 2025-10-10
+
+yaml-website:
+  type: web
+  author: The YAML Project
+  title: The Official YAML Web Site
+  url:
+    value: https://yaml.org/
+    date: 2025-10-11
+
+typst-accessibility-guide:
+  type: web
+  author: Typst
+  title: Accessibility Guide
+  url:
+    value: https://typst.app/docs/guides/accessibility
+    date: 2025-10-13
+
+tuni-open-access-publishing-guide:
+  type: web
+  author: Tampere University Library
+  title: Researcher's guide to responsible and open science
+  url:
+    value: https://libguides.tuni.fi/researchers-guide/publishing
+    date: 2025-10-14
+
+cc-by-webpage:
+  type: web
+  author: Creative Commons
+  title: Attribution 4.0 International
+  url:
+    value: https://creativecommons.org/licenses/by/4.0/
+    date: 2025-10-14
+
+tuni-lib-hyva-tietaa:
+  type: web
+  author: Tampere University Library
+  title: >-
+    Opinnäytteen jättäminen arvioitavaksi ja julkaiseminen: Hyvä tietää ennen opinnäytteen jättämistä arvioitavaksi
+  url:
+    value: https://libguides.tuni.fi/opinnaytteet/hyva-tietaa
+    date: 2025-10-24
+
+tuni-lib-pdfa-ohjeet:
+  type: web
+  author: Tampere University Library
+  title: >-
+    Opinnäytteen jättäminen arvioitavaksi ja julkaiseminen: PDF/A-ohjeet
+  url:
+    value: https://libguides.tuni.fi/opinnaytteet/pdfa
+    date: 2025-10-18
+
+tuni-lib-cc-ohjeet:
+  type: web
+  author: Tampere University Library
+  title: >-
+    Opinnäytteen jättäminen arvioitavaksi ja julkaiseminen: Tekijänoikeudet ja lisensointi
+  url:
+    value: https://libguides.tuni.fi/opinnaytteet/tekijanoikeudet-ja-cc-lisensointi
+    date: 2025-10-18
+
+finnish-digital-accessibility-law:
+  type: web
+  author:
+    - Finlex
+  title: Act on the Provision of Digital Services
+  url:
+    value: https://www.finlex.fi/en/legislation/translations/2019/eng/306
+    date: 2025-10-21
+
+pdf-association-accessibility-checkers:
+  type: web
+  author: PDF Association
+  title: >-
+    Tools for Accessible PDF: Exposing the relationship between content and tags
+  url:
+    value: https://pdfa.org/tools-for-accessible-pdf
+    date: 2025-10-23
+
+# Add any compiltion dissertation publications here.
+
+article1:
+  type: Article
+  title: Example publication 1
+  author:
+    - Firstname1 Familyname1
+    - Firstname2 Familyname2
+  date: 2019
+  serial-number:
+    doi: "10.1000/182"
+  parent:
+    type: Periodical
+    title: Example Journal 1
+    volume: 1
+    issue: 1
+    pages: "1--9"
+  # PhD publication fields here.
+  # Note that the path is in relation to the main.typ file.
+  path: publications/example1.typ
+  license: null
+  n-of-pages: 9
+  tauthesis-publication: true
+  author-contribution: >
+    A short description of how you contributed to article 1.
+    This can extend on multiple lines.
+
+article2:
+  type: anthos
+  title: Example Publication 2
+  author:
+    - Firstname1 Familyname1
+    - Firstname2 Familyname2
+    - Firstname3 Familyname3
+    - Firstname4 Familyname4
+  editor: ["E. Editor"]
+  date: 2018
+  serial-number:
+    doi: "10.1000/182"
+  parent:
+    type: anthology
+    title: Example Proceedings
+    location: Example location
+    publisher: Example publisher
+    pages: "1--12"
+  # PhD publication fields here.
+  # Note that the path is absolute:
+  # it starts from the typst compilation root directory.
+  path: publications/example2.typ
+  license: null
+  n-of-pages: 12
+  tauthesis-publication: true
+  author-contribution: >
+    A short description of how you contributed to article 2.
+    This can extend on multiple lines.
+
+article3:
+  type: Article
+  title: Example publication 3
+  author:
+    - Firstname1 Familyname1
+    - Firstname2 Familyname2
+    - Firstname3 Familyname3
+  date: 2021
+  serial-number:
+    doi: "10.1000/182"
+  parent:
+    type: Periodical
+    title: Example Journal 3
+    pubstate: inpress
+  # PhD publication fields here.
+  path: publications/example3.typ
+  license: CC-BY-SA 4.0
+  tauthesis-publication: true
+  n-of-pages: 8
+  author-contribution: >
+    A short description of how you contributed to article 3.
+    This can extend on multiple lines.

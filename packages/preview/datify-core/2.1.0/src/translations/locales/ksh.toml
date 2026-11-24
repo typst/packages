@@ -1,0 +1,136 @@
+[days.format.wide]
+1 = "Mohndaach"
+2 = "Dinnsdaach"
+3 = "Metwoch"
+4 = "Dunnersdaach"
+5 = "Friidaach"
+6 = "Samsdaach"
+7 = "Sunndaach"
+
+[days.format.abbreviated]
+1 = "Mo."
+2 = "Di."
+3 = "Me."
+4 = "Du."
+5 = "Fr."
+6 = "Sa."
+7 = "Su."
+
+[days.format.narrow]
+2 = "D"
+3 = "M"
+4 = "D"
+
+[days.stand-alone.wide]
+1 = "Mohndaach"
+2 = "Dinnsdaach"
+3 = "Metwoch"
+4 = "Dunnersdaach"
+5 = "Friidaach"
+6 = "Samsdaach"
+7 = "Sunndaach"
+
+[days.stand-alone.abbreviated]
+1 = "Mo."
+2 = "Di."
+3 = "Me."
+4 = "Du."
+5 = "Fr."
+6 = "Sa."
+7 = "Su."
+
+[days.stand-alone.narrow]
+2 = "D"
+3 = "M"
+4 = "D"
+
+[months.format.wide]
+1 = "Jannewa"
+2 = "Fäbrowa"
+3 = "Määz"
+4 = "Aprell"
+5 = "Mai"
+6 = "Juuni"
+7 = "Juuli"
+8 = "Oujoß"
+9 = "Septämber"
+10 = "Oktohber"
+11 = "Novämber"
+12 = "Dezämber"
+
+[months.format.abbreviated]
+1 = "Jan"
+2 = "Fäb"
+3 = "Mäz"
+4 = "Apr"
+5 = "Mai"
+6 = "Jun"
+7 = "Jul"
+8 = "Ouj"
+9 = "Säp"
+10 = "Okt"
+11 = "Nov"
+12 = "Dez"
+
+[months.format.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "O"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[months.stand-alone.wide]
+1 = "Jannewa"
+2 = "Fäbrowa"
+3 = "Määz"
+4 = "Aprell"
+5 = "Mai"
+6 = "Juuni"
+7 = "Juuli"
+8 = "Oujoß"
+9 = "Septämber"
+10 = "Oktohber"
+11 = "Novämber"
+12 = "Dezämber"
+
+[months.stand-alone.abbreviated]
+1 = "Jan."
+2 = "Fäb."
+3 = "Mäz."
+4 = "Apr."
+5 = "Mai"
+6 = "Jun."
+7 = "Jul."
+8 = "Ouj."
+9 = "Säp."
+10 = "Okt."
+11 = "Nov."
+12 = "Dez."
+
+[months.stand-alone.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "O"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[patterns]
+full = "EEEE, 'dä' d. MMMM y"
+long = "d. MMMM y"
+medium = "d. MMM. y"
+short = "d. M. y"
+

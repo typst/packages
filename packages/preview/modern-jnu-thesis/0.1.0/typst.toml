@@ -1,0 +1,16 @@
+[package]
+name = "modern-jnu-thesis"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["LENCELG"]
+license = "MIT-0"
+description = "Undergraduate thesis and research report for Jinan University."
+repository = "https://github.com/lencelg/typst4JnuBachelor"
+keywords = ["thesis", "jinan-university", "report"]
+categories = ["thesis", "report"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

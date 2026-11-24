@@ -1,0 +1,16 @@
+[package]
+name = "shiyin-reader"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["songwupei"]
+license = "MIT"
+description = "Chinese poetry reader with pinyin, short notes, and multi-column pages."
+repository = "https://codeberg.org/songwupei/typst-shiyin-reader"
+keywords = ["poetry", "chinese", "pinyin", "education", "anthology"]
+categories = ["book"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

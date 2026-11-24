@@ -1,0 +1,22 @@
+[package]
+name = "eskd-drafting"
+version = "0.1.0"
+compiler = "0.12.0"
+entrypoint = "lib.typ"
+license = "MIT AND MIT-0"
+description = "Draft ESKD technical drawings and documentation layouts."
+keywords = ["gost", "eskd", "engineering", "technical-documentation"]
+disciplines = ["engineering"]
+categories = ["layout", "model", "text"]
+authors = ["runasexe <eskd-drafting@runas.name>"]
+repository = "https://github.com/runasexe/eskd-drafting"
+exclude = [
+  "tests/",
+  "examples/",
+  ".github/"
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

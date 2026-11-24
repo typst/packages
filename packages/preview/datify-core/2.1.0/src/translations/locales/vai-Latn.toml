@@ -1,0 +1,42 @@
+[days.format.wide]
+1 = "tɛɛnɛɛ"
+2 = "talata"
+3 = "alaba"
+4 = "aimisa"
+5 = "aijima"
+6 = "siɓiti"
+7 = "lahadi"
+
+[days.format.abbreviated]
+1 = "tɛɛnɛɛ"
+2 = "talata"
+3 = "alaba"
+4 = "aimisa"
+5 = "aijima"
+6 = "siɓiti"
+7 = "lahadi"
+
+[days.stand-alone.wide]
+1 = "tɛɛnɛɛ"
+2 = "talata"
+3 = "alaba"
+4 = "aimisa"
+5 = "aijima"
+6 = "siɓiti"
+7 = "lahadi"
+
+[days.stand-alone.abbreviated]
+1 = "tɛɛnɛɛ"
+2 = "talata"
+3 = "alaba"
+4 = "aimisa"
+5 = "aijima"
+6 = "siɓiti"
+7 = "lahadi"
+
+[patterns]
+full = "EEEE, d MMMM y"
+long = "d MMMM y"
+medium = "d MMM y"
+short = "dd/MM/y"
+

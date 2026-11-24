@@ -1,0 +1,17 @@
+[package]
+name = "arkheion"
+version = "0.1.3"
+entrypoint = "template.typ"
+authors = ["Manuel Goulão <@mgoulao>"]
+license = "MIT"
+description = "Preprint paper in the style of popular arXiv submissions."
+repository = "https://github.com/mgoulao/arkheion"
+keywords = ["arXiv", "NeurIPS", "preprint", "computer science", "machine learning", "deep learning"]
+categories = ["paper"]
+disciplines = ["engineering", "computer-science"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "example.png"

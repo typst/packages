@@ -1,0 +1,17 @@
+[package]
+name = "drawstring"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Fabian Zaiser <fzaiser@mit.edu>"]
+license = "MIT"
+description = "Draw string diagrams for Markov and copy-discard categories."
+repository = "https://github.com/fzaiser/drawstring"
+keywords = ["string diagram", "Markov category", "CD category", "copy-discard", "monoidal category", "category theory", "probability", "cetz"]
+categories = ["visualization"]
+disciplines = ["mathematics", "computer-science"]
+# The floor of cetz 0.5.2, which drawstring imports.
+compiler = "0.14.0"
+# Development files, which are not part of the package. scripts/stage.sh
+# assembles the submission without them and points the README's links at the
+# repository instead.
+exclude = ["/docs", "/tests", "/scripts", "/.github", "/ARCHITECTURE.md", "/CONTRIBUTING.md", "/PUBLISHING.md", "/.typos.toml"]

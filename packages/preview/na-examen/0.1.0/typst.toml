@@ -1,0 +1,15 @@
+[package]
+name = "na-examen"
+version = "0.1.0"
+authors = ["Naam Mohamed"]
+license = "MIT"
+description = "Exam and assignment layout for Arabic (RTL) and Latin (LTR) with barcode header and auto-numbered exercises."
+keywords = ["arabic", "rtl", "french", "english", "ltr", "exam", "assignment", "school", "algeria"]
+categories = ["office"]
+disciplines = ["education", "mathematics"]
+entrypoint = "lib.typ"
+compiler = "0.13.0"
+exclude = [
+  "documentationAR.pdf",
+  "documentationEN.pdf"
+]

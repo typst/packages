@@ -1,0 +1,106 @@
+[days.format.wide]
+1 = "Aŋpétuwaŋži"
+2 = "Aŋpétunuŋpa"
+3 = "Aŋpétuyamni"
+4 = "Aŋpétutopa"
+5 = "Aŋpétuzaptaŋ"
+6 = "Owáŋgyužažapi"
+7 = "Aŋpétuwakȟaŋ"
+
+[days.format.abbreviated]
+1 = "Aŋpétuwaŋži"
+2 = "Aŋpétunuŋpa"
+3 = "Aŋpétuyamni"
+4 = "Aŋpétutopa"
+5 = "Aŋpétuzaptaŋ"
+6 = "Owáŋgyužažapi"
+7 = "Aŋpétuwakȟaŋ"
+
+[days.format.narrow]
+1 = "W"
+2 = "N"
+3 = "Y"
+5 = "Z"
+6 = "O"
+7 = "A"
+
+[days.stand-alone.wide]
+1 = "Aŋpétuwaŋži"
+2 = "Aŋpétunuŋpa"
+3 = "Aŋpétuyamni"
+4 = "Aŋpétutopa"
+5 = "Aŋpétuzaptaŋ"
+6 = "Owáŋgyužažapi"
+7 = "Aŋpétuwakȟaŋ"
+
+[days.stand-alone.abbreviated]
+1 = "Aŋpétuwaŋži"
+2 = "Aŋpétunuŋpa"
+3 = "Aŋpétuyamni"
+4 = "Aŋpétutopa"
+5 = "Aŋpétuzaptaŋ"
+6 = "Owáŋgyužažapi"
+7 = "Aŋpétuwakȟaŋ"
+
+[months.format.wide]
+1 = "Wiótheȟika Wí"
+2 = "Thiyóȟeyuŋka Wí"
+3 = "Ištáwičhayazaŋ Wí"
+4 = "Pȟežítȟo Wí"
+5 = "Čhaŋwápetȟo Wí"
+6 = "Wípazukȟa-wašté Wí"
+7 = "Čhaŋpȟásapa Wí"
+8 = "Wasútȟuŋ Wí"
+9 = "Čhaŋwápeǧi Wí"
+10 = "Čhaŋwápe-kasná Wí"
+11 = "Waníyetu Wí"
+12 = "Tȟahékapšuŋ Wí"
+
+[months.format.abbreviated]
+1 = "Wiótheȟika Wí"
+2 = "Thiyóȟeyuŋka Wí"
+3 = "Ištáwičhayazaŋ Wí"
+4 = "Pȟežítȟo Wí"
+5 = "Čhaŋwápetȟo Wí"
+6 = "Wípazukȟa-wašté Wí"
+7 = "Čhaŋpȟásapa Wí"
+8 = "Wasútȟuŋ Wí"
+9 = "Čhaŋwápeǧi Wí"
+10 = "Čhaŋwápe-kasná Wí"
+11 = "Waníyetu Wí"
+12 = "Tȟahékapšuŋ Wí"
+
+[months.stand-alone.wide]
+1 = "Wiótheȟika Wí"
+2 = "Thiyóȟeyuŋka Wí"
+3 = "Ištáwičhayazaŋ Wí"
+4 = "Pȟežítȟo Wí"
+5 = "Čhaŋwápetȟo Wí"
+6 = "Wípazukȟa-wašté Wí"
+7 = "Čhaŋpȟásapa Wí"
+8 = "Wasútȟuŋ Wí"
+9 = "Čhaŋwápeǧi Wí"
+10 = "Čhaŋwápe-kasná Wí"
+11 = "Waníyetu Wí"
+12 = "Tȟahékapšuŋ Wí"
+
+[months.stand-alone.abbreviated]
+1 = "Wiótheȟika Wí"
+2 = "Thiyóȟeyuŋka Wí"
+3 = "Ištáwičhayazaŋ Wí"
+4 = "Pȟežítȟo Wí"
+5 = "Čhaŋwápetȟo Wí"
+6 = "Wípazukȟa-wašté Wí"
+7 = "Čhaŋpȟásapa Wí"
+8 = "Wasútȟuŋ Wí"
+9 = "Čhaŋwápeǧi Wí"
+10 = "Čhaŋwápe-kasná Wí"
+11 = "Waníyetu Wí"
+12 = "Tȟahékapšuŋ Wí"
+
+[patterns]
+full = "EEEE, MMMM d, y"
+long = "MMMM d, y"
+medium = "MMM d, y"
+short = "M/d/yy"
+

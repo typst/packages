@@ -1,0 +1,48 @@
+clang:
+  type: Book
+  author:
+    - name: "B.W. Kernighan"
+    - name: "D.M. Ritchie"
+  title: "The C Programming Language (ANSI C)"
+  edition: "2nd"
+  publisher:
+    name: "Prentice Hall Software series"
+  year: 1988
+  keywords:
+    - "Programming"
+    - "Imperative"
+
+functional:
+  type: Web
+  author:
+    - name: "R. Bird"
+    - name: "P. Wadler"
+  title: "Introduction to Functional Programming"
+  publisher:
+    name: "Prentice-Hall"
+  year: 1988  
+  keywords:
+    - "Programming"
+    - "Functional"
+
+rustbook:
+  type: Web
+  title: "The Rust Programming Language"
+  year: 2024
+  url: "https://doc.rust-lang.org/book/"
+  keywords:
+    - "Rust"
+    - "Programming"
+    - "Systems Programming"
+
+typstdocs:
+  type: Web
+  title: "Typst Documentation"
+  publisher:
+    name: "Typst"
+  year: 2024
+  url: "https://typst.app/docs/"
+  keywords:
+    - "Typst"
+    - "Document Preparation"
+    - "Typesetting"

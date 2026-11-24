@@ -1,0 +1,12 @@
+[package]
+name = "dgs"
+version = "0.0.1"
+entrypoint = "lib.typ"
+authors = ["Xyndra"]
+license = "MIT"
+description = "Dynamic Geometry Software — plot shapes, equations, and geometric constructions with a GeoGebra-like coordinate system."
+repository = "https://github.com/Xyndra/typst_dgs"
+keywords = ["geometry", "math", "graph", "equation", "plot"]
+categories = ["visualization"]
+compiler = "0.15.0"
+exclude = ["examples/*", "crates/*", "target/*", "build.sh", "Cargo.toml", "Cargo.lock", ".gitignore"]

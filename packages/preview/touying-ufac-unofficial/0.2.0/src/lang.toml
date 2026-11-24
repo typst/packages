@@ -1,0 +1,20 @@
+# Localized names of the theme (linguify database): the pill of `<exercise>`/`<example>` slides and the "Part N:" prefix
+# of section slides. Selected by `text.lang` (set from the `lang` parameter of `ufac-theme`); an unknown language falls
+# back to Portuguese. Each name can be overridden with `exercise-name`/`example-name`/`part-name`.
+[conf]
+default-lang = "pt"
+
+[lang.pt]
+exercise = "Exercício"
+example = "Exemplo"
+part = "Parte"
+
+[lang.en]
+exercise = "Exercise"
+example = "Example"
+part = "Part"
+
+[lang.es]
+exercise = "Ejercicio"
+example = "Ejemplo"
+part = "Parte"

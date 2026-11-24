@@ -1,0 +1,138 @@
+[days.format.wide]
+1 = "mánudagur"
+2 = "þriðjudagur"
+3 = "miðvikudagur"
+4 = "fimmtudagur"
+5 = "föstudagur"
+6 = "laugardagur"
+7 = "sunnudagur"
+
+[days.format.abbreviated]
+1 = "mán."
+2 = "þri."
+3 = "mið."
+4 = "fim."
+5 = "fös."
+6 = "lau."
+7 = "sun."
+
+[days.format.narrow]
+2 = "Þ"
+3 = "M"
+4 = "F"
+6 = "L"
+
+[days.stand-alone.wide]
+1 = "mánudagur"
+2 = "þriðjudagur"
+3 = "miðvikudagur"
+4 = "fimmtudagur"
+5 = "föstudagur"
+6 = "laugardagur"
+7 = "sunnudagur"
+
+[days.stand-alone.abbreviated]
+1 = "mán."
+2 = "þri."
+3 = "mið."
+4 = "fim."
+5 = "fös."
+6 = "lau."
+7 = "sun."
+
+[days.stand-alone.narrow]
+2 = "Þ"
+3 = "M"
+4 = "F"
+6 = "L"
+
+[months.format.wide]
+1 = "janúar"
+2 = "febrúar"
+3 = "mars"
+4 = "apríl"
+5 = "maí"
+6 = "júní"
+7 = "júlí"
+8 = "ágúst"
+9 = "september"
+10 = "október"
+11 = "nóvember"
+12 = "desember"
+
+[months.format.abbreviated]
+1 = "jan."
+2 = "feb."
+3 = "mar."
+4 = "apr."
+5 = "maí"
+6 = "jún."
+7 = "júl."
+8 = "ágú."
+9 = "sep."
+10 = "okt."
+11 = "nóv."
+12 = "des."
+
+[months.format.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "Á"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[months.stand-alone.wide]
+1 = "janúar"
+2 = "febrúar"
+3 = "mars"
+4 = "apríl"
+5 = "maí"
+6 = "júní"
+7 = "júlí"
+8 = "ágúst"
+9 = "september"
+10 = "október"
+11 = "nóvember"
+12 = "desember"
+
+[months.stand-alone.abbreviated]
+1 = "jan."
+2 = "feb."
+3 = "mar."
+4 = "apr."
+5 = "maí"
+6 = "jún."
+7 = "júl."
+8 = "ágú."
+9 = "sep."
+10 = "okt."
+11 = "nóv."
+12 = "des."
+
+[months.stand-alone.narrow]
+1 = "J"
+2 = "F"
+3 = "M"
+4 = "A"
+5 = "M"
+6 = "J"
+7 = "J"
+8 = "Á"
+9 = "S"
+10 = "O"
+11 = "N"
+12 = "D"
+
+[patterns]
+full = "EEEE, d. MMMM y"
+long = "d. MMMM y"
+medium = "d. MMM y"
+short = "d.M.y"
+

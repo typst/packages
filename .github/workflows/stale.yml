@@ -1,0 +1,26 @@
+name: Close stale submissions
+on:
+  schedule:
+    - cron: '0 0 * * *' # Once a day, at midnight
+
+permissions:
+  actions: write # Necessary for the action state to be cached
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
+        with:
+          days-before-pr-stale: 30
+          days-before-pr-close: 0 # Close immediately
+          days-before-issue-stale: -1 # Never close issues
+          any-of-labels: waiting-on-author,waiting-on-validation
+          close-pr-message: >
+            Your package submission was not updated during the last month.
+            To keep our review backlog clean, it was closed automatically.
+            If you still wish to submit this package, please open a new pull
+            request once the requested changes will be made.
+            
+            

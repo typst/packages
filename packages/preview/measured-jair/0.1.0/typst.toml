@@ -1,0 +1,16 @@
+[package]
+name = "measured-jair"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Kirill Groshenkov <kir.groshenkov@gmail.com>"]
+license = "MIT AND MIT-0"
+description = "Article for the Journal of Artificial Intelligence Research (JAIR)."
+repository = "https://github.com/veryviolet/jair-typst"
+keywords = ["jair", "Journal of Artificial Intelligence Research", "journal", "article", "acm", "acmart", "paper"]
+categories = ["paper"]
+compiler = "0.13.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

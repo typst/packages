@@ -1,0 +1,26 @@
+[package]
+name = "fletcher"
+version = "0.6.0"
+compiler = "0.15.0"
+entrypoint = "src/exports.typ"
+authors = ["Joseph Wilson (Jollywatt)"]
+license = "MIT"
+description = "Draw diagrams with nodes and arrows."
+repository = "https://github.com/fletcher-package/fletcher"
+homepage = "https://fletcher-package.github.io"
+categories = ["visualization", "components"]
+keywords = [
+	"commutative",
+	"commuting",
+	"commute",
+	"diagram",
+	"category",
+	"flowchart",
+	"DAG",
+	"graph",
+	"finite state",
+	"network",
+	"node",
+	"arrow",
+]
+exclude = ["docs/", "tests/"]

@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: MIT-0
+[package]
+name = "sepia-memo"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Chen Gao <@ChennoShen239>"]
+license = "CC-BY-SA-4.0 AND MIT-0"
+description = "Research memos with cream paper and classical typography."
+repository = "https://github.com/ChennoShen239/sepia-memo"
+keywords = ["memo", "research", "vintage", "sepia", "notes"]
+categories = ["report"]
+compiler = "0.15.0"
+exclude = ["/preview-page-2.png"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

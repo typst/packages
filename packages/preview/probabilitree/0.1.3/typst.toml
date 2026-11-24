@@ -1,0 +1,12 @@
+# typst.toml
+[package]
+name = "probabilitree"
+version = "0.1.3"
+entrypoint = "src/probabilitree.typ"
+authors = ["Mikaël MAUNIER", "DeepSeek", "claude"]
+license = "MIT"    
+description = "Draw n-ary probability trees on top of cetz."
+repository = "https://github.com/mmaunier/probabilitree"
+keywords = ["probability", "tree", "cetz", "education"]
+compiler = "0.15.0"
+exclude = ["docs/manual.typ"]

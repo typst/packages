@@ -1,0 +1,25 @@
+[package]
+name = "quire"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Mario Vago Marzal <https://github.com/mariovagomarzal>"]
+license = "MIT AND MIT-0"
+description = "Classical books, reports and articles in EB Garamond."
+repository = "https://github.com/mariovagomarzal/quire"
+keywords = ["book", "report", "article", "thesis", "garamond", "print"]
+categories = ["book", "report", "paper"]
+disciplines = []
+compiler = "0.15.0"
+exclude = [
+  ".github",
+  "build",
+  "docs",
+  "examples",
+  "justfile",
+  "devenv.*",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
