@@ -1,0 +1,414 @@
+%% Exemple d'une citation de Livre
+@book{BookExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre du livre},
+  publisher = {Editeur},
+  year = 1999,
+  address = {Localisation},
+  edition = 3
+} 
+
+%% Exemple d'une citation de Livre avec Éditeur intellectuel
+@book{BookExampleEditor ,
+  editor = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre du livre},
+  publisher = {Editeur},
+  year = 1999,
+  address = {Lieu de publication},
+  edition = 3
+} 
+
+%% Exemple d'une citation de Livre avec DOI
+@book{BookExampleDOI ,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre du livre},
+  year = 1999,
+  version = {Version},
+  doi = {123-456-789}  
+} 
+
+%% Exemple d'une citation de Livre avec URL
+@book{BookExampleURL ,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre du livre},
+  year = 1999,
+  version = {Version},
+  url = {http://www.google.com}  
+}
+
+%% Exemple d'un chaptitre de livre
+@incollection{InCollectionExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  editor = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre du chapitre},
+  booktitle = {Titre du livre},
+  publisher = {Editeur},
+  year = 1999,
+  address = {Lieu de publication},
+  edition = 3,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Exemple d'un chaptitre de livre sans titre
+@inbook{InBookExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  editor = {Doe, John and Doe, John and Doe, John}, 
+  chapter = 7,
+  booktitle = {Titre du livre},
+  publisher = {Editeur},
+  year = 1999,
+  address = {Lieu de publication},
+  edition = 3,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Exemple d'un article de journal
+@article{ArticleExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de l'article},
+  journal = {Nom du journal},
+  year = 1999,
+  number = 2,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Exemple d'un article de journal sous presse
+@article{ArticleExampleInPress,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de l'article},
+  journal = {Nom du journal},
+  year = 1999,
+  note = {Sous presse}  
+} 
+
+%% Exemple d'un article de conference publié dans un livre. Utiliser "incollection".
+@incollection{InCollectionExample2,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  editor = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de l'article},
+  booktitle = {Titre des actes de conference},
+  publisher = {Editeur},
+  year = 1999,
+  address = {Lieu de publication},
+  edition = 3,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Exemple d'un article de conférence publié sous forme de périodique
+@inproceedings{InProceedingsExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de l'article},
+  booktitle = {Titre des actes de conference},
+  year = 1999,
+  number = 2,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Exemple d'une communication ou affiche présentée à une conférence
+@inproceedings{InProceedingsComExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de l'article},
+  booktitle = {Titre des actes de conference},
+  year = 1999,
+  month = {10},
+  type = {Communication},
+   address = {Lieu de publication},
+  pages = {220-242}
+} 
+
+%% Exemple d'une communication ou affiche présentée à une conférence
+@inproceedings{PPexample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de la présentation},
+  booktitle = {Titre de la conférence},
+  year = 1999,
+  month = {10},
+  type = {Présentation},
+   address = {Lieu de la conférence}
+} 
+
+%% Exemple d'article de magasine 
+@inproceedings{MagasineExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de l'article},
+  booktitle = {Titre du magazine},
+  year = 1999,
+  month = {10},
+  number = 2,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Exemple d'article de quotidien 
+@inproceedings{QuoExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de l'article},
+  booktitle = {Titre du qutodien},
+  year = 1999,
+  month = {10},
+  pages = {220}
+} 
+
+%% Exemple d'entrée dans une encyclopédie ou dictionnaire, utiliser incollection
+@incollection{EncyclopediaExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Titre de l'entrée},
+  booktitle = {Titre de l'encyclopédie},
+  publisher = {Editeur},
+  year = 1999,
+  address = {Lieu de publication},
+  edition = 3,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Exemple d'un mémoire de maitrise
+@mastersthesis{mastersthesis,
+  author = {Doe, John}, 
+  title = {Titre du mémoire},
+  type = {Mémoire de maîtrise},
+  school = {Établissement d'enseignement},
+  year = 1999,
+  address = {Lieu}
+}
+
+%% Exemple d'un mémoire de maitrise avec URL
+@mastersthesis{mastersthesisURL,
+  author = {Doe, John}, 
+  title = {Titre du mémoire},
+  type = {Mémoire de maîtrise},
+  school = {Établissement d'enseignement},
+  year = 1999,
+  address = {Lieu},
+  url = {http://www.google.ca}
+}
+
+%% Exemple d'un mémoire de maitrise obtenu dans une base de données commerciale
+@mastersthesis{mastersthesisDB,
+  author = {Doe, John}, 
+  title = {Titre du mémoire},
+  type = {Mémoire de maîtrise},
+  school = {Établissement d'enseignement},
+  year = 1999,
+  address = {Lieu},
+  note = {Nom de la base de données commerciale. (Numéro d’identification dans la base de données)}
+}
+
+%% Exemple d'un mémoire de these
+@phdthesis{phdthesis,
+  author = {Doe, John}, 
+  title = {Titre de la thèse},
+  type = {Thèse de doctorat},
+  school = {Établissement d'enseignement},
+  year = 1999,
+  address = {Lieu}
+}
+
+%% Exemple d'un rapport technique
+@techreport{techreport,
+  author = {Doe, John}, 
+  title = {Titre du rapport technique},
+  type = {Rapport technique},
+  publisher = {Institution},
+  year = 1999,
+  number = {42},
+  address = {Lieu de publication}
+}
+
+%% Exemple de norme
+@misc {norm,
+  organization = {Nom de l’organisme}, 
+  year = 1999,
+  title = {Titre de la norme},
+  howpublished = {Norme Abréviation de l’organisme auteur Numéro de la norme},
+  address = {Lieu de publication}
+}
+ 
+%% Exemple d'un brevet (type patent)
+@patent{patent,
+  author = {Doe, John}, 
+  type = {Type de brevet},
+  organization = {Organisation qui a délivré le brevet},
+  year = 1999,
+  number = {Numéro du brevet},
+  address = {Lieu de publication}
+}
+
+%% Exemple d'un brevet (type misc)
+@misc{patent_misc,
+  author = {Doe, John}, 
+  type = {Type de brevet},
+  organization = {Organisation qui a délivré le brevet},
+  year = 1999,
+  number = {Numéro du brevet},
+  address = {Lieu de publication}
+}
+
+%% Exemple d'une page de site web (type online)
+@online{online,
+  author = {Doe, John}, 
+  title = {Titre de la page web},
+  type = {Format},
+  year = 1999,
+  url = {http://www.google.ca}
+}
+
+%% Exemple d'une page de site web (type misc)
+@misc{online_misc,
+  author = {Doe, John}, 
+  title = {Titre de la page web},
+  type = {Format},
+  year = 1999,
+  url = {http://www.google.ca}
+}
+
+%%% Exemple d'une page de wiki (type online)
+@online{onlineWiki,
+  author =  {Wikipedia},
+  title = {Titre de la page},
+  year = 1999,
+  urldate = {2013-05-16},
+  url = {https://www.wikipedia.org}
+ }
+
+%%% Exemple d'une page de wiki (type misc)
+@misc{wiki_misc,
+  author =  {Wikipedia},
+  title = {Titre de la page},
+  year = 1999,
+  urldate = {2013-05-16},
+  url = {https://www.wikipedia.org}
+}
+
+%% Exemple d'un site web avec pseudonyme (par exemple post Twitter) (type online)
+@online{onlineNick,
+  author = {Doe, John}, 
+  title = {Titre de la page web},
+  type = {Format},
+  year = 1999,
+  month = {10},
+  day = 2,
+  url = {http://www.google.ca},
+  note = {Nom d'usager}
+}
+
+%% Exemple d'un site web avec pseudonyme (par exemple post Twitter) (type misc)
+@misc{onlineNick_misc,
+  author = {Doe, John}, 
+  title = {Titre de la page web},
+  type = {Format},
+  year = 1999,
+  month = {10},
+  day = 2,
+  url = {http://www.google.ca},
+  note = {Nom d'usager}
+}
+
+%% Exemple d'une video en ligne (par exemple vidéo Youtube) (type online)
+@online{onlineVideo,
+  author = {Doe, John}, 
+  title = {Titre de la vidéo},
+  type = {Vidéo Youtube},
+  year = 1999,
+  month = {10},
+  day = 2,
+  url = {http://www.google.ca},
+  note = {Nom d'usager}
+}
+
+%% Exemple d'une video en ligne (par exemple vidéo Youtube) (type misc)
+@misc{onlineVideo_misc,
+  author = {Doe, John}, 
+  title = {Titre de la vidéo},
+  type = {Vidéo Youtube},
+  year = 1999,
+  month = {10},
+  day = 2,
+  url = {http://www.google.ca},
+  note = {Nom d'usager}
+}
+
+%% Exemple d'un jeu de données (type online)
+@online{onlineDataset,
+  author = {Doe, John}, 
+  title = {Titre du jeu de données},
+  type = {Type de contenu},
+  year = 1999,
+  url = {http://www.google.ca}
+}
+
+%% Exemple d'un jeu de données (type misc)
+@misc{onlineDataset_misc,
+  author = {Doe, John}, 
+  title = {Titre du jeu de données},
+  type = {Type de contenu},
+  year = 1999,
+  url = {http://www.google.ca}
+}
+
+%% Exemple d'un logiciel
+@misc{software,
+  author = {Doe, John}, 
+  title = {Nom du logiciel},
+  type = {Logiciel},
+  year = 1999,
+  version = {1.0},
+  publisher = {Editeur},
+  address = {Lieu de publication}
+}
+
+%% Notes de cours en recueil
+@misc {class,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {Sigle du cours: Titre du cours},
+  institution = {Institution}
+}
+
+%% Notes de cours sur le net
+@misc {classURL,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {Sigle du cours: Titre du cours},
+  type = {Notes de cours},
+  url = {http://www.google.ca}
+}
+ 
+%% Données brutes inédites sans titre
+ @misc {rawData,
+  author = {Doe, John}, 
+  year = 1999,
+  type = {Description sommaire du sujet et contenu},
+  note = {Données brutes inédites}
+}
+  
+%% Exemple d'un document non publié
+@unpublished{unpublished,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {Titre du document},
+  type = {Document inédit},
+  institution = {Institution},
+  address = {Lieu}
+}
+ 
+%% Exemple d'un document non publié avec URL
+@unpublished{unpublishedURL,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {Titre du document},
+  url = {http://www.google.ca}
+}
+ 
+%% Exemple d'un document non publié soumis pour publication
+@unpublished{unpublishedSubmitted,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {Titre du document},
+  note = {Manuscrit soumis pour publication}
+}
