@@ -2,8 +2,7 @@
 // للترجمة:  typst compile doc.typ
 // يضع هذا الملف في جذر الحزمة (بجانب lib.typ).
 
-#import "lib.typ"
-#import "lib.typ": *
+#import "@preview/na-frame:0.1.0": *
 
 #set page(paper: "a4", margin: (x: 20mm, y: 22mm), numbering: "1")
 #set text(font: ("Noto Naskh Arabic", "Amiri", "DejaVu Sans"), lang: "ar", dir: rtl, size: 12pt)
