@@ -1,0 +1,13 @@
+[package]
+name = "visage-metric"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["VisualCraft Lab <@wittezc>"]
+license = "MIT"
+description = "Compute 2D facial landmark geometry metrics and render clean proportion summary tables."
+homepage = "https://looksmaxscale.com/"
+repository = "https://github.com/visualcraft-lab/visage-metric-typst"
+keywords = ["geometry", "landmarks", "proportions", "golden-ratio", "canthal-tilt"]
+categories = ["utility", "components"]
+compiler = "0.12.0"
+exclude = [".gitignore"]
