@@ -1,0 +1,36 @@
+
+# ============================================================
+# DOCUMENT REFERENCES (Hayagriva YAML)
+# ============================================================
+# Example entries corresponding to references.json and
+# references.bib. Keep only the entries relevant to your paper.
+# Reference IDs must match the keys used in your citations.
+# ============================================================
+
+turing1950:
+  type: article
+  title: Computing machinery and intelligence
+  author: Turing, Alan M.
+  date: '1950'
+  page-range: 433-460
+  serial-number:
+    doi: 10.1093/mind/LIX.236.433
+  parent:
+    type: periodical
+    title: Mind
+    volume: '59'
+    issue: '236'
+
+norman2013:
+  type: book
+  title: The design of everyday things
+  author: Norman, Donald A.
+  date: '2013'
+  edition: Revised and expanded edition
+  publisher: Basic Books
+
+typst-docs:
+  type: web
+  title: Documentation
+  author: Typst
+  url: https://typst.app/docs/
