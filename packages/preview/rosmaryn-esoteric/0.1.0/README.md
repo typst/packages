@@ -2,7 +2,7 @@
 
 Named Typst commands for astrological and Yijing symbols, set in the open [Rosmaryn Esoteric](https://github.com/Rosmaryn-Dev/rosmaryn-esoteric-font) font.
 
-![Example](example.png)
+![Planets, zodiac signs, aspects, trigrams and hexagrams set with the package commands](example.png)
 
 ## Setup
 

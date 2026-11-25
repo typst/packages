@@ -1,4 +1,4 @@
-#import "lib.typ": *
+#import "@preview/rosmaryn-esoteric:0.1.0": *
 #set page(width: 12cm, height: auto, margin: 1cm)
 = Rosmaryn Esoteric
 #sun #moon #mercury #venus #mars #jupiter #saturn \
