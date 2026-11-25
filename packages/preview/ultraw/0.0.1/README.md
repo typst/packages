@@ -4,7 +4,7 @@
 
 ## Overview
 
-[![overview](assets/overview.svg)](https://github.com/JulesViennotFranca/ultraw/blob/v0.0.1/assets/overview.typ)
+[![Overview of what's possible with **`ultraw`**](assets/overview.svg)](https://github.com/JulesViennotFranca/ultraw/blob/v0.0.1/assets/overview.typ)
 
 ## Getting started
 
