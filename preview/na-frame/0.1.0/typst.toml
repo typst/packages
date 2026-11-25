@@ -1,0 +1,14 @@
+[package]
+name = "na-frame"
+version = "0.1.0"
+entrypoint = "lib.typ"
+license = "MIT"
+repository = "https://github.com/naam11/na-frame"
+description = "Professional breakable frames (theorem, definition, exercise, notes, notebook, ornamental...) for Arabic (RTL) and Latin (LTR) documents, with variable titles and colors."
+keywords = ["frame", "frames", "theorem", "exercise", "arabic", "rtl"]
+exclude = [
+  "doc.pdf",
+  "doc-en.pdf",
+  "demo-ar.typ",
+  "demo-en.typ",
+]
