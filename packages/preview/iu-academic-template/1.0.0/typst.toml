@@ -6,7 +6,7 @@ authors = ["BeaverBytes"]
 license = "MIT AND MIT-0 AND CC-BY-SA-3.0"
 categories = ["paper", "report", "thesis"]
 compiler = "0.15.0"
-description = "A modular Typst template for academic writing."
+description = "A modular template for academic writing."
 
 [template]
 path = "starter"
