@@ -1,4 +1,7 @@
-#import "../export/main.typ": *
+#import "@preview/ultraw:0.0.1": (
+  highlights, pseudo-info, style, themes, uraw, uraw-diff, uraw-pseudo,
+)
+#import "@preview/octique:0.1.1": *
 #import "utils.typ": *
 
 #set page(width: 23cm + 6pt, height: auto, margin: 3pt)
@@ -19,6 +22,108 @@
     stroke: none,
   ),
 )
+
+#let merge-diagram = {
+  let b(body: none, color: orange) = box(
+    width: .7em,
+    height: .7em,
+    stroke: color,
+    body,
+  )
+  let ls(color) = align(center, line(
+    angle: 90deg,
+    length: 2mm,
+    stroke: (
+      paint: color,
+      dash: "dotted",
+    ),
+  ))
+  let ll(color) = align(center, line(
+    angle: 90deg,
+    length: .7em + 4mm,
+    stroke: (
+      paint: color,
+      dash: "dotted",
+    ),
+  ))
+  let ss() = stack(
+    dir: ttb,
+    b(color: gray),
+    ls(gray),
+    b(color: black),
+  )
+  let sl() = stack(
+    dir: ttb,
+    b(color: gray),
+    ll(gray),
+    b(color: black),
+  )
+  let st(color: black) = align(top, stack(
+    dir: ttb,
+    spacing: 2mm,
+    b(color: color),
+    b(color: color),
+  ))
+
+  grid(
+    columns: 30,
+    column-gutter: (4mm, 0mm),
+    align: bottom,
+    stack(dir: ttb, spacing: 2mm, [`l1`], [`l2`], [`l`]),
+    ss(),
+    ss(),
+    sl(),
+    ss(),
+    sl(),
+    sl(),
+    sl(),
+    ss(),
+    h(2mm),
+    move(dy: -.35em, line(length: 3.5mm, stroke: (dash: "dotted"))),
+    h(2mm),
+    sl(),
+    ss(),
+    h(2mm),
+    stack(
+      move(dx: .35em, line(length: .35em + 1mm, stroke: (
+        paint: orange,
+        dash: "dotted",
+      ))),
+      align(center, line(angle: 90deg, length: .7em + 3mm, stroke: (
+        paint: orange,
+        dash: "dotted",
+      ))),
+      b(color: orange),
+    ),
+    h(.35em),
+    stack(
+      line(angle: 90deg, length: .7em + 2mm, stroke: .5pt + orange),
+      v(1.05em + 2mm),
+    ),
+    stack(
+      line(length: 7mm, stroke: .5pt + orange),
+      v(.8mm),
+      move(dx: .5mm, text(orange)[$<=$?]),
+      v(1.2mm),
+      line(length: 7mm, stroke: .5pt + orange),
+      v(1.05em + 2mm),
+    ),
+    st(color: orange),
+    h(2mm),
+    st(),
+    st(),
+    h(2mm),
+    stack(
+      line(length: 3.5mm, stroke: (dash: "dotted")),
+      v(.7em + 2mm),
+      line(length: 3.5mm, stroke: (dash: "dotted")),
+      v(1.05em + 2mm),
+    ),
+    h(2mm),
+    st(),
+    st(color: olive),
+  )
+}
 
 #grid(
   columns: (auto, 1fr, auto),

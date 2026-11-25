@@ -1,4 +1,4 @@
-#import "../export/main.typ": *
+#import "@preview/ultraw:0.0.1": style, uraw
 #import "utils.typ": *
 
 #show: format-doc
