@@ -1,0 +1,13 @@
+[package]
+name = "blue-ledger"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alex Bell <https://bluedoseapp.com>"]
+license = "MIT"
+description = "Printable injection log sheets, a six-site rotation key and a least-recently-used site helper. Logging only."
+homepage = "https://bluedoseapp.com/tools/injection-log-latex/"
+repository = "https://github.com/shipandsail/typst-blue-ledger"
+keywords = ["injection", "log", "medication", "tracker", "health"]
+categories = ["components", "office"]
+compiler = "0.12.0"
+exclude = ["example.typ", "example.png"]

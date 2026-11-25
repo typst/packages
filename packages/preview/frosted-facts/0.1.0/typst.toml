@@ -1,0 +1,13 @@
+[package]
+name = "frosted-facts"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alex Bell <https://snowbelly.app>"]
+license = "MIT"
+description = "US-style Nutrition Facts panels, per-100 g nutrition tables and Mifflin-St Jeor energy helpers."
+homepage = "https://snowbelly.app/tools/calorie-calculator/"
+repository = "https://github.com/shipandsail/typst-frosted-facts"
+keywords = ["nutrition", "food", "label", "calories", "nutrition facts"]
+categories = ["components"]
+compiler = "0.12.0"
+exclude = ["example.typ", "example.png"]
