@@ -2,8 +2,7 @@
 // Compile with:  typst compile doc-en.typ
 // Keep this file in the package root (next to lib.typ).
 
-#import "lib.typ"
-#import "lib.typ": *
+#import "@preview/na-frame:0.1.0": *
 
 #set page(paper: "a4", margin: (x: 20mm, y: 22mm), numbering: "1")
 #set text(font: ("New Computer Modern", "Libertinus Serif"), lang: "en", dir: ltr, size: 11pt)
