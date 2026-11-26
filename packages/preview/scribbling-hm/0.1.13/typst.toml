@@ -1,0 +1,26 @@
+[package]
+name = "scribbling-hm"
+version = "0.1.13"
+entrypoint = "lib.typ"
+authors = ["stefanie <@fine-seat>"]
+license = "MIT"
+description = "Unofficial thesis, report and paper template for Munich University of Applied Sciences (Hochschule München)"
+repository = "https://github.com/fine-seat/hm-typst-template"
+keywords = ["HM", "München", "Munich", "Hochschule München", "Hochschule München für Angewandte Wissenschaften", "Munich University of Applied Sciences", "thesis", "bachelor's thesis", "master's thesis", "report", "modularbeit"]
+categories = ["thesis", "report", "paper"]
+disciplines = ["computer-science"]
+exclude = [".devcontainer/", "examples/", ".github/", ".git/", ".pre-commit-config.yaml", "tests/"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+
+thumbnail = "main.png"
+
+[tool.tytanic]
+tests = "tests"
+
+[tool.tytanic.default]
+ppi = 144.0
+max-delta = 1
+max-deviations = 0
