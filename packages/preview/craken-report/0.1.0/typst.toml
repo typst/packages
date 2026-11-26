@@ -1,0 +1,16 @@
+[package]
+name = "craken-report"
+version = "0.1.0"
+entrypoint = "craken-report.typ"
+authors = ["Pietro Agnoli <@TheCaptainCraken>"]
+license = "MIT-0"
+description = "Lab reports with a cover, figures, charts, code and maths."
+repository = "https://github.com/TheCaptainCraken/craken-report"
+keywords = ["lab report", "report", "assignment", "university", "charts", "code"]
+categories = ["report"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "thumbnail.png"
