@@ -1,0 +1,12 @@
+[package]
+name = "rosmaryn-esoteric"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Rosmaryn <https://rosmaryn.app/>"]
+license = "MIT-0"
+description = "Write zodiac, planet and Yijing symbols in a libre font."
+repository = "https://github.com/Rosmaryn-Dev/rosmaryn-esoteric-font"
+keywords = ["astrology", "zodiac", "i-ching", "symbols", "font"]
+categories = ["text", "visualization"]
+compiler = "0.12.0"
+exclude = ["example.typ", "example.png"]
