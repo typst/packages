@@ -1,6 +1,8 @@
 # Obelisk Estudos
 
-Caderno de estudos em português, adaptado do projeto Obelisk. Organize capítulos e subtópicos com grade tipográfica, notas laterais, ambientes para diferentes disciplinas, capa geométrica e reflexão pessoal após cada sessão de estudo.
+Obelisk Estudos is a Portuguese-language adaptation of the Obelisk template, extended with reusable notes and personal-reflection tools for subjects beyond STEM, including law, public administration, and the humanities. It is aimed at Portuguese-speaking students, especially those preparing for public exams.
+
+Caderno de estudos em português baseado no Obelisk/Obelisk Lite. Além de manter recursos úteis para matérias de exatas, esta adaptação acrescenta ambientes reutilizáveis para disciplinas não exatas — como Direito e Administração Pública — e reflexão pessoal. O público-alvo são estudantes falantes de português, especialmente quem se prepara para concursos. Organize capítulos e subtópicos com grade tipográfica, notas laterais e capa geométrica.
 
 ## Usar como modelo
 
