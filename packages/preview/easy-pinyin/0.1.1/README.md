@@ -7,7 +7,7 @@ Write Chinese pinyin easily.
 Import the package:
 
 ```typst
-#import "@preview/easy-pinyin:0.1.0": pinyin, zhuyin
+#import "@preview/easy-pinyin:0.1.1": pinyin, zhuyin
 ```
 
 With the `pinyin` function, you can use `a2` to write an `ɑ́`, `o3` to write an `ǒ`, `v4` to represent `ǜ`, etc.
