@@ -1,0 +1,13 @@
+[package]
+name = "yuhina"
+version = "0.1.0"
+entrypoint = "lib.typ"
+compiler = "0.15.1"
+authors = ["Zhen Huang <https://github.com/zhenhuang-tw>"]
+description = "Typeset Traditional Chinese documents for Taiwan."
+repository = "https://github.com/zhenhuang-tw/yuhina"
+license = "MIT"
+categories = ["languages", "text", "layout"]
+keywords = ["chinese", "traditional-chinese", "zh-TW", "taiwan", "cjk", "fonts", "heading-numbering", "cross-reference"]
+# 已提交到 typst/packages、但使用者匯入時不必下載的檔案（README 會連結它們）
+exclude = ["/examples/", "/CHANGELOG.md", "/README.zh-TW.md"]
