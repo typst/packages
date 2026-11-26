@@ -1,0 +1,16 @@
+[package]
+name = "very-simple-vollmacht"
+version = "1.0.0"
+entrypoint = "src/lib.typ"
+authors = ["Arne Bahlo"]
+license = "MIT"
+description = "A4 Letter of attorney (Vollmacht) template"
+repository = "https://codeberg.org/enra/typst-very-simple-vollmacht"
+keywords = ["letter", "authorization", "vollmacht"]
+categories = ["office"]
+exclude = ["generate-thumbnail.sh"]
+
+[template]
+path = "template/src"
+entrypoint = "main.typ"
+thumbnail = "template/thumbnail.png"
