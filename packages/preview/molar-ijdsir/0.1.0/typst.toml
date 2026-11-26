@@ -1,0 +1,17 @@
+[package]
+name = "molar-ijdsir"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Aditya Karnam <https://github.com/adityak74>"]
+license = "MIT"
+description = "Manuscript and covering letter for the IJDSIR dental journal"
+repository = "https://github.com/adityak74/ijdsir-format"
+keywords = ["IJDSIR", "International Journal of Dental Science and Innovative Research", "dental", "dentistry", "journal", "manuscript", "covering letter"]
+categories = ["paper"]
+disciplines = ["medicine"]
+compiler = "0.14.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
