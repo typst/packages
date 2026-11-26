@@ -1,0 +1,8 @@
+[conf]
+default-lang = "en"
+
+[lang.en]
+series_note = "Part of the static commutative-algebra notes series."
+
+[lang.de]
+series_note = "Teil der statischen Notizenreihe zur kommutativen Algebra."
