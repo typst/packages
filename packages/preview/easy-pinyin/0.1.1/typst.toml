@@ -1,0 +1,10 @@
+[package]
+name = "easy-pinyin"
+version = "0.1.1"
+entrypoint = "lib.typ"
+authors = ["7sDream", "Other open-source contributors"]
+license = "MIT"
+description = "Write Chinese pinyin easily."
+repository = "https://github.com/7sDream/typst-easy-pinyin"
+categories = ["text", "layout", "languages"]
+keywords = ["chinese", "pinyin", "ruby"]
