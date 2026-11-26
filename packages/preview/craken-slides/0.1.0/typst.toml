@@ -1,0 +1,17 @@
+[package]
+name = "craken-slides"
+version = "0.1.0"
+entrypoint = "craken.typ"
+authors = ["Pietro Agnoli <@TheCaptainCraken>"]
+license = "MIT-0"
+description = "16:9 talks on maths and computer science, light or dark."
+repository = "https://github.com/TheCaptainCraken/craken-slides"
+keywords = ["slides", "presentation", "talk", "lecture", "mathematics", "computer science"]
+categories = ["presentation"]
+disciplines = ["computer-science", "mathematics"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
