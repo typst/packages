@@ -1,0 +1,49 @@
+
+[
+  {
+    "id": "turing1950",
+    "type": "article-journal",
+    "title": "Computing machinery and intelligence",
+    "author": [
+      {
+        "family": "Turing",
+        "given": "Alan M."
+      }
+    ],
+    "issued": {
+      "date-parts": [[1950]]
+    },
+    "container-title": "Mind",
+    "volume": "59",
+    "issue": "236",
+    "page": "433-460",
+    "DOI": "10.1093/mind/LIX.236.433"
+  },
+  {
+    "id": "norman2013",
+    "type": "book",
+    "title": "The design of everyday things",
+    "author": [
+      {
+        "family": "Norman",
+        "given": "Donald A."
+      }
+    ],
+    "issued": {
+      "date-parts": [[2013]]
+    },
+    "edition": "Revised and expanded edition",
+    "publisher": "Basic Books"
+  },
+  {
+    "id": "typst-docs",
+    "type": "webpage",
+    "title": "Documentation",
+    "author": [
+      {
+        "literal": "Typst"
+      }
+    ],
+    "URL": "https://typst.app/docs/"
+  }
+]

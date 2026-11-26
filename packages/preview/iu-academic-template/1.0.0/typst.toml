@@ -1,0 +1,14 @@
+[package]
+name = "iu-academic-template"
+version = "1.0.0"
+entrypoint = "template/lib.typ"
+authors = ["BeaverBytes"]
+license = "MIT AND MIT-0 AND CC-BY-SA-3.0"
+categories = ["paper", "report", "thesis"]
+compiler = "0.15.0"
+description = "A modular template for academic writing."
+
+[template]
+path = "starter"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
