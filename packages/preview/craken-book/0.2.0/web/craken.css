@@ -1,0 +1,833 @@
+/* Captain Craken — web edition stylesheet.
+   Tokens and ck-* components from the Captain Craken design system, plus the site chrome. */
+
+@font-face { font-family: "Fraunces"; src: url("fonts/Fraunces-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("fonts/Newsreader-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("fonts/Newsreader-Italic-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "DM Mono"; src: url("fonts/DMMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "DM Mono"; src: url("fonts/DMMono-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "DM Mono"; src: url("fonts/DMMono-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "STIX Two Math"; src: url("fonts/STIXTwoMath-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+:root, :root[data-theme="paper"] {
+  --paper: #fbf7f0;
+  --paper-warm: #f4eadc;
+  --rule: #e3d5c1;
+  --ink: #2e221b;
+  --ink-soft: #6c5849;
+  --rust: #a63f29;
+  --amber: #8f5e0e;
+  --moss: #55602e;
+  --coral: #e9664e;
+  --peach: #f8c597;
+}
+:root[data-theme="lantern"] {
+  --paper: #1c1612;
+  --paper-warm: #282019;
+  --rule: #3b3029;
+  --ink: #f0e6d8;
+  --ink-soft: #b9a695;
+  --rust: #f08b6e;
+  --amber: #deac55;
+  --moss: #adba7a;
+  --coral: #e8735b;
+  --peach: #6e4632;
+}
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="paper"]) {
+    --paper: #1c1612;
+    --paper-warm: #282019;
+    --rule: #3b3029;
+    --ink: #f0e6d8;
+    --ink-soft: #b9a695;
+    --rust: #f08b6e;
+    --amber: #deac55;
+    --moss: #adba7a;
+    --coral: #e8735b;
+    --peach: #6e4632;
+  }
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-24: 96px;
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --radius-pill: 999px;
+  --measure: 34em;
+  --gutter: 40px;
+  --margin-column: 200px;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-text: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-math: "STIX Two Math", "Cambria Math", math;
+}
+.chapter-title { font-family: var(--font-display); font-size: 52px; line-height: 58px; font-weight: 560; letter-spacing: -0.01em; }
+.section-title { font-family: var(--font-display); font-size: 30px; line-height: 38px; font-weight: 600; }
+.subsection-title { font-family: var(--font-display); font-size: 21px; line-height: 30px; font-weight: 620; }
+.label { font-family: var(--font-display); font-size: 15px; line-height: 22px; font-weight: 650; }
+.lede { font-family: var(--font-text); font-size: 22px; line-height: 34px; font-weight: 380; }
+.body { font-family: var(--font-text); font-size: 18px; line-height: 30px; font-weight: 400; }
+.caption { font-family: var(--font-text); font-size: 15px; line-height: 23px; font-weight: 400; }
+.margin-note { font-family: var(--font-text); font-size: 14px; line-height: 21px; font-weight: 400; }
+.code { font-family: var(--font-mono); font-size: 15px; line-height: 24px; font-weight: 400; }
+.equation { font-family: var(--font-math); font-size: 19px; line-height: 30px; font-weight: 400; }
+/* Captain Craken — book components.
+   Load after tokens.css. Every class is prefixed ck-; type comes from the
+   generated style classes (body, lede, label, caption, margin-note, code…),
+   colour and space from the tokens. */
+
+/* ---------- Base ---------- */
+
+.ck-book {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  hyphens: manual;
+}
+
+/* Fraunces is always set soft: round terminals, like the logo. */
+.chapter-title,
+.section-title,
+.subsection-title,
+.label,
+.ck-chapter__numeral {
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+}
+
+.ck-book p { margin: 0 0 var(--space-4); }
+.ck-book h1, .ck-book h2, .ck-book h3 { color: var(--ink); text-wrap: balance; }
+.ck-book h2.section-title { margin: var(--space-12) 0 var(--space-4); }
+.ck-book h3.subsection-title { margin: var(--space-8) 0 var(--space-2); }
+
+.ck-book a {
+  color: var(--rust);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.ck-book a:focus-visible,
+.ck-book summary:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+  border-radius: var(--radius-s);
+}
+
+.ck-book dfn { font-style: italic; font-weight: 600; }
+.ck-book em { font-style: italic; }
+.ck-book strong { font-weight: 600; }
+
+/* Inline code */
+.ck-book :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--paper-warm);
+  border-radius: var(--radius-s);
+  padding: 0.08em var(--space-1);
+  hyphens: none;
+}
+
+/* Math: STIX Two Math, a step above the text so x-heights match */
+.ck-book math { font-family: var(--font-math); font-size: 1.06em; color: var(--ink); }
+
+/* ---------- Page grid: text column + margin column ---------- */
+
+.ck-page {
+  box-sizing: content-box;
+  max-width: var(--measure);
+  padding: var(--space-12) calc(var(--gutter) + var(--margin-column) + var(--space-12)) var(--space-12) var(--space-12);
+}
+@media (max-width: 760px) {
+  .ck-page { padding: var(--space-6); }
+}
+
+/* ---------- The sucker: the system's one ornament ---------- */
+
+.ck-sucker {
+  display: inline-block;
+  flex: none;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-radius: var(--radius-pill);
+  background: radial-gradient(circle, currentColor 0 2.5px, transparent 3px);
+}
+.ck-sucker--open { background: none; }
+
+.ck-break {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin: var(--space-12) 0;
+  color: var(--coral);
+}
+
+/* ---------- Chapter opener ---------- */
+
+.ck-chapter { padding-top: var(--space-24); margin-bottom: var(--space-12); }
+
+/* ---------- Part banner, over a part's first chapter ---------- */
+
+.ck-part { padding: var(--space-24) 0 0; }
+.ck-part + .ck-chapter { padding-top: var(--space-12); }
+.ck-part__kicker { display: flex; flex-direction: column; gap: var(--space-1); margin: 0; color: var(--ink-soft); }
+.ck-part__numeral {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 500;
+  font-size: 112px;
+  line-height: 1;
+  color: var(--coral);
+}
+.ck-book .ck-part__title {
+  margin: var(--space-4) 0 0;
+  max-width: 16em;
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 58px;
+  letter-spacing: -0.01em;
+}
+.ck-book .ck-part__intro { margin-top: var(--space-6); }
+.ck-part__intro > :last-child { margin-bottom: 0; }
+.ck-chapter__kicker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+  color: var(--ink-soft);
+}
+.ck-chapter__numeral {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 112px;
+  line-height: 1;
+  color: var(--coral);
+}
+.ck-chapter .chapter-title { margin: var(--space-4) 0 var(--space-6); max-width: 16em; }
+.ck-chapter .lede { margin: 0; }
+
+/* ---------- Callouts: Tip, Question, Try this ---------- */
+
+.ck-callout {
+  margin: var(--space-8) 0;
+  padding: var(--space-6);
+  background: var(--paper-warm);
+  border-radius: var(--radius-m);
+  color: var(--ink);
+}
+.ck-callout > :last-child,
+.ck-callout p:last-child { margin-bottom: 0; }
+.ck-callout p { margin: 0 0 var(--space-2); }
+.ck-callout :not(pre) > code { background: var(--paper); }
+.ck-callout__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2);
+}
+.ck-callout--tip .ck-callout__label { color: var(--amber); }
+.ck-callout--question .ck-callout__label { color: var(--rust); }
+.ck-callout--try .ck-callout__label { color: var(--moss); }
+
+/* ---------- Reveal (answers, solutions) ---------- */
+
+.ck-reveal { margin-top: var(--space-4); }
+.ck-reveal > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  list-style: none;
+  color: var(--rust);
+}
+.ck-reveal > summary::-webkit-details-marker { display: none; }
+.ck-reveal > summary::before {
+  content: "";
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-radius: var(--radius-pill);
+}
+.ck-reveal[open] > summary::before {
+  background: radial-gradient(circle, currentColor 0 2.5px, transparent 3px);
+}
+.ck-reveal__body { margin-top: var(--space-2); }
+.ck-reveal__body > :last-child { margin-bottom: 0; }
+
+.ck-solution > summary { color: var(--moss); }
+.ck-solution .ck-reveal__body {
+  padding: var(--space-4) var(--space-6);
+  background: var(--paper-warm);
+  border-radius: var(--radius-m);
+}
+
+/* ---------- Margin notes ---------- */
+
+.ck-note-ref {
+  color: var(--rust);
+  font-weight: 600;
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: 1px;
+  font-variant-numeric: lining-nums;
+}
+.ck-note {
+  float: right;
+  clear: right;
+  width: var(--margin-column);
+  margin-right: calc(-1 * (var(--margin-column) + var(--gutter)));
+  margin-top: 0.3em;
+  color: var(--ink-soft);
+  hyphens: manual;
+}
+.ck-note__num { color: var(--rust); font-weight: 600; margin-right: var(--space-1); }
+@media (max-width: 760px) {
+  .ck-note {
+    float: none;
+    display: block;
+    width: auto;
+    margin: var(--space-2) 0 var(--space-2) var(--space-6);
+  }
+}
+
+/* ---------- Code blocks ---------- */
+
+.ck-code {
+  margin: var(--space-8) 0;
+  background: var(--paper-warm);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.ck-code__title {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin: 0;
+  padding: var(--space-4) var(--space-6) 0;
+  color: var(--ink-soft);
+}
+.ck-code pre {
+  margin: 0;
+  padding: var(--space-4) var(--space-6);
+  overflow-x: auto;
+  color: var(--ink);
+  tab-size: 4;
+  hyphens: none;
+}
+.ck-code pre code { font: inherit; }
+.ck-code--numbered pre { counter-reset: ck-line; }
+.ck-code--numbered .ck-line { counter-increment: ck-line; }
+.ck-code--numbered .ck-line::before {
+  content: counter(ck-line);
+  display: inline-block;
+  width: 2ch;
+  margin-right: 2ch;
+  text-align: right;
+  color: var(--ink-soft);
+}
+
+/* Syntax: four roles, no new colours. hljs and Prism class names map too. */
+.tok-kw, .hljs-keyword, .hljs-built_in, .token.keyword, .token.builtin { color: var(--rust); }
+.tok-str, .hljs-string, .token.string { color: var(--moss); }
+.tok-num, .hljs-number, .hljs-literal, .token.number, .token.boolean { color: var(--amber); }
+.tok-com, .hljs-comment, .token.comment { color: var(--ink-soft); font-style: italic; }
+.tok-fn, .hljs-title, .token.function { color: var(--ink); font-weight: 500; }
+.tok-deco, .hljs-meta, .token.decorator { color: var(--rust); }
+
+/* ---------- Display equations ---------- */
+
+.ck-equation {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin: var(--space-6) 0;
+}
+.ck-equation > math { grid-column: 2; margin: 0; }
+.ck-equation__number {
+  grid-column: 3;
+  justify-self: end;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Figures ---------- */
+
+.ck-figure { margin: var(--space-8) 0; }
+.ck-figure__art { display: flex; justify-content: center; }
+.ck-figure__art > svg,
+.ck-figure__art > img { display: block; max-width: 100%; height: auto; }
+.ck-figure--framed .ck-figure__art {
+  padding: var(--space-6);
+  background: var(--paper-warm);
+  border-radius: var(--radius-m);
+}
+.ck-figure figcaption { margin-top: var(--space-4); color: var(--ink-soft); }
+.ck-figure__label { color: var(--rust); margin-right: var(--space-2); }
+
+/* Illustration helpers for inline SVG: they follow the theme. */
+.ck-ill-line { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ck-ill-text { fill: var(--ink); font-family: var(--font-text); font-size: 16px; }
+.ck-ill-mark { fill: none; stroke: var(--coral); stroke-width: 3; }
+.ck-fill-peach { fill: var(--peach); }
+.ck-fill-warm { fill: var(--paper-warm); }
+.ck-fill-coral { fill: var(--coral); }
+.ck-fill-amber { fill: var(--amber); }
+.ck-fill-moss { fill: var(--moss); }
+
+/* ---------- Exercises ---------- */
+
+.ck-exercises { margin: var(--space-8) 0; }
+.ck-exercise { padding: var(--space-4) 0; }
+.ck-exercise__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-2);
+}
+.ck-exercise__number { color: var(--rust); }
+.ck-exercise__difficulty { display: inline-flex; gap: var(--space-1); color: var(--ink-soft); }
+.ck-exercise__difficulty .ck-sucker { width: 12px; height: 12px; border-width: 1.5px; background-size: auto; }
+.ck-exercise__body > :last-child { margin-bottom: 0; }
+
+/* ---------- Site chrome (web edition only) ---------- */
+
+html { background: var(--paper); color-scheme: light; }
+:root[data-theme="lantern"] { color-scheme: dark; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="paper"]) { color-scheme: dark; } }
+body { margin: 0; background: var(--paper); }
+
+.ck-page { margin: 0 auto; }
+
+.ck-topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: calc(var(--measure) + var(--gutter) + var(--margin-column));
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-12);
+  font-size: 18px;
+}
+.ck-topbar a { color: var(--ink); text-decoration: none; }
+.ck-topbar a:hover { color: var(--rust); }
+.ck-topbar__title { flex: 1; display: flex; align-items: center; gap: var(--space-2); }
+.ck-topbar__title img { width: 32px; height: 32px; flex: none; }
+.ck-topbar__nav { display: flex; gap: var(--space-4); color: var(--ink-soft); }
+.ck-topbar__nav a { color: var(--ink-soft); }
+
+.ck-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--ink-soft);
+  border-radius: var(--radius-m);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.ck-theme-toggle:hover { color: var(--rust); border-color: var(--rust); }
+.ck-theme-toggle:focus-visible,
+.ck-topbar a:focus-visible,
+.ck-pager a:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+  border-radius: var(--radius-s);
+}
+
+.ck-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-6);
+  box-sizing: content-box;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-8) calc(var(--gutter) + var(--margin-column) + var(--space-12)) var(--space-24) var(--space-12);
+  font-size: 18px;
+}
+.ck-pager > a, .ck-pager > span { max-width: 45%; }
+.ck-pager a { display: flex; flex-direction: column; gap: var(--space-1); color: var(--ink); text-decoration: none; }
+.ck-pager a:hover .ck-pager__title { color: var(--rust); }
+.ck-pager__next { margin-left: auto; text-align: right; }
+.ck-pager .label { color: var(--ink-soft); }
+.ck-pager__title { font-family: var(--font-text); }
+
+@media (max-width: 760px) {
+  .ck-topbar { padding: var(--space-4) var(--space-6); }
+  .ck-topbar__nav { display: none; }
+  .ck-pager { padding: var(--space-8) var(--space-6) var(--space-12); }
+}
+
+/* ---------- Home page: the front of a book ---------- */
+
+.ck-home { display: block; padding: 0 0 var(--space-12); }
+
+/* The desk the book lies open on */
+.ck-desk {
+  background: var(--paper-warm);
+  padding: calc(var(--space-12) + 44px) var(--space-12) var(--space-12);
+}
+
+/* The open book */
+.ck-spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1040px;
+  min-height: 600px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+.ck-spread__verso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-12);
+  border-right: 1px solid var(--rule);
+}
+.ck-spread__recto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-24) var(--space-12) var(--space-8);
+  text-align: center;
+}
+
+/* Frontispiece: the cover picture as a plate, double-ruled, with a caption */
+.ck-book .ck-frontis { margin: 0; text-align: center; }
+.ck-frontis__plate {
+  display: inline-block;
+  padding: var(--space-8);
+  background: var(--paper);
+  border: 1px solid var(--ink-soft);
+  outline: 1px solid var(--ink-soft);
+  outline-offset: 5px;
+}
+/* any picture: kept to the plate, never stretched */
+.ck-frontis__plate img { display: block; width: auto; height: auto; max-width: min(280px, 100%); max-height: 360px; }
+:root[data-theme="lantern"] .ck-frontis__plate { background: #fbf7f0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="paper"]) .ck-frontis__plate { background: #fbf7f0; } }
+.ck-book .ck-frontis__caption { margin: var(--space-6) auto 0; max-width: 18em; font-style: italic; color: var(--ink-soft); }
+
+/* Index tabs on the top edge of the right-hand page: the ways in */
+.ck-tabs {
+  position: absolute;
+  bottom: 100%;
+  right: var(--space-8);
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: 1px;
+}
+.ck-tab > a {
+  display: block;
+  padding: var(--space-2) var(--space-6) 6px;
+  border: 1px solid var(--rule);
+  border-bottom: 0;
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+}
+.ck-tab > a:hover { color: var(--rust); }
+.ck-tab--read > a { background: var(--rust); border-color: var(--rust); color: var(--paper); }
+.ck-tab--read > a:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.ck-tab > a:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
+
+/* Title page, set the way title pages are: centred, quiet, imprint at the foot */
+.ck-titlepage { flex: 1; }
+.ck-book .ck-titlepage__series { margin: 0 0 var(--space-12); color: var(--ink-soft); }
+.ck-book .ck-titlepage__title {
+  margin: 0 auto var(--space-6);
+  max-width: 9em;
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 600;
+  font-size: 54px;
+  line-height: 58px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.ck-book .ck-titlepage__subtitle {
+  margin: 0 auto;
+  max-width: 20em;
+  font-style: italic;
+  font-size: 21px;
+  line-height: 31px;
+  color: var(--ink-soft);
+}
+.ck-book .ck-titlepage__fleuron { margin: var(--space-12) 0; color: var(--coral); }
+.ck-book .ck-titlepage__author {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--ink);
+}
+.ck-book .ck-titlepage__imprint { margin: var(--space-12) 0 0; color: var(--ink-soft); }
+
+/* The letter to the reader */
+.ck-letter { max-width: var(--measure); margin: var(--space-24) auto 0; padding: 0 var(--space-6); }
+.ck-book .ck-letter__salutation { margin: 0 0 var(--space-4); font-style: italic; font-size: 22px; }
+/* on the body itself, so it finds the first letter whether or not the
+   letter starts with a <p> (a one-paragraph description has none) */
+.ck-letter__body::first-letter {
+  float: left;
+  margin: 6px var(--space-2) 0 0;
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 600;
+  font-size: 74px;
+  line-height: 60px;
+  color: var(--coral);
+}
+.ck-letter__description { margin: 0 0 var(--space-4); }
+.ck-book .ck-letter__description > p:last-child { margin-bottom: 0; }
+.ck-book .ck-letter__sign { margin: var(--space-6) 0 0; text-align: right; font-style: italic; }
+.ck-book .ck-letter__sign::before { content: "— "; }
+.ck-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 650;
+  font-size: 0.86em;
+  white-space: nowrap;
+}
+.ck-mark .ck-sucker { width: 12px; height: 12px; }
+.ck-mark--tip { color: var(--amber); }
+.ck-mark--question { color: var(--rust); }
+.ck-mark--try { color: var(--moss); }
+.ck-letter .ck-exercise__difficulty { display: inline-flex; gap: 2px; vertical-align: -1px; color: var(--ink-soft); }
+.ck-letter .ck-exercise__difficulty .ck-sucker { width: 12px; height: 12px; border-width: 1.5px; }
+
+/* Contents, like a contents page */
+.ck-home .ck-break { margin: var(--space-24) 0 var(--space-12); }
+.ck-contents { max-width: calc(var(--measure) + 64px); margin: 0 auto; padding: 0 var(--space-6); }
+.ck-book .ck-contents__title {
+  margin: 0 0 var(--space-12) 64px;
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 38px;
+}
+.ck-book .ck-contents__list { list-style: none; margin: 0; padding: 0; }
+.ck-book .ck-contents__list > li { margin: 0 0 var(--space-12); }
+.ck-book .ck-contents__list > li::marker { content: none; }
+.ck-contents__chapter { display: grid; grid-template-columns: 64px minmax(0, 1fr); }
+.ck-contents__num {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 32px;
+  color: var(--coral);
+}
+.ck-book .ck-contents__name {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+.ck-book .ck-contents__name a { color: var(--ink); text-decoration: none; }
+.ck-book .ck-contents__name a:hover { color: var(--rust); }
+.ck-book .ck-contents__lede { margin: 0 0 var(--space-2); font-style: italic; color: var(--ink-soft); }
+.ck-book .ck-contents__sections { margin: 0; font-size: 16px; line-height: 26px; }
+.ck-book .ck-contents__sections a { color: var(--ink); text-decoration: none; }
+.ck-book .ck-contents__sections a:hover { color: var(--rust); text-decoration: underline; text-underline-offset: 3px; }
+.ck-contents__sections .ck-section-num { color: var(--ink-soft); margin-right: 0.3em; }
+.ck-contents__dot, .ck-contents__count { color: var(--ink-soft); }
+/* Parts: a heading in the contents, over their chapters */
+.ck-book .ck-contents__list > li.ck-contents__part { display: block; margin: var(--space-24) 0 var(--space-8) 64px; }
+.ck-book .ck-contents__list > li.ck-contents__part:first-child { margin-top: 0; }
+.ck-contents__part-num { display: block; color: var(--rust); }
+.ck-book .ck-contents__part-name {
+  margin: var(--space-1) 0 0;
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 38px;
+}
+.ck-book .ck-contents__part-name a { color: var(--ink); text-decoration: none; }
+.ck-book .ck-contents__part-name a:hover { color: var(--rust); }
+.ck-contents__count { font-style: italic; }
+
+@media (max-width: 860px) {
+  .ck-desk { padding: calc(var(--space-6) + 40px) var(--space-4) var(--space-6); }
+  .ck-spread { grid-template-columns: 1fr; min-height: 0; }
+  .ck-spread__recto { order: -1; padding: var(--space-12) var(--space-6) var(--space-6); }
+  .ck-spread__verso { border-right: 0; border-top: 1px solid var(--rule); padding: var(--space-8) var(--space-6); }
+  .ck-frontis__plate { padding: var(--space-4); }
+  .ck-frontis__plate img { max-width: min(200px, 100%); max-height: 260px; }
+  .ck-tabs { right: var(--space-4); }
+  .ck-tab > a { padding: var(--space-2) var(--space-4) 6px; }
+  .ck-book .ck-titlepage__series { margin-bottom: var(--space-8); }
+  .ck-book .ck-titlepage__title { font-size: 40px; line-height: 44px; }
+  .ck-book .ck-titlepage__subtitle { font-size: 19px; line-height: 28px; }
+  .ck-book .ck-titlepage__fleuron { margin: var(--space-8) 0; }
+  .ck-letter { margin-top: var(--space-12); }
+  .ck-contents__chapter { grid-template-columns: 44px minmax(0, 1fr); }
+  .ck-book .ck-contents__title { margin-left: 44px; }
+  .ck-book .ck-contents__list > li.ck-contents__part { margin-left: 44px; }
+  .ck-contents__num { font-size: 28px; }
+}
+
+/* Footer, on every page; top bar and footer widen to the home page's width */
+.ck-topbar.ck-topbar--wide, .ck-footer.ck-footer--wide { max-width: 1040px; }
+.ck-footer {
+  max-width: calc(var(--measure) + var(--gutter) + var(--margin-column)); margin: 0 auto; padding: var(--space-8) var(--space-12) var(--space-12);
+  color: var(--ink-soft); font-family: var(--font-text); font-size: 18px;
+}
+.ck-footer p { margin: 0 0 var(--space-1); font-size: 15px; line-height: 23px; }
+.ck-footer a { color: var(--rust); }
+.ck-footer__colophon { font-style: italic; }
+
+@media (max-width: 760px) {
+  .ck-footer { padding: var(--space-6); }
+}
+
+/* ---------- Typst output inside the book ---------- */
+
+.ck-book ul, .ck-book ol { padding-left: var(--space-6); margin: 0 0 var(--space-4); }
+.ck-book li { margin: 0; }
+.ck-book li > p { margin: 0; }
+.ck-book li > ul, .ck-book li > ol { margin: 0; }
+/* Bullets: a plain coral dot (no ring: the ring is the callouts' sucker),
+   then a short dash, then a small dot, both ink-soft */
+.ck-book ul { list-style: none; }
+.ck-book ul > li { position: relative; }
+.ck-book ul > li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) + 3px);
+  top: calc(0.5lh - 4px);
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--coral);
+}
+.ck-book ul ul > li::before { width: 8px; height: 1.5px; top: calc(0.5lh - 1px); border-radius: 1px; background: var(--ink-soft); }
+.ck-book ul ul ul > li::before { width: 4px; height: 4px; top: calc(0.5lh - 2px); border-radius: var(--radius-pill); }
+/* Numbered lists: label-face numerals in rust */
+.ck-book ol > li::marker {
+  color: var(--rust);
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 650;
+  font-variant-numeric: lining-nums;
+}
+
+/* Term lists, as in the PDF: the term in semibold, its text running on */
+.ck-book dl { margin: 0 0 var(--space-4); padding-left: 2em; }
+.ck-book dt { float: left; clear: left; margin: 0 0.6em 0 -2em; font-weight: 600; }
+.ck-book dd { margin: 0; }
+.ck-book dd::after { content: ""; display: block; clear: left; }
+
+/* Block quotes: indented, attribution set flush right */
+.ck-book .ck-quote { margin: var(--space-6) 0; padding: 0 var(--space-6); }
+.ck-book .ck-quote > p { margin: 0; }
+.ck-book .ck-quote .ck-quote__attribution { margin-top: var(--space-2); text-align: right; }
+
+body > section[role="doc-endnotes"] { display: none; }
+/* Footnotes: collected at the end of the chapter, above the pager */
+.ck-footnotes { margin-top: var(--space-12); color: var(--ink-soft); }
+.ck-book .ck-footnotes ol { list-style: none; padding: 0; margin: 0; }
+.ck-footnotes li { margin: 0 0 var(--space-1); }
+.ck-footnotes__num, .ck-fn-ref { font-variant-numeric: lining-nums; }
+.ck-fn-ref { font-size: 0.68em; line-height: 0; vertical-align: super; margin-left: 1px; }
+.ck-book .ck-fn-ref a, .ck-book .ck-footnotes__num { text-decoration: none; }
+.ck-footnotes__num { margin-right: var(--space-1); font-size: 0.75em; vertical-align: super; line-height: 0; }
+
+.ck-book table {
+  border-collapse: collapse;
+  width: 100%;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.ck-book thead tr { border-bottom: 1px solid var(--ink-soft); }
+.ck-book th {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-align: inherit;
+}
+.ck-book td, .ck-book th { padding: var(--space-2) var(--space-4); }
+.ck-book td:not(:first-child), .ck-book th:not(:first-child) { text-align: right; }
+/* Tables keep their natural width (centred in a figure) unless a column is
+   fractional; cells follow the alignment given in Typst. */
+.ck-table { max-width: 100%; overflow-x: auto; }
+.ck-table > table { width: auto; margin: 0 auto; }
+.ck-table--full, .ck-table--full > table { width: 100%; }
+.ck-align { display: block; }
+.ck-align--left { text-align: left; }
+.ck-align--center { text-align: center; }
+.ck-align--right { text-align: right; }
+
+.ck-section-num { margin-right: 0.5em; }
+.ck-book h1[id], .ck-book h2[id], .ck-book h3[id] { scroll-margin-top: var(--space-8); }
+
+/* Drawings made in Typst arrive as SVG with Paper colours: on Lantern they
+   sit on a paper card, like the logo. */
+.ck-figure__art--drawn svg { max-width: 100%; height: auto; }
+:root[data-theme="lantern"] .ck-figure__art--drawn { background: #fbf7f0; border-radius: var(--radius-m); padding: var(--space-6); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="paper"]) .ck-figure__art--drawn { background: #fbf7f0; border-radius: var(--radius-m); padding: var(--space-6); }
+}
+
+/* Typst writes syntax colours inline; the template's web theme uses marker
+   colours that these rules swap for the tokens, so code follows the theme. */
+.ck-code span[style*="#010101"] { color: var(--rust) !important; }
+.ck-code span[style*="#020202"] { color: var(--moss) !important; }
+.ck-code span[style*="#030303"] { color: var(--amber) !important; }
+.ck-code span[style*="#040404"] { color: var(--ink-soft) !important; }
+.ck-code span[style*="#050505"] { color: var(--ink) !important; }
+.ck-code pre code { display: block; }
+.ck-code--numbered .ck-line { display: inline; }
+
+/* Equations: Typst's MathML inside the design system's equation grid */
+.ck-equation > math { overflow-x: auto; }
+/* Inline math is set compact (small fractions, limits beside sums), as in the PDF */
+math { math-style: compact; }
+math[display="block"] { math-style: normal; }
+
+/* Typst writes <pre><code> without the type-style class */
+.ck-code pre { font-family: var(--font-mono); font-size: 15px; line-height: 24px; white-space: pre-wrap; overflow-wrap: anywhere; }
+/* Inside a callout, code sits on paper so it stands out, as in the PDF */
+.ck-callout .ck-code { background: var(--paper); }
+.ck-code pre strong { font-weight: 500; }
+.ck-figure > .ck-figure__art > .ck-code { margin: 0; width: 100%; }
+.ck-figure__art { width: 100%; box-sizing: border-box; }
+
+/* Small screens: the margin column folds in (bundle.css), titles step down */
+@media (max-width: 760px) {
+  .ck-book .chapter-title { font-size: 36px; line-height: 42px; }
+  .ck-chapter__numeral { font-size: 80px; }
+  .ck-chapter { padding-top: var(--space-12); }
+  .ck-part { padding-top: var(--space-12); }
+  .ck-part__numeral { font-size: 80px; }
+  .ck-book .ck-part__title { font-size: 36px; line-height: 42px; }
+  .ck-book .lede { font-size: 20px; line-height: 31px; }
+  .ck-book .section-title { font-size: 25px; line-height: 32px; }
+  .ck-equation { grid-template-columns: 0 auto 1fr; overflow-x: auto; }
+}
+

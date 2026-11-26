@@ -1,0 +1,17 @@
+[package]
+name = "craken-book"
+version = "0.2.0"
+entrypoint = "craken.typ"
+authors = ["Pietro Agnoli <@TheCaptainCraken>"]
+license = "MIT-0"
+description = "Friendly maths and computer science books, as PDF and website."
+repository = "https://github.com/TheCaptainCraken/craken-book"
+keywords = ["book", "textbook", "exercises", "html", "website", "mathematics", "computer science"]
+categories = ["book"]
+disciplines = ["computer-science", "mathematics"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "book.typ"
+thumbnail = "thumbnail.png"
