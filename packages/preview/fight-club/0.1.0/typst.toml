@@ -1,0 +1,12 @@
+[package]
+name = "fight-club"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Alex Moriarty <@a-ws-m>"]
+license = "MIT"
+repository = "https://github.com/a-ws-m/fight-club"
+description = "Render Tekken notation and four-button inputs as diagrams."
+categories = ["components", "visualization"]
+keywords = ["tekken", "fighting-games", "notation"]
+compiler = "0.13.0"
+exclude = ["example.typ", "example.pdf", "docs/preview.typ", "docs/preview.png"]
