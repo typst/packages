@@ -1,0 +1,309 @@
+reshikist
+Copyright (c) 2026 Abraham Mendoza and reshikist contributors
+
+Original reshikist code and documentation are available under MIT OR
+Apache-2.0. See LICENSE for scope and LICENSE-MIT and LICENSE-APACHE for the
+full terms.
+
+Third-party material compiled into this WASM binary retains its own terms.
+The list below is derived from the actual dependency graph and source analysis
+of the reshikist crate; it omits every crate, data file and code path that
+is not linked into the wasm32-unknown-unknown release.
+
+ReShiki workspace modules included in the build
+------------------------------------------------
+The following ReShiki crates, vendored under vendor/ReShiki/, are compiled
+into the WASM binary:
+
+  reshikist           Typst WASM plugin entry-point
+  reshiki-io          Exchange formats, chemistry engine, export and SVG
+                      output (includes crate-local build.rs embedded data
+                      from data/nmr/index.tsv.deflate)
+  reshiki-model       Documents, scenes, styles, editing and template
+                      system (includes crate-local build.rs embedded data
+                      from assets/templates.json.deflate)
+  reshiki-chemistry   Molecular preparation, depiction, identifiers
+                      (includes crate-local build.rs embedded data from
+                      src/depict/templates/builtin.json.deflate,
+                      and files from src/depict/templates/)
+  reshiki-metafile    Bounded EMF framing and physical picture dimensions
+  reshiki-depict-math Paired math call for the pinned native depiction ABI
+  reshiki-process-heap Bounded allocator for isolated worker processes
+
+  reshiki-geometry    (under native/geometry/) Rust MMFF/UFF and ETKDG
+                      geometry solver; the wrapper, adapter and worker
+                      integration are original ReShiki code.
+
+ReShiki code is copyright (c) 2026 Ameyanagi and ReShiki contributors,
+licensed MIT OR Apache-2.0. Its own third-party attributions follow below.
+
+External code adapted or embedded by ReShiki
+---------------------------------------------
+  RDKit (BSD-3-Clause)
+    Molecular algorithms, MMFF/UFF parameter data, and periodic-table data.
+    Embedded in the cosmolkit geometry backend (see native/geometry/).
+    Copyright retained:
+      (C) 2013 Paolo Tosco
+      (C) 2004–2006 Rational Discovery LLC
+      (C) 2004–2021 Greg Landrum and other RDKit contributors
+      (C) 2001–2024 Greg Landrum and other RDKit contributors
+    MMFF parameter data additionally:
+      Copyright (c) Merck and Co., Inc., 1994, 1995, 1996
+      Copyright (c) Merck and Co., Inc., 1994, 1995, 1996, 1997, 1998, 1999
+    Complete notices in vendor/ReShiki/licenses/rdkit/.
+
+  SiMolecule centres (BSD-2-Clause)
+    Extended-tetrahedral CIP configuration logic.
+    Origin: https://github.com/SiMolecule/centres
+    Adapted in crates/chemistry/src/stereo/cip/configuration/.
+    Copyright (c) 2020 John Mayfield.
+    Complete notices in vendor/ReShiki/licenses/centres/.
+
+  cosmolkit-inchi / InChI (MIT)
+    InChIKey adaptations and the Rust InChI kernel; runtime uses the
+    MIT-licensed cosmolkit-inchi Rust source port of InChI 1.07.5.
+    Copyright (c) 2024 InChI Project, IUPAC and InChI Trust.
+    Complete notices in vendor/ReShiki/licenses/inchi/.
+
+  CDXML native parser (reader-LICENSE, glysade-LICENSE)
+    Molecular interchange parser adaptations for CDXML/CDX.
+    RDKit External/ChemDraw files Copyright (c) 2024 Glysade Inc.
+    Glysade/chemdraw files Copyright (c) 1986–2025 Revvity Inc,
+    CambridgeSoft Corp and others.
+    Complete notices in vendor/ReShiki/licenses/cdxml-native/.
+
+  cpython (Python-2.0 / PSF)
+    Numerical algorithm adaptations (integer-set).
+    Complete notices in vendor/ReShiki/licenses/cpython/.
+
+  stdlib algorithms (Apache-2.0 WITH LLVM-exception)
+    Comparison-sort policy adaptations.
+    Complete notices in vendor/ReShiki/licenses/stdlib/.
+
+  OKLab (public domain)
+    Perceptual color conversion matrices.
+    Complete notice in vendor/ReShiki/licenses/oklab/.
+
+Upstream crates with local modifications
+----------------------------------------
+  zune-jpeg 0.5.15 — MIT / Apache-2.0 / Zlib + IJG terms
+    Original: https://github.com/etemesi254/zune-image
+    Patched by ReShiki for chroma sampling at component edges and integer
+    IDCT precision.
+    Original patches informed by libjpeg-turbo 3.1.4.1.
+    Complete notices in vendor/ReShiki/vendor/zune-jpeg/.
+
+  usvg 0.45.1 — MIT / Apache-2.0
+    Original: https://github.com/linebender/resvg
+    Patched by ReShiki for variable-font weight support through face
+    metrics, shaping, fallback and glyph outlines.
+    Complete notices in vendor/ReShiki/vendor/usvg/NOTICE-RESHIKI.md.
+
+  svg2pdf 0.13.0 — MIT / Apache-2.0
+    Original: https://github.com/typst/svg2pdf
+    Patched by ReShiki for variable-font PDF instances keyed by face ID
+    and weight, gradient/pattern coordinate fixes and color-glyph drawing.
+    Complete notices in vendor/ReShiki/vendor/svg2pdf/NOTICE-RESHIKI.md.
+
+Crates brought in via cargo dependencies (complete list)
+----------------------------------------------------------
+The following crates are resolved by the cargo dependency graph and linked
+into the wasm32 release binary:
+
+  adler2              v2.0.1          (zlib-style)
+  arrayref            v0.3.9          (BSD-2-Clause)
+  arrayvec            v0.7.8          (MIT / Apache-2.0)
+  base64              v0.22.1         (MIT / Apache-2.0)
+  bitflags            v1.3.2, v2.13.2 (MIT / Apache-2.0)
+  block-buffer        v0.10.4         (MIT / Apache-2.0)
+  bytemuck            v1.25.2         (MIT / Apache-2.0 / Zlib)
+  bytemuck_derive     v1.12.1         (MIT / Apache-2.0 / Zlib)
+  byteorder-lite      v0.1.0          (BSD-3-Clause)
+  bytes               v1.12.1         (MIT)
+  cfg-if              v1.0.4          (MIT / Apache-2.0)
+  ciborium            v0.2.2          (Apache-2.0)
+  color_quant           v1.1.0          (MIT)
+  core_maths          v0.1.1          (MIT)
+  cosmolkit           v0.5.0          (MIT) — see RDKit attribution above
+    cosmolkit-alignment
+    cosmolkit-conformer
+    cosmolkit-core
+    cosmolkit-cx
+    cosmolkit-forcefields
+    cosmolkit-inchi
+    cosmolkit-io
+    cosmolkit-macros
+    cosmolkit-model
+    cosmolkit-ringdecomposer
+    cosmolkit-search
+    cosmolkit-smiles
+    cosmolkit-stereo
+    cosmolkit-types
+  crc32fast           v1.5.2          (MIT / Apache-2.0)
+  crypto-common       v0.1.7          (MIT / Apache-2.0)
+  data-url            v0.3.2          (MIT)
+  digest              v0.10.7         (MIT / Apache-2.0)
+  directories-next    v2.0.0          (MIT / Apache-2.0)
+  dirs-sys-next       v0.1.2          (MIT / Apache-2.0)
+  equivalent          v1.0.2          (Apache-2.0)
+  fastrand            v2.5.0          (MIT / Apache-2.0)
+  fax                 v0.2.7          (MIT)
+  fdeflate            v0.3.7          (MIT / Apache-2.0)
+  flate2              v1.1.10         (MIT / Apache-2.0)
+  float-cmp           v0.9.0          (MIT)
+  font-types          v0.11.3         (MIT / Apache-2.0)
+  fontdb              v0.23.0         (MIT)
+  generic-array       v0.14.7         (MIT)
+  gif                 v0.13.3, v0.14.2 (MIT / Apache-2.0)
+  glam                v0.25.0         (MIT / Apache-2.0)
+  half                v2.7.1          (MIT / Apache-2.0)
+  hashbrown           v0.17.1         (MIT / Apache-2.0)
+  hexf-parse          v0.2.1          (MIT / Apache-2.0)
+  i_float             v5.0.0          (MIT)
+  i_key_sort          v0.12.0         (MIT)
+  i_overlay           v9.1.0          (MIT / Apache-2.0)
+  i_shape             v5.0.0          (MIT)
+  i_tree              v0.20.0         (MIT)
+  iced_core           v0.14.0         (MIT)
+  image               v0.25.10        (MIT / Apache-2.0)
+  image-webp          v0.2.4          (MIT / Apache-2.0)
+  imagesize           v0.13.0         (MIT)
+  indexmap            v2.14.2         (Apache-2.0)
+  itoa                v1.0.18         (MIT)
+  kurbo               v0.11.3, v0.13.1 (MIT / Apache-2.0)
+  libc                v0.2.189        (MIT / Apache-2.0)
+  libm                v0.2.16         (MIT / Apache-2.0)
+  lilt                v0.8.2          (MIT)
+  log                 v0.4.34         (MIT / Apache-2.0)
+  memchr              v2.8.3          (Unlicense / MIT)
+  memmap2             v0.9.11         (MIT / Apache-2.0)
+  miniz_oxide         v0.8.9, v0.9.1  (MIT / Apache-2.0 / Zlib)
+  moxcms              v0.8.1          (MIT / Apache-2.0)
+  nazuchem-ir         v0.2.0          (MIT) — naming engines, see below
+  num-traits          v0.2.19         (MIT / Apache-2.0)
+  once_cell           v1.21.4         (MIT / Apache-2.0)
+  pdf-writer          v0.12.1         (MIT / Apache-2.0)
+  pico-args           v0.5.0          (MIT)
+  pin-project-lite    v0.2.17         (Apache-2.0)
+  png                 v0.17.16, v0.18.1 (MIT / Apache-2.0)
+  polycool            v0.4.0          (MIT / Apache-2.0)
+  proc-macro2         v1.0.107        (MIT / Apache-2.0)
+  pxfm                v0.1.30         (MIT / Apache-2.0)
+  quick-error         v2.0.1          (MIT / Apache-2.0)
+  quick-xml           v0.41.0         (MIT)
+  quote               v1.0.47         (MIT / Apache-2.0)
+  read-fonts          v0.39.2         (MIT / Apache-2.0)
+  rgb                 v0.8.53         (MIT)
+  roxmltree           v0.20.0         (MIT / Apache-2.0)
+  rustc-hash          v2.1.3          (MIT / Apache-2.0)
+  rustybuzz           v0.20.1         (MIT)
+  ryu                 v1.0.23         (Apache-2.0)
+  serde               v1.0.229        (MIT / Apache-2.0)
+  serde_json          v1.0.151        (MIT / Apache-2.0)
+  sha2                v0.10.9         (MIT / Apache-2.0)
+  simd-adler32        v0.3.10         (BSD-2-Clause)
+  simplecss           v0.2.2          (WTFPL)
+  siphasher           v1.0.3          (MIT / Apache-2.0)
+  skrifa             v0.42.1          (MIT / Apache-2.0)
+  slotmap             v1.1.1          (MIT)
+  smallvec            v1.16.1         (MIT / Apache-2.0)
+  smol_str            v0.2.2          (MIT)
+  strict-num          v0.1.1          (MIT / Apache-2.0)
+  subsetter           v0.2.6          (MIT / Apache-2.0)
+  svgtypes            v0.15.3         (MIT / Apache-2.0)
+  syn                 v2.0.119, v3.0.5 (MIT / Apache-2.0)
+  tempfile            v3.27.0        (MIT / Apache-2.0)
+  thiserror           v2.0.20         (MIT / Apache-2.0)
+  tiff                v0.11.3         (MIT)
+  tiny-skia           v0.11.4         (BSD-3-Clause)
+  tiny-skia-path      v0.11.4         (BSD-3-Clause)
+  tinyvec             v1.13.3         (Zlib)
+  tokio               v1.53.3         (MIT)
+  ttf-parser          v0.25.1         (MIT / Apache-2.0)
+  typenum             v1.20.1         (MIT / Apache-2.0)
+  unicode-bidi        v0.3.18         (MIT / Apache-2.0)
+  unicode-bidi-mirroring v0.4.0      (MIT / Apache-2.0)
+  unicode-ccc         v0.4.0          (MIT / Apache-2.0)
+  unicode-ident       v1.0.24         (Unicode-DFS-2016 / MIT)
+  unicode-properties  v0.1.4          (MIT / Apache-2.0)
+  unicode-script      v0.5.8          (MIT / Apache-2.0)
+  unicode-segmentation v1.13.3        (MIT / Apache-2.0)
+  unicode-vo          v0.1.0          (MIT / Apache-2.0)
+  wasm-minimal-protocol v0.2.1        (MIT / Apache-2.0)
+  web-time            v1.1.0 (stub)   (MIT OR Apache-2.0)
+  weezl               v0.1.12         (MIT / Apache-2.0)
+  write-fonts         v0.48.1         (MIT / Apache-2.0)
+  xmlwriter           v0.1.0          (MIT)
+  zerocopy            v0.8.57         (BSD-2-Clause / Apache-2.0)
+  zerocopy-derive     v0.8.57         (BSD-2-Clause / Apache-2.0)
+  zmij                v1.0.23         (MIT / Apache-2.0)
+
+External git dependency: nazuchem
+----------------------------------
+  nazuchem-ir v0.2.0
+    https://github.com/Ameyanagi/nazuchem
+    rev 5dd39d8245b43d3437c9bb2ab881eeafca8221d7
+    Licenced MIT.
+
+  The nazuchem naming engines are compiled into the WASM binary:
+    name-to-structure  Rust port of OPSIN by Daniel Lowe (MIT),
+                       tracking main after 2.9.0.
+    structure-to-name  Port of openclatura 0.4.3 by lamalab-org (MIT),
+                       extended in nazuchem.
+    Includes OPSIN-derived data and a CPython integer-set adaptation
+    (Python-2.0). The retained heterocycle list is transcribed from
+    IUPAC Recommendations 2013, P-25.2.1 Table 2.8 (IUPAC copyright;
+    no licence asserted).
+
+Complete nazuchem per-file provenance and licenses are retained in the
+nazuchem repository at the git pin above.
+
+Font and data assets embedded at compile time
+----------------------------------------------
+  Liberation Sans Regular, Bold, Italic, BoldItalic (OFL-1.1)
+    From Liberation Fonts 2.1.5
+    https://github.com/liberationfonts/liberation-fonts
+    Digitized data copyright (c) 2010 Google Corporation
+    Copyright (c) 2012 Red Hat, Inc.
+    Complete notices in vendor/ReShiki/licenses/liberation-fonts/.
+
+  Drawing style defaults
+    assets/drawing_style.json
+
+  Template catalog
+    assets/templates.json (compressed at build time)
+    assets/porphine-core.json
+    assets/nucleosides.json
+    assets/steroids.json
+    assets/haworth-sugars.json
+    crates/chemistry/src/depict/templates/*.json (compressed at build time)
+
+  Glassware equipment pieces
+    assets/pieces/*.reshiki-piece
+
+  NMR shift derivative index
+    data/nmr/index.tsv (compressed at build time)
+    Uses data from nmrshiftdb2, under a separate database licence
+    (nmrshiftdb2 Database License, derived from ODbL).
+    Complete notice in vendor/ReShiki/licenses/nmrshiftdb2/.
+
+  Shortcut examples fixture
+    assets/examples/shortcut-examples.rsk
+
+Dual-license selection
+----------------------
+Choosing a license for original reshikist code does not remove
+obligations under the licenses of included third-party material.
+Preserve the applicable copyright notices, license texts, disclaimers,
+and attribution records when redistributing source or binaries.
+
+Upstream license texts
+----------------------
+The complete license texts and per-project notices for every entry above
+are kept alongside this project:
+
+- ReShiki project-level dual license:  LICENSE-MIT, LICENSE-APACHE
+- ReShiki per-component notices:        vendor/ReShiki/licenses/*/
+- Patched crate notices:                 vendor/ReShiki/vendor/*/NOTICE*
+- nazuchem notices:                     In the nazuchem git dependency at
+                                        rev 5dd39d8245b43d3437c9bb2ab881eeafca8221d7
