@@ -1,0 +1,18 @@
+[package]
+name = "boreal-thesis-ets"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["TedBarbier <https://github.com/TedBarbier>"]
+license = "MIT-0"
+description = "Thesis, master's thesis and project report at ÉTS Montréal."
+repository = "https://gitlab.com/TedBarbier/typst-thets"
+keywords = ["ets", "etsmtl", "École de technologie supérieure", "thets", "thesis", "memoire", "these", "rapport", "montreal"]
+categories = ["thesis", "report"]
+disciplines = ["engineering", "computer-science"]
+compiler = "0.15.0"
+exclude = [".gitlab-ci.yml", ".pkg", ".typst-cache", "out"]
+
+[template]
+path = "template"
+entrypoint = "rapport.typ"
+thumbnail = "thumbnail.png"

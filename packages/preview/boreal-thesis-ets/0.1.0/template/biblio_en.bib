@@ -1,0 +1,405 @@
+%% Book
+@book{BookExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the book},
+  publisher = {Publisher},
+  year = 1999,
+  address = {Location},
+  edition = 3
+} 
+
+%% Book with intellectual editor
+@book{BookExampleEditor ,
+  editor = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the book},
+  publisher = {Publisher},
+  year = 1999,
+  address = {Location},
+  edition = 3
+} 
+
+%% Book with DOI
+@book{BookExampleDOI ,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the book},
+  year = 1999,
+  version = {Version},
+  doi = {123-456-789}  
+} 
+
+%% Book with URL
+@book{BookExampleURL ,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the book},
+  year = 1999,
+  version = {Version},
+  url = {http://www.google.com}  
+}
+
+%% Book chapter
+@incollection{InCollectionExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  editor = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the chapter},
+  booktitle = {Title of the book},
+  publisher = {Publisher},
+  year = 1999,
+  address = {Location},
+  edition = 3,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Book chapter without a title
+@inbook{InBookExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  editor = {Doe, John and Doe, John and Doe, John}, 
+  chapter = 7,
+  booktitle = {Title of the book},
+  publisher = {Publisher},
+  year = 1999,
+  address = {Location},
+  edition = 3,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Journal article
+@article{ArticleExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the article},
+  journal = {Name of the journal},
+  year = 1999,
+  number = 2,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Journal article in press
+@article{ArticleExampleInPress,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the article},
+  journal = {Name of the journal},
+  year = 1999,
+  note = {In press}  
+} 
+
+%% Conference article published in a book. Use "incollection"
+@incollection{InCollectionExample2,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  editor = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the article},
+  booktitle = {Title of the conference proceedings},
+  publisher = {Publisher},
+  year = 1999,
+  address = {Location},
+  edition = 3,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Conference article published in a periodical
+@inproceedings{InProceedingsExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the article},
+  booktitle = {Title of the conference proceedings},
+  year = 1999,
+  number = 2,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Communication or poster presented at a conference
+@inproceedings{InProceedingsComExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the article},
+  booktitle = {Title of the conference proceedings},
+  year = 1999,
+  month = {10},
+  type = {Communication},
+   address = {Location},
+  pages = {220-242}
+} 
+
+%% Magasine article
+@inproceedings{MagasineExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the article},
+  booktitle = {Title of the magasine},
+  year = 1999,
+  month = {10},
+  number = 2,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Article from a daily magasine
+@inproceedings{QuoExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the article},
+  booktitle = {Title of the magasine},
+  year = 1999,
+  month = {10},
+  pages = {220}
+} 
+
+%% Emtry in an encyclopedia or dictionary. Use incollection
+@incollection{EncyclopediaExample,
+  author = {Doe, John and Doe, John and Doe, John}, 
+  title = {Title of the entry},
+  booktitle = {Title of the encyclopedia},
+  publisher = {Publisher},
+  year = 1999,
+  address = {Location},
+  edition = 3,
+  volume = 4,
+  pages = {220-242}
+} 
+
+%% Master's thesis
+@mastersthesis{mastersthesis,
+  author = {Doe, John}, 
+  title = {The title of the thesis},
+  type = {Master's thesis},
+  school = {School},
+  year = 1999,
+  address = {Address}
+}
+
+%% Master's thesis with URL
+@mastersthesis{mastersthesisURL,
+  author = {Doe, John}, 
+  title = {The title of the thesis},
+  type = {Master's thesis},
+  school = {School},
+  year = 1999,
+  address = {Address},
+  url = {http://www.google.ca}
+}
+
+%% Master's thesis from a commercial database
+@mastersthesis{mastersthesisDB,
+  author = {Doe, John}, 
+  title = {The title of the thesis},
+  type = {Master's thesis},
+  school = {School},
+  year = 1999,
+  address = {Address},
+  note = {Name of the database. (ID number)}
+}
+
+%% Ph.D. thesis
+@phdthesis{phdthesis,
+  author = {Doe, John}, 
+  title = {The title of the thesis},
+  type = {Ph.D. thesis},
+  school = {School},
+  year = 1999,
+  address = {Address}
+}
+
+%% Technical report
+@techreport{techreport,
+  author = {Doe, John}, 
+  title = {The title of the report},
+  type = {Technical report},
+  publisher = {Publisher},
+  year = 1999,
+  number = {42},
+  address = {Location}
+}
+
+%% Norme
+@misc {norm,
+  organization = {Organization name}, 
+  year = 1999,
+  title = {Norm title},
+  howpublished = {Institution and norm number},
+  address = {Location}
+}
+ 
+%% Patent (patent type)
+@patent{patent,
+  author = {Doe, John}, 
+  type = {Patent type},
+  organization = {organization},
+  year = 1999,
+  number = {42},
+  address = {Location}
+}
+
+%% Patent (misc type)
+@misc{patent_misc,
+  author = {Doe, John}, 
+  type = {Patent type},
+  organization = {organization},
+  year = 1999,
+  number = {42},
+  address = {Location}
+}
+
+%% Web page (online type)
+@online{online,
+  author = {Doe, John}, 
+  title = {Web page title},
+  type = {Format},
+  year = 1999,
+  url = {http://www.google.ca}
+}
+
+%% Web page (misc type)
+@misc{online_misc,
+  author = {Doe, John}, 
+  title = {Web page title},
+  type = {Format},
+  year = 1999,
+  url = {http://www.google.ca}
+}
+
+ %%% Wikipedia article (online type)
+@online{onlineWiki,
+  author =  {Wikipedia},
+  title = {Page title},
+  year = 1999,
+  urldate = {2013-05-16},
+  url = {https://www.wikipedia.org}
+ }
+ 
+ %%% Wikipedia article (misc type)
+@misc{wiki_misc,
+  author =  {Wikipedia},
+  title = {Page title},
+  year = 1999,
+  urldate = {2013-05-16},
+  url = {https://www.wikipedia.org}
+}
+ 
+%% Web page with nickname (e.g. Twitter post) (online type)
+@online{onlineNick,
+  author = {Doe, John}, 
+  title = {Web page title},
+  type = {Format},
+  year = 1999,
+  month = {10},
+  day = 2,
+  url = {http://www.google.ca},
+  note = {Nickname}
+}
+
+%% Web page with nickname (e.g. Twitter post) (misc type)
+@misc{onlineNick_misc,
+  author = {Doe, John}, 
+  title = {Web page title},
+  type = {Format},
+  year = 1999,
+  month = {10},
+  day = 2,
+  url = {http://www.google.ca},
+  note = {Nickname}
+}
+
+%% Online video (e.g. Youtube video) (online type)
+@online{onlineVideo,
+  author = {Doe, John}, 
+  title = {Video title},
+  type = {Youtube Video},
+  year = 1999,
+  month = {10},
+  day = 2,
+  url = {http://www.google.ca},
+  note = {Nickname}
+}
+
+%% Online video (e.g. Youtube video) (misc type)
+@misc{onlineVideo_misc,
+  author = {Doe, John}, 
+  title = {Video title},
+  type = {Youtube Video},
+  year = 1999,
+  month = {10},
+  day = 2,
+  url = {http://www.google.ca},
+  note = {Nickname}
+}
+
+%% Online dataset (online type)
+@online{onlineDataset,
+  author = {Doe, John}, 
+  title = {Dataset title},
+  type = {Online dataset},
+  year = 1999,
+  url = {http://www.google.ca}
+}
+
+%% Online dataset (misc type)
+@misc{onlineDataset_misc,
+  author = {Doe, John}, 
+  title = {Dataset title},
+  type = {Online dataset},
+  year = 1999,
+  url = {http://www.google.ca}
+}
+
+%% Software
+@misc{software,
+  author = {Doe, John}, 
+  title = {Software name},
+  type = {Software},
+  year = 1999,
+  version = {1.0},
+  publisher = {Publisher},
+  address = {Location}
+}
+
+%% Class notes
+@misc {class,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {ACRONYM: Class name},
+  institution = {Institution}
+}
+ 
+%% Class notes from a URL
+@misc {classURL,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {ACRONYM: Class name},
+  type = {Class notes},
+  url = {http://www.google.ca}
+}
+ 
+%% Untitled raw data
+@misc {rawData,
+  author = {Doe, John}, 
+  year = 1999,
+  type = {Short description of the contents},
+  note = {Unpublished raw data}
+}
+
+  
+%% Unpublished document
+@unpublished{unpublished,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {Document title},
+  type = {Unpublished document},
+  institution = {Institution},
+  address = {Location}
+}
+ 
+%% Unpublished document with URL
+@unpublished{unpublishedURL,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {Document title},
+  url = {http://www.google.ca}
+}
+ 
+%% Unpublished document submitted for publication
+@unpublished{unpublishedSubmitted,
+  author = {Doe, John}, 
+  year = 1999,
+  title = {Document title},
+  note = {Manuscript submitted for publication}
+}
+ 
