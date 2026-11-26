@@ -7,7 +7,7 @@
 
 ## Quick start
 
-Before publication, copy `lib.typ` into your project and import the local file. After publication, use the package import:
+Import the package in your document. The Typst CLI downloads it automatically on first use:
 
 ```typst
 #import "@preview/fight-club:0.1.0": tekken
@@ -30,6 +30,16 @@ Before publication, copy `lib.typ` into your project and import the local file. 
 ```
 
 ![Rendered examples of Tekken move notation](docs/preview.png)
+
+Alternatively, clone the repository and import its entrypoint directly:
+
+```sh
+git clone https://github.com/a-ws-m/fight-club.git
+```
+
+```typst
+#import "path/to/fight-club/lib.typ": tekken
+```
 
 See the [full example PDF](example.pdf), including inline wrapping.
 
