@@ -58,7 +58,7 @@ See the [full example PDF](example.pdf), including inline wrapping.
 | `1:2`, `f~3` | Timing symbols: two hollow squares and a tilde |
 | `"Side Step"` | A named state in a rounded rectangle |
 
-Buttons are arranged with `1` left, `2` upper, `3` right and `4` lower. Set `numbers: true` to label them. Set `plus: false` to hide plus signs between simultaneous directions and buttons. Set `separator: false` to hide the triangles between sequence steps. Set `display: true` to center notation on its own line. Long inline sequences can wrap between steps, with the separator at the start of the next line.
+Buttons are arranged with `1` left, `2` upper, `4` right and `3` lower. Set `numbers: true` to label them. Set `plus: false` to hide plus signs between simultaneous directions and buttons. Set `separator: false` to hide the triangles between sequence steps. Set `display: true` to center notation on its own line. Long inline sequences can wrap between steps, with the separator at the start of the next line.
 
 ## AI disclosure
 

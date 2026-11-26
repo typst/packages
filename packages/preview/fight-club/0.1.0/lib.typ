@@ -102,8 +102,8 @@
         row-gutter: gap,
         at("1", 0.26, 0.42, radius, radius),
         at("2", 0.60, 0.22, radius + pitch, radius),
-        at("3", 0.74, 0.58, radius, radius + pitch),
-        at("4", 0.40, 0.78, radius + pitch, radius + pitch),
+        at("4", 0.74, 0.58, radius, radius + pitch),
+        at("3", 0.40, 0.78, radius + pitch, radius + pitch),
       ),
     ),
   )
@@ -206,7 +206,7 @@
       let pressed = part.split("+")
       let scale = if numbers { 1.0 } else { 0.8 }
       let circles = ""
-      for (label, x, y) in (("1",2.6,4.2),("2",6.0,2.2),("3",7.4,5.8),("4",4.0,7.8)) {
+      for (label, x, y) in (("1",2.6,4.2),("2",6.0,2.2),("4",7.4,5.8),("3",4.0,7.8)) {
         let active = label in pressed
         let color = if active { "black" } else { "white" }
         circles += "<circle cx='"+str(x)+"' cy='"+str(y)+"' r='2' fill='"+color+"' stroke='black' stroke-width='0.6'/>"
