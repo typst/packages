@@ -1,0 +1,13 @@
+[package]
+name = "coworkingview"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["CoworkingView <https://coworkingview.com>"]
+license = "MIT"
+description = "Look up flexible-office price medians by city."
+homepage = "https://coworkingview.com/en/tools/price-index"
+repository = "https://github.com/coworkingview/flex-office-data"
+keywords = ["coworking", "office", "prices", "real-estate", "data"]
+categories = ["visualization", "utility"]
+compiler = "0.13.0"
+exclude = ["/examples/*"]
