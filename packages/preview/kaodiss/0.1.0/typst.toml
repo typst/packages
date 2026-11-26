@@ -1,0 +1,17 @@
+[package]
+name = "kaodiss"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Benjamin Weigell <@BWeigell>"]
+repository = "https://github.com/BWeigell/kaodiss"
+license = "MIT AND MIT-0 AND CC-BY-SA-3.0"
+description = "Theses and books in the style of kaobook, with sidenotes."
+keywords = ["thesis", "dissertation", "book", "kaobook", "margin", "sidenotes", "tufte"]
+categories = ["thesis", "book"]
+compiler = "0.15.0"
+exclude = ["scripts"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
