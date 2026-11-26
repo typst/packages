@@ -1,0 +1,15 @@
+[package]
+name = "obelisk-estudos"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["atzlt", "silveirinhajuan <@silveirinhajuan>"]
+license = "MIT"
+description = "A Portuguese-language study template based on Obelisk, extended with notes and reflection tools for non-STEM subjects and public-exam preparation."
+categories = ["book", "layout"]
+disciplines = []
+keywords = ["study notes", "exam preparation", "concurso público", "reflection"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
