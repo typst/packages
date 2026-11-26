@@ -49,7 +49,7 @@ See example bellow.
 )
 ```
 
-![result of above example](https://github.com/7sDream/typst-easy-pinyin/blob/master/example.png?raw=true)
+![result of above example](https://github.com/7sDream/typst-easy-pinyin/v0.1.1/master/example.png?raw=true)
 
 ## LICENSE
 
