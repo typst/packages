@@ -1,0 +1,15 @@
+[package]
+name = "groove"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["Robin Eklind"]
+license = "0BSD"
+description = "Report and research proposal template."
+repository = "https://github.com/mewmew/groove-typ"
+categories = ["report"]
+disciplines = ["biology", "chemistry", "medicine"]
+
+[template]
+path = "template"
+entrypoint = "report.typ"
+thumbnail = "example/thumbnail.png"
