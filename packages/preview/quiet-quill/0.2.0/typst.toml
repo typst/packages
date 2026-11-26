@@ -1,0 +1,16 @@
+[package]
+name = "quiet-quill"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Cyberl-ty02 <@Cyberl-ty02>"]
+license = "MIT AND MIT-0"
+description = "Configurable dissertations and reports with neutral styling."
+repository = "https://github.com/Cyberl-ty02/EcsGeneralTypstTemplate"
+keywords = ["dissertation", "academic", "msc", "anonymous", "synthetic-example"]
+categories = ["thesis", "report"]
+compiler = "0.15.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
