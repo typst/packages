@@ -1,0 +1,15 @@
+[package]
+name = "septimana"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["ByteSide.io"]
+license = "MIT-0"
+description = "Printable week plan until your thesis is due."
+keywords = ["thesis", "planner", "week plan", "deadline", "bachelor", "master", "Abschlussarbeit"]
+categories = ["thesis", "office"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
