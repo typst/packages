@@ -1,0 +1,13 @@
+[package]
+name = "figment"
+version = "0.1.0"
+compiler = "0.15.0"
+repository = "https://github.com/wylovecat/figment"
+entrypoint = "lib.typ"
+authors = [
+  "wylovecat <https://github.com/wylovecat>",
+]
+categories = [ "visualization" ]
+license = "MIT"
+description = "Declare a data structure once, get clean vector diagrams of it."
+keywords = [ "draw", "canvas", "algorithm", "data-structure", "tree", "graph", "textbook" ]
