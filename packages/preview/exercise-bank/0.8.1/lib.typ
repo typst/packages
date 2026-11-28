@@ -6,7 +6,7 @@
 // External Package Imports
 // =============================================================================
 
-#import "@preview/tiaoma:0.3.0": qrcode as _tiaoma-qrcode
+#import "@preview/tiaoma:0.4.0": qrcode as _tiaoma-qrcode
 #import "@preview/wrap-it:0.1.1": wrap-content as _wrap-content
 
 // =============================================================================

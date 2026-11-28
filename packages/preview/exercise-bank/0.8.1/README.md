@@ -1325,6 +1325,9 @@ MIT License - see LICENSE file for details.
 - **"Document did not converge" warnings in documents that never use `exo-corner`.** Since 0.8.0 every exercise header and statement read its position on the page to check for a corner zone, even when there was none. Each of those reads costs the compiler a layout pass, and a long sheet could run out of passes (Typst stops after five and warns). The position is now read only once an `exo-corner` has been placed; the output is unchanged.
 - **`badge-style: "margin"`: a statement opening with a block climbed above the side label.** A `#tasks` call, a list, an equation or an exercise title started about 0.7em higher than the label `Exercice 1:` (a title even crossed the rule above it), because such a block brings its own spacing in place of the paragraph spacing the label is set with. The statement now sits in a block of its own and starts at the same height as the label, whatever it opens with.
 
+#### Changed
+- **QR codes use tiaoma 0.4.0** (was 0.3.0). Same output.
+
 ### [0.8.0] - 2026-10-16
 
 #### Added

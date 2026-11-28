@@ -3,8 +3,8 @@
 // headers and the first statement all keep clear of it
 
 #import "@preview/exercise-bank:0.8.1": *
-#import "@preview/tiaoma:0.3.0": qrcode
-#import "@preview/taskize:0.2.10": tasks
+#import "@preview/tiaoma:0.4.0": qrcode
+#import "@preview/taskize:0.2.12": tasks
 
 #set page(width: 14cm, height: auto, margin: 1cm)
 #set text(font: "New Computer Modern", size: 11pt, lang: "fr")
