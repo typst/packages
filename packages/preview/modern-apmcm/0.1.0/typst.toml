@@ -1,0 +1,22 @@
+[package]
+name = "modern-apmcm"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Ya2yo <@ya2yo>"]
+license = "MIT AND MIT-0"
+description = "Solution paper and control sheet for the Asia and Pacific Mathematical Contest in Modeling (APMCM)."
+repository = "https://github.com/ya2yo/apmcm-typst-template"
+keywords = ["apmcm", "Asia and Pacific Mathematical Contest in Modeling", "mathematical-modeling", "contest", "control-sheet"]
+categories = ["paper", "report"]
+disciplines = ["mathematics"]
+compiler = "0.13.0"
+exclude = [
+  ".gitignore",
+  "*.pdf",
+  "template/*.pdf",
+]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
