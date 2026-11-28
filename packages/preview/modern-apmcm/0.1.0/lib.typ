@@ -333,7 +333,7 @@
   date: "November 28, 2026",
   year: auto,
   font-family: ("Times New Roman", "Libertinus Serif"),
-  _body,
+  body,
 ) = {
   let resolved-year = _resolve-year(year)
 
@@ -414,4 +414,6 @@
       )
     ]
   ]
+
+  body
 }
