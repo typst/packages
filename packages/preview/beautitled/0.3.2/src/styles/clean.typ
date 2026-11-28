@@ -1,0 +1,54 @@
+// Style: Clean
+// ============================================================================
+// Very clean and simple, maximum readability
+// PRINT-FRIENDLY: minimal ink, pure text
+// ============================================================================
+
+#import "../typography.typ": part-number, chapter-number, section-number, subsection-number, subsubsection-number
+
+#let style-clean = (
+  part: (title, num, cfg, show-num) => {
+    let primary = cfg.primary-color
+
+    text(size: cfg.part-size, weight: "bold", fill: primary)[
+      #if show-num [#cfg.part-prefix #part-number(num, cfg). #h(0.5em)]
+      #title
+    ]
+  },
+
+  chapter: (title, num, cfg, show-num) => {
+    let primary = cfg.primary-color
+
+    text(size: cfg.chapter-size, weight: "bold", fill: primary)[
+      #if show-num [#chapter-number(num, cfg).#h(0.5em)]
+      #title
+    ]
+  },
+
+  section: (title, ch-num, sec-num, cfg, show-num) => {
+    let primary = cfg.primary-color
+
+    text(size: cfg.section-size, weight: "bold", fill: primary)[
+      #if show-num [#section-number(ch-num, sec-num, cfg, fallback: [#sec-num.])#h(0.5em)]
+      #title
+    ]
+  },
+
+  subsection: (title, ch-num, sec-num, subsec-num, cfg, show-num) => {
+    let primary = cfg.primary-color
+
+    text(size: cfg.subsection-size, weight: "semibold", fill: primary)[
+      #if show-num [#subsection-number(ch-num, sec-num, subsec-num, cfg, fallback: [#str(sec-num)#"\u{2060}.\u{2060}"#str(subsec-num)])#h(0.5em)]
+      #title
+    ]
+  },
+
+  subsubsection: (title, ch-num, sec-num, subsec-num, subsubsec-num, cfg, show-num) => {
+    let primary = cfg.primary-color
+
+    text(size: cfg.subsubsection-size, weight: "medium", fill: primary)[
+      #if show-num [#subsubsection-number(ch-num, sec-num, subsec-num, subsubsec-num, cfg, fallback: [#str(sec-num)#"\u{2060}.\u{2060}"#str(subsec-num)#"\u{2060}.\u{2060}"#str(subsubsec-num)])#h(0.4em)]
+      #title
+    ]
+  },
+)
